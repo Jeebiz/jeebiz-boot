@@ -871,7 +871,16 @@
 						<!-- <registryUrl>http://10.71.33.155/</registryUrl> -->
 					</configuration>
 				</plugin>
-				
+				<plugin>
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<configuration>
+						<repository>${docker.registry.name}/${project.artifactId}</repository>
+						<buildArgs>
+							<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+						</buildArgs>
+					</configuration>
+				</plugin>
 				<!-- 
 					https://mp.weixin.qq.com/s?__biz=MzAxODcyNjEzNQ==&mid=2247484764&idx=1&sn=10e4fcae5333687368960a2e64b2b70c&chksm=9bd0a8c4aca721d264e40f5f543b9f557eedf033719a97a38257835c5162ffa010c025580a65&scene=21#wechat_redirect
 					https://github.com/tianqing2117/swagger-doc-demo/blob/master/pom.xml

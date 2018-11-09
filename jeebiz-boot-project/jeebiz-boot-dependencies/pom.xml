@@ -91,7 +91,7 @@
 		<contiperf.version>2.3.4</contiperf.version>
 		<cronet.version>66.3359.158</cronet.version>
 		<cssparser.version>0.9.26</cssparser.version>
-		<cxf.version>3.2.6</cxf.version>
+		<cxf.version>3.2.7</cxf.version>
 		<cxf-rt-javassist.version>1.0.0.RELEASE</cxf-rt-javassist.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.14.2.0</derby.version>
@@ -306,6 +306,8 @@
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
 		<maven-dependency-check-plugin.version>3.3.0</maven-dependency-check-plugin.version>
 		<maven-docker-plugin.version>1.2.0</maven-docker-plugin.version>
+		<maven-dockerfile-plugin.version>1.4.8</maven-dockerfile-plugin.version>
+		<maven-docker-fabric8-plugin.version>0.27.2</maven-docker-fabric8-plugin.version> 
 		<maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
 		<maven-findbugs-plugin.version>3.0.5</maven-findbugs-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
@@ -4254,6 +4256,19 @@
 					<artifactId>docker-maven-plugin</artifactId>
 					<version>${maven-docker-plugin.version}</version>
 				</plugin>
+				<!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
+				<dependency>
+				    <groupId>com.spotify</groupId>
+				    <artifactId>dockerfile-maven-plugin</artifactId>
+				    <version>${maven-dockerfile-plugin.version}</version>
+				</dependency>
+				<!-- https://mvnrepository.com/artifact/io.fabric8/docker-maven-plugin -->
+				<!-- http://dmp.fabric8.io -->
+				<dependency>
+				    <groupId>io.fabric8</groupId>
+				    <artifactId>docker-maven-plugin</artifactId>
+				    <version>${maven-docker-fabric8-plugin.version}</version>
+				</dependency>
 				<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/findbugs-maven-plugin -->
 				<plugin>
 				    <groupId>org.codehaus.mojo</groupId>
