@@ -4257,18 +4257,18 @@
 					<version>${maven-docker-plugin.version}</version>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
-				<dependency>
+				<plugin>
 				    <groupId>com.spotify</groupId>
 				    <artifactId>dockerfile-maven-plugin</artifactId>
 				    <version>${maven-dockerfile-plugin.version}</version>
-				</dependency>
+				</plugin>
 				<!-- https://mvnrepository.com/artifact/io.fabric8/docker-maven-plugin -->
 				<!-- http://dmp.fabric8.io -->
-				<dependency>
+				<plugin>
 				    <groupId>io.fabric8</groupId>
 				    <artifactId>docker-maven-plugin</artifactId>
 				    <version>${maven-docker-fabric8-plugin.version}</version>
-				</dependency>
+				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/findbugs-maven-plugin -->
 				<plugin>
 				    <groupId>org.codehaus.mojo</groupId>
