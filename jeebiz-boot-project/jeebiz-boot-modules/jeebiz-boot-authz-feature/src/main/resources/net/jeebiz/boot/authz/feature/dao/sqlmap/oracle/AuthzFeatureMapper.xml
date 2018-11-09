@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.jeebiz.boot.authz.feature.dao.IAuthzFeatureDao">
+
+	<resultMap id="AuthzFeatureMap" type="AuthzFeatureModel">
+		<result property="id" column="F_ID" />
+		<result property="name" column="F_NAME" />
+		<result property="abb" column="F_ABB" />
+		<result property="url" column="F_URL" />
+		<result property="type" column="F_TYPE" />
+		<result property="icon" column="F_ICON" />
+		<result property="order" column="F_ORDER" />
+		<result property="parent" column="F_PARENT" />
+		<result property="visible" column="F_VISIBLE" />
+		<result property="perms" column="F_PERMS" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="AuthzFeatureModel">
+		insert into SYS_FEATURE_LIST(F_NAME,F_ABB,F_URL,F_TYPE,F_ICON,F_ORDER,F_PARENT,F_VISIBLE)
+		values(#{name},#{abb},#{url},#{type},#{icon},#{order},#{parent,jdbcType=VARCHAR},'1')
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM SYS_FEATURE_LIST WHERE F_ID = #{id}
+	</delete>
+	
+	<update id="update" parameterType="AuthzFeatureModel">
+		update SYS_FEATURE_LIST t
+		<set>
+			<if test="name != null and name != ''">t.F_NAME = #{name},</if>
+			<if test="abb != null and abb != ''">t.F_ABB = #{abb},</if>
+			<if test="url != null and url != ''">t.F_URL = #{url},</if>
+			<if test="type != null and type != ''">t.F_TYPE = #{type},</if>
+			<if test="icon != null and icon != ''">t.F_ICON = #{icon},</if>
+			<if test="order != null and order != ''">t.F_ORDER = #{order},</if>
+			<if test="parent != null and parent != ''">t.F_PARENT = #{parent},</if>
+			<if test="visible != null and visible != ''">t.F_VISIBLE = #{visible}</if>
+		</set>
+		where t.F_ID = #{id}
+	</update>
+	
+	<select id="getModel" resultMap="AuthzFeatureMap" parameterType="java.lang.String">
+		SELECT
+			t.F_ID,
+			t.F_NAME,
+			t.F_ABB,
+			t.F_URL,
+			t.F_TYPE,
+			t.F_ICON,
+			t.F_ORDER,
+			t.F_PARENT,
+			t.F_VISIBLE,
+			( SELECT GROUP_CONCAT(t1.OPT_PERMS) FROM SYS_FEATURE_OPTS t1 WHERE t1.F_ID = t.F_ID) F_PERMS 
+		FROM SYS_FEATURE_LIST t
+	   WHERE t.F_ID = #{id}
+	</select>
+	
+	<select id="getFeatureList" resultMap="AuthzFeatureMap" parameterType="java.lang.String">
+		SELECT
+			t.F_ID,
+			t.F_NAME,
+			t.F_ABB,
+			t.F_URL,
+			t.F_TYPE,
+			t.F_ICON,
+			t.F_ORDER,
+			t.F_PARENT,
+			t.F_VISIBLE,
+			( SELECT GROUP_CONCAT(t1.OPT_PERMS) FROM SYS_FEATURE_OPTS t1 WHERE t1.F_ID = t.F_ID) F_PERMS
+		FROM SYS_FEATURE_LIST t
+	</select>
+
+	<select id="getPagedList" resultMap="AuthzFeatureMap" parameterType="AuthzFeatureModel">
+		SELECT
+			t.F_ID,
+			t.F_NAME,
+			t.F_ABB,
+			t.F_URL,
+			t.F_TYPE,
+			t.F_ICON,
+			t.F_ORDER,
+			t.F_PARENT,
+			t.F_VISIBLE 
+		FROM SYS_FEATURE_LIST t
+		<where>
+			<if test="name != null and name != ''">
+				and t.F_NAME like '%'|| #{name} ||'%'
+			</if>
+			<if test="type != null and type != ''">
+				and t.F_TYPE = #{type}
+			</if>
+			<if test="visible != null and visible != ''">
+				and t.F_VISIBLE = #{visible}
+			</if>
+		</where>
+	</select>
+    
+</mapper>

@@ -1,0 +1,47 @@
+#!/bin/bash
+#chkconfig: 2345 80 90
+#description:rocketmq monitor server
+#processname:mqmonitord
+
+#source function library
+#. /etc/rc.d/init.d/functions
+
+#application home
+export APP_HOME=/u01/zftal-boot-sample-druid
+
+#Document the app path
+echo document the curren path: "$APP_HOME"
+
+#Java environment
+#export JAVA_HOME="$APP_HOME/jre1.8.0_60"
+#export CLASS_PATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$CLASS_PATH
+#export PATH=$JAVA_HOME/bin:$PATH
+
+start()
+{
+    echo -n $"Starting $prog:"
+    $APP_HOME/bin/zftal-boot.sh &    
+}
+
+stop()
+{
+    echo -n $"Stopping $prog:"
+    pid=$(ps x | grep zftal-boot-sample-druid | grep -v grep | awk '{print $1}')
+    echo pid = "$pid"
+    kill -9 $pid
+    
+}
+
+case "$1" in
+    start)
+    start
+    ;;
+    stop)
+    stop
+    ;;
+    *)
+    echo $"Usage: $0 {start|stop}"
+    RETVAL=1
+esac
+exit $RETVAL
+

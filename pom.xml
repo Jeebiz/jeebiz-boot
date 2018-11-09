@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- POM的模型版本 -->
+	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- Inherit defaults from Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>net.jeebiz</groupId>
+	<artifactId>jeebiz-boot-build</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>jeebiz-boot</name>
+	<description>Jeebiz Projects For Spring Boot</description>
+	<url>http://boot.jeebiz.net</url>
+
+	<modules>
+		<module>jeebiz-boot-project</module>
+		<module>jeebiz-boot-samples</module>
+	</modules>
+
+	<!-- 项目使用的License -->
+	<licenses>
+		<license>
+			<name>The Apache License 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<!-- 组织信息 -->
+	<organization>
+		<name>Jeebiz</name>
+		<url>www.jeebiz.net</url>
+	</organization>
+
+	<!-- 开发者信息 -->
+	<developers>
+		<developer>
+			<name>vindell</name>
+			<email>hnxyhcwdl1003@163.com</email>
+			<organization>jeebiz</organization>
+      		<organizationUrl>http://www.jeebiz.net</organizationUrl>
+			<roles>
+	            <role>developer</role>
+	        </roles>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+
+	<!-- 配置部署的远程仓库:让Maven知道当我要发布release版本或者snapshot版本是需要发布到哪个地址 -->
+	<distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <!-- <url>http://127.0.0.1:8081/repository/maven-releases/</url> --> 
+            <url>http://127.0.0.1:8082/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <!-- <url>http://127.0.0.1:8081/repository/maven-snapshots/</url> -->
+           <url>http://127.0.0.1:8082/nexus/content/repositories/snapshots/</url>
+            <!-- 表示是否为Snapshot版本分配一个包含时间戳的构建号 -->
+			<uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+	
+	<repositories>
+		<repository>
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<!--为了加快速度，修改成国内的代理-->
+        <repository>
+            <id>maven2-release</id>
+            <url>http://uk.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>oss-snapshots</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <!--快照版本库两个小时检查更新一遍-->
+                <updatePolicy>interval:120</updatePolicy>
+            </snapshots>
+        </repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>sonatype-nexus-releases</id>
+			<name>Sonatype Nexus Releases</name>
+			<url>http://oss.sonatype.org/content/repositories/releases/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>shibboleth-releases</id>
+			<url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
+		</repository>
+		<repository>
+			<id>pentaho</id>
+			<name>Pentaho Repository</name>
+			<url>https://public.nexus.pentaho.org/content/groups/omni/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

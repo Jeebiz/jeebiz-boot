@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.jeebiz.boot.authz.rbac0.dao.IAuthzUserDao">
+	
+	<resultMap id="AuthzFeatureMap" type="AuthzFeatureModel">
+		<result property="id" column="F_ID" />
+		<result property="name" column="F_NAME" />
+		<result property="abb" column="F_ABB" />
+		<result property="code" column="F_CODE" />
+		<result property="url" column="F_URL" />
+		<result property="type" column="F_TYPE" />
+		<result property="icon" column="F_ICON" />
+		<result property="order" column="F_ORDER" />
+		<result property="parent" column="F_PARENT" />
+		<result property="visible" column="F_VISIBLE" />
+		<result property="perms" column="F_PERMS" />
+	</resultMap>
+	
+	<resultMap id="UserMap" type="AuthzUserModel">
+		<result property="id" column="U_ID" />
+		<result property="username" column="U_USERNAME" />
+		<result property="password" column="U_PASSWORD" />
+		<result property="salt" column="U_SALT" />
+		<result property="secret" column="U_SECRET" />
+		<result property="alias" column="U_ALIAS" />
+		<result property="avatar" column="U_AVATAR" />
+		<result property="phone" column="U_PHONE" />
+		<result property="email" column="U_EMAIL" />
+		<result property="remark" column="U_REMARK" />
+		<result property="status" column="U_STATUS" />
+		<result property="time24" column="U_TIME24" />
+	</resultMap>
+	
+	<resultMap id="UserDetailMap" type="AuthzUserDetailModel">
+		<result property="userId" column="U_ID" />
+		<result property="username" column="U_USERNAME" />
+		<result property="password" column="U_PASSWORD" />
+		<result property="salt" column="U_SALT" />
+		<result property="secret" column="U_SECRET" />
+		<result property="alias" column="U_ALIAS" />
+		<result property="avatar" column="U_AVATAR" />
+		<result property="phone" column="U_PHONE" />
+		<result property="email" column="U_EMAIL" />
+		<result property="remark" column="U_REMARK" />
+		<result property="status" column="U_STATUS" />
+		<result property="time24" column="U_TIME24" />
+		<result property="roleId" column="R_ID" />
+		<result property="id" column="D_ID" />
+		<result property="gender" column="D_GENDER" />
+		<result property="birthday" column="D_BIRTHDAY" />
+		<result property="idcard" column="D_IDCARD" />
+	</resultMap>
+	
+	<resultMap id="RoleMap" type="AuthzRoleModel">
+		<result property="id" column="R_ID" />
+		<result property="name" column="R_NAME" />
+		<result property="intro" column="R_TYPE" />
+		<result property="type" column="R_INTRO" />
+		<result property="status" column="R_STATUS" />
+		<result property="users" column="R_USERS" />
+		<result property="time24" column="R_TIME24" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="AuthzUserDetailModel">
+		<selectKey keyProperty="userId" order="BEFORE" resultType="String">  
+	        SELECT IFNULL(MAX(U_ID), 0) + 1 FROM SYS_AUTHZ_USER_LIST
+	    </selectKey>
+	    insert into SYS_AUTHZ_USER_LIST(U_ID,U_USERNAME,U_ALIAS,U_PASSWORD,U_AVATAR,U_PHONE,U_EMAIL,U_REMARK,U_STATUS)
+		values(#{userId},#{username},#{alias},#{password},#{avatar},#{phone},#{email,jdbcType=CLOB},#{remark,jdbcType=CLOB},'1')
+	</insert>
+	
+	<insert id="insertDetail" parameterType="AuthzUserDetailModel">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">  
+	        SELECT IFNULL(MAX(D_ID), 0) + 1 FROM SYS_AUTHZ_USER_DETAIL
+	    </selectKey>
+		insert into SYS_AUTHZ_USER_DETAIL(U_ID,D_ID,D_GENDER,D_BIRTHDAY,D_IDCARD)
+		values(#{userId},#{id},#{gender},#{birthday},#{idcard})
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID = #{id}
+	</delete>
+	
+	<delete id="deleteDetail" parameterType="java.lang.String">
+		DELETE FROM SYS_AUTHZ_USER_DETAIL WHERE U_ID = #{id}
+	</delete>
+	
+	<delete id="deleteRole">
+    	DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE U_ID = #{id}
+    </delete>
+    
+	<update id="update" parameterType="AuthzUserDetailModel">
+		update SYS_AUTHZ_USER_LIST t
+		<set>
+			<if test="alias != null and alias != ''">t.U_ALIAS = #{alias},</if>
+			<if test="avatar != null and avatar != ''">t.U_AVATAR = #{avatar},</if>
+			<if test="phone != null and phone != ''">t.U_PHONE = #{phone},</if>
+			<if test="email != null and email != ''">t.U_EMAIL = #{email},</if>
+			<if test="remark != null and remark != ''">t.U_REMARK = #{remark}</if>
+		</set>
+		where t.U_ID = #{id}
+	</update>
+	
+	<update id="updateDetail" parameterType="AuthzUserDetailModel">
+		update SYS_AUTHZ_USER_DETAIL t
+		<set>
+			<if test="gender != null and gender != ''">t.D_GENDER = #{gender},</if>
+			<if test="birthday != null and birthday != ''">t.D_BIRTHDAY = #{birthday},</if>
+			<if test="idcard != null and idcard != ''">t.D_IDCARD = #{idcard},</if>
+		</set>
+		where t.U_ID = #{id}
+	</update>
+	
+	<update id="updateRole" parameterType="AuthzUserDetailModel">
+    	update SYS_AUTHZ_USER_ROLE_RELATION set R_ID = #{roleId} WHERE U_ID = #{id}
+    </update>
+	
+	<update id="updatePwd" parameterType="java.lang.String">
+		update SYS_AUTHZ_USER_LIST t 
+		   set t.U_PASSWORD = #{password}
+		where t.U_ID = #{userId}
+	</update>
+	
+	<update id="resetPwd" parameterType="java.lang.String">
+		update SYS_AUTHZ_USER_LIST t 
+		   set t.U_PASSWORD = #{password}
+		where t.U_ID = #{userId} and t.U_PASSWORD = #{oldPassword}
+	</update>
+	
+	<update id="setStatus" parameterType="java.lang.String">
+		UPDATE SYS_AUTHZ_USER_LIST t
+		   SET t.U_STATUS = #{status}
+		 WHERE t.U_ID = #{userId}
+	</update>
+	
+	<select id="getModel" resultMap="UserDetailMap" parameterType="java.lang.String">
+		SELECT
+			t.U_ID,
+			t.U_USERNAME,
+			t.U_ALIAS,
+			'******' AS U_PASSWORD,
+			'******' AS U_SALT,
+			'******' AS U_SECRET,
+			t.U_AVATAR,
+			t.U_PHONE,
+			t.U_EMAIL,
+			t.U_REMARK,
+			t.U_STATUS,
+			t.U_TIME24,
+			x.D_ID,
+			x.D_BIRTHDAY,
+			x.D_GENDER,
+			x.D_IDCARD,
+			y.R_ID
+		FROM SYS_AUTHZ_USER_LIST t
+		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
+		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.R_ID = y.R_ID
+	   WHERE t.U_ID = #{id}
+	</select>
+	
+	<select id="getPagedList" resultMap="UserDetailMap" parameterType="AuthzUserDetailModel">
+		SELECT
+			t.U_ID,
+			t.U_USERNAME,
+			t.U_ALIAS,
+			'******' AS U_PASSWORD,
+			t.U_AVATAR,
+			t.U_PHONE,
+			t.U_EMAIL,
+			t.U_REMARK,
+			t.U_STATUS,
+			t.U_TIME24,
+			x.D_ID,
+			x.D_BIRTHDAY,
+			x.D_GENDER,
+			x.D_IDCARD,
+			y.R_ID
+		FROM SYS_AUTHZ_USER_LIST t
+		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
+		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.R_ID = y.R_ID
+		<where>
+			<if test="status != null and status != ''">
+				and t.U_STATUS = #{status}
+			</if>
+			<if test="gender != null and gender != ''">
+				and x.D_GENDER = #{gender}
+			</if>
+			<if test="username != null and username != ''">
+				and t.U_USERNAME like '%'|| #{username} ||'%'
+			</if>
+		</where>
+	</select>
+	
+	<select id="getPagedAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel">
+		SELECT
+			t.R_ID,
+			t.R_NAME,
+			t.R_TYPE,
+			t.R_INTRO,
+			t.R_STATUS,
+			(SELECT COUNT(x.R_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
+			t.R_TIME24
+		FROM SYS_AUTHZ_ROLE_LIST t INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION x ON t.R_ID = x.R_ID
+		WHERE x.U_ID = #{id}
+		<if test="status != null and status != ''">
+			and t.R_STATUS = #{status}
+		</if>
+		<if test="type != null and type != ''">
+			and t.R_TYPE = #{type}
+		</if>
+		<if test="name != null and name != ''">
+			and t.R_NAME like '%'|| #{name} ||'%'
+		</if>
+	</select>
+	
+	<select id="getPagedUnAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel">
+		SELECT
+			t.R_ID,
+			t.R_NAME,
+			t.R_TYPE,
+			t.R_INTRO,
+			t.R_STATUS,
+			(SELECT COUNT(x.R_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
+			t.R_TIME24
+		FROM SYS_AUTHZ_ROLE_LIST t
+		WHERE NOT EXISTS ( SELECT '1' FROM SYS_AUTHZ_USER_ROLE_RELATION z WHERE t.R_ID = z.R_ID and z.U_ID = #{id})
+		<if test="status != null and status != ''">
+			and t.R_STATUS = #{status}
+		</if>
+		<if test="type != null and type != ''">
+			and t.R_TYPE = #{type}
+		</if>
+		<if test="name != null and name != ''">
+			and t.R_NAME like '%'|| #{name} ||'%'
+		</if>
+	</select>
+	
+	<select id="getRoles" resultType="java.lang.String" parameterType="java.lang.String">
+		SELECT t.R_ID AS name 
+		FROM SYS_AUTHZ_ROLE_LIST t INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION x ON t.R_ID = x.R_ID 
+		WHERE x.U_ID = #{userId}
+		ORDER BY x.R_PRTY ASC
+	</select>
+	
+	<select id="getPermissions" resultType="java.lang.String" parameterType="java.lang.String">
+		SELECT DISTINCT y.PERMS
+		FROM SYS_AUTHZ_ROLE_LIST t
+		INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION x ON t.R_ID = x.R_ID
+		INNER JOIN SYS_AUTHZ_ROLE_PERMS y ON t.R_ID = y.R_ID
+		WHERE x.U_ID = #{userId}
+		ORDER BY x.R_PRTY ASC
+	</select>
+	
+	<select id="getFeatures" resultMap="AuthzFeatureMap" parameterType="java.lang.String">
+		SELECT
+			t.F_ID,
+			t.F_NAME,
+			t.F_ABB,
+			t.F_CODE,
+			t.F_URL,
+			t.F_TYPE,
+			t.F_ICON,
+			t.F_ORDER,
+			t.F_PARENT,
+			t.F_VISIBLE,
+			(SELECT GROUP_CONCAT(t1.OPT_PERMS) PERMS
+				 FROM SYS_FEATURE_OPTS t1 
+				INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
+				INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON x.R_ID = y.R_ID
+				WHERE t1.F_ID = t.F_ID
+					AND y.U_ID = #{userId}
+			 ) F_PERMS
+		FROM SYS_FEATURE_LIST t 
+		WHERE EXISTS (
+			SELECT DISTINCT t1.F_ID
+			FROM SYS_FEATURE_OPTS t1
+		 INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
+		 INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON x.R_ID = y.R_ID
+		 WHERE t.F_ID = t1.F_ID 
+			 AND y.U_ID = #{userId}
+		)
+	</select>
+
+</mapper>
