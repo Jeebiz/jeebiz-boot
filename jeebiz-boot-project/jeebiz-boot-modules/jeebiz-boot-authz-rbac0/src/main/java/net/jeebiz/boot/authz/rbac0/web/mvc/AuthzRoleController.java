@@ -228,11 +228,11 @@ public class AuthzRoleController extends BaseMapperController {
 		return success("role.unallot.success", total); 
 	}
 
-	@ApiOperation(value = "role:features", notes = "查询已分配给当前角色的功能")
+	@ApiOperation(value = "role:features", notes = "查询已分配给指定角色ID的功能")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "roleId", required = false, value = "角色ID", dataType = "String")
 	})
-	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询已分配给当前角色的功能", opt = BusinessType.SELECT)
+	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询已分配给指定角色ID的功能", opt = BusinessType.SELECT)
 	@PostMapping("features")
 	@RequiresAuthentication
 	@ResponseBody
@@ -240,22 +240,28 @@ public class AuthzRoleController extends BaseMapperController {
 		return getAuthzRoleService().getFeatures(roleId);
 	}
 	
-	@ApiOperation(value = "feature:tree", notes = "查询功能菜单树形结构数据")
-	@BusinessLog(module = Constants.AUTHZ_FEATURE, business = "查询功能菜单树形结构数据", opt = BusinessType.SELECT)
+	@ApiOperation(value = "role:tree-features", notes = "查询指定角色ID拥有的功能菜单树形结构数据")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "roleId", required = false, value = "角色ID", dataType = "String")
+	})
+	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询指定角色ID拥有的功能菜单树形结构数据", opt = BusinessType.SELECT)
 	@PostMapping("tree-features")
 	@RequiresPermissions("role:features")
 	@ResponseBody
 	public Object tree(@RequestParam String roleId){
 		// 所有的功能菜单
 		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
-		// 所有的功能操作按钮
+		// 所有的功能操作按钮：标记按钮选中状态
 		List<AuthzFeatureOptModel> featureOptList = getAuthzRoleService().getFeatureOpts(roleId);
 		// 返回各级菜单 + 对应的功能权限数据
 		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureTreeDataHandler().handle(featureList, featureOptList));
 	}
 	
-	@ApiOperation(value = "feature:flat", notes = "查询功能菜单树扁平构数据")
-	@BusinessLog(module = Constants.AUTHZ_FEATURE, business = "查询功能菜单扁平结构数据", opt = BusinessType.SELECT)
+	@ApiOperation(value = "role:flat-features", notes = "查询指定角色ID拥有的功能菜单树扁平构数据")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "roleId", required = false, value = "角色ID", dataType = "String")
+	})
+	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询指定角色ID拥有的功能菜单扁平结构数据", opt = BusinessType.SELECT)
 	@PostMapping("flat-features")
 	@RequiresPermissions("role:features")
 	@ResponseBody

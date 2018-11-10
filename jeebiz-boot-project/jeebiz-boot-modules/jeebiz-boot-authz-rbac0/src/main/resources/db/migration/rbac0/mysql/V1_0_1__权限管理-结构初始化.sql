@@ -17,7 +17,7 @@ CREATE TABLE `SYS_AUTHZ_ROLE_LIST` (
   `R_STATUS` int(1) NOT NULL DEFAULT '1' COMMENT '角色状态（0:禁用|1:可用）',
   `R_TIME24` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '初始化时间',
   PRIMARY KEY (`R_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色信息表';
 
 -- ----------------------------
 -- Table structure for SYS_AUTHZ_ROLE_PERMITS
@@ -25,22 +25,9 @@ CREATE TABLE `SYS_AUTHZ_ROLE_LIST` (
 DROP TABLE IF EXISTS `SYS_AUTHZ_ROLE_PERMS`;
 CREATE TABLE `SYS_AUTHZ_ROLE_PERMS` (
   `R_ID` int(11) NOT NULL COMMENT '角色ID',
-  `PERMS` varchar(50) NOT NULL COMMENT '权限标记：(等同SYS_FEATURE_OPT_RELATION.PERMS)',
+  `PERMS` varchar(50) NOT NULL COMMENT '权限标记：(等同SYS_FEATURE_OPTS.OPT_PERMS)',
   PRIMARY KEY (`R_ID`,`PERMS`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色-权限关系表（角色-菜单-按钮）';
-
--- ----------------------------
--- Table structure for SYS_AUTHZ_USER_DETAIL
--- ----------------------------
-DROP TABLE IF EXISTS `SYS_AUTHZ_USER_DETAIL`;
-CREATE TABLE `SYS_AUTHZ_USER_DETAIL` (
-  `U_ID` int(11) NOT NULL COMMENT '用户ID',
-  `D_ID` int(11) NOT NULL COMMENT '用户详情表ID',
-  `D_BIRTHDAY` varchar(20) DEFAULT NULL COMMENT '出生日期',
-  `D_GENDER` varchar(20) DEFAULT NULL COMMENT '性别：（male：男，female：女）',
-  `D_IDCARD` varchar(20) DEFAULT NULL COMMENT '身份证号码',
-  PRIMARY KEY (`D_ID`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户详情表';
 
 -- ----------------------------
 -- Table structure for SYS_AUTHZ_USER_LIST
@@ -61,6 +48,19 @@ CREATE TABLE `SYS_AUTHZ_USER_LIST` (
   `U_TIME24` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '初始化时间',
   PRIMARY KEY (`U_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+
+-- ----------------------------
+-- Table structure for SYS_AUTHZ_USER_DETAIL
+-- ----------------------------
+DROP TABLE IF EXISTS `SYS_AUTHZ_USER_DETAIL`;
+CREATE TABLE `SYS_AUTHZ_USER_DETAIL` (
+  `U_ID` int(11) NOT NULL COMMENT '用户ID',
+  `D_ID` int(11) NOT NULL COMMENT '用户详情表ID',
+  `D_BIRTHDAY` varchar(20) DEFAULT NULL COMMENT '出生日期',
+  `D_GENDER` varchar(20) DEFAULT NULL COMMENT '性别：（male：男，female：女）',
+  `D_IDCARD` varchar(20) DEFAULT NULL COMMENT '身份证号码',
+  PRIMARY KEY (`D_ID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户详情表';
 
 -- ----------------------------
 -- Table structure for SYS_AUTHZ_USER_ROLE_RELATION
