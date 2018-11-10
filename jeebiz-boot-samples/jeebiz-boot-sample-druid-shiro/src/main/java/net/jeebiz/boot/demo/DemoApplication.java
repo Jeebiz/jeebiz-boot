@@ -16,11 +16,16 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.spring4all.swagger.EnableSwagger2Doc;
 
+import net.jeebiz.boot.autoconfigure.EnableServiceConfiguration;
+import net.jeebiz.boot.autoconfigure.EnableWebMvcConfiguration;
+
 @EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
-@EnableDozerMapper
 @EnableSwagger2Doc
+@EnableDozerMapper
 @EnableScheduling
+@EnableServiceConfiguration
+@EnableWebMvcConfiguration
 @EnableTransactionManagement
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {

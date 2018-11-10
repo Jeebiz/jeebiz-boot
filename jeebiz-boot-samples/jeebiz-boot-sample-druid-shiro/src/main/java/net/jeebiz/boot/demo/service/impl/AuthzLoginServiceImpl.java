@@ -1,4 +1,4 @@
-package net.jeebiz.boot.authz.rbac0.service.impl;
+package net.jeebiz.boot.demo.service.impl;
 
 
 import java.security.GeneralSecurityException;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import net.jeebiz.boot.api.service.BaseServiceImpl;
-import net.jeebiz.boot.authz.rbac0.dao.IAuthzLoginDao;
-import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzLoginModel;
-import net.jeebiz.boot.authz.rbac0.service.IAuthzLoginService;
+import net.jeebiz.boot.demo.dao.IAuthzLoginDao;
+import net.jeebiz.boot.demo.dao.entities.AuthzLoginModel;
+import net.jeebiz.boot.demo.service.IAuthzLoginService;
 
 @Service
 public class AuthzLoginServiceImpl extends BaseServiceImpl<AuthzLoginModel, IAuthzLoginDao>

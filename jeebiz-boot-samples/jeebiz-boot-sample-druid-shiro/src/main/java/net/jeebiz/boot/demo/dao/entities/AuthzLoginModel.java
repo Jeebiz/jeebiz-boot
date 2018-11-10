@@ -1,9 +1,12 @@
-package net.jeebiz.boot.authz.rbac0.dao.entities;
+package net.jeebiz.boot.demo.dao.entities;
 
 import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 import org.apache.shiro.biz.authz.principal.ShiroPrincipal;
+
+import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
+import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserDetailModel;
 
 @Alias(value = "AuthzLoginModel")
 @SuppressWarnings("serial")

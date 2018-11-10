@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.authz.rbac0.web.mvc;
+package net.jeebiz.boot.demo.web.mvc;
 
 import java.security.interfaces.RSAPublicKey;
 import java.util.HashMap;
@@ -41,8 +41,8 @@ import net.jeebiz.boot.api.annotation.BusinessType;
 import net.jeebiz.boot.api.utils.Constants;
 import net.jeebiz.boot.api.utils.ResultUtils;
 import net.jeebiz.boot.api.webmvc.BaseController;
-import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzLoginModel;
-import net.jeebiz.boot.authz.rbac0.service.IAuthzLoginService;
+import net.jeebiz.boot.demo.dao.entities.AuthzLoginModel;
+import net.jeebiz.boot.demo.service.IAuthzLoginService;
 import springfox.documentation.annotations.ApiIgnore;
 
 /**

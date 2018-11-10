@@ -2,7 +2,6 @@ package net.jeebiz.boot.demo;
 
 import javax.sql.DataSource;
 
-import org.dozer.spring.boot.EnableDozerMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -18,7 +17,6 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 
 @EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
-@EnableDozerMapper
 @EnableSwagger2Doc
 @EnableScheduling
 @EnableTransactionManagement

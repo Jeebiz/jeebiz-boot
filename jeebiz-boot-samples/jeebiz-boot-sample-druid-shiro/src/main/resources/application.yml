@@ -2,7 +2,7 @@
 ###内置应用容器（Tomcat）配置：  
 ################################################################################################################
 server:
-  port: 8083
+  port: 8084
   servlet:
     context-path: /
     session:
@@ -186,9 +186,7 @@ spring:
 ###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
 ################################################################################################################  
   flyway: 
-    enabled: true
-    #是否忽略版本迁移
-    ignore-migration: false  
+    enabled: false
     #指定SQL起始版本信息 
     baseline-on-migrate: true
     baseline-version: 1.0.0.0
@@ -197,8 +195,6 @@ spring:
     out-of-order: false
     #在进行版本升级前是否进行SQL版本信息校验
     validate-on-migrate: true
-    #安全模式下不能进行表结构清理
-    safe-mode: true
     #设置如果验证失败是否删除表结构
     clean-on-validation-error: true
     #禁止对数据库进行相关清除操作
@@ -224,7 +220,7 @@ mybatis-plus:
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
   mapper-locations: classpath*:net/jeebiz/**/dao/**/sqlmap/mysql/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  type-aliases-package: net.jeebiz.boot.authz.rbac0.dao.enties
+  type-aliases-package: net.jeebiz.**.dao.entities
   configuration:
     # 指定MyBatis如何自动映射列到字段/属性。PARTIAL只会自动映射简单，没有嵌套的结果。
     # FULL会自动映射任意复杂的结果（嵌套的或其他情况）;有效值：NONE,PARTIAL,FULL,默认值：PARTIAL

@@ -27,22 +27,16 @@
 
 	<dependencies>
 
-		<!-- For Jeebiz -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>jeebiz-boot-api</artifactId>
-			<version>${jeebiz-boot.version}</version>
-		</dependency>
+		<!-- Jeebiz rbac权限认证：此次选择了比较简单的rbac0的实现（必选） -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>jeebiz-boot-authz-rbac0</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
-		<!-- For Jeebiz -->
+		 <!-- Jeebiz 初始化启动器 （必选）-->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jeebiz-boot-api</artifactId>
+			<artifactId>jeebiz-boot-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
 		
@@ -124,6 +118,10 @@
 			<groupId>com.github.vindell</groupId>
 			<artifactId>spring-boot-starter-dozer</artifactId>
 		</dependency>
+		<!-- <dependency>
+		    <groupId>com.github.dozermapper</groupId>
+		    <artifactId>dozer-spring-boot-starter</artifactId>
+		</dependency> -->
 		<!-- For AOP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

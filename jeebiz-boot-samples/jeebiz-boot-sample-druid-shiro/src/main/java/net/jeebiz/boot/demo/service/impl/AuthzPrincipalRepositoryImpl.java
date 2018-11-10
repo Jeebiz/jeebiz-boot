@@ -20,12 +20,12 @@ import org.springframework.util.StringUtils;
 
 import com.google.common.collect.Sets;
 
-import net.jeebiz.boot.authz.rbac0.dao.IAuthzLoginDao;
 import net.jeebiz.boot.authz.rbac0.dao.IAuthzRoleDao;
 import net.jeebiz.boot.authz.rbac0.dao.IAuthzRolePermsDao;
 import net.jeebiz.boot.authz.rbac0.dao.IAuthzUserDao;
-import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzLoginModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
+import net.jeebiz.boot.demo.dao.IAuthzLoginDao;
+import net.jeebiz.boot.demo.dao.entities.AuthzLoginModel;
 	
 @Service("defRepository")
 public class AuthzPrincipalRepositoryImpl extends ShiroPrincipalRepositoryImpl {

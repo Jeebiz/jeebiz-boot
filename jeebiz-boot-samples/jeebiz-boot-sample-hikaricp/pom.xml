@@ -95,6 +95,10 @@
 			<groupId>com.github.vindell</groupId>
 			<artifactId>spring-boot-starter-dozer</artifactId>
 		</dependency>
+		<!-- <dependency>
+		    <groupId>com.github.dozermapper</groupId>
+		    <artifactId>dozer-spring-boot-starter</artifactId>
+		</dependency> -->
 		<!-- For AOP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

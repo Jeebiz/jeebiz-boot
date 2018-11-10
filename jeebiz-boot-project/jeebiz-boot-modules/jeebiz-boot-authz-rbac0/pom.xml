@@ -21,7 +21,6 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>jeebiz-boot-authz-feature</artifactId>
 			<version>${jeebiz-boot.version}</version>
-			<scope>provided</scope>
 		</dependency>
 		<!-- For Validation -->
 		<dependency>

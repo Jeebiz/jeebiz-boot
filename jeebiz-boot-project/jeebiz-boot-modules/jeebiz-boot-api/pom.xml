@@ -51,6 +51,10 @@
 		    <groupId>net.sf.dozer</groupId>
 		    <artifactId>dozer</artifactId>
 		</dependency>
+		<!-- <dependency>
+		    <groupId>com.github.dozermapper</groupId>
+		    <artifactId>dozer-core</artifactId>
+		</dependency> -->
 		<!-- For Mybatis Plus -->
 		<dependency>
 		    <groupId>com.baomidou</groupId>

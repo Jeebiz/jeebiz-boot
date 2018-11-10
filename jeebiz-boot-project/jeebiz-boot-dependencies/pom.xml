@@ -99,6 +99,9 @@
 		<docker-java.version>3.1.0-rc-5</docker-java.version>
 		<dom4j2.version>2.1.1</dom4j2.version>
 		<dozer.version>5.5.1</dozer.version>
+		<dozer-core.version>6.4.1</dozer-core.version>
+		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
+		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
 		<druid.version>1.1.12</druid.version>
 		<disruptor.version>3.4.2</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
@@ -253,13 +256,22 @@
 		<shiro-redisson.version>1.0.0.RELEASE</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
 		<shiro-uaa.version>1.0.0</shiro-uaa.version>
+		<sofa.boot.version>3.0.0</sofa.boot.version>
+        <sofa.ark.version>0.5.2</sofa.ark.version>
+        <sofa.rpc.starter.version>6.0.0</sofa.rpc.starter.version>
+        <sofa.tracer.version>3.0.0</sofa.tracer.version>
+        <sofa.lookout.version>1.5.2</sofa.lookout.version>
+        <sofa.jarslink.version>2.0.0</sofa.jarslink.version>
+        <sofa.common.tools.version>1.0.14</sofa.common.tools.version>
+        <sofa.bolt.version>1.4.6</sofa.bolt.version>
+        <sofa.hessian.version>3.3.3</sofa.hessian.version>
 		<sitemesh3.version>3.0.1</sitemesh3.version>
 		<smallsql.version>0.21</smallsql.version>
 		<smslib.version>3.5.4</smslib.version>
 		<snmp4j.version>3.0.1</snmp4j.version>
 		<springfox.version>2.9.2</springfox.version>
-		<spring-biz.version>1.0.4.RELEASE</spring-biz.version>
-		<spring-javassist.version>1.0.2.RELEASE</spring-javassist.version>
+		<spring-biz.version>1.0.5.RELEASE</spring-biz.version>
+		<spring-javassist.version>1.0.3.RELEASE</spring-javassist.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.1.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
@@ -295,6 +307,8 @@
 		<zxing.version>3.3.3</zxing.version>
 
 		<!-- Maven Plugin versions -->
+		<maven-sofa-ark-plugin.version>0.5.2</maven-sofa-ark-plugin.version>
+		<maven-sofa-ark-plugin-plugin.version>0.5.2</maven-sofa-ark-plugin-plugin.version>
 		<maven-appassembler-plugin.version>2.0.0</maven-appassembler-plugin.version>
 		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
 		<maven-asciidoctor-plugin.version>1.5.7.1</maven-asciidoctor-plugin.version>
@@ -349,6 +363,7 @@
 		<spring-boot-starter-cxf-jaxws-plus.version>1.0.0.RELEASE</spring-boot-starter-cxf-jaxws-plus.version>
 		<spring-boot-starter-disruptor.version>1.0.1.RELEASE</spring-boot-starter-disruptor.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
+		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>1.1.10</spring-boot-starter-druid.version>
@@ -382,9 +397,9 @@
 		<spring-boot-starter-schemacrawler.version>1.0.2.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-sharding-jdbc.version>2.0.3</spring-boot-starter-sharding-jdbc.version>
-		<spring-boot-starter-shiro-biz.version>1.0.2.RELEASE</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.0.3-SNAPSHOT</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.1.RELEASE</spring-boot-starter-shiro-cas.version>
-		<spring-boot-starter-shiro-jwt.version>1.0.2.RELEASE</spring-boot-starter-shiro-jwt.version>
+		<spring-boot-starter-shiro-jwt.version>1.0.3-SNAPSHOT</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-ldap.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-ldap.version>
 		<spring-boot-starter-shiro-oauth2.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oauth2.version>
 		<spring-boot-starter-shiro-oidc.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oidc.version>
@@ -404,7 +419,16 @@
 
 	<dependencyManagement>
 		<dependencies>
-
+			
+			<!-- Camel Spring-Boot Dependencies BOM ：http://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-dependencies -->
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-spring-boot-dependencies</artifactId>
+				<version>${spring-boot-starter-camel.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
 			<!-- Override Spring Data release train provided by Spring Boot -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
@@ -821,15 +845,6 @@
 				<groupId>org.jasig.cas.client</groupId>
 				<artifactId>cas-client-core</artifactId>
 				<version>${cas-client.version}</version>
-			</dependency>
-			
-			<!-- Camel Spring-Boot Dependencies BOM ：http://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-dependencies -->
-			<dependency>
-				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-spring-boot-dependencies</artifactId>
-				<version>${spring-boot-starter-camel.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/cglib/cglib -->
@@ -1296,6 +1311,29 @@
 			    <artifactId>dozer</artifactId>
 			    <version>${dozer.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-core -->
+			<dependency>
+			    <groupId>com.github.dozermapper</groupId>
+			    <artifactId>dozer-core</artifactId>
+			    <version>${dozer-core.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-proto3 -->
+			<dependency>
+			    <groupId>com.github.dozermapper</groupId>
+			    <artifactId>dozer-proto3</artifactId>
+			    <version>${dozer-proto3.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-spring4 -->
+			<dependency>
+			    <groupId>com.github.dozermapper</groupId>
+			    <artifactId>dozer-spring4</artifactId>
+			    <version>${dozer-spring4.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>dozer-extra-converters</artifactId>
+				<version>1.0.0-SNAPSHOT</version>	
+			</dependency>	
 			
 			<!-- http://mvnrepository.com/artifact/com.alibaba/druid -->
 			<dependency>
@@ -3215,7 +3253,170 @@
 			    <artifactId>shiro-uaa-resource-server</artifactId>
 			    <version>${shiro-uaa.version}</version>
 			</dependency>
-			 
+			
+			<!-- https://mvnrepository.com/artifact/com.alipay.sofa -->
+			<!-- starter management begin -->
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>infra-sofa-boot-starter</artifactId>
+                <version>${sofa.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>healthcheck-sofa-boot-starter</artifactId>
+                <version>${sofa.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>runtime-sofa-boot-starter</artifactId>
+                <version>${sofa.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>test-sofa-boot-starter</artifactId>
+                <version>${sofa.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>isle-sofa-boot-starter</artifactId>
+                <version>${sofa.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>rpc-sofa-boot-starter</artifactId>
+                <version>${sofa.rpc.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>tracer-sofa-boot-starter</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-sofa-boot-starter</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-springboot-starter</artifactId>
+                <version>${sofa.ark.version}</version>
+            </dependency>
+            <!-- starter management end -->
+
+            <!-- Ark Plugin Management begin -->
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>runtime-sofa-boot-plugin</artifactId>
+                <version>${sofa.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>rpc-sofa-boot-plugin</artifactId>
+                <version>${sofa.rpc.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>tracer-sofa-boot-plugin</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+
+            <!-- 2nd dependency begin -->
+            <dependency>
+                <groupId>com.alipay.sofa.common</groupId>
+                <artifactId>sofa-common-tools</artifactId>
+                <version>${sofa.common.tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>bolt</artifactId>
+                <version>${sofa.bolt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>hessian</artifactId>
+                <version>${sofa.hessian.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-ark-spi</artifactId>
+                <version>${sofa.ark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>tracer-core</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>tracer-extensions</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+			<dependency>
+			    <groupId>com.alipay.sofa</groupId>
+			    <artifactId>sofa-tracer-sample-with-slf4j</artifactId>
+			    <version>${sofa.tracer.version}</version>
+			</dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-tracer-springmvc-plugin</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-tracer-httpclient-plugin</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-tracer-datasource-plugin</artifactId>
+                <version>${sofa.tracer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-api</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-client</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-common</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-core</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-ext-jvm</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-ext-os</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-reg-dropwizard</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-reg-prometheus</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alipay.sofa.lookout</groupId>
+                <artifactId>lookout-reg-server</artifactId>
+                <version>${sofa.lookout.version}</version>
+            </dependency>
+			
 			<!-- JDBC Driver For SmallSQL -->
 			<dependency>
 				<groupId>craky</groupId>
@@ -3768,6 +3969,12 @@
 				<artifactId>spring-boot-starter-dozer</artifactId>
 				<version>${spring-boot-starter-dozer.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.dozermapper</groupId>
+			    <artifactId>dozer-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-dozermapper.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
 			<dependency>
 			    <groupId>com.github.xjzrc.spring.boot</groupId>
@@ -4160,6 +4367,18 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- https://mvnrepository.com/artifact/com.alipay.sofa/sofa-ark-maven-plugin -->
+				<plugin>
+				    <groupId>com.alipay.sofa</groupId>
+				    <artifactId>sofa-ark-maven-plugin</artifactId>
+				    <version>${maven-sofa-ark-plugin.version}</version>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/com.alipay.sofa/sofa-ark-plugin-maven-plugin -->
+				<plugin>
+				    <groupId>com.alipay.sofa</groupId>
+				    <artifactId>sofa-ark-plugin-maven-plugin</artifactId>
+				    <version>${maven-sofa-ark-plugin-plugin.version}</version>
+				</plugin>
 				<!-- http://www.mojohaus.org/appassembler/appassembler-maven-plugin，http://blog.csdn.net/mn960mn/article/details/51554152 -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>

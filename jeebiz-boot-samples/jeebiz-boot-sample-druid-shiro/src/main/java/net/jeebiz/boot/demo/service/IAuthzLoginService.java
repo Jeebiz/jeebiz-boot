@@ -1,4 +1,4 @@
-package net.jeebiz.boot.authz.rbac0.service;
+package net.jeebiz.boot.demo.service;
 
 import java.security.GeneralSecurityException;
 import java.security.interfaces.RSAPublicKey;
@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import net.jeebiz.boot.api.service.BaseService;
-import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzLoginModel;
+import net.jeebiz.boot.demo.dao.entities.AuthzLoginModel;
 
 public interface IAuthzLoginService extends BaseService<AuthzLoginModel>{
 	

@@ -1,4 +1,4 @@
-package net.jeebiz.boot.authz.rbac0.dao;
+package net.jeebiz.boot.demo.dao;
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import net.jeebiz.boot.api.dao.BaseDao;
-import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzLoginModel;
+import net.jeebiz.boot.demo.dao.entities.AuthzLoginModel;
 
 /**
  * 登录查询Dao
