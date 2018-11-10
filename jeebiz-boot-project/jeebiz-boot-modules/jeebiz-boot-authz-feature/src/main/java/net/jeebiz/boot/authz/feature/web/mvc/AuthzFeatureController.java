@@ -77,9 +77,11 @@ public class AuthzFeatureController extends BaseMapperController{
 	@RequiresPermissions("feature:list")
 	@ResponseBody
 	public Object tree(){
+		// 所有的功能菜单
 		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
+		// 所有的功能操作按钮
 		List<AuthzFeatureOptModel> featureOptList = getAuthzFeatureOptService().getFeatureOpts();
-		
+		// 返回各级菜单 + 对应的功能权限数据
 		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureTreeDataHandler().handle(featureList, featureOptList));
 	}
 	
@@ -89,8 +91,11 @@ public class AuthzFeatureController extends BaseMapperController{
 	@RequiresPermissions("feature:list")
 	@ResponseBody
 	public Object flat(){
+		// 所有的功能菜单
 		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
+		// 所有的功能操作按钮
 		List<AuthzFeatureOptModel> featureOptList = getAuthzFeatureOptService().getFeatureOpts();
+		// 返回叶子节点菜单 + 对应的功能权限数据
 		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureFlatDataHandler().handle(featureList, featureOptList));
 	}
 	

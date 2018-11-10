@@ -38,7 +38,6 @@ import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserAllotRoleModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserDetailModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserModel;
 import net.jeebiz.boot.authz.rbac0.service.IAuthzUserService;
-import net.jeebiz.boot.authz.rbac0.utils.AuthzPermsUtils;
 import net.jeebiz.boot.authz.rbac0.web.vo.AuthzRoleVo;
 import net.jeebiz.boot.authz.rbac0.web.vo.AuthzUserAllotRoleVo;
 import net.jeebiz.boot.authz.rbac0.web.vo.AuthzUserDetailVo;
@@ -271,19 +270,6 @@ public class AuthzUserController extends BaseMapperController {
 	public Object perms() throws Exception { 
 		String userId = SubjectUtils.getPrincipal(ShiroPrincipal.class).getUserid();
 		return getAuthzUserService().getPermissions(userId);
-	}
-	
-	@ApiOperation(value = "user:features", notes = "查询已分配给当前用户所属角色的功能")
-	@BusinessLog(module = Constants.AUTHZ_USER, business = "查询已分配给当前用户所属角色的功能", opt = BusinessType.SELECT)
-	@PostMapping("features")
-	@RequiresAuthentication
-	@ResponseBody
-	public Object features() throws Exception { 
-		// 获取当前认证信息中的主体对象
-		ShiroPrincipal principal = SubjectUtils.getPrincipal(ShiroPrincipal.class);
-		// 认证信息中的主体对象具有的授权标记
-		List<String> perms = AuthzPermsUtils.distinct(principal.getPerms());
-		return getAuthzUserService().getFeatures(principal.getUserid(), perms);
 	}
 	
 	public IAuthzUserService getAuthzUserService() {

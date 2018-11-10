@@ -5,7 +5,6 @@ import java.util.List;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import net.jeebiz.boot.api.service.BaseService;
-import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserAllotRoleModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserDetailModel;
@@ -73,8 +72,6 @@ public interface IAuthzUserService extends BaseService<AuthzUserDetailModel> {
 	 * @return 用户所属角色具备的权限标记
 	 */
 	public List<String> getPermissions(String userId);
-	
-	public List<AuthzFeatureModel> getFeatures( String userId, List<String> perms);
 	
 	/**
 	 * 分页查询用户已分配角色信息

@@ -28,8 +28,8 @@
 		</dependency>
 		<!-- For Shiro -->
 		<dependency>
-		  	<groupId>org.apache.shiro</groupId>
-       		<artifactId>shiro-core</artifactId>
+			<groupId>com.github.vindell</groupId>
+			<artifactId>spring-boot-starter-shiro-biz</artifactId>
 		</dependency>
 		<!-- For Flyway -->
 		<dependency>

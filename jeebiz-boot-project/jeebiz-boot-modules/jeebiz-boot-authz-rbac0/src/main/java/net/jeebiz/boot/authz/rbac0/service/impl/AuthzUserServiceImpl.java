@@ -12,8 +12,6 @@ import com.google.common.collect.Lists;
 import net.jeebiz.boot.api.dao.entities.PaginationModel;
 import net.jeebiz.boot.api.service.BaseServiceImpl;
 import net.jeebiz.boot.authz.feature.dao.IAuthzFeatureDao;
-import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
-import net.jeebiz.boot.authz.feature.utils.FeatureNavUtils;
 import net.jeebiz.boot.authz.rbac0.dao.IAuthzRoleDao;
 import net.jeebiz.boot.authz.rbac0.dao.IAuthzUserDao;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
@@ -101,13 +99,6 @@ public class AuthzUserServiceImpl extends BaseServiceImpl<AuthzUserDetailModel, 
 	@Override
 	public List<String> getPermissions(String userId) {
 		return getDao().getPermissions(userId);
-	}
-	
-	@Override
-	public List<AuthzFeatureModel> getFeatures(String userId, List<String> perms) {
-		// 所有的功能菜单
-		List<AuthzFeatureModel> features = getAuthzFeatureDao().getFeatureList();
-		return FeatureNavUtils.getFeatureMergedList(features, getDao().getFeatures(userId, perms));
 	}
 	
 	@Override

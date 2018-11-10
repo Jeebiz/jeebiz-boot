@@ -15,6 +15,7 @@ import net.jeebiz.boot.api.dao.entities.PaginationModel;
 import net.jeebiz.boot.api.service.BaseServiceImpl;
 import net.jeebiz.boot.authz.feature.dao.IAuthzFeatureDao;
 import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
+import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureOptModel;
 import net.jeebiz.boot.authz.feature.utils.FeatureNavUtils;
 import net.jeebiz.boot.authz.rbac0.dao.IAuthzRoleDao;
 import net.jeebiz.boot.authz.rbac0.dao.IAuthzRolePermsDao;
@@ -114,7 +115,15 @@ public class AuthzRoleServiceImpl extends BaseServiceImpl<AuthzRoleModel, IAuthz
 	public List<AuthzFeatureModel> getFeatures(String roleId) {
 		// 所有的功能菜单
 		List<AuthzFeatureModel> features = getAuthzFeatureDao().getFeatureList();
-		return FeatureNavUtils.getFeatureMergedList(features, getDao().getFeatures(roleId));
+		// 角色拥有的功能菜单
+		List<AuthzFeatureModel> ownFeatures = getDao().getFeatures(roleId);
+		// 为用户拥有的功能菜单指定父级菜单
+		return FeatureNavUtils.getFeatureMergedList(features, ownFeatures);
+	}
+	
+	@Override
+	public List<AuthzFeatureOptModel> getFeatureOpts(String roleId) {
+		return getDao().getFeatureOpts(roleId);
 	}
 	
 	@Override

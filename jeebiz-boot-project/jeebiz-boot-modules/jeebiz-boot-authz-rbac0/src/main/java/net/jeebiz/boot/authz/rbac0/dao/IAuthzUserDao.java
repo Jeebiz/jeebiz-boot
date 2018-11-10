@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Param;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import net.jeebiz.boot.api.dao.BaseDao;
-import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserDetailModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserModel;
@@ -79,8 +78,6 @@ public interface IAuthzUserDao extends BaseDao<AuthzUserDetailModel>{
 	 */
 	public int setStatus(@Param("userId") String userId, @Param("status") String status);
 	
-	public List<AuthzFeatureModel> getFeatures(@Param(value = "userId") String userId, @Param(value = "perms") List<String> perms);
-	
 	/**
 	 * 获取用户已分配角色ID
 	 * @param userId 用户ID
@@ -94,7 +91,6 @@ public interface IAuthzUserDao extends BaseDao<AuthzUserDetailModel>{
 	 * @return 角色具备的权限信息
 	 */
 	public List<String> getPermissions(@Param(value="userId")String userId);
-	
 
 	/**
 	 * 分页查询用户已分配角色信息

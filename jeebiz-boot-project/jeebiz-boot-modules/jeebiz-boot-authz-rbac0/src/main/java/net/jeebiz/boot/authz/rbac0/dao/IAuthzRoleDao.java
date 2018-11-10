@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import net.jeebiz.boot.api.dao.BaseDao;
 import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
+import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureOptModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserDetailModel;
 
@@ -50,8 +51,19 @@ public interface IAuthzRoleDao extends BaseDao<AuthzRoleModel>{
 	 */
 	public List<AuthzRoleModel> getRoles();
 	
-
+	/**
+	 * 查询指定角色ID拥有的功能菜单
+	 * @param roleId
+	 * @return
+	 */
 	public List<AuthzFeatureModel> getFeatures(@Param(value = "roleId") String roleId);
+	
+	/**
+	 * 查找功能操作并标记指定角色拥有权限的功能操作选中状态
+	 * @param roleId
+	 * @return
+	 */
+	public List<AuthzFeatureOptModel> getFeatureOpts(@Param(value = "roleId") String roleId);
 	
 	/**
 	 * 分页查询角色已分配用户信息

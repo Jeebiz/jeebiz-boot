@@ -32,6 +32,11 @@ import net.jeebiz.boot.api.utils.Constants;
 import net.jeebiz.boot.api.utils.ResultUtils;
 import net.jeebiz.boot.api.webmvc.BaseMapperController;
 import net.jeebiz.boot.api.webmvc.Result;
+import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
+import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureOptModel;
+import net.jeebiz.boot.authz.feature.service.IAuthzFeatureService;
+import net.jeebiz.boot.authz.feature.setup.handler.FeatureFlatDataHandler;
+import net.jeebiz.boot.authz.feature.setup.handler.FeatureTreeDataHandler;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleAllotUserModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserDetailModel;
@@ -50,7 +55,13 @@ import net.jeebiz.boot.authz.rbac0.web.vo.AuthzUserDetailVo;
 public class AuthzRoleController extends BaseMapperController {
 
 	@Autowired
+	protected IAuthzFeatureService authzFeatureService;
+	@Autowired
 	private IAuthzRoleService authzRoleService;//角色管理SERVICE
+	@Autowired
+	protected FeatureTreeDataHandler featureTreeDataHandler;
+	@Autowired
+	protected FeatureFlatDataHandler featureFlatDataHandler;
 	
 	@ApiOperation(value = "role:roles", notes = "查询全部可用角色信息")
 	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询全部可用角色信息", opt = BusinessType.SELECT)
@@ -229,12 +240,64 @@ public class AuthzRoleController extends BaseMapperController {
 		return getAuthzRoleService().getFeatures(roleId);
 	}
 	
+	@ApiOperation(value = "feature:tree", notes = "查询功能菜单树形结构数据")
+	@BusinessLog(module = Constants.AUTHZ_FEATURE, business = "查询功能菜单树形结构数据", opt = BusinessType.SELECT)
+	@PostMapping("tree-features")
+	@RequiresPermissions("role:features")
+	@ResponseBody
+	public Object tree(@RequestParam String roleId){
+		// 所有的功能菜单
+		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
+		// 所有的功能操作按钮
+		List<AuthzFeatureOptModel> featureOptList = getAuthzRoleService().getFeatureOpts(roleId);
+		// 返回各级菜单 + 对应的功能权限数据
+		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureTreeDataHandler().handle(featureList, featureOptList));
+	}
+	
+	@ApiOperation(value = "feature:flat", notes = "查询功能菜单树扁平构数据")
+	@BusinessLog(module = Constants.AUTHZ_FEATURE, business = "查询功能菜单扁平结构数据", opt = BusinessType.SELECT)
+	@PostMapping("flat-features")
+	@RequiresPermissions("role:features")
+	@ResponseBody
+	public Object flat(@RequestParam String roleId){
+		// 所有的功能菜单
+		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
+		// 所有的功能操作按钮：标记按钮选中状态
+		List<AuthzFeatureOptModel> featureOptList = getAuthzRoleService().getFeatureOpts(roleId);
+		// 返回叶子节点菜单 + 对应的功能权限数据
+		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureFlatDataHandler().handle(featureList, featureOptList));
+	}
+	
 	public IAuthzRoleService getAuthzRoleService() {
 		return authzRoleService;
 	}
 
 	public void setAuthzRoleService(IAuthzRoleService authzRoleService) {
 		this.authzRoleService = authzRoleService;
+	}
+	
+	public IAuthzFeatureService getAuthzFeatureService() {
+		return authzFeatureService;
+	}
+
+	public void setAuthzFeatureService(IAuthzFeatureService authzFeatureService) {
+		this.authzFeatureService = authzFeatureService;
+	}
+	
+	public FeatureTreeDataHandler getFeatureTreeDataHandler() {
+		return featureTreeDataHandler;
+	}
+
+	public void setFeatureTreeDataHandler(FeatureTreeDataHandler featureTreeDataHandler) {
+		this.featureTreeDataHandler = featureTreeDataHandler;
+	}
+
+	public FeatureFlatDataHandler getFeatureFlatDataHandler() {
+		return featureFlatDataHandler;
+	}
+
+	public void setFeatureFlatDataHandler(FeatureFlatDataHandler featureFlatDataHandler) {
+		this.featureFlatDataHandler = featureFlatDataHandler;
 	}
 
 }

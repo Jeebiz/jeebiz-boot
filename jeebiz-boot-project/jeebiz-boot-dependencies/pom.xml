@@ -245,6 +245,7 @@
 		<sfntly.version>1.0.0</sfntly.version>
 		<sharding-jdbc.version>2.0.3</sharding-jdbc.version>
 		<shiro.version>1.4.0</shiro.version>
+		<shiro-biz.version>1.0.5.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
@@ -3171,7 +3172,11 @@
 				<artifactId>shiro-aspectj</artifactId>
 				<version>${shiro.version}</version>
 			</dependency>
-			
+			<dependency>
+			    <groupId>com.github.vindell</groupId>
+				<artifactId>shiro-biz</artifactId>
+				<version>${shiro-biz.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
 			<dependency>
 				<groupId>org.apache.shiro</groupId>

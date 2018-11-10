@@ -16,6 +16,17 @@
 		<result property="perms" column="F_PERMS" />
 	</resultMap>
 	
+	<resultMap id="AuthzFeatureOptMap" type="AuthzFeatureOptModel">
+		<result property="featureId" column="F_ID" />
+		<result property="id" column="OPT_ID" />
+		<result property="name" column="OPT_NAME" />
+		<result property="icon" column="OPT_ICON" />
+		<result property="order" column="OPT_ORDER" />
+		<result property="visible" column="OPT_VISIBLE" />
+		<result property="perms" column="OPT_PERMS" />
+		<result property="checked" column="OPT_CHECKED" />
+	</resultMap>
+	
 	<resultMap id="RoleMap" type="AuthzRoleModel">
 		<result property="id" column="R_ID" />
 		<result property="name" column="R_NAME" />
@@ -190,16 +201,34 @@
 				 FROM SYS_FEATURE_OPTS t1 
 				INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
 				WHERE t1.F_ID = t.F_ID
-					AND x.R_ID = #{roleId}
+				  AND x.R_ID = #{roleId}
 			 ) F_PERMS
 		FROM SYS_FEATURE_LIST t
-		WHERE EXISTS (
-			SELECT DISTINCT t1.F_ID
-				 FROM SYS_FEATURE_OPTS t1
-				INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
-				WHERE t1.F_ID = t.F_ID
-					AND x.R_ID = #{roleId}			 
+		WHERE t.F_URL != '#'
+		  AND EXISTS (
+		   SELECT DISTINCT t1.F_ID
+			 FROM SYS_FEATURE_OPTS t1
+			INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
+			WHERE t1.F_ID = t.F_ID
+			  AND x.R_ID = #{roleId}			 
 		)
 	</select>
     
+    <select id="getFeatureOpts" resultMap="AuthzFeatureOptMap" parameterType="java.lang.String">
+		SELECT
+			t.F_ID,
+			t.OPT_ID,
+			t.OPT_NAME,
+			t.OPT_ICON,
+			t.OPT_ORDER,
+			t.OPT_VISIBLE,
+			t.OPT_PERMS,
+			(CASE WHEN (SELECT COUNT(x.PERMS)
+				 FROM SYS_AUTHZ_ROLE_PERMS x
+				WHERE x.R_ID = #{roleId,jdbcType=VARCHAR}
+				 AND ( x.PERMS = t.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
+			 ) > 0 THEN 1 ELSE 0 END) OPT_CHECKED 
+		FROM SYS_FEATURE_OPTS t
+	</select>
+	
 </mapper>

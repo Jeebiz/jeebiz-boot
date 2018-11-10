@@ -30,6 +30,10 @@ public class AuthzFeatureOptVo {
 	 */
 	private String visible;
 	/**
+	 * 功能操作是否授权(1:已授权|0:未授权)
+	 */
+	private String checked;
+	/**
 	 * 功能操作权限标记
 	 */
 	private String perms;
@@ -80,6 +84,14 @@ public class AuthzFeatureOptVo {
 
 	public void setVisible(String visible) {
 		this.visible = visible;
+	}
+	
+	public String getChecked() {
+		return checked;
+	}
+
+	public void setChecked(String checked) {
+		this.checked = checked;
 	}
 
 	public String getPerms() {

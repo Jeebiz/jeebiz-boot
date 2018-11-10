@@ -2,20 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.jeebiz.boot.authz.rbac0.dao.IAuthzUserDao">
 	
-	<resultMap id="AuthzFeatureMap" type="AuthzFeatureModel">
-		<result property="id" column="F_ID" />
-		<result property="name" column="F_NAME" />
-		<result property="abb" column="F_ABB" />
-		<result property="code" column="F_CODE" />
-		<result property="url" column="F_URL" />
-		<result property="type" column="F_TYPE" />
-		<result property="icon" column="F_ICON" />
-		<result property="order" column="F_ORDER" />
-		<result property="parent" column="F_PARENT" />
-		<result property="visible" column="F_VISIBLE" />
-		<result property="perms" column="F_PERMS" />
-	</resultMap>
-	
 	<resultMap id="UserMap" type="AuthzUserModel">
 		<result property="id" column="U_ID" />
 		<result property="username" column="U_USERNAME" />
@@ -245,34 +231,4 @@
 		ORDER BY x.R_PRTY ASC
 	</select>
 	
-	<select id="getFeatures" resultMap="AuthzFeatureMap" parameterType="java.lang.String">
-		SELECT
-			t.F_ID,
-			t.F_NAME,
-			t.F_ABB,
-			t.F_CODE,
-			t.F_URL,
-			t.F_TYPE,
-			t.F_ICON,
-			t.F_ORDER,
-			t.F_PARENT,
-			t.F_VISIBLE,
-			(SELECT GROUP_CONCAT(t1.OPT_PERMS) PERMS
-				 FROM SYS_FEATURE_OPTS t1 
-				INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
-				INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON x.R_ID = y.R_ID
-				WHERE t1.F_ID = t.F_ID
-					AND y.U_ID = #{userId}
-			 ) F_PERMS
-		FROM SYS_FEATURE_LIST t 
-		WHERE EXISTS (
-			SELECT DISTINCT t1.F_ID
-			FROM SYS_FEATURE_OPTS t1
-		 INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
-		 INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON x.R_ID = y.R_ID
-		 WHERE t.F_ID = t1.F_ID 
-			 AND y.U_ID = #{userId}
-		)
-	</select>
-
 </mapper>
