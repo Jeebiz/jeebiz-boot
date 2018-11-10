@@ -26,6 +26,11 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 		</dependency>
+		<!-- For Guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
 		<!-- For Log4j -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
