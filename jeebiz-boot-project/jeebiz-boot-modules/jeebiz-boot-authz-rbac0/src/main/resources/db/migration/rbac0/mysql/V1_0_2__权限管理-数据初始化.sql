@@ -27,7 +27,7 @@ INSERT INTO SYS_FEATURE_LIST (F_ID, F_NAME, F_ABB, F_CODE, F_URL, F_TYPE, F_ICON
 VALUES ('19', '权限管理', '权限', 'perms', '', '1', '', '0', '1', '3');
 
 INSERT INTO SYS_FEATURE_LIST (F_ID, F_NAME, F_ABB, F_CODE, F_URL, F_TYPE, F_ICON, F_PARENT, F_VISIBLE, F_ORDER) 
-VALUES ('20', '角色管理', '角色', 'role', '', '1', '', '19', '1', '31');
+VALUES ('20', '角色管理', '角色', 'role', '/authz/role/ui/list', '1', '', '19', '1', '31');
 INSERT INTO SYS_FEATURE_OPTS (F_ID, OPT_NAME, OPT_ICON, OPT_VISIBLE, OPT_PERMS, OPT_ORDER)
 VALUES ('20', '查看', '', '0', 'role:list', 1);
 INSERT INTO SYS_FEATURE_OPTS (F_ID, OPT_NAME, OPT_ICON, OPT_VISIBLE, OPT_PERMS, OPT_ORDER)
@@ -38,7 +38,7 @@ INSERT INTO SYS_FEATURE_OPTS (F_ID, OPT_NAME, OPT_ICON, OPT_VISIBLE, OPT_PERMS, 
 VALUES ('20', '修改', '', '0', 'role:edit', 4);
 
 INSERT INTO SYS_FEATURE_LIST (F_ID, F_NAME, F_ABB, F_CODE, F_URL, F_TYPE, F_ICON, F_PARENT, F_VISIBLE, F_ORDER) 
-VALUES ('21', '用户管理', '用户', 'user', '', '1', '', '19', '1', '32');
+VALUES ('21', '用户管理', '用户', 'user', '/authz/user/ui/list', '1', '', '19', '1', '32');
 INSERT INTO SYS_FEATURE_OPTS (F_ID, OPT_NAME, OPT_ICON, OPT_VISIBLE, OPT_PERMS, OPT_ORDER)
 VALUES ('21', '查看', '', '0', 'user:list', 1);
 INSERT INTO SYS_FEATURE_OPTS (F_ID, OPT_NAME, OPT_ICON, OPT_VISIBLE, OPT_PERMS, OPT_ORDER)
