@@ -92,7 +92,7 @@
 		<cronet.version>66.3359.158</cronet.version>
 		<cssparser.version>0.9.26</cssparser.version>
 		<cxf.version>3.2.7</cxf.version>
-		<cxf-rt-javassist.version>1.0.0.RELEASE</cxf-rt-javassist.version>
+		<cxf-rt-javassist.version>1.0.1.RELEASE</cxf-rt-javassist.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.14.2.0</derby.version>
 		<derby-locale.version>${derby.version.version}</derby-locale.version>
@@ -185,7 +185,6 @@
 		<mina.version>2.0.16</mina.version>
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
-		<netty.version>4.1.29.Final</netty.version>
 		<netty-socketio.version>1.7.16</netty-socketio.version>
 		<nimbus-jose-jwt.version>6.0.2</nimbus-jose-jwt.version>
 		<log4j2.version>2.11.1</log4j2.version>
@@ -2464,12 +2463,6 @@
 				<groupId>io.netty</groupId>
 				<artifactId>netty-testsuite-osgi</artifactId>
 				<version>${netty.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-metrics-yammer</artifactId>
-				<version>4.0.0.Alpha8</version>
 			</dependency>
 			<dependency>
 				<groupId>io.netty</groupId>
