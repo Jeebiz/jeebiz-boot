@@ -393,7 +393,7 @@
 		<spring-boot-starter-pf4j2.version>1.0.5.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-redisson.version>3.8.1</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>1.0.0.RELEASE</spring-boot-starter-rocketmq.version>
-		<spring-boot-starter-schemacrawler.version>1.0.2.RELEASE</spring-boot-starter-schemacrawler.version>
+		<spring-boot-starter-schemacrawler.version>1.0.3.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-sharding-jdbc.version>2.0.3</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.3.RELEASE</spring-boot-starter-shiro-biz.version>
