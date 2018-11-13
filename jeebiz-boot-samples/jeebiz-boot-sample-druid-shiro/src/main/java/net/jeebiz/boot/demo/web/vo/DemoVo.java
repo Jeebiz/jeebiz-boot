@@ -6,7 +6,6 @@ package net.jeebiz.boot.demo.web.vo;
 
 import javax.validation.constraints.NotBlank;
 
-import org.github.vindell.validator.constraints.StrictMimeTypeCheck;
 import org.hibernate.validator.constraints.SafeHtml;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,7 +26,7 @@ public class DemoVo {
 	@SafeHtml(whitelistType = SafeHtml.WhiteListType.NONE)
 	private String text;
 	@ApiModelProperty(value = "文件")
-	@StrictMimeTypeCheck
+	//@StrictMimeTypeCheck
 	private MultipartFile file;
 
 	public String getId() {
