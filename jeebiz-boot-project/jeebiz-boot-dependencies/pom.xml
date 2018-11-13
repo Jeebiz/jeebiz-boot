@@ -214,11 +214,10 @@
 		<pf4j2-spring.version>0.5.0</pf4j2-spring.version>
 		<pf4j2-wicket.version>1.0.0</pf4j2-wicket.version>
 		<png-encoder.version>1.5</png-encoder.version>
-		<rabbit-amqp-client.version>5.4.1</rabbit-amqp-client.version>
+		<rabbit-amqp-client.version>5.5.0</rabbit-amqp-client.version>
 		<reflections.version>0.9.11</reflections.version>
-		<rocketmq.version>4.3.0</rocketmq.version>
-		<sentinel.version>0.2.0</sentinel.version>
-		<schemacrawler.version>15.01.05</schemacrawler.version>
+		<rocketmq.version>4.3.1</rocketmq.version>
+		<schemacrawler.version>15.01.06</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-derby.version>14.03.03</schemacrawler-derby.version>
@@ -360,7 +359,7 @@
 		<spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
 		<spring-boot-starter-casclient.version>1.0.1.RELEASE</spring-boot-starter-casclient.version>
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
-		<spring-boot-starter-cxf-jaxws-plus.version>1.0.0.RELEASE</spring-boot-starter-cxf-jaxws-plus.version>
+		<spring-boot-starter-cxf-jaxws-plus.version>1.0.1.RELEASE</spring-boot-starter-cxf-jaxws-plus.version>
 		<spring-boot-starter-disruptor.version>1.0.1.RELEASE</spring-boot-starter-disruptor.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
@@ -382,7 +381,7 @@
 		<spring-boot-starter-jcaptcha.version>1.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
 		<spring-boot-starter-kaptcha.version>1.0.2.RELEASE</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-kettle.version>1.0.0-SNAPSHOT</spring-boot-starter-kettle.version>
-		<spring-boot-starter-log4j2-plus.version>1.0.2.RELEASE</spring-boot-starter-log4j2-plus.version>
+		<spring-boot-starter-log4j2-plus.version>1.0.3.RELEASE</spring-boot-starter-log4j2-plus.version>
 		<spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version> 
 		<spring-boot-starter-maven-invoker.version>1.0.2.RELEASE</spring-boot-starter-maven-invoker.version> 
 		<spring-boot-starter-mybatis.version>1.3.2</spring-boot-starter-mybatis.version>
@@ -397,9 +396,9 @@
 		<spring-boot-starter-schemacrawler.version>1.0.2.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-sharding-jdbc.version>2.0.3</spring-boot-starter-sharding-jdbc.version>
-		<spring-boot-starter-shiro-biz.version>1.0.3-SNAPSHOT</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.0.3.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.1.RELEASE</spring-boot-starter-shiro-cas.version>
-		<spring-boot-starter-shiro-jwt.version>1.0.3-SNAPSHOT</spring-boot-starter-shiro-jwt.version>
+		<spring-boot-starter-shiro-jwt.version>1.0.3.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-ldap.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-ldap.version>
 		<spring-boot-starter-shiro-oauth2.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oauth2.version>
 		<spring-boot-starter-shiro-oidc.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oidc.version>
@@ -3011,25 +3010,6 @@
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>sunposition</artifactId>
 			    <version>4.0</version>
-			</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-core -->
-			<dependency>
-			    <groupId>com.alibaba.csp</groupId>
-			    <artifactId>sentinel-core</artifactId>
-			    <version>${sentinel.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-web-servlet -->
-			<dependency>
-			    <groupId>com.alibaba.csp</groupId>
-			    <artifactId>sentinel-web-servlet</artifactId>
-			    <version>${sentinel.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-dubbo-adapter -->
-			<dependency>
-			    <groupId>com.alibaba.csp</groupId>
-			    <artifactId>sentinel-dubbo-adapter</artifactId>
-			    <version>${sentinel.version}</version>
 			</dependency>
 			
 			<!-- JDBC Driver For SequoiaDB : https://mvnrepository.com/artifact/com.sequoiadb/sequoiadb-driver -->
