@@ -16,17 +16,17 @@
 		　　	%l   输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java: 10 ) 
 		-->
 		<!-- 定义LOG存储位置 -->
-		<Property name="LOG_HOME">/logs</Property>
+		<Property name="LOG_HOME">D:/Java/logs</Property>
 		<!-- 定义应用名称 -->
-        <property name="APP_NAME">jeebiz-sample</property>
+        <property name="APP_NAME">jeebiz-admin</property>
 		<!-- 日志输出格式:什么时间（日志时间）?什么应用（应用标记）?什么位置（线程、类、方法）?发送了什么（日志内容）? -->
 		<Property name="LOG_CONSOLE_LAYOUT">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{[${APP_NAME}]}{red} %clr{%5p} %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%xwEx</Property>
 		<Property name="LOG_CONSOLE_LAYOUT">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{[${APP_NAME}]}{red} [%clr{%p} %clr{${sys:PID}}{magenta}] %clr{---}{faint} %clr{[%t]}{faint} %clr{[%C:%M:%L]}{cyan} %clr{:}{faint} %m%n%xwEx</Property>
 		<Property name="LOG_FILE_LAYOUT">%d{yyyy-MM-dd HH:mm:ss.SSS} [${APP_NAME}] %p ${sys:PID} --- [%t] [%C:%M:%L] : %m%n%xwEx</Property>
 		<!-- 日志文件主名称规则 -->
-		<Property name="LOG_FILE_NAME">${LOG_HOME}/${APP_NAME}.log</Property>
+		<Property name="LOG_FILE_NAME">${LOG_HOME}/${APP_NAME}/log4j.log</Property>
 		<!-- 日志文件备份名称规则 -->
-		<Property name="LOG_FILE_PATTERN">${LOG_HOME}/back/${date:yyyy-MM}/${APP_NAME}-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="LOG_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/back/${date:yyyy-MM}/log4j-%d{yyyy-MM-dd}-%i.log.gz</Property>
 	</Properties>
 	
 	<!--先定义所有的appender-->
