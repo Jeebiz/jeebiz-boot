@@ -74,6 +74,8 @@ public final class FeatureNavUtils {
 				jsonObject.put("order", feature.getOrder());
 				// 父级功能菜单ID
 				jsonObject.put("parent", feature.getParent());
+				// 功能菜单URL
+				jsonObject.put("url", feature.getUrl());
 				// 菜单是否可见(1:可见|0:不可见)
 				jsonObject.put("visible", feature.getVisible());
 				// 菜单所拥有的权限标记
@@ -100,7 +102,7 @@ public final class FeatureNavUtils {
 		JSONArray jsonArray = new JSONArray();
 		//优先获得最顶层的菜单集合
 		List<AuthzFeatureModel> topFeatureList = featureList.stream()
-				.filter(feature ->  StringUtils.equals("0", feature.getId()))
+				.filter(feature -> StringUtils.equals("0", feature.getParent()))
 				.collect(Collectors.toList());
 		for (AuthzFeatureModel feature : topFeatureList) {
 			JSONObject jsonObject  = new JSONObject();
@@ -121,6 +123,8 @@ public final class FeatureNavUtils {
 			jsonObject.put("order", feature.getOrder());
 			// 父级功能菜单ID
 			jsonObject.put("parent", feature.getParent());
+			// 功能菜单URL
+			jsonObject.put("url", feature.getUrl());
 			// 菜单是否可见(1:可见|0:不可见)
 			jsonObject.put("visible", feature.getVisible());
 			// 菜单所拥有的权限标记
@@ -161,6 +165,8 @@ public final class FeatureNavUtils {
 			jsonObject.put("order", feature.getOrder());
 			// 父级功能菜单ID
 			jsonObject.put("parent", feature.getParent());
+			// 功能菜单URL
+			jsonObject.put("url", feature.getUrl());
 			// 菜单是否可见(1:可见|0:不可见)
 			jsonObject.put("visible", feature.getVisible());
 			// 菜单所拥有的权限标记
