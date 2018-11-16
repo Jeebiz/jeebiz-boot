@@ -140,7 +140,7 @@
 			y.R_ID
 		FROM SYS_AUTHZ_USER_LIST t
 		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
-		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.R_ID = y.R_ID
+		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.U_ID = t.U_ID
 	   WHERE t.U_ID = #{id}
 	</select>
 	
@@ -163,7 +163,7 @@
 			y.R_ID
 		FROM SYS_AUTHZ_USER_LIST t
 		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
-		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.R_ID = y.R_ID
+		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.U_ID = t.U_ID
 		<where>
 			<if test="status != null and status != ''">
 				and t.U_STATUS = #{status}
