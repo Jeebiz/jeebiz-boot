@@ -13,8 +13,8 @@ import net.jeebiz.boot.authz.feature.utils.FeatureNavUtils;
 public class FeatureFlatDataHandler implements FeatureDataHandler {
 
 	@Override
-	public String handle(List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
-		return FeatureNavUtils.getFeatureFlatList(featureList, featureOptList).toJSONString();
+	public Object handle(List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
+		return FeatureNavUtils.getFeatureFlatList(featureList, featureOptList);
 	}
 
 }

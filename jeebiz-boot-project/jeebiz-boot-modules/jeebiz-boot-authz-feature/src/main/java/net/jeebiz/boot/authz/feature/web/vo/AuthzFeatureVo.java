@@ -1,9 +1,14 @@
 package net.jeebiz.boot.authz.feature.web.vo;
 
+import java.util.List;
+
+import com.google.common.collect.Lists;
+
 import io.swagger.annotations.ApiModel;
 
+@SuppressWarnings("rawtypes")
 @ApiModel(value = "AuthzFeatureVo", description = "功能信息Vo")
-public class AuthzFeatureVo {
+public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 
 	/**
 	 * 功能菜单ID
@@ -13,6 +18,10 @@ public class AuthzFeatureVo {
 	 * 功能菜单名称
 	 */
 	private String name;
+	/**
+	 * 功能菜单界面显示标签
+	 */
+	private String label;
 	/**
 	 * 功能菜单简称
 	 */
@@ -49,6 +58,10 @@ public class AuthzFeatureVo {
 	 * 菜单所拥有的权限标记
 	 */
 	private String perms;
+	/**
+	 * 子菜单/功能按钮
+	 */
+	private List children = Lists.newArrayList();
 
 	public String getId() {
 		return id;
@@ -66,6 +79,14 @@ public class AuthzFeatureVo {
 		this.name = name;
 	}
 
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
 	public String getAbb() {
 		return abb;
 	}
@@ -73,7 +94,7 @@ public class AuthzFeatureVo {
 	public void setAbb(String abb) {
 		this.abb = abb;
 	}
-	
+
 	public String getCode() {
 		return code;
 	}
@@ -137,5 +158,18 @@ public class AuthzFeatureVo {
 	public void setPerms(String perms) {
 		this.perms = perms;
 	}
-	 
+
+	public List getChildren() {
+		return children;
+	}
+
+	public void setChildren(List children) {
+		this.children = children;
+	}
+	
+	@Override
+	public int compareTo(AuthzFeatureVo o) {
+		return order.compareTo(o.getOrder());
+	}
+
 }

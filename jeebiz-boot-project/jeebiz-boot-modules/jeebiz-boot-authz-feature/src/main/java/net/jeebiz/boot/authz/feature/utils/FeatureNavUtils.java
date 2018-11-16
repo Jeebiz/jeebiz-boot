@@ -6,187 +6,193 @@ import java.util.stream.Collectors;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 
 import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
 import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureOptModel;
+import net.jeebiz.boot.authz.feature.web.vo.AuthzFeatureOptVo;
+import net.jeebiz.boot.authz.feature.web.vo.AuthzFeatureVo;
 
 public final class FeatureNavUtils {
 	
-	protected static JSONArray getFeatureOptList(AuthzFeatureModel feature, List<AuthzFeatureOptModel> featureOptList) {
-		JSONArray jsonArray = new JSONArray();
+	protected static List<AuthzFeatureOptVo> getFeatureOptList(AuthzFeatureModel feature, List<AuthzFeatureOptModel> featureOptList) {
+		List<AuthzFeatureOptVo> featureOpts = Lists.newArrayList();
 		// 筛选当前菜单对应的操作按钮
 		List<AuthzFeatureOptModel> optList = featureOptList.stream()
 				.filter(featureOpt -> StringUtils.equals(feature.getId(), featureOpt.getFeatureId()))
 				.collect(Collectors.toList());
 		if(CollectionUtils.isNotEmpty(optList)){
 			for (AuthzFeatureOptModel opt : optList) {
-				JSONObject jsonObject  = new JSONObject();
+				AuthzFeatureOptVo optVo  = new AuthzFeatureOptVo();
 				// 功能菜单ID
-				jsonObject.put("id", feature.getId() + "_" + opt.getId());
+				optVo.setId(feature.getId() + "_" + opt.getId());
 				// 功能操作名称
-				jsonObject.put("name", opt.getName());
-				jsonObject.put("label", opt.getName());
+				optVo.setName(opt.getName());
 				// 功能操作图标样式
-				jsonObject.put("icon", opt.getIcon());
+				optVo.setIcon(opt.getIcon());
 				// 功能操作排序
-				jsonObject.put("order", opt.getOrder());
+				optVo.setOrder(opt.getOrder());
 				// 功能菜单ID
-				jsonObject.put("parent", opt.getFeatureId());
+				optVo.setFeatureId( opt.getFeatureId());
 				// 功能操作是否可见(1:可见|0:不可见)
-				jsonObject.put("visible", opt.getVisible());
+				optVo.setVisible(opt.getVisible());
 				// 功能操作权限标记
-				jsonObject.put("perms", opt.getPerms());
+				optVo.setPerms(opt.getPerms());
 				
-				jsonArray.add(jsonObject);
+				featureOpts.add(optVo);
 			}
-			return jsonArray;
+			return featureOpts.stream().sorted().collect(Collectors.toList());
 		}
-		return null;
+		return featureOpts;
 	}
 	
-	protected static JSONArray getSubFeatureList(AuthzFeatureModel parentNav,List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
+	protected static List<AuthzFeatureVo> getSubFeatureList(AuthzFeatureModel parentNav,List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
 		
-		JSONArray jsonArray = new JSONArray();
+		List<AuthzFeatureVo> features = Lists.newArrayList();
 		//筛选当前父功能模块节点的子功能模块节点数据
 		List<AuthzFeatureModel> childFeatureList = featureList.stream()
 				.filter(feature -> StringUtils.equals(parentNav.getId(), feature.getParent()))
 				.collect(Collectors.toList());
 		if(CollectionUtils.isNotEmpty(childFeatureList)){
 			for (AuthzFeatureModel feature : childFeatureList) {
-				JSONObject jsonObject  = new JSONObject();
+				AuthzFeatureVo featureVo = new AuthzFeatureVo();
 				// 功能菜单ID
-				jsonObject.put("id", feature.getId());
-				// 功能菜单编码：用于与功能操作代码组合出权限标记以及作为前段判断的依据
-				jsonObject.put("code", feature.getCode());
-				// 功能菜单名称
-				jsonObject.put("name", feature.getName());
+				featureVo.setId(feature.getId());
 				// 功能菜单简称
-				jsonObject.put("label", feature.getAbb());
-				jsonObject.put("abb", feature.getAbb());
+				featureVo.setAbb(feature.getAbb());
+				// 功能菜单编码：用于与功能操作代码组合出权限标记以及作为前段判断的依据
+				featureVo.setCode(feature.getCode());
+				// 功能菜单名称
+				featureVo.setName(feature.getName());
 				// 菜单类型(1:原生|2:自定义)
-				jsonObject.put("type", feature.getType());
+				featureVo.setType(feature.getType());
 				// 菜单样式或菜单图标路径
-				jsonObject.put("icon", feature.getIcon());
+				featureVo.setIcon(feature.getIcon());
 				// 菜单显示顺序
-				jsonObject.put("order", feature.getOrder());
+				featureVo.setOrder(feature.getOrder());
 				// 父级功能菜单ID
-				jsonObject.put("parent", feature.getParent());
+				featureVo.setParent(feature.getParent());
 				// 功能菜单URL
-				jsonObject.put("url", feature.getUrl());
+				featureVo.setUrl(feature.getUrl());
 				// 菜单是否可见(1:可见|0:不可见)
-				jsonObject.put("visible", feature.getVisible());
+				featureVo.setVisible(feature.getVisible());
 				// 菜单所拥有的权限标记
-				jsonObject.put("perms", feature.getPerms());
+				featureVo.setPerms(feature.getPerms());
 				// 路径为#表示有子菜单
 				if(StringUtils.equals("#", feature.getUrl())){
-					jsonObject.put("children", getSubFeatureList(feature, featureList, featureOptList));
+					featureVo.setChildren( getSubFeatureList(feature, featureList, featureOptList));
 				} else {
 					// 当前菜单的操作按钮
-					JSONArray featureOpts  = getFeatureOptList(feature, featureOptList);
+					List<AuthzFeatureOptVo> featureOpts  = getFeatureOptList(feature, featureOptList);
 					if(null != featureOpts && featureOpts.size() > 0) {
-						jsonObject.put("children", featureOpts);
+						featureVo.setChildren( featureOpts);
 					}
 				}
-				jsonArray.add(jsonObject);
+				features.add(featureVo);
 			}
-			return jsonArray;
+			return features.stream().sorted().collect(Collectors.toList());
 		}
-		return jsonArray;
+		return features;
 	}
 	
-	public static JSONArray getFeatureTreeList(List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
+	public static List<AuthzFeatureVo> getFeatureTreeList(List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
 		
-		JSONArray jsonArray = new JSONArray();
 		//优先获得最顶层的菜单集合
 		List<AuthzFeatureModel> topFeatureList = featureList.stream()
 				.filter(feature -> StringUtils.equals("0", feature.getParent()))
 				.collect(Collectors.toList());
-		for (AuthzFeatureModel feature : topFeatureList) {
-			JSONObject jsonObject  = new JSONObject();
-			// 功能菜单ID
-			jsonObject.put("id", feature.getId());
-			// 功能菜单编码：用于与功能操作代码组合出权限标记以及作为前段判断的依据
-			jsonObject.put("code", feature.getCode());
-			// 功能菜单名称
-			jsonObject.put("name", feature.getName());
-			// 功能菜单简称
-			jsonObject.put("label", feature.getAbb());
-			jsonObject.put("abb", feature.getAbb());
-			// 菜单类型(1:原生|2:自定义)
-			jsonObject.put("type", feature.getType());
-			// 菜单样式或菜单图标路径
-			jsonObject.put("icon", feature.getIcon());
-			// 菜单显示顺序
-			jsonObject.put("order", feature.getOrder());
-			// 父级功能菜单ID
-			jsonObject.put("parent", feature.getParent());
-			// 功能菜单URL
-			jsonObject.put("url", feature.getUrl());
-			// 菜单是否可见(1:可见|0:不可见)
-			jsonObject.put("visible", feature.getVisible());
-			// 菜单所拥有的权限标记
-			jsonObject.put("perms", feature.getPerms());
-			// 子菜单
-			JSONArray subFeatures  = getSubFeatureList(feature, featureList, featureOptList);
-			if(null != subFeatures && subFeatures.size() > 0) {
-				jsonObject.put("children", subFeatures);
-			}
+		List<AuthzFeatureVo> features = Lists.newArrayList();
+		if(CollectionUtils.isNotEmpty(topFeatureList)){
 			
-			jsonArray.add(jsonObject);
+			for (AuthzFeatureModel feature : topFeatureList) {
+				
+				AuthzFeatureVo featureVo = new AuthzFeatureVo();
+				// 功能菜单ID
+				featureVo.setId(feature.getId());
+				// 功能菜单简称
+				featureVo.setAbb(feature.getAbb());
+				// 功能菜单编码：用于与功能操作代码组合出权限标记以及作为前段判断的依据
+				featureVo.setCode(feature.getCode());
+				// 功能菜单名称
+				featureVo.setName(feature.getName());
+				// 菜单类型(1:原生|2:自定义)
+				featureVo.setType(feature.getType());
+				// 菜单样式或菜单图标路径
+				featureVo.setIcon(feature.getIcon());
+				// 菜单显示顺序
+				featureVo.setOrder(feature.getOrder());
+				// 父级功能菜单ID
+				featureVo.setParent(feature.getParent());
+				// 功能菜单URL
+				featureVo.setUrl(feature.getUrl());
+				// 菜单是否可见(1:可见|0:不可见)
+				featureVo.setVisible(feature.getVisible());
+				// 菜单所拥有的权限标记
+				featureVo.setPerms(feature.getPerms());
+				// 子菜单
+				List<AuthzFeatureVo> subFeatures  = getSubFeatureList(feature, featureList, featureOptList);
+				if(null != subFeatures && subFeatures.size() > 0) {
+					featureVo.setChildren(subFeatures);
+				}
+				features.add(featureVo);
+			}
+			return features.stream().sorted().collect(Collectors.toList());
 		}
-		return jsonArray;
+		return features;
 	}
 	
-	public static JSONArray getFeatureFlatList(List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
-		JSONArray jsonArray = new JSONArray();
+	public static List<AuthzFeatureVo> getFeatureFlatList(List<AuthzFeatureModel> featureList, List<AuthzFeatureOptModel> featureOptList) {
+		List<AuthzFeatureVo> features = Lists.newArrayList();
 		// 筛选菜单中的末节点的功能菜单
 		List<AuthzFeatureModel> leafFeatureList = featureList.stream()
 				.filter(feature -> StringUtils.isNotEmpty(feature.getParent())
 						&& !StringUtils.equals("0", feature.getParent()) && !StringUtils.equals("#", feature.getUrl()))
 				.collect(Collectors.toList());
-		for (AuthzFeatureModel feature : leafFeatureList) {
-			JSONObject jsonObject  = new JSONObject();
-			// 功能菜单ID
-			jsonObject.put("id", feature.getId());
-			// 功能菜单编码：用于与功能操作代码组合出权限标记以及作为前段判断的依据
-			jsonObject.put("code", feature.getCode());
-			// 功能菜单名称
-			jsonObject.put("name", feature.getName());
-			// 功能菜单简称
-			jsonObject.put("abb", feature.getAbb());
-			// 菜单类型(1:原生|2:自定义)
-			jsonObject.put("type", feature.getType());
-			// 菜单样式或菜单图标路径
-			jsonObject.put("icon", feature.getIcon());
-			// 菜单显示顺序
-			jsonObject.put("order", feature.getOrder());
-			// 父级功能菜单ID
-			jsonObject.put("parent", feature.getParent());
-			// 功能菜单URL
-			jsonObject.put("url", feature.getUrl());
-			// 菜单是否可见(1:可见|0:不可见)
-			jsonObject.put("visible", feature.getVisible());
-			// 菜单所拥有的权限标记
-			jsonObject.put("perms", feature.getPerms());
-			// Url属性不为#表示有父级菜单
-			if(!StringUtils.equals("#", feature.getUrl())){
-				jsonObject.put("label", getLabel(new StringBuilder(feature.getName()) , feature, featureList));
-			} else {
-				jsonObject.put("label", feature.getName());
-			}
+		if(CollectionUtils.isNotEmpty(leafFeatureList)){
 			
-			JSONArray featureOpts  = getFeatureOptList(feature, featureOptList);
-			if(null != featureOpts && featureOpts.size() > 0) {
-				// 当前菜单的操作按钮
-				jsonObject.put("children", featureOpts);
+			for (AuthzFeatureModel feature : leafFeatureList) {
+				
+				AuthzFeatureVo featureVo = new AuthzFeatureVo();
+				// 功能菜单ID
+				featureVo.setId(feature.getId());
+				// 功能菜单简称
+				featureVo.setAbb(feature.getAbb());
+				// 功能菜单编码：用于与功能操作代码组合出权限标记以及作为前段判断的依据
+				featureVo.setCode(feature.getCode());
+				// 功能菜单名称
+				featureVo.setName(feature.getName());
+				// 菜单类型(1:原生|2:自定义)
+				featureVo.setType(feature.getType());
+				// 菜单样式或菜单图标路径
+				featureVo.setIcon(feature.getIcon());
+				// 菜单显示顺序
+				featureVo.setOrder(feature.getOrder());
+				// 父级功能菜单ID
+				featureVo.setParent(feature.getParent());
+				// 功能菜单URL
+				featureVo.setUrl(feature.getUrl());
+				// 菜单是否可见(1:可见|0:不可见)
+				featureVo.setVisible(feature.getVisible());
+				// 菜单所拥有的权限标记
+				featureVo.setPerms(feature.getPerms());
+				// Url属性不为#表示有父级菜单
+				if(!StringUtils.equals("#", feature.getUrl())){
+					featureVo.setLabel(getLabel(new StringBuilder(feature.getName()) , feature, featureList).toString());
+				} else {
+					featureVo.setLabel( feature.getName());
+				}
+				
+				List<AuthzFeatureOptVo> featureOpts  = getFeatureOptList(feature, featureOptList);
+				if(null != featureOpts && featureOpts.size() > 0) {
+					// 当前菜单的操作按钮
+					featureVo.setChildren(featureOpts);
+				}
+				
+				features.add(featureVo);
 			}
-			
-			jsonArray.add(jsonObject);
+			return features.stream().sorted().collect(Collectors.toList());
 		}
-		return jsonArray;
+		return features;
 	}
 	
 	protected static StringBuilder getLabel(StringBuilder builder,AuthzFeatureModel leaf,List<AuthzFeatureModel> featureList) {

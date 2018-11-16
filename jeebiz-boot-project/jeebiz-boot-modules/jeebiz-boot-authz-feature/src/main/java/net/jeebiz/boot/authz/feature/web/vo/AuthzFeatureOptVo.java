@@ -3,7 +3,7 @@ package net.jeebiz.boot.authz.feature.web.vo;
 import io.swagger.annotations.ApiModel;
 
 @ApiModel(value = "AuthzFeatureOptVo", description = "功能操作参数Vo")
-public class AuthzFeatureOptVo {
+public class AuthzFeatureOptVo implements Comparable<AuthzFeatureOptVo> {
 	
 	/**
 	 * 功能菜单ID
@@ -100,6 +100,11 @@ public class AuthzFeatureOptVo {
 
 	public void setPerms(String perms) {
 		this.perms = perms;
+	}
+
+	@Override
+	public int compareTo(AuthzFeatureOptVo o) {
+		return order.compareTo(o.getOrder());
 	}
 	 
 }
