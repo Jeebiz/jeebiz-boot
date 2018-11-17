@@ -5,6 +5,8 @@ import java.util.Map;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import net.jeebiz.boot.api.dao.entities.PairModel;
+
 /**
  * 通用Service接口
  * @author <a href="https://github.com/vindell">vindell</a>
@@ -81,6 +83,14 @@ public interface BaseService<T> {
 	public int batchUpdate(List<T> list);
 	
 	/**
+	 * 更新数据状态
+	 * @param id
+	 * @param status
+	 * @return
+	 */
+	public int setStatus(String id, String status);
+	
+	/**
 	 * 分页查询
 	 * @param t
 	 * @return
@@ -129,5 +139,12 @@ public interface BaseService<T> {
 	 * @return
 	 */
 	public Map<String, String> getValues(String key);
+	
+	/**
+	 * 根据key查询该分组下的基础数据
+	 * @param key
+	 * @return
+	 */
+	public List<PairModel> getPairValues(String key);
 	
 }

@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import net.jeebiz.boot.api.dao.BaseDao;
 import net.jeebiz.boot.api.dao.entities.PaginationModel;
+import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
  * 通用Service实现，daoBase自动注入，不能存在多个实例
@@ -134,6 +135,11 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 		return dao.batchUpdate(list);
 	}
 
+	@Override
+	public int setStatus(String id, String status) {
+		return dao.setStatus(id, status);
+	}
+	
 	/**
 	 * 分页查询
 	 * 
@@ -177,7 +183,6 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @return
 	 */
 	public List<T> getModelList(T t) {
-
 		return dao.getModelList(t);
 	}
 
@@ -188,7 +193,6 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @return
 	 */
 	public List<T> getModelList(String key) {
-
 		return dao.getModelList(key);
 	}
 
@@ -208,6 +212,11 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 
 	public Map<String, String> getValues(String key) {
 		return dao.getValues(key);
+	}
+	
+	@Override
+	public List<PairModel> getPairValues(String key) {
+		return dao.getPairValues(key);
 	}
 
 	public E getDao() {
@@ -261,6 +270,5 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	public void setMessageSource(MessageSource messageSource) {
 		this.messageSource = messageSource;
 	}
-
 
 }

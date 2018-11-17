@@ -85,6 +85,14 @@ public interface BaseDao <T> {
 	public int batchUpdate(List<T> list);
 	
 	/**
+	 * 更新数据状态
+	 * @param id
+	 * @param status
+	 * @return
+	 */
+	public int setStatus(@Param("id") String id, @Param("status") String status);
+	
+	/**
 	 * 分页查询
 	 * @param t
 	 * @return
