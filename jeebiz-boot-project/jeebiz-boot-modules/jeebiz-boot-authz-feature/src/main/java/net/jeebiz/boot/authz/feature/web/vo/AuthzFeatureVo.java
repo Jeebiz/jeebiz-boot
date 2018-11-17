@@ -6,7 +6,6 @@ import com.google.common.collect.Lists;
 
 import io.swagger.annotations.ApiModel;
 
-@SuppressWarnings("rawtypes")
 @ApiModel(value = "AuthzFeatureVo", description = "功能信息Vo")
 public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 
@@ -59,10 +58,14 @@ public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 	 */
 	private String perms;
 	/**
-	 * 子菜单/功能按钮
+	 * 子菜单
 	 */
-	private List children = Lists.newArrayList();
-
+	private List<AuthzFeatureVo> children = Lists.newArrayList();
+	/**
+	 * 功能按钮
+	 */
+	private List<AuthzFeatureOptVo> opts = Lists.newArrayList();
+	
 	public String getId() {
 		return id;
 	}
@@ -159,14 +162,22 @@ public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 		this.perms = perms;
 	}
 
-	public List getChildren() {
+	public List<AuthzFeatureVo> getChildren() {
 		return children;
 	}
 
-	public void setChildren(List children) {
+	public void setChildren(List<AuthzFeatureVo> children) {
 		this.children = children;
 	}
-	
+
+	public List<AuthzFeatureOptVo> getOpts() {
+		return opts;
+	}
+
+	public void setOpts(List<AuthzFeatureOptVo> opts) {
+		this.opts = opts;
+	}
+
 	@Override
 	public int compareTo(AuthzFeatureVo o) {
 		return order.compareTo(o.getOrder());

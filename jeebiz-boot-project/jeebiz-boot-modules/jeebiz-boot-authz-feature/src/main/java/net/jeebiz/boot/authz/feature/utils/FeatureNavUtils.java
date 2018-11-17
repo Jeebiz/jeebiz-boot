@@ -85,7 +85,7 @@ public final class FeatureNavUtils {
 					// 当前菜单的操作按钮
 					List<AuthzFeatureOptVo> featureOpts  = getFeatureOptList(feature, featureOptList);
 					if(null != featureOpts && featureOpts.size() > 0) {
-						featureVo.setChildren( featureOpts);
+						featureVo.setOpts( featureOpts);
 					}
 				}
 				features.add(featureVo);
@@ -185,7 +185,7 @@ public final class FeatureNavUtils {
 				List<AuthzFeatureOptVo> featureOpts  = getFeatureOptList(feature, featureOptList);
 				if(null != featureOpts && featureOpts.size() > 0) {
 					// 当前菜单的操作按钮
-					featureVo.setChildren(featureOpts);
+					featureVo.setOpts(featureOpts);
 				}
 				
 				features.add(featureVo);
