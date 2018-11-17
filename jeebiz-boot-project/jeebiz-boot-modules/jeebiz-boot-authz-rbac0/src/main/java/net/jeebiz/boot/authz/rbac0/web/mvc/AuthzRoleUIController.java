@@ -30,7 +30,7 @@ public class AuthzRoleUIController extends BaseMapperController {
 	@GetMapping("list")
 	@RequiresPermissions("role:list")
 	public String list() {
-		return "html/authz/role/list";
+		return "html/authz/rbac0/role/list";
 	}
 	
 	@ApiIgnore

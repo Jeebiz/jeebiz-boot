@@ -38,7 +38,7 @@ public class AuthzUserUIController extends BaseMapperController {
 	@GetMapping("list")
 	@RequiresPermissions("user:list")
 	public String list() {
-		return "html/authz/user/list";
+		return "html/authz/rbac0/user/list";
 	}
 	
 	@ApiIgnore

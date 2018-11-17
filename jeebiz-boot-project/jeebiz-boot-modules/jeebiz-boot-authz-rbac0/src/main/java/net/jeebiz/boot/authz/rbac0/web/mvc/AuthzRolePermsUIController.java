@@ -29,14 +29,14 @@ public class AuthzRolePermsUIController extends BaseMapperController {
 	@RequestMapping(value = "new")
 	@RequiresPermissions("role:feature-new")
 	public String newRole() {
-		return "html/authz/role/newRole";
+		return "html/authz/rbac0/role/newRole";
 	}
 	
 	@ApiIgnore
 	@RequestMapping(value = "edit")
 	@RequiresPermissions("role:feature-edit")
 	public String editRole() {
-		return "html/authz/role/editRole";
+		return "html/authz/rbac0/role/editRole";
 	}
 	
 	public IAuthzRoleService getAuthzRoleService() {
