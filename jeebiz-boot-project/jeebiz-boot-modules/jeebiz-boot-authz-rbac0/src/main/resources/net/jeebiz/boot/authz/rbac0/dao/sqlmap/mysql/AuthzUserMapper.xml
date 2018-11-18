@@ -165,14 +165,14 @@
 		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
 		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.U_ID = t.U_ID
 		<where>
-			<if test="status != null and status != ''">
-				and t.U_STATUS = #{status}
+			<if test="model.status != null and model.status != ''">
+				and t.U_STATUS = #{model.status}
 			</if>
-			<if test="gender != null and gender != ''">
-				and x.D_GENDER = #{gender}
+			<if test="model.gender != null and model.gender != ''">
+				and x.D_GENDER = #{model.gender}
 			</if>
-			<if test="username != null and username != ''">
-				and t.U_USERNAME like '%'|| #{username} ||'%'
+			<if test="model.username != null and model.username != ''">
+				and t.U_USERNAME like '%'|| #{model.username} ||'%'
 			</if>
 		</where>
 	</select>
@@ -188,14 +188,14 @@
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t INNER JOIN SYS_AUTHZ_USER_ROLE_RELATION x ON t.R_ID = x.R_ID
 		WHERE x.U_ID = #{id}
-		<if test="status != null and status != ''">
-			and t.R_STATUS = #{status}
+		<if test="model.status != null and model.status != ''">
+			and t.R_STATUS = #{model.status}
 		</if>
-		<if test="type != null and type != ''">
-			and t.R_TYPE = #{type}
+		<if test="model.type != null and model.type != ''">
+			and t.R_TYPE = #{model.type}
 		</if>
-		<if test="name != null and name != ''">
-			and t.R_NAME like '%'|| #{name} ||'%'
+		<if test="model.name != null and model.name != ''">
+			and t.R_NAME like '%'|| #{model.name} ||'%'
 		</if>
 	</select>
 	
@@ -210,14 +210,14 @@
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
 		WHERE NOT EXISTS ( SELECT '1' FROM SYS_AUTHZ_USER_ROLE_RELATION z WHERE t.R_ID = z.R_ID and z.U_ID = #{id})
-		<if test="status != null and status != ''">
-			and t.R_STATUS = #{status}
+		<if test="model.status != null and model.status != ''">
+			and t.R_STATUS = #{model.status}
 		</if>
-		<if test="type != null and type != ''">
-			and t.R_TYPE = #{type}
+		<if test="model.type != null and model.type != ''">
+			and t.R_TYPE = #{model.type}
 		</if>
-		<if test="name != null and name != ''">
-			and t.R_NAME like '%'|| #{name} ||'%'
+		<if test="model.name != null and model.name != ''">
+			and t.R_NAME like '%'|| #{model.name} ||'%'
 		</if>
 	</select>
 	
