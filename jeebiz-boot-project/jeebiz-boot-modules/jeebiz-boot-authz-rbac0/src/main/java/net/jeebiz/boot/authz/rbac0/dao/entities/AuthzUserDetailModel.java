@@ -6,11 +6,11 @@ package net.jeebiz.boot.authz.rbac0.dao.entities;
 
 import org.apache.ibatis.type.Alias;
 
-import net.jeebiz.boot.api.dao.entities.BaseModel;
+import net.jeebiz.boot.api.dao.entities.PaginationModel;
 
 @Alias(value = "AuthzUserDetailModel")
 @SuppressWarnings("serial")
-public class AuthzUserDetailModel extends BaseModel {
+public class AuthzUserDetailModel extends PaginationModel {
 
 	/**
 	 * 用户ID
