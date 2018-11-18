@@ -116,17 +116,16 @@
 			(SELECT COUNT(x.R_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
-		<where>
-			<if test="model.status != null and model.status != ''">
-				and t.R_STATUS = #{model.status}
-			</if>
-			<if test="model.type != null and model.type != ''">
-				and t.R_TYPE = #{model.type}
-			</if>
-			<if test="model.name != null and model.name != ''">
-				and t.R_NAME like '%'|| #{model.name} ||'%'
-			</if>
-		</where>
+	   WHERE t.R_ID != 1
+		<if test="model.status != null and model.status != ''">
+			and t.R_STATUS = #{model.status}
+		</if>
+		<if test="model.type != null and model.type != ''">
+			and t.R_TYPE = #{model.type}
+		</if>
+		<if test="model.name != null and model.name != ''">
+			and t.R_NAME like '%'|| #{model.name} ||'%'
+		</if>
 	</select>
 
 	<insert id="setUsers">
