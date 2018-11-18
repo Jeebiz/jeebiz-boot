@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import io.swagger.annotations.Api;
@@ -33,8 +34,7 @@ import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
 import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureOptModel;
 import net.jeebiz.boot.authz.feature.service.IAuthzFeatureOptService;
 import net.jeebiz.boot.authz.feature.service.IAuthzFeatureService;
-import net.jeebiz.boot.authz.feature.setup.handler.FeatureFlatDataHandler;
-import net.jeebiz.boot.authz.feature.setup.handler.FeatureTreeDataHandler;
+import net.jeebiz.boot.authz.feature.setup.handler.FeatureDataHandlerFactory;
 import net.jeebiz.boot.authz.feature.web.vo.AuthzFeatureVo;
 
 @Api(tags = "功能菜单：数据维护（Ok）")
@@ -46,10 +46,6 @@ public class AuthzFeatureController extends BaseMapperController{
 	protected IAuthzFeatureService authzFeatureService;
 	@Autowired
 	protected IAuthzFeatureOptService authzFeatureOptService;
-	@Autowired
-	protected FeatureTreeDataHandler featureTreeDataHandler;
-	@Autowired
-	protected FeatureFlatDataHandler featureFlatDataHandler;
 	
 	@ApiOperation(value = "feature:list", notes = "查询功能菜单树形结构数据")
 	@ApiImplicitParams({ 
@@ -72,31 +68,37 @@ public class AuthzFeatureController extends BaseMapperController{
 	}
 	
 	@ApiOperation(value = "feature:tree", notes = "查询功能菜单树形结构数据")
+	@ApiImplicitParams({ 
+		@ApiImplicitParam( name = "handler", value = "数据处理实现对象名称", dataType = "String")
+	})
 	@BusinessLog(module = Constants.AUTHZ_FEATURE, business = "查询功能菜单树形结构数据", opt = BusinessType.SELECT)
 	@PostMapping("tree")
 	@RequiresPermissions("feature:list")
 	@ResponseBody
-	public Object tree(){
+	public Object tree(@RequestParam(required = false) String handler){
 		// 所有的功能菜单
 		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
 		// 所有的功能操作按钮
 		List<AuthzFeatureOptModel> featureOptList = getAuthzFeatureOptService().getFeatureOpts();
 		// 返回各级菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureTreeDataHandler().handle(featureList, featureOptList));
+		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getTreeHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	@ApiOperation(value = "feature:flat", notes = "查询功能菜单树扁平构数据")
+	@ApiImplicitParams({ 
+		@ApiImplicitParam( name = "handler", value = "数据处理实现对象名称", dataType = "String")
+	})
 	@BusinessLog(module = Constants.AUTHZ_FEATURE, business = "查询功能菜单扁平结构数据", opt = BusinessType.SELECT)
 	@PostMapping("flat")
 	@RequiresPermissions("feature:list")
 	@ResponseBody
-	public Object flat(){
+	public Object flat(@RequestParam(required = false) String handler){
 		// 所有的功能菜单
 		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
 		// 所有的功能操作按钮
 		List<AuthzFeatureOptModel> featureOptList = getAuthzFeatureOptService().getFeatureOpts();
 		// 返回叶子节点菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureFlatDataHandler().handle(featureList, featureOptList));
+		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getFlatHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	@ApiOperation(value = "feature:new", notes = "增加功能菜单信息")
@@ -166,22 +168,6 @@ public class AuthzFeatureController extends BaseMapperController{
 
 	public void setAuthzFeatureOptService(IAuthzFeatureOptService authzFeatureOptService) {
 		this.authzFeatureOptService = authzFeatureOptService;
-	}
-
-	public FeatureTreeDataHandler getFeatureTreeDataHandler() {
-		return featureTreeDataHandler;
-	}
-
-	public void setFeatureTreeDataHandler(FeatureTreeDataHandler featureTreeDataHandler) {
-		this.featureTreeDataHandler = featureTreeDataHandler;
-	}
-
-	public FeatureFlatDataHandler getFeatureFlatDataHandler() {
-		return featureFlatDataHandler;
-	}
-
-	public void setFeatureFlatDataHandler(FeatureFlatDataHandler featureFlatDataHandler) {
-		this.featureFlatDataHandler = featureFlatDataHandler;
 	}
 	
 }
