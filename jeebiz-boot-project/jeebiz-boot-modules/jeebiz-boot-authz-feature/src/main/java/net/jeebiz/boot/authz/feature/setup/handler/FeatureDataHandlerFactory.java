@@ -6,6 +6,8 @@ package net.jeebiz.boot.authz.feature.setup.handler;
 
 import java.util.Map;
 
+import org.springframework.util.StringUtils;
+
 import com.google.common.collect.Maps;
 
 public class FeatureDataHandlerFactory {
@@ -28,11 +30,17 @@ public class FeatureDataHandlerFactory {
 	}
 	
 	public static FeatureDataHandler getTreeHandler(String key) {
-		return COMPLETED_HANDLER.getOrDefault(key, featureTreeDataHandler);
+		if(StringUtils.hasText(key)) {
+			return COMPLETED_HANDLER.getOrDefault(key, featureTreeDataHandler);
+		}
+		return featureTreeDataHandler;
 	}
 	
 	public static FeatureDataHandler getFlatHandler(String key) {
-		return COMPLETED_HANDLER.getOrDefault(key, featureFlatDataHandler);
+		if(StringUtils.hasText(key)) {
+			return COMPLETED_HANDLER.getOrDefault(key, featureFlatDataHandler);
+		}
+		return featureFlatDataHandler;
 	}
 	
 	

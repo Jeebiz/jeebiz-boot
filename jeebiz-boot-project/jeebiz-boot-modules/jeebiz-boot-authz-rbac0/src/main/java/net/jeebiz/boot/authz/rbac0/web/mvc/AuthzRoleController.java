@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,8 +36,7 @@ import net.jeebiz.boot.api.webmvc.Result;
 import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureModel;
 import net.jeebiz.boot.authz.feature.dao.entities.AuthzFeatureOptModel;
 import net.jeebiz.boot.authz.feature.service.IAuthzFeatureService;
-import net.jeebiz.boot.authz.feature.setup.handler.FeatureFlatDataHandler;
-import net.jeebiz.boot.authz.feature.setup.handler.FeatureTreeDataHandler;
+import net.jeebiz.boot.authz.feature.setup.handler.FeatureDataHandlerFactory;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleAllotUserModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzUserDetailModel;
@@ -58,10 +58,6 @@ public class AuthzRoleController extends BaseMapperController {
 	protected IAuthzFeatureService authzFeatureService;
 	@Autowired
 	private IAuthzRoleService authzRoleService;//角色管理SERVICE
-	@Autowired
-	protected FeatureTreeDataHandler featureTreeDataHandler;
-	@Autowired
-	protected FeatureFlatDataHandler featureFlatDataHandler;
 	
 	@ApiOperation(value = "role:roles", notes = "查询全部可用角色信息")
 	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询全部可用角色信息", opt = BusinessType.SELECT)
@@ -100,10 +96,18 @@ public class AuthzRoleController extends BaseMapperController {
 	@PostMapping("new")
 	@RequiresPermissions("role:new")
 	@ResponseBody
-	public Object newRole(@Valid @RequestBody AuthzRoleVo roleVo) throws Exception { 
+	public Object newRole(@Valid @RequestBody AuthzRoleVo roleVo) throws Exception {
+		
+		if(CollectionUtils.isEmpty(roleVo.getPerms())) {
+			return fail("role.new.need-perms");
+		}
 		AuthzRoleModel model = getBeanMapper().map(roleVo, AuthzRoleModel.class);
+		model.setType("4");
 		int total = getAuthzRoleService().insert(model);
-		return success("role.new.success", total);
+		if(total > 0) {
+			return success("role.new.success", total);
+		}
+		return fail("role.new.fail");
 	}
 	
 	@ApiOperation(value = "role:renew", notes = "修改角色信息")
@@ -115,9 +119,15 @@ public class AuthzRoleController extends BaseMapperController {
 	@RequiresPermissions("role:renew")
 	@ResponseBody
 	public Object renewRole(@Valid @RequestBody AuthzRoleVo roleVo) throws Exception { 
+		if(CollectionUtils.isEmpty(roleVo.getPerms())) {
+			return fail("role.renew.need-perms");
+		}
 		AuthzRoleModel model = getBeanMapper().map(roleVo, AuthzRoleModel.class);
 		int total = getAuthzRoleService().update(model);
-		return success("role.renew.success", total);
+		if(total > 0) {
+			return success("role.renew.success", total);
+		}
+		return fail("role.renew.fail");
 	}
 	
 	@ApiOperation(value = "role:status", notes = "更新角色状态")
@@ -149,13 +159,13 @@ public class AuthzRoleController extends BaseMapperController {
 		return getAuthzRoleService().getModel(id);
 	}
 	
-	@ApiOperation(value = "role:del", notes = "删除角色信息")
+	@ApiOperation(value = "role:delete", notes = "删除角色信息")
 	@ApiImplicitParams({ 
 		@ApiImplicitParam( name = "id", required = true, value = "角色ID", dataType = "String")
 	})
 	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "删除角色-名称：${roleid}", opt = BusinessType.DELETE)
 	@PostMapping("delete/{id}")
-	@RequiresPermissions("role:del")
+	@RequiresPermissions("role:delete")
 	@ResponseBody
 	public Object delRole(@PathVariable("id") String id) throws Exception {
 		int result = getAuthzRoleService().delete(id);
@@ -245,68 +255,46 @@ public class AuthzRoleController extends BaseMapperController {
 	
 	@ApiOperation(value = "role:tree-features", notes = "查询指定角色ID拥有的功能菜单树形结构数据")
 	@ApiImplicitParams({
-		@ApiImplicitParam(name = "roleId", required = false, value = "角色ID", dataType = "String")
+		@ApiImplicitParam(name = "roleId", required = false, value = "角色ID", dataType = "String"),
+		@ApiImplicitParam( name = "handler", value = "数据处理实现对象名称", dataType = "String")
 	})
 	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询指定角色ID拥有的功能菜单树形结构数据", opt = BusinessType.SELECT)
-	@PostMapping("tree-features")
+	@PostMapping("features/tree")
 	@RequiresPermissions("role:features")
 	@ResponseBody
-	public Object tree(@RequestParam String roleId){
+	public Object tree(@RequestParam String roleId, @RequestParam(required = false) String handler){
 		// 所有的功能菜单
 		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
 		// 所有的功能操作按钮：标记按钮选中状态
 		List<AuthzFeatureOptModel> featureOptList = getAuthzRoleService().getFeatureOpts(roleId);
 		// 返回各级菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureTreeDataHandler().handle(featureList, featureOptList));
+		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getTreeHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	@ApiOperation(value = "role:flat-features", notes = "查询指定角色ID拥有的功能菜单树扁平构数据")
 	@ApiImplicitParams({
-		@ApiImplicitParam(name = "roleId", required = false, value = "角色ID", dataType = "String")
+		@ApiImplicitParam(name = "roleId", required = false, value = "角色ID", dataType = "String"),
+		@ApiImplicitParam( name = "handler", value = "数据处理实现对象名称", dataType = "String")
 	})
 	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "查询指定角色ID拥有的功能菜单扁平结构数据", opt = BusinessType.SELECT)
-	@PostMapping("flat-features")
+	@PostMapping("features/flat")
 	@RequiresPermissions("role:features")
 	@ResponseBody
-	public Object flat(@RequestParam String roleId){
+	public Object flat(@RequestParam String roleId, @RequestParam(required = false) String handler){
 		// 所有的功能菜单
 		List<AuthzFeatureModel> featureList = getAuthzFeatureService().getFeatureList();
 		// 所有的功能操作按钮：标记按钮选中状态
 		List<AuthzFeatureOptModel> featureOptList = getAuthzRoleService().getFeatureOpts(roleId);
 		// 返回叶子节点菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, getFeatureFlatDataHandler().handle(featureList, featureOptList));
+		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getFlatHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	public IAuthzRoleService getAuthzRoleService() {
 		return authzRoleService;
 	}
 
-	public void setAuthzRoleService(IAuthzRoleService authzRoleService) {
-		this.authzRoleService = authzRoleService;
-	}
-	
 	public IAuthzFeatureService getAuthzFeatureService() {
 		return authzFeatureService;
-	}
-
-	public void setAuthzFeatureService(IAuthzFeatureService authzFeatureService) {
-		this.authzFeatureService = authzFeatureService;
-	}
-	
-	public FeatureTreeDataHandler getFeatureTreeDataHandler() {
-		return featureTreeDataHandler;
-	}
-
-	public void setFeatureTreeDataHandler(FeatureTreeDataHandler featureTreeDataHandler) {
-		this.featureTreeDataHandler = featureTreeDataHandler;
-	}
-
-	public FeatureFlatDataHandler getFeatureFlatDataHandler() {
-		return featureFlatDataHandler;
-	}
-
-	public void setFeatureFlatDataHandler(FeatureFlatDataHandler featureFlatDataHandler) {
-		this.featureFlatDataHandler = featureFlatDataHandler;
 	}
 
 }

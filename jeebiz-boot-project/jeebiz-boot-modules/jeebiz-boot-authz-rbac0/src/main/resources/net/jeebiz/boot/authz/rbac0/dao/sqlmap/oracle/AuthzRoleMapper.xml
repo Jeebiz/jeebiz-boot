@@ -35,6 +35,10 @@
 		<result property="status" column="R_STATUS" />
 		<result property="users" column="R_USERS" />
 		<result property="time24" column="R_TIME24" />
+		<!-- 将 perms list属性映射到collection : http://jaychang.iteye.com/blog/2357143 -->
+        <collection property="perms" column="R_ID" select="getPermsByRoleId">  
+            <result column="perm" />  
+        </collection> 
 	</resultMap>
 	
 	<resultMap id="UserDetailMap" type="AuthzUserDetailModel">
@@ -84,6 +88,10 @@
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
 	</select>
+	
+	<select id="getPermsByRoleId" resultType="string">  
+        SELECT x.PERMS FROM SYS_AUTHZ_ROLE_PERMS x WHERE x.R_ID = #{id}  
+    </select>
 	
 	<select id="getModel" resultMap="RoleMap" parameterType="java.lang.String">
 		SELECT

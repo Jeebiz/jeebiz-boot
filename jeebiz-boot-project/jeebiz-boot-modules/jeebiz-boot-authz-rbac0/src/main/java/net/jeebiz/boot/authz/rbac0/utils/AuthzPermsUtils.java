@@ -38,6 +38,8 @@ public class AuthzPermsUtils {
 	public static List<String> distinct(List<String> originPerms){
 		List<String> perms = Lists.newArrayList();
 		if(!CollectionUtils.isEmpty(originPerms)) {
+			// 进行数据处理
+			originPerms = originPerms.stream().filter(p -> StringUtils.hasText(p) && p.split(":").length > 0).collect(Collectors.toList());
 			// 权限标记处理，这里的每个元素可能是多个标记的组合
 			for(String perm : originPerms) {
 				perm = StringUtils.trimAllWhitespace(perm);
