@@ -49,10 +49,10 @@ public class AuthzUserUIController extends BaseMapperController {
 	}
 	
 	@ApiIgnore
-	@GetMapping("edit")
-	@RequiresPermissions("user:edit")
-	public String edit() {
-		return "html/authz/rbac0/user/edit";
+	@GetMapping("renew")
+	@RequiresPermissions("user:renew")
+	public String renew() {
+		return "html/authz/rbac0/user/renew";
 	}
 	
 	@ApiIgnore

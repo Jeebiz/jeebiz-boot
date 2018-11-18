@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.collect.Lists;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -31,6 +32,7 @@ import io.swagger.annotations.ApiOperation;
 import net.jeebiz.boot.api.annotation.BusinessLog;
 import net.jeebiz.boot.api.annotation.BusinessType;
 import net.jeebiz.boot.api.utils.Constants;
+import net.jeebiz.boot.api.utils.StringUtils;
 import net.jeebiz.boot.api.webmvc.BaseMapperController;
 import net.jeebiz.boot.api.webmvc.Result;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRoleModel;
@@ -111,27 +113,27 @@ public class AuthzUserController extends BaseMapperController {
 		return success("user.new.success", total);
 	}
 	
-	@ApiOperation(value = "user:edit", notes = "修改用户信息")
+	@ApiOperation(value = "user:renew", notes = "修改用户信息")
 	@ApiImplicitParams({ 
 		@ApiImplicitParam(paramType = "body", name = "userVo", value = "用户信息", dataType = "AuthzUserDetailVo")
 	})
 	@BusinessLog(module = Constants.AUTHZ_USER, business = "修改用户-名称：${name}", opt = BusinessType.UPDATE)
-	@PostMapping("edit")
-	@RequiresPermissions("user:edit")
+	@PostMapping("renew")
+	@RequiresPermissions("user:renew")
 	@ResponseBody
-	public Object editUser(@Valid @RequestBody AuthzUserDetailVo userVo) throws Exception { 
+	public Object renewUser(@Valid @RequestBody AuthzUserDetailVo userVo) throws Exception { 
 		AuthzUserDetailModel model = getBeanMapper().map(userVo, AuthzUserDetailModel.class);
 		int total = getAuthzUserService().update(model);
-		return success("user.edit.success", total);
+		return success("user.renew.success", total);
 	}
 	
 	@ApiOperation(value = "user:status", notes = "更新用户状态")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "id", required = true, value = "用户ID", dataType = "String"),
-		@ApiImplicitParam(name = "status", required = true, value = "用户状态", dataType = "String", allowableValues = "2,1,0")
+		@ApiImplicitParam(name = "status", required = true, value = "用户状态", dataType = "String", allowableValues = "1,0")
 	})
 	@BusinessLog(module = Constants.AUTHZ_USER, business = "更新用户状态", opt = BusinessType.UPDATE)
-	@PostMapping(value = "status")
+	@PostMapping("status")
 	@RequiresPermissions("user:status")
 	@ResponseBody
 	public Object status(@RequestParam String id, @RequestParam String status) throws Exception {
@@ -142,17 +144,19 @@ public class AuthzUserController extends BaseMapperController {
 		return fail("user.status.fail", result);
 	}
 	
-	@ApiOperation(value = "user:del", notes = "删除用户信息")
+	@ApiOperation(value = "user:delete", notes = "删除用户信息")
 	@ApiImplicitParams({ 
-		@ApiImplicitParam( name = "userid", required = true, value = "用户ID", dataType = "String")
+		@ApiImplicitParam(name = "ids", value = "基础数据ID,多个用,拼接", required = true, dataType = "String")
 	})
 	@BusinessLog(module = Constants.AUTHZ_USER, business = "删除用户-名称：${userid}", opt = BusinessType.DELETE)
-	@PostMapping("delete/{userid}")
-	@RequiresPermissions("user:del")
+	@PostMapping("delete")
+	@RequiresPermissions("user:delete")
 	@ResponseBody
-	public Object delRole(@PathVariable String userid) throws Exception { 
-		int total = getAuthzUserService().delete(userid);
-		return success("user.del.success", total);
+	public Object delRole(@RequestParam String ids) throws Exception {
+		// 执行基础数据删除操作
+		List<String> idList = Lists.newArrayList(StringUtils.tokenizeToStringArray(ids));
+		int result = getAuthzUserService().batchDelete(idList);
+		return success("user.del.success", result);
 	}
 	
 	@ApiOperation(value = "user:allocated", notes = "分页查询用户已分配角色信息")

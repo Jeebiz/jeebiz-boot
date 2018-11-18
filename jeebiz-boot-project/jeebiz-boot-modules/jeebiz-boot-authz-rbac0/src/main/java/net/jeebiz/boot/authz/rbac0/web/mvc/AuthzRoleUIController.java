@@ -41,10 +41,10 @@ public class AuthzRoleUIController extends BaseMapperController {
 	}
 	
 	@ApiIgnore
-	@GetMapping("edit")
-	@RequiresPermissions("role:edit")
-	public String edit() {
-		return "html/authz/rbac0/role/edit";
+	@GetMapping("renew")
+	@RequiresPermissions("role:renew")
+	public String renew() {
+		return "html/authz/rbac0/role/renew";
 	}
 	
 	public IAuthzRoleService getAuthzRoleService() {

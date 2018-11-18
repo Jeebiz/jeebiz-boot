@@ -67,6 +67,13 @@
 		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID = #{id}
 	</delete>
 	
+	<delete id="batchDelete">
+		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID IN 
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">  
+           #{item} 
+        </foreach>
+	</delete>
+	
 	<delete id="deleteDetail" parameterType="java.lang.String">
 		DELETE FROM SYS_AUTHZ_USER_DETAIL WHERE U_ID = #{id}
 	</delete>

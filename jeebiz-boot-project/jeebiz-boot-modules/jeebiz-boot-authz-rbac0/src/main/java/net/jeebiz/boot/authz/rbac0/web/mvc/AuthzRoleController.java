@@ -106,27 +106,27 @@ public class AuthzRoleController extends BaseMapperController {
 		return success("role.new.success", total);
 	}
 	
-	@ApiOperation(value = "role:edit", notes = "修改角色信息")
+	@ApiOperation(value = "role:renew", notes = "修改角色信息")
 	@ApiImplicitParams({ 
 		@ApiImplicitParam(paramType = "body", name = "roleVo", value = "角色信息", dataType = "AuthzRoleVo")
 	})
 	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "修改角色-名称：${name}", opt = BusinessType.UPDATE)
-	@PostMapping("edit")
-	@RequiresPermissions("role:edit")
+	@PostMapping("renew")
+	@RequiresPermissions("role:renew")
 	@ResponseBody
-	public Object editRole(@Valid @RequestBody AuthzRoleVo roleVo) throws Exception { 
+	public Object renewRole(@Valid @RequestBody AuthzRoleVo roleVo) throws Exception { 
 		AuthzRoleModel model = getBeanMapper().map(roleVo, AuthzRoleModel.class);
 		int total = getAuthzRoleService().update(model);
-		return success("role.edit.success", total);
+		return success("role.renew.success", total);
 	}
 	
 	@ApiOperation(value = "role:status", notes = "更新角色状态")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "id", required = true, value = "角色ID", dataType = "String"),
-		@ApiImplicitParam(name = "status", required = true, value = "角色状态", dataType = "String", allowableValues = "2,1,0")
+		@ApiImplicitParam(name = "status", required = true, value = "角色状态", dataType = "String", allowableValues = "1,0")
 	})
 	@BusinessLog(module = Constants.AUTHZ_ROLE, business = "更新角色状态", opt = BusinessType.UPDATE)
-	@PostMapping(value = "status")
+	@PostMapping("status")
 	@RequiresPermissions("role:status")
 	@ResponseBody
 	public Object status(@RequestParam String id, @RequestParam String status) throws Exception {
@@ -157,9 +157,12 @@ public class AuthzRoleController extends BaseMapperController {
 	@PostMapping("delete/{id}")
 	@RequiresPermissions("role:del")
 	@ResponseBody
-	public Object delRole(@PathVariable("id") String id) throws Exception { 
-		int total = getAuthzRoleService().delete(id);
-		return success("role.del.success", total);
+	public Object delRole(@PathVariable("id") String id) throws Exception {
+		int result = getAuthzRoleService().delete(id);
+		if(result == 1) {
+			return success("role.del.success", result);
+		}
+		return fail("role.del.fail", result);
 	}
 	
 	@ApiOperation(value = "role:allocated", notes = "分页查询角色已分配用户信息")
