@@ -71,6 +71,10 @@
 		    <groupId>com.github.theborakompanioni</groupId>
 		    <artifactId>thymeleaf-extras-shiro</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>webjars-locator</artifactId>
+		</dependency>
 		<!-- For Captcha -->
 		<dependency>
 			<groupId>com.github.vindell</groupId>
