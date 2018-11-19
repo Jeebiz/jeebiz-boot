@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringValueResolver;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -53,39 +54,40 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 
 	/**
 	 * 增加记录
-	 * 
-	 * @param t
-	 *            实体对象
+	 * @param t 实体对象
 	 * @return 是否增加成功
 	 */
+	@Transactional
 	public int insert(T t) {
 		return dao.insert(t);
 	}
 
 	/**
 	 * 修改记录
-	 * 
 	 * @param t
 	 * @return
 	 */
+	@Transactional
 	public int update(T t) {
 		return dao.update(t);
 	}
 
+	@Transactional
 	public int delete(String id) {
 		return dao.delete(id);
 	}
 	
+	@Transactional
 	public int delete(T t) {
 		return dao.delete(t);
 	}
 
 	/**
 	 * 查询单条数据
-	 * 
 	 * @param id
 	 * @return
 	 */
+	@Transactional
 	public T getModel(String id) {
 		return dao.getModel(id);
 	}
@@ -96,46 +98,49 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param t
 	 * @return
 	 */
+	@Transactional
 	public T getModel(T t) {
 		return dao.getModel(t);
 	}
 
 	/**
 	 * 批量删除
-	 * 
 	 * @param map
 	 * @return
 	 */
+	@Transactional
 	public int batchDelete(Map<String, Object> map) {
 		return dao.batchDelete(map);
 	}
 
 	/**
 	 * 批量删除
-	 * 
 	 * @param list
 	 * @return
 	 */
+	@Transactional
 	public int batchDelete(List<?> list) {
 		return dao.batchDelete(list);
 	}
 
 	/**
 	 * 批量删除
-	 * 
 	 * @param map
 	 * @return
 	 */
+	@Transactional
 	public int batchUpdate(Map<String, Object> map) {
 		return dao.batchUpdate(map);
 	}
 
 	@Override
+	@Transactional
 	public int batchUpdate(List<T> list) {
 		return dao.batchUpdate(list);
 	}
 
 	@Override
+	@Transactional
 	public int setStatus(String id, String status) {
 		return dao.setStatus(id, status);
 	}
@@ -147,6 +152,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @return
 	 */
 	@Override
+	@Transactional
 	public Page<T> getPagedList(T t) {
 		
 		PaginationModel tModel = (PaginationModel) t;
@@ -167,6 +173,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * 分页查询
 	 */
 	@Override
+	@Transactional
 	public Page<T> getPagedList(Page<T> page,T t) {
 		
 		List<T> records = dao.getPagedList(page, t);

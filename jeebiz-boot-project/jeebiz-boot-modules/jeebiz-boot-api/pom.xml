@@ -75,6 +75,11 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-webmvc</artifactId>
 		</dependency>
+		<!-- For Spring Tx -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		</dependency>
 		<!-- For Spring Starter Core -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
