@@ -89,7 +89,7 @@ comment on column SYS_AUTHZ_USER_DETAIL.D_IDCARD  is '身份证号码';
 create table SYS_AUTHZ_USER_ROLE_RELATION (
   U_ID   			VARCHAR2(32) not null,
   R_ID   			VARCHAR2(32) not null,
-  R_PRTY			VARCHAR2(2) not null,
+  R_PRTY			VARCHAR2(2) not null default 0,
   primary key (U_ID, R_ID)
 );
 -- Add comments to the table 

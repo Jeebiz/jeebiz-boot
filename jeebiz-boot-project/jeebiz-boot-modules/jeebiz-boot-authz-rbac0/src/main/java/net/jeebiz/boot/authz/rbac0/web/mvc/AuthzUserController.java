@@ -109,8 +109,11 @@ public class AuthzUserController extends BaseMapperController {
 	@ResponseBody
 	public Object newUser(@Valid @RequestBody AuthzUserDetailVo userVo) throws Exception { 
 		AuthzUserDetailModel model = getBeanMapper().map(userVo, AuthzUserDetailModel.class);
-		int total = getAuthzUserService().insert(model);
-		return success("user.new.success", total);
+		int result = getAuthzUserService().insert(model);
+		if(result == 1) {
+			return success("user.new.success", result);
+		}
+		return fail("user.new.fail", result);
 	}
 	
 	@ApiOperation(value = "user:renew", notes = "修改用户信息")
@@ -121,10 +124,13 @@ public class AuthzUserController extends BaseMapperController {
 	@PostMapping("renew")
 	@RequiresPermissions("user:renew")
 	@ResponseBody
-	public Object renewUser(@Valid @RequestBody AuthzUserDetailVo userVo) throws Exception { 
+	public Object renew(@Valid @RequestBody AuthzUserDetailVo userVo) throws Exception { 
 		AuthzUserDetailModel model = getBeanMapper().map(userVo, AuthzUserDetailModel.class);
-		int total = getAuthzUserService().update(model);
-		return success("user.renew.success", total);
+		int result = getAuthzUserService().update(model);
+		if(result == 1) {
+			return success("user.renew.success", result);
+		}
+		return fail("user.renew.fail", result);
 	}
 	
 	@ApiOperation(value = "user:status", notes = "更新用户状态")

@@ -13,9 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import net.jeebiz.boot.api.webmvc.BaseMapperController;
 import net.jeebiz.boot.authz.rbac0.service.IAuthzRoleService;
 import net.jeebiz.boot.authz.rbac0.service.IAuthzUserService;
@@ -44,14 +47,20 @@ public class AuthzUserUIController extends BaseMapperController {
 	@ApiIgnore
 	@GetMapping("new")
 	@RequiresPermissions("user:new")
-	public String newUser() {
+	public String newUser(Model model) {
+		model.addAttribute("roles", getAuthzRoleService().getRoles());
 		return "html/authz/rbac0/user/new";
 	}
 	
 	@ApiIgnore
-	@GetMapping("renew")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "id", required = true, value = "用户信息ID", dataType = "String")
+	})
+	@GetMapping("renew/{id}")
 	@RequiresPermissions("user:renew")
-	public String renew() {
+	public String renew(@PathVariable("id") String id, Model model) {
+		model.addAttribute("model", getAuthzUserService().getModel(id));
+		model.addAttribute("roles", getAuthzRoleService().getRoles());
 		return "html/authz/rbac0/user/renew";
 	}
 	
@@ -60,7 +69,7 @@ public class AuthzUserUIController extends BaseMapperController {
 	@RequiresPermissions("user:set-info")
 	public String info(HttpServletRequest request, Model model) {
 		ShiroPrincipal principal = SubjectUtils.getPrincipal(ShiroPrincipal.class);
-		model.addAttribute("info", getAuthzUserService().getModel(principal.getUserid()));
+		model.addAttribute("model", getAuthzUserService().getModel(principal.getUserid()));
 		model.addAttribute("roles", getAuthzRoleService().getRoles());
 		return "html/authz/rbac0/user/info";
 	}
