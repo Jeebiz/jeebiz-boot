@@ -108,6 +108,10 @@ public class AuthzUserController extends BaseMapperController {
 	@RequiresPermissions("user:new")
 	@ResponseBody
 	public Object newUser(@Valid @RequestBody AuthzUserDetailVo userVo) throws Exception { 
+		int total = getAuthzUserService().getCountByName(userVo.getUsername());
+		if(total > 0) {
+			return fail("user.new.exists");
+		}
 		AuthzUserDetailModel model = getBeanMapper().map(userVo, AuthzUserDetailModel.class);
 		int result = getAuthzUserService().insert(model);
 		if(result == 1) {

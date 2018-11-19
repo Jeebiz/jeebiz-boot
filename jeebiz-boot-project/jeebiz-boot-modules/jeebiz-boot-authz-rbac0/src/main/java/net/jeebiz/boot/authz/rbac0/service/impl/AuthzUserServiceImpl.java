@@ -92,6 +92,11 @@ public class AuthzUserServiceImpl extends BaseServiceImpl<AuthzUserDetailModel, 
 	}
 	
 	@Override
+	public int getCountByName(String username) {
+		return getDao().getCountByName(username);
+	}
+	
+	@Override
 	public List<String> getRoles(String userId) {
 		return getDao().getRoles(userId);
 	}

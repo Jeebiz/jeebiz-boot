@@ -38,6 +38,12 @@ public interface IAuthzRoleService extends BaseService<AuthzRoleModel>{
 	 * @return
 	 */
 	public int setStatus( String roleId, String status);
+
+	/**
+	 * 根据名称查询相同名称角色数量
+	 * @return
+	 */
+	public int getCountByName(String roleName);
 	
 	/**
 	 * 查询系统可用角色信息

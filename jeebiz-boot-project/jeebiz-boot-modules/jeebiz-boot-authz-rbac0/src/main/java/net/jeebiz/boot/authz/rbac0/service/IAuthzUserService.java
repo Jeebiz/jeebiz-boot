@@ -57,6 +57,12 @@ public interface IAuthzUserService extends BaseService<AuthzUserDetailModel> {
 	 * @return
 	 */
 	public int doUnAllot(AuthzUserAllotRoleModel model);
+
+	/**
+	 * 根据名称查询相同名称角用户数量
+	 * @return
+	 */
+	public int getCountByName(String username);
 	
 	/**
 	 * 获取用户已分配角色ID

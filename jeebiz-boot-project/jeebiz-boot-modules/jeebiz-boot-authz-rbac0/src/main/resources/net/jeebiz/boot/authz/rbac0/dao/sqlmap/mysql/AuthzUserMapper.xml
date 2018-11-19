@@ -127,6 +127,10 @@
 		 WHERE t.U_ID = #{userId}
 	</update>
 	
+	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
+		SELECT count(t.U_ID) FROM SYS_AUTHZ_USER_LIST t WHERE t.U_USERNAME like '%'|| #{username} ||'%'
+	</select>
+	
 	<select id="getModel" resultMap="UserDetailMap" parameterType="java.lang.String">
 		SELECT
 			t.U_ID,

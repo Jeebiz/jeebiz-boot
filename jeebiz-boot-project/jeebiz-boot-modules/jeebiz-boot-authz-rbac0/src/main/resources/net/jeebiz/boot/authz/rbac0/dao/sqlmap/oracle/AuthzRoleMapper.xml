@@ -78,6 +78,16 @@
 		where t.R_ID = #{id}
 	</update>
 	
+	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
+		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME t.R_NAME LIKE '%' || #{roleName} ||'%'
+	</select>
+	
+	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel">
+		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t 
+		 WHERE t.R_NAME t.R_NAME LIKE '%' || #{roleName} ||'%' 
+		   AND t.R_ID != #{id}
+	</select>
+	
 	<select id="getRoles" resultMap="RoleMap">
 		SELECT
 			t.R_ID,

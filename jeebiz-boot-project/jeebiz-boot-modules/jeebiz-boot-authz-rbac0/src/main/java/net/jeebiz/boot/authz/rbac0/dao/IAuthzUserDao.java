@@ -79,6 +79,13 @@ public interface IAuthzUserDao extends BaseDao<AuthzUserDetailModel>{
 	public int setStatus(@Param("userId") String userId, @Param("status") String status);
 	
 	/**
+	 * 根据名称查询相同名称角用户数量
+	 * @param username 用户名
+	 * @return
+	 */
+	public int getCountByName( @Param("username") String username);
+	
+	/**
 	 * 获取用户已分配角色ID
 	 * @param userId 用户ID
 	 * @return

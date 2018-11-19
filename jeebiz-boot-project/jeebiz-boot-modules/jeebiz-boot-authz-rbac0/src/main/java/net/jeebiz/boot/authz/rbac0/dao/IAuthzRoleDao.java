@@ -44,6 +44,13 @@ public interface IAuthzRoleDao extends BaseDao<AuthzRoleModel>{
 	 * @return
 	 */
 	public int setStatus(@Param("roleId") String roleId, @Param("status") String status);
+
+	/**
+	 * 根据名称查询相同名称角色数量
+	 * @param roleName 角色名
+	 * @return
+	 */
+	public int getCountByName(@Param("roleName") String roleName);
 	
 	/**
 	 * 查询系统可用角色信息

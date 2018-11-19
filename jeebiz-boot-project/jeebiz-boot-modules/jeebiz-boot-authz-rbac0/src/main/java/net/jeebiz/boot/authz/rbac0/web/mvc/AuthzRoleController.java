@@ -101,11 +101,15 @@ public class AuthzRoleController extends BaseMapperController {
 		if(CollectionUtils.isEmpty(roleVo.getPerms())) {
 			return fail("role.new.need-perms");
 		}
+		int total = getAuthzRoleService().getCountByName(roleVo.getName());
+		if(total > 0) {
+			return fail("role.new.exists");
+		}
 		AuthzRoleModel model = getBeanMapper().map(roleVo, AuthzRoleModel.class);
 		model.setType("4");
-		int total = getAuthzRoleService().insert(model);
-		if(total > 0) {
-			return success("role.new.success", total);
+		int result = getAuthzRoleService().insert(model);
+		if(result > 0) {
+			return success("role.new.success", result);
 		}
 		return fail("role.new.fail");
 	}
@@ -123,9 +127,13 @@ public class AuthzRoleController extends BaseMapperController {
 			return fail("role.renew.need-perms");
 		}
 		AuthzRoleModel model = getBeanMapper().map(roleVo, AuthzRoleModel.class);
-		int total = getAuthzRoleService().update(model);
+		int total = getAuthzRoleService().getCount(model);
 		if(total > 0) {
-			return success("role.renew.success", total);
+			return fail("role.new.exists");
+		}
+		int result = getAuthzRoleService().update(model);
+		if(result > 0) {
+			return success("role.renew.success", result);
 		}
 		return fail("role.renew.fail");
 	}

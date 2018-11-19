@@ -107,6 +107,11 @@ public class AuthzRoleServiceImpl extends BaseServiceImpl<AuthzRoleModel, IAuthz
 	}
 	
 	@Override
+	public int getCountByName(String roleName){
+		return getDao().getCountByName(roleName);
+	}
+	
+	@Override
 	public List<AuthzRoleModel> getRoles(){
 		return getDao().getRoles();
 	}
