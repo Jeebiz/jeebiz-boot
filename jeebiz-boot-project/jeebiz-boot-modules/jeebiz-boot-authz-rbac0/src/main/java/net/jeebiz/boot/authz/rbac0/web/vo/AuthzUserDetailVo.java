@@ -78,9 +78,13 @@ public class AuthzUserDetailVo {
 	 */
 	private String idcard;
 	/**
-	 * 角色ID
+	 * 角色ID（可能多个组合，如：1,2）
 	 */
 	private String roleId;
+	/**
+	 * 角色名称（可能多个组合，如：角色1,角色2）
+	 */
+	private String roleName;
 
 	public String getId() {
 		return id;
@@ -208,6 +212,14 @@ public class AuthzUserDetailVo {
 
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 
 }

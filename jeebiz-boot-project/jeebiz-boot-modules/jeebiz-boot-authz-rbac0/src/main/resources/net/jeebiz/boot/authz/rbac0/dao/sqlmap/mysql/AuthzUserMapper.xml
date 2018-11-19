@@ -31,6 +31,7 @@
 		<result property="status" column="U_STATUS" />
 		<result property="time24" column="U_TIME24" />
 		<result property="roleId" column="R_ID" />
+		<result property="roleName" column="R_NAME" />
 		<result property="id" column="D_ID" />
 		<result property="gender" column="D_GENDER" />
 		<result property="birthday" column="D_BIRTHDAY" />
@@ -144,10 +145,16 @@
 			x.D_BIRTHDAY,
 			x.D_GENDER,
 			x.D_IDCARD,
-			y.R_ID
+			(SELECT GROUP_CONCAT(y.R_ID ORDER BY y.R_PRTY ASC) R_ID
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y 
+				WHERE y.U_ID = t.U_ID
+			 ) R_ID,
+			(SELECT GROUP_CONCAT(z.R_NAME ORDER BY y.R_PRTY ASC) R_NAME
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y INNER JOIN SYS_AUTHZ_ROLE_LIST z ON y.R_ID = z.R_ID 
+				WHERE y.U_ID = t.U_ID
+			 ) R_NAME
 		FROM SYS_AUTHZ_USER_LIST t
 		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
-		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.U_ID = t.U_ID
 	   WHERE t.U_ID = #{id}
 	</select>
 	
@@ -167,10 +174,16 @@
 			x.D_BIRTHDAY,
 			x.D_GENDER,
 			x.D_IDCARD,
-			y.R_ID
+			(SELECT GROUP_CONCAT(y.R_ID ORDER BY y.R_PRTY ASC) R_ID
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y 
+				WHERE y.U_ID = t.U_ID
+			 ) R_ID,
+			(SELECT GROUP_CONCAT(z.R_NAME ORDER BY y.R_PRTY ASC) R_NAME
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y INNER JOIN SYS_AUTHZ_ROLE_LIST z ON y.R_ID = z.R_ID 
+				WHERE y.U_ID = t.U_ID
+			 ) R_NAME
 		FROM SYS_AUTHZ_USER_LIST t
 		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
-		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.U_ID = t.U_ID
 	   WHERE t.U_USERNAME != 'admin'
 		<if test="model.status != null and model.status != ''">
 			and t.U_STATUS = #{model.status}
