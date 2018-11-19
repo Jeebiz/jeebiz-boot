@@ -128,7 +128,7 @@
 	</update>
 	
 	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
-		SELECT count(t.U_ID) FROM SYS_AUTHZ_USER_LIST t WHERE t.U_USERNAME like '%'|| #{username} ||'%'
+		SELECT count(t.U_ID) FROM SYS_AUTHZ_USER_LIST t WHERE t.U_USERNAME like CONCAT('%',#{username},'%')
 	</select>
 	
 	<select id="getModel" resultMap="UserDetailMap" parameterType="java.lang.String">
@@ -196,7 +196,7 @@
 			and x.D_GENDER = #{model.gender}
 		</if>
 		<if test="model.username != null and model.username != ''">
-			and t.U_USERNAME like '%'|| #{model.username} ||'%'
+			and t.U_USERNAME like CONCAT('%',#{model.username},'%')
 		</if>
 	</select>
 	
@@ -218,7 +218,7 @@
 			and t.R_TYPE = #{model.type}
 		</if>
 		<if test="model.name != null and model.name != ''">
-			and t.R_NAME like '%'|| #{model.name} ||'%'
+			and t.R_NAME likeCONCAT('%',#{model.name},'%')
 		</if>
 	</select>
 	
@@ -240,7 +240,7 @@
 			and t.R_TYPE = #{model.type}
 		</if>
 		<if test="model.name != null and model.name != ''">
-			and t.R_NAME like '%'|| #{model.name} ||'%'
+			and t.R_NAME like CONCAT('%',#{model.name},'%')
 		</if>
 	</select>
 	

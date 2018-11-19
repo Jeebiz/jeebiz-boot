@@ -87,12 +87,12 @@
 	</update>
 	
 	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
-		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME t.R_NAME LIKE '%' || #{roleName} ||'%'
+		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME t.R_NAME LIKE CONCAT('%',#{roleName},'%')
 	</select>
 	
 	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel">
 		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t 
-		 WHERE t.R_NAME t.R_NAME LIKE '%' || #{name} ||'%' 
+		 WHERE t.R_NAME t.R_NAME LIKE CONCAT('%',#{name},'%') 
 		   AND t.R_ID != #{id}
 	</select>
 	
@@ -142,7 +142,7 @@
 			and t.R_TYPE = #{model.type}
 		</if>
 		<if test="model.name != null and model.name != ''">
-			and t.R_NAME like '%'|| #{model.name} ||'%'
+			and t.R_NAME like CONCAT('%',#{model.name},'%')
 		</if>
 	</select>
 
@@ -177,7 +177,7 @@
 			and t.U_STATUS = #{model.status}
 		</if>
 		<if test="model.username != null and model.username != ''">
-			and t.U_USERNAME like '%'|| #{model.username} ||'%'
+			and t.U_USERNAME like CONCAT('%',#{model.username},'%')
 		</if>
 	</select>
 	
@@ -198,7 +198,7 @@
 			and t.U_STATUS = #{model.status}
 		</if>
 		<if test="model.username != null and model.username != ''">
-			and t.U_USERNAME like '%'|| #{model.username} ||'%'
+			and t.U_USERNAME like CONCAT('%',#{model.username},'%')
 		</if>
 	</select>
 	

@@ -52,7 +52,7 @@
 	<select id="getPagedList" resultMap="DemoModelMap" parameterType="DemoModel">
 		select ID,NAME,TEXT from ZFTAL_SIMPLE_SIMPLE t
 		<where>
-			<if test="name != null and name != ''">t.name like '%'||#{name} ||'%'</if>
+			<if test="model.name != null and model.name != ''">t.name like CONCAT('%',#{model.name},'%')</if>
 		</where>
 	</select>
 	

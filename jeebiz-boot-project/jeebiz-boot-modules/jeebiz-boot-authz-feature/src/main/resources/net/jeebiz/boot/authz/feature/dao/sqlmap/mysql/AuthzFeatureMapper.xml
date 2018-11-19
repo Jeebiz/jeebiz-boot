@@ -87,14 +87,14 @@
 			t.F_VISIBLE 
 		FROM SYS_FEATURE_LIST t
 		<where>
-			<if test="name != null and name != ''">
-				and t.F_NAME like '%'|| #{name} ||'%'
+			<if test="model.name != null and model.name != ''">
+				and t.F_NAME like CONCAT('%',#{model.name},'%')
 			</if>
-			<if test="type != null and type != ''">
-				and t.F_TYPE = #{type}
+			<if test="model.type != null and model.type != ''">
+				and t.F_TYPE = #{model.type}
 			</if>
-			<if test="visible != null and visible != ''">
-				and t.F_VISIBLE = #{visible}
+			<if test="model.visible != null and model.visible != ''">
+				and t.F_VISIBLE = #{model.visible}
 			</if>
 		</where>
 	</select>
