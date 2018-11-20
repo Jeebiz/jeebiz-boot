@@ -118,34 +118,52 @@ spring:
       max-pool-prepared-statement-per-connection-size: 100
       #Druid的监控统计功能:属性类型是字符串，通过别名的方式配置扩展插件
       #filters: mergeStat,wall,slf4j
-      # 自定义过滤器参数
-      proxy-filter: true
-      wall-filter:
-        # 对被认为是攻击的SQL进行LOG.error输出
-        log-violation: true
-        # 对被认为是攻击的SQL抛出SQLExcepton
-        throw-exception: true
-        config:
-          # 是否允许语句中存在注释，Oracle的用户不用担心，Wall能够识别hints和注释的区别
-          comment-allow: true
-          # 是否允许非以上基本语句的其他语句，缺省关闭，通过这个选项就能够屏蔽DDL
-          none-base-statement-allow: true
-          # 是否允许一次执行多条语句，缺省关闭 
-          multi-statement-allow: true
-          # 解除union关键字检查
-          select-union-check: false
-          # 是否允许执行锁定表操作
-          lock-table-allow: true
-      #Druid监控
+      # 动态数据源
+      routable: true
+      # Druid监控配置
       aop-patterns:
       - net.jeebiz.boot.demo.web.mvc
+      stat-view-servlet:
+        enabled: true
+        reset-enable: false
+      web-stat-filter:
+        enabled: true
+        session-stat-enable: true
+        session-stat-max-count: 20000
+      # Druid自定义过滤器参数
+      filter:
+        # 配置日志输出
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+        # 配置安全防护
+        wall:
+          # 对被认为是攻击的SQL进行LOG.error输出
+          log-violation: true
+          # 对被认为是攻击的SQL抛出SQLExcepton
+          throw-exception: true
+          config:
+            # 是否允许语句中存在注释，Oracle的用户不用担心，Wall能够识别hints和注释的区别
+            comment-allow: true
+            # 是否允许非以上基本语句的其他语句，缺省关闭，通过这个选项就能够屏蔽DDL
+            none-base-statement-allow: true
+            # 是否允许一次执行多条语句，缺省关闭 
+            multi-statement-allow: true
+            # 解除union关键字检查
+            select-union-check: false
+            # 是否允许执行锁定表操作
+            lock-table-allow: true
+      
 ################################################################################################################  
 ###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
 ################################################################################################################  
   flyway: 
     enabled: true
-    #是否忽略版本迁移
-    ignore-migration: false  
+    locations:
+    - classpath:db/migration/{vendor}
     #指定SQL起始版本信息 
     baseline-on-migrate: true
     baseline-version: 1.0.0.0
@@ -154,8 +172,6 @@ spring:
     out-of-order: false
     #在进行版本升级前是否进行SQL版本信息校验
     validate-on-migrate: true
-    #安全模式下不能进行表结构清理
-    safe-mode: true
     #设置如果验证失败是否删除表结构
     clean-on-validation-error: true
     #禁止对数据库进行相关清除操作
@@ -168,7 +184,8 @@ spring:
 mybatis-plus:
   # 初始配置文件
   check-config-location: true 
-  config-location: classpath:/conf/mybatis/sqlMapConfig.xml
+  # config-location: classpath:/conf/mybatis/sqlMapConfig.xml
+  #configuration-properties:
   # 初始配置参数
   #configuration:
     #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId） 
@@ -180,28 +197,63 @@ mybatis-plus:
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
   mapper-locations: classpath*:net/jeebiz/**/dao/**/sqlmap/mysql/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  type-aliases-package: net.jeebiz.boot.authz.rbac0.dao.enties
+  type-aliases-package: net.jeebiz.**.dao.entities
+  configuration:
+    # 指定MyBatis如何自动映射列到字段/属性。PARTIAL只会自动映射简单，没有嵌套的结果。
+    # FULL会自动映射任意复杂的结果（嵌套的或其他情况）;有效值：NONE,PARTIAL,FULL,默认值：PARTIAL
+    auto-mapping-behavior: partial
+    # 当检测出未知列（或未知属性）时，如何处理，    默认情况下没有任何提示，这在测试的时候很不方便，不容易找到错误 
+    auto-mapping-unknown-column-behavior: failing
+    # 当启用时，使用延迟加载属性的对象在发起任何延迟属性的调用时会被完全加载。否则，每个属性在请求时就加载。默认值：true
+    aggressive-lazy-loading: true
+    # 全局二级缓存开关：默认是true，如果它配成false，其余各个Mapper XML文件配成支持cache也没用
+    cache-enabled: true
+    call-setters-on-nulls: false
+    # database-id:  
+    # default-fetch-size: 
+    # 设置超时时间，它决定驱动等待一个数据库响应的时间。有效值：Any，positive，integer ；默认值：Not Set(null)
+    default-statement-timeout: 25
+    # 配置默认的执行器。SIMPLE 执行器没有什么特别之处。REUSE执行器重用预处理语句。BATCH 执行器重用语句和批量更新
+    # 有效值：SIMPLE,REUSE,BATCH;默认值：SIMPLE
+    default-executor-type: reuse
+    jdbc-type-for-null: null
+    map-underscore-to-camel-case: false
+    # 允许或不允许多种结果集从一个单独的语句中返回（需要适合的驱动）;有效值：true,false;默认值：true
+    multiple-result-sets-enabled: true
+    #use-actual-param-name:
+    # 使用列标签代替列名。不同的驱动在这方便表现不同。参考驱动文档或充分测试两种方法来决定所使用的驱动。有效值：true,false;默认值：true
+    use-column-label: true 
+    # 允许JDBC支持生成的键。需要适合的驱动。如果设置为true则这个设置强制生成的键被使用，尽管一些驱动拒绝兼容但仍然有效（比如 Derby）;有效值：true,false;默认值：false
+    use-generated-keys: false
+    safe-row-bounds-enabled: false
+    safe-result-handler-enabled: true
+    # 全局地禁用或启用延迟加载。禁用时，所有关联查询会被马上加载;默认值：true
+    lazy-loading-enabled: true
+    lazy-load-trigger-methods: 
+      equals
+      clone
+      hashCode
+      toString
+    local-cache-scope: session
+    log-prefix: "[Mybatis]"
+    #log-impl: org.apache.ibatis.logging.log4j2.Log4j2LoggerImpl.class
+    
   global-config: 
-    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
-    id-type: 0
-    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
-    field-strategy: 2
-    #驼峰下划线转换
-    db-column-underline: true
-    #mp2.3+ 全局表前缀 mp_
-    #table-prefix: mp_
-    #刷新mapper 调试神器
-    #refresh-mapper: true
-    #数据库大写下划线转换
-    #capital-mode: true
-    # Sequence序列接口实现类配置
-    #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
-    #逻辑删除配置（下面3个配置）
-    logic-delete-value: 1
-    logic-not-delete-value: 0
-    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
-    #自定义填充策略接口实现
-    meta-object-handler: com.baomidou.mybatisplus.entity.DefaultMetaObjectHandler
+    sql-parser-cache: true
+    db-config:
+      id-type: auto
+      field-strategy: not-empty
+      #mp2.3+ 全局表前缀 mp_
+      #table-prefix: mp_
+      #刷新mapper 调试神器
+      #refresh-mapper: true
+      #数据库大写下划线转换
+      #capital-mode: true
+      # Sequence序列接口实现类配置
+      #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+      #逻辑删除配置（下面3个配置）
+      logic-delete-value: 1
+      logic-not-delete-value: 0
   
 ################################################################################################################  
 ###logging (log4j2) 基本配置：  
@@ -209,4 +261,3 @@ mybatis-plus:
 ################################################################################################################
 logging: 
   config: classpath:conf/log4j2.xml
-  

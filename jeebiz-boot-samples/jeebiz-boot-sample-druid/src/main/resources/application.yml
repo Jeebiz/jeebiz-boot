@@ -118,34 +118,52 @@ spring:
       max-pool-prepared-statement-per-connection-size: 100
       #Druid的监控统计功能:属性类型是字符串，通过别名的方式配置扩展插件
       #filters: mergeStat,wall,slf4j
-      # 自定义过滤器参数
-      proxy-filter: true
-      wall-filter:
-        # 对被认为是攻击的SQL进行LOG.error输出
-        log-violation: true
-        # 对被认为是攻击的SQL抛出SQLExcepton
-        throw-exception: true
-        config:
-          # 是否允许语句中存在注释，Oracle的用户不用担心，Wall能够识别hints和注释的区别
-          comment-allow: true
-          # 是否允许非以上基本语句的其他语句，缺省关闭，通过这个选项就能够屏蔽DDL
-          none-base-statement-allow: true
-          # 是否允许一次执行多条语句，缺省关闭 
-          multi-statement-allow: true
-          # 解除union关键字检查
-          select-union-check: false
-          # 是否允许执行锁定表操作
-          lock-table-allow: true
-      #Druid监控
+      # 动态数据源
+      routable: true
+      # Druid监控配置
       aop-patterns:
       - net.jeebiz.boot.demo.web.mvc
+      stat-view-servlet:
+        enabled: true
+        reset-enable: false
+      web-stat-filter:
+        enabled: true
+        session-stat-enable: true
+        session-stat-max-count: 20000
+      # Druid自定义过滤器参数
+      filter:
+        # 配置日志输出
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+        # 配置安全防护
+        wall:
+          # 对被认为是攻击的SQL进行LOG.error输出
+          log-violation: true
+          # 对被认为是攻击的SQL抛出SQLExcepton
+          throw-exception: true
+          config:
+            # 是否允许语句中存在注释，Oracle的用户不用担心，Wall能够识别hints和注释的区别
+            comment-allow: true
+            # 是否允许非以上基本语句的其他语句，缺省关闭，通过这个选项就能够屏蔽DDL
+            none-base-statement-allow: true
+            # 是否允许一次执行多条语句，缺省关闭 
+            multi-statement-allow: true
+            # 解除union关键字检查
+            select-union-check: false
+            # 是否允许执行锁定表操作
+            lock-table-allow: true
+            
 ################################################################################################################  
 ###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
 ################################################################################################################  
   flyway: 
     enabled: true
-    #是否忽略版本迁移
-    ignore-migration: false  
+    locations:
+    - classpath:db/migration/{vendor}
     #指定SQL起始版本信息 
     baseline-on-migrate: true
     baseline-version: 1.0.0.0
@@ -154,8 +172,6 @@ spring:
     out-of-order: false
     #在进行版本升级前是否进行SQL版本信息校验
     validate-on-migrate: true
-    #安全模式下不能进行表结构清理
-    safe-mode: true
     #设置如果验证失败是否删除表结构
     clean-on-validation-error: true
     #禁止对数据库进行相关清除操作
@@ -181,7 +197,7 @@ mybatis-plus:
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
   mapper-locations: classpath*:net/jeebiz/**/dao/**/sqlmap/mysql/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  type-aliases-package: net.jeebiz.boot.authz.rbac0.dao.enties
+  type-aliases-package: net.jeebiz.**.dao.entities
   configuration:
     # 指定MyBatis如何自动映射列到字段/属性。PARTIAL只会自动映射简单，没有嵌套的结果。
     # FULL会自动映射任意复杂的结果（嵌套的或其他情况）;有效值：NONE,PARTIAL,FULL,默认值：PARTIAL
@@ -245,4 +261,4 @@ mybatis-plus:
 ################################################################################################################
 logging: 
   config: classpath:conf/log4j2.xml
-  
+ 

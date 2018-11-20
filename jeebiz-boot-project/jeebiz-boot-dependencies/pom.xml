@@ -368,13 +368,13 @@
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>1.1.10</spring-boot-starter-druid.version>
-		<spring-boot-starter-druid-plus.version>1.0.5.RELEASE</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-druid-plus.version>1.0.6-SNAPSHOT</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
 		<spring-boot-starter-fastdfs.version>0.2.0</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.4-SNAPSHOT</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
-		<spring-boot-starter-hikaricp-plus.version>1.0.4.RELEASE</spring-boot-starter-hikaricp-plus.version>
+		<spring-boot-starter-hikaricp-plus.version>1.0.5-SNAPSHOT</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
 		<spring-boot-starter-j2cache.version>2.7.5-release</spring-boot-starter-j2cache.version>

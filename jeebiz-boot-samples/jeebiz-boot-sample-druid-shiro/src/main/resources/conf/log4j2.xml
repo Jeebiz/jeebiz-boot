@@ -44,8 +44,8 @@
 		<!-- 控制台日志输出配置 -->
 		<Console name="Console" target="SYSTEM_OUT">
 			<!--只接受程序中DEBUG级别的日志进行处理-->
-            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
-			<PatternLayout pattern="${LOG_CONSOLE_LAYOUT}" />
+            <!-- <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/> -->
+			<PatternLayout pattern="${LOG_CONSOLE_LAYOUT2}" />
 			<!-- <PatternLayout pattern="[%d{HH:mm:ss.SSS}] %-5level %class{36} %L %M - %msg%xEx%n"/> -->
 		</Console>
 		
