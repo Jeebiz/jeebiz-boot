@@ -161,6 +161,15 @@ spring:
       max-pool-prepared-statement-per-connection-size: 100
       #Druid的监控统计功能:属性类型是字符串，通过别名的方式配置扩展插件
       #filters: mergeStat,wall,slf4j
+      
+      #Druid监控
+      aop-patterns:
+      - net.jeebiz.boot.demo.web.mvc
+      stat-view-servlet:
+        enabled: true
+      web-stat-filter:
+        enabled: true
+      
       # 自定义过滤器参数
       proxy-filter: true
       wall-filter:
@@ -179,14 +188,14 @@ spring:
           select-union-check: false
           # 是否允许执行锁定表操作
           lock-table-allow: true
-      #Druid监控
-      aop-patterns:
-      - net.jeebiz.boot.demo.web.mvc
+      
 ################################################################################################################  
 ###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
 ################################################################################################################  
   flyway: 
-    enabled: false
+    enabled: true
+    locations:
+    - classpath:db/migration/{vendor}
     #指定SQL起始版本信息 
     baseline-on-migrate: true
     baseline-version: 1.0.0.0

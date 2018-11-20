@@ -24,9 +24,18 @@
 		<Property name="LOG_CONSOLE_LAYOUT">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{[${APP_NAME}]}{red} [%clr{%p} %clr{${sys:PID}}{magenta}] %clr{---}{faint} %clr{[%t]}{faint} %clr{[%C:%M:%L]}{cyan} %clr{:}{faint} %m%n%xwEx</Property>
 		<Property name="LOG_FILE_LAYOUT">%d{yyyy-MM-dd HH:mm:ss.SSS} [${APP_NAME}] %p ${sys:PID} --- [%t] [%C:%M:%L] : %m%n%xwEx</Property>
 		<!-- 日志文件主名称规则 -->
-		<Property name="LOG_FILE_NAME">${LOG_HOME}/${APP_NAME}/log4j.log</Property>
+		<Property name="DEBUG_FILE_NAME">${LOG_HOME}/${APP_NAME}/debug.log</Property>
+		<Property name="INFO_FILE_NAME">${LOG_HOME}/${APP_NAME}/info.log</Property>
+		<Property name="WARN_FILE_NAME">${LOG_HOME}/${APP_NAME}/warn.log</Property>
+		<Property name="ERROR_FILE_NAME">${LOG_HOME}/${APP_NAME}/error.log</Property>
+		<Property name="DRUID_FILE_NAME">${LOG_HOME}/${APP_NAME}/druid-sql.log</Property>
 		<!-- 日志文件备份名称规则 -->
-		<Property name="LOG_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/back/${date:yyyy-MM}/log4j-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="LOG_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/${APP_NAME}-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="DEBUG_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/debug-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="INFO_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="WARN_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="ERROR_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="DRUID_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/druid-%d{yyyy-MM-dd}-%i.log.gz</Property>
 	</Properties>
 	
 	<!--先定义所有的appender-->
@@ -34,19 +43,85 @@
 		
 		<!-- 控制台日志输出配置 -->
 		<Console name="Console" target="SYSTEM_OUT">
+			<!--只接受程序中DEBUG级别的日志进行处理-->
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
 			<PatternLayout pattern="${LOG_CONSOLE_LAYOUT}" />
+			<!-- <PatternLayout pattern="[%d{HH:mm:ss.SSS}] %-5level %class{36} %L %M - %msg%xEx%n"/> -->
 		</Console>
 		
-		<!-- 日志文件输出配置：按天或者超过25MB分割 -->
-		<RollingRandomAccessFile name="ROLLING_FILE_LOG" fileName="${LOG_FILE_NAME}" filePattern="${LOG_FILE_PATTERN}" append="true">
-			<PatternLayout pattern="${LOG_FILE_LAYOUT}" />
-			<Policies>
-				<OnStartupTriggeringPolicy/>
+		<!-- DEBUG级别日志文件输出配置 -->
+		<!-- 实时日志放到logs/debug.log文件中,按天或者超过size则自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+   		<RollingRandomAccessFile name="RollingFileDebug" fileName="${DEBUG_FILE_NAME}" filePattern="${DEBUG_FILE_PATTERN}">
+            <Filters>
+            	<!--只接受DEBUG级别的日志，其余的全部拒绝处理-->
+                <ThresholdFilter level="DEBUG"/>
+                <ThresholdFilter level="INFO" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="${LOG_FILE_LAYOUT}" />
+            <!-- <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] %-5level %class{36} %L %M - %msg%xEx%n"/> -->
+            <Policies>
+				<SizeBasedTriggeringPolicy size="50MB" />
 				<TimeBasedTriggeringPolicy interval="1" modulate="true" /> <!-- 对应 filePattern维度，此处为天数 -->
-				<SizeBasedTriggeringPolicy size="25MB" />
 			</Policies>
-			<DefaultRolloverStrategy max="30" /> <!-- 日志自动删除，最大个数 -->
-		</RollingRandomAccessFile>
+            <DefaultRolloverStrategy max="30" /> <!-- 日志自动删除，最大个数 -->
+        </RollingRandomAccessFile>
+        
+        <!-- INFO级别日志文件输出配置 -->
+		<!-- 实时日志放到logs/info.log文件中,按天或者超过size则自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+   		<RollingFile name="RollingFileInfo" fileName="${INFO_FILE_NAME}" filePattern="${INFO_FILE_PATTERN}">
+            <Filters>
+                <!--只接受INFO级别的日志，其余的全部拒绝处理-->
+                <ThresholdFilter level="INFO"/>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="${LOG_FILE_LAYOUT}" />
+            <!-- <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] %-5level %class{36} %L %M - %msg%xEx%n"/> -->
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+        <!-- WARN级别日志文件输出配置 -->
+		<!-- 实时日志放到logs/warn.log文件中,按天或者超过size则自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+   		<RollingFile name="RollingFileWarn" fileName="${WARN_FILE_NAME}" filePattern="${WARN_FILE_PATTERN}">
+            <Filters>
+            	<!--只接受WARN级别的日志，其余的全部拒绝处理-->
+                <ThresholdFilter level="WARN"/>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="${LOG_FILE_LAYOUT}" />
+            <!-- <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] %-5level %class{36} %L %M - %msg%xEx%n"/> -->
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+ 		
+ 		<!-- ERROR级别日志文件输出配置 -->
+		<!-- 实时日志放到logs/error.log文件中,按天或者超过size则自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+   		<RollingFile name="RollingFileError" fileName="${ERROR_FILE_NAME}" filePattern="${ERROR_FILE_PATTERN}">
+            <Filters>
+            	<!--只接受"ERROR"级别的日志，其余的全部拒绝处理-->
+                <ThresholdFilter level="ERROR"/>
+            </Filters>
+            <PatternLayout pattern="${LOG_FILE_LAYOUT}" />
+            <!-- <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] %-5level %class{36} %L %M - %msg%xEx%n"/> -->
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+		
+        <!--Druid的日志记录追加器-->
+        <RollingFile name="RollingFileDruidSql" fileName="${DRUID_FILE_NAME}" filePattern="${DRUID_FILE_PATTERN}">
+            <PatternLayout pattern="${LOG_FILE_LAYOUT}" />
+            <!-- <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] %-5level %L %M - %msg%xEx%n"/> -->
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
 		
 	</Appenders>
 	
@@ -63,96 +138,55 @@
 			#INFO 为一般要显示的信息，比如登录登出
 			#DEBUG 为程序的调试信息
 		 -->
-		<!-- 应用的日志级别 -->
-		<Logger name="net.jeebiz" level="DEBUG" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>   
-        </Logger>
-        <Logger name="[Mybatis]net.jeebiz" level="DEBUG" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>   
-        </Logger>
-        <Logger name="noModule" level="DEBUG" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>   
-        </Logger>
-		<Logger name="access" level="DEBUG" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>   
-        </Logger>
-        <!-- Spring框架日志配置 -->
-		<Logger name="org.springframework" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-			<AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-        <!-- Struts2框架日志配置 -->
-		<Logger name="org.apache.struts2" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-		<Logger name="com.opensymphony.xwork2" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-		<!-- Mybatis框架日志配置 -->
-		<Logger name="org.mybatis" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-        <Logger name="org.apache.ibatis" level="DEBUG" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-		<Logger name="org.apache.ibatis.jdbc.ScriptRunner" level="DEBUG" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-        
-        <!-- JDBC日志配置 -->
-		<Logger name="java.sql" level="DEBUG" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-		<Logger name="java.sql.Connection" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-        <Logger name="java.sql.Statement" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-		<Logger name="java.sql.PreparedStatement" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-		<Logger name="java.sql.ResultSet" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-        
-        <Logger name="springfox" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-        <Logger name="org.dozer" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
-        </Logger>
-        <Logger name="com.mongodb" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-        </Logger>
-        <Logger name="org.apache.rocketmq" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-        </Logger>
-        <Logger name="RocketmqClient" level="WARN" additivity="false">  
-            <AppenderRef ref="Console" />  
-        </Logger>
-        
-		<!-- 剩余其他的日志级别 -->  
         <Root level="DEBUG" includeLocation="true">  
             <AppenderRef ref="Console" /> 
-            <AppenderRef ref="ROLLING_FILE_LOG"/>  
+            <AppenderRef ref="RollingFileDebug"/>
+            <AppenderRef ref="RollingFileInfo"/>
+            <AppenderRef ref="RollingFileWarn"/>
+            <AppenderRef ref="RollingFileError"/>
         </Root>
+        
+        <!--记录druid-sql-->
+		<logger name="druid.sql.Statement" level="debug" additivity="false">
+            <AppenderRef ref="RollingFileDruidSql"/>
+        </logger>
+        
+        <!-- 框架、依赖组件日志过滤-->
+		<Logger name="com.mongodb" level="WARN" additivity="false"/>    
+		<Logger name="com.opensymphony.xwork2" level="WARN" additivity="false"/>
+		<Logger name="java.sql" level="DEBUG" additivity="false"/>  
+		<Logger name="java.sql.Connection" level="WARN" additivity="false"/>  
+        <Logger name="java.sql.Statement" level="WARN" additivity="false"/>  
+		<Logger name="java.sql.PreparedStatement" level="WARN" additivity="false"/>  
+		<Logger name="java.sql.ResultSet" level="WARN" additivity="false"/>  
+        <Logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR" />
+        <Logger name="org.apache.catalina.util.LifecycleBase" level="ERROR" />
+        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN" />
+        <Logger name="org.apache.ibatis" level="DEBUG" additivity="false"/>  
+		<Logger name="org.apache.ibatis.jdbc.ScriptRunner" level="DEBUG" additivity="false"/>  
+		<Logger name="org.apache.rocketmq" level="WARN" additivity="false"/>  
+        <logger name="org.apache.sshd.common.util.SecurityUtils" level="WARN"/>
+		<Logger name="org.apache.struts2" level="WARN" additivity="false"/>  
+        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN" />
+        <Logger name="org.dozer" level="WARN" additivity="false"/>  
+        <Logger name="org.crsh.plugin" level="WARN" />
+        <logger name="org.crsh.ssh" level="WARN"/>
+        <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="ERROR" />
+        <Logger name="org.flywaydb" level="WARN" additivity="false"/>  
+        <Logger name="org.hibernate.validator.internal.util.Version" level="WARN" />
+		<Logger name="org.mybatis" level="WARN" additivity="false"/>  
+		<Logger name="org.springframework" level="WARN" additivity="false"/>  
+        <Logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="WARN"/>
+        <Logger name="org.springframework.boot.actuate.endpoint.jmx" level="WARN"/>
+        <Logger name="org.thymeleaf" level="WARN"/>
+        <Logger name="RocketmqClient" level="WARN" additivity="false"/>  
+        <Logger name="springfox" level="WARN" additivity="false"/>  
+         
+        <!--log4j2 自带过滤日志-->
+        
+		<!-- 应用系统日志过滤 -->
+		<Logger name="net.jeebiz" level="DEBUG" additivity="false"/>
+        <Logger name="[Mybatis]net.jeebiz" level="DEBUG" additivity="false"/>  
 
 	</Loggers>
 </Configuration>

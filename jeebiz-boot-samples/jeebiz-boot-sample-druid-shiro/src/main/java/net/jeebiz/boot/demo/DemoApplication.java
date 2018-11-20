@@ -14,12 +14,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import com.spring4all.swagger.EnableSwagger2Doc;
 
 import net.jeebiz.boot.autoconfigure.EnableServiceConfiguration;
 import net.jeebiz.boot.autoconfigure.EnableWebMvcConfiguration;
 
-@EnableAutoConfiguration
+// 这里特别注意排除Druid的默认初始化对象
+@EnableAutoConfiguration(exclude={DruidDataSourceAutoConfigure.class})
 @EnableCaching(proxyTargetClass = true)
 @EnableSwagger2Doc
 @EnableDozerMapper
