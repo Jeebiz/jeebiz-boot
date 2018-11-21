@@ -65,11 +65,11 @@
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String">
-		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID = #{id}
+		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID = #{id} AND U_USERNAME != 'admin'
 	</delete>
 	
 	<delete id="batchDelete">
-		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID IN 
+		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_USERNAME != 'admin' AND U_ID IN 
 		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">  
            #{item} 
         </foreach>
@@ -80,7 +80,7 @@
 	</delete>
 	
 	<delete id="deleteRole">
-    	DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE U_ID = #{id}
+    	DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE U_ID = #{id} AND R_ID != 1
     </delete>
     
 	<update id="update" parameterType="AuthzUserDetailModel">
@@ -93,6 +93,7 @@
 			<if test="remark != null and remark != ''">t.U_REMARK = #{remark}</if>
 		</set>
 		where t.U_ID = #{id}
+		  AND t.U_USERNAME != 'admin'
 	</update>
 	
 	<update id="updateDetail" parameterType="AuthzUserDetailModel">
@@ -106,13 +107,13 @@
 	</update>
 	
 	<update id="updateRole" parameterType="AuthzUserDetailModel">
-    	update SYS_AUTHZ_USER_ROLE_RELATION set R_ID = #{roleId} WHERE U_ID = #{id}
+    	update SYS_AUTHZ_USER_ROLE_RELATION set R_ID = #{roleId} WHERE U_ID = #{id} AND R_ID != 1
     </update>
 	
 	<update id="updatePwd" parameterType="java.lang.String">
 		update SYS_AUTHZ_USER_LIST t 
 		   set t.U_PASSWORD = #{password}
-		where t.U_ID = #{userId}
+		 where t.U_ID = #{userId}
 	</update>
 	
 	<update id="resetPwd" parameterType="java.lang.String">

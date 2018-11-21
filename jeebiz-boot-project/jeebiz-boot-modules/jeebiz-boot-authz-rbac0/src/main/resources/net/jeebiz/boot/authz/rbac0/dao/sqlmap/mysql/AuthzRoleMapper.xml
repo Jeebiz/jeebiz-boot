@@ -67,7 +67,7 @@
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String">
-		DELETE FROM SYS_AUTHZ_ROLE_LIST WHERE R_ID = #{id}
+		DELETE FROM SYS_AUTHZ_ROLE_LIST WHERE R_ID = #{id} AND R_ID != 1
 	</delete>
 	
 	<update id="update" parameterType="AuthzRoleModel">
@@ -77,13 +77,15 @@
 			<if test="type != null and type != ''">t.R_TYPE = #{type},</if>
 			<if test="intro != null and intro != ''">t.R_INTRO = #{intro}</if>
 		</set>
-		where t.R_ID = #{id}
+		where t.R_ID = #{id} 
+		  AND t.R_ID != 1
 	</update>
 	
 	<update id="setStatus" parameterType="java.lang.String">
 		UPDATE SYS_AUTHZ_ROLE_LIST 
 		   SET R_STATUS = #{status}
 		 WHERE R_ID = #{roleId}
+		   AND R_ID != 1
 	</update>
 	
 	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
@@ -105,6 +107,7 @@
 			t.R_STATUS,
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
+	   WHERE t.R_ID != 1
 	</select>
 	
 	<select id="getPermsByRoleId" resultType="string">  
@@ -122,6 +125,7 @@
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
 	   WHERE t.R_ID = #{id}
+	     AND t.R_ID != 1
 	</select>
 	
 	<select id="getPagedList" resultMap="RoleMap" parameterType="AuthzRoleModel">
@@ -154,7 +158,7 @@
     </insert>
     
     <delete id="deleteUsers">
-    	DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE R_ID = #{roleId}
+    	DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE R_ID = #{roleId} AND R_ID != 1
     	<foreach collection="userIds" item="item" separator =" OR " open=" AND ( " close=")">
 		U_ID = #{item}
         </foreach>
