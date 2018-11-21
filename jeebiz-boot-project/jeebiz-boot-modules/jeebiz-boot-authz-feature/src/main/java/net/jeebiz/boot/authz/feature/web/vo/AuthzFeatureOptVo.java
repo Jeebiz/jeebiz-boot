@@ -30,9 +30,9 @@ public class AuthzFeatureOptVo implements Comparable<AuthzFeatureOptVo> {
 	 */
 	private String visible;
 	/**
-	 * 功能操作是否授权(1:已授权|0:未授权)
+	 * 功能操作是否授权(true:已授权|false:未授权)
 	 */
-	private String checked;
+	private boolean checked;
 	/**
 	 * 功能操作权限标记
 	 */
@@ -86,11 +86,11 @@ public class AuthzFeatureOptVo implements Comparable<AuthzFeatureOptVo> {
 		this.visible = visible;
 	}
 	
-	public String getChecked() {
+	public boolean isChecked() {
 		return checked;
 	}
 
-	public void setChecked(String checked) {
+	public void setChecked(boolean checked) {
 		this.checked = checked;
 	}
 
@@ -104,7 +104,7 @@ public class AuthzFeatureOptVo implements Comparable<AuthzFeatureOptVo> {
 
 	@Override
 	public int compareTo(AuthzFeatureOptVo o) {
-		return order.compareTo(o.getOrder());
+		return Integer.parseInt(order) - Integer.parseInt(o.getOrder());
 	}
-	 
+	
 }

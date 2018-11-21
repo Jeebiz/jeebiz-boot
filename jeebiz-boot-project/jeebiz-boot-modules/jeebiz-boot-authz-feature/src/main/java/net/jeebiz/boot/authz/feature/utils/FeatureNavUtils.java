@@ -80,12 +80,28 @@ public final class FeatureNavUtils {
 				featureVo.setPerms(feature.getPerms());
 				// 路径为#表示有子菜单
 				if(StringUtils.equals("#", feature.getUrl())){
-					featureVo.setChildren( getSubFeatureList(feature, featureList, featureOptList));
+					// 子菜单
+					List<AuthzFeatureVo> subFeatures = getSubFeatureList(feature, featureList, featureOptList);
+					if(null != subFeatures && subFeatures.size() > 0) {
+						boolean checked = subFeatures.stream().anyMatch(item -> item.isChecked());
+						if(checked) {
+							featureVo.setChecked(true);
+						} else {
+							featureVo.setChecked(false);
+						}
+						featureVo.setChildren(subFeatures);
+					}
 				} else {
 					// 当前菜单的操作按钮
 					List<AuthzFeatureOptVo> featureOpts  = getFeatureOptList(feature, featureOptList);
 					if(null != featureOpts && featureOpts.size() > 0) {
-						featureVo.setOpts( featureOpts);
+						boolean checked = featureOpts.stream().anyMatch(item -> item.isChecked());
+						if(checked) {
+							featureVo.setChecked(true);
+						} else {
+							featureVo.setChecked(false);
+						}
+						featureVo.setChildren( featureOpts);
 					}
 				}
 				features.add(featureVo);
@@ -132,6 +148,12 @@ public final class FeatureNavUtils {
 				// 子菜单
 				List<AuthzFeatureVo> subFeatures  = getSubFeatureList(feature, featureList, featureOptList);
 				if(null != subFeatures && subFeatures.size() > 0) {
+					boolean checked = subFeatures.stream().anyMatch(item -> item.isChecked());
+					if(checked) {
+						featureVo.setChecked(true);
+					} else {
+						featureVo.setChecked(false);
+					}
 					featureVo.setChildren(subFeatures);
 				}
 				features.add(featureVo);
@@ -182,10 +204,16 @@ public final class FeatureNavUtils {
 					featureVo.setLabel( feature.getName());
 				}
 				
+				// 当前菜单的操作按钮
 				List<AuthzFeatureOptVo> featureOpts  = getFeatureOptList(feature, featureOptList);
 				if(null != featureOpts && featureOpts.size() > 0) {
-					// 当前菜单的操作按钮
-					featureVo.setOpts(featureOpts);
+					boolean checked = featureOpts.stream().anyMatch(item -> item.isChecked());
+					if(checked) {
+						featureVo.setChecked(true);
+					} else {
+						featureVo.setChecked(false);
+					}
+					featureVo.setChildren(featureOpts);
 				}
 				
 				features.add(featureVo);
