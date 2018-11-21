@@ -101,7 +101,7 @@ public final class FeatureNavUtils {
 						} else {
 							featureVo.setChecked(false);
 						}
-						featureVo.setChildren( featureOpts);
+						featureVo.setOpts( featureOpts);
 					}
 				}
 				features.add(featureVo);
@@ -213,7 +213,7 @@ public final class FeatureNavUtils {
 					} else {
 						featureVo.setChecked(false);
 					}
-					featureVo.setChildren(featureOpts);
+					featureVo.setOpts(featureOpts);
 				}
 				
 				features.add(featureVo);

@@ -7,7 +7,6 @@ import com.google.common.collect.Lists;
 import io.swagger.annotations.ApiModel;
 
 @ApiModel(value = "AuthzFeatureVo", description = "功能信息Vo")
-@SuppressWarnings("rawtypes")
 public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 
 	/**
@@ -63,9 +62,13 @@ public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 	 */
 	private boolean checked;
 	/**
-	 * 子菜单/功能按钮
+	 * 子菜单
 	 */
-	private List children = Lists.newArrayList();
+	private List<AuthzFeatureVo> children = Lists.newArrayList();
+	/**
+	 * 功能按钮
+	 */
+	private List<AuthzFeatureOptVo> opts = Lists.newArrayList();
 	
 	public String getId() {
 		return id;
@@ -171,12 +174,20 @@ public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 		this.checked = checked;
 	}
 
-	public List getChildren() {
+	public List<AuthzFeatureVo> getChildren() {
 		return children;
 	}
 
-	public void setChildren(List children) {
+	public void setChildren(List<AuthzFeatureVo> children) {
 		this.children = children;
+	}
+
+	public List<AuthzFeatureOptVo> getOpts() {
+		return opts;
+	}
+
+	public void setOpts(List<AuthzFeatureOptVo> opts) {
+		this.opts = opts;
 	}
 
 	@Override
