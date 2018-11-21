@@ -28,6 +28,8 @@
 		<module>jeebiz-boot-sample-hikaricp-war</module>
 		<module>jeebiz-boot-sample-flowable</module>
 		<module>jeebiz-boot-sample-flowable-app</module>
+		<module>jeebiz-boot-sample-druid-webflux</module>
+		<module>jeebiz-boot-sample-hikaricp-webflux</module>
 	</modules>
 	
 </project>
