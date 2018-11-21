@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 import io.swagger.annotations.ApiModel;
 
 @ApiModel(value = "AuthzFeatureVo", description = "功能信息Vo")
+@SuppressWarnings("rawtypes")
 public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 
 	/**
@@ -58,13 +59,13 @@ public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 	 */
 	private String perms;
 	/**
-	 * 子菜单
+	 * 菜单是否授权(true:已授权|false:未授权)
 	 */
-	private List<AuthzFeatureVo> children = Lists.newArrayList();
+	private boolean checked;
 	/**
-	 * 功能按钮
+	 * 子菜单/功能按钮
 	 */
-	private List<AuthzFeatureOptVo> opts = Lists.newArrayList();
+	private List children = Lists.newArrayList();
 	
 	public String getId() {
 		return id;
@@ -161,26 +162,26 @@ public class AuthzFeatureVo implements Comparable<AuthzFeatureVo>{
 	public void setPerms(String perms) {
 		this.perms = perms;
 	}
+	
+	public boolean isChecked() {
+		return checked;
+	}
 
-	public List<AuthzFeatureVo> getChildren() {
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+
+	public List getChildren() {
 		return children;
 	}
 
-	public void setChildren(List<AuthzFeatureVo> children) {
+	public void setChildren(List children) {
 		this.children = children;
-	}
-
-	public List<AuthzFeatureOptVo> getOpts() {
-		return opts;
-	}
-
-	public void setOpts(List<AuthzFeatureOptVo> opts) {
-		this.opts = opts;
 	}
 
 	@Override
 	public int compareTo(AuthzFeatureVo o) {
-		return order.compareTo(o.getOrder());
+		return Integer.parseInt(order) - Integer.parseInt(o.getOrder());
 	}
 
 }
