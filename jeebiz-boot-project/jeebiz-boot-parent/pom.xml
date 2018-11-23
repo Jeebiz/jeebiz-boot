@@ -21,6 +21,12 @@
 		<java.version>1.8</java.version>
 		<maven.version>3.0</maven.version>
 	    
+	    <addClasspath>false</addClasspath>
+		<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+        <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+		<addExtensions>false</addExtensions>
+		<classpathPrefix>lib/</classpathPrefix>
+	    
 	    <!-- 生成部署脚本参数 -->
 		<appassembler-dir>${project.build.directory}/generated-resources/appassembler</appassembler-dir>
 		<appassembler-jsw-dir>${project.build.directory}/generated-resources/appassembler/jsw</appassembler-jsw-dir>
@@ -173,11 +179,11 @@
 					<configuration>
 						<archive>
 							<manifest>
-								<addClasspath>true</addClasspath>
-								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-					            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-								<addExtensions>true</addExtensions>
-								<classpathPrefix>lib/</classpathPrefix>
+								<addClasspath>${addClasspath}</addClasspath>
+								<addDefaultImplementationEntries>${addDefaultImplementationEntries}</addDefaultImplementationEntries>
+					            <addDefaultSpecificationEntries>${addDefaultSpecificationEntries}</addDefaultSpecificationEntries>
+								<addExtensions>${addExtensions}</addExtensions>
+								<classpathPrefix>${classpathPrefix}</classpathPrefix>
 							</manifest>
 							<manifestEntries>
 								 <Implementation-Module>${project.module}</Implementation-Module>
