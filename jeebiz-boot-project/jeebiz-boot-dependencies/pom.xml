@@ -116,6 +116,7 @@
 		<flyway.version>5.2.1</flyway.version>
 		<formio.version>1.6.3</formio.version>
 		<freemarker.version>2.3.28</freemarker.version>
+		<google-http-client.version>1.27.0</google-http-client.version>
 		<guava.version>26.0-jre</guava.version>
 		<grizzly.version>2.4.3</grizzly.version>
 		<hadoop.version>3.1.1</hadoop.version>
@@ -189,7 +190,7 @@
 		<netty-socketio.version>1.7.16</netty-socketio.version>
 		<nimbus-jose-jwt.version>6.0.2</nimbus-jose-jwt.version>
 		<log4j2.version>2.11.1</log4j2.version>
-		<okhttp.version>3.11.0</okhttp.version>
+		<okhttp.version>3.12.0</okhttp.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
@@ -216,6 +217,7 @@
 		<pf4j2-wicket.version>1.0.0</pf4j2-wicket.version>
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.5.0</rabbit-amqp-client.version>
+		<reactor.version>Californium-RELEASE</reactor.version>
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq.version>4.3.1</rocketmq.version>
 		<schemacrawler.version>15.01.06</schemacrawler.version>
@@ -1498,7 +1500,16 @@
 			    <artifactId>google-oauth-client-servlet</artifactId>
 			    <version>1.23.0</version>
 			</dependency>
-
+			
+			<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client-bom -->
+			<dependency>
+			    <groupId>com.google.http-client</groupId>
+			    <artifactId>google-http-client-bom</artifactId>
+			    <version>${google-http-client.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
+			</dependency>
+			
 			<!-- http://mvnrepository.com/artifact/com.google.guava/guava -->
 			<dependency>
 				<groupId>com.google.guava</groupId>
@@ -2494,12 +2505,14 @@
 			    <type>pom</type>
 			    <scope>import</scope>
 			</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+						
+			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-bom -->
 			<dependency>
 			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp</artifactId>
+			    <artifactId>okhttp-bom</artifactId>
 			    <version>${okhttp.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
 			</dependency>
 			
 			<!-- JDBC Driver For Oracle -->
@@ -2764,6 +2777,15 @@
 				<groupId>com.belerweb</groupId>
 				<artifactId>pinyin4j</artifactId>
 				<version>${pinyin4j.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-bom -->
+			<dependency>
+			    <groupId>io.projectreactor</groupId>
+			    <artifactId>reactor-bom</artifactId>
+			    <version>${reactor.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
