@@ -190,7 +190,7 @@
 		<netty-socketio.version>1.7.16</netty-socketio.version>
 		<nimbus-jose-jwt.version>6.0.2</nimbus-jose-jwt.version>
 		<log4j2.version>2.11.1</log4j2.version>
-		<okhttp.version>3.12.0</okhttp.version>
+		<okhttp3.version>3.12.0</okhttp3.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
@@ -272,8 +272,8 @@
 		<smslib.version>3.5.4</smslib.version>
 		<snmp4j.version>3.0.1</snmp4j.version>
 		<springfox.version>2.9.2</springfox.version>
-		<spring-biz.version>1.0.5.RELEASE</spring-biz.version>
-		<spring-javassist.version>1.0.3.RELEASE</spring-javassist.version>
+		<spring-biz.version>1.0.6-SNAPSHOT</spring-biz.version>
+		<spring-javassist.version>1.0.4-SNAPSHOT</spring-javassist.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.1.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
@@ -2510,7 +2510,7 @@
 			<dependency>
 			    <groupId>com.squareup.okhttp3</groupId>
 			    <artifactId>okhttp-bom</artifactId>
-			    <version>${okhttp.version}</version>
+			    <version>${okhttp3.version}</version>
 			    <type>pom</type>
 			    <scope>import</scope>
 			</dependency>
