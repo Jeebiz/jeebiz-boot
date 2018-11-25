@@ -61,6 +61,7 @@ public class JeebizRestTemplateConfiguration {
 	 * @throws KeyManagementException
 	 */
 	@Bean
+	@ConditionalOnMissingBean
 	public RestTemplate restTemplate(@Autowired(required = false) List<ClientHttpRequestInterceptor> interceptors,
 			RestTemplateBuilder restTemplateBuilder, 
 			ResponseErrorHandler responseErrorHandler,
