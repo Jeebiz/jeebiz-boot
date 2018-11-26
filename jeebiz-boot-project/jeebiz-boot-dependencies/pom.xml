@@ -15,12 +15,12 @@
 
 	<properties>
 		<!-- Dependency versions -->
-		<activemq.version>5.15.6</activemq.version>
+		<activemq.version>5.15.8</activemq.version>
 		<activation.version>1.1.1</activation.version>
 		<asciidoctorj.version>1.5.7</asciidoctorj.version>
         <asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
-		<aspectjweaver.version>1.9.1</aspectjweaver.version>
+		<aspectjweaver.version>1.9.2</aspectjweaver.version>
 		<async-http-client.version>1.9.40</async-http-client.version>
 		<axiom.version>1.2.20</axiom.version>
 		<axis.version>1.4</axis.version>
@@ -37,11 +37,11 @@
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<byte-buddy.version>1.9.3</byte-buddy.version>
+		<byte-buddy.version>1.9.5</byte-buddy.version>
 		<caffeine.version>2.6.2</caffeine.version>
-		<cas-client.version>3.5.0</cas-client.version>
+		<cas-client.version>3.5.1</cas-client.version>
 		<camel.version>2.22.2</camel.version>
-		<cglib.version>3.2.8</cglib.version>
+		<cglib.version>3.2.9</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
 		<commons-attributes-compiler.version>2.2</commons-attributes-compiler.version>
@@ -51,7 +51,7 @@
 		<commons-codec.version>1.11</commons-codec.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<commons-collections4.version>4.2</commons-collections4.version>
-		<commons-compiler.version>3.0.9</commons-compiler.version>
+		<commons-compiler.version>3.0.11</commons-compiler.version>
 		<commons-compress.version>1.18</commons-compress.version>
 		<commons-configuration.version>1.10</commons-configuration.version>
 		<commons-configuration2.version>2.3</commons-configuration2.version>
@@ -84,13 +84,13 @@
         <commons-pool2.version>2.6.0</commons-pool2.version>
 		<commons-proxy.version>1.0</commons-proxy.version>
 		<commons-rdf.version>0.5.0</commons-rdf.version>
-		<commons-ssl.version>0.3.9</commons-ssl.version>
-		<commons-text.version>1.2</commons-text.version>
+		<commons-ssl.version>0.3.11</commons-ssl.version>
+		<commons-text.version>1.6</commons-text.version>
 		<commons-validator.version>1.6</commons-validator.version>
 		<commons-vfs.version>2.0-21092010</commons-vfs.version>
 		<commons-vfs2.version>2.2</commons-vfs2.version>
 		<contiperf.version>2.3.4</contiperf.version>
-		<cronet.version>66.3359.158</cronet.version>
+		<cronet.version>69.3497.100</cronet.version>
 		<cssparser.version>0.9.26</cssparser.version>
 		<cxf.version>3.2.7</cxf.version>
 		<cxf-rt-javassist.version>1.0.1.RELEASE</cxf-rt-javassist.version>
@@ -117,13 +117,13 @@
 		<formio.version>1.6.3</formio.version>
 		<freemarker.version>2.3.28</freemarker.version>
 		<google-http-client.version>1.27.0</google-http-client.version>
-		<guava.version>26.0-jre</guava.version>
-		<grizzly.version>2.4.3</grizzly.version>
+		<guava.version>27.0-jre</guava.version>
+		<grizzly.version>2.4.3.1</grizzly.version>
 		<hadoop.version>3.1.1</hadoop.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
-		<icu4j.version>62.1</icu4j.version>
+		<icu4j.version>63.1</icu4j.version>
 		<influxdb-java.version>2.14</influxdb-java.version>
 		<j2cache-core.version>2.7.6-release</j2cache-core.version>
 		<j2cache-hibernate3.version>2.7.0-release</j2cache-hibernate3.version>
@@ -136,7 +136,7 @@
 		<javassist.version>3.23.1-GA</javassist.version>
 		<javassist-plus.version>1.0.0.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>3.1.5</java-uuid-generator.version>
-		<java-jwt.version>3.3.0</java-jwt.version>
+		<java-jwt.version>3.4.1</java-jwt.version>
 		<javamelody.version>1.74.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
@@ -184,11 +184,13 @@
 		<mybatis-velocity.version>1.3</mybatis-velocity.version>
 		<mybatis-generator.version>1.3.5</mybatis-generator.version>
 		<mysql.version>8.0.13</mysql.version>
-		<mina.version>2.0.16</mina.version>
+		<mina.version>2.0.19</mina.version>
+		<mina-thrift.version>3.0.0-M2</mina-thrift.version>
+		<mina-protobuf.version>3.0.0-M2</mina-protobuf.version>
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
 		<netty-socketio.version>1.7.16</netty-socketio.version>
-		<nimbus-jose-jwt.version>6.0.2</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>6.4</nimbus-jose-jwt.version>
 		<log4j2.version>2.11.1</log4j2.version>
 		<okhttp3.version>3.12.0</okhttp3.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
@@ -201,8 +203,8 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20180219.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.7.0</p6spy.version>
-		<pac4j.version>3.3.0</pac4j.version>
-		<pac4j-webmvc.version>3.1.0</pac4j-webmvc.version>
+		<pac4j.version>3.4.0</pac4j.version>
+		<pac4j-webmvc.version>3.2.0</pac4j-webmvc.version>
 		<pac4j-spring-security.version>4.1.0</pac4j-spring-security.version>
 		<perf4j.version>0.9.16</perf4j.version>
 		<prometheus.version>0.5.0</prometheus.version>
@@ -244,7 +246,8 @@
 		<scribejava-apis-ext.version>1.0.0-SNAPSHOT</scribejava-apis-ext.version>
 		<sequoiadb-driver.version>3.0.0</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
-		<sharding-jdbc.version>2.0.3</sharding-jdbc.version>
+		<sharding-jdbc.version>3.0.0</sharding-jdbc.version>
+		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
 		<shiro.version>1.4.0</shiro.version>
 		<shiro-biz.version>1.0.5.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
@@ -270,7 +273,7 @@
 		<sitemesh3.version>3.0.1</sitemesh3.version>
 		<smallsql.version>0.21</smallsql.version>
 		<smslib.version>3.5.4</smslib.version>
-		<snmp4j.version>3.0.1</snmp4j.version>
+		<snmp4j.version>3.0.6</snmp4j.version>
 		<springfox.version>2.9.2</springfox.version>
 		<spring-biz.version>1.0.6-SNAPSHOT</spring-biz.version>
 		<spring-javassist.version>1.0.4-SNAPSHOT</spring-javassist.version>
@@ -302,9 +305,9 @@
 		<wsdl4j.version>1.6.3</wsdl4j.version>
 		<xmlschema-core.version>2.0.2</xmlschema-core.version>
 		<xfire.version>1.2.6</xfire.version>
-		<xnio.version>3.6.2.Final</xnio.version>
-		<xstream.version>1.4.10</xstream.version>
-		<zookeeper.version>3.3.6</zookeeper.version>
+		<xnio.version>3.6.5.Final</xnio.version>
+		<xstream.version>1.4.11.1</xstream.version>
+		<zookeeper.version>3.4.13</zookeeper.version>
 		<zip4j.version>1.3.2</zip4j.version>
 		<zxing.version>3.3.3</zxing.version>
 
@@ -400,7 +403,7 @@
 		<spring-boot-starter-rocketmq.version>1.0.0.RELEASE</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-schemacrawler.version>1.0.3.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
-		<spring-boot-starter-sharding-jdbc.version>2.0.3</spring-boot-starter-sharding-jdbc.version>
+		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.3.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.1.RELEASE</spring-boot-starter-shiro-cas.version>
 		<spring-boot-starter-shiro-jwt.version>1.0.3.RELEASE</spring-boot-starter-shiro-jwt.version>
@@ -1520,7 +1523,6 @@
 			<!-- http://mvnrepository.com/artifact/org.glassfish.grizzly -->
 
 			<!-- Grizzly： Grizzly是一种应用程序框架，专门解决编写成千上万用户访问服务器时候产生的各种问题。 使用JAVA NIO作为基础，并隐藏其编程的复杂性。容易使用的高性能的API。带来非阻塞socketd到协议处理层。利用高性能的缓冲和缓冲管理使用高性能的线程池。 -->
-
 			<dependency>
 				<groupId>org.glassfish.grizzly</groupId>
 				<artifactId>grizzly-core</artifactId>
@@ -2342,43 +2344,23 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.mina</groupId>
-				<artifactId>mina-coap</artifactId>
-				<version>3.0.0-M2</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.mina</groupId>
-				<artifactId>mina-codec</artifactId>
-				<version>3.0.0-M2</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-legal</artifactId>
 				<version>${mina.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-thrift</artifactId>
-				<version>${mina.version}</version>
+				<version>${mina-thrift.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-protobuf</artifactId>
-				<version>${mina.version}</version>
+				<version>${mina-protobuf.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-filter-compression</artifactId>
 				<version>${mina.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.mina</groupId>
-				<artifactId>mina-filter-codec-netty</artifactId>
-				<version>2.0.0-M6</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.mina</groupId>
-				<artifactId>mina-filter-ssl</artifactId>
-				<version>1.1.7</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.mina</groupId>
@@ -3113,48 +3095,73 @@
 			    <version>${sfntly.version}</version>
 			</dependency>
 			
-			<!-- http://mvnrepository.com/artifact/io.shardingjdbc -->
+			<!-- http://mvnrepository.com/artifact/io.shardingsphere -->
 			<dependency>
-				<groupId>io.shardingjdbc</groupId>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-core</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.shardingsphere</groupId>
 				<artifactId>sharding-jdbc-core</artifactId>
 				<version>${sharding-jdbc.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.shardingjdbc</groupId>
-				<artifactId>sharding-jdbc-core-spring-namespace</artifactId>
-				<version>${sharding-jdbc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.shardingjdbc</groupId>
-				<artifactId>sharding-jdbc-transaction</artifactId>
-				<version>${sharding-jdbc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.shardingjdbc</groupId>
-				<artifactId>sharding-jdbc-transaction-storage</artifactId>
-				<version>${sharding-jdbc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.shardingjdbc</groupId>
-				<artifactId>sharding-jdbc-transaction-async-job</artifactId>
-				<version>${sharding-jdbc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.shardingjdbc</groupId>
-				<artifactId>sharding-jdbc-spring-namespace</artifactId>
-				<version>${sharding-jdbc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.shardingjdbc</groupId>
+				<groupId>io.shardingsphere</groupId>
 				<artifactId>sharding-jdbc-orchestration</artifactId>
 				<version>${sharding-jdbc.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.shardingjdbc</groupId>
+				<groupId>io.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-orchestration-spring</artifactId>
+				<version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.shardingsphere</groupId>
 				<artifactId>sharding-jdbc-orchestration-spring-namespace</artifactId>
 				<version>${sharding-jdbc.version}</version>
 			</dependency>
-
+			<dependency>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-orchestration-core</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.shardingsphere</groupId>
+				<artifactId>sharding-orchestration-reg-etcd</artifactId>
+				<version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-transaction</artifactId>
+				<version>${sharding-transaction.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-transaction-storage</artifactId>
+				<version>${sharding-transaction.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-transaction-async-job</artifactId>
+				<version>${sharding-transaction.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.shardingsphere</groupId>
+				<artifactId>sharding-jdbc-spring-namespace</artifactId>
+				<version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-opentracing</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-proxy</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro -->
 
 			<dependency>
@@ -4283,15 +4290,15 @@
 				<artifactId>spring-boot-starter-security-biz</artifactId>
 				<version>${spring-boot-starter-security-biz.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.shardingjdbc/sharding-jdbc-core-spring-boot-starter -->
+			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-spring-boot-starter -->
 			<dependency>
-			    <groupId>io.shardingjdbc</groupId>
-			    <artifactId>sharding-jdbc-core-spring-boot-starter</artifactId>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-sharding-jdbc.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.shardingjdbc/sharding-jdbc-orchestration-spring-boot-starter -->
+			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-orchestration-spring-boot-starter -->
 			<dependency>
-			    <groupId>io.shardingjdbc</groupId>
+			    <groupId>io.shardingsphere</groupId>
 			    <artifactId>sharding-jdbc-orchestration-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-sharding-jdbc.version}</version>
 			</dependency>
