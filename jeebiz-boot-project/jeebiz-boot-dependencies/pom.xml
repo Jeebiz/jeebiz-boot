@@ -1275,18 +1275,6 @@
 				<artifactId>cxf-rt-javascript</artifactId>
 				<version>${cxf.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-security -->
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-security</artifactId>
-				<version>${cxf.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-wsdl -->
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-wsdl</artifactId>
-				<version>${cxf.version}</version>
-			</dependency>
 			<!-- cxf-rt-transports -->
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-local -->
 			<dependency>
@@ -1343,12 +1331,6 @@
 				<version>${cxf.version}</version>
 			</dependency>
 			<!-- cxf-rt-ws -->
-			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-addr -->
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-ws-addr</artifactId>
-				<version>${cxf.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-eventing -->
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
@@ -1464,6 +1446,12 @@
 			<dependency>
 			    <groupId>org.apache.cxf</groupId>
 			    <artifactId>cxf-rt-rs-extension-providers</artifactId>
+			    <version>${cxf.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-extension-reactor -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-rs-extension-reactor</artifactId>
 			    <version>${cxf.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-swagger -->
