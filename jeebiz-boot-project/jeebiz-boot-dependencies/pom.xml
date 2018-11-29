@@ -1262,6 +1262,38 @@
 			    <artifactId>cxf-rt-frontend-js</artifactId>
 			    <version>${cxf.version}</version>
 			</dependency>
+			<!-- cxf-rt -->
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-features-clustering -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-features-clustering</artifactId>
+			    <version>${cxf.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-javascript -->
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-javascript</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-security -->
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-security</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-wsdl -->
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-wsdl</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
+			<!-- cxf-rt-transports -->
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-local -->
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-local</artifactId>
+				<version>${cxf.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
 			<dependency>
 			    <groupId>org.apache.cxf</groupId>
@@ -1280,12 +1312,6 @@
 			    <artifactId>cxf-rt-transports-http-jetty</artifactId>
 			    <version>${cxf.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-local -->
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-transports-local</artifactId>
-				<version>${cxf.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http-netty-server -->
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
@@ -1298,6 +1324,12 @@
 				<artifactId>cxf-rt-transports-http-netty-client</artifactId>
 				<version>${cxf.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http-undertow -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-transports-http-undertow</artifactId>
+			    <version>${cxf.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-udp -->
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
@@ -1308,24 +1340,6 @@
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-transports-websocket</artifactId>
-				<version>${cxf.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-wsdl -->
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-wsdl</artifactId>
-				<version>${cxf.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-security -->
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-security</artifactId>
-				<version>${cxf.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-javascript -->
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-javascript</artifactId>
 				<version>${cxf.version}</version>
 			</dependency>
 			<!-- cxf-rt-ws -->
@@ -1452,6 +1466,12 @@
 			    <artifactId>cxf-rt-rs-extension-providers</artifactId>
 			    <version>${cxf.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-swagger -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
+			    <version>${cxf.version}</version>
+			</dependency>
 			<!-- cxf-rt-rs-security -->
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-cors -->
 			<dependency>
@@ -1459,11 +1479,23 @@
 				<artifactId>cxf-rt-rs-security-cors</artifactId>
 				<version>${cxf.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-jose-jaxrs -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-rs-security-jose-jaxrs</artifactId>
+			   <version>${cxf.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-jose -->
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-rs-security-jose</artifactId>
 				<version>${cxf.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-oauth -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-rs-security-oauth</artifactId>
+			    <version>${cxf.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-oauth2 -->
 			<dependency>
@@ -1471,13 +1503,19 @@
 				<artifactId>cxf-rt-rs-security-oauth2</artifactId>
 				<version>${cxf.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-sso-oidc -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-rs-security-sso-oidc</artifactId>
+			    <version>${cxf.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-sso-saml -->
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-rs-security-sso-saml</artifactId>
 				<version>${cxf.version}</version>
 			</dependency>
-			
+						
 			<dependency>
 	   			<groupId>com.github.vindell</groupId>
 				<artifactId>cxf-rt-javassist</artifactId>
