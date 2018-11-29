@@ -1234,11 +1234,19 @@
 			    <version>${cssparser.version}</version>
 			</dependency>
 			
+			
+			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-jose-jaxrs -->
+			<dependency>
+			    <groupId>org.apache.cxf</groupId>
+			    <artifactId>cxf-rt-rs-security-jose-jaxrs</artifactId>
+			    <version>${cxf.version}</version>
+			</dependency>
 			<dependency>
 	   			<groupId>com.github.vindell</groupId>
 				<artifactId>cxf-rt-javassist</artifactId>
 				<version>${cxf-rt-javassist.version}</version>
 			</dependency>
+			
 			
 			<!-- JDBC Driver For IBM DB2 -->
 			<dependency>
