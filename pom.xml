@@ -22,7 +22,7 @@
 
 	<modules>
 		<module>jeebiz-boot-project</module>
-		<module>jeebiz-boot-samples</module>
+		<!-- <module>jeebiz-boot-samples</module> -->
 	</modules>
 
 	<!-- 项目使用的License -->
