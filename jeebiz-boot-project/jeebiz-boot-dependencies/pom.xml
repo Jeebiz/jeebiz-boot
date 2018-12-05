@@ -294,6 +294,7 @@
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
 		<thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+		<truelicense.version>3.2.0</truelicense.version>
 		<UserAgentUtils.version>1.21</UserAgentUtils.version>	
 		<webcollector.version>2.73-alpha</webcollector.version>
 		<webjars-locator.version>0.34</webjars-locator.version>
@@ -4030,6 +4031,50 @@
 			    <groupId>nz.net.ultraq.thymeleaf</groupId>
 			    <artifactId>thymeleaf-layout-dialect</artifactId>
 			    <version>${thymeleaf-layout-dialect.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-core -->
+			<!-- 使用参考: http://www.it165.net/pro/html/201404/11540.html -->
+			<dependency>
+			    <groupId>net.truelicense</groupId>
+			    <artifactId>truelicense-core</artifactId>
+			    <version>${truelicense.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-dto -->
+			<dependency>
+			    <groupId>net.truelicense</groupId>
+			    <artifactId>truelicense-dto</artifactId>
+			    <version>${truelicense.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-obfuscate -->
+			<dependency>
+			    <groupId>net.truelicense</groupId>
+			    <artifactId>truelicense-obfuscate</artifactId>
+			    <version>${truelicense.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-jax-rs -->
+			<dependency>
+			    <groupId>net.truelicense</groupId>
+			    <artifactId>truelicense-jax-rs</artifactId>
+			    <version>${truelicense.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-v2-commons -->
+			<dependency>
+			    <groupId>net.truelicense</groupId>
+			    <artifactId>truelicense-v2-commons</artifactId>
+			    <version>${truelicense.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-v2-json -->
+			<dependency>
+			    <groupId>net.truelicense</groupId>
+			    <artifactId>truelicense-v2-json</artifactId>
+			    <version>${truelicense.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-v2-xml -->
+			<dependency>
+			    <groupId>net.truelicense</groupId>
+			    <artifactId>truelicense-v2-xml</artifactId>
+			    <version>${truelicense.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/eu.bitwalker/UserAgentUtils -->

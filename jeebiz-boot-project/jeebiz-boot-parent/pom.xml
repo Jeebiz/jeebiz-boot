@@ -226,6 +226,9 @@
 					<configuration>
 						<!-- 字符集编码 -->
 						<encoding>${project.build.sourceEncoding}</encoding>
+						<nonFilteredFileExtensions>
+							 <nonFilteredFileExtension>publicKeys.store</nonFilteredFileExtension>
+						</nonFilteredFileExtensions>
 					</configuration>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
@@ -398,18 +401,37 @@
 					<!-- Java应用程序可执行脚本生成：http://blog.csdn.net/mn960mn/article/details/51554152 -->
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>appassembler-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>make-assembly</id>
+							<phase>package</phase>
+							<goals>
+								<goal>assemble</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>make-daemons</id>
+							<phase>package</phase>
+							<goals>
+								<goal>generate-daemons</goal>
+							</goals>
+						</execution>
+					</executions>
 					<configuration>
 
 						<!-- 脚本模式、进程模式 通用参数 -->
 
-						<!-- 配置文件的目标目录 -->
+						<!-- The name of the target directory for configuration files. Prior to version 1.7 this value defaults to 'conf' for assemble goal and 'etc' for generate-daemons Default value is: etc. -->
 						<configurationDirectory>conf</configurationDirectory>
-						<!-- 从哪里拷贝配置文件 (默认src/main/config) <configurationSourceDirectory>${project.build.directory}/antrun/generated-resources</configurationSourceDirectory> -->
+						<!-- The source directory for configuration files. Default value is: src/main/config. -->
+						<configurationSourceDirectory>src/main/conf</configurationSourceDirectory>
+						<!-- If the source configuration directory should be copied to the configured configurationDirectory.Default value is: false. -->
 						<!-- 是否拷贝配置文件到上面的目录中;因为Spring-Boot资源不需要全部拷贝，这里交由antrun插件帮我们部分进行拷贝 -->
 						<copyConfigurationDirectory>false</copyConfigurationDirectory>
 
-						<!-- 过滤源配置目录时应用的字符编码格式 -->
-						<encoding>UTF-8</encoding>
+						<!-- The character encoding scheme to be applied when filtering the source configuration directory.
+							 Default value is: ${project.build.sourceEncoding}. -->
+						<encoding>${project.build.sourceEncoding}</encoding>
 						<!-- $BASEDIR/bin目录中的启动脚本执行前调用的脚本名称，用于设置环境变量，类似Tomcat的setenv。 注意：仅适用于jsw平台。如果这个可选的环境文件也设置了WRAPPER_CONF_OVERRIDES变量，它将被传递给JSW本机启动器的命令行参数， 
 							以覆盖wrapper.conf的属性。有关详细信息，请参阅http://wrapper.tanukisoftware.com/doc/english/props-command-line.html。 -->
 						<environmentSetupFileName>setenv</environmentSetupFileName>
@@ -436,11 +458,11 @@
 						<!-- 项目的临时目录。如果为此参数指定一个值，将创建一个名为给定的空目录。 -->
 						<tempDirectory>tmp</tempDirectory>
 						<!-- 生成的脚本的unix模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。 -->
-						<unixScriptTemplate></unixScriptTemplate>
-						<!-- 对于从远程回购下载的快照，请使用“SNAPSHOT”替换时间戳部分。 -->
-						<useTimestampInSnapshotFileName>false</useTimestampInSnapshotFileName>
+						<!-- <unixScriptTemplate></unixScriptTemplate> -->
+						<!-- For those snapshots downloaded from a remote repo, replace the timestamp part with "SNAPSHOT" instead. Default value is: true.。 -->
+						<useTimestampInSnapshotFileName>true</useTimestampInSnapshotFileName>
 						<!-- 有时候，有许多依赖关系意味着有一个非常长的类路径，并且变得太长（特别是在基于Windows的平台上）。这种选择可以帮助这种情况。 
-							如果激活此选项，您的类路径只包含一个类路径通配符（REPO/*）。但请注意，这仅适用于Java 1.6及更高版本,且 repositoryLayout=flat的情况。 -->
+							  如果激活此选项，您的类路径只包含一个类路径通配符（REPO/*）。但请注意，这仅适用于Java 1.6及更高版本,且 repositoryLayout=flat的情况。 -->
 						<useWildcardClassPath>true</useWildcardClassPath>
 						<!-- 生成脚本的windows模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。 
 							<windowsScriptTemplate></windowsScriptTemplate> -->
@@ -453,48 +475,52 @@
 						<binFileExtensions>
 							<unix>.sh</unix>
 						</binFileExtensions>
-						<!-- 可执行脚本的目录 -->
+						<!-- Define the name of binary folder. Default value is: bin. -->
 						<binFolder>bin</binFolder>
-						<!-- 额外的JVM参数。如果在Program.setJvmSettings（） 级别上定义JvmSettings，则该部分将被程序级别的给定参数覆盖。 
-							否则，如果没有给予Program.setJvmSettings（），将使用这些设置。 这可以用于定义一些默认值，而通过使用 Program.setJvmSettings（）覆盖默认设置。这仅适用于不是JvmSettings其余部分的extraJvmArguments。 
-							自从1.2以来，可以使用BASEDIR @和@ REPO @的占位符 ，将根据将生成相应脚本的平台进行扩展。 -->
-						<extraJvmArguments>-Xms256M -Xmn512M -Xmx512M -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=512M</extraJvmArguments>
-						<!-- 是否显示控制台 -->
-						<showConsoleWindow>true</showConsoleWindow>
-
-						<!-- 插件将会为其生成bin文件的默认平台。使用字符串值进行配置 - “全部”（默认/空）| “windows”| “UNIX”。 -->
-						<platforms>
-							<platform>windows</platform>
-							<platform>unix</platform>
-						</platforms>
+						<!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
+						<!-- <extraJvmArguments>-Xms256M -Xmn512M -Xmx512M -Xss128k -XX:MetaspaceSize=64M -XX:MaxMetaspaceSize=512M</extraJvmArguments> -->
 						<!-- 如果configurationDirectory（默认情况下）应包含在生成的bin文件的类路径的开始。（注意：该配置指定外部配置文件路径，如不配置可能导致无法启动） -->
 						<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
-						<!-- 这可以用于将项目依赖、配置文件夹（等等）放置于类路径的第一个条目。默认行为是放在classpath的最后一个位置。 -->
-						<projectArtifactFirstInClassPath>false</projectArtifactFirstInClassPath>
-						<!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
-						<useAllProjectDependencies>false</useAllProjectDependencies>
-
+						
 						<!-- 将生成bin文件的一组程序配置（必填参数） -->
 						<programs>
 							<program>
 								<id>${appassembler-bin-fileName}</id>
+								<!-- 生成的脚本文件的名称，比如start.sh,你也可以根据你的需要命名成其他名字 -->
+								<!-- <licenseHeaderFile></licenseHeaderFile> -->
 								<!--指定主类，脚本名。会生成shell/bat两种类型,也可用platforms指定运行平台 -->
 								<mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
-								<!-- 生成的脚本文件的名称，比如start.sh,你也可以根据你的需要命名成其他名字 -->
-								<licenseHeaderFile></licenseHeaderFile>
+								<!-- 插件将会为其生成bin文件的默认平台。使用字符串值进行配置 - “全部”（默认/空）| “windows”| “UNIX”。 -->
+								<platforms>
+									<platform>windows</platform>
+									<platform>unix</platform>
+								</platforms>
 								<jvmSettings>
+									<!-- http://www.cnblogs.com/paddix/p/5309550.html -->
+									<!-- http://unixboy.iteye.com/blog/174173/ -->
 									<extraArguments>
 										<!-- 后台服务运行 -->
 										<extraArgument>-server</extraArgument>
-										<!-- 初始内存 -->
-										<extraArgument>-Xms256M</extraArgument>
-										<!-- 最小内存 -->
+										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
+										<extraArgument>-Xms1024M</extraArgument>
+										<!-- 设置JVM最大可用内存为1024M -->
+										<extraArgument>-Xmx1024M</extraArgument>
+										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
+											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
+											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 
+										-->
 										<extraArgument>-Xmn512M</extraArgument>
-										<!-- 最大内存 -->
-										<extraArgument>-Xmx512M</extraArgument>
+										<!-- 选择垃圾收集器为并行收集器。此配置仅对年轻代有效。即上述配置下，年轻代使用并发收集，而年老代仍旧使用串行收集。 -->
+										<extraArgument>-XX:+UseParallelGC</extraArgument>
+										<!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
+										<extraArgument>-XX:ParallelGCThreads=4</extraArgument>
+										<!-- 设置年老代为并发收集。测试中配置这个以后，-XX:NewRatio=4的配置失效了，原因不明。所以，此时年轻代大小最好用-Xmn设置。 -->
+										<!-- <extraArgument>-XX:+UseConcMarkSweepGC</extraArgument> -->
+										<!-- 设置年轻代为并行收集。可与CMS收集同时使用。JDK5.0以上，JVM会根据系统配置自行设置，所以无需再设置此值。 -->
+										<!-- <extraArgument>-XX:+UseParNewGC</extraArgument> -->
 										<!-- 元空间 -->
 										<!-- 初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=256M</extraArgument>
+										<extraArgument>-XX:MetaspaceSize=64M</extraArgument>
 										<!-- 最大空间，默认是没有限制的 -->
 										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
 										<!-- 在GC之后，最小的Metaspace剩余空间容量的百分比，减少为分配空间所导致的垃圾收集 <extraArgument>-XX:MinMetaspaceFreeRatio=60</extraArgument> -->
@@ -503,36 +529,26 @@
 								</jvmSettings>
 							</program>
 						</programs>
-
+						
+						<!-- 这可以用于将项目依赖、配置文件夹（等等）放置于类路径的第一个条目。默认行为是放在classpath的最后一个位置。 -->
+						<projectArtifactFirstInClassPath>false</projectArtifactFirstInClassPath>
+						<!-- 是否显示控制台 -->
+						<showConsoleWindow>true</showConsoleWindow>
+						<!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
+						<useAllProjectDependencies>false</useAllProjectDependencies>
+						
 						<!-- 后台服务模式 : http://www.mojohaus.org/appassembler/appassembler-maven-plugin/generate-daemons-mojo.html -->
 
 						<!-- 项目的基本目录,默认值为：${basedir}。 -->
 						<basedir>${project.artifactId}</basedir>
 						<!-- 可执行脚本的名称 -->
 						<binFileName>${appassembler-bin-fileName}</binFileName>
-						<!-- 生成的守护程序的目标目录。默认值为：${project.build.directory}/generated-resources/appassembler。 -->
-						<target>${project.build.directory}/generated-resources/appassembler</target>
-						<!-- JvmSettings描述最小/最大内存和堆栈大小，系统属性和额外的参数。 -->
-						<defaultJvmSettings>
-							<!-- 初始内存 -->
-							<initialMemorySize>256M</initialMemorySize>
-							<!-- 最大内存 -->
-							<maxMemorySize>512M</maxMemorySize>
-							<maxStackSize>512M</maxStackSize>
-						</defaultJvmSettings>
-						<!-- 使用此选项覆盖当前内置的增量包二进制文件。您将需要将增量包版本解压缩到由此选项设置的已知位置。 <externalDeltaPackDirectory></externalDeltaPackDirectory> -->
-						<!-- 使用此选项将已知文件的内容预插入到生成的包装器配置文件中。例如：$ include ../conf/another-wrapper.conf 
-							User属性是：preWrapperConf。 <preWrapperConf></preWrapperConf> -->
-						<!-- 启用时，名称包装器配置文件为wrapper - $ {daemon.id} .conf -->
-						<useDaemonIdAsWrapperConfName>false</useDaemonIdAsWrapperConfName>
-						<!-- 启用时，将包装器可执行文件前缀为$ {daemon.id}。否则，使用原始名称（即包装） -->
-						<useDaemonIdAsWrapperExePrefixName>false</useDaemonIdAsWrapperExePrefixName>
-
 						<!-- 一套守护进程生成配置（必填参数） -->
 						<daemons>
 							<daemon>
 								<!-- 唯一ID，会影响生成的目录名 -->
 								<id>${project.artifactId}</id>
+								<environmentSetupFileName>setenv</environmentSetupFileName>
 								<mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
 								<platforms>
 									<platform>jsw</platform>
@@ -543,6 +559,12 @@
 										<includes>
 											<include>linux-x86-32</include>
 											<include>linux-x86-64</include>
+											<!-- <include>linux-ppc-64</include>
+											<include>macosx-universal-32</include>
+											<include>macosx-universal-64</include>
+											<include>solaris-sparc-32</include>
+											<include>solaris-sparc-64</include>
+											<include>solaris-x86-32</include> -->
 											<include>windows-x86-32</include>
 											<include>windows-x86-64</include>
 										</includes>
@@ -560,24 +582,52 @@
 												<value>lib</value>
 											</property>
 											<property>
+												<name>wrapper.console.loglevel</name>
+												<value>INFO</value>
+											</property>
+											<property>
 												<name>wrapper.logfile</name>
 												<value>logs/wrapper.log</value>
+											</property>
+											<property>
+												<name>wrapper.logfile.loglevel</name>
+												<value>ERROR</value>
+											</property>
+											<property>
+												<name>wrapper.logfile.maxsize</name>
+												<value>20m</value>
+											</property>
+											<property>
+												<name>wrapper.logfile.maxfiles</name>
+												<value>10</value>
 											</property>
 										</configuration>
 									</generatorConfiguration>
 								</generatorConfigurations>
-								<environmentSetupFileName></environmentSetupFileName>
 								<jvmSettings>
+									<!-- http://www.cnblogs.com/paddix/p/5309550.html -->
+									<!-- http://unixboy.iteye.com/blog/174173/ -->
 									<extraArguments>
-										<!-- 初始内存 -->
-										<extraArgument>-Xmn256M</extraArgument>
-										<!-- 最小内存 -->
+										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
+										<extraArgument>-Xms1024M</extraArgument>
+										<!-- 设置JVM最大可用内存为1024M -->
+										<extraArgument>-Xmx1024M</extraArgument>
+										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
+											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
+											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 
+										-->
 										<extraArgument>-Xmn512M</extraArgument>
-										<!-- 最大内存 -->
-										<extraArgument>-Xmx512M</extraArgument>
+										<!-- 选择垃圾收集器为并行收集器。此配置仅对年轻代有效。即上述配置下，年轻代使用并发收集，而年老代仍旧使用串行收集。 -->
+										<extraArgument>-XX:+UseParallelGC</extraArgument>
+										<!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
+										<extraArgument>-XX:ParallelGCThreads=4</extraArgument>
+										<!-- 设置年老代为并发收集。测试中配置这个以后，-XX:NewRatio=4的配置失效了，原因不明。所以，此时年轻代大小最好用-Xmn设置。 -->
+										<!-- <extraArgument>-XX:+UseConcMarkSweepGC</extraArgument> -->
+										<!-- 设置年轻代为并行收集。可与CMS收集同时使用。JDK5.0以上，JVM会根据系统配置自行设置，所以无需再设置此值。 -->
+										<!-- <extraArgument>-XX:+UseParNewGC</extraArgument> -->
 										<!-- 元空间 -->
 										<!-- 初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=256M</extraArgument>
+										<extraArgument>-XX:MetaspaceSize=64M</extraArgument>
 										<!-- 最大空间，默认是没有限制的 -->
 										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
 										<!-- 在GC之后，最小的Metaspace剩余空间容量的百分比，减少为分配空间所导致的垃圾收集 <extraArgument>-XX:MinMetaspaceFreeRatio=60</extraArgument> -->
@@ -585,14 +635,28 @@
 									</extraArguments>
 									<systemProperties>
 										<systemProperty>java.security.policy=conf/policy.all</systemProperty>
-										<systemProperty>com.sun.management.jmxremote</systemProperty>
+										<!-- <systemProperty>com.sun.management.jmxremote</systemProperty>
 										<systemProperty>com.sun.management.jmxremote.port=1984</systemProperty>
 										<systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
-										<systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty>
+										<systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty> -->
 									</systemProperties>
 								</jvmSettings>
 							</daemon>
 						</daemons>
+						<!-- JvmSettings describing min/max memory and stack size, system properties and extra arguments. -->
+						<defaultJvmSettings>
+							<initialMemorySize>256M</initialMemorySize>
+							<maxMemorySize>1024M</maxMemorySize>
+						</defaultJvmSettings>
+						<!-- 生成的守护程序的目标目录。默认值为：${project.build.directory}/generated-resources/appassembler。 -->
+						<target>${project.build.directory}/generated-resources/appassembler</target>
+						<!-- 使用此选项覆盖当前内置的增量包二进制文件。您将需要将增量包版本解压缩到由此选项设置的已知位置。 <externalDeltaPackDirectory></externalDeltaPackDirectory> -->
+						<!-- 使用此选项将已知文件的内容预插入到生成的包装器配置文件中。例如：$ include ../conf/another-wrapper.conf 
+							User属性是：preWrapperConf。 <preWrapperConf></preWrapperConf> -->
+						<!-- 启用时，名称包装器配置文件为wrapper - $ {daemon.id} .conf -->
+						<useDaemonIdAsWrapperConfName>false</useDaemonIdAsWrapperConfName>
+						<!-- 启用时，将包装器可执行文件前缀为${daemon.id}。否则，使用原始名称（即包装） -->
+						<useDaemonIdAsWrapperExePrefixName>false</useDaemonIdAsWrapperExePrefixName>
 
 					</configuration>
 				</plugin>
