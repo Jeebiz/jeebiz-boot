@@ -69,7 +69,6 @@
 			t.F_VISIBLE,
 			( SELECT GROUP_CONCAT(t1.OPT_PERMS) FROM SYS_FEATURE_OPTS t1 WHERE t1.F_ID = t.F_ID) F_PERMS
 		FROM SYS_FEATURE_LIST t
-	   WHERE t.F_VISIBLE = 1
 	</select>
 
 	<select id="getPagedList" resultMap="AuthzFeatureMap" parameterType="AuthzFeatureModel">
