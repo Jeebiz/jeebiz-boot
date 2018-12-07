@@ -7,6 +7,8 @@ package net.jeebiz.boot.api.utils;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
+
 import com.alibaba.fastjson.JSONObject;
 
 public class ResultUtils {
@@ -35,13 +37,10 @@ public class ResultUtils {
 		return rtMap;
 	}
 	
-	/**
-	 * 
-	 * 包装处理结果状态，并返回Map对象
-	 * @param status ： 状态值或状态码
-	 * @param message ： 提示信息
-	 * @return ： Map对象
-	 */
+	public static Map<String, Object> tokenMap(HttpStatus status, String message) {
+		return tokenMap(status.value(), message);
+	}
+	
 	public static Map<String, Object> tokenMap(int status, String token) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
 		rtMap.put("status", status);
@@ -74,13 +73,10 @@ public class ResultUtils {
 		return rtMap;
 	}
 	
-	/**
-	 * 
-	 * 包装处理结果状态，并返回Map对象
-	 * @param status  ： 状态值或状态码
-	 * @param message ： 提示信息
-	 * @return ： Map对象
-	 */
+	public static Map<String, Object> statusMap(HttpStatus status, String message) {
+		return statusMap(status.value(), message);
+	}
+	
 	public static Map<String, Object> statusMap(int status, String message) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
 		rtMap.put("status", status);
@@ -99,6 +95,10 @@ public class ResultUtils {
 		rtMap.put("status", status);
 		rtMap.put("data", data);
 		return rtMap;
+	}
+	
+	public static Map<String, Object> dataMap(HttpStatus status, Object data) {
+		return dataMap(status.value(), data);
 	}
 	
 	public static Map<String, Object> dataMap(int status,  Object data) {
@@ -121,6 +121,10 @@ public class ResultUtils {
 		rtMap.put("message", message);
 		rtMap.put("data", data);
 		return rtMap;
+	}
+	
+	public static Map<String, Object> dataMap(HttpStatus status, String message, Object data) {
+		return dataMap(status.value(), message, data);
 	}
 	
 	public static Map<String, Object> dataMap(int status, String message, Object data) {
