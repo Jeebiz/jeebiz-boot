@@ -34,6 +34,20 @@ public class ResultUtils {
 		rtMap.put("token", token);
 		return rtMap;
 	}
+	
+	/**
+	 * 
+	 * 包装处理结果状态，并返回Map对象
+	 * @param status ： 状态值或状态码
+	 * @param message ： 提示信息
+	 * @return ： Map对象
+	 */
+	public static Map<String, Object> tokenMap(int status, String token) {
+		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("status", status);
+		rtMap.put("token", token);
+		return rtMap;
+	}
 
 	/**
 	 * 
@@ -61,12 +75,33 @@ public class ResultUtils {
 	}
 	
 	/**
+	 * 
+	 * 包装处理结果状态，并返回Map对象
+	 * @param status  ： 状态值或状态码
+	 * @param message ： 提示信息
+	 * @return ： Map对象
+	 */
+	public static Map<String, Object> statusMap(int status, String message) {
+		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("status", status);
+		rtMap.put("message", message);
+		return rtMap;
+	}
+	
+	/**
 	 * 包装处理结果状态，并返回Map对象
 	 * @param status  ： 状态值或状态码
 	 * @param data	      ： 数据对象
 	 * @return ： Map对象
 	 */
 	public static Map<String, Object> dataMap(String status,  Object data) {
+		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("status", status);
+		rtMap.put("data", data);
+		return rtMap;
+	}
+	
+	public static Map<String, Object> dataMap(int status,  Object data) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
 		rtMap.put("status", status);
 		rtMap.put("data", data);
@@ -87,5 +122,14 @@ public class ResultUtils {
 		rtMap.put("data", data);
 		return rtMap;
 	}
+	
+	public static Map<String, Object> dataMap(int status, String message, Object data) {
+		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("status", status);
+		rtMap.put("message", message);
+		rtMap.put("data", data);
+		return rtMap;
+	}
+
 
 }
