@@ -94,7 +94,7 @@
 	
 	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel">
 		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t 
-		 WHERE t.R_NAME t.R_NAME LIKE CONCAT('%',#{name},'%') 
+		 WHERE t.R_NAME LIKE CONCAT('%',#{name},'%') 
 		   AND t.R_ID != #{id}
 	</select>
 	
@@ -226,6 +226,7 @@
 			 ) F_PERMS
 		FROM SYS_FEATURE_LIST t
 		WHERE t.F_URL != '#'
+		  AND t.F_VISIBLE = 1
 		  AND EXISTS (
 		   SELECT DISTINCT t1.F_ID
 			 FROM SYS_FEATURE_OPTS t1
