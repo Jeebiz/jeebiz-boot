@@ -10,7 +10,7 @@
     </insert>
     
 	<delete id="delPerms">
-		DELETE FROM SYS_AUTHZ_ROLE_PERMS WHERE R_ID = #{roleId} AND t.R_ID != 1
+		DELETE FROM SYS_AUTHZ_ROLE_PERMS WHERE R_ID = #{roleId} AND R_ID != 1
 		<if test="perms != null and perms.size() > 0">
 		<foreach collection="perms" item="item" separator =" OR " open=" AND ( " close=")">
 		PERMS = #{item}

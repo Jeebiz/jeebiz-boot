@@ -64,7 +64,7 @@
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String">
-		DELETE FROM SYS_AUTHZ_ROLE_LIST WHERE R_ID = #{id}
+		DELETE FROM SYS_AUTHZ_ROLE_LIST WHERE R_ID = #{id} AND R_ID != 1
 	</delete>
 	
 	<update id="update" parameterType="AuthzRoleModel">
@@ -76,10 +76,18 @@
 			<if test="status != null and status != ''">t.R_STATUS = #{status},</if>
 		</set>
 		where t.R_ID = #{id}
+		  AND t.R_ID != 1
+	</update>
+	
+	<update id="setStatus" parameterType="java.lang.String">
+		UPDATE SYS_AUTHZ_ROLE_LIST 
+		   SET R_STATUS = #{status}
+		 WHERE R_ID = #{roleId}
+		   AND R_ID != 1
 	</update>
 	
 	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
-		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME t.R_NAME LIKE '%' || #{roleName} ||'%'
+		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME LIKE '%' || #{roleName} ||'%'
 	</select>
 	
 	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel">
@@ -97,6 +105,7 @@
 			t.R_STATUS,
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
+	   WHERE t.R_ID != 1
 	</select>
 	
 	<select id="getPermsByRoleId" resultType="string">  
@@ -114,6 +123,7 @@
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
 	   WHERE t.R_ID = #{id}
+	     AND t.R_ID != 1
 	</select>
 	
 	<select id="getPagedList" resultMap="RoleMap" parameterType="AuthzRoleModel">

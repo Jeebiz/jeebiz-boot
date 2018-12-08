@@ -89,7 +89,7 @@
 	</update>
 	
 	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
-		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME t.R_NAME LIKE CONCAT('%',#{roleName},'%')
+		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME LIKE CONCAT('%',#{roleName},'%')
 	</select>
 	
 	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel">
