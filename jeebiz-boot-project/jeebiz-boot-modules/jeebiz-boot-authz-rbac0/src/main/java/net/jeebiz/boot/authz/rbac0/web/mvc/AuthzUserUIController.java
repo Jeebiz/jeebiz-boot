@@ -6,6 +6,7 @@ package net.jeebiz.boot.authz.rbac0.web.mvc;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.biz.authz.principal.ShiroPrincipal;
 import org.apache.shiro.biz.utils.SubjectUtils;
@@ -66,7 +67,7 @@ public class AuthzUserUIController extends BaseMapperController {
 	
 	@ApiIgnore
 	@GetMapping("info")
-	@RequiresPermissions("user:set-info")
+	@RequiresAuthentication
 	public String info(HttpServletRequest request, Model model) {
 		ShiroPrincipal principal = SubjectUtils.getPrincipal(ShiroPrincipal.class);
 		model.addAttribute("model", getAuthzUserService().getModel(principal.getUserid()));
@@ -76,7 +77,7 @@ public class AuthzUserUIController extends BaseMapperController {
 	
 	@ApiIgnore
 	@GetMapping("password")
-	@RequiresPermissions("user:set-pwd")
+	@RequiresAuthentication
 	public String password() {
 		return "html/authz/rbac0/user/password";
 	}

@@ -243,7 +243,7 @@ public class AuthzUserController extends BaseMapperController {
 	})
 	@BusinessLog(module = Constants.AUTHZ_USER, business = "设置个人信息-名称：${username}", opt = BusinessType.UPDATE)
 	@PostMapping("reset/info")
-	@RequiresPermissions("user:reset-info")
+	@RequiresAuthentication
 	@ResponseBody
 	public Object resetInfo(@Valid @RequestBody AuthzUserResetVo resetVo) throws Exception { 
 		
@@ -264,7 +264,7 @@ public class AuthzUserController extends BaseMapperController {
 	})
 	@BusinessLog(module = Constants.AUTHZ_USER, business = "设置密码", opt = BusinessType.UPDATE)
 	@PostMapping("reset/pwd")
-	@RequiresPermissions("user:reset-pwd")
+	@RequiresAuthentication
 	@ResponseBody
 	public Object resetPwd(@RequestParam String oldPassword, @RequestParam String password) throws Exception {
 		
@@ -279,7 +279,7 @@ public class AuthzUserController extends BaseMapperController {
 	@ApiOperation(value = "user:perms", notes = "查询已分配给当前用户所属角色的权限")
 	@BusinessLog(module = Constants.AUTHZ_USER, business = "查询已分配给当前用户所属角色的权限", opt = BusinessType.SELECT)
 	@PostMapping("perms")
-	@RequiresPermissions("user:perms")
+	@RequiresAuthentication
 	@ResponseBody
 	public Object perms() throws Exception { 
 		String userId = SubjectUtils.getPrincipal(ShiroPrincipal.class).getUserid();
