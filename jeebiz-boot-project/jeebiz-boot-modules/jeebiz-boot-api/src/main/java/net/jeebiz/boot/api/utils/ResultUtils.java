@@ -32,6 +32,7 @@ public class ResultUtils {
 	 */
 	public static Map<String, Object> tokenMap(String status, String token) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("token", token);
 		return rtMap;
@@ -43,6 +44,7 @@ public class ResultUtils {
 	
 	public static Map<String, Object> tokenMap(int status, String token) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("token", token);
 		return rtMap;
@@ -68,6 +70,7 @@ public class ResultUtils {
 	 */
 	public static Map<String, Object> statusMap(String status, String message) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("message", message);
 		return rtMap;
@@ -79,6 +82,7 @@ public class ResultUtils {
 	
 	public static Map<String, Object> statusMap(int status, String message) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("message", message);
 		return rtMap;
@@ -92,6 +96,7 @@ public class ResultUtils {
 	 */
 	public static Map<String, Object> dataMap(String status,  Object data) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("data", data);
 		return rtMap;
@@ -103,6 +108,7 @@ public class ResultUtils {
 	
 	public static Map<String, Object> dataMap(int status,  Object data) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("data", data);
 		return rtMap;
@@ -117,6 +123,7 @@ public class ResultUtils {
 	 */
 	public static Map<String, Object> dataMap(String status, String message, Object data) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("message", message);
 		rtMap.put("data", data);
@@ -129,11 +136,11 @@ public class ResultUtils {
 	
 	public static Map<String, Object> dataMap(int status, String message, Object data) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", HttpStatus.OK.value());
 		rtMap.put("status", status);
 		rtMap.put("message", message);
 		rtMap.put("data", data);
 		return rtMap;
 	}
-
 
 }
