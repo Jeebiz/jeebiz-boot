@@ -57,7 +57,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param t 实体对象
 	 * @return 是否增加成功
 	 */
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int insert(T t) {
 		return dao.insert(t);
 	}
@@ -67,17 +67,17 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param t
 	 * @return
 	 */
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int update(T t) {
 		return dao.update(t);
 	}
 
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int delete(String id) {
 		return dao.delete(id);
 	}
 	
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int delete(T t) {
 		return dao.delete(t);
 	}
@@ -87,7 +87,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param id
 	 * @return
 	 */
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public T getModel(String id) {
 		return dao.getModel(id);
 	}
@@ -98,7 +98,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param t
 	 * @return
 	 */
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public T getModel(T t) {
 		return dao.getModel(t);
 	}
@@ -108,7 +108,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param map
 	 * @return
 	 */
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int batchDelete(Map<String, Object> map) {
 		return dao.batchDelete(map);
 	}
@@ -118,7 +118,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param list
 	 * @return
 	 */
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int batchDelete(List<?> list) {
 		return dao.batchDelete(list);
 	}
@@ -128,19 +128,19 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param map
 	 * @return
 	 */
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int batchUpdate(Map<String, Object> map) {
 		return dao.batchUpdate(map);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int batchUpdate(List<T> list) {
 		return dao.batchUpdate(list);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public int setStatus(String id, String status) {
 		return dao.setStatus(id, status);
 	}
@@ -152,7 +152,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @return
 	 */
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public Page<T> getPagedList(T t) {
 		
 		PaginationModel tModel = (PaginationModel) t;
@@ -173,7 +173,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * 分页查询
 	 */
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public Page<T> getPagedList(Page<T> page,T t) {
 		
 		List<T> records = dao.getPagedList(page, t);
