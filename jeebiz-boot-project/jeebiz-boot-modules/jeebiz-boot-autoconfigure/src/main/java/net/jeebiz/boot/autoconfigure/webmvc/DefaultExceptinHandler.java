@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.jeebiz.boot.api.exception.HttpExceptions;
 import net.jeebiz.boot.api.exception.NormalExceptions;
 import net.jeebiz.boot.api.utils.ResultUtils;
 
@@ -129,7 +130,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public Object defaultErrorHandler(HttpServletRequest request, Exception ex) throws Exception {
 		this.logException(ex);
 		if(isAjaxRequest(request)) {
-			return NormalExceptions.SC_INDEX_OUT_OF_BOUNDS_EXCEPTION.toResponseEntity(ex);
+			return HttpExceptions.SC_INTERNAL_SERVER_ERROR.toResponseEntity(ex);
 		}
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("exception", ex);
