@@ -27,7 +27,6 @@ import net.jeebiz.boot.api.utils.ResultUtils;
  */
 @ControllerAdvice
 public class DefaultExceptinHandler extends ExceptinHandler {
-
 	
 	/**---------------------逻辑异常----------------------------*/
 	
@@ -111,8 +110,6 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		rtMap.put("message", "SQL 语法错误.");
 		return new ResponseEntity<Map<String, Object>>(rtMap, HttpStatus.BAD_REQUEST);
 	}
-
-	
 	
 	@ExceptionHandler({ IllegalArgumentException.class, UnsupportedEncodingException.class })
 	public ResponseEntity<Map<String, Object>> jwtTokenErr() {
@@ -123,18 +120,20 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		//return new JsonResult(ResultCode.UNKNOWN_ERROR, ResultCode.UNKNOWN_ERROR.msg());
 	}
 	
-	
 	/**
 	 * 全局异常捕捉处理
 	 * @param ex
 	 * @return
 	 */
 	@ExceptionHandler(value = Exception.class)
-	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception ex) throws Exception {
+	public Object defaultErrorHandler(HttpServletRequest request, Exception ex) throws Exception {
 		this.logException(ex);
+		if(isAjaxRequest(request)) {
+			return NormalExceptions.SC_INDEX_OUT_OF_BOUNDS_EXCEPTION.toResponseEntity(ex);
+		}
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("exception", ex);
-		mav.addObject("url", req.getRequestURL());
+		mav.addObject("url", request.getRequestURL());
 		mav.setViewName("html/def/error");
 		return mav;
 	}

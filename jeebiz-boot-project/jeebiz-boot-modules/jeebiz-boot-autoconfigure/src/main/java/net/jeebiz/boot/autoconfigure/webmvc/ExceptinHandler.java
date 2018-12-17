@@ -6,6 +6,8 @@ package net.jeebiz.boot.autoconfigure.webmvc;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.logging.log4j.ThreadContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +21,13 @@ public abstract class ExceptinHandler {
 
 	protected static final Logger LOG = LoggerFactory.getLogger(DefaultExceptinHandler.class);
 	protected static final Marker bizExcpMarker = MarkerFactory.getMarker("Biz-Excp");
+	protected static final String XML_HTTP_REQUEST = "XMLHttpRequest";
+	protected static final String X_REQUESTED_WITH = "X-Requested-With";
 
+	protected boolean isAjaxRequest(HttpServletRequest request) {
+        return XML_HTTP_REQUEST.equalsIgnoreCase(request.getHeader(X_REQUESTED_WITH));
+    }
+	
 	protected void logException(Exception ex) {
 		LOG.error(bizExcpMarker, ex.getMessage(), ex);
 	}
