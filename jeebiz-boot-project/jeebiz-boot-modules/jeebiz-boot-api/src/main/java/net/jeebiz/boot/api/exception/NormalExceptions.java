@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import net.jeebiz.boot.api.dao.entities.ErrorPair;
 
-public enum NarmolExceptions {
+public enum NormalExceptions {
     
 	/**
 	 * RuntimeException					       500 (Internal Server Error)
@@ -53,7 +53,7 @@ public enum NarmolExceptions {
 
 	public static final String STATUS_ERROR = "error";
 
-	NarmolExceptions(HttpStatus httpStatus, String reasonPhrase) {
+	NormalExceptions(HttpStatus httpStatus, String reasonPhrase) {
 		this.httpStatus = httpStatus;
 		this.code = httpStatus.toString();
 		this.reasonPhrase = reasonPhrase;
@@ -94,8 +94,8 @@ public enum NarmolExceptions {
 	 * @return the enum constant with the specified numeric value
 	 * @throws IllegalArgumentException if this enum has no constant for the specified numeric value
 	 */
-	public static NarmolExceptions valueOfIgnoreCase(String exCode) {
-		for (NarmolExceptions status : values()) {
+	public static NormalExceptions valueOfIgnoreCase(String exCode) {
+		for (NormalExceptions status : values()) {
 			if (status.code.equalsIgnoreCase(exCode)) {
 				return status;
 			}
@@ -105,7 +105,7 @@ public enum NarmolExceptions {
 	
 	public static List<ErrorPair> errors() {
 		List<ErrorPair> errorList = new LinkedList<ErrorPair>();
-		for (NarmolExceptions ex : NarmolExceptions.values()) {
+		for (NormalExceptions ex : NormalExceptions.values()) {
 			errorList.add(new ErrorPair(ex.getCode(), ex.getReasonPhrase()));
 		}
 		return errorList;
@@ -119,9 +119,9 @@ public enum NarmolExceptions {
 		
 		Map<String, Object> rtMap = new HashMap<String, Object>();
 		
-		rtMap.put("code", "http-" + getCode());
+		rtMap.put("code", getCode());
 		rtMap.put("status", STATUS_ERROR);
-		rtMap.put("message", getReasonPhrase());
+		rtMap.put("reason", getReasonPhrase());
 		if(detail != null && !detail.isEmpty()) {
 			rtMap.put("detail", detail);
 		}

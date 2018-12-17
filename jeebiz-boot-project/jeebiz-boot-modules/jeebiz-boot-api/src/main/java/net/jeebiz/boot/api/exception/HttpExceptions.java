@@ -212,7 +212,7 @@ public enum HttpExceptions {
 	 * Return the integer value of this status code.
 	 */
 	public String getCode() {
-		return "HTTP-" + this.httpStatus.value();
+		return "" + this.httpStatus.value();
 	}
 
 	/**
@@ -277,9 +277,13 @@ public enum HttpExceptions {
 		
 		rtMap.put("code", getCode());
 		rtMap.put("status", STATUS_ERROR);
-		rtMap.put("message", getReasonPhrase());
+		rtMap.put("reason", getReasonPhrase());
+		rtMap.put("message", ex.getMessage());
+		
 		if(detail != null && !detail.isEmpty()) {
-			rtMap.put("detail", detail);
+			rtMap.putAll(detail);
+		} else {
+			rtMap.put("message", ex.getMessage());
 		}
 		
 		return new ResponseEntity<Map<String, Object>>(rtMap, this.getHttpStatus());
