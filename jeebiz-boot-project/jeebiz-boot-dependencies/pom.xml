@@ -104,11 +104,18 @@
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
 		<druid.version>1.1.12</druid.version>
+		<dropwizard-metrics.version>4.1.0-rc2</dropwizard-metrics.version>
+		<dropwizard-metrics-datadog.version>2.0.0-RC1</dropwizard-metrics-datadog.version>
+		<dropwizard-metrics-kafka.version>0.0.1</dropwizard-metrics-kafka.version>
+		<dropwizard-metrics-librato.version>5.1.4</dropwizard-metrics-librato.version>
+		<dropwizard-metrics-new-relic.version>1.0.5</dropwizard-metrics-new-relic.version>
+		<dropwizard-metrics-influxdb.version>1.2.3</dropwizard-metrics-influxdb.version>
+		<dropwizard-metrics-zabbix.version>0.0.5</dropwizard-metrics-zabbix.version>
 		<disruptor.version>3.4.2</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>2.6.4</dubbo.version>
 		<ehcache.version>2.10.5</ehcache.version>
-		<ehcache3.version>3.6.1</ehcache3.version>
+		<ehcache3.version>3.6.2</ehcache3.version>
 		<fastdfs.version>1.26.3</fastdfs.version>
 		<fastjson.version>1.2.51</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
@@ -160,13 +167,7 @@
 		<liquibase.version>3.6.2</liquibase.version>
 		<mariadb.version>2.3.0</mariadb.version>
 		<metadata-extractor.version>2.11.0</metadata-extractor.version>
-		<dropwizard-metrics.version>4.1.0-rc2</dropwizard-metrics.version>
-		<dropwizard-metrics-datadog.version>2.0.0-RC1</dropwizard-metrics-datadog.version>
-		<dropwizard-metrics-kafka.version>0.0.1</dropwizard-metrics-kafka.version>
-		<dropwizard-metrics-librato.version>5.1.4</dropwizard-metrics-librato.version>
-		<dropwizard-metrics-new-relic.version>1.0.5</dropwizard-metrics-new-relic.version>
-		<dropwizard-metrics-influxdb.version>1.2.3</dropwizard-metrics-influxdb.version>
-		<dropwizard-metrics-zabbix.version>0.0.5</dropwizard-metrics-zabbix.version>
+		<mssql-jdbc.version>7.0.0.jre8</mssql-jdbc.version>
 		<mybatis.version>3.4.6</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-plus.version>3.0.6</mybatis-plus.version>
@@ -242,7 +243,7 @@
 		<schemacrawler-timesten.version>${schemacrawler.version}</schemacrawler-timesten.version>
 		<scribe.version>1.3.7</scribe.version>
 		<scribe-up.version>1.3.1</scribe-up.version>
-		<scribejava.version>6.0.0</scribejava.version>
+		<scribejava.version>6.2.0</scribejava.version>
 		<scribejava-apis-ext.version>1.0.0-SNAPSHOT</scribejava-apis-ext.version>
 		<sequoiadb-driver.version>3.0.0</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
