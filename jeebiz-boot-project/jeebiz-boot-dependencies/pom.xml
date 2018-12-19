@@ -3732,7 +3732,7 @@
 				<artifactId>socket.io-client</artifactId>
 				<version>0.8.3</version>
 			</dependency>
-
+			
 			<!-- https://mvnrepository.com/artifact/javax.xml.stream/stax-api -->
 			<dependency>
 				<groupId>javax.xml.stream</groupId>
