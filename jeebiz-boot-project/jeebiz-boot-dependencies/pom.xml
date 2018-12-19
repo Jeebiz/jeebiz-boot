@@ -222,7 +222,7 @@
 		<reactor.version>Californium-RELEASE</reactor.version>
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq.version>4.3.1</rocketmq.version>
-		<schemacrawler.version>15.01.06</schemacrawler.version>
+		<schemacrawler.version>15.03.02</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-derby.version>14.03.03</schemacrawler-derby.version>
