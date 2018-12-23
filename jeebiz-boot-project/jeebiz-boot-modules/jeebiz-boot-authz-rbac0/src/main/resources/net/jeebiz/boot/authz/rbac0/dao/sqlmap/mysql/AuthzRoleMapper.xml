@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.jeebiz.boot.authz.rbac0.dao.IAuthzRoleDao">
-
+	
+	<!-- 开启二级缓存 -->
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache" >
+		<!-- 缓存对象闲置时长：3600s = 1h -->
+		<property name="timeToIdleSeconds" value="3600"/>
+		<!-- 缓存对象有效时长：3600s = 1h -->
+		<property name="timeToLiveSeconds" value="3600"/>
+		<!-- 同ehcache参数maxElementsInMemory -->
+		<property name="maxEntriesLocalHeap" value="1000"/>
+		<!-- 同ehcache参数maxElementsOnDisk -->
+		<property name="maxEntriesLocalDisk" value="10000000"/>
+		<!-- 缓存对象驱逐政策: "LRU", "LFU" or "FIFO" -->
+		<property name="memoryStoreEvictionPolicy" value="LRU"/>
+	</cache>
+	
 	<resultMap id="AuthzFeatureMap" type="AuthzFeatureModel">
 		<result property="id" column="F_ID" />
 		<result property="name" column="F_NAME" />
@@ -58,7 +72,7 @@
 		<result property="idcard" column="D_IDCARD" />
 	</resultMap>
 	  
-	<insert id="insert" parameterType="AuthzRoleModel">
+	<insert id="insert" parameterType="AuthzRoleModel" flushCache="true">
 		<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">  
 	        SELECT IFNULL(MAX(R_ID), 0) + 1 FROM SYS_AUTHZ_ROLE_LIST
 	    </selectKey>
@@ -66,11 +80,11 @@
 		values(#{id},#{name},#{type},#{intro},'1')
 	</insert>
 	
-	<delete id="delete" parameterType="java.lang.String">
+	<delete id="delete" parameterType="java.lang.String" flushCache="true">
 		DELETE FROM SYS_AUTHZ_ROLE_LIST WHERE R_ID = #{id} AND R_ID != 1
 	</delete>
 	
-	<update id="update" parameterType="AuthzRoleModel">
+	<update id="update" parameterType="AuthzRoleModel" flushCache="true">
 		update SYS_AUTHZ_ROLE_LIST t
 		<set>
 			<if test="name != null and name != ''">t.R_NAME = #{name},</if>
@@ -81,24 +95,24 @@
 		  AND t.R_ID != 1
 	</update>
 	
-	<update id="setStatus" parameterType="java.lang.String">
+	<update id="setStatus" parameterType="java.lang.String" flushCache="true">
 		UPDATE SYS_AUTHZ_ROLE_LIST 
 		   SET R_STATUS = #{status}
 		 WHERE R_ID = #{roleId}
 		   AND R_ID != 1
 	</update>
 	
-	<select id="getCountByName" resultType="int" parameterType="java.lang.String">
+	<select id="getCountByName" resultType="int" parameterType="java.lang.String" useCache="true">
 		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME LIKE CONCAT('%',#{roleName},'%')
 	</select>
 	
-	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel">
+	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel" useCache="true">
 		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t 
 		 WHERE t.R_NAME LIKE CONCAT('%',#{name},'%') 
 		   AND t.R_ID != #{id}
 	</select>
 	
-	<select id="getRoles" resultMap="RoleMap">
+	<select id="getRoles" resultMap="RoleMap" useCache="true">
 		SELECT
 			t.R_ID,
 			t.R_NAME,
@@ -110,11 +124,11 @@
 	   WHERE t.R_ID != 1
 	</select>
 	
-	<select id="getPermsByRoleId" resultType="string">  
+	<select id="getPermsByRoleId" resultType="string" useCache="true">  
         SELECT x.PERMS FROM SYS_AUTHZ_ROLE_PERMS x WHERE x.R_ID = #{id}  
     </select>
 	
-	<select id="getModel" resultMap="RoleMap" parameterType="java.lang.String">
+	<select id="getModel" resultMap="RoleMap" parameterType="java.lang.String" useCache="true">
 		SELECT
 			t.R_ID,
 			t.R_NAME,
@@ -128,7 +142,7 @@
 	     AND t.R_ID != 1
 	</select>
 	
-	<select id="getPagedList" resultMap="RoleMap" parameterType="AuthzRoleModel">
+	<select id="getPagedList" resultMap="RoleMap" parameterType="AuthzRoleModel" useCache="true">
 		SELECT
 			t.R_ID,
 			t.R_NAME,
@@ -150,21 +164,21 @@
 		</if>
 	</select>
 
-	<insert id="setUsers">
+	<insert id="setUsers" flushCache="true">
     	insert into SYS_AUTHZ_USER_ROLE_RELATION(U_ID,R_ID)
     	values <foreach collection="userIds" item="item" separator =",">
 		(#{roleId},#{item})
         </foreach>
     </insert>
     
-    <delete id="deleteUsers">
+    <delete id="deleteUsers" flushCache="true">
     	DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE R_ID = #{roleId} AND R_ID != 1
     	<foreach collection="userIds" item="item" separator =" OR " open=" AND ( " close=")">
 		U_ID = #{item}
         </foreach>
     </delete>
     
-	<select id="getPagedAllocatedList" resultMap="UserDetailMap" parameterType="AuthzRoleModel">
+	<select id="getPagedAllocatedList" resultMap="UserDetailMap" parameterType="AuthzRoleModel" useCache="true">
 		SELECT
 			t.U_ID,
 			t.U_USERNAME,
@@ -185,7 +199,7 @@
 		</if>
 	</select>
 	
-	<select id="getPagedUnAllocatedList" resultMap="UserDetailMap" parameterType="AuthzRoleModel">
+	<select id="getPagedUnAllocatedList" resultMap="UserDetailMap" parameterType="AuthzRoleModel" useCache="true">
 		SELECT
 			t.U_ID,
 			t.U_USERNAME,
@@ -206,7 +220,7 @@
 		</if>
 	</select>
 	
-	<select id="getFeatures" resultMap="AuthzFeatureMap" parameterType="java.lang.String">
+	<select id="getFeatures" resultMap="AuthzFeatureMap" parameterType="java.lang.String" useCache="true">
 		SELECT
 			t.F_ID,
 			t.F_NAME,
@@ -236,7 +250,7 @@
 		)
 	</select>
     
-    <select id="getFeatureOpts" resultMap="AuthzFeatureOptMap" parameterType="java.lang.String">
+    <select id="getFeatureOpts" resultMap="AuthzFeatureOptMap" parameterType="java.lang.String" useCache="true">
 		SELECT
 			t.F_ID,
 			t.OPT_ID,
