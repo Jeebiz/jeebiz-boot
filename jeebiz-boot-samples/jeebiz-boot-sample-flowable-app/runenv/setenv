@@ -1,6 +1,6 @@
 #!/bin/bash
-
-if [ -r "$BASEDIR/jre" ]; then
+if [ -r "$BASEDIR/jre" ];
+then
 #Java environment
 export JAVA_HOME=$BASEDIR/jre
 export CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$CLASSPATH

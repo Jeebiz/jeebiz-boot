@@ -761,13 +761,13 @@
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#解压独立jre运行包【如果希望工程使用独有的jdk、jre请将压缩包放置在项目根目录并修改下面的配置】${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#rm -rf jre1.8.0_60${line.separator}"></echo>
+										message="#rm -rf jre${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#tar -zxvf jre-8u60-linux-x64.tar.gz${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#File Authorized${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chmod 755 jre1.8.0_60/bin/*${line.separator}"></echo>
+										message="chmod 755 jre/bin/*${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="chmod 755 bin/*${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
@@ -797,7 +797,7 @@
 									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="rm -rf /etc/init.d/${appassembler-app-name}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="#rm -rf jre1.8.0_60${line.separator}"></echo>
+										message="#rm -rf jre${line.separator}"></echo>
 									
 									<!-- 处理服务模式依赖资源 -->
 									
@@ -840,13 +840,13 @@
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#解压独立jre运行包【如果希望工程使用独有的jdk、jre请将压缩包放置在项目根目录并修改下面的配置】${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#rm -rf jre1.8.0_60${line.separator}"></echo>
+										message="#rm -rf jre${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#tar -zxvf jre-8u60-linux-x64.tar.gz${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#File Authorized${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chmod 755 jre1.8.0_60/bin/*${line.separator}"></echo>
+										message="chmod 755 jre/bin/*${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
 										message="chmod 755 bin/*${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
@@ -876,7 +876,7 @@
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="rm -rf /etc/init.d/${appassembler-app-name}${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="#rm -rf jre1.8.0_60${line.separator}"></echo> -->
+										message="#rm -rf jre${line.separator}"></echo> -->
 								</target>
 							</configuration>
 						</execution>
