@@ -805,12 +805,12 @@
 									<copy file="${basedir}/runenv/jre-8u60-linux-x64.tar.gz"
 										todir="${appassembler-jsw-dir}/${project.artifactId}" />-->
 									<!-- 步骤5、拷贝应用程序服务运行脚本 -->
-									<copy file="${basedir}/runenv/${appassembler-app-name}" todir="${appassembler-jsw-dir}/${project.artifactId}" />
+									<!-- <copy file="${basedir}/runenv/${appassembler-app-name}" todir="${appassembler-jsw-dir}/${project.artifactId}" /> -->
 									<!-- 步骤7、创建备份文件夹 -->
-									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/update/backup" />
-									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/update/latest" />
+									<!-- <mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/update/backup" />
+									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/update/latest" /> -->
 									<!-- 步骤8、构建应用更新脚本 -->
-									<delete file="${appassembler-jsw-dir}/${project.artifactId}/update/update.sh"></delete>
+									<!-- <delete file="${appassembler-jsw-dir}/${project.artifactId}/update/update.sh"></delete>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/update/update.sh" append="true" 
 										message="service ${appassembler-app-name} stop${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/update/update.sh" append="true" 
@@ -832,9 +832,9 @@
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/update/update.sh" append="true" 
 										message="cp latest/conf/* ../conf${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/update/update.sh" append="true" 
-										message="service ${appassembler-app-name} start${line.separator}"></echo>
+										message="service ${appassembler-app-name} start${line.separator}"></echo> -->
 									<!-- 步骤9、构建应用安装脚本 -->
-									<delete file="${appassembler-jsw-dir}/${project.artifactId}/install.sh"></delete>
+									<!-- <delete file="${appassembler-jsw-dir}/${project.artifactId}/install.sh"></delete>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#!/bin/sh${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
@@ -862,21 +862,21 @@
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
 										message="cp ./${appassembler-app-name} /etc/init.d/${appassembler-app-name}${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chkconfig --add ${appassembler-app-name}${line.separator}"></echo>
+										message="chkconfig -add ${appassembler-app-name}${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chkconfig --level 345 ${appassembler-app-name} on${line.separator}"></echo>
+										message="chkconfig -level 345 ${appassembler-app-name} on${line.separator}"></echo> -->
 									<!-- 步骤9、构建应用卸载脚本 -->    
-									<delete file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh"></delete>
+									<!-- <delete file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh"></delete>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="#!/bin/sh${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="chkconfig ${appassembler-app-name} off${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="chkconfig --del ${appassembler-app-name}${line.separator}"></echo>
+										message="chkconfig -del ${appassembler-app-name}${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="rm -rf /etc/init.d/${appassembler-app-name}${line.separator}"></echo>
 									<echo file="${appassembler-jsw-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="#rm -rf jre1.8.0_60${line.separator}"></echo>
+										message="#rm -rf jre1.8.0_60${line.separator}"></echo> -->
 								</target>
 							</configuration>
 						</execution>

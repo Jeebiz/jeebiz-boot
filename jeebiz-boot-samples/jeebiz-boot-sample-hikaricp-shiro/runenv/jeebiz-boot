@@ -1,13 +1,13 @@
 #!/bin/bash
 #chkconfig: 2345 80 90
-#description:jeebiz-boot-sample-hikaricp-shiro
-#processname:jeebiz-boot-sample-hikaricp-shiro
+#description:rocketmq monitor server
+#processname:mqmonitord
 
 #source function library
 #. /etc/rc.d/init.d/functions
 
 #application home
-export APP_HOME=/u01/jeebiz-boot-sample-hikaricp-shiro
+export APP_HOME=/u01/jeebiz-druid
 
 #Document the app path
 echo document the curren path: "$APP_HOME"
@@ -26,7 +26,7 @@ start()
 stop()
 {
     echo -n $"Stopping $prog:"
-    pid=$(ps x | grep jeebiz-boot-sample-hikaricp-shiro | grep -v grep | awk '{print $1}')
+    pid=$(ps x | grep jeebiz-druid | grep -v grep | awk '{print $1}')
     echo pid = "$pid"
     kill -9 $pid
     

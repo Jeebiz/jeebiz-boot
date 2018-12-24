@@ -7,7 +7,7 @@
 #. /etc/rc.d/init.d/functions
 
 #application home
-export APP_HOME=/u01/zftal-boot-sample-druid
+export APP_HOME=/u01/jeebiz-druid
 
 #Document the app path
 echo document the curren path: "$APP_HOME"
@@ -20,13 +20,13 @@ echo document the curren path: "$APP_HOME"
 start()
 {
     echo -n $"Starting $prog:"
-    $APP_HOME/bin/zftal-boot.sh &    
+    $APP_HOME/bin/jeebiz-boot.sh &    
 }
 
 stop()
 {
     echo -n $"Stopping $prog:"
-    pid=$(ps x | grep zftal-boot-sample-druid | grep -v grep | awk '{print $1}')
+    pid=$(ps x | grep jeebiz-druid | grep -v grep | awk '{print $1}')
     echo pid = "$pid"
     kill -9 $pid
     

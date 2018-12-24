@@ -17,6 +17,7 @@
 .recommenders
 .settings
 .springBeans
+.apt_generated
 /build
 /code
 MANIFEST.MF
