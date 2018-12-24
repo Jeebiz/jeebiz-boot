@@ -10,7 +10,6 @@
 
 	<artifactId>jeebiz-boot-dependencies</artifactId>
 	<packaging>pom</packaging>
-	<name>Jeebiz Boot Dependencies</name>
 	<description>Jeebiz Boot Dependencies</description>
 
 	<properties>
