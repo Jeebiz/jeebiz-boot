@@ -8,12 +8,12 @@ create table SYS_FEATURE_LIST (
   	F_ABB 		VARCHAR2(50),
   	F_CODE 		VARCHAR2(50),
   	F_URL     	VARCHAR2(100),
-  	F_TYPE  	VARCHAR2(1) default 0,
+  	F_TYPE  	VARCHAR2(1) default '0',
   	F_ICON   	VARCHAR2(200),
   	F_ORDER   	VARCHAR2(3),
   	F_PARENT   	VARCHAR2(32) not null,
-  	F_VISIBLE	VARCHAR2(1) default 1,
-  	primary key (F_ID)
+  	F_VISIBLE	VARCHAR2(1) default '1',
+  	CONSTRAINT PK_FID PRIMARY KEY(F_ID)
 );
 -- Add comments to the table 
 comment on table SYS_FEATURE_LIST  is '功能菜单信息表';
@@ -37,16 +37,16 @@ create table SYS_FEATURE_OPTS
   	OPT_NAME 		VARCHAR2(30) not null,
   	OPT_ICON		VARCHAR2(60),
   	OPT_ORDER 		VARCHAR2(2),
-  	OPT_VISIBLE 	VARCHAR2(1) default 0,
+  	OPT_VISIBLE 	VARCHAR2(1) default '0' not null,
   	OPT_PERMS 		VARCHAR2(50),
-  	primary key (F_ID, OPT_PERMS)
+  	CONSTRAINT UNIQUE_FID_OPT_PERMS UNIQUE(F_ID, OPT_PERMS),
+  	CONSTRAINT PK_OPT_ID PRIMARY KEY(OPT_ID)
 );
 -- Add comments to the table 
 comment on table SYS_FEATURE_OPTS  is '功能操作信息表';
 -- Add comments to the columns 
 comment on column SYS_FEATURE_OPTS.F_ID  is '功能菜单ID';
 comment on column SYS_FEATURE_OPTS.OPT_ID  is '功能操作信息表ID';
-comment on column SYS_FEATURE_OPTS.OPT_CODE  is '功能操作代码';
 comment on column SYS_FEATURE_OPTS.OPT_NAME  is '功能操作名称';
 comment on column SYS_FEATURE_OPTS.OPT_ICON  is '功能操作图标样式';
 comment on column SYS_FEATURE_OPTS.OPT_ORDER is '显示顺序';

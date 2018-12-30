@@ -5,13 +5,13 @@
 
 -- Create table
 create table SYS_AUTHZ_ROLE_LIST (
-  R_ID   		VARCHAR2(32) not null default sys_guid(),
+  R_ID   		VARCHAR2(32) default sys_guid() not null,
   R_NAME   		VARCHAR2(50) not null,
   R_TYPE   		VARCHAR2(2) default 1,
   R_INTRO  		VARCHAR2(1000),
   R_STATUS		VARCHAR2(2) default 1,
   R_TIME24		VARCHAR2(32) default to_char(sysdate ,'yyyy-mm-dd hh24:mi:ss'),
-  primary key (R_ID)
+  CONSTRAINT PK_RID PRIMARY KEY(R_ID)
 );
 -- Add comments to the table 
 comment on table SYS_AUTHZ_ROLE_LIST  is '角色信息表';
@@ -27,7 +27,7 @@ comment on column SYS_AUTHZ_ROLE_LIST.R_TIME24  is '初始化时间';
 create table SYS_AUTHZ_ROLE_PERMS (
   R_ID   		VARCHAR2(32) not null,
   PERMS 		VARCHAR2(50) not null,
-  primary key (R_ID, PERMS)
+  CONSTRAINT UNIQUE_RID_PERMS UNIQUE(R_ID, PERMS)
 );
 -- Add comments to the table 
 comment on table SYS_AUTHZ_ROLE_PERMS  is '角色-权限关系表（角色-菜单-按钮）';
@@ -37,7 +37,7 @@ comment on column SYS_AUTHZ_ROLE_PERMS.PERMS  is '权限标记：(等同SYS_FEAT
 
 -- Create table
 create table SYS_AUTHZ_USER_LIST (
-  U_ID   			VARCHAR2(32) default sys_guid(),
+  U_ID   			VARCHAR2(32) default sys_guid() not null,
   U_USERNAME 		VARCHAR2(100) not null,
   U_PASSWORD 		VARCHAR2(100) not null,
   U_ALIAS			VARCHAR2(50) not null,
@@ -49,7 +49,8 @@ create table SYS_AUTHZ_USER_LIST (
   U_REMARK			VARCHAR2(255),
   U_STATUS			VARCHAR2(1),
   U_TIME24			VARCHAR2(32) default to_char(sysdate ,'yyyy-mm-dd hh24:mi:ss'),
-  primary key (U_ID)
+  CONSTRAINT UNIQUE_USERNAME UNIQUE(U_USERNAME),
+  CONSTRAINT PK_UID PRIMARY KEY(U_ID)
 );
 -- Add comments to the table 
 comment on table SYS_AUTHZ_USER_LIST  is '用户信息表';
@@ -70,11 +71,11 @@ comment on column SYS_AUTHZ_USER_LIST.U_TIME24  is '初始化时间';
 -- Create table
 create table SYS_AUTHZ_USER_DETAIL (
   U_ID   			VARCHAR2(32) not null,
-  D_ID   			VARCHAR2(32) default sys_guid(),
+  D_ID   			VARCHAR2(32) default sys_guid() not null,
   D_BIRTHDAY		VARCHAR2(20),
   D_GENDER			VARCHAR2(10),
   D_IDCARD			VARCHAR2(20),
-  primary key (D_ID)
+  CONSTRAINT PK_DID PRIMARY KEY(D_ID)
 );
 -- Add comments to the table 
 comment on table SYS_AUTHZ_USER_DETAIL  is '用户详情表';
@@ -89,8 +90,8 @@ comment on column SYS_AUTHZ_USER_DETAIL.D_IDCARD  is '身份证号码';
 create table SYS_AUTHZ_USER_ROLE_RELATION (
   U_ID   			VARCHAR2(32) not null,
   R_ID   			VARCHAR2(32) not null,
-  R_PRTY			VARCHAR2(2) not null default 0,
-  primary key (U_ID, R_ID)
+  R_PRTY			VARCHAR2(2) default 0 not null,
+  CONSTRAINT UNIQUE_UID_RID UNIQUE(U_ID, R_ID)
 );
 -- Add comments to the table 
 comment on table SYS_AUTHZ_USER_ROLE_RELATION  is '用户-角色关系表';
