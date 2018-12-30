@@ -8,7 +8,7 @@ create table SYS_FEATURE_LIST (
   	F_ABB 		VARCHAR2(50),
   	F_CODE 		VARCHAR2(50),
   	F_URL     	VARCHAR2(100),
-  	F_TYPE  	VARCHAR2(1) default '0',
+  	F_TYPE  	VARCHAR2(2) default '0',
   	F_ICON   	VARCHAR2(200),
   	F_ORDER   	VARCHAR2(3),
   	F_PARENT   	VARCHAR2(32) not null,
