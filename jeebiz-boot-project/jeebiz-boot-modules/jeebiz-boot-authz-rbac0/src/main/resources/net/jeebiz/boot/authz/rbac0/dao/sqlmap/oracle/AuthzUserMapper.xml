@@ -59,11 +59,8 @@
 	</insert>
 	
 	<insert id="insertDetail" parameterType="AuthzUserDetailModel" flushCache="true">
-		<selectKey keyProperty="id" order="BEFORE" resultType="String">  
-	         SELECT sys_guid() FROM dual
-	    </selectKey>
-		insert into SYS_AUTHZ_USER_DETAIL(U_ID,D_ID,D_GENDER,D_BIRTHDAY,D_IDCARD)
-		values(#{userId},#{id},#{gender},#{birthday},#{idcard})
+		insert into SYS_AUTHZ_USER_DETAIL(U_ID,D_GENDER,D_BIRTHDAY,D_IDCARD)
+		values(#{userId},#{gender},#{birthday},#{idcard})
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String" flushCache="true">

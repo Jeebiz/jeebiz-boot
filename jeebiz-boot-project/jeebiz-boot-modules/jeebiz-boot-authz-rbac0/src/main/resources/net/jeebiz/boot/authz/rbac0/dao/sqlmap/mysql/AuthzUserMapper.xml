@@ -51,18 +51,12 @@
 		<result property="time24" column="R_TIME24" />
 	</resultMap>
 	
-	<insert id="insert" parameterType="AuthzUserDetailModel" flushCache="true">
-		<selectKey keyProperty="userId" order="BEFORE" resultType="String">  
-	        SELECT IFNULL(MAX(U_ID), 0) + 1 FROM SYS_AUTHZ_USER_LIST
-	    </selectKey>
+	<insert id="insert" parameterType="AuthzUserDetailModel" useGeneratedKeys="true" keyProperty="userId" flushCache="true">
 	    insert into SYS_AUTHZ_USER_LIST(U_ID,U_USERNAME,U_ALIAS,U_PASSWORD,U_AVATAR,U_PHONE,U_EMAIL,U_REMARK,U_STATUS)
 		values(#{userId},#{username},#{alias},#{password},#{avatar},#{phone},#{email,jdbcType=CLOB},#{remark,jdbcType=CLOB},'1')
 	</insert>
 	
-	<insert id="insertDetail" parameterType="AuthzUserDetailModel" flushCache="true">
-		<selectKey keyProperty="id" order="BEFORE" resultType="String">  
-	        SELECT IFNULL(MAX(D_ID), 0) + 1 FROM SYS_AUTHZ_USER_DETAIL
-	    </selectKey>
+	<insert id="insertDetail" parameterType="AuthzUserDetailModel" useGeneratedKeys="true" keyProperty="userId" flushCache="true">
 		insert into SYS_AUTHZ_USER_DETAIL(U_ID,D_ID,D_GENDER,D_BIRTHDAY,D_IDCARD)
 		values(#{userId},#{id},#{gender},#{birthday},#{idcard})
 	</insert>

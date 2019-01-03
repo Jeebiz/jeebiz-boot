@@ -72,10 +72,7 @@
 		<result property="idcard" column="D_IDCARD" />
 	</resultMap>
 	  
-	<insert id="insert" parameterType="AuthzRoleModel" flushCache="true">
-		<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">  
-	        SELECT IFNULL(MAX(R_ID), 0) + 1 FROM SYS_AUTHZ_ROLE_LIST
-	    </selectKey>
+	<insert id="insert" parameterType="AuthzRoleModel" useGeneratedKeys="true" keyProperty="id"  flushCache="true">
 		insert into SYS_AUTHZ_ROLE_LIST(R_ID,R_NAME,R_TYPE,R_INTRO,R_STATUS)
 		values(#{id},#{name},#{type},#{intro},'1')
 	</insert>

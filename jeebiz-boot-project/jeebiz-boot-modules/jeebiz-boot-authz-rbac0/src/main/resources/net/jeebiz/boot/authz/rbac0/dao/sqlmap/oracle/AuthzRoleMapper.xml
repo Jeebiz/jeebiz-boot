@@ -73,8 +73,11 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="AuthzRoleModel" flushCache="true">
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">  
+	        SELECT sys_guid() FROM dual
+	    </selectKey>
 		insert into SYS_AUTHZ_ROLE_LIST(R_ID,R_NAME,R_TYPE,R_INTRO,R_STATUS)
-		values(sys_guid(),#{name},#{type},#{intro},'1')
+		values(#{id},#{name},#{type},#{intro},'1')
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String" flushCache="true">
@@ -236,7 +239,7 @@
 			t.F_ORDER,
 			t.F_PARENT,
 			t.F_VISIBLE, 
-			(SELECT GROUP_CONCAT(t1.OPT_PERMS) PERMS
+			(SELECT LISTAGG(t1.OPT_PERMS,',') PERMS
 				 FROM SYS_FEATURE_OPTS t1 
 				INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
 				WHERE t1.F_ID = t.F_ID
