@@ -50,7 +50,7 @@ public interface IAuthzRoleDao extends BaseDao<AuthzRoleModel>{
 	 * @param roleName 角色名
 	 * @return
 	 */
-	public int getCountByName(@Param("roleName") String roleName);
+	public int getCountByName(@Param("name") String roleName);
 	
 	/**
 	 * 查询系统可用角色信息

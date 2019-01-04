@@ -6,14 +6,21 @@
 	<cache-ref namespace="net.jeebiz.boot.authz.rbac0.dao.IAuthzRoleDao"/>
 
     <insert id="setPerms" flushCache="true">
-    	insert into SYS_AUTHZ_ROLE_PERMS(R_ID,PERMS)
-    	values <foreach collection="perms" item="item" separator =",">
-		(#{roleId},#{item})
+   	<![CDATA[
+		declare
+		begin
+	]]>
+    	<foreach collection="perms" item="item" separator =";" close=";">
+		insert into SYS_AUTHZ_ROLE_PERMS(R_ID,PERMS)
+    	values (#{roleId},#{item})
         </foreach>
+    <![CDATA[
+		end;
+	]]>
     </insert>
     
 	<delete id="delPerms" flushCache="true">
-		DELETE FROM SYS_AUTHZ_ROLE_PERMS WHERE R_ID = #{roleId} AND R_ID != 1
+		DELETE FROM SYS_AUTHZ_ROLE_PERMS WHERE R_ID = #{roleId} AND R_ID != '1'
     	<if test="perms != null and perms.size() > 0">
 		<foreach collection="perms" item="item" separator =" OR " open=" AND ( " close=")">
 		PERMS = #{item}

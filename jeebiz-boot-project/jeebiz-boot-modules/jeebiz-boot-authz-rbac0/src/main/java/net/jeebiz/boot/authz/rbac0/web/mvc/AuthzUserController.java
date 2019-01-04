@@ -13,6 +13,7 @@ import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.biz.authz.principal.ShiroPrincipal;
 import org.apache.shiro.biz.utils.SubjectUtils;
+import org.apache.shiro.codec.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -267,7 +268,9 @@ public class AuthzUserController extends BaseMapperController {
 	@RequiresAuthentication
 	@ResponseBody
 	public Object resetPwd(@RequestParam String oldPassword, @RequestParam String password) throws Exception {
-		
+		// 密码加密
+		oldPassword = Base64.encodeToString(new String(oldPassword).getBytes());
+		password = Base64.encodeToString(new String(password).getBytes());
 		ShiroPrincipal principal = SubjectUtils.getPrincipal(ShiroPrincipal.class);
 		int total = getAuthzUserService().resetPwd(principal.getUserid(), oldPassword, password);
 		if(total > 0) {

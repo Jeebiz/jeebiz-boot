@@ -81,7 +81,7 @@
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String" flushCache="true">
-		DELETE FROM SYS_AUTHZ_ROLE_LIST WHERE R_ID = #{id} AND R_ID != 1
+		DELETE FROM SYS_AUTHZ_ROLE_LIST WHERE R_ID = #{id} AND R_ID != '1'
 	</delete>
 	
 	<update id="update" parameterType="AuthzRoleModel" flushCache="true">
@@ -93,23 +93,23 @@
 			<if test="status != null and status != ''">t.R_STATUS = #{status},</if>
 		</set>
 		where t.R_ID = #{id}
-		  AND t.R_ID != 1
+		  AND t.R_ID != '1'
 	</update>
 	
 	<update id="setStatus" parameterType="java.lang.String" flushCache="true">
 		UPDATE SYS_AUTHZ_ROLE_LIST 
 		   SET R_STATUS = #{status}
 		 WHERE R_ID = #{roleId}
-		   AND R_ID != 1
+		   AND R_ID != '1'
 	</update>
 	
 	<select id="getCountByName" resultType="int" parameterType="java.lang.String" useCache="true">
-		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME LIKE '%' || #{roleName} ||'%'
+		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t WHERE t.R_NAME LIKE '%' || #{name} ||'%'
 	</select>
 	
 	<select id="getCount" resultType="int"  parameterType="AuthzRoleModel" useCache="true">
 		SELECT count(t.R_ID) FROM SYS_AUTHZ_ROLE_LIST t 
-		 WHERE t.R_NAME LIKE '%' || #{roleName} ||'%' 
+		 WHERE t.R_NAME LIKE '%' || #{name} ||'%' 
 		   AND t.R_ID != #{id}
 	</select>
 	
@@ -122,7 +122,7 @@
 			t.R_STATUS,
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
-	   WHERE t.R_ID != 1
+	   WHERE t.R_ID != '1'
 	</select>
 	
 	<select id="getPermsByRoleId" resultType="string" useCache="true">  
@@ -140,7 +140,7 @@
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
 	   WHERE t.R_ID = #{id}
-	     AND t.R_ID != 1
+	     AND t.R_ID != '1'
 	</select>
 	
 	<select id="getPagedList" resultMap="RoleMap" parameterType="AuthzRoleModel" useCache="true">
@@ -153,7 +153,7 @@
 			(SELECT COUNT(x.R_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
-	   WHERE t.R_ID != 1
+	   WHERE t.R_ID != '1'
 		<if test="model.status != null and model.status != ''">
 			and t.R_STATUS = #{model.status}
 		</if>
@@ -170,7 +170,7 @@
 		declare
 		begin
 	]]>
-		<foreach collection="userIds" item="item" separator =";">
+		<foreach collection="userIds" item="item" separator =";" close=";">
 			insert into SYS_AUTHZ_USER_ROLE_RELATION(R_ID, U_ID) values(#{roleId},#{item})
         </foreach>
 	<![CDATA[
