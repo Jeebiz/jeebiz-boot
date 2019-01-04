@@ -239,7 +239,7 @@
 			t.F_ORDER,
 			t.F_PARENT,
 			t.F_VISIBLE, 
-			(SELECT LISTAGG(t1.OPT_PERMS,',') PERMS
+			(SELECT wm_concat(t1.OPT_PERMS) PERMS
 				 FROM SYS_FEATURE_OPTS t1 
 				INNER JOIN SYS_AUTHZ_ROLE_PERMS x ON ( x.PERMS = t1.OPT_PERMS or x.PERMS = '*' or x.PERMS = '*:*') 
 				WHERE t1.F_ID = t.F_ID
