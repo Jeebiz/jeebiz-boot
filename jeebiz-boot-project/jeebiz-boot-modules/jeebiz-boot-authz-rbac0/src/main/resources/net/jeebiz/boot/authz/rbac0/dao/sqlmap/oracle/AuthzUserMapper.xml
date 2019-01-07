@@ -68,6 +68,13 @@
 		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID = #{id}
 	</delete>
 	
+	<delete id="batchDelete" flushCache="true">
+		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_USERNAME != 'admin' AND U_ID IN 
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">  
+           #{item} 
+        </foreach>
+	</delete>
+	
 	<delete id="deleteDetail" parameterType="java.lang.String" flushCache="true">
 		DELETE FROM SYS_AUTHZ_USER_DETAIL WHERE U_ID = #{id}
 	</delete>
@@ -156,7 +163,7 @@
 	   WHERE t.U_ID = #{id}
 	</select>
 	
-	<select id="getPagedList" resultMap="UserDetailMap" parameterType="AuthzUserDetailModel" useCache="true">
+	<select id="getPagedList" resultMap="UserDetailMap" parameterType="AuthzUserDetailModel" useCache="false">
 		SELECT
 			t.U_ID,
 			t.U_USERNAME,
@@ -195,7 +202,7 @@
 		</if>
 	</select>
 	
-	<select id="getPagedAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="true">
+	<select id="getPagedAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="false">
 		SELECT
 			t.R_ID,
 			t.R_NAME,
@@ -217,7 +224,7 @@
 		</if>
 	</select>
 	
-	<select id="getPagedUnAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="true">
+	<select id="getPagedUnAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="false">
 		SELECT
 			t.R_ID,
 			t.R_NAME,

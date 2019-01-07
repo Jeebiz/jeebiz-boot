@@ -160,7 +160,7 @@
 	   WHERE t.U_ID = #{id}
 	</select>
 	
-	<select id="getPagedList" resultMap="UserDetailMap" parameterType="AuthzUserDetailModel" useCache="true">
+	<select id="getPagedList" resultMap="UserDetailMap" parameterType="AuthzUserDetailModel" useCache="false">
 		SELECT
 			t.U_ID,
 			t.U_USERNAME,
@@ -198,7 +198,7 @@
 		</if>
 	</select>
 	
-	<select id="getPagedAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="true">
+	<select id="getPagedAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="false">
 		SELECT
 			t.R_ID,
 			t.R_NAME,
@@ -220,7 +220,7 @@
 		</if>
 	</select>
 	
-	<select id="getPagedUnAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="true">
+	<select id="getPagedUnAllocatedList" resultMap="RoleMap" parameterType="AuthzUserModel" useCache="false">
 		SELECT
 			t.R_ID,
 			t.R_NAME,
