@@ -424,7 +424,8 @@
 						<!-- The name of the target directory for configuration files. Prior to version 1.7 this value defaults to 'conf' for assemble goal and 'etc' for generate-daemons Default value is: etc. -->
 						<configurationDirectory>conf</configurationDirectory>
 						<!-- The source directory for configuration files. Default value is: src/main/config. -->
-						<configurationSourceDirectory>src/main/conf</configurationSourceDirectory>
+			          	<!-- 从哪里拷贝配置文件 (默认src/main/config) -->
+						<configurationSourceDirectory>src/main/resources</configurationSourceDirectory>
 						<!-- If the source configuration directory should be copied to the configured configurationDirectory.Default value is: false. -->
 						<!-- 是否拷贝配置文件到上面的目录中;因为Spring-Boot资源不需要全部拷贝，这里交由antrun插件帮我们部分进行拷贝 -->
 						<copyConfigurationDirectory>false</copyConfigurationDirectory>
