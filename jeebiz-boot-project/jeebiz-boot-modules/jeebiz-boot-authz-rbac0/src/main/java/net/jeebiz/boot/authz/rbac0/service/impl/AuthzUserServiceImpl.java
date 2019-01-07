@@ -39,7 +39,7 @@ public class AuthzUserServiceImpl extends BaseServiceImpl<AuthzUserDetailModel, 
 	public int insert(AuthzUserDetailModel model) {
 		int ct = getDao().insert(model);
 		getDao().insertDetail(model);
-		getAuthzRoleDao().setUsers(model.getRoleId(), Lists.newArrayList(model.getUserId()));
+		getAuthzRoleDao().setUsers(model.getRoleId(), Lists.newArrayList(model.getId()));
 		return ct;
 	}
 	

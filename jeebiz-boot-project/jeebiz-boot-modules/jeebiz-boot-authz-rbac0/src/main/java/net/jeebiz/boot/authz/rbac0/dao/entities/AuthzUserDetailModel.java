@@ -13,10 +13,6 @@ import net.jeebiz.boot.api.dao.entities.PaginationModel;
 public class AuthzUserDetailModel extends PaginationModel {
 
 	/**
-	 * 用户ID
-	 */
-	private String userId;
-	/**
 	 * 用户名
 	 */
 	private String username;
@@ -60,7 +56,11 @@ public class AuthzUserDetailModel extends PaginationModel {
 	 * 初始化时间
 	 */
 	private String time24;
-
+	 
+	/**
+	 * 用户详情ID
+	 */
+	private String dId;
 	/**
 	 * 性别：（male：男，female：女）
 	 */
@@ -82,14 +82,6 @@ public class AuthzUserDetailModel extends PaginationModel {
 	 */
 	private String roleName;
 	
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -176,6 +168,14 @@ public class AuthzUserDetailModel extends PaginationModel {
 
 	public void setTime24(String time24) {
 		this.time24 = time24;
+	}
+	
+	public String getdId() {
+		return dId;
+	}
+
+	public void setdId(String dId) {
+		this.dId = dId;
 	}
 
 	public String getGender() {

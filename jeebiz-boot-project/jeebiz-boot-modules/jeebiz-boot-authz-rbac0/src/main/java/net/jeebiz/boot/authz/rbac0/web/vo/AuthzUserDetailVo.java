@@ -64,7 +64,10 @@ public class AuthzUserDetailVo {
 	 * 初始化时间
 	 */
 	private String time24;
-
+	/**
+	 * 用户详情ID
+	 */
+	private String dId;
 	/**
 	 * 性别：（male：男，female：女）
 	 */
@@ -180,6 +183,14 @@ public class AuthzUserDetailVo {
 
 	public void setTime24(String time24) {
 		this.time24 = time24;
+	}
+	
+	public String getdId() {
+		return dId;
+	}
+
+	public void setdId(String dId) {
+		this.dId = dId;
 	}
 
 	public String getGender() {

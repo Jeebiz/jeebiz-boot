@@ -21,7 +21,7 @@
 	</resultMap>
 	
 	<resultMap id="UserDetailMap" type="AuthzUserDetailModel">
-		<result property="userId" column="U_ID" />
+		<result property="id" column="U_ID" />
 		<result property="username" column="U_USERNAME" />
 		<result property="password" column="U_PASSWORD" />
 		<result property="salt" column="U_SALT" />
@@ -34,7 +34,8 @@
 		<result property="status" column="U_STATUS" />
 		<result property="time24" column="U_TIME24" />
 		<result property="roleId" column="R_ID" />
-		<result property="id" column="D_ID" />
+		<result property="roleName" column="R_NAME" />
+		<result property="dId" column="D_ID" />
 		<result property="gender" column="D_GENDER" />
 		<result property="birthday" column="D_BIRTHDAY" />
 		<result property="idcard" column="D_IDCARD" />
@@ -51,16 +52,16 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="AuthzUserDetailModel" flushCache="true">
-		<selectKey keyProperty="userId" order="BEFORE" resultType="String">  
+		<selectKey keyProperty="id" order="BEFORE" resultType="String">  
 	        SELECT sys_guid() FROM dual
 	    </selectKey>
 	    insert into SYS_AUTHZ_USER_LIST(U_ID,U_USERNAME,U_PASSWORD,U_AVATAR,U_PHONE,U_EMAIL,U_REMARK,U_STATUS)
-		values(#{userId},#{username},#{password},#{avatar},#{phone},#{email,jdbcType=CLOB},#{remark,jdbcType=CLOB},'1')
+		values(#{id},#{username},#{password},#{avatar},#{phone},#{email,jdbcType=CLOB},#{remark,jdbcType=CLOB},'1')
 	</insert>
 	
 	<insert id="insertDetail" parameterType="AuthzUserDetailModel" flushCache="true">
 		insert into SYS_AUTHZ_USER_DETAIL(U_ID,D_GENDER,D_BIRTHDAY,D_IDCARD)
-		values(#{userId},#{gender},#{birthday},#{idcard})
+		values(#{id},#{gender},#{birthday},#{idcard})
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String" flushCache="true">
@@ -84,7 +85,7 @@
 			<if test="email != null and email != ''">t.U_EMAIL = #{email},</if>
 			<if test="remark != null and remark != ''">t.U_REMARK = #{remark}</if>
 		</set>
-		where t.U_ID = #{userId}
+		where t.U_ID = #{id}
 	</update>
 	
 	<update id="updateDetail" parameterType="AuthzUserDetailModel" flushCache="true">
@@ -94,7 +95,7 @@
 			<if test="birthday != null and birthday != ''">t.D_BIRTHDAY = #{birthday},</if>
 			<if test="idcard != null and idcard != ''">t.D_IDCARD = #{idcard},</if>
 		</set>
-		where t.U_ID = #{userId}
+		where t.U_ID = #{id}
 	</update>
 	
 	<update id="updateRole" parameterType="AuthzUserDetailModel" flushCache="true">
@@ -111,6 +112,12 @@
 		update SYS_AUTHZ_USER_LIST t 
 		   set t.U_PASSWORD = #{password}
 		where t.U_ID = #{userId} and t.U_PASSWORD = #{oldPassword}
+	</update>
+	
+	<update id="setStatus" parameterType="java.lang.String" flushCache="true">
+		UPDATE SYS_AUTHZ_USER_LIST t
+		   SET t.U_STATUS = #{status}
+		 WHERE t.U_ID = #{userId}
 	</update>
 	
 	<select id="getCountByName" resultType="int" parameterType="java.lang.String" useCache="true">
@@ -135,7 +142,14 @@
 			x.D_BIRTHDAY,
 			x.D_GENDER,
 			x.D_IDCARD,
-			y.R_ID
+			(SELECT wm_concat(y.R_ID) R_ID
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y 
+				WHERE y.U_ID = t.U_ID
+			 ) R_ID,
+			(SELECT wm_concat(z.R_NAME) R_NAME
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y INNER JOIN SYS_AUTHZ_ROLE_LIST z ON y.R_ID = z.R_ID 
+				WHERE y.U_ID = t.U_ID
+			 ) R_NAME
 		FROM SYS_AUTHZ_USER_LIST t
 		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
 		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.U_ID = t.U_ID
@@ -158,7 +172,14 @@
 			x.D_BIRTHDAY,
 			x.D_GENDER,
 			x.D_IDCARD,
-			y.R_ID
+			(SELECT wm_concat(y.R_ID) R_ID
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y 
+				WHERE y.U_ID = t.U_ID
+			 ) R_ID,
+			(SELECT wm_concat(z.R_NAME) R_NAME
+				 FROM SYS_AUTHZ_USER_ROLE_RELATION y INNER JOIN SYS_AUTHZ_ROLE_LIST z ON y.R_ID = z.R_ID 
+				WHERE y.U_ID = t.U_ID
+			 ) R_NAME
 		FROM SYS_AUTHZ_USER_LIST t
 		INNER JOIN SYS_AUTHZ_USER_DETAIL x ON t.U_ID = x.U_ID
 		LEFT JOIN SYS_AUTHZ_USER_ROLE_RELATION y ON y.U_ID = t.U_ID
