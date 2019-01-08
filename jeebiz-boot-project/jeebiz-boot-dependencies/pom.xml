@@ -2702,48 +2702,6 @@
 				<version>${nekohtml.version}</version>
 			</dependency>
 
-			<!-- http://mvnrepository.com/artifact/io.netty -->
-
-			<!-- Netty： Netty是一款异步的事件驱动的网络应用框架和工具，用于快速开发可维护的高性能、高扩展性协议服务器和客户端。 也就是说，Netty是一个NIO客户端/服务器框架，支持快速、简单地开发网络应用，如协议服务器和客户端。它极大简化了网络编程，如TCP和UDP套接字服务器。 -->
-
-			<!-- netty-tcnative -->
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-tcnative</artifactId>
-				<version>${netty.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-tcnative-boringssl-static</artifactId>
-				<version>${netty.version}</version>
-			</dependency>
-			<!-- netty-testsuite -->
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-testsuite</artifactId>
-				<version>${netty.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-testsuite-autobahn</artifactId>
-				<version>${netty.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-testsuite-http2</artifactId>
-				<version>${netty.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-testsuite-osgi</artifactId>
-				<version>${netty.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.netty</groupId>
-				<artifactId>netty-microbench</artifactId>
-				<version>${netty.version}</version>
-			</dependency>
-			
 			<!-- https://mvnrepository.com/artifact/com.corundumstudio.socketio/netty-socketio -->
 			<dependency>
 			    <groupId>com.corundumstudio.socketio</groupId>
