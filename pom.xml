@@ -13,7 +13,7 @@
 
 	<groupId>net.jeebiz</groupId>
 	<artifactId>jeebiz-boot-build</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>jeebiz-boot</name>
