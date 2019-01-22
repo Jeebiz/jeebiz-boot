@@ -39,7 +39,7 @@
 		<byte-buddy.version>1.9.7</byte-buddy.version>
 		<caffeine.version>2.6.2</caffeine.version>
 		<cas-client.version>3.5.1</cas-client.version>
-		<camel.version>2.23.0</camel.version>
+		<camel.version>2.23.1</camel.version>
 		<cglib.version>3.2.9</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
@@ -192,7 +192,7 @@
 		<netty-socketio.version>1.7.16</netty-socketio.version>
 		<nimbus-jose-jwt.version>6.4</nimbus-jose-jwt.version>
 		<log4j2.version>2.11.1</log4j2.version>
-		<okhttp3.version>3.12.1</okhttp3.version>
+		<okhttp.version>3.12.1</okhttp.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
@@ -275,8 +275,8 @@
 		<smslib.version>3.5.4</smslib.version>
 		<snmp4j.version>3.0.6</snmp4j.version>
 		<springfox.version>2.9.2</springfox.version>
-		<spring-biz.version>1.0.6-SNAPSHOT</spring-biz.version>
-		<spring-javassist.version>1.0.4-SNAPSHOT</spring-javassist.version>
+		<spring-biz.version>1.0.6.RELEASE</spring-biz.version>
+		<spring-javassist.version>1.0.4.RELEASE</spring-javassist.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.1.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
@@ -356,8 +356,7 @@
 		<maven-war-plugin.version>3.2.2</maven-war-plugin.version>
 		
 		<!-- Third Party Spring Boot Starter Dependency versions -->
-		<spring-boot-admin.version>2.1.1</spring-boot-admin.version>
-		<spring-boot-admin-server-ui.version>1.5.7</spring-boot-admin-server-ui.version>
+		<spring-boot-admin.version>2.1.2</spring-boot-admin.version>
 		<spring-boot-starter-activiti-basic.version>6.0.0</spring-boot-starter-activiti-basic.version>
 		<spring-boot-starter-axis.version>1.0.0.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.0.RELEASE</spring-boot-starter-axis2.version>
@@ -1792,6 +1791,12 @@
 				<artifactId>guava</artifactId>
 				<version>${guava.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.google.j2objc/j2objc-annotations -->
+			<dependency>
+			    <groupId>com.google.j2objc</groupId>
+			    <artifactId>j2objc-annotations</artifactId>
+			    <version>1.3</version>
+			</dependency>
 
 			<!-- http://mvnrepository.com/artifact/org.glassfish.grizzly -->
 
@@ -2723,7 +2728,7 @@
 			<dependency>
 			    <groupId>com.squareup.okhttp3</groupId>
 			    <artifactId>okhttp-bom</artifactId>
-			    <version>${okhttp3.version}</version>
+			    <version>${okhttp.version}</version>
 			    <type>pom</type>
 			    <scope>import</scope>
 			</dependency>
@@ -4161,26 +4166,6 @@
 				<version>${spring-boot-admin.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-server-ui-login</artifactId>
-				<version>${spring-boot-admin-server-ui.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-server-ui-activiti</artifactId>
-				<version>${spring-boot-admin-server-ui.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-server-ui-turbine</artifactId>
-				<version>${spring-boot-admin-server-ui.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>de.codecentric</groupId>
-				<artifactId>spring-boot-admin-server-ui-hystrix</artifactId>
-				<version>${spring-boot-admin-server-ui.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.activiti/activiti-spring-boot-starter-basic -->
 			<dependency>
