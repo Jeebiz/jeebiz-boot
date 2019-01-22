@@ -20,7 +20,6 @@ Spring Boot系列博文：http://blog.didispace.com/categories/Spring-Boot/
 Spring Boot 官方手册：
 
 https://docs.spring.io/spring-boot/docs/1.5.9.RELEASE/reference/htmlsingle/
-	
 		
 		
 |--jeebiz-boot	
