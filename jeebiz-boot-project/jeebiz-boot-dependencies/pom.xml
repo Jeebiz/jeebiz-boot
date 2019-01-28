@@ -1654,6 +1654,13 @@
 			    <version>1.0.4</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/net.sf.ehcache/management-ehcache-v2 -->
+			<dependency>
+			    <groupId>net.sf.ehcache</groupId>
+			    <artifactId>management-ehcache-v2</artifactId>
+			    <version>${ehcache.version}</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/com.github.abel533/ECharts -->
 			<dependency>
 				<groupId>com.github.abel533</groupId>
