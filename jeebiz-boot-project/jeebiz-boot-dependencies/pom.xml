@@ -113,6 +113,7 @@
 		<disruptor.version>3.4.2</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>2.6.5</dubbo.version>
+		<echarts.version>3.0.0.6</echarts.version>
 		<ehcache.version>2.10.6</ehcache.version>
 		<ehcache3.version>3.6.3</ehcache3.version>
 		<fastdfs.version>1.26.3</fastdfs.version>
@@ -1654,24 +1655,18 @@
 			    <version>1.1.2-beat1</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/com.github.abel533/ECharts -->
+			<dependency>
+				<groupId>com.github.abel533</groupId>
+				<artifactId>ECharts</artifactId>
+				<version>${echarts.version}</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/net.sf.ehcache/management-ehcache-v2 -->
 			<dependency>
 			    <groupId>net.sf.ehcache</groupId>
 			    <artifactId>management-ehcache-v2</artifactId>
 			    <version>${ehcache.version}</version>
-			</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/com.github.abel533/ECharts -->
-			<dependency>
-				<groupId>com.github.abel533</groupId>
-				<artifactId>ECharts</artifactId>
-				<version>3.0.0.2</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/cn.joylau.code/joylau-echarts -->
-			<dependency>
-				<groupId>cn.joylau.code</groupId>
-				<artifactId>joylau-echarts</artifactId>
-				<version>1.0</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/com.github.tobato/fastdfs-client -->
