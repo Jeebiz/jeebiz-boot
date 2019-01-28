@@ -112,20 +112,20 @@
 		<dropwizard-metrics-zabbix.version>0.0.5</dropwizard-metrics-zabbix.version>
 		<disruptor.version>3.4.2</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
-		<dubbo.version>2.6.4</dubbo.version>
+		<dubbo.version>2.6.5</dubbo.version>
 		<ehcache.version>2.10.6</ehcache.version>
 		<ehcache3.version>3.6.3</ehcache3.version>
 		<fastdfs.version>1.26.3</fastdfs.version>
-		<fastjson.version>1.2.51</fastjson.version>
+		<fastjson.version>1.2.56</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
-		<flowable.version>6.4.0</flowable.version>
+		<flowable.version>6.4.1</flowable.version>
 		<flyway.version>5.2.4</flyway.version>
 		<formio.version>1.6.3</formio.version>
 		<freemarker.version>2.3.28</freemarker.version>
 		<google-http-client.version>1.27.0</google-http-client.version>
 		<guava.version>27.0.1-jre</guava.version>
 		<grizzly.version>2.4.3.1</grizzly.version>
-		<hadoop.version>3.1.1</hadoop.version>
+		<hadoop.version>3.2.0</hadoop.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
