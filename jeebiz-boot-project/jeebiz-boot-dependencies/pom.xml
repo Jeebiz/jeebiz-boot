@@ -113,8 +113,8 @@
 		<disruptor.version>3.4.2</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>2.6.4</dubbo.version>
-		<ehcache.version>2.10.5</ehcache.version>
-		<ehcache3.version>3.6.2</ehcache3.version>
+		<ehcache.version>2.10.6</ehcache.version>
+		<ehcache3.version>3.6.3</ehcache3.version>
 		<fastdfs.version>1.26.3</fastdfs.version>
 		<fastjson.version>1.2.51</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
