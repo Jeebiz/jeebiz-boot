@@ -147,7 +147,7 @@
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>1.3.14-kohsuke-1</jcifs.version>
-		<jeebiz-boot.version>1.0.0-SNAPSHOT</jeebiz-boot.version>
+		<jeebiz-boot.version>1.0.0.RELEASE</jeebiz-boot.version>
 		<jeebiz-devkit.version>1.0.0-SNAPSHOT</jeebiz-devkit.version>
 		<jetty-websocket.version>9.4.8.v20171121</jetty-websocket.version>
 		<jjwt.version>0.9.1</jjwt.version>
