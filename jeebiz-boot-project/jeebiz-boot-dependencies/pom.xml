@@ -284,7 +284,7 @@
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.9.3</svnkit.version>
 		<swagger.version>1.5.21</swagger.version>
-		<swagger-bootstrap-ui.version>1.8.8</swagger-bootstrap-ui.version> 
+		<swagger-bootstrap-ui.version>1.8.9</swagger-bootstrap-ui.version> 
 		<swagger-codegen.version>2.3.1</swagger-codegen.version>
 		<swagger-generator.version>2.3.1</swagger-generator.version>
 		<swagger-parser.version>1.0.39</swagger-parser.version>
