@@ -16,40 +16,40 @@
 		<!-- Dependency versions -->
 		<activemq.version>5.15.8</activemq.version>
 		<activation.version>1.1.1</activation.version>
-		<asciidoctorj.version>1.5.7</asciidoctorj.version>
+		<asciidoctorj.version>1.6.2</asciidoctorj.version>
         <asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
 		<aspectjweaver.version>1.9.2</aspectjweaver.version>
 		<async-http-client.version>1.9.40</async-http-client.version>
-		<axiom.version>1.2.20</axiom.version>
+		<axiom.version>1.2.22</axiom.version>
 		<axis.version>1.4</axis.version>
 		<axis-schema.version>1.3</axis-schema.version>
 		<axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
-		<axis2.version>1.7.7</axis2.version>
+		<axis2.version>1.7.9</axis2.version>
 		<axis2-api.version>1.4.1</axis2-api.version>
-		<beetl.version>2.9.4</beetl.version>
-		<batik.version>1.10</batik.version>
-		<berkeley-je.version>18.3.1</berkeley-je.version>
-		<buji-pac4j.version>4.0.0</buji-pac4j.version>
-		<bcprov.version>1.60</bcprov.version>
+		<beetl.version>2.9.8</beetl.version>
+		<batik.version>1.11</batik.version>
+		<berkeley-je.version>18.3.12</berkeley-je.version>
+		<buji-pac4j.version>4.1.0</buji-pac4j.version>
+		<bcprov.version>1.61</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<byte-buddy.version>1.9.7</byte-buddy.version>
+		<byte-buddy.version>1.9.10</byte-buddy.version>
 		<caffeine.version>2.6.2</caffeine.version>
 		<cas-client.version>3.5.1</cas-client.version>
 		<camel.version>2.23.1</camel.version>
-		<cglib.version>3.2.9</cglib.version>
+		<cglib.version>3.2.10</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
 		<commons-attributes-compiler.version>2.2</commons-attributes-compiler.version>
 		<commons-attributes-plugin.version>2.2</commons-attributes-plugin.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
 		<commons-chain.version>1.2</commons-chain.version>
-		<commons-codec.version>1.11</commons-codec.version>
+		<commons-codec.version>1.12</commons-codec.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
-		<commons-collections4.version>4.2</commons-collections4.version>
+		<commons-collections4.version>4.3</commons-collections4.version>
 		<commons-compiler.version>3.0.11</commons-compiler.version>
 		<commons-compress.version>1.18</commons-compress.version>
 		<commons-configuration.version>1.10</commons-configuration.version>
@@ -58,14 +58,14 @@
 		<commons-csv.version>1.6</commons-csv.version>
 		<commons-daemon.version>1.1.0</commons-daemon.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
-		<commons-dbcp2.version>2.5.0</commons-dbcp2.version>
+		<commons-dbcp2.version>2.6.0</commons-dbcp2.version>
 		<commons-dbutils.version>1.7</commons-dbutils.version>
 		<commons-digester.version>2.1</commons-digester.version>
 		<commons-digester3.version>3.2</commons-digester3.version>
 		<commons-discovery.version>0.5</commons-discovery.version>
 		<commons-email.version>1.5</commons-email.version>
 		<commons-exec.version>1.3</commons-exec.version>
-		<commons-fileupload.version>1.3.3</commons-fileupload.version>
+		<commons-fileupload.version>1.4</commons-fileupload.version>
 		<commons-httpclient.version>3.1</commons-httpclient.version>
 		<commons-imaging.version>1.0-r1653468</commons-imaging.version>
 		<commons-io.version>2.6</commons-io.version>
@@ -80,30 +80,30 @@
 		<commons-math3.version>3.6.1</commons-math3.version>
 		<commons-net.version>3.6</commons-net.version>
 		<commons-pool.version>1.6</commons-pool.version>
-        <commons-pool2.version>2.6.0</commons-pool2.version>
+        <commons-pool2.version>2.6.1</commons-pool2.version>
 		<commons-proxy.version>1.0</commons-proxy.version>
 		<commons-rdf.version>0.5.0</commons-rdf.version>
 		<commons-ssl.version>0.3.11</commons-ssl.version>
 		<commons-text.version>1.6</commons-text.version>
 		<commons-validator.version>1.6</commons-validator.version>
 		<commons-vfs.version>2.0-21092010</commons-vfs.version>
-		<commons-vfs2.version>2.2</commons-vfs2.version>
+		<commons-vfs2.version>2.3</commons-vfs2.version>
 		<contiperf.version>2.3.4</contiperf.version>
-		<cronet.version>69.3497.100</cronet.version>
+		<cronet.version>72.3626.96</cronet.version>
 		<cssparser.version>0.9.26</cssparser.version>
-		<cxf.version>3.2.7</cxf.version>
+		<cxf.version>3.3.0</cxf.version>
 		<cxf-rt-javassist.version>1.0.2.RELEASE</cxf-rt-javassist.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.14.2.0</derby.version>
 		<derby-locale.version>${derby.version.version}</derby-locale.version>
-		<docker-java.version>3.1.0-rc-5</docker-java.version>
+		<docker-java.version>3.1.1</docker-java.version>
 		<dom4j2.version>2.1.1</dom4j2.version>
 		<dozer.version>5.5.1</dozer.version>
 		<dozer-core.version>6.4.1</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-		<druid.version>1.1.12</druid.version>
-		<dropwizard-metrics.version>4.1.0-rc2</dropwizard-metrics.version>
+		<druid.version>1.1.13</druid.version>
+		<dropwizard-metrics.version>4.1.0-rc3</dropwizard-metrics.version>
 		<dropwizard-metrics-datadog.version>2.0.0-RC1</dropwizard-metrics-datadog.version>
 		<dropwizard-metrics-kafka.version>0.0.1</dropwizard-metrics-kafka.version>
 		<dropwizard-metrics-librato.version>5.1.4</dropwizard-metrics-librato.version>
@@ -123,9 +123,9 @@
 		<flyway.version>5.2.4</flyway.version>
 		<formio.version>1.6.3</formio.version>
 		<freemarker.version>2.3.28</freemarker.version>
-		<google-http-client.version>1.27.0</google-http-client.version>
+		<google-http-client.version>1.28.0</google-http-client.version>
 		<guava.version>27.0.1-jre</guava.version>
-		<grizzly.version>2.4.3.1</grizzly.version>
+		<grizzly.version>2.4.4</grizzly.version>
 		<hadoop.version>3.2.0</hadoop.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
@@ -140,38 +140,37 @@
 		<j2cache-session-manager.version>1.0.0-beta4</j2cache-session-manager.version>
 		<j2cache-springcache.version>2.7.4-release</j2cache-springcache.version>
 		<janino.version>3.0.8</janino.version>
-		<javassist.version>3.23.1-GA</javassist.version>
+		<javassist.version>3.24.1-GA</javassist.version>
 		<javassist-plus.version>1.0.1.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>3.1.5</java-uuid-generator.version>
-		<java-jwt.version>3.4.1</java-jwt.version>
-		<javamelody.version>1.75.0</javamelody.version>
+		<java-jwt.version>3.7.0</java-jwt.version>
+		<javamelody.version>1.76.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>1.3.14-kohsuke-1</jcifs.version>
 		<jeebiz-boot.version>1.0.1-SNAPSHOT</jeebiz-boot.version>
-		<jeebiz-devkit.version>1.0.0-SNAPSHOT</jeebiz-devkit.version>
-		<jetty-websocket.version>9.4.8.v20171121</jetty-websocket.version>
+		<jetty-websocket.version>9.4.15.v20190215</jetty-websocket.version>
 		<jjwt.version>0.9.1</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
-		<jgroups.version>4.0.15.Final</jgroups.version>
-		<jruby.version>9.2.0.0</jruby.version>
-		<jsch.version>0.1.54</jsch.version>
+		<jgroups.version>4.0.17.Final</jgroups.version>
+		<jruby.version>9.2.6.0</jruby.version>
+		<jsch.version>0.1.55</jsch.version>
 		<jsqlparser.version>1.3</jsqlparser.version>
 		<jsoup.version>1.11.3</jsoup.version>
-		<junrar.version>3.0.0</junrar.version>
+		<junrar.version>3.1.0</junrar.version>
 		<kaptcha.version>2.3.2</kaptcha.version>
-		<kafka-clients.version>2.0.0</kafka-clients.version>
+		<kafka-clients.version>2.1.1</kafka-clients.version>
 		<kettle.version>4.1.2-GA</kettle.version>
-		<kisso.version>3.7.1</kisso.version>
-		<lettuce.version>5.1.2.RELEASE</lettuce.version>
-		<liquibase.version>3.6.2</liquibase.version>
-		<mariadb.version>2.3.0</mariadb.version>
+		<kisso.version>3.7.3</kisso.version>
+		<lettuce.version>5.1.4.RELEASE</lettuce.version>
+		<liquibase.version>3.6.3</liquibase.version>
+		<mariadb.version>2.4.0</mariadb.version>
 		<metadata-extractor.version>2.11.0</metadata-extractor.version>
-		<mssql-jdbc.version>7.0.0.jre8</mssql-jdbc.version>
-		<mybatis.version>3.4.6</mybatis.version>
+		<mssql-jdbc.version>7.2.1.jre8</mssql-jdbc.version>
+		<mybatis.version>3.5.0</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-plus.version>3.0.7.1</mybatis-plus.version>
-		<mybatis-spring.version>1.3.2</mybatis-spring.version>
+		<mybatis-spring.version>2.0.0</mybatis-spring.version>
 		<mybatis-migrations.version>3.3.4</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
@@ -184,16 +183,16 @@
 		<mybatis-freemarker.version>1.1.2</mybatis-freemarker.version>
 		<mybatis-velocity.version>1.3</mybatis-velocity.version>
 		<mybatis-generator.version>1.3.5</mybatis-generator.version>
-		<mysql.version>8.0.13</mysql.version>
+		<mysql.version>8.0.15</mysql.version>
 		<mina.version>2.0.19</mina.version>
 		<mina-thrift.version>3.0.0-M2</mina-thrift.version>
 		<mina-protobuf.version>3.0.0-M2</mina-protobuf.version>
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
-		<netty-socketio.version>1.7.16</netty-socketio.version>
-		<nimbus-jose-jwt.version>6.4</nimbus-jose-jwt.version>
-		<log4j2.version>2.11.1</log4j2.version>
-		<okhttp.version>3.12.1</okhttp.version>
+		<netty-socketio.version>1.7.17</netty-socketio.version>
+		<nimbus-jose-jwt.version>7.0</nimbus-jose-jwt.version>
+		<log4j2.version>2.11.2</log4j2.version>
+		<okhttp.version>3.13.1</okhttp.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
@@ -203,27 +202,27 @@
 		<owasp-esapi.version>2.1.0.1</owasp-esapi.version>
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20180219.1</owasp-html-sanitizer.version>
-		<p6spy.version>3.7.0</p6spy.version>
-		<pac4j.version>3.4.0</pac4j.version>
+		<p6spy.version>3.8.1</p6spy.version>
+		<pac4j.version>3.6.1</pac4j.version>
 		<pac4j-webmvc.version>3.2.0</pac4j-webmvc.version>
 		<pac4j-spring-security.version>4.1.0</pac4j-spring-security.version>
 		<perf4j.version>0.9.16</perf4j.version>
-		<prometheus.version>0.5.0</prometheus.version>
+		<prometheus.version>0.6.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>
 		<pf4j1.version>1.3.0</pf4j1.version>
 		<pf4j1-update.version>0.4.0</pf4j1-update.version>
 		<pf4j1-spring.version>0.3.2</pf4j1-spring.version>
-		<pf4j2.version>2.4.0</pf4j2.version>
+		<pf4j2.version>2.6.0</pf4j2.version>
 		<pf4j2-update.version>2.0.0</pf4j2-update.version>
 		<pf4j2-spring.version>0.5.0</pf4j2-spring.version>
 		<pf4j2-wicket.version>1.0.0</pf4j2-wicket.version>
 		<png-encoder.version>1.5</png-encoder.version>
-		<rabbit-amqp-client.version>5.5.0</rabbit-amqp-client.version>
+		<rabbit-amqp-client.version>5.6.0</rabbit-amqp-client.version>
 		<reactor.version>Californium-RELEASE</reactor.version>
 		<reflections.version>0.9.11</reflections.version>
-		<rocketmq.version>4.3.1</rocketmq.version>
-		<schemacrawler.version>15.03.04</schemacrawler.version>
+		<rocketmq.version>4.4.0</rocketmq.version>
+		<schemacrawler.version>15.04.01</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-derby.version>14.03.03</schemacrawler-derby.version>
@@ -243,11 +242,11 @@
 		<schemacrawler-timesten.version>${schemacrawler.version}</schemacrawler-timesten.version>
 		<scribe.version>1.3.7</scribe.version>
 		<scribe-up.version>1.3.1</scribe-up.version>
-		<scribejava.version>6.2.0</scribejava.version>
+		<scribejava.version>6.3.0</scribejava.version>
 		<scribejava-apis-ext.version>1.0.0-SNAPSHOT</scribejava-apis-ext.version>
-		<sequoiadb-driver.version>3.0.0</sequoiadb-driver.version>
+		<sequoiadb-driver.version>3.0.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
-		<sharding-jdbc.version>3.0.0</sharding-jdbc.version>
+		<sharding-jdbc.version>3.1.0</sharding-jdbc.version>
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
 		<shiro.version>1.4.0</shiro.version>
 		<shiro-biz.version>1.0.6.RELEASE</shiro-biz.version>
@@ -262,7 +261,7 @@
 		<shiro-redisson.version>1.0.0.RELEASE</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
 		<shiro-uaa.version>1.0.0</shiro-uaa.version>
-		<sofa.boot.version>3.0.0</sofa.boot.version>
+		<sofa.boot.version>3.1.1</sofa.boot.version>
         <sofa.ark.version>0.5.2</sofa.ark.version>
         <sofa.rpc.starter.version>6.0.0</sofa.rpc.starter.version>
         <sofa.tracer.version>3.0.0</sofa.tracer.version>
@@ -279,7 +278,7 @@
 		<spring-biz.version>1.0.6.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.4.RELEASE</spring-javassist.version>
 		<st4.version>4.0.8</st4.version>
-		<sshd.version>2.1.0</sshd.version>
+		<sshd.version>2.2.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.9.3</svnkit.version>
@@ -298,19 +297,18 @@
 		<truelicense.version>3.2.0</truelicense.version>
 		<UserAgentUtils.version>1.21</UserAgentUtils.version>	
 		<webcollector.version>2.73-alpha</webcollector.version>
-		<webjars-locator.version>0.34</webjars-locator.version>
+		<webjars-locator.version>0.36</webjars-locator.version>
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-		<woodstox-stax2-api.version>4.0.0</woodstox-stax2-api.version>
+		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
 		<xmemcached.version>2.4.6</xmemcached.version>
 		<xmlschema-core.version>2.0.2</xmlschema-core.version>
-		<xfire.version>1.2.6</xfire.version>
-		<xnio.version>3.6.5.Final</xnio.version>
+		<xnio.version>3.7.0.Final</xnio.version>
 		<xstream.version>1.4.11.1</xstream.version>
-		<zookeeper.version>3.4.13</zookeeper.version>
+		<zookeeper.version>3.5.4-beta</zookeeper.version>
 		<zip4j.version>1.3.2</zip4j.version>
 		<zxing.version>3.3.3</zxing.version>
 
@@ -1970,14 +1968,12 @@
 				<groupId>org.apache.hadoop</groupId>
 				<artifactId>hadoop-mapreduce-client-jobclient</artifactId>
 				<version>${hadoop.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-hdfs-client -->
 			<dependency>
 				<groupId>org.apache.hadoop</groupId>
 				<artifactId>hadoop-hdfs-client</artifactId>
 				<version>${hadoop.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-client -->
 			<dependency>
@@ -2268,11 +2264,6 @@
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty.websocket</groupId>
-				<artifactId>websocket-core</artifactId>
-				<version>9.0.0.M2</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jetty.websocket</groupId>
 				<artifactId>websocket-client</artifactId>
 				<version>${jetty-websocket.version}</version>
 			</dependency>
@@ -2295,11 +2286,6 @@
 				<groupId>org.eclipse.jetty.websocket</groupId>
 				<artifactId>javax-websocket-server-impl</artifactId>
 				<version>${jetty-websocket.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.eclipse.jetty.websocket</groupId>
-				<artifactId>websocket-mux-extension</artifactId>
-				<version>9.1.1.v20140108</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/com.jgoodies/jgoodies-forms -->
@@ -4564,6 +4550,12 @@
 			<dependency>
 			    <groupId>io.shardingsphere</groupId>
 			    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-sharding-jdbc.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-transaction-spring-boot-starter -->
+			<dependency>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-transaction-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-sharding-jdbc.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-orchestration-spring-boot-starter -->
