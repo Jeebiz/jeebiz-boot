@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>net.jeebiz</groupId>
 		<artifactId>jeebiz-boot-modules</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	
 	<artifactId>jeebiz-boot-autoconfigure</artifactId>
@@ -32,29 +32,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- For Spring JDBC Starter -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-		<!-- For Embed Tomcat
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
-        <!-- For Embed Jetty
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
-        <!-- For Embed Undertow 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
-            <scope>provided</scope>
-        </dependency> -->
 
 	</dependencies>
 
