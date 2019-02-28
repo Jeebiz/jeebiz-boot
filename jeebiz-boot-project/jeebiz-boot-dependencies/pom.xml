@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -221,6 +222,10 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.6.0</rabbit-amqp-client.version>
 		<reactor.version>Californium-RELEASE</reactor.version>
+		<reactor-core.version>3.2.6.RELEASE</reactor-core.version>
+		<reactor-extra.version>3.2.2.RELEASE</reactor-extra.version>
+		<reactor-netty.version>0.8.5.RELEASE</reactor-netty.version>
+		<resilience4j.version>0.13.2</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq.version>4.4.0</rocketmq.version>
 		<schemacrawler.version>15.04.01</schemacrawler.version>
@@ -285,6 +290,7 @@
 		<svnkit.version>1.9.3</svnkit.version>
 		<swagger.version>1.5.21</swagger.version>
 		<swagger-bootstrap-ui.version>1.8.9</swagger-bootstrap-ui.version> 
+		<swagger-butler.version>1.2.0</swagger-butler.version> 
 		<swagger-codegen.version>2.3.1</swagger-codegen.version>
 		<swagger-generator.version>2.3.1</swagger-generator.version>
 		<swagger-parser.version>1.0.39</swagger-parser.version>
@@ -307,6 +313,7 @@
 		<wsdl4j.version>1.6.3</wsdl4j.version>
 		<xmemcached.version>2.4.6</xmemcached.version>
 		<xmlschema-core.version>2.0.2</xmlschema-core.version>
+		<xfire.version>1.2.6</xfire.version>
 		<xnio.version>3.7.0.Final</xnio.version>
 		<xstream.version>1.4.11.1</xstream.version>
 		<zookeeper.version>3.5.4-beta</zookeeper.version>
