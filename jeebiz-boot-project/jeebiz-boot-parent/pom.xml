@@ -10,7 +10,6 @@
 	
 	<artifactId>jeebiz-boot-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>Jeebiz Spring Boot Parent</name>
 	<description>Jeebiz Projects Parent for Spring Boot</description>
 	
 	<properties>
