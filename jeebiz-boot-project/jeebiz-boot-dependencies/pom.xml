@@ -333,6 +333,7 @@
 		<maven-cobertura-plugin.version>2.7</maven-cobertura-plugin.version>
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
 		<maven-dependency-check-plugin.version>4.0.2</maven-dependency-check-plugin.version>
 		<maven-docker-plugin.version>1.2.0</maven-docker-plugin.version>
 		<maven-dockerfile-plugin.version>1.4.8</maven-dockerfile-plugin.version>
