@@ -39,7 +39,7 @@
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
 		<byte-buddy.version>1.9.10</byte-buddy.version>
-		<caffeine.version>2.6.2</caffeine.version>
+		<caffeine.version>2.7.0</caffeine.version>
 		<cas-client.version>3.5.1</cas-client.version>
 		<camel.version>2.23.1</camel.version>
 		<cglib.version>3.2.10</cglib.version>
@@ -4864,11 +4864,11 @@
 				    <version>${maven-jdepend-plugin.version}</version>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-maven-plugin -->
-				<dependency>
+				<plugin>
 				    <groupId>org.eclipse.jetty</groupId>
 				    <artifactId>jetty-maven-plugin</artifactId>
 				    <version>${maven-jetty-plugin.version}</version>
-				</dependency>
+				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/license-maven-plugin -->
 				<plugin>
 				    <groupId>org.codehaus.mojo</groupId>
