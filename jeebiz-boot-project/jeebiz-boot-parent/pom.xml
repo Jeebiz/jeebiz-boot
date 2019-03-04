@@ -446,6 +446,7 @@
 						<!-- 您可以定义一个许可证头文件，该文件将替代生成的脚本中的默认头文件。 <licenseHeaderFile></licenseHeaderFile> -->
 						<!-- 项目的日志目录。如果为此参数指定一个值，将创建一个名为给定的空目录 -->
 						<logsDirectory>logs</logsDirectory>
+						<!-- <licenseHeaderFile>${basedir}/license-header.txt</licenseHeaderFile> -->
 						<!-- 将库复制到存储库时使用的文件名映射。如果没有设置文件映射（默认），则使用其标准名称复制文件。注意：如果使用此参数，则将 忽略useTimestampInSnapshotFileName参数。 -->
 						<!-- <outputFileNameMapping></outputFileNameMapping> -->
 						<!-- 如果存在，请将此目录的内容复制到配置的 assembleDirectory，并使用选项进行过滤。此配置可以替代copyConfigurationDirectory 
@@ -496,6 +497,10 @@
 									<platform>unix</platform>
 								</platforms>
 								<jvmSettings>
+									<!-- <systemProperties>
+										<systemProperty></systemProperty>
+										<systemProperty></systemProperty>
+									</systemProperties> -->
 									<!-- http://www.cnblogs.com/paddix/p/5309550.html -->
 									<!-- http://unixboy.iteye.com/blog/174173/ -->
 									<extraArguments>
@@ -557,9 +562,14 @@
 									<generatorConfiguration>
 										<generator>jsw</generator>
 										<includes>
+											<!-- <include>aix-ppc-32</include>
+											<include>aix-ppc-64</include>
+											<include>hpux-parisc-64</include> -->
 											<include>linux-x86-32</include>
 											<include>linux-x86-64</include>
 											<!-- <include>linux-ppc-64</include>
+											<include>macosx-ppc-32</include>
+											<include>macosx-x86-universal-32</include>
 											<include>macosx-universal-32</include>
 											<include>macosx-universal-64</include>
 											<include>solaris-sparc-32</include>
