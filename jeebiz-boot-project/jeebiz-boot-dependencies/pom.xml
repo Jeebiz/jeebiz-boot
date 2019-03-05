@@ -4748,6 +4748,7 @@
 					<version>${maven-appassembler-plugin.version}</version>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
+				<!-- http://maven.apache.org/plugins/maven-assembly-plugin/ -->
 				<plugin>
 				    <groupId>org.apache.maven.plugins</groupId>
 				    <artifactId>maven-assembly-plugin</artifactId>
