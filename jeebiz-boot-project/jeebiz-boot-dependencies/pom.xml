@@ -353,7 +353,9 @@
 		<maven-jetty-plugin.version>${jetty.version}</maven-jetty-plugin.version>
 		<maven-license-plugin.version>1.14</maven-license-plugin.version>
 		<maven-native2ascii-plugin.version>2.0.1</maven-native2ascii-plugin.version>
+		<maven-nexus-m2settings-plugin.version>1.6.8</maven-nexus-m2settings-plugin.version>
 		<maven-nexus-staging-plugin.version>1.6.8</maven-nexus-staging-plugin.version>
+		<maven-nexus-yuicompressor-plugin.version>1.1.0</maven-nexus-yuicompressor-plugin.version>
 		<maven-notice-plugin.version>1.1.0</maven-notice-plugin.version>
  		<maven-pmd-plugin.version>3.11.0</maven-pmd-plugin.version>
  		<maven-properties-plugin.version>1.0.0</maven-properties-plugin.version>
@@ -4917,11 +4919,23 @@
 				    <artifactId>native2ascii-maven-plugin</artifactId>
 				    <version>${maven-native2ascii-plugin.version}</version> 
 				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-m2settings-maven-plugin -->
+				<plugin>
+				    <groupId>org.sonatype.plugins</groupId>
+				    <artifactId>nexus-m2settings-maven-plugin</artifactId>
+				    <version>${maven-nexus-m2settings-plugin.version}</version>
+				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
 				<plugin>
 				    <groupId>org.sonatype.plugins</groupId>
 				    <artifactId>nexus-staging-maven-plugin</artifactId>
 				    <version>${maven-nexus-staging-plugin.version}</version>
+				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.sonatype.plugins/yuicompressor-maven-plugin -->
+				<plugin>
+				    <groupId>org.sonatype.plugins</groupId>
+				    <artifactId>yuicompressor-maven-plugin</artifactId>
+				    <version>${maven-nexus-yuicompressor-plugin.version}</version>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.jasig.maven/maven-notice-plugin -->
 				<plugin>
