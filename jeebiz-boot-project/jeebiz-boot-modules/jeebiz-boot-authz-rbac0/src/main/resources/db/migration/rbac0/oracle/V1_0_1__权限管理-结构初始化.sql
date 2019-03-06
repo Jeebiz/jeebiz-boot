@@ -87,7 +87,7 @@ comment on column SYS_AUTHZ_USER_DETAIL.U_ID  is '用户ID';
 comment on column SYS_AUTHZ_USER_DETAIL.D_ID  is '用户详情表ID';
 comment on column SYS_AUTHZ_USER_DETAIL.D_AGE  is '年龄';
 comment on column SYS_AUTHZ_USER_DETAIL.D_BIRTHDAY  is '出生日期';
-comment on column SYS_AUTHZ_USER_DETAIL.D_CODE  is '编码';
+comment on column SYS_AUTHZ_USER_DETAIL.D_CODE  is '用户编码';
 comment on column SYS_AUTHZ_USER_DETAIL.D_GENDER  is '性别：（male：男，female：女）';
 comment on column SYS_AUTHZ_USER_DETAIL.D_IDCARD  is '身份证号码';
 comment on column SYS_AUTHZ_USER_DETAIL.D_REMARK  is '详细说明';

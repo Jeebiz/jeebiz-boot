@@ -56,19 +56,27 @@ public class AuthzUserDetailModel extends PaginationModel {
 	 * 初始化时间
 	 */
 	private String time24;
-	 
+
 	/**
 	 * 用户详情ID
 	 */
 	private String dId;
 	/**
-	 * 性别：（male：男，female：女）
+	 * 年龄
 	 */
-	private String gender;
+	private String age;
 	/**
 	 * 出生日期
 	 */
 	private String birthday;
+	/**
+	 * 用户编码
+	 */
+	private String code;
+	/**
+	 * 性别：（male：男，female：女）
+	 */
+	private String gender;
 	/**
 	 * 身份证号码
 	 */
@@ -81,7 +89,7 @@ public class AuthzUserDetailModel extends PaginationModel {
 	 * 角色名称（可能多个组合，如：角色1,角色2）
 	 */
 	private String roleName;
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -169,7 +177,7 @@ public class AuthzUserDetailModel extends PaginationModel {
 	public void setTime24(String time24) {
 		this.time24 = time24;
 	}
-	
+
 	public String getdId() {
 		return dId;
 	}
@@ -178,12 +186,12 @@ public class AuthzUserDetailModel extends PaginationModel {
 		this.dId = dId;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getAge() {
+		return age;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setAge(String age) {
+		this.age = age;
 	}
 
 	public String getBirthday() {
@@ -192,6 +200,22 @@ public class AuthzUserDetailModel extends PaginationModel {
 
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getIdcard() {
@@ -217,5 +241,5 @@ public class AuthzUserDetailModel extends PaginationModel {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	
+
 }

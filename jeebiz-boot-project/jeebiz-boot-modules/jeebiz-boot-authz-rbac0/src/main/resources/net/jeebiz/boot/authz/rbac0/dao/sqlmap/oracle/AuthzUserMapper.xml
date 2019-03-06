@@ -36,8 +36,10 @@
 		<result property="roleId" column="R_ID" />
 		<result property="roleName" column="R_NAME" />
 		<result property="dId" column="D_ID" />
-		<result property="gender" column="D_GENDER" />
+		<result property="age" column="D_AGE" />
 		<result property="birthday" column="D_BIRTHDAY" />
+		<result property="code" column="D_CODE" />
+		<result property="gender" column="D_GENDER" />
 		<result property="idcard" column="D_IDCARD" />
 	</resultMap>
 	
@@ -146,7 +148,9 @@
 			t.U_STATUS,
 			t.U_TIME24,
 			x.D_ID,
+			x.D_AGE,
 			x.D_BIRTHDAY,
+			x.D_CODE,
 			x.D_GENDER,
 			x.D_IDCARD,
 			(SELECT wm_concat(y.R_ID) R_ID
@@ -176,7 +180,9 @@
 			t.U_STATUS,
 			t.U_TIME24,
 			x.D_ID,
+			x.D_AGE,
 			x.D_BIRTHDAY,
+			x.D_CODE,
 			x.D_GENDER,
 			x.D_IDCARD,
 			(SELECT wm_concat(y.R_ID) R_ID
