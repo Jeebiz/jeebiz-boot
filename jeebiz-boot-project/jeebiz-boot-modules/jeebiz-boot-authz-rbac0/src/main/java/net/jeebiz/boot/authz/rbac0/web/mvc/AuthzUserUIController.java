@@ -73,6 +73,15 @@ public class AuthzUserUIController extends BaseMapperController {
 	}
 	
 	@ApiIgnore
+    @GetMapping("detail/{id}")
+    @RequiresPermissions("user:detail")
+    public String detail(@PathVariable("id") String id, @ApiIgnore Model uiModel) {
+    	uiModel.addAttribute("model", getAuthzUserService().getModel(id));
+    	uiModel.addAttribute("roles", getAuthzRoleService().getRoles());
+        return "html/authz/rbac0/user/detail";
+    }
+	
+	@ApiIgnore
 	@GetMapping("info")
 	@RequiresAuthentication
 	public String info(HttpServletRequest request, Model model) {
