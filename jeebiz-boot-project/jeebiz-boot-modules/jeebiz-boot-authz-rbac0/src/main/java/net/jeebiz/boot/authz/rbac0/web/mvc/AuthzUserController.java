@@ -170,6 +170,24 @@ public class AuthzUserController extends BaseMapperController {
 		return success("user.del.success", result);
 	}
 	
+	@ApiOperation(value = "user:init-pwd", notes = "初始化密码")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "ids", value = "基础数据ID,多个用,拼接", required = true, dataType = "String"),
+		@ApiImplicitParam(name = "password", required = true, value = "新密码", dataType = "String")
+	})
+	@BusinessLog(module = Constants.AUTHZ_USER, business = "初始化密码", opt = BusinessType.UPDATE)
+	@PostMapping("init/pwd")
+	@RequiresPermissions("user:initpwd")
+	@ResponseBody
+	public Object initPwd(@RequestParam String ids, @RequestParam String password) throws Exception {
+		List<String> idList = Lists.newArrayList(StringUtils.tokenizeToStringArray(ids));
+		int total = getAuthzUserService().updatePwd(idList, password);
+		if(total > 0) {
+			return success("user.init.pwd.success", total); 
+		}
+		return fail("user.init.pwd.fail", total);
+	}
+	
 	@ApiOperation(value = "user:allocated", notes = "分页查询用户已分配角色信息")
 	@ApiImplicitParams({ 
 		@ApiImplicitParam(paramType = "body", name = "paginationVo", value = "已分配角色信息筛选条件", dataType = "AuthzUserPaginationVo")
