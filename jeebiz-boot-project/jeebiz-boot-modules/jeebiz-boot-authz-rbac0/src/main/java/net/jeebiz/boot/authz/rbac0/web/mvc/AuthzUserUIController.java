@@ -54,6 +54,13 @@ public class AuthzUserUIController extends BaseMapperController {
 	}
 	
 	@ApiIgnore
+	@GetMapping("import")
+	@RequiresPermissions("user:import")
+	public String importUser(Model model) {
+		return "html/authz/rbac0/user/import";
+	}
+	
+	@ApiIgnore
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "id", required = true, value = "用户信息ID", dataType = "String")
 	})

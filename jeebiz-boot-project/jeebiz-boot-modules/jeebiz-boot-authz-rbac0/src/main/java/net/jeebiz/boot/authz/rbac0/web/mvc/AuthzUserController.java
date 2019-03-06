@@ -4,17 +4,27 @@
  */
 package net.jeebiz.boot.authz.rbac0.web.mvc;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.biz.authz.principal.ShiroPrincipal;
 import org.apache.shiro.biz.utils.SubjectUtils;
 import org.apache.shiro.codec.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.ResourceUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -121,6 +131,26 @@ public class AuthzUserController extends BaseMapperController {
 		return fail("user.new.fail", result);
 	}
 	
+	/**
+     * 用户导入模板
+     */
+    @GetMapping(value = "download", produces = "application/vnd.ms-excel;charset=UTF-8")
+    @BusinessLog(module = Constants.AUTHZ_USER, business = "下载考试管理下人员报名考生信息导入模板", opt = BusinessType.DOWNLOAD)
+    @RequiresPermissions("user:template")
+    public ResponseEntity<byte[]> downloadTemplate() throws IOException {
+        //获取跟目录
+        File path = new File(ResourceUtils.getURL("classpath:").getPath());
+        if (path.exists()) {
+            File file = new File(path + Constants.AUTHZ_USER_DOWNLOAD_TEMPLATE_URL + File.separator + "usertemp.xlsx");
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            headers.setContentDispositionFormData("attachment", new String(Constants.AUTHZ_USER_DOWNLOAD_TEMPLATE.getBytes(StandardCharsets.UTF_8), "ISO8859-1"));
+            return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),
+                    headers, HttpStatus.CREATED);
+        }
+        return null;
+    }
+	
 	@ApiOperation(value = "user:renew", notes = "修改用户信息")
 	@ApiImplicitParams({ 
 		@ApiImplicitParam(paramType = "body", name = "userVo", value = "用户信息", dataType = "AuthzUserDetailVo")
@@ -176,7 +206,7 @@ public class AuthzUserController extends BaseMapperController {
 		@ApiImplicitParam(name = "password", required = true, value = "新密码", dataType = "String")
 	})
 	@BusinessLog(module = Constants.AUTHZ_USER, business = "初始化密码", opt = BusinessType.UPDATE)
-	@PostMapping("init/pwd")
+	@PostMapping("initpwd")
 	@RequiresPermissions("user:initpwd")
 	@ResponseBody
 	public Object initPwd(@RequestParam String ids, @RequestParam String password) throws Exception {
