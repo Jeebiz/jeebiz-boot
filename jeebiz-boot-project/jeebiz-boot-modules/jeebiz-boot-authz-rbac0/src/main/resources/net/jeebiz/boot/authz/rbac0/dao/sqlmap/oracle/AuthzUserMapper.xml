@@ -58,12 +58,12 @@
 	        SELECT sys_guid() FROM dual
 	    </selectKey>
 	    insert into SYS_AUTHZ_USER_LIST(U_ID,U_USERNAME,U_PASSWORD,U_AVATAR,U_PHONE,U_EMAIL,U_REMARK,U_STATUS)
-		values(#{id},#{username},#{password},#{avatar},#{phone},#{email,jdbcType=CLOB},#{remark,jdbcType=CLOB},'1')
+		values(#{id},#{username},#{password},#{avatar,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},'1')
 	</insert>
 	
 	<insert id="insertDetail" parameterType="AuthzUserDetailModel" flushCache="true">
-		insert into SYS_AUTHZ_USER_DETAIL(U_ID,D_GENDER,D_BIRTHDAY,D_IDCARD)
-		values(#{id},#{gender},#{birthday},#{idcard})
+		insert into SYS_AUTHZ_USER_DETAIL(U_ID, D_AGE, D_BIRTHDAY, D_CODE, D_GENDER, D_IDCARD, D_REMARK)
+		values(#{id}, #{age,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
 	</insert>
 	
 	<delete id="delete" parameterType="java.lang.String" flushCache="true">
