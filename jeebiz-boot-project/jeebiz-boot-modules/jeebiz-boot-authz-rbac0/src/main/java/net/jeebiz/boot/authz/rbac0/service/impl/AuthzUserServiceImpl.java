@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
@@ -45,11 +46,21 @@ public class AuthzUserServiceImpl extends BaseServiceImpl<AuthzUserDetailModel, 
 	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
+	public int batchDelete(List<?> list) {
+		if(CollectionUtils.isEmpty(list)) {
+			return 0;
+		}
+		getDao().batchDeleteDetail(list);
+		getDao().batchDeleteRole(list);
+		return getDao().batchDelete(list);
+	}
+	
+	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int delete(String id) {
-		int ct = getDao().delete(id);
 		getDao().deleteDetail(id);
 		getDao().deleteRole(id);
-		return ct;
+		return getDao().delete(id);
 	}
 	
 	@Override

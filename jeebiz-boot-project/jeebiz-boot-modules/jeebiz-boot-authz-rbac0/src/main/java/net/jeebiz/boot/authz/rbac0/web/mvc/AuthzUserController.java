@@ -193,7 +193,7 @@ public class AuthzUserController extends BaseMapperController {
 	@PostMapping("delete")
 	@RequiresPermissions("user:delete")
 	@ResponseBody
-	public Object delRole(@RequestParam String ids) throws Exception {
+	public Object delUser(@RequestParam String ids) throws Exception {
 		// 执行基础数据删除操作
 		List<String> idList = Lists.newArrayList(StringUtils.tokenizeToStringArray(ids));
 		int result = getAuthzUserService().batchDelete(idList);

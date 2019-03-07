@@ -40,6 +40,20 @@ public interface IAuthzUserDao extends BaseDao<AuthzUserDetailModel>{
 	public int deleteRole(String id);
 	
 	/**
+	 * 批量删除用户详情
+	 * @param list
+	 * @return
+	 */
+	public int batchDeleteDetail(@Param(value="list") List<?> list);
+	
+	/**
+	 * 批量删除用户角色
+	 * @param list
+	 * @return
+	 */
+	public int batchDeleteRole(@Param(value="list") List<?> list);
+	
+	/**
 	 * 更新用户详情记录
 	 * @param model
 	 * @return

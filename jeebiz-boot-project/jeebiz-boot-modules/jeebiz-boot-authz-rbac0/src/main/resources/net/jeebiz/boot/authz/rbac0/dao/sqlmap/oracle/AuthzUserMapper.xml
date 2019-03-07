@@ -70,13 +70,6 @@
 		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_ID = #{id}
 	</delete>
 	
-	<delete id="batchDelete" flushCache="true">
-		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_USERNAME != 'admin' AND U_ID IN 
-		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">  
-           #{item} 
-        </foreach>
-	</delete>
-	
 	<delete id="deleteDetail" parameterType="java.lang.String" flushCache="true">
 		DELETE FROM SYS_AUTHZ_USER_DETAIL WHERE U_ID = #{id}
 	</delete>
@@ -84,6 +77,27 @@
 	<delete id="deleteRole" flushCache="true">
     	DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE U_ID = #{id}
     </delete>
+	
+	<delete id="batchDelete" flushCache="true">
+		DELETE FROM SYS_AUTHZ_USER_LIST WHERE U_USERNAME != 'admin' AND U_ID IN 
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">  
+           #{item} 
+        </foreach>
+	</delete>
+	
+	<delete id="batchDeleteDetail" flushCache="true">
+		DELETE FROM SYS_AUTHZ_USER_DETAIL WHERE U_ID IN 
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">  
+           #{item} 
+        </foreach>
+	</delete>
+	
+	<delete id="batchDeleteRole" flushCache="true">
+		DELETE FROM SYS_AUTHZ_USER_ROLE_RELATION WHERE U_ID IN 
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">  
+           #{item} 
+        </foreach>
+	</delete>
 	
 	<update id="update" parameterType="AuthzUserDetailModel" flushCache="true">
 		update SYS_AUTHZ_USER_LIST t
