@@ -104,7 +104,7 @@
 		<dozer-core.version>6.4.1</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-		<druid.version>1.1.13</druid.version>
+		<druid.version>1.1.14</druid.version>
 		<dropwizard-metrics.version>4.1.0-rc3</dropwizard-metrics.version>
 		<dropwizard-metrics-datadog.version>2.0.0-RC1</dropwizard-metrics-datadog.version>
 		<dropwizard-metrics-kafka.version>0.0.1</dropwizard-metrics-kafka.version>
@@ -384,7 +384,7 @@
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
-		<spring-boot-starter-druid.version>1.1.10</spring-boot-starter-druid.version>
+		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
 		<spring-boot-starter-druid-plus.version>1.0.6.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
@@ -3405,8 +3405,18 @@
 			    <version>${sharding-jdbc.version}</version>
 			</dependency>
 			<dependency>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-orchestration-reg-etcd</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-orchestration-reg-zookeeper-curator</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>io.shardingsphere</groupId>
-				<artifactId>sharding-orchestration-reg-etcd</artifactId>
+				<artifactId>sharding-jdbc-spring-namespace</artifactId>
 				<version>${sharding-jdbc.version}</version>
 			</dependency>
 			<dependency>
@@ -3425,11 +3435,6 @@
 				<version>${sharding-transaction.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.shardingsphere</groupId>
-				<artifactId>sharding-jdbc-spring-namespace</artifactId>
-				<version>${sharding-jdbc.version}</version>
-			</dependency>
-			<dependency>
 			    <groupId>io.shardingsphere</groupId>
 			    <artifactId>sharding-opentracing</artifactId>
 			    <version>${sharding-jdbc.version}</version>
@@ -3437,6 +3442,11 @@
 			<dependency>
 			    <groupId>io.shardingsphere</groupId>
 			    <artifactId>sharding-proxy</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.shardingsphere</groupId>
+			    <artifactId>sharding-transaction-2pc-xa</artifactId>
 			    <version>${sharding-jdbc.version}</version>
 			</dependency>
 			
