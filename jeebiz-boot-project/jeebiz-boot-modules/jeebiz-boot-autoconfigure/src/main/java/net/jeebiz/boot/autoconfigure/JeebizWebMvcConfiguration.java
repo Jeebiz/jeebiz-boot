@@ -1,16 +1,21 @@
 package net.jeebiz.boot.autoconfigure;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.biz.web.servlet.i18n.NestedLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.ui.context.support.ResourceBundleThemeSource;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ThemeResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -25,38 +30,14 @@ import org.springframework.web.servlet.theme.CookieThemeResolver;
 import org.springframework.web.servlet.theme.SessionThemeResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
+import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
+
 //@EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = { "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
+@EnableConfigurationProperties(LocalResourceProperteis.class)
 public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
-
-	/*###########SpringMVC文件上传支持###########*/
-	/*
-	@Bean(name = DispatcherServlet.MULTIPART_RESOLVER_BEAN_NAME)
-    public MultipartResolver multipartResolver() {
-        CommonsMultipartResolver cmr = new CommonsMultipartResolver();
-        cmr.setMaxInMemorySize(10240);
-        return cmr;
-    }
-	
-	*//**
-	 * 文件上传临时路径
-	 *//*
-    @Bean
-    public MultipartConfigElement multipartConfigElement() {
-        MultipartConfigFactory factory = new MultipartConfigFactory();
-        factory.setLocation("/");
-        
-        //// 设置文件大小限制 ,超了，页面会抛出异常信息，这时候就需要进行异常信息的处理了;
-        //factory.setMaxFileSize("128KB"); //KB,MB
-        /// 设置总上传数据总大小
-        //factory.setMaxRequestSize("256KB"); 
-        //Sets the directory location where files will be stored.
-        //factory.setLocation("路径地址");
-        
-        return factory.createMultipartConfig();
-    }*/
-    
+	   
     /*###########SpringMVC本地化支持###########*/
     
     /* 参考 ： 
@@ -153,27 +134,22 @@ public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
 		registry.addInterceptor(themeChangeInterceptor).addPathPatterns("/theme/change");
 		registry.addInterceptor(localeChangeInterceptor).addPathPatterns("/locale/change");
 	}
-    
+
+	@Autowired
+    private LocalResourceProperteis localResourceProperteis;
+	
     @Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		/*
-		 * if (!registry.hasMappingForPattern("/webjars/**")) {
-		 * registry.addResourceHandler("/webjars/**").addResourceLocations(
-		 * "classpath:/META-INF/resources/webjars/"); } if
-		 * (!registry.hasMappingForPattern("/**")) {
-		 * 
-		 * registry.addResourceHandler("/**").addResourceLocations( RESOURCE_LOCATIONS);
-		 * 
-		 * }
-		 */
-
-		/*
-		 * registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/")
-		 * .resourceChain(false) .addResolver(new WebJarsResourceResolver())
-		 * .addResolver(new PathResourceResolver());
-		 */
-
-		registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
+    	// 本地资源映射
+    	if(!CollectionUtils.isEmpty(localResourceProperteis.getLocalLocations())){
+    		Iterator<Entry<String, String>> ite = localResourceProperteis.getLocalLocations().entrySet().iterator();
+    		while (ite.hasNext()) {
+				Entry<String, String> entry = ite.next();
+				registry.addResourceHandler(entry.getKey()).addResourceLocations(entry.getValue());       
+			}
+		}
+    	// 指定个性化资源映射
+		registry.addResourceHandler("/assets/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/assets/");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 	
