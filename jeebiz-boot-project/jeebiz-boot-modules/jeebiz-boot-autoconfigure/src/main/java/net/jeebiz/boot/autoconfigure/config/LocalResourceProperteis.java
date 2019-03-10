@@ -6,11 +6,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import com.google.common.collect.Maps;
 
-@ConfigurationProperties(prefix = "spring.resources")
+@ConfigurationProperties(prefix = "spring.storage")
 public class LocalResourceProperteis {
 
     // 本地存储路径
     private String localStorage;
+    
+    // 本地静态资源映射是否是相对于localStorage的地址
+    private boolean localRelative;
 
     // 本地静态资源映射
     private Map<String, String> localLocations = Maps.newHashMap();
@@ -21,6 +24,14 @@ public class LocalResourceProperteis {
 
 	public void setLocalStorage(String localStorage) {
 		this.localStorage = localStorage;
+	}
+
+	public boolean isLocalRelative() {
+		return localRelative;
+	}
+
+	public void setLocalRelative(boolean localRelative) {
+		this.localRelative = localRelative;
 	}
 
 	public Map<String, String> getLocalLocations() {

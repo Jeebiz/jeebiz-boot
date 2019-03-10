@@ -1,5 +1,6 @@
 package net.jeebiz.boot.autoconfigure;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -145,7 +146,12 @@ public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
     		Iterator<Entry<String, String>> ite = localResourceProperteis.getLocalLocations().entrySet().iterator();
     		while (ite.hasNext()) {
 				Entry<String, String> entry = ite.next();
-				registry.addResourceHandler(entry.getKey()).addResourceLocations(entry.getValue());       
+				if (localResourceProperteis.isLocalRelative()) {
+					registry.addResourceHandler(entry.getKey()).addResourceLocations(ResourceUtils.FILE_URL_PREFIX
+							+ localResourceProperteis.getLocalStorage() + File.separator + entry.getValue());
+				} else {
+					registry.addResourceHandler(entry.getKey()).addResourceLocations(entry.getValue());
+				}
 			}
 		}
     	// 指定个性化资源映射

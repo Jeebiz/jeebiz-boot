@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(JeebizRestTemplateProperties.PREFIX)
 public class JeebizRestTemplateProperties {
 
-	public static final String PREFIX = "jeebiz.rest-template";
+	public static final String PREFIX = "spring.template.rest";
 	
 	/**
 	 * Client Type
