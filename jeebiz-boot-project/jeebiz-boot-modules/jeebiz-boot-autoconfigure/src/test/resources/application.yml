@@ -28,7 +28,7 @@ spring:
     #local-storage: /local/storage
     # 将访问地址映射到local-storage指定目录下的子目录
     local-locations:
-      /data/** : /data
+      '[/data/**]' : /data
     # 本地静态资源映射是否是相对于localStorage的地址
     local-relative: true
   template:
