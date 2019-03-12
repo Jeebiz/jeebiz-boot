@@ -2,10 +2,11 @@ package net.jeebiz.boot.demo;
 
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.exception.RemotingException;
-import org.apache.rocketmq.spring.boot.RocketmqProducerTemplate;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SpringbootJmsApplicationTests {  
       
 	@Autowired
-	protected RocketmqProducerTemplate rocketmqTemplate;
+	protected RocketMQTemplate rocketmqTemplate;
       
     @Test  
     public void contextLoads() throws MQClientException, RemotingException, MQBrokerException, InterruptedException {  
@@ -29,9 +30,19 @@ public class SpringbootJmsApplicationTests {
 		);
 
         for(int i=0; i<100; i++){  
-        	SendResult result = rocketmqTemplate.send(msg);
-    		System.out.println(result);
-    		
+        	rocketmqTemplate.asyncSend("destination", msg ,new SendCallback(){
+
+				@Override
+				public void onSuccess(SendResult sendResult) {
+					
+				}
+
+				@Override
+				public void onException(Throwable e) {
+					
+				}
+        		
+        	});
         }
     }  
   

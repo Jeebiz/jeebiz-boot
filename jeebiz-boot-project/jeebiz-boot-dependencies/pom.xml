@@ -227,7 +227,6 @@
 		<reactor-netty.version>0.8.5.RELEASE</reactor-netty.version>
 		<resilience4j.version>0.13.2</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
-		<rocketmq.version>4.4.0</rocketmq.version>
 		<schemacrawler.version>15.04.01</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
@@ -281,7 +280,7 @@
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.9.3</svnkit.version>
 		<swagger.version>1.5.21</swagger.version>
-		<swagger-bootstrap-ui.version>1.8.9</swagger-bootstrap-ui.version> 
+		<swagger-bootstrap-ui.version>1.9.1</swagger-bootstrap-ui.version> 
 		<swagger-butler.version>1.2.0</swagger-butler.version> 
 		<swagger-codegen.version>2.3.1</swagger-codegen.version>
 		<swagger-generator.version>2.3.1</swagger-generator.version>
@@ -369,7 +368,7 @@
 		<spring-boot-starter-casclient.version>1.0.2.RELEASE</spring-boot-starter-casclient.version>
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
 		<spring-boot-starter-cxf-jaxws-plus.version>1.0.2.RELEASE</spring-boot-starter-cxf-jaxws-plus.version>
-		<spring-boot-starter-disruptor.version>1.0.2.RELEASE</spring-boot-starter-disruptor.version>
+		<spring-boot-starter-disruptor.version>1.0.3-SNAPSHOT</spring-boot-starter-disruptor.version>
 		<spring-boot-starter-dozer.version>1.0.1.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
@@ -403,7 +402,7 @@
 		<spring-boot-starter-pf4j.version>1.0.5.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.6.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-redisson.version>3.10.2</spring-boot-starter-redisson.version>
-		<spring-boot-starter-rocketmq.version>1.0.0.RELEASE</spring-boot-starter-rocketmq.version>
+		<spring-boot-starter-rocketmq-plus.version>1.0.1-SNAPSHOT</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.3.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
@@ -2876,104 +2875,6 @@
 				<version>${quartz.version}</version>
 			</dependency>
 			
-			<!-- http://mvnrepository.com/artifact/org.apache.rocketmq -->
-
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-client</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-common</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-namesrv</artifactId>
-				<version>${rocketmq.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>ch.qos.logback</groupId>
-						<artifactId>logback-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>ch.qos.logback</groupId>
-						<artifactId>logback-classic</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-filtersrv</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-broker</artifactId>
-				<version>${rocketmq.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>ch.qos.logback</groupId>
-						<artifactId>logback-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>ch.qos.logback</groupId>
-						<artifactId>logback-classic</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-srvutil</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-store</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-remoting</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-openmessaging</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-filter</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-distribution</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-logappender</artifactId>
-				<version>${rocketmq.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.rocketmq</groupId>
-				<artifactId>rocketmq-tools</artifactId>
-				<version>${rocketmq.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>ch.qos.logback</groupId>
-						<artifactId>logback-core</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>ch.qos.logback</groupId>
-						<artifactId>logback-classic</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			
 			<!-- Perf4J 是一个新的开放源码的性能记录，监测和分析库，主要用于企业Java应用程序。 -->
 			<dependency>
 			    <groupId>org.perf4j</groupId>
@@ -4257,11 +4158,11 @@
 			    <artifactId>redisson-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-redisson.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-rocketmq -->
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-rocketmq-plus -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-rocketmq</artifactId>
-				<version>${spring-boot-starter-rocketmq.version}</version>
+				<artifactId>spring-boot-starter-rocketmq-plus</artifactId>
+				<version>${spring-boot-starter-rocketmq-plus.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-schemacrawler -->
 			<dependency>

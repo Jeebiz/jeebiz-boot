@@ -170,13 +170,7 @@
 		<!-- For Rocketmq -->
 		<dependency>
 			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-rocketmq</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>io.netty</groupId>
-					<artifactId>netty-tcnative-boringssl-static</artifactId>
-				</exclusion>
-			</exclusions>
+			<artifactId>spring-boot-starter-rocketmq-plus</artifactId>
 		</dependency>
 		<!-- For Oracle 11g -->
 		<dependency>
