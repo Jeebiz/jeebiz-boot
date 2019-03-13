@@ -19,9 +19,9 @@ swagger:
   license: Apache License, Version 2.0
   license-url: https://www.apache.org/licenses/LICENSE-2.0.html
   contact:
-    name: 杭州极蚁网络科技有限公司
-    email: hiwepy@163.com
-    url: http://www.hiwepy.com/
+    name: 极蚁网络工作室
+    email: jeebiz_net@163.com
+    url: https://www.jeebiz.net
   base-package: net.jeebiz
   base-path:
   - /**
