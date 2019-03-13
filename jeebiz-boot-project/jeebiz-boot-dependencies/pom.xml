@@ -243,10 +243,10 @@
 		<schemacrawler-offline.version>${schemacrawler.version}</schemacrawler-offline.version>
 		<schemacrawler-oracle.version>${schemacrawler.version}</schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
 		<schemacrawler-postgresql.version>${schemacrawler.version}</schemacrawler-postgresql.version>
-		<schemacrawler-sapiq.version>${schemacrawler.version}</schemacrawler-sapiq.version>
+		<schemacrawler-sapiq.version>15.05.01</schemacrawler-sapiq.version>
 		<schemacrawler-sqlserver.version>${schemacrawler.version}</schemacrawler-sqlserver.version>
 		<schemacrawler-sqlite.version>${schemacrawler.version}</schemacrawler-sqlite.version>
-		<schemacrawler-timesten.version>${schemacrawler.version}</schemacrawler-timesten.version>
+		<schemacrawler-timesten.version>15.05.01</schemacrawler-timesten.version>
 		<scribe.version>1.3.7</scribe.version>
 		<scribe-up.version>1.3.1</scribe-up.version>
 		<scribejava.version>6.3.0</scribejava.version>
