@@ -137,27 +137,17 @@ public class ResultUtils {
 	 * @return ： Map对象
 	 */
 	public static Map<String, Object> dataMap(Object data) {
-		return dataMap(HttpStatus.OK.value(), STATUS_SUCCESS, data);
+		return dataMap(HttpStatus.OK.value(), "", data);
 	}
 	
-	/**
-	 * 包装处理结果状态，并返回Map对象
-	 * @param status 	： 状态值或状态码
-	 * @param data	   	： 数据对象
-	 * @return ： Map对象
-	 */
-	public static Map<String, Object> dataMap(String status, Object data) {
-		return dataMap(HttpStatus.OK.value(), status, data);
+	public static Map<String, Object> dataMap(HttpStatus code, String message, Object data) {
+		return dataMap(code.value(), message, data);
 	}
 	
-	public static Map<String, Object> dataMap(HttpStatus code, String status, Object data) {
-		return dataMap(code.value(), status, data);
-	}
-	
-	public static Map<String, Object> dataMap(int code, String status, Object data) {
+	public static Map<String, Object> dataMap(int code, String message, Object data) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
 		rtMap.put("code", code);
-		rtMap.put("status", status);
+		rtMap.put("message", message);
 		rtMap.put("data", data);
 		return rtMap;
 	}
