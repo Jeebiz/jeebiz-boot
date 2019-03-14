@@ -20,28 +20,26 @@ public class ResultUtils {
 	/**
 	 * 包装处理结果状态，并返回JSON值
 	 * @param code		： 状态值或状态码
-	 * @param reason	： 状态值或状态码对应的原因
 	 * @param status	： 结果状态值（success、fail、error）
 	 * @param message	： 提示信息
 	 * @return 			： JSON格式的字符串
 	 */
-	public static String status(int code, String reasonPhrase, String status, String message) {
-		return JSONObject.toJSONString(statusMap(code, reasonPhrase, status, message));
+	public static String status(HttpStatus code, String status, String message) {
+		return JSONObject.toJSONString(statusMap(code, status, message));
 	}
 	
 	/**
 	 * 包装处理结果状态，并返回Map对象
 	 * @param code		： 状态值或状态码
-	 * @param reason	： 状态值或状态码对应的原因
 	 * @param status	： 结果状态值（success、fail、error）
 	 * @param message	： 提示信息
 	 * @return 			： Map对象
 	 */
-	public static Map<String, Object> statusMap(int code, String reasonPhrase, String status, String message) {
+	public static Map<String, Object> statusMap(HttpStatus code, String status, String message) {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
-		rtMap.put("code", code);
+		rtMap.put("code", code.value());
 		rtMap.put("status", status);
-		rtMap.put("reason", reasonPhrase);
+		rtMap.put("reason", code.getReasonPhrase());
 		rtMap.put("message", message);
 		return rtMap;
 	}
@@ -52,7 +50,7 @@ public class ResultUtils {
 	 * @return 			： Map对象
 	 */
 	public static Map<String, Object> success(String message) {
-		return statusMap(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), STATUS_SUCCESS, message);
+		return statusMap(HttpStatus.OK, STATUS_SUCCESS, message);
 	}
 	
 	/**
@@ -62,7 +60,7 @@ public class ResultUtils {
 	 * @return 			： Map对象
 	 */
 	public static Map<String, Object> success(HttpStatus code, String message) {
-		return statusMap(code.value(), code.getReasonPhrase(), STATUS_SUCCESS, message);
+		return statusMap(code, STATUS_SUCCESS, message);
 	}
 	
 	/**
@@ -71,7 +69,7 @@ public class ResultUtils {
 	 * @return 			： Map对象
 	 */
 	public static Map<String, Object> fail(String message) {
-		return statusMap(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), STATUS_FAIL, message);
+		return statusMap(HttpStatus.OK, STATUS_FAIL, message);
 	}
 	
 	/**
@@ -81,7 +79,7 @@ public class ResultUtils {
 	 * @return 			： Map对象
 	 */
 	public static Map<String, Object> fail(HttpStatus code, String message) {
-		return statusMap(code.value(), code.getReasonPhrase(), STATUS_FAIL, message);
+		return statusMap(code, STATUS_FAIL, message);
 	}
 	
 	/**
@@ -90,7 +88,7 @@ public class ResultUtils {
 	 * @return 			： Map对象
 	 */
 	public static Map<String, Object> error(String message) {
-		return statusMap(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), STATUS_ERROR, message);
+		return statusMap(HttpStatus.OK, STATUS_ERROR, message);
 	}
 	
 	/**
@@ -100,7 +98,7 @@ public class ResultUtils {
 	 * @return 			： Map对象
 	 */
 	public static Map<String, Object> error(HttpStatus code, String message) {
-		return statusMap(code.value(), code.getReasonPhrase(), STATUS_ERROR, message);
+		return statusMap(code, STATUS_ERROR, message);
 	}
 	
 	/**
