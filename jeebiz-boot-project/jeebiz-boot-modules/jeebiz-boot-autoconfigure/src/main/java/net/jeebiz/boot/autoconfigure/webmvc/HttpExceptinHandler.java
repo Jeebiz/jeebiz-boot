@@ -228,7 +228,7 @@ public class HttpExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> bindingException(BindingException ex) {
 		this.logException(ex);
-		return new ResponseEntity<Map<String, Object>>(ResultUtils.statusMap(STATUS_ERROR, ex.getMessage()),
+		return new ResponseEntity<Map<String, Object>>(ResultUtils.error(ex.getMessage()),
 				HttpStatus.BAD_REQUEST);
 	}
 
@@ -240,10 +240,10 @@ public class HttpExceptinHandler extends ExceptinHandler {
 		if( result.getGlobalErrorCount() > 0) {
 			ObjectError error = result.getGlobalError();
 			return new ResponseEntity<Map<String, Object>>(
-					ResultUtils.statusMap(STATUS_ERROR, error.getDefaultMessage()), HttpStatus.OK);
+					ResultUtils.error(error.getDefaultMessage()), HttpStatus.OK);
 		} else{
 			return new ResponseEntity<Map<String, Object>>(
-					ResultUtils.statusMap(STATUS_ERROR, result.getFieldError().getDefaultMessage()), HttpStatus.OK);
+					ResultUtils.error(result.getFieldError().getDefaultMessage()), HttpStatus.OK);
 		}
 	}
 	

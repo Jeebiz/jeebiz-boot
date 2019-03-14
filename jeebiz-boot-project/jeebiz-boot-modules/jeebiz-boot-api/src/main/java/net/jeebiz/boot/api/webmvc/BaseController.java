@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.EmbeddedValueResolverAware;
+import org.springframework.http.HttpStatus;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -25,9 +26,9 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 
 	protected static final String ERROR_VIEW = "/exception/500";
 
-	protected static final String STATUS_SUCCESS = "success";
-	protected static final String STATUS_FAIL = "fail";
-	protected static final String STATUS_ERROR = "error";
+	protected static final String STATUS_SUCCESS = ResultUtils.STATUS_SUCCESS;
+	protected static final String STATUS_FAIL = ResultUtils.STATUS_FAIL;
+	protected static final String STATUS_ERROR = ResultUtils.STATUS_ERROR;
 
 	private StringValueResolver valueResolver;
 	private ApplicationEventPublisher eventPublisher;
@@ -58,15 +59,15 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 	}
 
 	protected Map<String, Object> success(String key, Object... args) {
-		return ResultUtils.statusMap(STATUS_SUCCESS, getMessage(key, args));
+		return ResultUtils.success(HttpStatus.OK, getMessage(key, args));
 	}
 
 	protected Map<String, Object> fail(String key, Object... args) {
-		return ResultUtils.statusMap(STATUS_FAIL, getMessage(key, args));
+		return ResultUtils.fail(HttpStatus.OK, getMessage(key, args));
 	}
 
 	protected Map<String, Object> error(String key, Object... args) {
-		return ResultUtils.statusMap(STATUS_ERROR, getMessage(key, args));
+		return ResultUtils.error(HttpStatus.OK, getMessage(key, args));
 	}
 	
 	public StringValueResolver getValueResolver() {

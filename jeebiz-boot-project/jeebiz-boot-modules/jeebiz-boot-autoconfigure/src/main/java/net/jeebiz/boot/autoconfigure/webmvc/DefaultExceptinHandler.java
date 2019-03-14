@@ -115,7 +115,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ExceptionHandler({ IllegalArgumentException.class, UnsupportedEncodingException.class })
 	public ResponseEntity<Map<String, Object>> jwtTokenErr() {
 		
-		return new ResponseEntity<Map<String, Object>>(ResultUtils.statusMap(STATUS_ERROR, ""),
+		return new ResponseEntity<Map<String, Object>>(ResultUtils.error(""),
 				HttpStatus.BAD_REQUEST);
 		
 		//return new JsonResult(ResultCode.UNKNOWN_ERROR, ResultCode.UNKNOWN_ERROR.msg());

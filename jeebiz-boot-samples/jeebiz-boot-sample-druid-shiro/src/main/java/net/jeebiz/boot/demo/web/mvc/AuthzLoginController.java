@@ -190,7 +190,7 @@ public class AuthzLoginController extends BaseController {
 		// 直接响应登录成功的提醒
 		if (SubjectUtils.isAuthenticated()) {
 			// 响应成功状态信息
-			return ResultUtils.statusMap(STATUS_SUCCESS, "Login Success.");
+			return ResultUtils.success("Login Success.");
 		}
 
 		// 响应成功状态信息

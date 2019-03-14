@@ -81,7 +81,7 @@ public class AuthzFeatureController extends BaseMapperController{
 		// 所有的功能操作按钮
 		List<AuthzFeatureOptModel> featureOptList = getAuthzFeatureOptService().getFeatureOpts();
 		// 返回各级菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getTreeHandler(handler).handle(featureList, featureOptList));
+		return ResultUtils.dataMap(FeatureDataHandlerFactory.getTreeHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	@ApiOperation(value = "feature:flat", notes = "查询功能菜单树扁平构数据")
@@ -98,7 +98,7 @@ public class AuthzFeatureController extends BaseMapperController{
 		// 所有的功能操作按钮
 		List<AuthzFeatureOptModel> featureOptList = getAuthzFeatureOptService().getFeatureOpts();
 		// 返回叶子节点菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getFlatHandler(handler).handle(featureList, featureOptList));
+		return ResultUtils.dataMap(FeatureDataHandlerFactory.getFlatHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	@ApiOperation(value = "feature:new", notes = "增加功能菜单信息")

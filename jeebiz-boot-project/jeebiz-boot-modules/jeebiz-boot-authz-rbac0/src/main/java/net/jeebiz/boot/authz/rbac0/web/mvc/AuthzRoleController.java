@@ -65,7 +65,7 @@ public class AuthzRoleController extends BaseMapperController {
 	@RequiresPermissions("role:list")
 	@ResponseBody
 	public Object roles(){
-		return ResultUtils.dataMap(STATUS_SUCCESS, "角色信息列表", getAuthzRoleService().getRoles());
+		return ResultUtils.dataMap(getAuthzRoleService().getRoles());
 	}
 	
 	@ApiOperation(value = "role:list", notes = "分页查询角色信息")
@@ -276,7 +276,7 @@ public class AuthzRoleController extends BaseMapperController {
 		// 所有的功能操作按钮：标记按钮选中状态
 		List<AuthzFeatureOptModel> featureOptList = getAuthzRoleService().getFeatureOpts(roleId);
 		// 返回各级菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getTreeHandler(handler).handle(featureList, featureOptList));
+		return ResultUtils.dataMap(FeatureDataHandlerFactory.getTreeHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	@ApiOperation(value = "role:flat-features", notes = "查询指定角色ID拥有的功能菜单树扁平构数据")
@@ -294,7 +294,7 @@ public class AuthzRoleController extends BaseMapperController {
 		// 所有的功能操作按钮：标记按钮选中状态
 		List<AuthzFeatureOptModel> featureOptList = getAuthzRoleService().getFeatureOpts(roleId);
 		// 返回叶子节点菜单 + 对应的功能权限数据
-		return ResultUtils.dataMap(STATUS_SUCCESS, FeatureDataHandlerFactory.getFlatHandler(handler).handle(featureList, featureOptList));
+		return ResultUtils.dataMap(FeatureDataHandlerFactory.getFlatHandler(handler).handle(featureList, featureOptList));
 	}
 	
 	public IAuthzRoleService getAuthzRoleService() {
