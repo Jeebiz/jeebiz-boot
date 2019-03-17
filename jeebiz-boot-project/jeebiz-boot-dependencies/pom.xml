@@ -229,6 +229,7 @@
 		<reactor-netty.version>0.8.5.RELEASE</reactor-netty.version>
 		<resilience4j.version>0.13.2</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
+		<slf4j.version>1.7.26</slf4j.version>
 		<schemacrawler.version>15.06.01</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
@@ -431,15 +432,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			
-			<!-- Camel Spring-Boot Dependencies BOM ：http://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-dependencies -->
-			<dependency>
-				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-spring-boot-dependencies</artifactId>
-				<version>${spring-boot-starter-camel.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 			
 			<!-- Override Spring Data release train provided by Spring Boot -->
 			<dependency>
@@ -3862,6 +3854,12 @@
 			    <groupId>com.ibeetl</groupId>
 			    <artifactId>beetl-framework-starter</artifactId>
 			    <version>${spring-boot-starter-beetl.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-starter -->
+			<dependency>
+			    <groupId>org.apache.camel</groupId>
+			    <artifactId>camel-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-camel.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-casclient -->
 			<dependency>
