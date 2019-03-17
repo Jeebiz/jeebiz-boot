@@ -393,7 +393,7 @@
 		<spring-boot-starter-jcaptcha.version>1.0.1.RELEASE</spring-boot-starter-jcaptcha.version>
 		<spring-boot-starter-kaptcha.version>1.0.3.RELEASE</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-kettle.version>1.0.0-SNAPSHOT</spring-boot-starter-kettle.version>
-		<spring-boot-starter-log4j2-plus.version>1.0.4.RELEASE</spring-boot-starter-log4j2-plus.version>
+		<spring-boot-starter-log4j2-plus.version>1.0.5-SNAPSHOT</spring-boot-starter-log4j2-plus.version>
 		<spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version> 
 		<spring-boot-starter-maven-invoker.version>1.0.2.RELEASE</spring-boot-starter-maven-invoker.version> 
 		<spring-boot-starter-mybatis.version>2.0.0</spring-boot-starter-mybatis.version>
