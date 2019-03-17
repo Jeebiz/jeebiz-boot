@@ -41,7 +41,7 @@
 		<byte-buddy.version>1.9.10</byte-buddy.version>
 		<caffeine.version>2.7.0</caffeine.version>
 		<cas-client.version>3.5.1</cas-client.version>
-		<camel.version>2.23.1</camel.version>
+		<camel.version>3.0.0-M1</camel.version>
 		<cglib.version>3.2.10</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
