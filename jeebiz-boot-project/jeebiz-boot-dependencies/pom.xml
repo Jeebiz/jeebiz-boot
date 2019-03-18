@@ -98,6 +98,7 @@
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.14.2.0</derby.version>
 		<derby-locale.version>${derby.version.version}</derby-locale.version>
+		<docx4j-template.version>1.0.0-SNAPSHOT</docx4j-template.version>
 		<docker-java.version>3.1.1</docker-java.version>
 		<dom4j2.version>2.1.1</dom4j2.version>
 		<dozer.version>5.5.1</dozer.version>
@@ -372,6 +373,7 @@
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
 		<spring-boot-starter-cxf-jaxws-plus.version>1.0.2.RELEASE</spring-boot-starter-cxf-jaxws-plus.version>
 		<spring-boot-starter-disruptor.version>1.0.3-SNAPSHOT</spring-boot-starter-disruptor.version>
+		<spring-boot-starter-docx4j.version>1.0.0-SNAPSHOT</spring-boot-starter-docx4j.version>
 		<spring-boot-starter-dozer.version>1.0.1.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
@@ -1401,6 +1403,14 @@
 			    <groupId>org.apache.derby</groupId>
 			    <artifactId>derbyLocale_zh_CN</artifactId>
 			    <version>${derby-locale.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>docx4j-template-bom</artifactId>
+				<version>${docx4j-template.version}</version>
+				<type>pom</type>
+			    <scope>import</scope>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/com.github.docker-java/docker-java -->
@@ -3902,6 +3912,12 @@
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-disruptor</artifactId>
 				<version>${spring-boot-starter-disruptor.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-docx4j -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-docx4j</artifactId>
+				<version>${spring-boot-starter-docx4j.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-dozer -->
 			<dependency>
