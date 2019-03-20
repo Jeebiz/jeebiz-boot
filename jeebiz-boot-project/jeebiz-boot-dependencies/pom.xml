@@ -4600,6 +4600,12 @@
 				    <artifactId>swagger2markup-maven-plugin</artifactId>
 				    <version>${maven-swagger2markup-plugin.version}</version>
 				</plugin>
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
+				<plugin>
+				    <groupId>org.apache.maven.plugins</groupId>
+				    <artifactId>maven-war-plugin</artifactId>
+				    <version>${maven-war-plugin.version}</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
