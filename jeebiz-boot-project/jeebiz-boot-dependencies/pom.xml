@@ -98,7 +98,7 @@
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.14.2.0</derby.version>
 		<derby-locale.version>${derby.version.version}</derby-locale.version>
-		<docx4j-template.version>1.0.0-SNAPSHOT</docx4j-template.version>
+		<docx4j-template.version>1.0.0.RELEASE</docx4j-template.version>
 		<docker-java.version>3.1.1</docker-java.version>
 		<dom4j2.version>2.1.1</dom4j2.version>
 		<dozer.version>5.5.1</dozer.version>
