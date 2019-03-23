@@ -11,13 +11,14 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 
 import java.util.List;
 
-import org.assertj.core.util.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
+
+import com.google.common.collect.Lists;
 
 import net.jeebiz.boot.demo.web.vo.DemoVo;
 import reactor.core.publisher.Flux;
@@ -32,7 +33,7 @@ public class DemoHandler {
 	Logger log = LoggerFactory.getLogger(getClass());
 
 	public Mono<ServerResponse> getDemoList(ServerRequest request) { // Lambda 匿名参数
-		List<DemoVo> demoList = Lists.emptyList();
+		List<DemoVo> demoList = Lists.newArrayList();
 		Flux<DemoVo> userFlux = Flux.fromIterable(demoList);
 		userFlux.subscribe(user -> log.info(user.toString()));
 		return ServerResponse.ok().body(userFlux, DemoVo.class);
