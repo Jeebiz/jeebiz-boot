@@ -88,7 +88,7 @@
 		FROM SYS_FEATURE_LIST t
 	</select>
 
-	<select id="getPagedList" resultMap="AuthzFeatureMap" parameterType="AuthzFeatureModel" useCache="true">
+	<select id="getPagedList" resultMap="AuthzFeatureMap" parameterType="AuthzFeatureModel" useCache="false">
 		SELECT
 			t.F_ID,
 			t.F_NAME,

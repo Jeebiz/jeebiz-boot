@@ -136,21 +136,21 @@
 			t.R_TYPE,
 			t.R_INTRO,
 			t.R_STATUS,
-			(SELECT COUNT(x.R_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
+			(SELECT COUNT(distinct x.U_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
 	   WHERE t.R_ID = #{id}
 	     AND t.R_ID != '1'
 	</select>
 	
-	<select id="getPagedList" resultMap="RoleMap" parameterType="AuthzRoleModel" useCache="true">
+	<select id="getPagedList" resultMap="RoleMap" parameterType="AuthzRoleModel" useCache="false">
 		SELECT
 			t.R_ID,
 			t.R_NAME,
 			t.R_TYPE,
 			t.R_INTRO,
 			t.R_STATUS,
-			(SELECT COUNT(x.R_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
+			(SELECT COUNT(distinct x.U_ID) FROM SYS_AUTHZ_USER_ROLE_RELATION x WHERE x.R_ID = t.R_ID) as R_USERS,
 			t.R_TIME24
 		FROM SYS_AUTHZ_ROLE_LIST t
 	   WHERE t.R_ID != '1'

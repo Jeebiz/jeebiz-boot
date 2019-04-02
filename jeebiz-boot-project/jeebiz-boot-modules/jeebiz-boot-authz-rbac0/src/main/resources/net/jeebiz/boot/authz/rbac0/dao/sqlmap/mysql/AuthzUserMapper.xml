@@ -190,11 +190,22 @@
 		<if test="model.status != null and model.status != ''">
 			and t.U_STATUS = #{model.status}
 		</if>
+		<if test="model.username != null and model.username != ''">
+			and t.U_USERNAME like CONCAT('%',#{model.username},'%')
+		</if>
+		<if test="model.roleId != null and model.roleId != ''">
+			and exists (     
+		         SELECT y.U_ID
+		         FROM SYS_AUTHZ_USER_ROLE_RELATION y 
+		        WHERE y.U_ID = t.U_ID
+		          AND y.R_ID = #{model.roleId}
+		    )
+		</if>
 		<if test="model.gender != null and model.gender != ''">
 			and x.D_GENDER = #{model.gender}
 		</if>
-		<if test="model.username != null and model.username != ''">
-			and t.U_USERNAME like CONCAT('%',#{model.username},'%')
+		<if test="model.idcard != null and model.idcard != ''">
+			and x.D_IDCARD like CONCAT('%', #{model.idcard},'%')
 		</if>
 	</select>
 	
