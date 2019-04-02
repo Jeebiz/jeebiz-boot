@@ -14,22 +14,19 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>jeebiz-boot-sample-batch</module>
 		<module>jeebiz-boot-sample-druid</module>
 		<module>jeebiz-boot-sample-druid-activemq</module>
 		<module>jeebiz-boot-sample-druid-amqp</module>
 		<module>jeebiz-boot-sample-druid-rocketmq</module>
 		<module>jeebiz-boot-sample-druid-shiro</module>
 		<module>jeebiz-boot-sample-druid-war</module>
+		<module>jeebiz-boot-sample-druid-webflux</module>
 		<module>jeebiz-boot-sample-hikaricp</module>
 		<module>jeebiz-boot-sample-hikaricp-activemq</module>
 		<module>jeebiz-boot-sample-hikaricp-amqp</module>
 		<module>jeebiz-boot-sample-hikaricp-rocketmq</module>
 		<module>jeebiz-boot-sample-hikaricp-shiro</module>
 		<module>jeebiz-boot-sample-hikaricp-war</module>
-		<module>jeebiz-boot-sample-flowable</module>
-		<module>jeebiz-boot-sample-flowable-app</module>
-		<module>jeebiz-boot-sample-druid-webflux</module>
 		<module>jeebiz-boot-sample-hikaricp-webflux</module>
 	</modules>
 	
