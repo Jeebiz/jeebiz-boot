@@ -130,8 +130,11 @@
 		<guava.version>27.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<hadoop.version>3.2.0</hadoop.version>
+		<hbase.version>2.1.4</hbase.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
+		<hive.version>3.1.1</hive.version>
+		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
 		<icu4j.version>63.1</icu4j.version>
 		<influxdb-java.version>2.14</influxdb-java.version>
@@ -164,9 +167,9 @@
 		<jsoup.version>1.11.3</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jwt-issuer.version>1.0.0.RELEASE</jwt-issuer.version>
-		<kafka-clients.version>2.1.1</kafka-clients.version>
-		<kettle.version>4.1.2-GA</kettle.version>
+		<kafka.version>2.2.0</kafka.version>
 		<kisso.version>3.7.3</kisso.version>
+		<kylin-jdbc.version>2.6.1</kylin-jdbc.version>
 		<lettuce.version>5.1.5.RELEASE</lettuce.version>
 		<liquibase.version>3.6.3</liquibase.version>
 		<mariadb.version>2.4.0</mariadb.version>
@@ -1825,6 +1828,19 @@
 				<version>${hadoop.version}</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-client -->
+			<dependency>
+			    <groupId>org.apache.hbase</groupId>
+			    <artifactId>hbase-client</artifactId>
+			    <version>${hbase.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-protocol -->
+			<dependency>
+			    <groupId>org.apache.hbase</groupId>
+			    <artifactId>hbase-protocol</artifactId>
+			    <version>${hbase.version}</version>
+			</dependency>
+						
 			<!-- https://mvnrepository.com/artifact/org.htmlparser/htmlparser -->
 			<dependency>
 			    <groupId>org.htmlparser</groupId>
@@ -1863,6 +1879,33 @@
 	            <version>${hibernate4-sqlite-dialect.version}</version>
 	        </dependency>
 	        
+	        
+	        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-exec -->
+			<dependency>
+			    <groupId>org.apache.hive</groupId>
+			    <artifactId>hive-exec</artifactId>
+			    <version>${hive.version}</version>
+			</dependency>
+	        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-metastore -->
+			<dependency>
+			    <groupId>org.apache.hive</groupId>
+			    <artifactId>hive-metastore</artifactId>
+			    <version>${hive.version}</version>
+			</dependency>
+	        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc -->
+			<dependency>
+			    <groupId>org.apache.hive</groupId>
+			    <artifactId>hive-jdbc</artifactId>
+			    <version>${hive.version}</version>
+			</dependency>
+			
+	        <!-- https://mvnrepository.com/artifact/com.cloudera/ImpalaJDBC41 -->
+			<dependency>
+			    <groupId>com.cloudera</groupId>
+			    <artifactId>ImpalaJDBC41</artifactId>
+			    <version>${ImpalaJDBC41.version}</version>
+			</dependency>
+
 	        <!-- https://mvnrepository.com/artifact/com.install4j/i4jruntime -->
 			<dependency>
 			    <groupId>com.install4j</groupId>
@@ -2241,7 +2284,14 @@
 			<dependency>
 			    <groupId>org.apache.kafka</groupId>
 			    <artifactId>kafka-clients</artifactId>
-			    <version>${kafka-clients.version}</version>
+			    <version>${kafka.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams -->
+			<dependency>
+			    <groupId>org.apache.kafka</groupId>
+			    <artifactId>kafka-streams</artifactId>
+			    <version>${kafka.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/com.baomidou/kisso -->
@@ -2250,6 +2300,14 @@
 			    <artifactId>kisso</artifactId>
 			    <version>${kisso.version}</version>
 			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.apache.kylin/kylin-jdbc -->
+			<dependency>
+			    <groupId>org.apache.kylin</groupId>
+			    <artifactId>kylin-jdbc</artifactId>
+			    <version>${kylin-jdbc.version}</version>
+			</dependency>
+						
 			
 			<!-- JDBC Driver For MariaDB : https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
  			<dependency>
