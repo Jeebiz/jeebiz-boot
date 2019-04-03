@@ -41,7 +41,7 @@
 		<byte-buddy.version>1.9.10</byte-buddy.version>
 		<caffeine.version>2.7.0</caffeine.version>
 		<cas-client.version>3.5.1</cas-client.version>
-		<camel.version>3.0.0-M1</camel.version>
+		<camel.version>3.0.0-M2</camel.version>
 		<cglib.version>3.2.10</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
@@ -105,7 +105,7 @@
 		<dozer-core.version>6.4.1</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-		<druid.version>1.1.14</druid.version>
+		<druid.version>1.1.15</druid.version>
 		<dropwizard-metrics.version>4.1.0-rc3</dropwizard-metrics.version>
 		<dropwizard-metrics-datadog.version>2.0.0-RC1</dropwizard-metrics-datadog.version>
 		<dropwizard-metrics-kafka.version>0.0.1</dropwizard-metrics-kafka.version>
@@ -229,12 +229,14 @@
 		<pf4j-wicket.version>1.0.0</pf4j-wicket.version>		
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.6.0</rabbit-amqp-client.version>
-		<reactor.version>Californium-RELEASE</reactor.version>
-		<reactor-core.version>3.2.6.RELEASE</reactor-core.version>
-		<reactor-extra.version>3.2.2.RELEASE</reactor-extra.version>
-		<reactor-netty.version>0.8.5.RELEASE</reactor-netty.version>
+		<reactor-addons.version>3.2.2.RELEASE</reactor-addons.version>
+		<reactor-core.version>3.2.8.RELEASE</reactor-core.version>
+		<reactor-netty.version>0.8.6.RELEASE</reactor-netty.version>
+		<reactor-kafka.version>1.1.0.RELEASE</reactor-kafka.version>
+		<reactive-streams.version>1.0.2</reactive-streams.version>
 		<resilience4j.version>0.13.2</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
+		<rocketmq.version>4.4.0</rocketmq.version>
 		<slf4j.version>1.7.26</slf4j.version>
 		<schemacrawler.version>15.06.01</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
@@ -385,7 +387,7 @@
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
-		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
+		<spring-boot-starter-druid.version>1.1.14</spring-boot-starter-druid.version>
 		<spring-boot-starter-druid-plus.version>1.0.6.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
@@ -393,6 +395,9 @@
 		<spring-boot-starter-flyway-plus.version>1.0.4.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.5.RELEASE</spring-boot-starter-hikaricp-plus.version>
+		<spring-boot-starter-hmily.version>2.0.2-RELEASE</spring-boot-starter-hmily.version>
+		<spring-boot-starter-hmily-dubbo.version>${spring-boot-starter-hmily.version}</spring-boot-starter-hmily-dubbo.version>
+		<spring-boot-starter-hmily-motan.version>${spring-boot-starter-hmily.version}</spring-boot-starter-hmily-motan.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
 		<spring-boot-starter-ip2region.version>1.0.1.RELEASE</spring-boot-starter-ip2region.version>
@@ -2934,13 +2939,47 @@
 				<version>${pinyin4j.version}</version>
 			</dependency>
 			
-			<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-bom -->
+						<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
 			<dependency>
-			    <groupId>io.projectreactor</groupId>
-			    <artifactId>reactor-bom</artifactId>
-			    <version>${reactor.version}</version>
-			    <type>pom</type>
-			    <scope>import</scope>
+				<groupId>io.projectreactor</groupId>
+				<artifactId>reactor-core</artifactId>
+				<version>${reactor-core.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.projectreactor.addons/reactor-extra -->
+			<dependency>
+				<groupId>io.projectreactor.addons</groupId>
+				<artifactId>reactor-extra</artifactId>
+				<version>${reactor-addons.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.projectreactor.addons/reactor-adapter -->
+			<dependency>
+				<groupId>io.projectreactor.addons</groupId>
+				<artifactId>reactor-adapter</artifactId>
+				<version>${reactor-addons.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.projectreactor.addons/reactor-logback -->
+			<dependency>
+				<groupId>io.projectreactor.addons</groupId>
+				<artifactId>reactor-logback</artifactId>
+				<version>${reactor-addons.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty -->
+			<dependency>
+			    <groupId>io.projectreactor.netty</groupId>
+			    <artifactId>reactor-netty</artifactId>
+			    <version>${reactor-netty.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-kafka -->
+			<dependency>
+				<groupId>io.projectreactor.kafka</groupId>
+				<artifactId>reactor-kafka</artifactId>
+				<version>${reactor-kafka.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams -->
+			<dependency>
+				<groupId>org.reactivestreams</groupId>
+				<artifactId>reactive-streams</artifactId>
+				<version>${reactive-streams.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
@@ -4121,6 +4160,24 @@
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-hikaricp-plus</artifactId>
 				<version>${spring-boot-starter-hikaricp-plus.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-springcloud -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>hmily-spring-boot-starter-springcloud</artifactId>
+			    <version>${spring-boot-starter-hmily.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-dubbo -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>hmily-spring-boot-starter-dubbo</artifactId>
+			    <version>${spring-boot-starter-hmily-dubbo.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-motan -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>hmily-spring-boot-starter-motan</artifactId>
+			    <version>${spring-boot-starter-hmily-motan.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
