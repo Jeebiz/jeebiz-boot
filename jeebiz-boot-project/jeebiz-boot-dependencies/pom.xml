@@ -123,7 +123,7 @@
 		<fastjson.version>1.2.56</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
 		<flowable.version>6.4.1</flowable.version>
-		<flyway.version>5.2.4</flyway.version>
+		<flyway.version>5.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
 		<formio.version>1.6.3</formio.version>
 		<freemarker.version>2.3.28</freemarker.version>
 		<google-http-client.version>1.28.0</google-http-client.version>
