@@ -2530,10 +2530,10 @@
 			    <version>${nimbus-jose-jwt.version}</version>
 			</dependency>
 			
-			<!-- https://mvnrepository.com/artifact/org.dromara/myth-kafka -->
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-aliyunmq -->
 			<dependency>
 			    <groupId>org.dromara</groupId>
-			    <artifactId>myth-kafka</artifactId>
+			    <artifactId>myth-aliyunmq</artifactId>
 			    <version>${myth.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/myth-brpc -->
@@ -2542,13 +2542,32 @@
 			    <artifactId>myth-brpc</artifactId>
 			    <version>${myth.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-jms -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-jms</artifactId>
+			    <version>${myth.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-kafka -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-kafka</artifactId>
+			    <version>${myth.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-rabbitmq -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-rabbitmq</artifactId>
+			    <version>${myth.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/myth-rocketmq -->
 			<dependency>
 			    <groupId>org.dromara</groupId>
 			    <artifactId>myth-rocketmq</artifactId>
 			    <version>${myth.version}</version>
 			</dependency>
-									
+			
+												
 			<!-- https://mvnrepository.com/artifact/org.apache.mina -->
 
 			<!-- Mina： Mina(Multipurpose Infrastructure for Network Applications) 
