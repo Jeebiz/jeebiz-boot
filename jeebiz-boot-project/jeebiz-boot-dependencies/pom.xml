@@ -195,6 +195,7 @@
 		<mybatis-velocity.version>1.3</mybatis-velocity.version>
 		<mybatis-generator.version>1.3.5</mybatis-generator.version>
 		<mysql.version>8.0.15</mysql.version>
+		<myth.version>2.0.0-RELEASE</myth.version>
 		<mina.version>2.0.19</mina.version>
 		<mina-thrift.version>3.0.0-M2</mina-thrift.version>
 		<mina-protobuf.version>3.0.0-M2</mina-protobuf.version>
@@ -2529,6 +2530,25 @@
 			    <version>${nimbus-jose-jwt.version}</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-kafka -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-kafka</artifactId>
+			    <version>${myth.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-brpc -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-brpc</artifactId>
+			    <version>${myth.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-rocketmq -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-rocketmq</artifactId>
+			    <version>${myth.version}</version>
+			</dependency>
+									
 			<!-- https://mvnrepository.com/artifact/org.apache.mina -->
 
 			<!-- Mina： Mina(Multipurpose Infrastructure for Network Applications) 
@@ -4265,16 +4285,22 @@
 			    <artifactId>mybatis-plus-boot-starter</artifactId>
 			    <version>${spring-boot-starter-mybatis-plus.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-spring-boot-starter-dubbo -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-spring-boot-starter-dubbo</artifactId>
+			    <version>${spring-boot-starter-myth.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/myth-spring-boot-starter-motan -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>myth-spring-boot-starter-motan</artifactId>
+			    <version>${spring-boot-starter-myth.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/myth-spring-boot-starter-springcloud -->
 			<dependency>
 			    <groupId>org.dromara</groupId>
 			    <artifactId>myth-spring-boot-starter-springcloud</artifactId>
-			    <version>${spring-boot-starter-myth.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-motan -->
-			<dependency>
-			    <groupId>org.dromara</groupId>
-			    <artifactId>hmily-spring-boot-starter-motan</artifactId>
 			    <version>${spring-boot-starter-myth.version}</version>
 			</dependency>
 			<dependency>
@@ -4321,6 +4347,12 @@
 			<dependency>
 			    <groupId>org.dromara</groupId>
 			    <artifactId>raincat-spring-boot-starter-dubbo</artifactId>
+			    <version>${spring-boot-starter-raincat.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/raincat-spring-boot-starter-motan -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>raincat-spring-boot-starter-motan</artifactId>
 			    <version>${spring-boot-starter-raincat.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/raincat-spring-boot-starter-springcloud -->
