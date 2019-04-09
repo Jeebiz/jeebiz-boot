@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.demo.service;
+package net.jeebiz.boot.demo.router.handler;
 
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 

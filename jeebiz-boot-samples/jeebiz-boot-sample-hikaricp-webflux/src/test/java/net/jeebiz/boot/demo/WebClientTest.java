@@ -1,3 +1,5 @@
+package net.jeebiz.boot.demo;
+
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 

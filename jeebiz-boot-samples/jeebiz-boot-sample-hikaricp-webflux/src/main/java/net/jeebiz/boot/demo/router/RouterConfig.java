@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.demo.web;
+package net.jeebiz.boot.demo.router;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import net.jeebiz.boot.demo.service.TimeHandler;
+import net.jeebiz.boot.demo.router.handler.TimeHandler;
 
 @Configuration
 public class RouterConfig {

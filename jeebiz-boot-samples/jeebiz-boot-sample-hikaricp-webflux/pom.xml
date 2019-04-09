@@ -76,10 +76,6 @@
 		    <groupId>com.github.xiaoymin</groupId>
 		    <artifactId>swagger-bootstrap-ui</artifactId>
 		</dependency>
-		<dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-data-rest</artifactId>
-		</dependency>
 		<!-- For Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -90,10 +86,6 @@
 					<artifactId>tomcat-embed-el</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-validation-mimetypes</artifactId>
 		</dependency>
 		<dependency>
 		    <groupId>org.jsoup</groupId>
