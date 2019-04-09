@@ -1,6 +1,6 @@
 /**
  */
-package net.jeebiz.boot.demo.web.mvc;
+package net.jeebiz.boot.demo.web.controller;
 
 import java.util.ArrayList;
 import java.util.List;

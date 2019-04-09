@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.demo.web.mvc;
+package net.jeebiz.boot.demo.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
