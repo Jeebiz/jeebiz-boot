@@ -51,6 +51,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- For Spring Security -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 		<!-- For Thymeleaf View -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
