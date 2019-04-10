@@ -73,10 +73,12 @@ spring:
   # 数据源配置：
   datasource:
     name: jeebiz_demo
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://121.43.110.87:3306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
-    username: jeebiz_demo
-    password: ntzre47GiAJnL3AS
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://121.43.110.87:3306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite::resource:sqlite/data.db
+    #username: jeebiz_demo
+    #password: ntzre47GiAJnL3AS
     type: com.zaxxer.hikari.HikariDataSource
     # HiKariCP的数据源配置：
     hikari: 
