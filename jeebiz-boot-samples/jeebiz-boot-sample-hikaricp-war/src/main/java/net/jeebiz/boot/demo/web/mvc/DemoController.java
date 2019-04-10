@@ -35,7 +35,7 @@ import net.jeebiz.boot.api.utils.StringUtils;
 import net.jeebiz.boot.api.webmvc.BaseMapperController;
 import net.jeebiz.boot.api.webmvc.Result;
 import net.jeebiz.boot.demo.dao.entities.DemoModel;
-import net.jeebiz.boot.demo.service.svcinterface.IDemoService;
+import net.jeebiz.boot.demo.service.IDemoService;
 import net.jeebiz.boot.demo.setup.data.LogConstant;
 import net.jeebiz.boot.demo.web.vo.DemoVo;
 
