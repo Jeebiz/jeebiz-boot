@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.demo.dao.daointerface;
+package net.jeebiz.boot.demo.dao;
 
 import java.util.List;
 import java.util.Map;
