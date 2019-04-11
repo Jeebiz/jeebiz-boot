@@ -10,14 +10,10 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.spring4all.swagger.EnableSwagger2Doc;
-
 import net.jeebiz.boot.demo.dao.entities.MyEvent;
 
-@EnableCaching(proxyTargetClass = true)
 @SpringBootApplication
-@EnableScheduling
-@EnableSwagger2Doc
+//@EnableSwagger2Doc
 @EnableTransactionManagement
 public class DemoApplication {
 

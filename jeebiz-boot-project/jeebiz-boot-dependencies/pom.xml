@@ -236,7 +236,7 @@
 		<reactor-netty.version>0.8.6.RELEASE</reactor-netty.version>
 		<reactor-kafka.version>1.1.0.RELEASE</reactor-kafka.version>
 		<reactive-streams.version>1.0.2</reactive-streams.version>
-		<resilience4j.version>0.13.2</resilience4j.version>
+		<resilience4j.version>0.14.1</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq.version>4.4.0</rocketmq.version>
 		<slf4j.version>1.7.26</slf4j.version>
@@ -439,7 +439,9 @@
 		<spring-boot-starter-sitemesh3.version>1.0.2.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.1.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.1.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-swagger.version>1.8.0.RELEASE</spring-boot-starter-swagger.version>		
+		<spring-boot-starter-swagger.version>1.9.0.RELEASE</spring-boot-starter-swagger.version>
+		<spring-boot-starter-webflux-swagger2.version>1.0.0-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>	
+		<spring-boot-starter-webmvc-swagger2.version>1.0.0-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.1.RELEASE</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
@@ -3028,6 +3030,88 @@
 				<version>${reactive-streams.version}</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-spring-boot2 -->
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-spring-boot2</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-all</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-cache</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-circularbuffer</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-core</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-documentation</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-metrics</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-micrometer</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-prometheus</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-ratpack</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-reactor</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-retrofit</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-retry</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>silience4j-rxjava2</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-timelimiter</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.github.resilience4j</groupId>
+			    <artifactId>resilience4j-vertx</artifactId>
+			    <version>${resilience4j.version}</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
 			<!-- https://www.cnblogs.com/zhangshihai1232/articles/6030796.html -->
 			<dependency>
@@ -4508,6 +4592,18 @@
 			    <groupId>com.spring4all</groupId>
 			    <artifactId>swagger-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-swagger.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-webflux-swagger2 -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-webflux-swagger2</artifactId>
+				<version>${spring-boot-starter-webflux-swagger2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-webmvc-swagger2 -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-webmvc-swagger2</artifactId>
+				<version>${spring-boot-starter-webmvc-swagger2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-validation-mimetypes -->
 			<dependency>
