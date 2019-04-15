@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import({ JeebizWebMvcConfiguration.class })
+@Import({ WebMvcConfiguration.class })
 public @interface EnableWebMvcConfiguration {
 
 }

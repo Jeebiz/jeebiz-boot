@@ -1,3 +1,7 @@
+/** 
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved. 
+ */
 package net.jeebiz.boot.autoconfigure;
 
 import java.io.File;
@@ -37,7 +41,7 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 @Configuration
 @ComponentScan(basePackages = { "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
 @EnableConfigurationProperties(LocalResourceProperteis.class)
-public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
+public class WebMvcConfiguration implements WebMvcConfigurer {
 	   
     /*###########SpringMVC本地化支持###########*/
     

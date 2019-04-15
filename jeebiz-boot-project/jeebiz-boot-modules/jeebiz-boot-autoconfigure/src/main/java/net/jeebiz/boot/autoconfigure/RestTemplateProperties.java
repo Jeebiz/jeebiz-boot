@@ -1,9 +1,13 @@
+/** 
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved. 
+ */
 package net.jeebiz.boot.autoconfigure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(JeebizRestTemplateProperties.PREFIX)
-public class JeebizRestTemplateProperties {
+@ConfigurationProperties(RestTemplateProperties.PREFIX)
+public class RestTemplateProperties {
 
 	public static final String PREFIX = "spring.template.rest";
 	

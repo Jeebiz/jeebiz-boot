@@ -1,3 +1,7 @@
+/** 
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved. 
+ */
 package net.jeebiz.boot.authz.rbac0.service;
 
 
@@ -7,7 +11,8 @@ import net.jeebiz.boot.api.service.BaseService;
 import net.jeebiz.boot.authz.rbac0.dao.entities.AuthzRolePermsModel;
 
 /**
- * @author vindell
+ * 
+ * @author <a href="https://github.com/vindell">wandl</a>
  */
 public interface IAuthzRolePermsService extends BaseService<AuthzRolePermsModel>{
     

@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import({ JeebizServiceConfiguration.class })
+@Import({ ServiceConfiguration.class })
 public @interface EnableServiceConfiguration {
 
 }

@@ -37,7 +37,7 @@ import net.jeebiz.boot.autoconfigure.webmvc.I18nResourceBasenameHandler;
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @AutoConfigureBefore(MessageSourceAutoConfiguration.class)
 @EnableConfigurationProperties
-public class JeebizMessageSourceAutoConfiguration {
+public class MyMessageSourceAutoConfiguration {
 
 	private static final Resource[] NO_RESOURCES = {};
 

@@ -28,9 +28,9 @@ import org.springframework.web.util.UriTemplateHandler;
 
 import com.google.common.collect.Lists;
 
-import net.jeebiz.boot.autoconfigure.JeebizRestTemplateProperties.ClientType;
+import net.jeebiz.boot.autoconfigure.RestTemplateProperties.ClientType;
 
-public class JeebizRestTemplateConfiguration {
+public class RestTemplateConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
@@ -67,7 +67,7 @@ public class JeebizRestTemplateConfiguration {
 			ResponseErrorHandler responseErrorHandler,
 			UriTemplateHandler uriTemplateHandler,
 			ObjectProvider<ClientHttpRequestFactory> clientHttpRequestFactorys,
-			JeebizRestTemplateProperties properties)
+			RestTemplateProperties properties)
 			throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
 		
 		/*
