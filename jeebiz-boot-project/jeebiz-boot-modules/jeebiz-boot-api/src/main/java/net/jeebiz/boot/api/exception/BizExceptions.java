@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import net.jeebiz.boot.api.dao.entities.ErrorPair;
 
-public enum NormalExceptions {
+public enum BizExceptions {
     
 	/**
 	 * RuntimeException					       500 (Internal Server Error)
@@ -53,7 +53,7 @@ public enum NormalExceptions {
 
 	public static final String STATUS_ERROR = "error";
 
-	NormalExceptions(HttpStatus httpStatus, String reasonPhrase) {
+	BizExceptions(HttpStatus httpStatus, String reasonPhrase) {
 		this.httpStatus = httpStatus;
 		this.code = httpStatus.toString();
 		this.reasonPhrase = reasonPhrase;
@@ -94,8 +94,8 @@ public enum NormalExceptions {
 	 * @return the enum constant with the specified numeric value
 	 * @throws IllegalArgumentException if this enum has no constant for the specified numeric value
 	 */
-	public static NormalExceptions valueOfIgnoreCase(String exCode) {
-		for (NormalExceptions status : values()) {
+	public static BizExceptions valueOfIgnoreCase(String exCode) {
+		for (BizExceptions status : values()) {
 			if (status.code.equalsIgnoreCase(exCode)) {
 				return status;
 			}
@@ -105,7 +105,7 @@ public enum NormalExceptions {
 	
 	public static List<ErrorPair> errors() {
 		List<ErrorPair> errorList = new LinkedList<ErrorPair>();
-		for (NormalExceptions ex : NormalExceptions.values()) {
+		for (BizExceptions ex : BizExceptions.values()) {
 			errorList.add(new ErrorPair(ex.getCode(), ex.getReasonPhrase()));
 		}
 		return errorList;

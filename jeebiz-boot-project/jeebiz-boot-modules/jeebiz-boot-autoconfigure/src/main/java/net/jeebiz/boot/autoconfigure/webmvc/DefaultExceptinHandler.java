@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.jeebiz.boot.api.exception.HttpExceptions;
-import net.jeebiz.boot.api.exception.NormalExceptions;
+import net.jeebiz.boot.api.exception.BizExceptions;
 import net.jeebiz.boot.api.utils.ResultUtils;
 
 /**
@@ -36,7 +36,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> runtimeExceptionHandler(RuntimeException ex) {
 		this.logException(ex);
-		return NormalExceptions.SC_RUNTIME_EXCEPTION.toResponseEntity(ex);
+		return BizExceptions.SC_RUNTIME_EXCEPTION.toResponseEntity(ex);
 	}
 	
 	// 空指针异常
@@ -44,7 +44,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> nullPointerExceptionHandler(NullPointerException ex) {
 		this.logException(ex);
-		return NormalExceptions.SC_NULL_POINTER_EXCEPTION.toResponseEntity(ex);
+		return BizExceptions.SC_NULL_POINTER_EXCEPTION.toResponseEntity(ex);
 	}
 
 	// 类型转换异常
@@ -52,7 +52,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> classCastExceptionHandler(ClassCastException ex) {
 		this.logException(ex);
-		return NormalExceptions.SC_CLASS_CAST_EXCEPTION.toResponseEntity(ex);
+		return BizExceptions.SC_CLASS_CAST_EXCEPTION.toResponseEntity(ex);
 	}
 
 	// IO异常
@@ -60,7 +60,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> iOExceptionHandler(IOException ex) {
 		this.logException(ex);
-		return NormalExceptions.SC_IO_EXCEPTION.toResponseEntity(ex);
+		return BizExceptions.SC_IO_EXCEPTION.toResponseEntity(ex);
 	}
 
 	// 未知方法异常
@@ -68,7 +68,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> noSuchMethodExceptionHandler(NoSuchMethodException ex) {
 		this.logException(ex);
-		return NormalExceptions.SC_NO_SUCH_METHOD_EXCEPTION.toResponseEntity(ex);
+		return BizExceptions.SC_NO_SUCH_METHOD_EXCEPTION.toResponseEntity(ex);
 	}
 
 	// 数组越界异常
@@ -76,7 +76,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> indexOutOfBoundsExceptionHandler(IndexOutOfBoundsException ex) {
 		this.logException(ex);
-		return NormalExceptions.SC_INDEX_OUT_OF_BOUNDS_EXCEPTION.toResponseEntity(ex);
+		return BizExceptions.SC_INDEX_OUT_OF_BOUNDS_EXCEPTION.toResponseEntity(ex);
 	}
 
 	/**---------------------数据库异常----------------------------*/
