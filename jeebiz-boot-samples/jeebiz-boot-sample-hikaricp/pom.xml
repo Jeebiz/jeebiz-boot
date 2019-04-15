@@ -123,6 +123,26 @@
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
 		</dependency>
+		<!-- For Redis -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<!-- For Mongodb -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<!-- For ElasticSearch -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+		<!-- For Solr -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-solr</artifactId>
+		</dependency>
 		<!-- For Log4j2 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
