@@ -106,7 +106,7 @@
 		<dozer-core.version>6.4.1</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-		<druid.version>1.1.15</druid.version>
+		<druid.version>1.1.16</druid.version>
 		<dropwizard-metrics.version>4.1.0-rc3</dropwizard-metrics.version>
 		<dropwizard-metrics-datadog.version>2.0.0-RC1</dropwizard-metrics-datadog.version>
 		<dropwizard-metrics-kafka.version>0.0.1</dropwizard-metrics-kafka.version>
@@ -325,8 +325,6 @@
 		<zxing.version>3.3.3</zxing.version>
 
 		<!-- Maven Plugin versions -->
-		<maven-sofa-ark-plugin.version>0.5.2</maven-sofa-ark-plugin.version>
-		<maven-sofa-ark-plugin-plugin.version>0.5.2</maven-sofa-ark-plugin-plugin.version>
 		<maven-appassembler-plugin.version>2.0.0</maven-appassembler-plugin.version>
 		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
 		<maven-asciidoctor-plugin.version>1.5.7.1</maven-asciidoctor-plugin.version>
@@ -389,7 +387,7 @@
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
-		<spring-boot-starter-druid.version>1.1.14</spring-boot-starter-druid.version>
+		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
 		<spring-boot-starter-druid-plus.version>1.0.6.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
@@ -469,15 +467,7 @@
 				<artifactId>activation</artifactId>
 				<version>${activation.version}</version>
 			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/org.apache.james/apache-mime4j -->
-			<dependency>
-				<groupId>org.apache.james</groupId>
-				<artifactId>apache-mime4j</artifactId>
-				<version>0.8.1</version>
-				<type>pom</type>
-			</dependency>
-
+			
 			<!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->
 			<dependency>
 				<groupId>cn.wensiqun</groupId>
@@ -4623,18 +4613,6 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- https://mvnrepository.com/artifact/com.alipay.sofa/sofa-ark-maven-plugin -->
-				<plugin>
-				    <groupId>com.alipay.sofa</groupId>
-				    <artifactId>sofa-ark-maven-plugin</artifactId>
-				    <version>${maven-sofa-ark-plugin.version}</version>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/com.alipay.sofa/sofa-ark-plugin-maven-plugin -->
-				<plugin>
-				    <groupId>com.alipay.sofa</groupId>
-				    <artifactId>sofa-ark-plugin-maven-plugin</artifactId>
-				    <version>${maven-sofa-ark-plugin-plugin.version}</version>
-				</plugin>
 				<!-- http://www.mojohaus.org/appassembler/appassembler-maven-plugin，http://blog.csdn.net/mn960mn/article/details/51554152 -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
