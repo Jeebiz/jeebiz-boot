@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.jeebiz.boot.demo.dao.entities.User;
-import net.jeebiz.boot.demo.service.svcinterface.UserService;
+import net.jeebiz.boot.demo.service.UserService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

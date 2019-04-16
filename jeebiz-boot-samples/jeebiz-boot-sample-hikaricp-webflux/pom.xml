@@ -31,7 +31,11 @@
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
+		<dependency>
+	        <groupId>org.projectlombok</groupId>
+	        <artifactId>lombok</artifactId>
+	    </dependency>
+	    
 		<!-- For WebFlux -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -93,37 +97,10 @@
 		</dependency>
 		<!-- For Dozer -->
 		<dependency>
-			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-dozer</artifactId>
-		</dependency>
-		<dependency>
-	        <groupId>org.projectlombok</groupId>
-	        <artifactId>lombok</artifactId>
-	    </dependency>
-	    <dependency>
-	       	<groupId>org.springframework.boot</groupId>
-	       	<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
-	   	</dependency>
-	   	<!-- For Resilience4j: Replace Hysrix -->
-   		<!-- <dependency>
-		    <groupId>io.github.resilience4j</groupId>
-		    <artifactId>resilience4j-spring-boot2</artifactId>
-		</dependency> -->
-		<!-- <dependency>
 		    <groupId>com.github.dozermapper</groupId>
 		    <artifactId>dozer-spring-boot-starter</artifactId>
-		</dependency> -->
-		<!-- For AOP -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
+	   
 		<!-- For Cache Support -->
 		<dependency>
 	        <groupId>org.springframework.boot</groupId>
