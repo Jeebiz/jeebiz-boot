@@ -4,8 +4,9 @@
  */
 package net.jeebiz.boot.api.service;
 
-import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.github.dozermapper.core.DozerBeanMapper;
 
 import net.jeebiz.boot.api.dao.BaseDao;
 

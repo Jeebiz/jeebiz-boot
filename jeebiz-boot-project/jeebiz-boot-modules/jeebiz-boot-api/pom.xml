@@ -52,14 +52,14 @@
 			</exclusions>
 		</dependency>
 		<!-- For Dozer -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>net.sf.dozer</groupId>
 		    <artifactId>dozer</artifactId>
-		</dependency>
-		<!-- <dependency>
+		</dependency> -->
+		<dependency>
 		    <groupId>com.github.dozermapper</groupId>
 		    <artifactId>dozer-core</artifactId>
-		</dependency> -->
+		</dependency>
 		<!-- For Mybatis Plus -->
 		<dependency>
 		    <groupId>com.baomidou</groupId>

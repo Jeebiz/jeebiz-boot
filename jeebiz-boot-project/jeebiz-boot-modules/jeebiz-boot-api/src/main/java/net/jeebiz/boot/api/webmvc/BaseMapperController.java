@@ -4,8 +4,9 @@
  */
 package net.jeebiz.boot.api.webmvc;
 
-import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.github.dozermapper.core.DozerBeanMapper;
 
 public abstract class BaseMapperController extends BaseController {
 
