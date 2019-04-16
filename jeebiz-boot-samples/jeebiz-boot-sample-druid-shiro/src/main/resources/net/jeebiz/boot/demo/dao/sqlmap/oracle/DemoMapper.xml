@@ -10,22 +10,22 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="DemoModel">
-		insert into ZFTAL_SIMPLE_SIMPLE(NAME,TEXT) values(#{name},#{text}) 
+		insert into BIZ_SIMPLE(NAME,TEXT) values(#{name},#{text}) 
 	</insert>
 	
 	<delete id="delete"  parameterType="DemoModel">
-		delete from ZFTAL_SIMPLE_SIMPLE t where t.id = #{id}
+		delete from BIZ_SIMPLE t where t.id = #{id}
 	</delete>
 	
 	<delete id="batchDelete" parameterType="java.util.List">
-		delete from ZFTAL_SIMPLE_SIMPLE where id in
+		delete from BIZ_SIMPLE where id in
 		<foreach collection="list" item="ids"  open="(" separator="," close=")">
 		   #{ids}
 		</foreach>
 	</delete>
 	
 	<update id="update" parameterType="DemoModel">
-		update ZFTAL_SIMPLE_SIMPLE 
+		update BIZ_SIMPLE 
 		<set>
 			<if test="name != null and name != ''">name = #{name},</if>
 			<if test="text != null and text != ''">text = #{text},</if>
@@ -37,7 +37,7 @@
 		SELECT distinct 
 		 	   t.ID,
 			   t.NAME
-		  FROM ZFTAL_SIMPLE_SIMPLE t, Table2 x
+		  FROM BIZ_SIMPLE t, Table2 x
 		 WHERE t.ID = x.SIMPLE_ID
 		   AND t.ID in
 			<foreach collection="list" item="ids"  open="(" separator="," close=")">
@@ -46,11 +46,11 @@
 	</select>
 	
 	<select id="getModel" resultMap="DemoModelMap" parameterType="java.lang.String">
-		select ID,NAME,TEXT from ZFTAL_SIMPLE_SIMPLE  t WHERE t.ID = #{id}
+		select ID,NAME,TEXT from BIZ_SIMPLE  t WHERE t.ID = #{id}
 	</select>
 	
 	<select id="getPagedList" resultMap="DemoModelMap" parameterType="DemoModel">
-		select ID,NAME,TEXT from ZFTAL_SIMPLE_SIMPLE t
+		select ID,NAME,TEXT from BIZ_SIMPLE t
 		<where>
 			<if test="model.name != null and model.name != ''">t.name like '%'||#{model.name} ||'%'</if>
 		</where>
