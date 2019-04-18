@@ -6,18 +6,18 @@ package net.jeebiz.boot.api.webmvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.github.dozermapper.core.DozerBeanMapper;
+import com.github.dozermapper.core.Mapper;
 
 public abstract class BaseMapperController extends BaseController {
 
 	@Autowired
-	private DozerBeanMapper beanMapper; 
+	private Mapper beanMapper; 
 	
-	public DozerBeanMapper getBeanMapper() {
+	public Mapper getBeanMapper() {
 		return beanMapper;
 	}
 
-	public void setBeanMapper(DozerBeanMapper beanMapper) {
+	public void setBeanMapper(Mapper beanMapper) {
 		this.beanMapper = beanMapper;
 	}
 	
