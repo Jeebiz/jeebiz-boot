@@ -179,7 +179,7 @@
 		<mariadb.version>2.4.0</mariadb.version>
 		<metadata-extractor.version>2.11.0</metadata-extractor.version>
 		<mssql-jdbc.version>7.2.1.jre8</mssql-jdbc.version>
-		<mybatis.version>3.5.0</mybatis.version>
+		<mybatis.version>3.5.1</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-plus.version>3.0.7.1</mybatis-plus.version>
 		<mybatis-spring.version>2.0.0</mybatis-spring.version>
@@ -189,7 +189,7 @@
 		<mybatis-ehcache.version>1.1.0</mybatis-ehcache.version>
 		<mybatis-hazelcast.version>1.1.1</mybatis-hazelcast.version>
 		<mybatis-ignite.version>1.0.6</mybatis-ignite.version>
-		<mybatis-memcached.version>1.0.0</mybatis-memcached.version>
+		<mybatis-memcached.version>1.1.0</mybatis-memcached.version>
 		<mybatis-oscache.version>1.0.2</mybatis-oscache.version>
 		<mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
 		<mybatis-freemarker.version>1.1.2</mybatis-freemarker.version>
