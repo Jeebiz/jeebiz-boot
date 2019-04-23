@@ -830,7 +830,9 @@
 						</execution>
 					</executions>
 				</plugin>
+				<!-- https://mvnrepository.com/artifact/com.spotify/docker-maven-plugin -->
 				<!-- https://github.com/spotify/docker-maven-plugin -->
+				<!-- http://blog.csdn.net/qq_22841811/article/details/67369530 -->
 				<plugin>
 					<!-- docker 镜像构建: https://blog.csdn.net/aixiaoyang168/article/details/77453974 -->
 					<groupId>com.spotify</groupId>
@@ -889,6 +891,7 @@
 						<!-- <registryUrl>http://10.71.33.155/</registryUrl> -->
 					</configuration>
 				</plugin>
+				<!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
 				<plugin>
 					<groupId>com.spotify</groupId>
 					<artifactId>dockerfile-maven-plugin</artifactId>
