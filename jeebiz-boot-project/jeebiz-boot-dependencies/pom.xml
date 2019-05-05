@@ -4156,12 +4156,6 @@
 			    <artifactId>flowable-spring-boot-starter-integration</artifactId>
 			    <version>${flowable.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-jpa -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-jpa</artifactId>
-			    <version>6.2.1</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-process -->
 			<dependency>
 			    <groupId>org.flowable</groupId>
