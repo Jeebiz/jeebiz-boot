@@ -3061,6 +3061,12 @@
 			    <artifactId>schemacrawler-commandline</artifactId>
 			    <version>${schemacrawler-commandline.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/us.fatehi/schemacrawler-scripting -->
+			<dependency>
+			    <groupId>us.fatehi</groupId>
+			    <artifactId>schemacrawler-scripting</artifactId>
+			    <version>${schemacrawler.version}</version>
+			</dependency>
 			<!-- SchemaCrawler For IBM DB2 ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-db2 -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
