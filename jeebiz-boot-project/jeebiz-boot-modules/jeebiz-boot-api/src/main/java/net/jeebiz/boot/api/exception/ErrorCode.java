@@ -16,11 +16,15 @@ public enum ErrorCode {
 	/**
 	 *   失败					      
 	 */
-	FAIL("-1" ),
+	FAIL("1" ),
 	/**
 	 *异常					      
 	 */
-	ERROR("-2" );
+	ERROR("2" ),
+	/**
+	 *数据为空			      
+	 */
+	EMPTY("3" );
     
 	private final String code;
 	

@@ -22,11 +22,11 @@ public class ErrorResponse {
     private final HttpStatus status;
 
     // General Error message
-	@ApiModelProperty(name = "message", dataType = "org.springframework.http.HttpStatus", value = "异常原因")
+	@ApiModelProperty(name = "message", dataType = "String", value = "异常原因")
     private final String message;
 
     // Error code
-	@ApiModelProperty(name = "status", dataType = "com.ald.cloud.api.exception.ErrorCode", value = "异常编码")
+	@ApiModelProperty(name = "status", dataType = "String", value = "异常编码")
     private final String code;
     
 	@ApiModelProperty(name = "timestamp", dataType = "java.util.Date", value = "异常发生时间")
@@ -38,6 +38,10 @@ public class ErrorResponse {
         this.status = status;
         this.timestamp = new java.util.Date();
     }
+    
+    public static ErrorResponse empty(final String message) {
+		return new ErrorResponse(message, ErrorCode.EMPTY.getCode(), HttpStatus.OK);
+	}
     
     public static ErrorResponse success(final String message) {
         return new ErrorResponse(message, ErrorCode.SUCCESS.getCode(), HttpStatus.OK);
