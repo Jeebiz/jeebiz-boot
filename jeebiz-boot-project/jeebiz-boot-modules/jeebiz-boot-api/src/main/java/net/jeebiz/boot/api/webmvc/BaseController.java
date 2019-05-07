@@ -4,8 +4,6 @@
  */
 package net.jeebiz.boot.api.webmvc;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.BeansException;
@@ -16,13 +14,13 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.EmbeddedValueResolverAware;
-import org.springframework.http.HttpStatus;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import net.jeebiz.boot.api.exception.ErrorResponse;
 import net.jeebiz.boot.api.exception.PayloadExceptionEvent;
 import net.jeebiz.boot.api.utils.ResultUtils;
 
@@ -62,16 +60,16 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
 	}
 
-	protected Map<String, Object> success(String key, Object... args) {
-		return ResultUtils.success(HttpStatus.OK, getMessage(key, args));
+	protected ErrorResponse success(String key, Object... args) {
+		return ErrorResponse.success(getMessage(key, args));
 	}
 
-	protected Map<String, Object> fail(String key, Object... args) {
-		return ResultUtils.fail(HttpStatus.OK, getMessage(key, args));
+	protected ErrorResponse fail(String key, Object... args) {
+		return ErrorResponse.fail(getMessage(key, args));
 	}
 
-	protected Map<String, Object> error(String key, Object... args) {
-		return ResultUtils.error(HttpStatus.OK, getMessage(key, args));
+	protected ErrorResponse error(String key, Object... args) {
+		return ErrorResponse.error(getMessage(key, args));
 	}
 	
 	public StringValueResolver getValueResolver() {
