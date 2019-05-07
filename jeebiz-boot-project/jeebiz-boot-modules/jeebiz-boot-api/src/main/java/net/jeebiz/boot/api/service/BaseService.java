@@ -130,6 +130,13 @@ public interface BaseService<T> {
 	public int getCount(T t);
 	
 	/**
+	 * 根据唯一ID编码获取记录数
+	 * @param name
+	 * @return
+	 */
+	public int getCountByUid(String uid);
+	
+	/**
 	 * 根据编码获取记录数
 	 * @param name
 	 * @return

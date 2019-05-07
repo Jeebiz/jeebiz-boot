@@ -219,6 +219,11 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	public int getCount(T t) {
 		return dao.getCount(t);
 	}
+	
+	@Override
+	public int getCountByUid(String uid) {
+		return dao.getCountByUid(uid);
+	}
 
 	@Override
 	public int getCountByCode(String code) {

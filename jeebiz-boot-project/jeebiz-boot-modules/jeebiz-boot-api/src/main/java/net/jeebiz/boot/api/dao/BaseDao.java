@@ -126,6 +126,13 @@ public interface BaseDao <T> {
 	public int getCount(T t);
 	
 	/**
+	 * 根据唯一ID编码获取记录数
+	 * @param name
+	 * @return
+	 */
+	public int getCountByUid(@Param("uid") String uid);
+	
+	/**
 	 * 根据编码获取记录数
 	 * @param name
 	 * @return
