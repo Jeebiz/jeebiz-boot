@@ -126,6 +126,13 @@ public interface BaseDao <T> {
 	public int getCount(T t);
 	
 	/**
+	 * 根据编码获取记录数
+	 * @param name
+	 * @return
+	 */
+	public int getCountByCode(@Param("code") String code);
+	
+	/**
 	 * 根据名称获取记录数
 	 * @param name
 	 * @return
@@ -160,8 +167,18 @@ public interface BaseDao <T> {
 	 */
 	public Map<String, String> getValues(@Param("key") String key);
 	
+	/**
+	 * 根据key查询该分组下的基础数据
+	 * @param key
+	 * @return
+	 */
 	public List<PairModel> getPairValues(@Param("key") String key);
 	
+	/**
+	 *  查询一组键值对数据
+	 * @param key
+	 * @return
+	 */
 	public List<PairModel> getPairList();
 	
 }

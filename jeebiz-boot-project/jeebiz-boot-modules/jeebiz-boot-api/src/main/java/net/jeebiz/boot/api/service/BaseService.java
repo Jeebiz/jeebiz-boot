@@ -130,6 +130,20 @@ public interface BaseService<T> {
 	public int getCount(T t);
 	
 	/**
+	 * 根据编码获取记录数
+	 * @param name
+	 * @return
+	 */
+	public int getCountByCode(String code);
+	
+	/**
+	 * 根据名称获取记录数
+	 * @param name
+	 * @return
+	 */
+	public int getCountByName(String name);
+	
+	/**
 	 * 
 	 * 通过指定key查询对应的唯一值
 	 * @param key
@@ -151,4 +165,10 @@ public interface BaseService<T> {
 	 */
 	public List<PairModel> getPairValues(String key);
 	
+	/**
+	 *  查询一组键值对数据
+	 * @param key
+	 * @return
+	 */
+	public List<PairModel> getPairList();
 }

@@ -193,6 +193,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param t
 	 * @return
 	 */
+	@Override
 	public List<T> getModelList(T t) {
 		return dao.getModelList(t);
 	}
@@ -203,6 +204,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param key
 	 * @return
 	 */
+	@Override
 	public List<T> getModelList(String key) {
 		return dao.getModelList(key);
 	}
@@ -213,21 +215,39 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	 * @param t
 	 * @return
 	 */
+	@Override
 	public int getCount(T t) {
 		return dao.getCount(t);
 	}
 
+	@Override
+	public int getCountByCode(String code) {
+		return dao.getCountByCode(code);
+	}
+
+	@Override
+	public int getCountByName(String name) {
+		return dao.getCountByName(name);
+	}
+
+	@Override
 	public String getValue(String key) {
 		return dao.getValue(key);
 	}
 
+	@Override
 	public Map<String, String> getValues(String key) {
 		return dao.getValues(key);
 	}
-	
+
 	@Override
 	public List<PairModel> getPairValues(String key) {
 		return dao.getPairValues(key);
+	}
+
+	@Override
+	public List<PairModel> getPairList() {
+		return dao.getPairList();
 	}
 
 	public E getDao() {
