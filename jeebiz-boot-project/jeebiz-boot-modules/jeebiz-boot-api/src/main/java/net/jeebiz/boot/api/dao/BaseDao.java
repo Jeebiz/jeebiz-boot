@@ -126,6 +126,13 @@ public interface BaseDao <T> {
 	public int getCount(T t);
 	
 	/**
+	 * 根据名称获取记录数
+	 * @param name
+	 * @return
+	 */
+	public int getCountByName(@Param("name") String name);
+	
+	/**
 	 * 按数据范围分页查询
 	 * @param t
 	 * @return
@@ -154,5 +161,7 @@ public interface BaseDao <T> {
 	public Map<String, String> getValues(@Param("key") String key);
 	
 	public List<PairModel> getPairValues(@Param("key") String key);
+	
+	public List<PairModel> getPairList();
 	
 }
