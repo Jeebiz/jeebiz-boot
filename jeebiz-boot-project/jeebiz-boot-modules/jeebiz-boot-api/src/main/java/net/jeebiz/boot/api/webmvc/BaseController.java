@@ -20,7 +20,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import net.jeebiz.boot.api.exception.ErrorResponse;
+import net.jeebiz.boot.api.exception.ApiRestResponse;
 import net.jeebiz.boot.api.exception.PayloadExceptionEvent;
 import net.jeebiz.boot.api.utils.ResultUtils;
 
@@ -60,16 +60,16 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
 	}
 
-	protected ErrorResponse success(String key, Object... args) {
-		return ErrorResponse.success(getMessage(key, args));
+	protected ApiRestResponse success(String key, Object... args) {
+		return ApiRestResponse.success(getMessage(key, args));
 	}
 
-	protected ErrorResponse fail(String key, Object... args) {
-		return ErrorResponse.fail(getMessage(key, args));
+	protected ApiRestResponse fail(String key, Object... args) {
+		return ApiRestResponse.fail(getMessage(key, args));
 	}
 
-	protected ErrorResponse error(String key, Object... args) {
-		return ErrorResponse.error(getMessage(key, args));
+	protected ApiRestResponse error(String key, Object... args) {
+		return ApiRestResponse.error(getMessage(key, args));
 	}
 	
 	public StringValueResolver getValueResolver() {
