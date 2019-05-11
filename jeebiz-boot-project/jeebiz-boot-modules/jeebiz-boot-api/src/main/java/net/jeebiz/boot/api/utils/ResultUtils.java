@@ -21,7 +21,7 @@ public class ResultUtils {
 	 * @return ： Map对象
 	 */
 	public static Map<String, Object> dataMap(Object data) {
-		return dataMap(HttpStatus.OK.value(), data);
+		return dataMap(0, data);
 	}
 	
 	public static Map<String, Object> dataMap(HttpStatus code, Object data) {
@@ -37,11 +37,19 @@ public class ResultUtils {
 	}
 	
 	public static Map<String, Object> dataMap(int code, Object data) {
-		return dataMap(code, STATUS_SUCCESS, "", data);
+		return dataMap(STATUS_SUCCESS, "", data);
+	}
+	
+	public static Map<String, Object> dataMap(String message, Object data) {
+		return dataMap(0, STATUS_SUCCESS, message, data);
 	}
 	
 	public static Map<String, Object> dataMap(int code, String message, Object data) {
 		return dataMap(code, STATUS_SUCCESS, message, data);
+	}
+	
+	public static Map<String, Object> dataMap(String status, String message, Object data) {
+		return dataMap(0, STATUS_SUCCESS, message, data);
 	}
 	
 	public static Map<String, Object> dataMap(int code, String status, String message, Object data) {
