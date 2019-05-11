@@ -30,7 +30,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
 /**
  * 通用Service实现，daoBase自动注入，不能存在多个实例
  * 
- * @author <a href="https://github.com/vindell">vindell</a>
+ * @author <a href="https://github.com/vindell">wandl</a>
  * @param <T> {@link BaseService} 持有的实体对象
  * @param <E> {@link BaseDao} 实现
  */
@@ -224,15 +224,20 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	public int getCountByUid(String uid) {
 		return dao.getCountByUid(uid);
 	}
-
+	
 	@Override
-	public int getCountByCode(String code) {
-		return dao.getCountByCode(code);
+	public int getCountByCode(String code, String origin) {
+		return dao.getCountByCode(code, origin);
 	}
 
 	@Override
-	public int getCountByName(String name) {
-		return dao.getCountByName(name);
+	public int getCountByName(String name, String origin) {
+		return dao.getCountByName(name, origin);
+	}
+	
+	@Override
+	public int getCountByParent(String parent) {
+		return dao.getCountByParent(parent);
 	}
 
 	@Override
@@ -244,12 +249,12 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	public Map<String, String> getValues(String key) {
 		return dao.getValues(key);
 	}
-
+	
 	@Override
 	public List<PairModel> getPairValues(String key) {
 		return dao.getPairValues(key);
 	}
-
+	
 	@Override
 	public List<PairModel> getPairList() {
 		return dao.getPairList();

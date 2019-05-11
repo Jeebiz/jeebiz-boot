@@ -13,7 +13,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
  * 通用Service接口
- * @author <a href="https://github.com/vindell">vindell</a>
+ * @author <a href="https://github.com/vindell">wandl</a>
  * @param <T> 持有的实体对象
  */
 public interface BaseService<T> {
@@ -138,17 +138,21 @@ public interface BaseService<T> {
 	
 	/**
 	 * 根据编码获取记录数
-	 * @param name
+	 * @param code
+	 * @param origin
 	 * @return
 	 */
-	public int getCountByCode(String code);
+	public int getCountByCode(String code, String origin);
 	
 	/**
 	 * 根据名称获取记录数
 	 * @param name
+	 * @param origin
 	 * @return
 	 */
-	public int getCountByName(String name);
+	public int getCountByName(String name, String origin);
+	
+	public int getCountByParent(String parent);
 	
 	/**
 	 * 
@@ -178,4 +182,5 @@ public interface BaseService<T> {
 	 * @return
 	 */
 	public List<PairModel> getPairList();
+	
 }

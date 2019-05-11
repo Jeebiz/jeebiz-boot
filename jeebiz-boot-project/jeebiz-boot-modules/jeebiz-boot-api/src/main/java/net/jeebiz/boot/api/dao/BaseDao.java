@@ -16,7 +16,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
  * 通用Dao接口
- * @author <a href="https://github.com/vindell">vindell</a>
+ * @author <a href="https://github.com/vindell">wandl</a>
  * @param <T> 持有的实体对象
  */
 public interface BaseDao <T> {
@@ -124,7 +124,7 @@ public interface BaseDao <T> {
 	 * @return
 	 */
 	public int getCount(T t);
-	
+
 	/**
 	 * 根据唯一ID编码获取记录数
 	 * @param name
@@ -134,17 +134,21 @@ public interface BaseDao <T> {
 	
 	/**
 	 * 根据编码获取记录数
-	 * @param name
+	 * @param code
+	 * @param origin
 	 * @return
 	 */
-	public int getCountByCode(@Param("code") String code);
+	public int getCountByCode(@Param("code") String code, @Param("origin") String origin);
 	
 	/**
 	 * 根据名称获取记录数
 	 * @param name
+	 * @param origin
 	 * @return
 	 */
-	public int getCountByName(@Param("name") String name);
+	public int getCountByName(@Param("name") String name, @Param("origin") String origin);
+	
+	public int getCountByParent(@Param("parent") String parent);
 	
 	/**
 	 * 按数据范围分页查询
