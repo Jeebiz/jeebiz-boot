@@ -22,15 +22,14 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import net.jeebiz.boot.api.ApiRestResponse;
 import net.jeebiz.boot.api.exception.PayloadExceptionEvent;
-import net.jeebiz.boot.api.utils.ResultUtils;
 
 public class BaseController implements ApplicationEventPublisherAware, ApplicationContextAware, EmbeddedValueResolverAware {
 
 	protected static final String ERROR_VIEW = "/exception/500";
 
-	protected static final String STATUS_SUCCESS = ResultUtils.STATUS_SUCCESS;
-	protected static final String STATUS_FAIL = ResultUtils.STATUS_FAIL;
-	protected static final String STATUS_ERROR = ResultUtils.STATUS_ERROR;
+	protected static final String STATUS_SUCCESS = "success";
+	protected static final String STATUS_FAIL = "fail";
+	protected static final String STATUS_ERROR = "error";
 
 	private StringValueResolver valueResolver;
 	private ApplicationEventPublisher eventPublisher;

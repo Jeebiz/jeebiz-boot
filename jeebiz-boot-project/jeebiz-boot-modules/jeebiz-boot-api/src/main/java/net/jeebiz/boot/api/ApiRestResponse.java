@@ -5,6 +5,8 @@
 package net.jeebiz.boot.api;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -131,6 +133,15 @@ public class ApiRestResponse {
 
 	public Object getData() {
 		return data;
+	}
+	
+	public Map<String, Object> toMap(){
+		Map<String, Object> rtMap = new HashMap<String, Object>();
+		rtMap.put("code", code);
+		rtMap.put("status", status);
+		rtMap.put("message", msg);
+		rtMap.put("data", data);
+		return rtMap;
 	}
     
 }
