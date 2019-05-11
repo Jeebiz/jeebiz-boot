@@ -41,8 +41,8 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.jeebiz.boot.api.exception.ApiCode;
-import net.jeebiz.boot.api.exception.ApiRestResponse;
+import net.jeebiz.boot.api.ApiCode;
+import net.jeebiz.boot.api.ApiRestResponse;
 
 /**
  * 异常增强，以JSON的形式返回给客服端
@@ -112,7 +112,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 			
 			ObjectError error = result.getGlobalError();
 			return new ResponseEntity<ApiRestResponse>(
-					ApiRestResponse.of(ApiCode.SC_VALID_EXCEPTION.getCode(), error.getDefaultMessage()), HttpStatus.BAD_REQUEST);
+					ApiRestResponse.error(ApiCode.SC_VALID_EXCEPTION.getCode(), error.getDefaultMessage()), HttpStatus.BAD_REQUEST);
 			
 		}
 		
@@ -156,7 +156,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 			
 			ObjectError error = result.getGlobalError();
 			return new ResponseEntity<ApiRestResponse>(
-					ApiRestResponse.of(ApiCode.SC_VALID_EXCEPTION.getCode(), error.getDefaultMessage()), HttpStatus.BAD_REQUEST);
+					ApiRestResponse.error(ApiCode.SC_VALID_EXCEPTION.getCode(), error.getDefaultMessage()), HttpStatus.BAD_REQUEST);
 			
 		}
 		

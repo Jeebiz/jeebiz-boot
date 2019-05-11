@@ -20,7 +20,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import net.jeebiz.boot.api.exception.ApiRestResponse;
+import net.jeebiz.boot.api.ApiRestResponse;
 import net.jeebiz.boot.api.exception.PayloadExceptionEvent;
 import net.jeebiz.boot.api.utils.ResultUtils;
 

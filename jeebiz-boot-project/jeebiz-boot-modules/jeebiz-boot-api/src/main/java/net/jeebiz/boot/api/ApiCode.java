@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.api.exception;
+package net.jeebiz.boot.api;
 
 /**
  * Enumeration of Api Code.
@@ -235,11 +235,11 @@ public enum ApiCode {
 	}
 
 	public ApiRestResponse toResponse() {
-		return ApiRestResponse.of(this);
+		return ApiRestResponse.error(this);
 	}
     
 	public ApiRestResponse toResponse(final Object data) {
-		return ApiRestResponse.of(this, data);
+		return ApiRestResponse.error(this, data);
 	}
 	
 }
