@@ -419,6 +419,8 @@
 		<spring-boot-starter-rocketmq-plus.version>1.0.1-SNAPSHOT</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.4-SNAPSHOT</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
+		<spring-boot-starter-security-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
+		<spring-boot-starter-security-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.4.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.2.RELEASE</spring-boot-starter-shiro-cas.version>
@@ -4396,10 +4398,23 @@
 				<artifactId>spring-boot-starter-schemacrawler</artifactId>
 				<version>${spring-boot-starter-schemacrawler.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-biz -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-security-biz</artifactId>
 				<version>${spring-boot-starter-security-biz.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-jwt -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-security-jwt</artifactId>
+				<version>${spring-boot-starter-security-jwt.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-dingtalk -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-security-dingtalk</artifactId>
+				<version>${spring-boot-starter-security-dingtalk.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-spring-boot-starter -->
 			<dependency>
