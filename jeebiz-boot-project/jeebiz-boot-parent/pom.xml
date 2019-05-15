@@ -699,24 +699,18 @@
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/bootstrap-local.properties"
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/bootstrap-pre.properties"
-										todir="${appassembler-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/bootstrap-prod.properties"
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/bootstrap-qa.properties"
-										todir="${appassembler-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/bootstrap-test.properties"
+										todir="${appassembler-dir}/${project.artifactId}/conf" />
+									<copy file="${basedir}/src/main/resources/bootstrap.properties"
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
 										
 									<copy file="${basedir}/src/main/resources/application-dev.yaml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${basedir}/src/main/resources/application-local.yaml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-pre.yaml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${basedir}/src/main/resources/application-prod.yaml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-qa.yaml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${basedir}/src/main/resources/application-test.yaml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
