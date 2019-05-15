@@ -695,14 +695,6 @@
 									
 									<mkdir dir="${appassembler-dir}/${project.artifactId}/conf" />
 									
-									<copy file="${basedir}/src/main/resources/application-dev.properties"
-										todir="${appassembler-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/application-local.properties"
-										todir="${appassembler-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/application-prod.properties"
-										todir="${appassembler-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/application-test.properties"
-										todir="${appassembler-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/application.properties"
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
 										
@@ -728,14 +720,6 @@
 									
 									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									
-									<copy file="${basedir}/src/main/resources/application-dev.properties"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/application-local.properties"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/application-prod.properties"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/application-test.properties"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />	
 									<copy file="${basedir}/src/main/resources/application.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
 									
