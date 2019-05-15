@@ -736,28 +736,20 @@
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/bootstrap-local.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/bootstrap-pre.properties"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/bootstrap-prod.properties"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
-									<copy file="${basedir}/src/main/resources/bootstrap-qa.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/bootstrap-test.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />	
 									<copy file="${basedir}/src/main/resources/bootstrap.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
 									
-									<copy file="${basedir}/src/main/resources/application-dev.yaml" 
+									<copy file="${basedir}/src/main/resources/application-dev.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-local.yaml" 
+									<copy file="${basedir}/src/main/resources/application-local.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-pre.yaml" 
+									<copy file="${basedir}/src/main/resources/application-prod.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-prod.yaml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-qa.yaml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-test.yaml" 
+									<copy file="${basedir}/src/main/resources/application-test.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									
 									<!-- 步骤3、拷贝Java环境变量设置文件 
