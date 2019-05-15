@@ -726,6 +726,8 @@
 										todir="${appassembler-jsw-dir}/${project.artifactId}/lib" />
 									<!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
 									
+									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+									
 									<copy file="${basedir}/src/main/resources/bootstrap-dev.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
 									<copy file="${basedir}/src/main/resources/bootstrap-local.properties"
