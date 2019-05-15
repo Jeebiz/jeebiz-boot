@@ -59,14 +59,6 @@ public class ApiRestResponse {
         return new ApiRestResponse(code, "success", msg);
     }
     
-    public static ApiRestResponse success(final ApiCode code) {
-        return of(code.getCode(), "success", code.getReason(), new ArrayList<>());
-    }
-    
-    public static ApiRestResponse success(final ApiCode code, final Object data) {
-        return of(code.getCode(), "success", code.getReason(), data);
-    }
-    
     public static ApiRestResponse success(final Object data) {
         return of(ApiCode.SC_SUCCESS.getCode(), "success", ApiCode.SC_SUCCESS.getReason(), data);
     }
@@ -83,14 +75,6 @@ public class ApiRestResponse {
         return new ApiRestResponse(code, "fail", msg);
     }
     
-    public static ApiRestResponse fail(final ApiCode code) {
-        return of(code.getCode(), "fail", code.getReason(), new ArrayList<>());
-    }
-    
-    public static ApiRestResponse fail(final ApiCode code, final Object data) {
-        return of(code.getCode(), "fail", code.getReason(), data);
-    }
-    
     public static ApiRestResponse error(final String msg) {
         return error(ApiCode.SC_INTERNAL_SERVER_ERROR.getCode(), msg);
     }
@@ -103,12 +87,16 @@ public class ApiRestResponse {
         return new ApiRestResponse(code, "error",  msg);
     }
     
-    public static ApiRestResponse error(final ApiCode code) {
-        return of(code.getCode(), "error", code.getReason(), new ArrayList<>());
+    public static ApiRestResponse of(final ApiCode code) {
+        return of(code.getCode(), code.getStatus(), code.getReason());
     }
     
-    public static ApiRestResponse error(final ApiCode code, final Object data) {
-        return of(code.getCode(), "error", code.getReason(), data);
+    public static ApiRestResponse of(final ApiCode code, final String msg) {
+        return of(code.getCode(), code.getStatus(), msg);
+    }
+    
+    public static ApiRestResponse of(final ApiCode code, final Object data) {
+        return of(code.getCode(), code.getStatus(), code.getReason(), data);
     }
     
     public static ApiRestResponse of(final int code, final String status, final String msg) {
