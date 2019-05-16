@@ -114,6 +114,10 @@ public class ApiRestResponse {
 	public String getCode() {
 		return code;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
 
 	public String getMsg() {
 		return msg;
