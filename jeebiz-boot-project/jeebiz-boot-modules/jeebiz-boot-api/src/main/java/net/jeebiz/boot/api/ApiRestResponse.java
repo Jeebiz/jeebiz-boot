@@ -44,11 +44,11 @@ public class ApiRestResponse {
     }
 
 	public static ApiRestResponse empty(final String msg) {
-		return success(ApiCode.SC_EMPTY.getCode(), msg);
+		return of(ApiCode.SC_EMPTY, msg);
 	}
     
     public static ApiRestResponse success(final String msg) {
-        return success(ApiCode.SC_SUCCESS.getCode(), msg);
+        return of(ApiCode.SC_SUCCESS, msg);
     }
     
     public static ApiRestResponse success(final int code, final String msg) {
@@ -60,11 +60,11 @@ public class ApiRestResponse {
     }
     
     public static ApiRestResponse success(final Object data) {
-        return of(ApiCode.SC_SUCCESS.getCode(), "success", ApiCode.SC_SUCCESS.getReason(), data);
+        return of(ApiCode.SC_SUCCESS, data);
     }
     
     public static ApiRestResponse fail(final String msg) {
-        return fail(ApiCode.SC_FAIL.getCode(), msg);
+        return of(ApiCode.SC_FAIL, msg);
     }
     
     public static ApiRestResponse fail(final int code, final String msg) {
@@ -76,7 +76,7 @@ public class ApiRestResponse {
     }
     
     public static ApiRestResponse error(final String msg) {
-        return error(ApiCode.SC_INTERNAL_SERVER_ERROR.getCode(), msg);
+        return of(ApiCode.SC_INTERNAL_SERVER_ERROR, msg);
     }
     
     public static ApiRestResponse error(final int code, final String msg) {
