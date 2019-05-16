@@ -7,17 +7,15 @@ package net.jeebiz.boot.api.webmvc;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
-
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 
 public class Result<T> {
 
 	/**
-	 * http状态码
+	 * 状态码
 	 */
-	private int code = HttpStatus.OK.value();
+	private int code = 0;
 	/**
 	 * 当前页码
 	 */
