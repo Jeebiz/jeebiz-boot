@@ -32,6 +32,7 @@ import org.apache.ibatis.executor.result.ResultMapException;
 import org.apache.ibatis.plugin.PluginException;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
+import org.springframework.biz.web.multipart.MaxUploadSizePerFileExceededException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -59,6 +60,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.annotation.MethodArgumentConversionNotSupportedException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
@@ -69,6 +71,9 @@ import com.google.common.collect.Maps;
 
 import net.jeebiz.boot.api.ApiCode;
 import net.jeebiz.boot.api.ApiRestResponse;
+import net.jeebiz.boot.api.exception.BizCheckedException;
+import net.jeebiz.boot.api.exception.BizIOException;
+import net.jeebiz.boot.api.exception.BizRuntimeException;
 
 /**
  * 异常增强，以JSON的形式返回给客服端
@@ -493,6 +498,58 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse> illegalArgumentException(IllegalArgumentException ex) {
 		this.logException(ex);
 		return new ResponseEntity<ApiRestResponse>(ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	/**
+	 * 500 (Internal Server Error)
+	 */
+	@ExceptionHandler(MaxUploadSizeExceededException.class)
+	@ResponseBody
+	public ResponseEntity<ApiRestResponse> maxUploadSizeExceededException(MaxUploadSizeExceededException ex) {
+		this.logException(ex);
+		return new ResponseEntity<ApiRestResponse>(ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	/**
+	 * 500 (Internal Server Error)
+	 */
+	@ExceptionHandler(MaxUploadSizePerFileExceededException.class)
+	@ResponseBody
+	public ResponseEntity<ApiRestResponse> maxUploadSizePerFileExceededException(MaxUploadSizePerFileExceededException ex) {
+		this.logException(ex);
+		return new ResponseEntity<ApiRestResponse>(ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	/**---------------------业务异常----------------------------*/
+	
+	/**
+	 * 500 (Internal Server Error)
+	 */
+	@ExceptionHandler(BizRuntimeException.class)
+	@ResponseBody
+	public ResponseEntity<ApiRestResponse> bizRuntimeException(BizRuntimeException ex) {
+		this.logException(ex);
+		return new ResponseEntity<ApiRestResponse>(ApiRestResponse.error(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	/**
+	 * 500 (Internal Server Error)
+	 */
+	@ExceptionHandler(BizCheckedException.class)
+	@ResponseBody
+	public ResponseEntity<ApiRestResponse> bizCheckedException(BizCheckedException ex) {
+		this.logException(ex);
+		return new ResponseEntity<ApiRestResponse>(ApiRestResponse.error(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	/**
+	 * 500 (Internal Server Error)
+	 */
+	@ExceptionHandler(BizIOException.class)
+	@ResponseBody
+	public ResponseEntity<ApiRestResponse> bizIOException(BizIOException ex) {
+		this.logException(ex);
+		return new ResponseEntity<ApiRestResponse>(ApiRestResponse.error(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	/**---------------------Mybatis 异常----------------------------*/
