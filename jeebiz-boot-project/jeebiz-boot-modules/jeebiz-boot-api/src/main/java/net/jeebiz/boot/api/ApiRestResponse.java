@@ -16,6 +16,10 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(value = "ApiRestResponse", description = "接口响应对象")
 public class ApiRestResponse {
+
+	private static final String RT_SUCCESS = "success";
+	private static final String RT_FAIL = "fail";
+	private static final String RT_ERROR = "error";
 	
 	@ApiModelProperty(name = "code", dataType = "String", value = "成功或异常编码")
     private final String code;
@@ -56,7 +60,7 @@ public class ApiRestResponse {
     }
     
     public static ApiRestResponse success(final String code, final String msg) {
-        return new ApiRestResponse(code, "success", msg);
+        return new ApiRestResponse(code, RT_SUCCESS, msg);
     }
     
     public static ApiRestResponse success(final Object data) {
@@ -72,7 +76,7 @@ public class ApiRestResponse {
     }
     
     public static ApiRestResponse fail(final String code, final String msg) {
-        return new ApiRestResponse(code, "fail", msg);
+        return new ApiRestResponse(code, RT_FAIL, msg);
     }
     
     public static ApiRestResponse error(final String msg) {
@@ -84,7 +88,7 @@ public class ApiRestResponse {
     }
     
     public static ApiRestResponse error(final String code, final String msg) {
-        return new ApiRestResponse(code, "error",  msg);
+        return new ApiRestResponse(code, RT_ERROR,  msg);
     }
     
     public static ApiRestResponse of(final ApiCode code) {
@@ -131,7 +135,7 @@ public class ApiRestResponse {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
 		rtMap.put("code", code);
 		rtMap.put("status", status);
-		rtMap.put("message", msg);
+		rtMap.put("msg", msg);
 		rtMap.put("data", data);
 		return rtMap;
 	}
