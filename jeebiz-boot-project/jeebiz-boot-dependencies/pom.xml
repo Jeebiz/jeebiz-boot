@@ -281,7 +281,7 @@
 		<smslib.version>3.5.4</smslib.version>
 		<snmp4j.version>3.0.6</snmp4j.version>
 		<snmp4j-agent.version>3.0.3</snmp4j-agent.version>
-		<springfox.version>2.9.2</springfox.version>
+		<springfox.version>3.0.0-SNAPSHOT</springfox.version>
 		<spring-biz.version>1.0.6.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.4.RELEASE</spring-javassist.version>
 		<st4.version>4.0.8</st4.version>
