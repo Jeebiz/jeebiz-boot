@@ -121,7 +121,7 @@
 		<ehcache.version>2.10.6</ehcache.version>
 		<ehcache3.version>3.7.0</ehcache3.version>
 		<fastdfs.version>1.26.3</fastdfs.version>
-		<fastjson.version>1.2.57</fastjson.version>
+		<fastjson.version>1.2.58</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
 		<flowable.version>6.4.1</flowable.version>
 		<flyway.version>5.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
@@ -263,7 +263,7 @@
 		<sfntly.version>1.0.0</sfntly.version>
 		<sharding-jdbc.version>3.1.0</sharding-jdbc.version>
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
-		<shiro.version>1.4.0</shiro.version>
+		<shiro.version>1.4.1</shiro.version>
 		<shiro-biz.version>1.0.6.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
