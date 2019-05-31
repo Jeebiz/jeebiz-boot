@@ -263,6 +263,7 @@
 		<sfntly.version>1.0.0</sfntly.version>
 		<sharding-jdbc.version>3.1.0</sharding-jdbc.version>
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
+		<shedlock.version>2.5.0</shedlock.version>
 		<shiro.version>1.4.1</shiro.version>
 		<shiro-biz.version>1.0.6.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
@@ -3331,6 +3332,64 @@
 			    <groupId>io.shardingsphere</groupId>
 			    <artifactId>sharding-transaction-2pc-xa</artifactId>
 			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			
+			<!-- https://github.com/lukas-krecan/ShedLock -->
+			<!-- https://mvnrepository.com/artifact/net.javacrumbs.shedlock -->
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-spring</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-couchbase-javaclient</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-dynamodb</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-elasticsearch</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-hazelcast</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-jdbc</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-jdbc-template</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-mongo</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-redis-jedis</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-redis-spring</artifactId>
+			    <version>${shedlock.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>net.javacrumbs.shedlock</groupId>
+			    <artifactId>shedlock-provider-zookeeper-curator</artifactId>
+			    <version>${shedlock.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro -->
