@@ -19,6 +19,12 @@
 	<name>jeebiz-boot</name>
 	<description>Jeebiz Projects For Spring Boot</description>
 	<url>http://boot.jeebiz.net</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<jeebiz-boot.version>1.0.1.RELEASE</jeebiz-boot.version>
+	</properties>
 
 	<modules>
 		<module>jeebiz-boot-project</module>
