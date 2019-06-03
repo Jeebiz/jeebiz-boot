@@ -317,7 +317,7 @@
 		<xfire.version>1.2.6</xfire.version>
 		<xnio.version>3.7.0.Final</xnio.version>
 		<xstream.version>1.4.11.1</xstream.version>
-		<zookeeper.version>3.5.4-beta</zookeeper.version>
+		<zookeeper.version>3.5.5</zookeeper.version>
 		<zip4j.version>1.3.2</zip4j.version>
 		<zxing.version>3.3.3</zxing.version>
 
