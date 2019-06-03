@@ -39,10 +39,6 @@
 		<url>www.jeebiz.net</url>
 	</organization>
   	
-    <properties>
-    	<jeebiz-boot.version>1.0.2-SNAPSHOT</jeebiz-boot.version>
-    </properties>
-  	
 	<!-- 开发者信息 -->
 	<developers>
 		<developer>
