@@ -304,4 +304,3 @@ public enum ApiCode {
 	}
     
 }
-
