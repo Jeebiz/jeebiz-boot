@@ -184,7 +184,7 @@
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-plus.version>3.1.0</mybatis-plus.version>
 		<mybatis-spring.version>2.0.1</mybatis-spring.version>
-		<mybatis-migrations.version>3.3.4</mybatis-migrations.version>
+		<mybatis-migrations.version>3.3.5</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
 		<mybatis-ehcache.version>1.1.0</mybatis-ehcache.version>
@@ -195,7 +195,7 @@
 		<mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
 		<mybatis-freemarker.version>1.1.2</mybatis-freemarker.version>
 		<mybatis-velocity.version>1.3</mybatis-velocity.version>
-		<mybatis-generator.version>1.3.5</mybatis-generator.version>
+		<mybatis-generator.version>1.3.7</mybatis-generator.version>
 		<mysql.version>8.0.16</mysql.version>
 		<myth.version>2.0.0-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
