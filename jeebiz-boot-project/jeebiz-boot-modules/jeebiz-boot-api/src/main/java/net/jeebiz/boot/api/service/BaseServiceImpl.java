@@ -10,7 +10,10 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEventPublisher;
@@ -22,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringValueResolver;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import net.jeebiz.boot.api.dao.BaseDao;
 import net.jeebiz.boot.api.dao.entities.PaginationModel;
@@ -34,15 +38,23 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @param <T> {@link BaseService} 持有的实体对象
  * @param <E> {@link BaseDao} 实现
  */
-public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
-		implements ApplicationEventPublisherAware, ApplicationContextAware, MessageSourceAware,
+public class BaseServiceImpl<T, E extends BaseDao<T>> extends ServiceImpl<E, T>
+		implements InitializingBean, ApplicationEventPublisherAware, ApplicationContextAware, MessageSourceAware,
 		EmbeddedValueResolverAware, BaseService<T> {
 
+	/**核心缓存名称*/
+	protected static final String DEFAULT_CACHE = "defaultCache";
+	protected String cacheName = DEFAULT_CACHE;
+	
 	protected static Logger log = LoggerFactory.getLogger(BaseServiceImpl.class);
+	
 	private StringValueResolver valueResolver;
 	private ApplicationEventPublisher eventPublisher;
 	private ApplicationContext context;
 	private MessageSource messageSource;
+	
+	@Autowired(required = false)
+	protected CacheManager cacheManager;
 	
 	@Autowired
 	protected E dao;
@@ -55,6 +67,11 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	public void setDao(E dao) {
 		this.dao = dao;
 	}
+	
+	@Override
+	public void afterPropertiesSet() throws Exception {
+	}
+	
 
 	/**
 	 * 增加记录
@@ -311,5 +328,25 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> extends BaseAwareService
 	public void setMessageSource(MessageSource messageSource) {
 		this.messageSource = messageSource;
 	}
+	
+	public CacheManager getCacheManager() {
+		return cacheManager;
+	}
 
+	public void setCacheManager(CacheManager cacheManager) {
+		this.cacheManager = cacheManager;
+	}
+
+	public String getCacheName() {
+		return cacheName == null ? DEFAULT_CACHE : cacheName;
+	}
+	
+	public void setCacheName(String cacheName) {
+		this.cacheName = cacheName;
+	}
+	
+	public Cache getCache() {
+		return getCacheManager().getCache(getCacheName());
+	}
+	
 }

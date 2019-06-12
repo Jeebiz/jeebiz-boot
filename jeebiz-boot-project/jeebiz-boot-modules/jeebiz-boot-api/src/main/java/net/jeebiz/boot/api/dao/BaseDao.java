@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import net.jeebiz.boot.api.dao.entities.PairModel;
@@ -19,7 +20,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @author <a href="https://github.com/vindell">wandl</a>
  * @param <T> 持有的实体对象
  */
-public interface BaseDao <T> {
+public interface BaseDao <T> extends BaseMapper<T> {
 
 	/**
 	 * 增加记录
