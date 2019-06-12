@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.github.dozermapper.core.Mapper;
 
-public abstract class BaseMapperController extends BaseController {
+public abstract class BaseMapperController extends BaseApiController {
 
 	@Autowired
 	private Mapper beanMapper; 
