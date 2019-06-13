@@ -90,6 +90,10 @@ public class ApiRestResponse {
     public static ApiRestResponse error(final String code, final String msg) {
         return new ApiRestResponse(code, RT_ERROR,  msg);
     }
+
+    public static ApiRestResponse data(final Object data) {
+        return of(ApiCode.SC_SUCCESS.getCode(), ApiCode.SC_SUCCESS.getStatus(), ApiCode.SC_SUCCESS.getReason(), data);
+    }
     
     public static ApiRestResponse of(final ApiCode code) {
         return of(code.getCode(), code.getStatus(), code.getReason());
