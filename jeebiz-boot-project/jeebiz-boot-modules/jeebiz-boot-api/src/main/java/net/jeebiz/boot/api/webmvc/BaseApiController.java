@@ -28,7 +28,6 @@ import net.jeebiz.boot.api.utils.HttpStatus;
 
 @ApiResponses({ 
 	@ApiResponse(code = 0, message = "认证成功", response = ApiRestResponse.class),
-	@ApiResponse(code = HttpStatus.SC_OK, message = "操作成功", response = ApiRestResponse.class),
 	@ApiResponse(code = HttpStatus.SC_CREATED, message = "已创建", response = ApiRestResponse.class),
 	@ApiResponse(code = HttpStatus.SC_UNAUTHORIZED, message = "请求要求身份验证", response = ApiRestResponse.class),
 	@ApiResponse(code = HttpStatus.SC_FORBIDDEN, message = "权限不足", response = ApiRestResponse.class),
