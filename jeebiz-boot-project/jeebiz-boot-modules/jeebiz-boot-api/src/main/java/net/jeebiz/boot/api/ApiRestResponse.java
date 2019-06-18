@@ -4,7 +4,6 @@
  */
 package net.jeebiz.boot.api;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * model for interacting with client.
  */
 @ApiModel(value = "ApiRestResponse", description = "接口响应对象")
-public class ApiRestResponse {
+public class ApiRestResponse<T> {
 
 	private static final String RT_SUCCESS = "success";
 	private static final String RT_FAIL = "fail";
@@ -31,92 +30,91 @@ public class ApiRestResponse {
     private final String msg;
     
 	@ApiModelProperty(name = "data", dataType = "java.lang.Object", value = "成功或异常数据")
-    private final Object data;
+    private T data;
     
     protected ApiRestResponse(final String code, final String status, final String msg) {
         this.code = code;
         this.status = status;
         this.msg = msg;
-        this.data = new ArrayList<>();
     }
     
-    protected ApiRestResponse(final String code, final String status, final String msg, final Object data) {
+    protected ApiRestResponse(final String code, final String status, final String msg, final T data) {
         this.code = code;
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
 
-	public static ApiRestResponse empty(final String msg) {
+	public static <T> ApiRestResponse<T> empty(final String msg) {
 		return of(ApiCode.SC_EMPTY, msg);
 	}
     
-    public static ApiRestResponse success(final String msg) {
+    public static <T> ApiRestResponse<T> success(final String msg) {
         return of(ApiCode.SC_SUCCESS, msg);
     }
     
-    public static ApiRestResponse success(final int code, final String msg) {
+    public static <T> ApiRestResponse<T> success(final int code, final String msg) {
         return success(String.valueOf(code), msg);
     }
     
-    public static ApiRestResponse success(final String code, final String msg) {
-        return new ApiRestResponse(code, RT_SUCCESS, msg);
+    public static <T> ApiRestResponse<T> success(final String code, final String msg) {
+        return new ApiRestResponse<T>(code, RT_SUCCESS, msg);
     }
     
-    public static ApiRestResponse success(final Object data) {
+    public static <T> ApiRestResponse<T> success(final T data) {
         return of(ApiCode.SC_SUCCESS, data);
     }
     
-    public static ApiRestResponse fail(final String msg) {
+    public static <T> ApiRestResponse<T> fail(final String msg) {
         return of(ApiCode.SC_FAIL, msg);
     }
     
-    public static ApiRestResponse fail(final int code, final String msg) {
+    public static <T> ApiRestResponse<T> fail(final int code, final String msg) {
         return fail(String.valueOf(code), msg);
     }
     
-    public static ApiRestResponse fail(final String code, final String msg) {
-        return new ApiRestResponse(code, RT_FAIL, msg);
+    public static <T> ApiRestResponse<T> fail(final String code, final String msg) {
+        return new ApiRestResponse<T>(code, RT_FAIL, msg);
     }
     
-    public static ApiRestResponse error(final String msg) {
+    public static <T> ApiRestResponse<T> error(final String msg) {
         return of(ApiCode.SC_INTERNAL_SERVER_ERROR, msg);
     }
     
-    public static ApiRestResponse error(final int code, final String msg) {
+    public static <T> ApiRestResponse<T> error(final int code, final String msg) {
         return error(String.valueOf(code), msg);
     }
     
-    public static ApiRestResponse error(final String code, final String msg) {
-        return new ApiRestResponse(code, RT_ERROR,  msg);
+    public static <T> ApiRestResponse<T> error(final String code, final String msg) {
+        return new ApiRestResponse<T>(code, RT_ERROR,  msg);
     }
 
-    public static ApiRestResponse data(final Object data) {
+    public static <T> ApiRestResponse<T> data(final T data) {
         return of(ApiCode.SC_SUCCESS.getCode(), ApiCode.SC_SUCCESS.getStatus(), ApiCode.SC_SUCCESS.getReason(), data);
     }
     
-    public static ApiRestResponse of(final ApiCode code) {
+    public static <T> ApiRestResponse<T> of(final ApiCode code) {
         return of(code.getCode(), code.getStatus(), code.getReason());
     }
     
-    public static ApiRestResponse of(final ApiCode code, final String msg) {
+    public static <T> ApiRestResponse<T> of(final ApiCode code, final String msg) {
         return of(code.getCode(), code.getStatus(), msg);
     }
     
-    public static ApiRestResponse of(final ApiCode code, final Object data) {
+    public static <T> ApiRestResponse<T> of(final ApiCode code, final T data) {
         return of(code.getCode(), code.getStatus(), code.getReason(), data);
     }
     
-    public static ApiRestResponse of(final int code, final String status, final String msg) {
+    public static <T> ApiRestResponse<T> of(final int code, final String status, final String msg) {
         return of(String.valueOf(code), status, msg);
     }
     
-    public static ApiRestResponse of(final String code, final String status, final String msg) {
-    	 return of(code, status, msg, new ArrayList<>());
+    public static <T> ApiRestResponse<T> of(final String code, final String status, final String msg) {
+    	 return of(code, status, msg, null);
     }
     
-    public static ApiRestResponse of(final String code, final String status, final String msg, final Object data) {
-        return new ApiRestResponse(code, status, msg, data);
+    public static <T> ApiRestResponse<T> of(final String code, final String status, final String msg, final T data) {
+        return new ApiRestResponse<T>(code, status, msg, data);
     }
 
 	public String getCode() {

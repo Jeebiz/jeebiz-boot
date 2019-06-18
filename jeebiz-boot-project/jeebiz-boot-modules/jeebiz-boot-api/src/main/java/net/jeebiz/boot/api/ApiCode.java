@@ -290,16 +290,15 @@ public enum ApiCode {
 		return reason;
 	}
 	
-	public ApiRestResponse toResponse() {
+	public <T> ApiRestResponse<T> toResponse() {
 		return ApiRestResponse.of(this);
 	}
     
-	public ApiRestResponse toResponse(final String message) {
+	public <T> ApiRestResponse<T> toResponse(final String message) {
 		return ApiRestResponse.of(this, message);
 	}
 	
-	public ApiRestResponse toResponse(final Object data) {
-		
+	public <T> ApiRestResponse<T> toResponse(final T data) {
 		return ApiRestResponse.of(this, data);
 	}
     
