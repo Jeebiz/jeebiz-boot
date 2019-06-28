@@ -141,7 +141,7 @@
 		<i4jruntime.version>5.0.6</i4jruntime.version>
 		<icu4j.version>63.1</icu4j.version>
 		<influxdb-java.version>2.15</influxdb-java.version>
-		<j2cache-core.version>2.7.7-release</j2cache-core.version>
+		<j2cache-core.version>2.7.8-release</j2cache-core.version>
 		<j2cache-hibernate3.version>2.7.0-release</j2cache-hibernate3.version>
 		<j2cache-hibernate4.version>2.7.0-release</j2cache-hibernate4.version>
 		<j2cache-hibernate5.version>1.0.0-beta1</j2cache-hibernate5.version>
