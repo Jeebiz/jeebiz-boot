@@ -1948,6 +1948,12 @@
 				<groupId>net.oschina.j2cache</groupId>
 				<artifactId>j2cache-core</artifactId>
 				<version>${j2cache-core.version}</version>
+				<exclusions>
+			    	<exclusion>
+			          	<groupId>redis.clients</groupId>
+						<artifactId>jedis</artifactId>
+			        </exclusion>
+			    </exclusions>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-hibernate3 -->
 			<dependency>
