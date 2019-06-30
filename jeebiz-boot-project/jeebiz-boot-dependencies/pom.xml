@@ -4197,6 +4197,11 @@
 			    <artifactId>flowable-spring-boot-starter-actuator</artifactId>
 			    <version>${flowable.version}</version>
 			</dependency>
+			<dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>flowable-spring-boot-starter-basic</artifactId>
+			    <version>${flowable.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-cmmn -->
 			<dependency>
 			    <groupId>org.flowable</groupId>
