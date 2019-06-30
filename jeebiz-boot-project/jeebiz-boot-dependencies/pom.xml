@@ -204,6 +204,7 @@
         <netty-tcnative.version>2.0.25.Final</netty-tcnative.version>
 		<netty-socketio.version>1.7.17</netty-socketio.version>
 		<nimbus-jose-jwt.version>7.2.1</nimbus-jose-jwt.version>
+		<lombok.version>1.18.8</lombok.version>
 		<log4j2.version>2.11.2</log4j2.version>
 		<okhttp.version>3.14.2</okhttp.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
