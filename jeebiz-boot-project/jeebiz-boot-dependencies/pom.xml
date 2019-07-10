@@ -182,6 +182,7 @@
 		<mssql-jdbc.version>7.2.2.jre8</mssql-jdbc.version>
 		<mybatis.version>3.5.1</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
+		<mybatis-dynamic-sql.version>1.1.2</mybatis-dynamic-sql.version>
 		<mybatis-plus.version>3.1.2</mybatis-plus.version>
 		<mybatis-spring.version>2.0.1</mybatis-spring.version>
 		<mybatis-migrations.version>3.3.5</mybatis-migrations.version>
@@ -2435,6 +2436,11 @@
 				<groupId>com.github.vindell</groupId>
 				<artifactId>mybatis-biz</artifactId>
 				<version>${mybatis-biz.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.mybatis.dynamic-sql</groupId>
+			    <artifactId>mybatis-dynamic-sql</artifactId>
+			    <version>${mybatis-dynamic-sql.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.mybatis</groupId>
