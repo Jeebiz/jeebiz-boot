@@ -19,35 +19,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @author <a href="https://github.com/vindell">wandl</a>
  * @param <T> 持有的实体对象
  */
-public interface BaseDao <T> {
-
-	/**
-	 * 增加记录
-	 * @param t
-	 * @return
-	 */
-	public int insert(T t);
-	
-	/**
-	 * 修改记录
-	 * @param t
-	 * @return
-	 */
-	public int update(T t);
-	
-	/**
-	 * 删除记录
-	 * @param id
-	 * @return
-	 */
-	public int delete(String id);
-	/**
-	 * 删除记录
-	 * @param t
-	 * @return
-	 */
-	public int delete(T t);
-	
+public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
 	
 	/**
 	 * 查询单条数据
@@ -116,7 +88,7 @@ public interface BaseDao <T> {
 	 * @param key
 	 * @return
 	 */
-	public List<T> getModelList(String key);
+	public List<T> getModelList(@Param("key") String key);
 	
 	/**
 	 * 统计记录数

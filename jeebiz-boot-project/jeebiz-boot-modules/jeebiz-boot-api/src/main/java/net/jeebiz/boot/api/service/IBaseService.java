@@ -16,8 +16,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @author <a href="https://github.com/vindell">wandl</a>
  * @param <T> 持有的实体对象
  */
-public interface BaseService<T> {
-	
+public interface IBaseService<T> {
 	
 	/**
 	 * 增加记录

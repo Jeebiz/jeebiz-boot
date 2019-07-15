@@ -4,10 +4,10 @@
  */
 package net.jeebiz.boot.demo.service;
 
-import net.jeebiz.boot.api.service.BaseService;
+import net.jeebiz.boot.api.service.IBaseService;
 import net.jeebiz.boot.demo.dao.entities.DemoModel;
 
-public interface IDemoService extends BaseService<DemoModel>{
+public interface IDemoService extends IBaseService<DemoModel>{
 
 	
 }

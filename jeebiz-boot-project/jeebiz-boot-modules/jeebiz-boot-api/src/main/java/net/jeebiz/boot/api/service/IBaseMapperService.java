@@ -2,52 +2,21 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.api.dao;
-
+package net.jeebiz.boot.api.service;
 
 import java.util.List;
 import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
- * 通用Dao接口
+ * 通用Service接口
  * @author <a href="https://github.com/vindell">wandl</a>
  * @param <T> 持有的实体对象
  */
-public interface BaseDao <T> {
-
-	/**
-	 * 增加记录
-	 * @param t
-	 * @return
-	 */
-	public int insert(T t);
-	
-	/**
-	 * 修改记录
-	 * @param t
-	 * @return
-	 */
-	public int update(T t);
-	
-	/**
-	 * 删除记录
-	 * @param id
-	 * @return
-	 */
-	public int delete(String id);
-	/**
-	 * 删除记录
-	 * @param t
-	 * @return
-	 */
-	public int delete(T t);
-	
+public interface IBaseMapperService<T> {
 	
 	/**
 	 * 查询单条数据
@@ -61,7 +30,7 @@ public interface BaseDao <T> {
 	 * @param t
 	 * @return
 	 */
-	public T getModel(T t) ;
+	public T getModel(T t);
 	
 	/**
 	 * 批量删除
@@ -69,7 +38,6 @@ public interface BaseDao <T> {
 	 * @return
 	 */
 	public int batchDelete(Map<String,Object> map);
-	
 	
 	
 	/**
@@ -85,7 +53,7 @@ public interface BaseDao <T> {
 	 * @return
 	 */
 	public int batchUpdate(Map<String,Object> map);
-	
+
 	public int batchUpdate(List<T> list);
 	
 	/**
@@ -94,14 +62,15 @@ public interface BaseDao <T> {
 	 * @param status
 	 * @return
 	 */
-	public int setStatus(@Param("id") String id, @Param("status") String status);
+	public int setStatus(String id, String status);
 	
 	/**
 	 * 分页查询
 	 * @param t
 	 * @return
 	 */
-	public List<T> getPagedList(Page<T> page, @Param("model") T t);
+	public Page<T> getPagedList(T t);
+	public Page<T> getPagedList(Page<T> page,T t);
 	
 	/**
 	 * 无分页查询
@@ -112,7 +81,12 @@ public interface BaseDao <T> {
 	
 	
 	/**
-	 * 无分页查询
+	 * 无分页查询<br>
+	 * <p>
+	 * MyBatis中对重载方法支持缺陷：XML中使用该方法映射无<br>
+	 * 参和一个string参数会无法映射，建议XML中仅映射此方法一次，<br>
+	 * 若有其它类似业务在自己接口中定义其它方法。<br>
+	 * </p>
 	 * @param key
 	 * @return
 	 */
@@ -124,13 +98,13 @@ public interface BaseDao <T> {
 	 * @return
 	 */
 	public int getCount(T t);
-
+	
 	/**
 	 * 根据唯一ID编码获取记录数
 	 * @param name
 	 * @return
 	 */
-	public int getCountByUid(@Param("uid") String uid);
+	public int getCountByUid(String uid);
 	
 	/**
 	 * 根据编码获取记录数
@@ -138,7 +112,7 @@ public interface BaseDao <T> {
 	 * @param origin
 	 * @return
 	 */
-	public int getCountByCode(@Param("code") String code, @Param("origin") String origin);
+	public int getCountByCode(String code, String origin);
 	
 	/**
 	 * 根据名称获取记录数
@@ -146,44 +120,31 @@ public interface BaseDao <T> {
 	 * @param origin
 	 * @return
 	 */
-	public int getCountByName(@Param("name") String name, @Param("origin") String origin);
+	public int getCountByName(String name, String origin);
 	
-	public int getCountByParent(@Param("parent") String parent);
-	
-	/**
-	 * 按数据范围分页查询
-	 * @param t
-	 * @return
-	 */
-	public List<T> getPagedByScope(T t);
+	public int getCountByParent(String parent);
 	
 	/**
-	 * 按数据范围无分页查询
-	 * @param t
-	 * @return
-	 */
-	public List<T> getModelListByScope(T t);
-	
-	/**
+	 * 
 	 * 通过指定key查询对应的唯一值
 	 * @param key
 	 * @return
 	 */
-	public String getValue(@Param("key") String key);
+	public String getValue(String key);
 	
 	/**
 	 * 通过指定key查询多个值
 	 * @param key
 	 * @return
 	 */
-	public Map<String, String> getValues(@Param("key") String key);
+	public Map<String, String> getValues(String key);
 	
 	/**
 	 * 根据key查询该分组下的基础数据
 	 * @param key
 	 * @return
 	 */
-	public List<PairModel> getPairValues(@Param("key") String key);
+	public List<PairModel> getPairValues(String key);
 	
 	/**
 	 *  查询一组键值对数据
