@@ -416,6 +416,7 @@
 		<spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
 		<spring-boot-starter-myth.version>2.0.0-RELEASE</spring-boot-starter-myth.version>
 		<spring-boot-starter-mina.version>1.0.0-SNAPSHOT</spring-boot-starter-mina.version>
+		<spring-boot-starter-minio.version>1.0.0-SNAPSHOT</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-okhttp3.version>1.0.1.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-pf4j.version>1.0.5.RELEASE</spring-boot-starter-pf4j.version>
@@ -4400,6 +4401,12 @@
 			    <groupId>org.dromara</groupId>
 			    <artifactId>myth-spring-boot-starter-springcloud</artifactId>
 			    <version>${spring-boot-starter-myth.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-minio -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-minio</artifactId>
+				<version>${spring-boot-starter-minio.version}</version>
 			</dependency>
 			<dependency>
 			    <groupId>com.baomidou</groupId>
