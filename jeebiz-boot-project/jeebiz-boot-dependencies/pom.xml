@@ -423,6 +423,7 @@
 		<spring-boot-starter-pf4j2.version>1.0.6.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-raincat.version>2.0.0-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>3.10.2</spring-boot-starter-redisson.version>
+		<spring-boot-starter-rocketmq.version>2.0.3</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1-SNAPSHOT</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.4-SNAPSHOT</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
@@ -4471,6 +4472,12 @@
 			    <groupId>org.redisson</groupId>
 			    <artifactId>redisson-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-redisson.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-spring-boot-starter -->
+			<dependency>
+			    <groupId>org.apache.rocketmq</groupId>
+			    <artifactId>rocketmq-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-rocketmq.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-rocketmq-plus -->
 			<dependency>
