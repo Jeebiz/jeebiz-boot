@@ -51,7 +51,39 @@
 	</properties>
 	
 	<dependencies>
-		
+		<!-- For Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
+		<dependency>
+		    <groupId>io.micrometer</groupId>
+		    <artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+		<!-- For Spring Boot's Actuator  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<!-- For Spring Boot Test-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -64,24 +96,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<optional>true</optional>
-		</dependency>
-		
 	</dependencies>
 
 	<build>
