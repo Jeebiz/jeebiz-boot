@@ -103,7 +103,7 @@
 		<docker-java.version>3.1.2</docker-java.version>
 		<dom4j2.version>2.1.1</dom4j2.version>
 		<dozer.version>5.5.1</dozer.version>
-		<dozer-core.version>6.4.1</dozer-core.version>
+		<dozer-core.version>6.5.0</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
 		<druid.version>1.1.17</druid.version>
