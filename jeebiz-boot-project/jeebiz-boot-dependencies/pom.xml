@@ -82,14 +82,14 @@
 		<commons-math3.version>3.6.1</commons-math3.version>
 		<commons-net.version>3.6</commons-net.version>
 		<commons-pool.version>1.6</commons-pool.version>
-        <commons-pool2.version>2.6.2</commons-pool2.version>
+        <commons-pool2.version>2.7.0</commons-pool2.version>
 		<commons-proxy.version>1.0</commons-proxy.version>
 		<commons-rdf.version>0.5.0</commons-rdf.version>
 		<commons-ssl.version>0.3.9</commons-ssl.version>
-		<commons-text.version>1.6</commons-text.version>
+		<commons-text.version>1.7</commons-text.version>
 		<commons-validator.version>1.6</commons-validator.version>
 		<commons-vfs.version>2.0-21092010</commons-vfs.version>
-		<commons-vfs2.version>2.3</commons-vfs2.version>
+		<commons-vfs2.version>2.4</commons-vfs2.version>
 		<contiperf.version>2.3.4</contiperf.version>
 		<cronet.version>74.3729.136</cronet.version>
 		<cssparser.version>0.9.27</cssparser.version>
@@ -106,7 +106,7 @@
 		<dozer-core.version>6.5.0</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-		<druid.version>1.1.17</druid.version>
+		<druid.version>1.1.18</druid.version>
 		<dropwizard-metrics.version>4.1.0</dropwizard-metrics.version>
 		<dropwizard-metrics-datadog.version>2.0.0-RC1</dropwizard-metrics-datadog.version>
 		<dropwizard-metrics-kafka.version>0.0.1</dropwizard-metrics-kafka.version>
