@@ -398,7 +398,7 @@
 		<spring-boot-starter-flyway-plus.version>1.0.4.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.5.RELEASE</spring-boot-starter-hikaricp-plus.version>
-		<spring-boot-starter-hmily.version>2.0.2-RELEASE</spring-boot-starter-hmily.version>
+		<spring-boot-starter-hmily.version>2.0.5-RELEASE</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
 		<spring-boot-starter-ip2region.version>1.0.1.RELEASE</spring-boot-starter-ip2region.version>
@@ -414,14 +414,14 @@
 		<spring-boot-starter-maven-invoker.version>1.0.2.RELEASE</spring-boot-starter-maven-invoker.version> 
 		<spring-boot-starter-mybatis.version>2.0.0</spring-boot-starter-mybatis.version>
 		<spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
-		<spring-boot-starter-myth.version>2.0.0-RELEASE</spring-boot-starter-myth.version>
+		<spring-boot-starter-myth.version>2.0.2-RELEASE</spring-boot-starter-myth.version>
 		<spring-boot-starter-mina.version>1.0.0-SNAPSHOT</spring-boot-starter-mina.version>
 		<spring-boot-starter-minio.version>1.0.0-SNAPSHOT</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-okhttp3.version>1.0.1.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-pf4j.version>1.0.5.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.6.RELEASE</spring-boot-starter-pf4j2.version>
-		<spring-boot-starter-raincat.version>2.0.0-RELEASE</spring-boot-starter-raincat.version>
+		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>3.10.2</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.0.3</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1-SNAPSHOT</spring-boot-starter-rocketmq-plus.version>
@@ -4291,6 +4291,12 @@
 			<dependency>
 			    <groupId>org.dromara</groupId>
 			    <artifactId>hmily-spring-boot-starter-dubbo</artifactId>
+			    <version>${spring-boot-starter-hmily.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-apache-dubbo -->
+			<dependency>
+			    <groupId>org.dromara</groupId>
+			    <artifactId>hmily-spring-boot-starter-apache-dubbo</artifactId>
 			    <version>${spring-boot-starter-hmily.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-motan -->
