@@ -4501,6 +4501,12 @@
 			    <groupId>org.redisson</groupId>
 			    <artifactId>redisson-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-redisson.version}</version>
+			    <exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-web</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-spring-boot-starter -->
 			<dependency>
