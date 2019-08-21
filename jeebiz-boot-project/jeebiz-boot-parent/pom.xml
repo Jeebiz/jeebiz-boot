@@ -788,8 +788,6 @@
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="chmod 755 ${appassembler-app-name}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chmod 755 update/update.sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="chmod 755 uninstall.sh${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#启停脚本服务化软连接${line.separator}"></echo>
