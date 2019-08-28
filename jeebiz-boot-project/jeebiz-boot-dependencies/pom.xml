@@ -18,7 +18,7 @@
 		<activemq.version>5.15.9</activemq.version>
 		<activation.version>1.1.1</activation.version>
 		<asciidoctorj.version>1.6.2</asciidoctorj.version>
-        <asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
+		<asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
 		<aspectj.version>1.9.4</aspectj.version>
 		<assertj.version>3.12.2</assertj.version>
@@ -38,7 +38,7 @@
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<byte-buddy.version>1.9.13</byte-buddy.version>
+		<byte-buddy.version>1.9.14</byte-buddy.version>
 		<caffeine.version>2.7.0</caffeine.version>
 		<cas-client.version>3.5.1</cas-client.version>
 		<camel.version>3.0.0-M4</camel.version>
@@ -82,14 +82,14 @@
 		<commons-math3.version>3.6.1</commons-math3.version>
 		<commons-net.version>3.6</commons-net.version>
 		<commons-pool.version>1.6</commons-pool.version>
-        <commons-pool2.version>2.7.0</commons-pool2.version>
+		<commons-pool2.version>2.7.0</commons-pool2.version>
 		<commons-proxy.version>1.0</commons-proxy.version>
 		<commons-rdf.version>0.5.0</commons-rdf.version>
 		<commons-ssl.version>0.3.9</commons-ssl.version>
 		<commons-text.version>1.7</commons-text.version>
 		<commons-validator.version>1.6</commons-validator.version>
 		<commons-vfs.version>2.0-21092010</commons-vfs.version>
-		<commons-vfs2.version>2.4</commons-vfs2.version>
+		<commons-vfs2.version>2.4.1</commons-vfs2.version>
 		<contiperf.version>2.3.4</contiperf.version>
 		<cronet.version>74.3729.136</cronet.version>
 		<cssparser.version>0.9.27</cssparser.version>
@@ -98,6 +98,7 @@
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.1.3</derby.version>
 		<derby-locale.version>${derby.version.version}</derby-locale.version>
+		<dingtalk-sdk.version>20190605</dingtalk-sdk.version>
 		<docx4j-template.version>1.0.0.RELEASE</docx4j-template.version>
 		<docker-client.version>8.16.0</docker-client.version>
 		<docker-java.version>3.1.2</docker-java.version>
@@ -120,7 +121,7 @@
 		<echarts.version>3.0.0.6</echarts.version>
 		<ehcache.version>2.10.6</ehcache.version>
 		<ehcache3.version>3.7.1</ehcache3.version>
-		<fastdfs-client.version>1.26.5</fastdfs-client.version>
+		<fastdfs.version>1.26.6</fastdfs.version>
 		<fastjson.version>1.2.58</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
 		<flowable.version>6.4.1</flowable.version>
@@ -142,6 +143,7 @@
 		<i4jruntime.version>5.0.6</i4jruntime.version>
 		<icu4j.version>63.1</icu4j.version>
 		<influxdb-java.version>2.15</influxdb-java.version>
+		<istio-client.version>1.0.1</istio-client.version>
 		<j2cache-core.version>2.7.8-release</j2cache-core.version>
 		<j2cache-hibernate3.version>2.7.0-release</j2cache-hibernate3.version>
 		<j2cache-hibernate4.version>2.7.0-release</j2cache-hibernate4.version>
@@ -170,10 +172,11 @@
 		<jsqlparser.version>2.1</jsqlparser.version>
 		<jsoup.version>1.12.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
-		<jwt-issuer.version>1.0.2-SNAPSHOT</jwt-issuer.version>
+		<jwt-issuer.version>1.0.3.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.2.0</kafka-clients.version>
 		<kettle.version>4.1.2-GA</kettle.version>
 		<kisso.version>3.7.5</kisso.version>
+		<kubernetes-client.version>4.2.2</kubernetes-client.version>
 		<kylin-jdbc.version>2.6.3</kylin-jdbc.version>
 		<lettuce.version>5.1.8.RELEASE</lettuce.version>
 		<liquibase.version>3.6.3</liquibase.version>
@@ -203,7 +206,7 @@
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
 		<netty.version>4.1.39.Final</netty.version>
-        <netty-tcnative.version>2.0.25.Final</netty-tcnative.version>
+		<netty-tcnative.version>2.0.25.Final</netty-tcnative.version>
 		<netty-socketio.version>1.7.17</netty-socketio.version>
 		<nimbus-jose-jwt.version>7.2.1</nimbus-jose-jwt.version>
 		<lombok.version>1.18.8</lombok.version>
@@ -241,6 +244,7 @@
 		<resilience4j.version>0.14.1</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq.version>4.5.1</rocketmq.version>
+		<roses.version>2.0.0</roses.version>
 		<slf4j.version>1.7.26</slf4j.version>
 		<schemacrawler.version>16.1.1</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
@@ -270,12 +274,12 @@
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
 		<shedlock.version>2.5.0</shedlock.version>
 		<shiro.version>1.4.1</shiro.version>
-		<shiro-biz.version>1.0.6.RELEASE</shiro-biz.version>
+		<shiro-biz.version>1.0.7.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
 		<shiro-freemarker.version>1.0.0</shiro-freemarker.version>
-		<shiro-j2cache.version>1.0.0.RELEASE</shiro-j2cache.version>
+		<shiro-j2cache.version>1.0.1.RELEASE</shiro-j2cache.version>
 		<shiro-oltu.version>1.0</shiro-oltu.version>
 		<shiro-pf4j.version>1.0.0-SNAPSHOT</shiro-pf4j.version>
 		<shiro-redis.version>3.1.0</shiro-redis.version>
@@ -287,9 +291,9 @@
 		<smslib.version>3.5.4</smslib.version>
 		<snmp4j.version>3.1.0</snmp4j.version>
 		<snmp4j-agent.version>3.2.0</snmp4j-agent.version>
-		<springfox.version>3.0.0-SNAPSHOT</springfox.version>
+		<springfox.version>2.9.2</springfox.version>
 		<spring-biz.version>1.0.6.RELEASE</spring-biz.version>
-		<spring-javassist.version>1.0.5-SNAPSHOT</spring-javassist.version>
+		<spring-javassist.version>1.0.5.RELEASE</spring-javassist.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.2.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
@@ -379,6 +383,7 @@
 		
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.1.5</spring-boot-admin.version>
+		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.0.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.0.RELEASE</spring-boot-starter-axis2.version>
 		<spring-boot-starter-axis2-client.version>1.0.0.RELEASE</spring-boot-starter-axis2-client.version>
@@ -422,7 +427,9 @@
 		<spring-boot-starter-mina.version>1.0.0-SNAPSHOT</spring-boot-starter-mina.version>
 		<spring-boot-starter-minio.version>1.0.0-SNAPSHOT</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
+		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-okhttp3.version>1.0.1.RELEASE</spring-boot-starter-okhttp3.version>
+		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
 		<spring-boot-starter-pf4j.version>1.0.5.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.7.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
@@ -470,7 +477,13 @@
 			</dependency>
 
 			<!-- Third Party -->
-
+			
+			<dependency>
+				<groupId>com.dingtalk</groupId>
+				<artifactId>dingtalk-sdk</artifactId>
+				<version>${dingtalk-sdk.version}</version>
+			</dependency>
+			
 			<!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) 
 				API to manage MIME data -->
 			<dependency>
@@ -1956,12 +1969,6 @@
 				<groupId>net.oschina.j2cache</groupId>
 				<artifactId>j2cache-core</artifactId>
 				<version>${j2cache-core.version}</version>
-				<exclusions>
-			    	<exclusion>
-			          	<groupId>redis.clients</groupId>
-						<artifactId>jedis</artifactId>
-			        </exclusion>
-			    </exclusions>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-hibernate3 -->
 			<dependency>
@@ -4086,6 +4093,13 @@
 			    <artifactId>batch-web-spring-boot-starter</artifactId>
 			    <version>2.0.2.RELEASE</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-arcface -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-arcface</artifactId>
+				<version>${spring-boot-starter-arcface.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-baiduapi -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-baiduapi</artifactId>
@@ -4193,11 +4207,13 @@
 			    <artifactId>spring-cloud-dubbo-starter</artifactId>
 			    <version>${spring-boot-starter-dubbo.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-ehcache3 -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-ehcache3</artifactId>
 				<version>${spring-boot-starter-ehcache3.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-fastdfs -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-fastdfs</artifactId>
@@ -4471,6 +4487,12 @@
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-okhttp3</artifactId>
 				<version>${spring-boot-starter-okhttp3.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-opencv -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-opencv</artifactId>
+				<version>${spring-boot-starter-opencv.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-pf4j -->
 			<dependency>
