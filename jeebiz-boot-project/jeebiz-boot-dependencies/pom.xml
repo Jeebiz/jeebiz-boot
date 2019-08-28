@@ -1540,13 +1540,6 @@
 			    <version>${ehcache.version}</version>
 			</dependency>
 			
-			<!-- https://mvnrepository.com/artifact/com.github.tobato/fastdfs-client -->
-			<dependency>
-			    <groupId>com.github.tobato</groupId>
-			    <artifactId>fastdfs-client</artifactId>
-			    <version>${fastdfs-client.version}</version>
-			</dependency>
-			
 			<!-- http://mvnrepository.com/artifact/com.alibaba/fastjson -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
