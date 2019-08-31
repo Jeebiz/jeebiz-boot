@@ -124,7 +124,7 @@
 		<fastdfs.version>1.26.6</fastdfs.version>
 		<fastjson.version>1.2.58</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
-		<flowable.version>6.4.1</flowable.version>
+		<flowable.version>6.4.2</flowable.version>
 		<flyway.version>5.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
 		<formio.version>1.6.3</formio.version>
 		<freemarker.version>2.3.28</freemarker.version>
@@ -4218,82 +4218,11 @@
 			    <artifactId>flowable-spring-boot-starter</artifactId>
 			    <version>${flowable.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-app -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-app</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-app-rest -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-app-rest</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-actuator -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-actuator</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>org.springframework.boot</groupId>
-			    <artifactId>flowable-spring-boot-starter-basic</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-cmmn -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-cmmn</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-cmmn-rest -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-cmmn-rest</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-dmn -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-dmn</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-dmn-rest -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-dmn-rest</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-integration -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-integration</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-process -->
 			<dependency>
 			    <groupId>org.flowable</groupId>
 			    <artifactId>flowable-spring-boot-starter-process</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-process-rest -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-process-rest</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-rest -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-rest</artifactId>
-			    <version>${flowable.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter-security -->
-			<dependency>
-			    <groupId>org.flowable</groupId>
-			    <artifactId>flowable-spring-boot-starter-security</artifactId>
-			    <version>${flowable.version}</version>
+			   	<version>${flowable.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-flyway-plus -->
 			<dependency>
