@@ -175,6 +175,7 @@
 		<jwt-issuer.version>1.0.3.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.2.0</kafka-clients.version>
 		<kettle.version>4.1.2-GA</kettle.version>
+		<knife4j.version>1.9.6</knife4j.version>
 		<kisso.version>3.7.5</kisso.version>
 		<kubernetes-client.version>4.2.2</kubernetes-client.version>
 		<kylin-jdbc.version>2.6.3</kylin-jdbc.version>
@@ -300,7 +301,7 @@
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.9.3</svnkit.version>
 		<swagger.version>1.5.22</swagger.version>
-		<swagger-bootstrap-ui.version>1.9.5</swagger-bootstrap-ui.version> 
+		<swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version> 
 		<swagger-butler.version>1.2.0</swagger-butler.version> 
 		<swagger-codegen.version>2.4.5</swagger-codegen.version>
 		<swagger-generator.version>2.4.5</swagger-generator.version>
@@ -2327,6 +2328,25 @@
 			    <version>${kisso.version}</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-spring-ui -->
+			<dependency>
+			    <groupId>com.github.xiaoymin</groupId>
+			    <artifactId>knife4j-spring-ui</artifactId>
+			    <version>${knife4j.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.xiaoymin</groupId>
+			    <artifactId>knife4j-spring-boot-starter</artifactId>
+			    <version>${knife4j.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-micro-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.xiaoymin</groupId>
+			    <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+			    <version>${knife4j.version}</version>
+			</dependency>
+					
 			<!-- https://mvnrepository.com/artifact/org.apache.kylin/kylin-jdbc -->
 			<dependency>
 			    <groupId>org.apache.kylin</groupId>
