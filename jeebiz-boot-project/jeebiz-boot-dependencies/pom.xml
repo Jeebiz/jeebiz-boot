@@ -432,6 +432,7 @@
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-okhttp3.version>1.0.1.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
+		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.5.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.7.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
@@ -440,8 +441,10 @@
 		<spring-boot-starter-rocketmq-plus.version>1.0.1-SNAPSHOT</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.4-SNAPSHOT</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
-		<spring-boot-starter-security-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
+		<spring-boot-starter-security-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
+		<spring-boot-starter-security-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-security-pac4j.version>
+		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.5.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.2.RELEASE</spring-boot-starter-shiro-cas.version>
@@ -4492,6 +4495,12 @@
 				<artifactId>spring-boot-starter-opencv</artifactId>
 				<version>${spring-boot-starter-opencv.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-pac4j -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-pac4j</artifactId>
+				<version>${spring-boot-starter-pac4j.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-pf4j -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
@@ -4558,17 +4567,29 @@
 				<artifactId>spring-boot-starter-security-biz</artifactId>
 				<version>${spring-boot-starter-security-biz.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-dingtalk -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-security-dingtalk</artifactId>
+				<version>${spring-boot-starter-security-dingtalk.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-jwt -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-security-jwt</artifactId>
 				<version>${spring-boot-starter-security-jwt.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-dingtalk -->
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-pac4j -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-security-dingtalk</artifactId>
-				<version>${spring-boot-starter-security-dingtalk.version}</version>
+				<artifactId>spring-boot-starter-security-pac4j</artifactId>
+				<version>${spring-boot-starter-security-pac4j.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-qrcode -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-security-qrcode</artifactId>
+				<version>${spring-boot-starter-security-qrcode.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-spring-boot-starter -->
 			<dependency>
