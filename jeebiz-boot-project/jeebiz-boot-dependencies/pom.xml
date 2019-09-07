@@ -466,6 +466,7 @@
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.1.RELEASE</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
+		<spring-boot-starter-zxing.version>1.0.0-SNAPSHOT</spring-boot-starter-zxing.version>
 		
 	</properties>
 
@@ -4730,6 +4731,12 @@
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-xfire</artifactId>
 				<version>${spring-boot-starter-xfire.version}</version>
+			</dependency>
+			<!-- https://github.com/vindell/spring-boot-starter-zxing -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-zxing</artifactId>
+				<version>${spring-boot-starter-zxing.version}</version>
 			</dependency>
 
 		</dependencies>
