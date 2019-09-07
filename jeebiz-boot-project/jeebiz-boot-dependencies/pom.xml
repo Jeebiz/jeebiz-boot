@@ -336,17 +336,17 @@
 		<zxing.version>3.4.0</zxing.version>
 
 		<!-- Maven Plugin versions -->
-		<maven-appassembler-plugin.version>2.0.0</maven-appassembler-plugin.version>
+		<maven-appassembler-plugin.version>2.1.0</maven-appassembler-plugin.version>
 		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
-		<maven-asciidoctor-plugin.version>1.5.7.1</maven-asciidoctor-plugin.version>
-		<maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+		<maven-asciidoctor-plugin.version>1.6.0</maven-asciidoctor-plugin.version>
+		<maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
 		<maven-clirr-plugin.version>2.8</maven-clirr-plugin.version>
 		<maven-codenarc-plugin.version>0.22-1</maven-codenarc-plugin.version>
 		<maven-cobertura-plugin.version>2.7</maven-cobertura-plugin.version>
-		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
 		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-		<maven-dependency-check-plugin.version>4.0.2</maven-dependency-check-plugin.version>
+		<maven-dependency-check-plugin.version>5.2.1</maven-dependency-check-plugin.version>
 		<maven-docker-plugin.version>1.2.0</maven-docker-plugin.version>
 		<maven-dockerfile-plugin.version>1.4.8</maven-dockerfile-plugin.version>
 		<maven-docker-fabric8-plugin.version>0.30.0</maven-docker-fabric8-plugin.version> 
