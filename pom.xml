@@ -31,13 +31,14 @@
 		<!-- <module>jeebiz-boot-samples</module> -->
 	</modules>
 
-	<!-- 项目使用的License -->
+	<!--开源协议采用Apache 2.0协议-->
 	<licenses>
-		<license>
-			<name>The Apache License 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
-		</license>
-	</licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
 	<!-- 组织信息 -->
 	<organization>
