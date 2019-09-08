@@ -151,6 +151,7 @@
 		<j2cache-mybatis.version>2.7.0-release</j2cache-mybatis.version>
 		<j2cache-session-manager.version>1.0.0-beta4</j2cache-session-manager.version>
 		<j2cache-springcache.version>2.7.4-release</j2cache-springcache.version>
+		<jackson-annotations.version>2.10.0.pr2</jackson-annotations.version>
 		<janino.version>3.0.8</janino.version>
 		<javassist.version>3.25.0-GA</javassist.version>
 		<javassist-plus.version>1.0.1.RELEASE</javassist-plus.version>
@@ -2011,7 +2012,7 @@
 			<dependency>
 			    <groupId>com.fasterxml.jackson.core</groupId>
 			    <artifactId>jackson-annotations</artifactId>
-			    <version>${jackson.version}</version>
+			    <version>${jackson-annotations.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
