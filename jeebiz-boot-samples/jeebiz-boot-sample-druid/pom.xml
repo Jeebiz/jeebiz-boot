@@ -26,6 +26,7 @@
 		
 		<!-- 生成API离线文参数-->
 		<swagger.input>http://localhost:8080/v2/api-docs</swagger.input>
+		<liquibase.version>3.8.0</liquibase.version>
 		
 	</properties>
 
@@ -41,6 +42,12 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>jeebiz-boot-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
+		</dependency>
+		
+		<!-- For Liquibase -->
+		<dependency>
+		    <groupId>org.liquibase</groupId>
+		    <artifactId>liquibase-core</artifactId>
 		</dependency>
 		
 		<!-- For Embedded Web -->
