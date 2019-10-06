@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>net.jeebiz</groupId>
 		<artifactId>jeebiz-boot-build</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.2-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
@@ -296,6 +296,7 @@
 		<springfox.version>3.0.0-SNAPSHOT</springfox.version>
 		<spring-biz.version>1.0.6.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.5.RELEASE</spring-javassist.version>
+		<sqlite-jdbc.version>3.28.0</sqlite-jdbc.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.2.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
