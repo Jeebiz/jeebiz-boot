@@ -224,9 +224,8 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.8.2</p6spy.version>
-		<pac4j.version>3.7.0</pac4j.version>
-		<pac4j-webmvc.version>3.2.0</pac4j-webmvc.version>
-		<pac4j-spring-security.version>4.1.0</pac4j-spring-security.version>
+		<pac4j.version>4.0.0-RC1</pac4j.version>
+		<pac4j-oauth-ext.version>1.0.2-SNAPSHOT</pac4j-oauth-ext.version>
 		<perf4j.version>0.9.16</perf4j.version>
 		<prometheus.version>0.6.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
@@ -2827,66 +2826,99 @@
 			
 			<!-- https://mvnrepository.com/artifact/org.pac4j -->
 			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-http</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-oauth</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-cas</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-saml</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-oidc</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-jwt</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-openid</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-ldap</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-sql</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>pac4j-mongo</artifactId>
-				<version>${pac4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.pac4j</groupId>
-				<artifactId>spring-webmvc-pac4j</artifactId>
-				<version>${pac4j-webmvc.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.pac4j/spring-security-pac4j -->
-			<dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-core</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <dependency>
 			    <groupId>org.pac4j</groupId>
-			    <artifactId>spring-security-pac4j</artifactId>
-			    <version>${pac4j-spring-security.version}</version>
+			    <artifactId>pac4j-config</artifactId>
+			    <version>${pac4j.version}</version>
 			</dependency>
+			<!-- PAC4J For CAS Protocol  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-cas</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For HTTP Protocol  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-http</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For OAuth Protocol  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-oauth</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <dependency>
+		        <groupId>com.github.vindell</groupId>
+				<artifactId>pac4j-oauth-ext</artifactId>
+				<version>${pac4j-oauth-ext.version}</version>
+			</dependency>
+	        <!-- PAC4J For OpenId Protocol  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-openid</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For OpenID Connect Protocol  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-oidc</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For SAML Protocol  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-saml</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+			
+	        <!-- PAC4J For CouchDB -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-couch</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For GAE UserService Mechanism -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-gae</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For JWT -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-jwt</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For Kerberos -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-kerberos</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For LDAP  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-ldap</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For MongoDB  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-mongo</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
+	        <!-- PAC4J For Relational DB  -->
+	        <dependency>
+	            <groupId>org.pac4j</groupId>
+	            <artifactId>pac4j-sql</artifactId>
+	            <version>${pac4j.version}</version>
+	        </dependency>
 			
 			<!-- http://mvnrepository.com/artifact/org.pf4j -->
 			<dependency>
