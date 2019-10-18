@@ -15,13 +15,10 @@
 
 	<properties>
 		<!-- Dependency versions -->
-		<activemq.version>5.15.9</activemq.version>
 		<activation.version>1.1.1</activation.version>
 		<asciidoctorj.version>1.6.2</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
-		<aspectj.version>1.9.4</aspectj.version>
-		<assertj.version>3.12.2</assertj.version>
 		<async-http-client.version>1.9.40</async-http-client.version>
 		<axiom.version>1.2.22</axiom.version>
 		<axis.version>1.4</axis.version>
@@ -38,8 +35,6 @@
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<byte-buddy.version>1.9.14</byte-buddy.version>
-		<caffeine.version>2.7.0</caffeine.version>
 		<cas-client.version>3.5.1</cas-client.version>
 		<camel.version>3.0.0-M4</camel.version>
 		<cglib.version>3.2.12</cglib.version>
@@ -119,25 +114,20 @@
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>2.6.6</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
-		<ehcache.version>2.10.6</ehcache.version>
-		<ehcache3.version>3.7.1</ehcache3.version>
 		<fastdfs.version>1.26.6</fastdfs.version>
-		<fastjson.version>1.2.58</fastjson.version>
+		<fastjson.version>1.2.61</fastjson.version>
 		<findbugs.version>3.0.2</findbugs.version>
 		<flowable.version>6.4.2</flowable.version>
 		<flyway.version>5.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
 		<formio.version>1.6.3</formio.version>
-		<freemarker.version>2.3.28</freemarker.version>
 		<google-http-client.version>1.29.1</google-http-client.version>
 		<guava.version>27.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.23.0</grpc.version>
 		<hadoop.version>3.2.0</hadoop.version>
 		<hbase.version>2.1.4</hbase.version>
-		<h2.version>1.4.199</h2.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
-		<hikaricp.version>3.3.1</hikaricp.version>
 		<hive.version>3.1.1</hive.version>
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
@@ -152,7 +142,6 @@
 		<j2cache-session-manager.version>1.0.0-beta4</j2cache-session-manager.version>
 		<j2cache-springcache.version>2.7.4-release</j2cache-springcache.version>
 		<jackson-annotations.version>2.9.9</jackson-annotations.version>
-		<janino.version>3.0.8</janino.version>
 		<javassist.version>3.25.0-GA</javassist.version>
 		<javassist-plus.version>1.0.1.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>3.2.0</java-uuid-generator.version>
@@ -161,7 +150,6 @@
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>1.3.14-kohsuke-1</jcifs.version>
-		<jetty.version>9.4.20.v20190813</jetty.version>
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
 		<jjwt.version>0.10.7</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
@@ -181,11 +169,7 @@
 		<kubernetes-client.version>4.2.2</kubernetes-client.version>
 		<kylin-jdbc.version>2.6.3</kylin-jdbc.version>
 		<lettuce.version>5.1.8.RELEASE</lettuce.version>
-		<liquibase.version>3.6.3</liquibase.version>
-		<mariadb.version>2.4.1</mariadb.version>
 		<metadata-extractor.version>2.12.0</metadata-extractor.version>
-		<micrometer.version>1.3.0</micrometer.version>
-		<mssql-jdbc.version>7.2.2.jre8</mssql-jdbc.version>
 		<mybatis.version>3.5.2</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-dynamic-sql.version>1.1.2</mybatis-dynamic-sql.version>
@@ -211,9 +195,6 @@
 		<netty-tcnative.version>2.0.25.Final</netty-tcnative.version>
 		<netty-socketio.version>1.7.17</netty-socketio.version>
 		<nimbus-jose-jwt.version>7.2.1</nimbus-jose-jwt.version>
-		<lombok.version>1.18.8</lombok.version>
-		<log4j2.version>2.11.2</log4j2.version>
-		<okhttp.version>3.14.2</okhttp.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
@@ -227,7 +208,6 @@
 		<pac4j.version>4.0.0-RC1</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2-SNAPSHOT</pac4j-oauth-ext.version>
 		<perf4j.version>0.9.16</perf4j.version>
-		<prometheus.version>0.6.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>		
 		<pf4j.version>2.6.0</pf4j.version>
@@ -235,7 +215,6 @@
 		<pf4j-spring.version>0.5.0</pf4j-spring.version>		
 		<pf4j-wicket.version>1.0.0</pf4j-wicket.version>		
 		<png-encoder.version>1.5</png-encoder.version>
-		<rabbit-amqp-client.version>5.7.1</rabbit-amqp-client.version>
 		<reactor-addons.version>3.2.3.RELEASE</reactor-addons.version>
 		<reactor-core.version>3.2.8.RELEASE</reactor-core.version>
 		<reactor-netty.version>0.8.8.RELEASE</reactor-netty.version>
@@ -245,7 +224,6 @@
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq.version>4.5.1</rocketmq.version>
 		<roses.version>2.0.0</roses.version>
-		<slf4j.version>1.7.26</slf4j.version>
 		<schemacrawler.version>16.1.1</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
@@ -2659,56 +2637,6 @@
 			    <scope>import</scope>
 			</dependency>
 			
-			
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>logging-interceptor</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okcurl -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okcurl</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-urlconnection -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-urlconnection</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-tls -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-tls</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-dnsoverhttps -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-dnsoverhttps</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-apache -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-apache</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-sse -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-sse</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-									
 			<!-- JDBC Driver For Oracle -->
 			 
 			<!-- 
