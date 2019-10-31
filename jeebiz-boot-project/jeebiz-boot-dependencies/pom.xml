@@ -125,7 +125,7 @@
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.23.0</grpc.version>
 		<hadoop.version>3.2.0</hadoop.version>
-		<hbase.version>2.1.4</hbase.version>
+		<hbase.version>2.2.2</hbase.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
 		<hive.version>3.1.1</hive.version>
@@ -191,7 +191,7 @@
 		<myth.version>2.0.0-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
-		<netty.version>4.1.39.Final</netty.version>
+		<netty.version>4.1.43.Final</netty.version>
 		<netty-tcnative.version>2.0.25.Final</netty-tcnative.version>
 		<netty-socketio.version>1.7.17</netty-socketio.version>
 		<nimbus-jose-jwt.version>7.2.1</nimbus-jose-jwt.version>
@@ -220,17 +220,15 @@
 		<reactor-netty.version>0.8.8.RELEASE</reactor-netty.version>
 		<reactor-kafka.version>1.1.1.RELEASE</reactor-kafka.version>
 		<reactive-streams.version>1.0.2</reactive-streams.version>
-		<redisson.version>3.11.2</redisson.version>
+		<redisson.version>3.11.5</redisson.version>
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq.version>4.5.1</rocketmq.version>
 		<roses.version>2.0.0</roses.version>
-		<schemacrawler.version>16.1.1</schemacrawler.version>
+		<schemacrawler.version>16.2.4</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
-		<schemacrawler-derby.version>14.03.03</schemacrawler-derby.version>
 		<schemacrawler-distrib.version>${schemacrawler.version}</schemacrawler-distrib.version>
 		<schemacrawler-lint.version>${schemacrawler.version}</schemacrawler-lint.version>
-		<schemacrawler-h2.version>14.09.03</schemacrawler-h2.version>
 		<schemacrawler-hive.version>1.0.0.RELEASE</schemacrawler-hive.version>
 		<schemacrawler-hsqldb.version>${schemacrawler.version}</schemacrawler-hsqldb.version>
 		<schemacrawler-integrations.version>${schemacrawler.version}</schemacrawler-integrations.version> 
@@ -238,10 +236,8 @@
 		<schemacrawler-offline.version>${schemacrawler.version}</schemacrawler-offline.version>
 		<schemacrawler-oracle.version>${schemacrawler.version}</schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
 		<schemacrawler-postgresql.version>${schemacrawler.version}</schemacrawler-postgresql.version>
-		<schemacrawler-sapiq.version>15.05.01</schemacrawler-sapiq.version>
 		<schemacrawler-sqlserver.version>${schemacrawler.version}</schemacrawler-sqlserver.version>
 		<schemacrawler-sqlite.version>${schemacrawler.version}</schemacrawler-sqlite.version>
-		<schemacrawler-timesten.version>15.05.01</schemacrawler-timesten.version>
 		<scribe.version>1.3.7</scribe.version>
 		<scribe-up.version>1.3.1</scribe-up.version>
 		<scribejava.version>6.5.1</scribejava.version>
@@ -3012,12 +3008,6 @@
 			    <artifactId>schemacrawler-db2</artifactId>
 			    <version>${schemacrawler-db2.version}</version>
 			</dependency>
-			<!-- SchemaCrawler For Apache Derby ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-derby -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-derby</artifactId>
-			    <version>${schemacrawler-derby.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/us.fatehi/schemacrawler-distrib -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
@@ -3035,12 +3025,6 @@
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-mysql</artifactId>
 			    <version>${schemacrawler-mysql.version}</version>
-			</dependency>
-			<!-- SchemaCrawler For H2 Database Engine : https://mvnrepository.com/artifact/us.fatehi/schemacrawler-h2 -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-h2</artifactId>
-			    <version>${schemacrawler-h2.version}</version>
 			</dependency>
 			<!-- SchemaCrawler For HyperSQL ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-hsqldb -->
 			<dependency>
@@ -3072,12 +3056,6 @@
 			    <artifactId>schemacrawler-postgresql</artifactId>
 			    <version>${schemacrawler-postgresql.version}</version>
 			</dependency>
-			<!-- SchemaCrawler For SAP IQ ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-sapiq -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-sapiq</artifactId>
-			    <version>${schemacrawler-sapiq.version}</version>
-			</dependency>
 			<!-- SchemaCrawler For Microsoft SQL Server ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-sqlserver -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
@@ -3089,12 +3067,6 @@
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-sqlite</artifactId>
 			    <version>${schemacrawler-sqlite.version}</version>
-			</dependency>
-			<!-- SchemaCrawler For Oracle TimesTen ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-timesten -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-timesten</artifactId>
-			    <version>${schemacrawler-timesten.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/us.fatehi/magnetictrackparser -->
 			<!-- 磁道分析器是一个库，可以解析从银行发行的卡的磁道。所有的类都是不可变的和线程安全的。  标准` tostring() `函数格式的数据以可读的形式。 -->
