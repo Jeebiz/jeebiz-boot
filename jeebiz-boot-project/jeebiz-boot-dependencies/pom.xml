@@ -217,7 +217,7 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<reactor-addons.version>3.2.3.RELEASE</reactor-addons.version>
 		<reactor-core.version>3.2.8.RELEASE</reactor-core.version>
-		<reactor-netty.version>0.8.8.RELEASE</reactor-netty.version>
+		<reactor-netty.version>0.9.1.RELEASE</reactor-netty.version>
 		<reactor-kafka.version>1.1.1.RELEASE</reactor-kafka.version>
 		<reactive-streams.version>1.0.2</reactive-streams.version>
 		<redisson.version>3.11.5</redisson.version>
