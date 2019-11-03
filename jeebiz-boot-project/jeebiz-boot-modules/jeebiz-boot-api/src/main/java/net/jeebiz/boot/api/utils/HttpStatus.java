@@ -6,7 +6,7 @@ package net.jeebiz.boot.api.utils;
 
 /**
  * 标准Http状态码
- * @author vindell
+ * @author wandl
  */
 public interface HttpStatus {
 

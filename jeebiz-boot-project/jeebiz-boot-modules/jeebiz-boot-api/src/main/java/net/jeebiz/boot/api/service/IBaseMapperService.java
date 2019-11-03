@@ -13,7 +13,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
  * 通用Service接口
- * @author <a href="https://github.com/vindell">wandl</a>
+ * @author <a href="https://github.com/wandl">wandl</a>
  * @param <T> 持有的实体对象
  */
 public interface IBaseMapperService<T> {

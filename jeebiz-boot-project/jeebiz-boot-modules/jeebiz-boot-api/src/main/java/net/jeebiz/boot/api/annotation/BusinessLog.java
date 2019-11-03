@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 
 /**
  * 操作日志注解
- * @author <a href="https://github.com/vindell">vindell</a>
+ * @author <a href="https://github.com/wandl">wandl</a>
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * 键值对模型对象
- * @author vindell
+ * @author wandl
  */
 @SuppressWarnings("serial")
 public class PairModel implements Cloneable, Serializable {

@@ -15,7 +15,7 @@ import org.springframework.core.env.PropertySource;
  * @className	： ApplicationEnvironmentPreparedEventListener
  * @description	： Spring Boot 配置环境事件监听 
  * ApplicationEnvironmentPreparedEvent：Spring Boot 对应Enviroment已经准备完毕，但此时上下文context还没有创建。
- * @author 		： <a href="https://github.com/vindell">vindell</a>
+ * @author 		： <a href="https://github.com/wandl">wandl</a>
  * @date		： 2017年11月10日 下午4:55:22
  * @version 	V1.0
  */

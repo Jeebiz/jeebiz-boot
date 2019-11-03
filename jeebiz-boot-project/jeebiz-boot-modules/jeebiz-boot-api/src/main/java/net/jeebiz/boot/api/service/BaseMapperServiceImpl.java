@@ -41,7 +41,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
 /**
  * 通用Service实现，daoBase自动注入，不能存在多个实例
  * 
- * @author <a href="https://github.com/vindell">wandl</a>
+ * @author <a href="https://github.com/wandl">wandl</a>
  * @param <T> {@link IBaseMapperService} 持有的实体对象
  * @param <E> {@link BaseMapper} 实现
  */

@@ -6,7 +6,7 @@ package net.jeebiz.boot.api.dao.entities;
 
 /**
  * 用户model对象，用户信息顶层model
- * @author vindell
+ * @author wandl
  */
 @SuppressWarnings("serial")
 public class UserModel extends BaseModel {
