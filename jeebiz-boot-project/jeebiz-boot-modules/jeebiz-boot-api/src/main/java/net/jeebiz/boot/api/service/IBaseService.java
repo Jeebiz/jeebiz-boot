@@ -175,6 +175,8 @@ public interface IBaseService<T> {
 	 */
 	public List<PairModel> getPairValues(String key);
 	
+	public Map<String, List<PairModel>> getPairValues(String[] keyArr);
+	
 	/**
 	 *  查询一组键值对数据
 	 * @param key

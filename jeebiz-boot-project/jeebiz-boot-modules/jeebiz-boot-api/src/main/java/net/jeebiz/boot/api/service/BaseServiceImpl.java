@@ -301,6 +301,11 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	}
 
 	@Override
+	public Map<String, List<PairModel>> getPairValues(String[] keyArr) {
+		return null;
+	}
+
+	@Override
 	public List<PairModel> getPairList() {
 		return dao.getPairList();
 	}
@@ -379,5 +384,6 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	public void setEmbeddedValueResolver(StringValueResolver resolver) {
 		this.valueResolver = resolver;
 	}
+
 
 }
