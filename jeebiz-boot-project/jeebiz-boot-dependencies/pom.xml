@@ -451,15 +451,6 @@
 	<dependencyManagement>
 		<dependencies>
 			
-			<!-- Override Spring Data release train provided by Spring Boot -->
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-releasetrain</artifactId>
-				<version>Lovelace-RELEASE</version>
-				<scope>import</scope>
-				<type>pom</type>
-			</dependency>
-
 			<!-- Third Party -->
 			
 			<dependency>
