@@ -248,7 +248,7 @@
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
 		<shedlock.version>2.5.0</shedlock.version>
 		<shiro.version>1.4.1</shiro.version>
-		<shiro-biz.version>1.0.7.RELEASE</shiro-biz.version>
+		<shiro-biz.version>1.0.8-SNAPSHOT</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
