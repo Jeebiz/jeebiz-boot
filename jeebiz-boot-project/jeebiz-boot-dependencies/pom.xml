@@ -116,6 +116,7 @@
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.26.6</fastdfs.version>
 		<fastjson.version>1.2.61</fastjson.version>
+		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
 		<findbugs.version>3.0.2</findbugs.version>
 		<flowable.version>6.4.2</flowable.version>
 		<flyway.version>5.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
@@ -383,6 +384,7 @@
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
 		<spring-boot-starter-fastdfs.version>1.0.0.RELEASE</spring-boot-starter-fastdfs.version>
+		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-flyway-plus.version>1.0.4.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.5.RELEASE</spring-boot-starter-hikaricp-plus.version>
@@ -1520,6 +1522,72 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>${fastjson.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-core</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-jexcel</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-poi</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-beetl</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-freemarker</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-httl</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-jetbrick</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-jxls1</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-jxls2</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-rythm</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-thymeleaf</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-velocity</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.jeebiz</groupId>
+				<artifactId>fastxls-template-webit</artifactId>
+				<version>${fastxls.version}</version>
 			</dependency>
 			
 			<!-- Static analytics -->
@@ -4223,6 +4291,11 @@
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-fastdfs</artifactId>
 				<version>${spring-boot-starter-fastdfs.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>spring-boot-starter-fastxls</artifactId>
+				<version>${spring-boot-starter-fastxls.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter -->
 			<dependency>
