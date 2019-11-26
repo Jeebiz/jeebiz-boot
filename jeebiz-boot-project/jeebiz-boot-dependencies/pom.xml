@@ -26,7 +26,7 @@
 		<axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
 		<axis2.version>1.7.9</axis2.version>
 		<axis2-api.version>1.4.1</axis2-api.version>
-		<beetl.version>3.0.11.RELEASE</beetl.version>
+		<beetl.version>3.0.14.RELEASE</beetl.version>
 		<batik.version>1.11</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
 		<buji-pac4j.version>4.1.0</buji-pac4j.version>
@@ -173,10 +173,10 @@
 		<metadata-extractor.version>2.12.0</metadata-extractor.version>
 		<mybatis.version>3.5.3</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
-		<mybatis-dynamic-sql.version>1.1.2</mybatis-dynamic-sql.version>
+		<mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
 		<mybatis-plus.version>3.1.2</mybatis-plus.version>
-		<mybatis-spring.version>2.0.1</mybatis-spring.version>
-		<mybatis-migrations.version>3.3.5</mybatis-migrations.version>
+		<mybatis-spring.version>2.0.3</mybatis-spring.version>
+		<mybatis-migrations.version>3.3.6</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
 		<mybatis-ehcache.version>1.1.0</mybatis-ehcache.version>
@@ -402,7 +402,7 @@
 		<spring-boot-starter-log4j2-plus.version>1.0.5-SNAPSHOT</spring-boot-starter-log4j2-plus.version>
 		<spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version> 
 		<spring-boot-starter-maven-invoker.version>1.0.2.RELEASE</spring-boot-starter-maven-invoker.version> 
-		<spring-boot-starter-mybatis.version>2.0.0</spring-boot-starter-mybatis.version>
+		<spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
 		<spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
 		<spring-boot-starter-myth.version>2.0.2-RELEASE</spring-boot-starter-myth.version>
 		<spring-boot-starter-mina.version>1.0.0-SNAPSHOT</spring-boot-starter-mina.version>
