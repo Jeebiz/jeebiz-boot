@@ -415,6 +415,7 @@
 		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.5.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.7.RELEASE</spring-boot-starter-pf4j2.version>
+		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.0.3</spring-boot-starter-rocketmq.version>
@@ -4524,6 +4525,12 @@
 				<groupId>com.github.vindell</groupId>
 				<artifactId>spring-boot-starter-pf4j2</artifactId>
 				<version>${spring-boot-starter-pf4j2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.liuzhuoming23/pinyin4j-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.liuzhuoming23</groupId>
+			    <artifactId>pinyin4j-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-pinyin4j.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/raincat-spring-boot-starter-dubbo -->
 			<dependency>
