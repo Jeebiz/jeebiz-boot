@@ -405,6 +405,7 @@
 		<spring-boot-starter-maven-invoker.version>1.0.2.RELEASE</spring-boot-starter-maven-invoker.version> 
 		<spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
 		<spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
+		<spring-boot-starter-mybatis-dbperms.version>1.0.0-SNAPSHOT</spring-boot-starter-mybatis-dbperms.version> 
 		<spring-boot-starter-myth.version>2.0.2-RELEASE</spring-boot-starter-myth.version>
 		<spring-boot-starter-mina.version>1.0.0-SNAPSHOT</spring-boot-starter-mina.version>
 		<spring-boot-starter-minio.version>1.0.0-SNAPSHOT</spring-boot-starter-minio.version>
@@ -4293,15 +4294,16 @@
 				<artifactId>spring-boot-starter-ehcache3</artifactId>
 				<version>${spring-boot-starter-ehcache3.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-fastdfs -->
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/fastdfs-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-fastdfs</artifactId>
+				<artifactId>fastdfs-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-fastdfs.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/fastxls-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-fastxls</artifactId>
+				<artifactId>fastxls-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-fastxls.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.flowable/flowable-spring-boot-starter -->
@@ -4449,6 +4451,12 @@
 			    <groupId>com.baomidou</groupId>
 			    <artifactId>mybatis-plus-boot-starter</artifactId>
 			    <version>${spring-boot-starter-mybatis-plus.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/mybatis-dbperms-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>mybatis-dbperms-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-mybatis-dbperms.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/myth-spring-boot-starter-dubbo -->
 			<dependency>
