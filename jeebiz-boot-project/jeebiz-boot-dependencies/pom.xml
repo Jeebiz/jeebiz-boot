@@ -384,7 +384,7 @@
 		<spring-boot-starter-druid-plus.version>1.0.6.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
-		<spring-boot-starter-fastdfs.version>1.0.1-SNAPSHOT</spring-boot-starter-fastdfs.version>
+		<spring-boot-starter-fastdfs.version>1.0.0.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-flyway-plus.version>1.0.4.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
@@ -4300,9 +4300,9 @@
 				<artifactId>fastdfs-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-fastdfs.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.hiwepy/fastxls-spring-boot-starter -->
+			<!-- https://mvnrepository.com/artifact/net.jeebiz/fastxls-spring-boot-starter -->
 			<dependency>
-				<groupId>com.hiwepy</groupId>
+				<groupId>net.jeebiz</groupId>
 				<artifactId>fastxls-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-fastxls.version}</version>
 			</dependency>
