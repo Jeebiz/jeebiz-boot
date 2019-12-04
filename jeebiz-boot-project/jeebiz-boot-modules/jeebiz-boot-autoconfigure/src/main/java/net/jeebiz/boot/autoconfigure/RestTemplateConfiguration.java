@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.biz.web.client.RestTemplateResponseErrorHandler;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +20,7 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.DefaultResponseErrorHandler;
+import org.springframework.web.client.ExtractingResponseErrorHandler;
 import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
@@ -36,7 +36,7 @@ public class RestTemplateConfiguration {
 	@ConditionalOnMissingBean
     public ResponseErrorHandler responseErrorHandler() {
 		try {
-			return new RestTemplateResponseErrorHandler();
+			return new ExtractingResponseErrorHandler();
 		} catch (Exception e) {
 			return new DefaultResponseErrorHandler();
 		}
