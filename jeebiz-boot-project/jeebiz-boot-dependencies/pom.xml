@@ -162,7 +162,7 @@
 		<jsqlparser.version>3.0</jsqlparser.version>
 		<jsoup.version>1.12.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
-		<jwt-issuer.version>1.0.3.RELEASE</jwt-issuer.version>
+		<jwt-issuer.version>1.0.4-SNAPSHOT</jwt-issuer.version>
 		<kafka-clients.version>2.2.0</kafka-clients.version>
 		<kettle.version>4.1.2-GA</kettle.version>
 		<knife4j.version>1.9.6</knife4j.version>
