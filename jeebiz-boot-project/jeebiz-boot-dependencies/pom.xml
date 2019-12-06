@@ -363,10 +363,10 @@
  		<maven-swagger-codegen-plugin.version>${swagger-codegen.version}</maven-swagger-codegen-plugin.version>
  		<maven-swagger3-plugin.version>${swagger3.version}</maven-swagger3-plugin.version>
  		<maven-swagger2markup-plugin.version>1.3.7</maven-swagger2markup-plugin.version>
-		<maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+		<maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 		 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
-		<spring-boot-admin.version>2.1.6</spring-boot-admin.version>
+		<spring-boot-admin.version>2.2.0</spring-boot-admin.version>
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.0.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.0.RELEASE</spring-boot-starter-axis2.version>
