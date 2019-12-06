@@ -36,7 +36,7 @@
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
 		<cas-client.version>3.5.1</cas-client.version>
-		<camel.version>3.0.0-M4</camel.version>
+		<camel.version>3.0.0</camel.version>
 		<cglib.version>3.2.12</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
