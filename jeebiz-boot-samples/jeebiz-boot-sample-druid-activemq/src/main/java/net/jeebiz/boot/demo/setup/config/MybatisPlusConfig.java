@@ -1,32 +1,16 @@
 package net.jeebiz.boot.demo.setup.config;
 
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.baomidou.mybatisplus.core.incrementer.IKeyGenerator;
-import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.incrementer.H2KeyGenerator;
-import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.SqlExplainInterceptor;
 
 @Configuration
-@AutoConfigureAfter( name = {
-	"com.baomidou.mybatisplus.spring.boot.starter.MybatisPlusAutoConfiguration"
-})
 public class MybatisPlusConfig {
 	
-   /**
-    * 性能分析拦截器，不建议生产使用【生产环境可以关闭】
-    * 用来观察 SQL 执行情况及执行时长
-    */
-   @Bean
-   public PerformanceInterceptor performanceInterceptor(){
-       return new PerformanceInterceptor();
-   }
-
    /**
     * mybatis-plus分页插件<br>
     * 文档：http://mp.baomidou.com<br>
@@ -76,14 +60,6 @@ public class MybatisPlusConfig {
        return new H2KeyGenerator();
    }
 
-   /**
-    * 注入sql注入器
-    */
-   @Bean
-   public ISqlInjector sqlInjector(){
-       return new LogicSqlInjector();
-   }
-   
    @Bean
    public SqlExplainInterceptor sqlExplainInterceptor(){
        //启用执行分析插件

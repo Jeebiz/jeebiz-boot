@@ -175,7 +175,7 @@
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0-SNAPSHOT</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
-		<mybatis-plus.version>3.1.2</mybatis-plus.version>
+		<mybatis-plus.version>3.3.0</mybatis-plus.version>
 		<mybatis-spring.version>2.0.3</mybatis-spring.version>
 		<mybatis-migrations.version>3.3.6</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
