@@ -170,7 +170,7 @@
 		<!-- For Rocketmq -->
 		<dependency>
 			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-rocketmq-plus</artifactId>
+			<artifactId>rocketmq-plus-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- For Oracle 11g -->
 		<dependency>
