@@ -16,6 +16,7 @@
 	<properties>
 		<!-- Dependency versions -->
 		<activation.version>1.1.1</activation.version>
+		<alipay.version>4.8.73.ALL</alipay.version>
 		<asciidoctorj.version>1.6.2</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
@@ -474,7 +475,14 @@
 				<artifactId>activation</artifactId>
 				<version>${activation.version}</version>
 			</dependency>
-			
+ß
+			<!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
+			<dependency>
+				<groupId>com.alipay.sdk</groupId>
+				<artifactId>alipay-sdk-java</artifactId>
+				<version>${alipay.version}</version>
+			</dependency>
+
 			<!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->
 			<dependency>
 				<groupId>cn.wensiqun</groupId>

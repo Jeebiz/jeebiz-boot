@@ -43,7 +43,12 @@
 			<artifactId>jeebiz-boot-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>com.alipay.sdk</groupId>
+			<artifactId>alipay-sdk-java</artifactId>
+		</dependency>
+
 		<!-- For Liquibase -->
 		<dependency>
 		    <groupId>org.liquibase</groupId>
