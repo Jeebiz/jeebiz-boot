@@ -118,7 +118,8 @@
 		<fastdfs.version>1.26.6</fastdfs.version>
 		<fastjson.version>1.2.61</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-		<findbugs.version>3.0.2</findbugs.version>
+		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
+		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
 		<flowable.version>6.4.2</flowable.version>
 		<flyway.version>5.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
 		<formio.version>1.6.3</formio.version>
@@ -1610,12 +1611,12 @@
 	        <dependency>
 	            <groupId>com.google.code.findbugs</groupId>
 	            <artifactId>annotations</artifactId>
-	            <version>${findbugs.version}</version>
+	            <version>${findbugs-annotations.version}</version>
 	        </dependency>
 	        <dependency>
 	            <groupId>com.google.code.findbugs</groupId>
 	            <artifactId>jsr305</artifactId>
-	            <version>${findbugs.version}</version>
+	            <version>${findbugs-jsr305.version}</version>
 	        </dependency>
 	        
 	        <!-- https://mvnrepository.com/artifact/org.flowable/flowable-process-engine-mongodb -->
