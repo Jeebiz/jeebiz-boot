@@ -4461,30 +4461,30 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-kaptcha -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-kaptcha</artifactId>
+				<artifactId>kaptcha-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-kaptcha.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-kettle</artifactId>
+				<artifactId>kettle8-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-kettle.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-log4j2-plus -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-log4j2-plus</artifactId>
+				<artifactId>log4j2-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-log4j2-plus.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-maven-invoker -->
 			<dependency>
 			   <groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-maven-embedder</artifactId>
+				<artifactId>maven-embedder-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-maven-embedder.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-maven-invoker -->
 			<dependency>
 			   <groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-maven-invoker</artifactId>
+				<artifactId>maven-invoker-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-maven-invoker.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
@@ -4532,7 +4532,7 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-minio -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-minio</artifactId>
+				<artifactId>minio-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-minio.version}</version>
 			</dependency>
 			<dependency>
@@ -4548,7 +4548,7 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-mina</artifactId>
+				<artifactId>mina-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-mina.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.spring4all/mongodb-plus-spring-boot-starter -->
@@ -4560,31 +4560,31 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-okhttp3 -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-okhttp3</artifactId>
+				<artifactId>okhttp3-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-okhttp3.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-opencv -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-opencv</artifactId>
+				<artifactId>opencv-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-opencv.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-pac4j -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-pac4j</artifactId>
+				<artifactId>pac4j-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-pac4j.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-pf4j -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-pf4j</artifactId>
+				<artifactId>pf4j-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-pf4j.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-pf4j2 -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-pf4j2</artifactId>
+				<artifactId>pf4j2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-pf4j2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.liuzhuoming23/pinyin4j-spring-boot-starter -->
@@ -4632,7 +4632,7 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-rocketmq-plus -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-rocketmq-plus</artifactId>
+				<artifactId>rocketmq-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-rocketmq-plus.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-schemacrawler -->
@@ -4755,19 +4755,19 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-soapui -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-soapui</artifactId>
+				<artifactId>soapui-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-soapui.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-socketio -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-socketio</artifactId>
+				<artifactId>socketio-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-socketio.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-sitemesh3 -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-sitemesh3</artifactId>
+				<artifactId>sitemesh3-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-sitemesh3.version}</version>
 			</dependency>			
 			<!-- https://mvnrepository.com/artifact/com.spring4all/swagger-spring-boot-starter -->
@@ -4779,19 +4779,19 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-webflux-swagger2 -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-webflux-swagger2</artifactId>
+				<artifactId>webflux-swagger2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-webflux-swagger2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-webmvc-swagger2 -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-webmvc-swagger2</artifactId>
+				<artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-webmvc-swagger2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-validation-mimetypes -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-validation-mimetypes</artifactId>
+				<artifactId>validation-mimetypes-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-validation-mimetypes.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.binarywang/wx-java-pay-spring-boot-starter -->
@@ -4814,13 +4814,13 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-xfire</artifactId>
+				<artifactId>xfire-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-xfire.version}</version>
 			</dependency>
 			<!-- https://github.com/vindell/spring-boot-starter-zxing -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-zxing</artifactId>
+				<artifactId>zxing-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-zxing.version}</version>
 			</dependency>
 
