@@ -27,18 +27,18 @@
 		<axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
 		<axis2.version>1.7.9</axis2.version>
 		<axis2-api.version>1.4.1</axis2-api.version>
-		<beetl.version>3.0.14.RELEASE</beetl.version>
+		<beetl.version>3.0.15.RELEASE</beetl.version>
 		<batik.version>1.11</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
-		<buji-pac4j.version>4.1.0</buji-pac4j.version>
-		<bcprov.version>1.61</bcprov.version>
+		<buji-pac4j.version>4.1.1</buji-pac4j.version>
+		<bcprov.version>1.64</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
 		<cas-client.version>3.5.1</cas-client.version>
 		<camel.version>3.0.0</camel.version>
-		<cglib.version>3.2.12</cglib.version>
+		<cglib.version>3.3.0</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
 		<commons-attributes-compiler.version>2.2</commons-attributes-compiler.version>
@@ -97,7 +97,7 @@
 		<dingtalk-sdk.version>20190605</dingtalk-sdk.version>
 		<docx4j-template.version>1.0.0.RELEASE</docx4j-template.version>
 		<docker-client.version>8.16.0</docker-client.version>
-		<docker-java.version>3.1.2</docker-java.version>
+		<docker-java.version>3.2.0-rc2</docker-java.version>
 		<dom4j2.version>2.1.1</dom4j2.version>
 		<dozer.version>5.5.1</dozer.version>
 		<dozer-core.version>6.5.0</dozer-core.version>
@@ -370,13 +370,13 @@
 		<maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 		 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
-		<spring-boot-admin.version>2.2.0</spring-boot-admin.version>
+		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.0.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.0.RELEASE</spring-boot-starter-axis2.version>
 		<spring-boot-starter-axis2-client.version>1.0.0.RELEASE</spring-boot-starter-axis2-client.version>
 		<spring-boot-starter-baiduapi.version>1.0.0-SNAPSHOT</spring-boot-starter-baiduapi.version>
-		<spring-boot-starter-beetl.version>1.2.14.RELEASE</spring-boot-starter-beetl.version>
+		<spring-boot-starter-beetl.version>1.2.19.RELEASE</spring-boot-starter-beetl.version>
 		<spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
 		<spring-boot-starter-casclient.version>1.0.2.RELEASE</spring-boot-starter-casclient.version>
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
@@ -4207,36 +4207,31 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-arcface -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-axis</artifactId>
+				<artifactId>arcface-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-arcface.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>axis-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-axis.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-axis2</artifactId>
+				<artifactId>axis2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-axis2.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-axis2-client</artifactId>
+				<artifactId>axis2-client-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-axis2-client.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>de.codecentric</groupId>
-			    <artifactId>batch-web-spring-boot-starter</artifactId>
-			    <version>2.0.2.RELEASE</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-arcface -->
-			<dependency>
-				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-arcface</artifactId>
-				<version>${spring-boot-starter-arcface.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-baiduapi -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-baiduapi</artifactId>
+				<artifactId>baiduapi-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-baiduapi.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.ibeetl/beetl-framework-starter -->
@@ -4254,7 +4249,7 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-casclient -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-casclient</artifactId>
+				<artifactId>casclient-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-casclient.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-spring-boot-starter-jaxrs -->
@@ -4281,28 +4276,29 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-cxf-jaxws-plus -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-cxf-jaxws-plus</artifactId>
+				<artifactId>cxf-jaxws-security-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-cxf-jaxws-plus.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-disruptor -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-disruptor</artifactId>
+				<artifactId>disruptor-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-disruptor.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-docx4j -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-docx4j</artifactId>
+				<artifactId>docx4j-exportfo-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-docx4j.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-dozer -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-dozer</artifactId>
+				<artifactId>docx4j-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-docx4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.vindell</groupId>
+				<artifactId>dozer-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-dozer.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-spring-boot-starter -->
@@ -4320,7 +4316,7 @@
 			<!-- https://mvnrepository.com/artifact/com.alibaba/spring-boot-starter-dropwizard-metrics -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-dropwizard-metrics</artifactId>
+				<artifactId>dropwizard-metrics-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-dropwizard-metrics.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
@@ -4329,31 +4325,21 @@
 			    <artifactId>druid-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-druid.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-druid-plus -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-druid-plus</artifactId>
+				<artifactId>druid-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-druid-plus.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/cn.springcloud.dubbo/spring-cloud-dubbo-starter -->
 			<dependency>
 			    <groupId>cn.springcloud.dubbo</groupId>
 			    <artifactId>spring-cloud-dubbo-starter</artifactId>
 			    <version>${spring-boot-starter-dubbo.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-ehcache3 -->
-			<dependency>
-				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-ehcache3</artifactId>
-				<version>${spring-boot-starter-ehcache3.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.vindell/fastdfs-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
 				<artifactId>fastdfs-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-fastdfs.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.jeebiz/fastxls-spring-boot-starter -->
 			<dependency>
 				<groupId>net.jeebiz</groupId>
 				<artifactId>fastxls-spring-boot-starter</artifactId>
@@ -4374,7 +4360,7 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-flyway-plus -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-flyway-plus</artifactId>
+				<artifactId>flyway-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-flyway-plus.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.github.lognet/grpc-spring-boot-starter -->
@@ -4392,7 +4378,7 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-hikaricp-plus -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-hikaricp-plus</artifactId>
+				<artifactId>hikaricp-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-hikaricp-plus.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-springcloud -->
@@ -4421,17 +4407,17 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-httpclient</artifactId>
+				<artifactId>httpclient-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-httpclient.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-httpclient3</artifactId>
+				<artifactId>httpclient3-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-httpclient3.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-ip2region</artifactId>
+				<artifactId>ip2region-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-ip2region.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter -->
@@ -4638,7 +4624,7 @@
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-schemacrawler -->
 			<dependency>
 				<groupId>com.github.vindell</groupId>
-				<artifactId>spring-boot-starter-schemacrawler</artifactId>
+				<artifactId>schemacrawler-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-schemacrawler.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-security-biz -->
