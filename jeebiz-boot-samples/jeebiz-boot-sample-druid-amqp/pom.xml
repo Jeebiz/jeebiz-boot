@@ -90,7 +90,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-validation-mimetypes</artifactId>
+			<artifactId>validation-mimetypes-spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
 		    <groupId>org.jsoup</groupId>
@@ -99,7 +99,7 @@
 		<!-- For Dozer -->
 		<dependency>
 			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-dozer</artifactId>
+			<artifactId>dozer-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- <dependency>
 		    <groupId>com.github.dozermapper</groupId>
@@ -142,7 +142,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-log4j2-plus</artifactId>
+			<artifactId>log4j2-plus-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- For Mybatis -->
 		<dependency>
@@ -158,7 +158,7 @@
 		<!-- For Flyway -->
 		<dependency>
 			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-flyway-plus</artifactId>
+			<artifactId>flyway-plus-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- For Druid -->
 		<dependency>
@@ -167,7 +167,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-druid-plus</artifactId>
+			<artifactId>druid-plus-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- For RabbitMQ -->
 		<dependency>
