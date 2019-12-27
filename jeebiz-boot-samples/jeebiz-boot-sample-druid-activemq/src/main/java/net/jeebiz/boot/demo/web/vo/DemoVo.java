@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.SafeHtml;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.github.vindell.validation.constraints.StrictMimeTypeCheck;
+import com.github.hiwepy.validation.constraints.StrictMimeTypeCheck;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -73,8 +73,8 @@
 		</dependency>
 		<!-- For Swagger -->
 		<dependency>
-			<groupId>com.github.vindell</groupId>
-			<artifactId>spring-boot-starter-webflux-swagger2</artifactId>
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>webflux-swagger2-spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
 		    <groupId>com.github.xiaoymin</groupId>
@@ -154,7 +154,7 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>com.github.vindell</groupId>
+			<groupId>com.github.hiwepy</groupId>
 			<artifactId>log4j2-plus-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- For Mybatis -->
@@ -170,12 +170,12 @@
 		</dependency>
 		<!-- For Flyway -->
 		<dependency>
-			<groupId>com.github.vindell</groupId>
+			<groupId>com.github.hiwepy</groupId>
 			<artifactId>flyway-plus-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- For HikariCP -->
 		<dependency>
-			<groupId>com.github.vindell</groupId>
+			<groupId>com.github.hiwepy</groupId>
 			<artifactId>hikaricp-plus-spring-boot-starter</artifactId>
 		</dependency>
 		<!-- For Oracle 11g -->
