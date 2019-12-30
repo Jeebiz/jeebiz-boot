@@ -4703,47 +4703,42 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-biz</artifactId>
+				<artifactId>shiro-biz-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-biz.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-cas</artifactId>
+				<artifactId>shiro-cas-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-cas.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-jwt</artifactId>
+				<artifactId>shiro-jwt-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-jwt.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-kisso</artifactId>
+				<artifactId>shiro-kisso-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-kisso.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-ldap</artifactId>
+				<artifactId>shiro-ldap-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-ldap.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-oauth2</artifactId>
+				<artifactId>shiro-oauth2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-oauth2.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-oidc</artifactId>
-				<version>${spring-boot-starter-shiro-oidc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-openid</artifactId>
+				<artifactId>shiro-openid-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-openid.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
-				<artifactId>spring-boot-starter-shiro-saml</artifactId>
+				<artifactId>shiro-saml-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-saml.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.vindell/spring-boot-starter-soapui -->
