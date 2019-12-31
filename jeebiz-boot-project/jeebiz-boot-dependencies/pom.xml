@@ -299,8 +299,8 @@
 		<snmp4j-agent.version>3.2.3</snmp4j-agent.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
 		<springfox.version>3.0.0-SNAPSHOT</springfox.version>
-		<spring-biz.version>1.0.8-SNAPSHOT</spring-biz.version>
-		<spring-javassist.version>1.0.6-SNAPSHOT</spring-javassist.version>
+		<spring-biz.version>1.0.8.RELEASE</spring-biz.version>
+		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<sqlite-jdbc.version>3.28.0</sqlite-jdbc.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.3.0</sshd.version>
