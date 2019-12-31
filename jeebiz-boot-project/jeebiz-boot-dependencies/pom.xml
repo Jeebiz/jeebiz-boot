@@ -167,6 +167,7 @@
 		<jcifs.version>2.1.13</jcifs.version>
 		<jetty.version>9.4.19.v20190610</jetty.version>
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
+		<jeebiz-devkit.version>1.0.0-SNAPSHOT</jeebiz-devkit.version>
 		<jep.version>2.4.2</jep.version>
 		<jjwt.version>0.10.7</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
