@@ -179,9 +179,8 @@
 		<jsqlparser.version>3.1</jsqlparser.version>
 		<jsoup.version>1.12.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
-		<jwt-issuer.version>1.0.4-SNAPSHOT</jwt-issuer.version>
+		<jwt-issuer.version>1.0.4.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.4.0</kafka-clients.version>
-		<kettle.version>4.1.2-GA</kettle.version>
 		<knife4j.version>2.0.1</knife4j.version>
 		<kisso.version>3.7.5</kisso.version>
 		<kubernetes-client.version>4.6.4</kubernetes-client.version>
@@ -191,6 +190,7 @@
 		<mariadb.version>2.4.1</mariadb.version>
 		<metadata-extractor.version>2.12.0</metadata-extractor.version>
 		<mssql-jdbc.version>7.2.2.jre8</mssql-jdbc.version>
+		<micrometer.version>1.3.2</micrometer.version>
 		<mybatis.version>3.5.3</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0-SNAPSHOT</mybatis-dbperms.version>
@@ -405,21 +405,21 @@
 		<spring-boot-starter-casclient.version>1.0.3-SNAPSHOT</spring-boot-starter-casclient.version>
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
 		<spring-boot-starter-cxf-jaxws-plus.version>1.0.3-SNAPSHOT</spring-boot-starter-cxf-jaxws-plus.version>
-		<spring-boot-starter-disruptor.version>1.0.3-SNAPSHOT</spring-boot-starter-disruptor.version>
+		<spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
 		<spring-boot-starter-docx4j.version>1.0.0-SNAPSHOT</spring-boot-starter-docx4j.version>
-		<spring-boot-starter-dozer.version>1.0.2-SNAPSHOT</spring-boot-starter-dozer.version>
+		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
-		<spring-boot-starter-druid-plus.version>1.0.7-SNAPSHOT</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-druid-plus.version>1.0.7.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
 		<spring-boot-starter-fastdfs.version>1.0.1-SNAPSHOT</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
-		<spring-boot-starter-flyway-plus.version>1.0.5-SNAPSHOT</spring-boot-starter-flyway-plus.version>
+		<spring-boot-starter-flyway-plus.version>1.0.5.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
-		<spring-boot-starter-hikaricp-plus.version>1.0.6-SNAPSHOT</spring-boot-starter-hikaricp-plus.version>
+		<spring-boot-starter-hikaricp-plus.version>1.0.6.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.0.5-RELEASE</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
@@ -431,7 +431,7 @@
 		<spring-boot-starter-jcaptcha.version>1.0.2-SNAPSHOT</spring-boot-starter-jcaptcha.version>
 		<spring-boot-starter-kaptcha.version>1.0.4-SNAPSHOT</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-kettle.version>1.0.0-SNAPSHOT</spring-boot-starter-kettle.version>
-		<spring-boot-starter-log4j2-plus.version>1.0.6-SNAPSHOT</spring-boot-starter-log4j2-plus.version>
+		<spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
 		<spring-boot-starter-maven-embedder.version>1.0.1-SNAPSHOT</spring-boot-starter-maven-embedder.version> 
 		<spring-boot-starter-maven-invoker.version>1.0.3-SNAPSHOT</spring-boot-starter-maven-invoker.version> 
 		<spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
@@ -451,7 +451,7 @@
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.0.4</spring-boot-starter-rocketmq.version>
-		<spring-boot-starter-rocketmq-plus.version>1.0.1-SNAPSHOT</spring-boot-starter-rocketmq-plus.version>
+		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.4-SNAPSHOT</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-security-cas.version>
@@ -477,7 +477,7 @@
 		<spring-boot-starter-swagger.version>1.9.0.RELEASE</spring-boot-starter-swagger.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.0-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.0-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
-		<spring-boot-starter-validation-mimetypes.version>1.0.1-SNAPSHOT</spring-boot-starter-validation-mimetypes.version>
+		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2-SNAPSHOT</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
 		<spring-boot-starter-zxing.version>1.0.0-SNAPSHOT</spring-boot-starter-zxing.version>
