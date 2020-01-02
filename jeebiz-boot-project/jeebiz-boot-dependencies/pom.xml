@@ -460,16 +460,16 @@
 		<spring-boot-starter-security-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
-		<spring-boot-starter-shiro-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.0.3.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
-		<spring-boot-starter-shiro-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-jwt.version>
+		<spring-boot-starter-shiro-jwt.version>1.0.7.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-kisso.version>
 		<spring-boot-starter-shiro-ldap.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-ldap.version>
 		<spring-boot-starter-shiro-oauth2.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oauth2.version>
 		<spring-boot-starter-shiro-oidc.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oidc.version>
 		<spring-boot-starter-shiro-openid.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-openid.version>
 		<spring-boot-starter-shiro-saml.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-saml.version>
-		<spring-boot-starter-soapui.version>1.0.4-SNAPSHOT</spring-boot-starter-soapui.version>
+		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.4-SNAPSHOT</spring-boot-starter-socketio.version>
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
