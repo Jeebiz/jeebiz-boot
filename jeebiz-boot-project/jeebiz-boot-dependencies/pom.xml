@@ -423,13 +423,13 @@
 		<spring-boot-starter-hmily.version>2.0.5-RELEASE</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
-		<spring-boot-starter-ip2region.version>1.0.2-SNAPSHOT</spring-boot-starter-ip2region.version>
-		<spring-boot-starter-j2cache.version>2.7.6-release</spring-boot-starter-j2cache.version>
+		<spring-boot-starter-ip2region.version>1.0.2.RELEASE</spring-boot-starter-ip2region.version>
+		<spring-boot-starter-j2cache.version>${j2cache-core.version}</spring-boot-starter-j2cache.version>
 		<spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
 		<spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
-		<spring-boot-starter-jcaptcha.version>1.0.2-SNAPSHOT</spring-boot-starter-jcaptcha.version>
-		<spring-boot-starter-kaptcha.version>1.0.4-SNAPSHOT</spring-boot-starter-kaptcha.version>
+		<spring-boot-starter-jcaptcha.version>1.0.2.RELEASE</spring-boot-starter-jcaptcha.version>
+		<spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-kettle.version>1.0.0-SNAPSHOT</spring-boot-starter-kettle.version>
 		<spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
 		<spring-boot-starter-maven-embedder.version>1.0.1-SNAPSHOT</spring-boot-starter-maven-embedder.version> 
@@ -472,8 +472,8 @@
 		<spring-boot-starter-soapui.version>1.0.4-SNAPSHOT</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.4-SNAPSHOT</spring-boot-starter-socketio.version>
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
-		<spring-boot-starter-simplecaptcha.version>1.0.2-SNAPSHOT</spring-boot-starter-simplecaptcha.version>
-		<spring-boot-starter-smartcaptcha.version>1.0.2-SNAPSHOT</spring-boot-starter-smartcaptcha.version>
+		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
+		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-swagger.version>1.9.0.RELEASE</spring-boot-starter-swagger.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.0-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.0-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
