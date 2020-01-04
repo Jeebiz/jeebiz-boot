@@ -9,6 +9,7 @@ import java.util.Map;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import net.jeebiz.boot.api.utils.Constants;
 
 /**
  * model for interacting with client.
@@ -16,32 +17,42 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(value = "ApiRestResponse", description = "接口响应对象")
 public class ApiRestResponse<T> {
 
-	private static final String RT_SUCCESS = "success";
-	private static final String RT_FAIL = "fail";
-	private static final String RT_ERROR = "error";
-	
 	@ApiModelProperty(name = "code", dataType = "String", value = "成功或异常编码")
     private final String code;
 	
 	@ApiModelProperty(name = "status", dataType = "String", value = "旧接口成功、失败或异常辅助判断标记:success、fail、error", allowableValues = "success,fail,error")
     private final String status;
 	
-	@ApiModelProperty(name = "message", dataType = "String", value = "成功或异常消息")
-    private final String message;
+	@ApiModelProperty(name = "msg", dataType = "String", value = "成功或异常消息")
+    private final String msg;
     
 	@ApiModelProperty(name = "data", dataType = "java.lang.Object", value = "成功或异常数据")
     private T data;
+
+	public ApiRestResponse() {
+		this.code = ApiCode.SC_SUCCESS.getCode();
+		this.status = Constants.RT_SUCCESS;
+		this.msg = ApiCode.SC_SUCCESS.getReason();
+    }
+ 
+    protected ApiRestResponse(final String code, final String message) {
+        this(code, Constants.RT_SUCCESS, message);
+    }
     
     protected ApiRestResponse(final String code, final String status, final String message) {
         this.code = code;
         this.status = status;
-        this.message = message;
+        this.msg = message;
+    }
+    
+    protected ApiRestResponse(final String code, final String message, final T data) {
+        this(code, Constants.RT_SUCCESS, message, data);
     }
     
     protected ApiRestResponse(final String code, final String status, final String message, final T data) {
         this.code = code;
         this.status = status;
-        this.message = message;
+        this.msg = message;
         this.data = data;
     }
 
@@ -58,9 +69,9 @@ public class ApiRestResponse<T> {
     }
     
     public static <T> ApiRestResponse<T> success(final String code, final String message) {
-        return new ApiRestResponse<T>(code, RT_SUCCESS, message);
+        return new ApiRestResponse<T>(code, Constants.RT_SUCCESS, message);
     }
-    
+
     public static <T> ApiRestResponse<T> success(final T data) {
         return of(ApiCode.SC_SUCCESS, data);
     }
@@ -69,12 +80,16 @@ public class ApiRestResponse<T> {
         return of(ApiCode.SC_FAIL, message);
     }
     
+    public static <T> ApiRestResponse<T> fail(final T data) {
+        return of(ApiCode.SC_FAIL, data);
+    }
+    
     public static <T> ApiRestResponse<T> fail(final int code, final String message) {
         return fail(String.valueOf(code), message);
     }
     
     public static <T> ApiRestResponse<T> fail(final String code, final String message) {
-        return new ApiRestResponse<T>(code, RT_FAIL, message);
+        return new ApiRestResponse<T>(code, Constants.RT_FAIL, message);
     }
     
     public static <T> ApiRestResponse<T> error(final String message) {
@@ -86,11 +101,11 @@ public class ApiRestResponse<T> {
     }
     
     public static <T> ApiRestResponse<T> error(final String code, final String message) {
-        return new ApiRestResponse<T>(code, RT_ERROR,  message);
+        return new ApiRestResponse<T>(code, Constants.RT_ERROR,  message);
     }
-
-    public static <T> ApiRestResponse<T> data(final T data) {
-        return of(ApiCode.SC_SUCCESS.getCode(), ApiCode.SC_SUCCESS.getStatus(), ApiCode.SC_SUCCESS.getReason(), data);
+    
+    public static <T> ApiRestResponse<T> error(final T data) {
+        return of(ApiCode.SC_INTERNAL_SERVER_ERROR, data);
     }
     
     public static <T> ApiRestResponse<T> of(final ApiCode code) {
@@ -103,6 +118,19 @@ public class ApiRestResponse<T> {
     
     public static <T> ApiRestResponse<T> of(final ApiCode code, final T data) {
         return of(code.getCode(), code.getStatus(), code.getReason(), data);
+    }
+    
+    
+    public static <T> ApiRestResponse<T> of(final int code, final String msg) {
+        return of(String.valueOf(code), msg);
+    }
+    
+    public static <T> ApiRestResponse<T> of(final String code, final String msg) {
+        return new ApiRestResponse<T>(code, msg);
+    }
+    
+    public static <T> ApiRestResponse<T> of(final String code, final String msg, final T data) {
+        return new ApiRestResponse<T>(code, msg, data);
     }
     
     public static <T> ApiRestResponse<T> of(final int code, final String status, final String message) {
@@ -125,8 +153,8 @@ public class ApiRestResponse<T> {
 		return status;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getMsg() {
+		return msg;
 	}
 
 	public T getData() {
@@ -137,7 +165,7 @@ public class ApiRestResponse<T> {
 		Map<String, Object> rtMap = new HashMap<String, Object>();
 		rtMap.put("code", code);
 		rtMap.put("status", status);
-		rtMap.put("message", message);
+		rtMap.put("msg", msg);
 		rtMap.put("data", data);
 		return rtMap;
 	}
