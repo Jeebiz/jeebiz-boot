@@ -99,7 +99,7 @@
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.1.3</derby.version>
 		<derby-locale.version>${derby.version}</derby-locale.version>
-		<dingtalk-sdk.version>20190605</dingtalk-sdk.version>
+		<dingtalk-sdk.version>20200103</dingtalk-sdk.version>
 		<docx4j-template.version>1.0.0.RELEASE</docx4j-template.version>
 		<docker-client.version>8.16.0</docker-client.version>
 		<docker-java.version>3.2.0-rc2</docker-java.version>
@@ -482,12 +482,6 @@
 		<dependencies>
 			
 			<!-- Third Party -->
-			
-			<dependency>
-				<groupId>com.dingtalk</groupId>
-				<artifactId>dingtalk-sdk</artifactId>
-				<version>${dingtalk-sdk.version}</version>
-			</dependency>
 			
 			<!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) 
 				API to manage MIME data -->
@@ -1445,6 +1439,12 @@
 			    <groupId>org.apache.derby</groupId>
 			    <artifactId>derbyLocale_zh_CN</artifactId>
 			    <version>${derby-locale.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.dingtalk</groupId>
+				<artifactId>dingtalk-sdk</artifactId>
+				<version>${dingtalk-sdk.version}</version>
 			</dependency>
 			
 			<dependency>
