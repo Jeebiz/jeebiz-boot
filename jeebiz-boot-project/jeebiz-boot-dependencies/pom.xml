@@ -217,7 +217,7 @@
 		<netty-tcnative.version>2.0.28.Final</netty-tcnative.version>
 		<netty-socketio.version>1.7.17</netty-socketio.version>
 		<nimbus-jose-jwt.version>8.4</nimbus-jose-jwt.version>
-		<okhttp.version>4.2.2</okhttp.version>
+		<okhttp.version>4.3.0</okhttp.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
