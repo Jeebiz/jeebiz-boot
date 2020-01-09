@@ -415,12 +415,13 @@
 		<spring-boot-starter-druid-plus.version>1.0.7.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
-		<spring-boot-starter-fastdfs.version>1.0.1.RELEASE</spring-boot-starter-fastdfs.version>
+		<spring-boot-starter-fastdfs.version>1.0.2.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-flyway-plus.version>1.0.5.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.6.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.0.5-RELEASE</spring-boot-starter-hmily.version>
+		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
 		<spring-boot-starter-ip2region.version>1.0.2.RELEASE</spring-boot-starter-ip2region.version>
@@ -432,6 +433,7 @@
 		<spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-kettle.version>1.0.0-SNAPSHOT</spring-boot-starter-kettle.version>
 		<spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
+		<spring-boot-starter-maven-client.version>1.0.1.RELEASE</spring-boot-starter-maven-client.version>
 		<spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version> 
 		<spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version> 
 		<spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
@@ -444,10 +446,13 @@
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-okhttp3.version>1.0.2-SNAPSHOT</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
+		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.6-SNAPSHOT</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.7-SNAPSHOT</spring-boot-starter-pf4j2.version>
+		<spring-boot-starter-pf4j3.version>1.0.0-SNAPSHOT</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
+		<spring-boot-starter-qqwry.version>1.0.1.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.0.4</spring-boot-starter-rocketmq.version>
@@ -4568,6 +4573,11 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
+				<artifactId>httl-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-httl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
 				<artifactId>httpclient-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-httpclient.version}</version>
 			</dependency>
@@ -4622,13 +4632,19 @@
 				<artifactId>log4j2-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-log4j2-plus.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-maven-invoker -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/maven-client-spring-boot-starter -->
+			<dependency>
+			   <groupId>com.github.hiwepy</groupId>
+				<artifactId>maven-client-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-maven-client.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/maven-invoker-spring-boot-starter -->
 			<dependency>
 			   <groupId>com.github.hiwepy</groupId>
 				<artifactId>maven-embedder-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-maven-embedder.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-maven-invoker -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/maven-invoker-spring-boot-starter -->
 			<dependency>
 			   <groupId>com.github.hiwepy</groupId>
 				<artifactId>maven-invoker-spring-boot-starter</artifactId>
@@ -4716,29 +4732,41 @@
 				<artifactId>opencv-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-opencv.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-pac4j -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/pac4j-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>pac4j-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-pac4j.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-pf4j -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/pf4j-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>pf4j-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-pf4j.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-pf4j2 -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/pf4j2-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>pf4j2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-pf4j2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/pf4j3-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>pf4j3-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-pf4j3.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.liuzhuoming23/pinyin4j-spring-boot-starter -->
 			<dependency>
 			    <groupId>com.github.liuzhuoming23</groupId>
 			    <artifactId>pinyin4j-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-pinyin4j.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/qqwry-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>qqwry-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-qqwry.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.dromara/raincat-spring-boot-starter-dubbo -->
 			<dependency>
