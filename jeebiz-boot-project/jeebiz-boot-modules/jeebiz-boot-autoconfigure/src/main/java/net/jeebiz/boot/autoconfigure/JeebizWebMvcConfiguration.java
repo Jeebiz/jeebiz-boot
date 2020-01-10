@@ -41,7 +41,7 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 @Configuration
 @ComponentScan(basePackages = { "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
 @EnableConfigurationProperties(LocalResourceProperteis.class)
-public class WebMvcConfiguration implements WebMvcConfigurer {
+public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
 	   
     /*###########SpringMVC本地化支持###########*/
     
