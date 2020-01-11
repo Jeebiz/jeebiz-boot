@@ -721,8 +721,12 @@
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${basedir}/src/main/resources/application-local.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-prod.yml" 
+									<copy file="${basedir}/src/main/resources/application-pre.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
+									<copy file="${basedir}/src/main/resources/application-pro.yml" 
+										todir="${appassembler-dir}/${project.artifactId}/conf"/>	
+									<copy file="${basedir}/src/main/resources/application-qa.yml" 
+										todir="${appassembler-dir}/${project.artifactId}/conf"/>									
 									<copy file="${basedir}/src/main/resources/application-test.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<!-- 步骤3、拷贝Java环境变量设置文件 
@@ -746,7 +750,11 @@
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									<copy file="${basedir}/src/main/resources/application-local.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${basedir}/src/main/resources/application-prod.yml" 
+									<copy file="${basedir}/src/main/resources/application-pre.yml" 
+										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+									<copy file="${basedir}/src/main/resources/application-pro.yml" 
+										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+									<copy file="${basedir}/src/main/resources/application-qa.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									<copy file="${basedir}/src/main/resources/application-test.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
