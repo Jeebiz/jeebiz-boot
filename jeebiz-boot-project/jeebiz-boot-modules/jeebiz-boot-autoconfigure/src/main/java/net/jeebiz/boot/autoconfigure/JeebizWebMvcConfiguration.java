@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.biz.web.servlet.i18n.NestedLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.ui.context.support.ResourceBundleThemeSource;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ResourceUtils;
+import org.springframework.web.filter.RequestContextFilter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ThemeResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -42,7 +44,15 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 @ComponentScan(basePackages = { "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
 @EnableConfigurationProperties(LocalResourceProperteis.class)
 public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
-	   
+	
+	@Bean
+	@ConditionalOnMissingBean
+	public RequestContextFilter requestContextFilter() {
+		RequestContextFilter contextFilter = new RequestContextFilter();
+		contextFilter.setThreadContextInheritable(true);
+		return contextFilter;
+	}
+	
     /*###########SpringMVC本地化支持###########*/
     
     /* 参考 ： 
@@ -56,7 +66,7 @@ public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
     	return localeChangeInterceptor;
     }
     
-   @Bean
+    @Bean
     public LocaleResolver localeResolver() {
     	
     	NestedLocaleResolver nestedLocaleResolver = new NestedLocaleResolver();
