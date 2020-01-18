@@ -286,9 +286,9 @@
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
 		<shiro-freemarker.version>1.0.0</shiro-freemarker.version>
-		<shiro-j2cache.version>1.0.2-SNAPSHOT</shiro-j2cache.version>
+		<shiro-j2cache.version>1.0.2.RELEASE</shiro-j2cache.version>
 		<shiro-oltu.version>1.0</shiro-oltu.version>
-		<shiro-pf4j.version>1.0.0-SNAPSHOT</shiro-pf4j.version>
+		<shiro-pf4j.version>1.0.0.RELEASE</shiro-pf4j.version>
 		<shiro-redis.version>3.1.0</shiro-redis.version>
 		<shiro-redisson.version>1.0.0.RELEASE</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
