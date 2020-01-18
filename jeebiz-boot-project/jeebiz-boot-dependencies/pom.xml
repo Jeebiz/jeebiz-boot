@@ -281,7 +281,7 @@
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
 		<shedlock.version>2.5.0</shedlock.version>
 		<shiro.version>1.4.2</shiro.version>
-		<shiro-biz.version>1.0.8-SNAPSHOT</shiro-biz.version>
+		<shiro-biz.version>1.0.9.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
@@ -459,9 +459,9 @@
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.4-SNAPSHOT</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
-		<spring-boot-starter-shiro-biz.version>1.0.3.RELEASE</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.0.4.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
-		<spring-boot-starter-shiro-jwt.version>1.0.7.RELEASE</spring-boot-starter-shiro-jwt.version>
+		<spring-boot-starter-shiro-jwt.version>1.0.8.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-kisso.version>
 		<spring-boot-starter-shiro-ldap.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-ldap.version>
 		<spring-boot-starter-shiro-oauth2.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oauth2.version>
