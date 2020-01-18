@@ -33,17 +33,18 @@ import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.resource.PathResourceResolver;
+import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.springframework.web.servlet.theme.CookieThemeResolver;
 import org.springframework.web.servlet.theme.SessionThemeResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 
-//@EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = { "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
+@ComponentScan({ "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
 @EnableConfigurationProperties(LocalResourceProperteis.class)
-public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
+public class DefaultWebMvcConfiguration implements WebMvcConfigurer {
 	
 	@Bean
 	@ConditionalOnMissingBean
@@ -53,7 +54,7 @@ public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
 		return contextFilter;
 	}
 	
-    /*###########SpringMVC本地化支持###########*/
+    /*########### SpringMVC本地化支持 ###########*/
     
     /* 参考 ： 
 		http://blog.csdn.net/wutbiao/article/details/7454345 
@@ -62,12 +63,12 @@ public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
     	LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-    	localeChangeInterceptor.setParamName("language");
+    	localeChangeInterceptor.setParamName("lang");
     	return localeChangeInterceptor;
     }
     
-    @Bean
-    public LocaleResolver localeResolver() {
+   @Bean
+   public LocaleResolver localeResolver() {
     	
     	NestedLocaleResolver nestedLocaleResolver = new NestedLocaleResolver();
     	
@@ -84,7 +85,7 @@ public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
     	resolvers.add(sessionLocaleResolver);
     	
         CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
-        cookieLocaleResolver.setCookieName("language");
+        cookieLocaleResolver.setCookieName("lang");
         cookieLocaleResolver.setCookieMaxAge(-1);
         cookieLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
         resolvers.add(cookieLocaleResolver);
@@ -171,6 +172,10 @@ public class JeebizWebMvcConfiguration implements WebMvcConfigurer {
     	// 指定个性化资源映射
 		registry.addResourceHandler("/assets/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/assets/");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
+				.resourceChain(false).addResolver(new WebJarsResourceResolver())
+				.addResolver(new PathResourceResolver());
+		
 	}
 	
 }
