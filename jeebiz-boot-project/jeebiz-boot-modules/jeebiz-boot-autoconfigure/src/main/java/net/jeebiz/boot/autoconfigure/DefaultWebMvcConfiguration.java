@@ -12,6 +12,7 @@ import java.util.Locale;
 import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.biz.web.servlet.handler.Log4j2MDCInterceptor;
 import org.springframework.biz.web.servlet.i18n.NestedLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -144,9 +145,17 @@ public class DefaultWebMvcConfiguration implements WebMvcConfigurer {
 	private ThemeChangeInterceptor themeChangeInterceptor;
     @Autowired
 	private LocaleChangeInterceptor localeChangeInterceptor;
-    
+    @Autowired
+	private Log4j2MDCInterceptor log4j2MDCInterceptor;
+	
+	@Bean
+	public Log4j2MDCInterceptor log4j2MDCInterceptor() {
+		return new Log4j2MDCInterceptor();
+	}
+	
     @Override
 	public void addInterceptors(InterceptorRegistry registry) {
+    	registry.addInterceptor(log4j2MDCInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE);
 		registry.addInterceptor(themeChangeInterceptor).addPathPatterns("/theme/change");
 		registry.addInterceptor(localeChangeInterceptor).addPathPatterns("/locale/change");
 	}
