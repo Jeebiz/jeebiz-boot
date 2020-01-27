@@ -254,7 +254,7 @@
 		<rocketmq-client.version>4.6.0</rocketmq-client.version>
 		<roses.version>2.0.0</roses.version>
 		<slf4j.version>1.7.26</slf4j.version>
-		<schemacrawler.version>16.2.7</schemacrawler.version>
+		<schemacrawler.version>16.3.2</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-distrib.version>${schemacrawler.version}</schemacrawler-distrib.version>
@@ -457,7 +457,7 @@
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.0.4</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
-		<spring-boot-starter-schemacrawler.version>1.0.4-SNAPSHOT</spring-boot-starter-schemacrawler.version>
+		<spring-boot-starter-schemacrawler.version>1.0.5.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.4.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
