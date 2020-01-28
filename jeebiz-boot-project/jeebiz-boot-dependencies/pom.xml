@@ -280,7 +280,7 @@
 		<sharding-jdbc.version>3.1.0</sharding-jdbc.version>
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
 		<shedlock.version>2.5.0</shedlock.version>
-		<shiro.version>1.4.2</shiro.version>
+		<shiro.version>1.5.0</shiro.version>
 		<shiro-biz.version>1.0.9.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
