@@ -289,10 +289,10 @@
 		<shiro-j2cache.version>1.0.2.RELEASE</shiro-j2cache.version>
 		<shiro-oltu.version>1.0</shiro-oltu.version>
 		<shiro-pf4j.version>1.0.0.RELEASE</shiro-pf4j.version>
-		<shiro-redis.version>3.1.0</shiro-redis.version>
-		<shiro-redisson.version>1.0.0.RELEASE</shiro-redisson.version> 
+		<shiro-redis.version>3.2.3</shiro-redis.version>
+		<shiro-redisson.version>1.1.4</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
-		<shiro-uaa.version>1.0.0</shiro-uaa.version>
+		<shiro-uaa.version>1.0.3</shiro-uaa.version>
 		<sitemesh3.version>3.0.1</sitemesh3.version>
 		<smallsql.version>0.21</smallsql.version>
 		<smslib.version>3.5.4</smslib.version>
@@ -3668,9 +3668,9 @@
 			    <artifactId>shiro-redis</artifactId>
 			    <version>${shiro-redis.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.streamone/shiro-redisson -->
+			<!-- https://mvnrepository.com/artifact/com.github.fartherp/shiro-redisson -->
 			<dependency>
-			    <groupId>com.github.streamone</groupId>
+			    <groupId>com.github.fartherp</groupId>
 			    <artifactId>shiro-redisson</artifactId>
 			    <version>${shiro-redisson.version}</version>
 			</dependency>
