@@ -74,7 +74,7 @@
 	</developers>
 
 	<!-- 配置部署的远程仓库:让Maven知道当我要发布release版本或者snapshot版本是需要发布到哪个地址 -->
-	<distributionManagement>
+	<!-- <distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
 			<name>Maven Snapshots Repository</name>
@@ -85,8 +85,7 @@
 			<name>Maven Central Staging Repository</name>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
-	</distributionManagement>
-	<!-- 
+	</distributionManagement> -->
 	<distributionManagement>
         <repository>
             <id>nexus-releases</id>
@@ -99,7 +98,7 @@
             <url>http://192.168.1.100:8081/repository/maven-snapshots/</url>
 			<uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
-    </distributionManagement> -->
+    </distributionManagement>
 	
 	<repositories>
 		<repository>
