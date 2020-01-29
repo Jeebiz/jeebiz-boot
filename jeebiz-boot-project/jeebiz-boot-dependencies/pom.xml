@@ -133,7 +133,7 @@
 		<formio.version>1.6.4</formio.version>
 		<freemarker.version>2.3.28</freemarker.version>
 		<google-http-client.version>1.34.0</google-http-client.version>
-		<guava.version>28.1-jre</guava.version>
+		<guava.version>28.2-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.23.0</grpc.version>
 		<hadoop.version>3.2.1</hadoop.version>
@@ -217,7 +217,7 @@
 		<netty-tcnative.version>2.0.28.Final</netty-tcnative.version>
 		<netty-socketio.version>1.7.17</netty-socketio.version>
 		<nimbus-jose-jwt.version>8.4</nimbus-jose-jwt.version>
-		<okhttp.version>4.3.0</okhttp.version>
+		<okhttp.version>3.14.6</okhttp.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
@@ -432,7 +432,7 @@
 		<spring-boot-starter-minio.version>1.0.0.RELEASE</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
-		<spring-boot-starter-okhttp3.version>1.0.2-SNAPSHOT</spring-boot-starter-okhttp3.version>
+		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
