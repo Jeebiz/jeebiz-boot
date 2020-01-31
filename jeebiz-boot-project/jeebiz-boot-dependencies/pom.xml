@@ -434,6 +434,7 @@
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
+		<spring-boot-starter-open2internet.version>1.0.0-SNAPSHOT</spring-boot-starter-open2internet.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.6.RELEASE</spring-boot-starter-pf4j.version>
@@ -4719,6 +4720,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>opencv-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-opencv.version}</version>
+			</dependency>
+			<!-- https://github.com/linux-china/open2internet-spring-boot-starter -->
+			<dependency>
+			  	<groupId>com.github.linux-china</groupId>
+			  	<artifactId>open2internet-spring-boot-starter</artifactId>
+			  	<version>${spring-boot-starter-open2internet.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/pac4j-spring-boot-starter -->
 			<dependency>

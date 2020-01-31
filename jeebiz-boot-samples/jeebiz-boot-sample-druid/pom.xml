@@ -43,7 +43,12 @@
 			<artifactId>jeebiz-boot-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-
+		
+		<!-- <dependency>
+		  	<groupId>com.github.linux-china</groupId>
+		  	<artifactId>open2internet-spring-boot-starter</artifactId>
+		</dependency> -->
+		
 		<dependency>
 			<groupId>com.alipay.sdk</groupId>
 			<artifactId>alipay-sdk-java</artifactId>
