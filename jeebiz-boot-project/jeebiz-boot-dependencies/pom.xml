@@ -437,9 +437,9 @@
 		<spring-boot-starter-open2internet.version>1.0.0-SNAPSHOT</spring-boot-starter-open2internet.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
-		<spring-boot-starter-pf4j.version>1.0.6.RELEASE</spring-boot-starter-pf4j.version>
-		<spring-boot-starter-pf4j2.version>1.0.8.RELEASE</spring-boot-starter-pf4j2.version>
-		<spring-boot-starter-pf4j3.version>1.0.0.RELEASE</spring-boot-starter-pf4j3.version>
+		<spring-boot-starter-pf4j.version>1.0.7-SNAPSHOT</spring-boot-starter-pf4j.version>
+		<spring-boot-starter-pf4j2.version>1.0.9-SNAPSHOT</spring-boot-starter-pf4j2.version>
+		<spring-boot-starter-pf4j3.version>1.0.1-SNAPSHOT</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.1.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
