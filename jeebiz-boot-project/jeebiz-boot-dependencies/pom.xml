@@ -329,7 +329,7 @@
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-		<weixin-java.version>3.5.9.B</weixin-java.version>
+		<weixin-java.version>3.6.7.B</weixin-java.version>
 		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
@@ -4922,6 +4922,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>validation-mimetypes-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-validation-mimetypes.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.binarywang/wx-java-open-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.binarywang</groupId>
+			    <artifactId>wx-java-open-spring-boot-starter</artifactId>
+			    <version>${weixin-java.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.binarywang/wx-java-pay-spring-boot-starter -->
 			<dependency>
