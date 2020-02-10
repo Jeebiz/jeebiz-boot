@@ -44,6 +44,13 @@
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/com.eatthepath/java-otp -->
+		<dependency>
+		    <groupId>com.eatthepath</groupId>
+		    <artifactId>java-otp</artifactId>
+		    <version>0.2.0</version>
+		</dependency>
+				
 		<!-- <dependency>
 		  	<groupId>com.github.linux-china</groupId>
 		  	<artifactId>open2internet-spring-boot-starter</artifactId>
