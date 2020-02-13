@@ -218,6 +218,7 @@
 		<netty-socketio.version>1.7.17</netty-socketio.version>
 		<nimbus-jose-jwt.version>8.4</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.6</okhttp.version>
+		<oksms.version>1.0.0-SNAPSHOT</oksms.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
 		<oracle-11g-driver.version>11.2.0.4</oracle-11g-driver.version>
 		<oracle-12c-driver.version>12.1.0.2</oracle-12c-driver.version>
@@ -433,6 +434,7 @@
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
+		<spring-boot-starter-oksms.version>1.0.0-SNAPSHOT</spring-boot-starter-oksms.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
 		<spring-boot-starter-open2internet.version>1.0.0-SNAPSHOT</spring-boot-starter-open2internet.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
@@ -4709,11 +4711,17 @@
 			    <artifactId>mongodb-plus-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-mongodb-plus.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-okhttp3 -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp3-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>okhttp3-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-okhttp3.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/oksms-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>oksms-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-oksms.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-opencv -->
 			<dependency>
