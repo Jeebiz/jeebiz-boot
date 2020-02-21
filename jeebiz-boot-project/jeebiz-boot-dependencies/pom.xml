@@ -100,7 +100,7 @@
 		<derby.version>10.15.1.3</derby.version>
 		<derby-locale.version>${derby.version}</derby-locale.version>
 		<dingtalk-sdk.version>20200103</dingtalk-sdk.version>
-		<docx4j-template.version>1.0.0.RELEASE</docx4j-template.version>
+		<docx4j-template.version>1.0.1-SNAPSHOT</docx4j-template.version>
 		<docker-client.version>8.16.0</docker-client.version>
 		<docker-java.version>3.2.0-rc2</docker-java.version>
 		<dom4j2.version>2.1.1</dom4j2.version>
