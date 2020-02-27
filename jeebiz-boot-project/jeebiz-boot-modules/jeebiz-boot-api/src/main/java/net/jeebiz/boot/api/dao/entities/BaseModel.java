@@ -17,10 +17,6 @@ public class BaseModel<T extends Model<?>> extends Model<T> implements Cloneable
 	 * 国际化Local值，默认zh_CN,其他值如en_US,zh_CN
 	 */
 	private String locale = "zh_CN";
-	/**
-	 * 主键 
-	 */ 
-	private String id;
 
 	public String getAppid() {
 		return appid;
@@ -36,14 +32,6 @@ public class BaseModel<T extends Model<?>> extends Model<T> implements Cloneable
 
 	public void setLocale(String locale) {
 		this.locale = locale;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 	
 }

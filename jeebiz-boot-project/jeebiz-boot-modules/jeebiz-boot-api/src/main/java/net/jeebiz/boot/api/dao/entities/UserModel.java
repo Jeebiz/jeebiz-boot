@@ -9,7 +9,7 @@ package net.jeebiz.boot.api.dao.entities;
  * @author wandl
  */
 @SuppressWarnings("serial")
-public class UserModel extends BaseModel {
+public class UserModel extends BaseModel<UserModel> {
 
 	/**
 	 * 用户ID（用户来源表Id）
