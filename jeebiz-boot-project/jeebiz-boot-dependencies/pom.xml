@@ -395,7 +395,8 @@
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
 		<spring-boot-starter-cxf-jaxws-plus.version>1.0.3-SNAPSHOT</spring-boot-starter-cxf-jaxws-plus.version>
 		<spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
-		<spring-boot-starter-docx4j.version>1.0.0-SNAPSHOT</spring-boot-starter-docx4j.version>
+		<spring-boot-starter-docx4j-exportfo.version>1.0.0-SNAPSHOT</spring-boot-starter-docx4j-exportfo.version>
+		<spring-boot-starter-docx4j.version>1.0.1-SNAPSHOT</spring-boot-starter-docx4j.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
@@ -4446,7 +4447,7 @@
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>docx4j-exportfo-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-docx4j.version}</version>
+				<version>${spring-boot-starter-docx4j-exportfo.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
