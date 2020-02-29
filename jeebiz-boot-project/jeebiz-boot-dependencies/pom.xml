@@ -160,7 +160,7 @@
 		<janino.version>3.0.8</janino.version>
 		<jackson-annotations.version>2.10.1</jackson-annotations.version>
 		<javassist.version>3.26.0-GA</javassist.version>
-		<javassist-plus.version>1.0.2.RELEASE</javassist-plus.version>
+		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>3.2.0</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
 		<javamelody.version>1.80.0</javamelody.version>
