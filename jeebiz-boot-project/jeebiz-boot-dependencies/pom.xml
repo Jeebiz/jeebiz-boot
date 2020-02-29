@@ -94,7 +94,7 @@
 		<contiperf.version>2.3.4</contiperf.version>
 		<cronet.version>76.3809.111</cronet.version>
 		<cssparser.version>0.9.27</cssparser.version>
-		<cxf.version>3.3.4</cxf.version>
+		<cxf.version>3.3.5</cxf.version>
 		<cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.1.3</derby.version>
