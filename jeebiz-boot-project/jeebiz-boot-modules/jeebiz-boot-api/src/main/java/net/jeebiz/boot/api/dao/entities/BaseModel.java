@@ -4,10 +4,10 @@
  */
 package net.jeebiz.boot.api.dao.entities;
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class BaseModel<T extends Model<?>> extends Model<T> implements Cloneable {
+public class BaseModel<T> implements Cloneable, Serializable {
 	
 	/**
 	 * 应用唯一ID

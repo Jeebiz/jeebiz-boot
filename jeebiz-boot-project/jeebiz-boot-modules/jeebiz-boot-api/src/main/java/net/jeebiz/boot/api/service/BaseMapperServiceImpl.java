@@ -32,7 +32,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.dozermapper.core.Mapper;
@@ -49,7 +48,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @param <T> {@link IBaseMapperService} 持有的实体对象
  * @param <E> {@link BaseMapper} 实现
  */
-public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> extends ServiceImpl<E, T> implements InitializingBean,
+public class BaseMapperServiceImpl<T, E extends BaseMapper<T>> extends ServiceImpl<E, T> implements InitializingBean,
 		ApplicationEventPublisherAware, ApplicationContextAware, EmbeddedValueResolverAware, IBaseMapperService<T> {
 
 	protected static Logger LOG = LoggerFactory.getLogger(BaseServiceImpl.class);
@@ -164,14 +163,11 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public Page<T> getPagedList(T t) {
+	public Page<T> getPagedList(PaginationModel<T> model) {
 
-		PaginationModel tModel = (PaginationModel) t;
-
-		Page<T> page = new Page<T>(tModel.getPageNo(), tModel.getLimit());
-		if(!CollectionUtils.isEmpty(tModel.getOrders())) {
-			for (Object orderObj : tModel.getOrders()) {
-				OrderBy orderBy = (OrderBy) orderObj;
+		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
+		if(!CollectionUtils.isEmpty(model.getOrders())) {
+			for (OrderBy orderBy : model.getOrders()) {
 				if(orderBy.isAsc()) {
 					page.addOrder(OrderItem.asc(orderBy.getColumn()));
 				} else {
@@ -179,7 +175,7 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 				}
 			}
 		}
-		List<T> records = getBaseMapper().getPagedList(page, t);
+		List<T> records = getBaseMapper().getPagedList(page, model);
 		page.setRecords(records);
 
 		return page;
@@ -190,9 +186,9 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public Page<T> getPagedList(Page<T> page, T t) {
+	public Page<T> getPagedList(Page<T> page, PaginationModel<T> model) {
 
-		List<T> records = getBaseMapper().getPagedList(page, t);
+		List<T> records = getBaseMapper().getPagedList(page, model);
 		page.setRecords(records);
 
 		return page;

@@ -9,6 +9,7 @@ import java.util.Map;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import net.jeebiz.boot.api.dao.entities.PaginationModel;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
@@ -69,8 +70,8 @@ public interface IBaseMapperService<T> {
 	 * @param t
 	 * @return
 	 */
-	public Page<T> getPagedList(T t);
-	public Page<T> getPagedList(Page<T> page,T t);
+	public Page<T> getPagedList(PaginationModel<T> model);
+	public Page<T> getPagedList(Page<T> page, PaginationModel<T> model);
 	
 	/**
 	 * 无分页查询

@@ -26,7 +26,6 @@ import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.context.MessageSource;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -207,14 +206,11 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public Page<T> getPagedList(T t) {
+	public Page<T> getPagedList(PaginationModel<T> model) {
 
-		PaginationModel tModel = (PaginationModel) t;
-
-		Page<T> page = new Page<T>(tModel.getPageNo(), tModel.getLimit());
-		if(!CollectionUtils.isEmpty(tModel.getOrders())) {
-			for (Object orderObj : tModel.getOrders()) {
-				OrderBy orderBy = (OrderBy) orderObj;
+		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
+		if(!CollectionUtils.isEmpty(model.getOrders())) {
+			for (OrderBy orderBy : model.getOrders()) {
 				if(orderBy.isAsc()) {
 					page.addOrder(OrderItem.asc(orderBy.getColumn()));
 				} else {
@@ -222,7 +218,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 				}
 			}
 		}
-		List<T> records = dao.getPagedList(page, t);
+		List<T> records = dao.getPagedList(page, model);
 		page.setRecords(records);
 
 		return page;
@@ -233,9 +229,9 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public Page<T> getPagedList(Page<T> page, T t) {
+	public Page<T> getPagedList(Page<T> page, PaginationModel<T> model) {
 
-		List<T> records = dao.getPagedList(page, t);
+		List<T> records = dao.getPagedList(page, model);
 		page.setRecords(records);
 
 		return page;

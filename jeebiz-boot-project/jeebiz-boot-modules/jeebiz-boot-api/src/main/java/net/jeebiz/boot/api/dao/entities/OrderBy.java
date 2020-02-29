@@ -6,6 +6,7 @@ package net.jeebiz.boot.api.dao.entities;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class OrderBy implements Serializable {
 
 	 /**

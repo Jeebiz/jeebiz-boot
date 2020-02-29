@@ -6,10 +6,8 @@ package net.jeebiz.boot.api.dao.entities;
 
 import java.util.List;
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-
 @SuppressWarnings("serial")
-public class PaginationModel<T extends Model<?>> extends BaseModel<T> {
+public class PaginationModel<T> extends BaseModel<T> {
 
 	protected static final int DEFAULT_LIMIT = 15;
 	

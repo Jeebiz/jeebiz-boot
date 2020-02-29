@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import net.jeebiz.boot.api.dao.entities.PaginationModel;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
@@ -101,7 +102,7 @@ public interface BaseDao <T> {
 	 * @param t
 	 * @return
 	 */
-	public List<T> getPagedList(Page<T> page, @Param("model") T t);
+	public List<T> getPagedList(Page<T> page, @Param("model") PaginationModel<T> model);
 	
 	/**
 	 * 无分页查询
@@ -149,20 +150,6 @@ public interface BaseDao <T> {
 	public int getCountByName(@Param("name") String name, @Param("origin") String origin);
 	
 	public int getCountByParent(@Param("parent") String parent);
-	
-	/**
-	 * 按数据范围分页查询
-	 * @param t
-	 * @return
-	 */
-	public List<T> getPagedByScope(T t);
-	
-	/**
-	 * 按数据范围无分页查询
-	 * @param t
-	 * @return
-	 */
-	public List<T> getModelListByScope(T t);
 	
 	/**
 	 * 通过指定key查询对应的唯一值
