@@ -4,6 +4,8 @@
  */
 package net.jeebiz.boot.api.dao.entities;
 
+import java.util.List;
+
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 @SuppressWarnings("serial")
@@ -32,13 +34,9 @@ public class PaginationModel<T extends Model<?>> extends BaseModel<T> {
 	 */
 	private int totalCount;
 	/**
-	 * 排序字段名称
+	 * 排序信息
 	 */
-	private String sortName;
-	/**
-	 * 排序类型 asc \ desc
-	 */
-	private String sortOrder;
+	private List<OrderBy> orders;
 	
 	public int getPageNo() {
 		return pageNo < 0 ? (getOffset() / getLimit() + 1 ) : pageNo;
@@ -91,20 +89,12 @@ public class PaginationModel<T extends Model<?>> extends BaseModel<T> {
 		this.totalCount = totalCount;
 	}
 
-	public String getSortName() {
-		return sortName;
+	public List<OrderBy> getOrders() {
+		return orders;
 	}
 
-	public void setSortName(String sortName) {
-		this.sortName = sortName;
-	}
-
-	public String getSortOrder() {
-		return sortOrder;
-	}
-
-	public void setSortOrder(String sortOrder) {
-		this.sortOrder = sortOrder;
+	public void setOrders(List<OrderBy> orders) {
+		this.orders = orders;
 	}
 	
 }

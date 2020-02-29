@@ -4,7 +4,10 @@
  */
 package net.jeebiz.boot.api.vo;
 
+import java.util.List;
+
 import io.swagger.annotations.ApiModelProperty;
+import net.jeebiz.boot.api.dao.entities.OrderBy;
 
 public abstract class AbstractPaginationVo {
 
@@ -20,16 +23,11 @@ public abstract class AbstractPaginationVo {
 	@ApiModelProperty(value = "pageNo", dataType = "Integer", example = "1", notes = "当前页码")
 	private int pageNo = 1;
 	/**
-	 * 排序字段名称
+	 * 排序信息
 	 */
-	@ApiModelProperty(value = "sortName", dataType = "String", example = "name", notes = "排序字段名称")
-	private String sortName;
-	/**
-	 * 排序类型 asc \ desc
-	 */
-	@ApiModelProperty(value = "sortOrder", dataType = "String", example = "desc", allowableValues = "asc,desc", notes = "排序类型 asc、desc")
-	private String sortOrder;
-
+	@ApiModelProperty(value = "orders", dataType = "java.util.List<OrderBy>", notes = "排序信息")
+	private List<OrderBy> orders;
+	
 	public int getLimit() {
 		return limit;
 	}
@@ -46,20 +44,12 @@ public abstract class AbstractPaginationVo {
 		this.pageNo = pageNo;
 	}
 
-	public String getSortName() {
-		return sortName;
+	public List<OrderBy> getOrders() {
+		return orders;
 	}
 
-	public void setSortName(String sortName) {
-		this.sortName = sortName;
-	}
-
-	public String getSortOrder() {
-		return sortOrder;
-	}
-
-	public void setSortOrder(String sortOrder) {
-		this.sortOrder = sortOrder;
+	public void setOrders(List<OrderBy> orders) {
+		this.orders = orders;
 	}
 
 }

@@ -25,15 +25,19 @@ import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.context.MessageSource;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.dozermapper.core.Mapper;
 
 import net.jeebiz.boot.api.dao.BaseDao;
+import net.jeebiz.boot.api.dao.entities.OrderBy;
 import net.jeebiz.boot.api.dao.entities.PaginationModel;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
@@ -208,11 +212,16 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 		PaginationModel tModel = (PaginationModel) t;
 
 		Page<T> page = new Page<T>(tModel.getPageNo(), tModel.getLimit());
-		/*
-		 * if ("asc".equalsIgnoreCase(tModel.getSortOrder())) {
-		 * page.setAsc(tModel.getSortName()); } else {
-		 * page.setDesc(tModel.getSortName()); }
-		 */
+		if(!CollectionUtils.isEmpty(tModel.getOrders())) {
+			for (Object orderObj : tModel.getOrders()) {
+				OrderBy orderBy = (OrderBy) orderObj;
+				if(orderBy.isAsc()) {
+					page.addOrder(OrderItem.asc(orderBy.getColumn()));
+				} else {
+					page.addOrder(OrderItem.desc(orderBy.getColumn()));
+				}
+			}
+		}
 		List<T> records = dao.getPagedList(page, t);
 		page.setRecords(records);
 
