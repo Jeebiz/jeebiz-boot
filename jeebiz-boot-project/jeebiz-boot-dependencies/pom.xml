@@ -301,6 +301,7 @@
 		<smslib.version>3.5.4</smslib.version>
 		<snmp4j.version>3.3.2</snmp4j.version>
 		<snmp4j-agent.version>3.2.3</snmp4j-agent.version>
+		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
 		<springfox.version>3.0.0-SNAPSHOT</springfox.version>
 		<spring-biz.version>1.0.8.RELEASE</spring-biz.version>
@@ -3880,6 +3881,12 @@
 				<groupId>javax.xml.stream</groupId>
 				<artifactId>stax-api</artifactId>
 				<version>1.0-2</version>
+			</dependency>
+			
+			<dependency>
+			   <groupId>com.github.hiwepy</groupId>
+				<artifactId>soapui-template</artifactId>
+				<version>${soapui-template.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
