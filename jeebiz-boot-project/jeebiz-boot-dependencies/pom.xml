@@ -21,8 +21,8 @@
 		<asciidoctorj.version>1.6.2</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
-		<aspectj.version>1.9.4</aspectj.version>
-		<assertj.version>3.12.2</assertj.version>
+		<aspectj.version>1.9.5</aspectj.version>
+		<assertj.version>3.15.0</assertj.version>
 		<async-http-client.version>2.10.5</async-http-client.version>
 		<axiom.version>1.2.22</axiom.version>
 		<axis.version>1.4</axis.version>
@@ -30,19 +30,19 @@
 		<axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
 		<axis2.version>1.7.9</axis2.version>
 		<axis2-api.version>1.4.1</axis2-api.version>
-		<beetl.version>3.0.16.RELEASE</beetl.version>
+		<beetl.version>3.0.19.RELEASE</beetl.version>
 		<batik.version>1.12</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
-		<buji-pac4j.version>4.1.1</buji-pac4j.version>
+		<buji-pac4j.version>5.0.0-RC3</buji-pac4j.version>
 		<bcprov.version>1.64</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<byte-buddy.version>1.9.14</byte-buddy.version>
-		<caffeine.version>2.7.0</caffeine.version>
+		<byte-buddy.version>1.10.8</byte-buddy.version>
+		<caffeine.version>2.8.1</caffeine.version>
 		<cas-client.version>3.6.1</cas-client.version>
-		<camel.version>3.0.0</camel.version>
+		<camel.version>3.1.0</camel.version>
 		<cglib.version>3.3.0</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
@@ -128,10 +128,10 @@
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
-		<flowable.version>6.4.2</flowable.version>
-		<flyway.version>5.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
+		<flowable.version>6.5.0</flowable.version>
+		<flyway.version>6.2.4</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
 		<formio.version>1.6.4</formio.version>
-		<freemarker.version>2.3.28</freemarker.version>
+		<freemarker.version>2.3.29</freemarker.version>
 		<google-http-client.version>1.34.0</google-http-client.version>
 		<guava.version>28.2-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
@@ -142,7 +142,7 @@
 		<htmlparser.version>2.1</htmlparser.version>
 		<httpconn.version>1.0.1.RELEASE</httpconn.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
-		<hikaricp.version>3.3.1</hikaricp.version>
+		<hikaricp.version>3.4.2</hikaricp.version>
 		<hive.version>3.1.2</hive.version>
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
@@ -167,19 +167,19 @@
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
-		<jetty.version>9.4.19.v20190610</jetty.version>
+		<jetty.version>9.4.27.v20200227</jetty.version>
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
 		<jeebiz-devkit.version>1.0.0-SNAPSHOT</jeebiz-devkit.version>
 		<jep.version>2.4.2</jep.version>
-		<jjwt.version>0.10.7</jjwt.version>
+		<jjwt.version>0.11.0</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
-		<jgroups.version>4.1.8.Final</jgroups.version>
-		<jgit.version>5.6.0.201912101111-r</jgit.version>
+		<jgroups.version>	4.2.0.Final</jgroups.version>
+		<jgit.version>5.6.1.202002131546-r</jgit.version>
 		<jpush-client.version>3.4.3</jpush-client.version>
 		<jruby.version>9.2.9.0</jruby.version>
 		<jsch.version>0.1.55</jsch.version>
 		<jsqlparser.version>3.1</jsqlparser.version>
-		<jsoup.version>1.12.1</jsoup.version>
+		<jsoup.version>1.12.2</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jwt-issuer.version>1.0.4.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.4.0</kafka-clients.version>
@@ -187,19 +187,19 @@
 		<kisso.version>3.7.5</kisso.version>
 		<kubernetes-client.version>4.6.4</kubernetes-client.version>
 		<kylin-jdbc.version>2.6.4</kylin-jdbc.version>
-		<lettuce.version>5.2.1.RELEASE</lettuce.version>
-		<liquibase.version>3.8.4</liquibase.version>
-		<mariadb.version>2.4.1</mariadb.version>
+		<lettuce.version>5.2.2.RELEASE</lettuce.version>
+		<liquibase.version>3.8.7</liquibase.version>
+		<mariadb.version>2.5.4</mariadb.version>
 		<metadata-extractor.version>2.12.0</metadata-extractor.version>
-		<mssql-jdbc.version>7.2.2.jre8</mssql-jdbc.version>
-		<micrometer.version>1.3.2</micrometer.version>
-		<mybatis.version>3.5.3</mybatis.version>
+		<mssql-jdbc.version>8.2.1.jre8</mssql-jdbc.version>
+		<micrometer.version>1.3.5</micrometer.version>
+		<mybatis.version>3.5.4</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0-SNAPSHOT</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
 		<mybatis-plus.version>3.3.0</mybatis-plus.version>
 		<mybatis-spring.version>2.0.3</mybatis-spring.version>
-		<mybatis-migrations.version>3.3.6</mybatis-migrations.version>
+		<mybatis-migrations.version>3.3.7</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
 		<mybatis-ehcache.version>1.1.0</mybatis-ehcache.version>
@@ -211,14 +211,14 @@
 		<mybatis-freemarker.version>1.1.2</mybatis-freemarker.version>
 		<mybatis-velocity.version>1.3</mybatis-velocity.version>
 		<mybatis-generator.version>1.3.7</mybatis-generator.version>
-		<mysql.version>8.0.18</mysql.version>
+		<mysql.version>8.0.19</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
-		<netty.version>4.1.44.Final</netty.version>
-		<netty-tcnative.version>2.0.28.Final</netty-tcnative.version>
+		<netty.version>4.1.46.Final</netty.version>
+		<netty-tcnative.version>2.0.29.Final</netty-tcnative.version>
 		<netty-socketio.version>1.7.17</netty-socketio.version>
-		<nimbus-jose-jwt.version>8.4</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>8.8</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.6</okhttp.version>
 		<oksms.version>1.0.0-SNAPSHOT</oksms.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
@@ -231,12 +231,12 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.8.7</p6spy.version>
-		<pac4j.version>4.0.0-RC2</pac4j.version>
+		<pac4j.version>4.0.0-RC3</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2-SNAPSHOT</pac4j-oauth-ext.version>
 		<pac4j-webmvc.version>3.2.0</pac4j-webmvc.version>
 		<pac4j-spring-security.version>4.1.0</pac4j-spring-security.version>
 		<perf4j.version>0.9.16</perf4j.version>
-		<prometheus.version>0.6.0</prometheus.version>
+		<prometheus.version>1.3.5</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>		
 		<pf4j.version>3.2.0</pf4j.version>
@@ -244,20 +244,20 @@
 		<pf4j-spring.version>0.5.0</pf4j-spring.version>		
 		<pf4j-wicket.version>1.0.0</pf4j-wicket.version>		
 		<png-encoder.version>1.5</png-encoder.version>
-		<rabbit-amqp-client.version>5.7.1</rabbit-amqp-client.version>
-		<reactor-addons.version>3.3.1.RELEASE</reactor-addons.version>
-		<reactor-bom.version>Dysprosium-SR2</reactor-bom.version><!-- Californium-SR14、Dysprosium-SR2 -->
-		<reactor-core.version>3.3.1.RELEASE</reactor-core.version>
-		<reactor-netty.version>0.9.2.RELEASE</reactor-netty.version>
-		<reactor-kafka.version>1.1.1.RELEASE</reactor-kafka.version>
+		<rabbit-amqp-client.version>5.8.0</rabbit-amqp-client.version>
+		<reactor-addons.version>3.3.2.RELEASE</reactor-addons.version>
+		<reactor-bom.version>Dysprosium-SR5</reactor-bom.version><!-- Californium-SR14、Dysprosium-SR2 -->
+		<reactor-core.version>3.3.3.RELEASE</reactor-core.version>
+		<reactor-netty.version>0.9.5.RELEASE</reactor-netty.version>
+		<reactor-kafka.version>1.2.2.RELEASE</reactor-kafka.version>
 		<reactive-streams.version>1.0.2</reactive-streams.version>
-		<redisson.version>3.12.0</redisson.version>
-		<resilience4j.version>0.14.1</resilience4j.version>
+		<redisson.version>3.12.3</redisson.version>
+		<resilience4j.version>1.3.1</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
 		<rocketmq-client.version>4.6.0</rocketmq-client.version>
 		<roses.version>2.0.0</roses.version>
 		<slf4j.version>1.7.26</slf4j.version>
-		<schemacrawler.version>16.3.2</schemacrawler.version>
+		<schemacrawler.version>16.4.1</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-distrib.version>${schemacrawler.version}</schemacrawler-distrib.version>
@@ -278,11 +278,11 @@
 		<scribe-up.version>1.3.1</scribe-up.version>
 		<scribejava.version>6.9.0</scribejava.version>
 		<scribejava-apis-ext.version>1.0.0-SNAPSHOT</scribejava-apis-ext.version>
-		<sequoiadb-driver.version>3.2</sequoiadb-driver.version>
+		<sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
 		<sharding-jdbc.version>3.1.0</sharding-jdbc.version>
 		<sharding-transaction.version>3.0.0.M3</sharding-transaction.version>
-		<shedlock.version>2.5.0</shedlock.version>
+		<shedlock.version>4.4.0</shedlock.version>
 		<shiro.version>1.5.0</shiro.version>
 		<shiro-biz.version>1.0.9.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
@@ -322,7 +322,7 @@
 		<swagger-validator.version>1.0.6</swagger-validator.version>
 		<swagger2markup.version>1.3.3</swagger2markup.version>
 		<swagger3.version>2.0.9</swagger3.version>
-		<tablesaw.version>0.36.0</tablesaw.version>
+		<tablesaw.version>0.37.3</tablesaw.version>
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
 		<thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
@@ -333,15 +333,15 @@
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-		<weixin-java.version>3.6.7.B</weixin-java.version>
+		<weixin-java.version>3.7.0</weixin-java.version>
 		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
 		<xmemcached.version>2.4.6</xmemcached.version>
 		<xmlschema-core.version>2.0.2</xmlschema-core.version>
 		<xfire.version>1.2.6</xfire.version>
-		<xnio.version>3.7.2.Final</xnio.version>
-		<xnio-netty-transport.version>0.1.7.Final</xnio-netty-transport.version>
+		<xnio.version>3.7.7.Final</xnio.version>
+		<xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
 		<xstream.version>1.4.11.1</xstream.version>
 		<xxl-job.version>2.1.0</xxl-job.version>
 		<zookeeper.version>3.5.5</zookeeper.version>
