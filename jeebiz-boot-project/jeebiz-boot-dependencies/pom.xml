@@ -386,7 +386,7 @@
 		<maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 		 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
-		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
+		<spring-boot-admin.version>2.2.2</spring-boot-admin.version>
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.1-SNAPSHOT</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.1-SNAPSHOT</spring-boot-starter-axis2.version>
