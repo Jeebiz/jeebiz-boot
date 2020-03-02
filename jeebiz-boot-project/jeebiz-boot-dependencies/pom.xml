@@ -39,7 +39,7 @@
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<byte-buddy.version>1.10.8</byte-buddy.version>
+		<byte-buddy.version>1.9.14</byte-buddy.version>
 		<caffeine.version>2.8.1</caffeine.version>
 		<cas-client.version>3.6.1</cas-client.version>
 		<camel.version>3.1.0</camel.version>
@@ -123,8 +123,9 @@
 		<ehcache.version>2.10.6</ehcache.version>
 		<ehcache3.version>3.7.1</ehcache3.version>
 		<fastdfs.version>1.26.7</fastdfs.version>
-		<fastjson.version>1.2.62</fastjson.version>
+		<fastjson.version>1.2.66</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
+		<feign.version>10.6.0</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -173,7 +174,7 @@
 		<jep.version>2.4.2</jep.version>
 		<jjwt.version>0.11.0</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
-		<jgroups.version>	4.2.0.Final</jgroups.version>
+		<jgroups.version>4.2.0.Final</jgroups.version>
 		<jgit.version>5.6.1.202002131546-r</jgit.version>
 		<jpush-client.version>3.4.3</jpush-client.version>
 		<jruby.version>9.2.9.0</jruby.version>
@@ -408,7 +409,7 @@
 		<spring-boot-starter-druid-plus.version>1.0.7.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
-		<spring-boot-starter-fastdfs.version>1.0.2.RELEASE</spring-boot-starter-fastdfs.version>
+		<spring-boot-starter-fastdfs.version>1.0.3-SNAPSHOT</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-flyway-plus.version>1.0.5.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
@@ -453,6 +454,12 @@
 		<spring-boot-starter-rocketmq.version>2.0.4</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.5.RELEASE</spring-boot-starter-schemacrawler.version>
+		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
+		<spring-boot-starter-security-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-security-cas.version>
+		<spring-boot-starter-security-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
+		<spring-boot-starter-security-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
+		<spring-boot-starter-security-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-security-pac4j.version>
+		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.4.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
@@ -4968,6 +4975,42 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>schemacrawler-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-schemacrawler.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-biz -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-biz-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-biz.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-cas -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-cas-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-cas.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-dingtalk -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-dingtalk-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-dingtalk.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-jwt -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-jwt-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-jwt.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-pac4j -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-pac4j-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-pac4j.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-qrcode -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-qrcode-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-qrcode.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-spring-boot-starter -->
 			<dependency>
