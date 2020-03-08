@@ -180,7 +180,7 @@
 		<jruby.version>9.2.9.0</jruby.version>
 		<jsch.version>0.1.55</jsch.version>
 		<jsqlparser.version>3.1</jsqlparser.version>
-		<jsoup.version>1.12.2</jsoup.version>
+		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jwt-issuer.version>1.0.4.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.4.0</kafka-clients.version>
