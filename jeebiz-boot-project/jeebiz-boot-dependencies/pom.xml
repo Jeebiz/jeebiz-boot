@@ -164,7 +164,7 @@
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>3.2.0</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
-		<javamelody.version>1.80.0</javamelody.version>
+		<javamelody.version>1.82.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
