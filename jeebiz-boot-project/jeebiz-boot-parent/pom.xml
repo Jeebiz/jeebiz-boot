@@ -341,14 +341,9 @@
 							<packageBranchRate>85</packageBranchRate>
 							<regexes>
 								<regex>
-									<pattern>com.example.reallyimportant.*</pattern>
+									<pattern>net.jeebiz.*</pattern>
 									<branchRate>90</branchRate>
 									<lineRate>80</lineRate>
-								</regex>
-								<regex>
-									<pattern>com.example.boringcode.*</pattern>
-									<branchRate>40</branchRate>
-									<lineRate>30</lineRate>
 								</regex>
 							</regexes>
 						</check>
@@ -825,6 +820,19 @@
 									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="#rm -rf jre${line.separator}"></echo>
 									
+								</target>
+							</configuration>
+						</execution>
+						<!-- 在Maven部署阶段进行ZIP打包：拷贝配置文件 -->
+						<execution>
+							<id>copy-resources</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<echo message="antrun copy resources" />
 								</target>
 							</configuration>
 						</execution>
