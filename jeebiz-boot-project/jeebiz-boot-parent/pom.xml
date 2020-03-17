@@ -754,9 +754,9 @@
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="cp ./${appassembler-bin-fileName} /etc/init.d/${project.artifactId}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chkconfig --add ${appassembler-bin-fileName}${line.separator}"></echo>
+										message="chkconfig --add ${project.artifactId}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chkconfig --level 345 ${appassembler-bin-fileName} on${line.separator}"></echo>
+										message="chkconfig --level 345 ${project.artifactId} on${line.separator}"></echo>
 									<!-- 步骤6、构建应用卸载脚本 -->    
 									<delete file="${appassembler-dir}/${project.artifactId}/uninstall.sh"></delete>
 									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
