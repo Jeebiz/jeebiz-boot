@@ -538,7 +538,7 @@
 										<!-- <extraArgument>-XX:+UseParNewGC</extraArgument> -->
 										<!-- 元空间 -->
 										<!-- 初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=64M</extraArgument>
+										<extraArgument>-XX:MetaspaceSize=128M</extraArgument>
 										<!-- 最大空间，默认是没有限制的 -->
 										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
 										<!-- 在GC之后，最小的Metaspace剩余空间容量的百分比，减少为分配空间所导致的垃圾收集 <extraArgument>-XX:MinMetaspaceFreeRatio=60</extraArgument> -->
@@ -650,7 +650,7 @@
 										<!-- <extraArgument>-XX:+UseParNewGC</extraArgument> -->
 										<!-- 元空间 -->
 										<!-- 初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=64M</extraArgument>
+										<extraArgument>-XX:MetaspaceSize=128M</extraArgument>
 										<!-- 最大空间，默认是没有限制的 -->
 										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
 										<!-- 在GC之后，最小的Metaspace剩余空间容量的百分比，减少为分配空间所导致的垃圾收集 <extraArgument>-XX:MinMetaspaceFreeRatio=60</extraArgument> -->
@@ -812,10 +812,10 @@
 							<configuration>
 								<target>
 									<echo message="build zip package" />
-									<delete file="${project.build.directory}/${project.artifactId}-${project.version}-jsw.zip"></delete>
-									<zip basedir="${appassembler-jsw-dir}/${project.artifactId}" destfile="${project.build.directory}/${project.artifactId}-${project.version}-jsw.zip" />
-									<delete file="${project.build.directory}/${project.artifactId}-${project.version}.zip"></delete>
-									<zip basedir="${appassembler-dir}/${project.artifactId}" destfile="${project.build.directory}/${project.artifactId}-${project.version}.zip" />
+									<delete file="${appassembler-jsw-dir}/${project.artifactId}-${project.version}-jsw.zip"></delete>
+									<zip basedir="${appassembler-jsw-dir}/${project.artifactId}" destfile="${appassembler-jsw-dir}/${project.artifactId}-${project.version}-jsw.zip" />
+									<delete file="${appassembler-dir}/${project.artifactId}-${project.version}.zip"></delete>
+									<zip basedir="${appassembler-dir}/${project.artifactId}" destfile="${appassembler-dir}/${project.artifactId}-${project.version}.zip" />
 								</target>
 							</configuration>
 						</execution>
