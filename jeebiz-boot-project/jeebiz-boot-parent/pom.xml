@@ -30,7 +30,6 @@
 		<appassembler-dir>${project.build.directory}/generated-resources/appassembler</appassembler-dir>
 		<appassembler-jsw-dir>${project.build.directory}/generated-resources/appassembler/jsw</appassembler-jsw-dir>
 		<appassembler-bin-fileName>jeebiz-boot</appassembler-bin-fileName>
-		<appassembler-app-name>jeebiz-boot</appassembler-app-name>
 		
 		<!-- 生成Docker镜像参数: docker build、push地址-->
 	    <docker.workdir>/u01/boot/${project.artifactId}</docker.workdir>
@@ -689,9 +688,9 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<executions>
-						<!-- 在Maven打包阶段进行初步的脚本处理：拷贝配置文件 -->
+						<!-- 在Maven预打包阶段进行初步的脚本处理：拷贝配置文件、生成相关启停脚本 -->
 						<execution>
-							<id>copy-resources</id>
+							<id>prepare-resources</id>
 							<phase>package</phase>
 							<goals>
 								<goal>run</goal>
@@ -706,12 +705,9 @@
 									<copy file="${project.build.directory}/${project.build.finalName}.jar"
 										todir="${appassembler-dir}/${project.artifactId}/lib" />
 									<!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
-									
 									<mkdir dir="${appassembler-dir}/${project.artifactId}/conf" />
-									
 									<copy file="${basedir}/src/main/resources/application.properties"
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
-										
 									<copy file="${basedir}/src/main/resources/application-dev.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${basedir}/src/main/resources/application-local.yml" 
@@ -728,6 +724,51 @@
 									<copy file="${basedir}/runenv/setenv" todir="${appassembler-dir}/${project.artifactId}/bin" />
 									<copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-dir}/${project.artifactId}/bin" />
 									-->
+									<!-- 步骤4、拷贝Java运行环境文件
+									<copy file="${basedir}/runenv/jre-8u60-linux-x64.tar.gz"
+										todir="${appassembler-dir}/${project.artifactId}" /> -->
+									<!-- 步骤5、构建应用安装脚本 -->
+									<delete file="${appassembler-dir}/${project.artifactId}/install.sh"></delete>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="#!/bin/sh${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="#解压独立jre运行包【如果希望工程使用独有的jdk、jre请将压缩包放置在项目根目录并修改下面的配置】${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="#rm -rf jre${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="#tar -zxvf jre-8u60-linux-x64.tar.gz${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="#File Authorized${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="chmod 755 jre/bin/*${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="chmod 755 bin/*${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="chmod 755 ${appassembler-bin-fileName}${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="chmod 755 uninstall.sh${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="#启停脚本服务化软连接${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="rm -rf /etc/init.d/${appassembler-bin-fileName}${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="cp ./${appassembler-bin-fileName} /etc/init.d/${appassembler-bin-fileName}${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="chkconfig --add ${appassembler-bin-fileName}${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+										message="chkconfig --level 345 ${appassembler-bin-fileName} on${line.separator}"></echo>
+									<!-- 步骤6、构建应用卸载脚本 -->    
+									<delete file="${appassembler-dir}/${project.artifactId}/uninstall.sh"></delete>
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+										message="#!/bin/sh${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+										message="chkconfig ${appassembler-bin-fileName} off${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+										message="chkconfig --del ${appassembler-bin-fileName}${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+										message="rm -rf /etc/init.d/${appassembler-bin-fileName}${line.separator}"></echo>
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+										message="#rm -rf jre${line.separator}"></echo>
 									
 									<!-- 处理服务模式依赖资源 -->
 								
@@ -761,78 +802,18 @@
 								</target>
 							</configuration>
 						</execution>
-						<!-- 在Maven安装阶段进行进一步的脚本处理：生成相关启停脚本 -->
+						<!-- 在Maven打包阶段进行进一步的脚本处理：构建zip压缩包 -->
 						<execution>
-							<id>build-shell</id>
+							<id>build-zip-package</id>
 							<phase>install</phase>
 							<goals>
 								<goal>run</goal>
 							</goals>
 							<configuration>
 								<target>
-									<echo message="antrun build shell" />
-	
-									<!-- 处理脚本模式依赖资源 -->
-									
-									<!-- 步骤1、拷贝Java运行环境文件
-									<copy file="${basedir}/runenv/jre-8u60-linux-x64.tar.gz"
-										todir="${appassembler-dir}/${project.artifactId}" /> -->
-									<!-- 步骤2、构建应用安装脚本 -->
-									<delete file="${appassembler-dir}/${project.artifactId}/install.sh"></delete>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#!/bin/sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#解压独立jre运行包【如果希望工程使用独有的jdk、jre请将压缩包放置在项目根目录并修改下面的配置】${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#rm -rf jre${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#tar -zxvf jre-8u60-linux-x64.tar.gz${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#File Authorized${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chmod 755 jre/bin/*${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chmod 755 bin/*${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chmod 755 ${appassembler-app-name}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chmod 755 uninstall.sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="#启停脚本服务化软连接${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="rm -rf /etc/init.d/${appassembler-app-name}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="cp ./${appassembler-app-name} /etc/init.d/${appassembler-app-name}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chkconfig --add ${appassembler-app-name}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="chkconfig --level 345 ${appassembler-app-name} on${line.separator}"></echo>
-									<!-- 步骤3、构建应用卸载脚本 -->    
-									<delete file="${appassembler-dir}/${project.artifactId}/uninstall.sh"></delete>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="#!/bin/sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="chkconfig ${appassembler-app-name} off${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="chkconfig --del ${appassembler-app-name}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="rm -rf /etc/init.d/${appassembler-app-name}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="#rm -rf jre${line.separator}"></echo>
-									
-								</target>
-							</configuration>
-						</execution>
-						<!-- 在Maven部署阶段进行ZIP打包：拷贝配置文件 -->
-						<execution>
-							<id>copy-resources</id>
-							<phase>deploy</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<echo message="antrun copy resources" />
+									<echo message="build zip package" />
+									<zip basedir="${appassembler-jsw-dir}/${project.artifactId}" destfile="${project.build.directory}/${project.artifactId}-${project.version}-jsw.zip" />
+									<zip basedir="${appassembler-dir}/${project.artifactId}" destfile="${project.build.directory}/${project.artifactId}-${project.version}.zip" />
 								</target>
 							</configuration>
 						</execution>
