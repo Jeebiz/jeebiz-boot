@@ -812,7 +812,9 @@
 							<configuration>
 								<target>
 									<echo message="build zip package" />
+									<delete file="${project.build.directory}/${project.artifactId}-${project.version}-jsw.zip"></delete>
 									<zip basedir="${appassembler-jsw-dir}/${project.artifactId}" destfile="${project.build.directory}/${project.artifactId}-${project.version}-jsw.zip" />
+									<delete file="${project.build.directory}/${project.artifactId}-${project.version}.zip"></delete>
 									<zip basedir="${appassembler-dir}/${project.artifactId}" destfile="${project.build.directory}/${project.artifactId}-${project.version}.zip" />
 								</target>
 							</configuration>
