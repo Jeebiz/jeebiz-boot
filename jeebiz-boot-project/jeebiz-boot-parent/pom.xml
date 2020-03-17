@@ -750,9 +750,9 @@
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="#启停脚本服务化软连接${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="rm -rf /etc/init.d/${appassembler-bin-fileName}${line.separator}"></echo>
+										message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
-										message="cp ./${appassembler-bin-fileName} /etc/init.d/${appassembler-bin-fileName}${line.separator}"></echo>
+										message="cp ./${appassembler-bin-fileName} /etc/init.d/${project.artifactId}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
 										message="chkconfig --add ${appassembler-bin-fileName}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
@@ -766,7 +766,7 @@
 									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="chkconfig --del ${appassembler-bin-fileName}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
-										message="rm -rf /etc/init.d/${appassembler-bin-fileName}${line.separator}"></echo>
+										message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
 									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
 										message="#rm -rf jre${line.separator}"></echo>
 									
