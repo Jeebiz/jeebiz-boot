@@ -216,9 +216,9 @@
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
-		<netty.version>4.1.47.Final</netty.version>
-		<netty-tcnative.version>2.0.29.Final</netty-tcnative.version>
-		<netty-socketio.version>1.7.17</netty-socketio.version>
+		<!-- <netty.version>4.1.48.Final</netty.version> -->
+		<netty-tcnative.version>2.0.30.Final</netty-tcnative.version>
+		<netty-socketio.version>1.7.18</netty-socketio.version>
 		<nimbus-jose-jwt.version>8.8</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.6</okhttp.version>
 		<oksms.version>1.0.0-SNAPSHOT</oksms.version>
@@ -246,12 +246,7 @@
 		<pf4j-wicket.version>1.0.0</pf4j-wicket.version>		
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.8.0</rabbit-amqp-client.version>
-		<reactor-addons.version>3.3.2.RELEASE</reactor-addons.version>
-		<reactor-bom.version>Dysprosium-SR5</reactor-bom.version><!-- Californium-SR14、Dysprosium-SR2 -->
-		<reactor-core.version>3.3.3.RELEASE</reactor-core.version>
-		<reactor-netty.version>0.9.5.RELEASE</reactor-netty.version>
-		<reactor-kafka.version>1.2.2.RELEASE</reactor-kafka.version>
-		<reactive-streams.version>1.0.2</reactive-streams.version>
+		<reactor-bom.version>Dysprosium-SR6</reactor-bom.version>
 		<redisson.version>3.12.3</redisson.version>
 		<resilience4j.version>1.3.1</resilience4j.version>
 		<reflections.version>0.9.11</reflections.version>
@@ -3226,48 +3221,6 @@
 			    <type>pom</type>
 	            <scope>import</scope>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core
-			<dependency>
-				<groupId>io.projectreactor</groupId>
-				<artifactId>reactor-core</artifactId>
-				<version>${reactor-core.version}</version>
-			</dependency> -->
-			<!-- https://mvnrepository.com/artifact/io.projectreactor.addons/reactor-extra
-			<dependency>
-				<groupId>io.projectreactor.addons</groupId>
-				<artifactId>reactor-extra</artifactId>
-				<version>${reactor-addons.version}</version>
-			</dependency> -->
-			<!-- https://mvnrepository.com/artifact/io.projectreactor.addons/reactor-adapter 
-			<dependency>
-				<groupId>io.projectreactor.addons</groupId>
-				<artifactId>reactor-adapter</artifactId>
-				<version>${reactor-addons.version}</version>
-			</dependency>-->
-			<!-- https://mvnrepository.com/artifact/io.projectreactor.addons/reactor-logback -->
-			<dependency>
-				<groupId>io.projectreactor.addons</groupId>
-				<artifactId>reactor-logback</artifactId>
-				<version>${reactor-addons.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty
-			<dependency>
-			    <groupId>io.projectreactor.netty</groupId>
-			    <artifactId>reactor-netty</artifactId>
-			    <version>${reactor-netty.version}</version>
-			</dependency> -->
-			<!-- https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-kafka
-			<dependency>
-				<groupId>io.projectreactor.kafka</groupId>
-				<artifactId>reactor-kafka</artifactId>
-				<version>${reactor-kafka.version}</version>
-			</dependency> -->
-			<!-- https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams 
-			<dependency>
-				<groupId>org.reactivestreams</groupId>
-				<artifactId>reactive-streams</artifactId>
-				<version>${reactive-streams.version}</version>
-			</dependency>-->
 			
 			<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-spring-boot2 -->
 			<dependency>
