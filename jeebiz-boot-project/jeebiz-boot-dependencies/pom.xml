@@ -328,7 +328,7 @@
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-		<weixin-java.version>3.7.0</weixin-java.version>
+		<weixin-java.version>3.7.3.B</weixin-java.version>
 		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
@@ -464,6 +464,7 @@
 		<spring-boot-starter-shiro-oidc.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oidc.version>
 		<spring-boot-starter-shiro-openid.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-openid.version>
 		<spring-boot-starter-shiro-saml.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-saml.version>
+		<spring-boot-starter-shiro-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.4.RELEASE</spring-boot-starter-socketio.version>
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
@@ -4989,59 +4990,73 @@
 				<artifactId>shiro-spring-boot-web-starter</artifactId>
 				<version>${shiro.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-biz-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-biz-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-biz.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-cas-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-cas-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-cas.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-jwt-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-jwt-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-jwt.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-kisso-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-kisso-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-kisso.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-ldap-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-ldap-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-ldap.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-oauth2-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-oauth2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-oauth2.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-openid-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-openid-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-openid.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-saml-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-saml-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-saml.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-soapui -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-weixin-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>shiro-weixin-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-shiro-weixin.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/soapui-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>soapui-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-soapui.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-socketio -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/socketio-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>socketio-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-socketio.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-sitemesh3 -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/sitemesh3-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>sitemesh3-spring-boot-starter</artifactId>
@@ -5053,19 +5068,19 @@
 			    <artifactId>swagger-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-swagger.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-webflux-swagger2 -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/webflux-swagger2-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>webflux-swagger2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-webflux-swagger2.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-webmvc-swagger2 -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/webmvc-swagger2-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-webmvc-swagger2.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-validation-mimetypes -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/validation-mimetypes-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>validation-mimetypes-spring-boot-starter</artifactId>
