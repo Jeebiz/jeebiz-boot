@@ -457,6 +457,7 @@
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.5-SNAPSHOT</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
+		<spring-boot-starter-shiro-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>1.1.0-SNAPSHOT</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-kisso.version>
 		<spring-boot-starter-shiro-ldap.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-ldap.version>
@@ -5001,6 +5002,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-cas-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-cas.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-dingtalk-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>shiro-dingtalk-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-shiro-dingtalk.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-jwt-spring-boot-starter -->
 			<dependency>
