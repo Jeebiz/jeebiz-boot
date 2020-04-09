@@ -397,6 +397,7 @@
 		<spring-boot-starter-docx4j.version>1.0.1-SNAPSHOT</spring-boot-starter-docx4j.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
+		<spring-boot-starter-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-dingtalk.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
@@ -4569,6 +4570,11 @@
 			    <groupId>com.github.dozermapper</groupId>
 			    <artifactId>dozer-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-dozermapper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>dingtalk-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-dingtalk.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
 			<dependency>
