@@ -203,7 +203,7 @@
 		<mybatis-migrations.version>3.3.7</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
-		<mybatis-ehcache.version>1.1.0</mybatis-ehcache.version>
+		<mybatis-ehcache.version>1.2.0</mybatis-ehcache.version>
 		<mybatis-hazelcast.version>1.1.1</mybatis-hazelcast.version>
 		<mybatis-ignite.version>1.0.6</mybatis-ignite.version>
 		<mybatis-memcached.version>1.1.0</mybatis-memcached.version>
@@ -284,9 +284,9 @@
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
 		<shiro-freemarker.version>1.0.0</shiro-freemarker.version>
-		<shiro-j2cache.version>1.0.2.RELEASE</shiro-j2cache.version>
+		<shiro-j2cache.version>1.0.3.RELEASE</shiro-j2cache.version>
 		<shiro-oltu.version>1.0</shiro-oltu.version>
-		<shiro-pf4j.version>1.0.0.RELEASE</shiro-pf4j.version>
+		<shiro-pf4j.version>1.0.1.RELEASE</shiro-pf4j.version>
 		<shiro-redis.version>3.2.3</shiro-redis.version>
 		<shiro-redisson.version>1.1.4</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
@@ -437,7 +437,6 @@
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-oksms.version>1.0.0-SNAPSHOT</spring-boot-starter-oksms.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
-		<spring-boot-starter-open2internet.version>1.0.0-SNAPSHOT</spring-boot-starter-open2internet.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7-SNAPSHOT</spring-boot-starter-pf4j.version>
@@ -450,12 +449,6 @@
 		<spring-boot-starter-rocketmq.version>2.0.4</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.5.RELEASE</spring-boot-starter-schemacrawler.version>
-		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
-		<spring-boot-starter-security-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-security-cas.version>
-		<spring-boot-starter-security-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
-		<spring-boot-starter-security-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
-		<spring-boot-starter-security-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-security-pac4j.version>
-		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-sharding-jdbc.version>${sharding-jdbc.version}</spring-boot-starter-sharding-jdbc.version>
 		<spring-boot-starter-shiro-biz.version>1.0.5-SNAPSHOT</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
@@ -4848,12 +4841,6 @@
 				<artifactId>opencv-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-opencv.version}</version>
 			</dependency>
-			<!-- https://github.com/linux-china/open2internet-spring-boot-starter -->
-			<dependency>
-			  	<groupId>com.github.linux-china</groupId>
-			  	<artifactId>open2internet-spring-boot-starter</artifactId>
-			  	<version>${spring-boot-starter-open2internet.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/pac4j-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
@@ -4937,42 +4924,6 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>schemacrawler-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-schemacrawler.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-biz -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-biz-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-biz.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-cas -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-cas-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-cas.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-dingtalk -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-dingtalk-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-dingtalk.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-jwt -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-jwt-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-jwt.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-pac4j -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-pac4j-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-pac4j.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-qrcode -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-qrcode-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-qrcode.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-spring-boot-starter -->
 			<dependency>
