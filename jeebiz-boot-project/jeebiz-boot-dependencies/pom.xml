@@ -429,6 +429,7 @@
 		<spring-boot-starter-minio.version>1.0.0.RELEASE</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-arcface.version>1.0.0-SNAPSHOT</spring-boot-starter-arcface.version>
+		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-oksms.version>1.0.0-SNAPSHOT</spring-boot-starter-oksms.version>
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
@@ -4811,6 +4812,18 @@
 			    <groupId>com.spring4all</groupId>
 			    <artifactId>mongodb-plus-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-mongodb-plus.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.opentracing.contrib/opentracing-spring-jaeger-web-starter -->
+			<dependency>
+			    <groupId>io.opentracing.contrib</groupId>
+			    <artifactId>opentracing-spring-jaeger-web-starter</artifactId>
+			    <version>${spring-boot-starter-opentracing.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.opentracing.contrib/opentracing-spring-jaeger-starter -->
+			<dependency>
+			    <groupId>io.opentracing.contrib</groupId>
+			    <artifactId>opentracing-spring-jaeger-starter</artifactId>
+			    <version>${spring-boot-starter-opentracing.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp3-spring-boot-starter -->
 			<dependency>
