@@ -86,13 +86,24 @@
 		    <artifactId>spring-webmvc</artifactId>
 		    <scope>provided</scope>
 		</dependency>
+		<!-- For Spring Aop -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aop</artifactId>
+		    <scope>provided</scope>
+		</dependency>
 		<!-- For Spring Tx -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-tx</artifactId>
 		</dependency>
 		
-				
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjrt</artifactId>
+		</dependency>
+        				
 	</dependencies>
 
 </project>
