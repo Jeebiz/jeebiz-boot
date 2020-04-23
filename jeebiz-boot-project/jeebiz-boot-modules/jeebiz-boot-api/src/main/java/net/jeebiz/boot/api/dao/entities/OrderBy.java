@@ -18,6 +18,11 @@ public class OrderBy implements Serializable {
      * 是否正序排列，默认 true
      */
     private boolean asc = true;
+
+    /**
+     * 是否倒序排列，默认 true
+     */
+    private boolean desc = false;
     
 	public String getColumn() {
 		return column;
@@ -33,6 +38,14 @@ public class OrderBy implements Serializable {
 
 	public void setAsc(boolean asc) {
 		this.asc = asc;
+	}
+
+	public boolean isDesc() {
+		return desc;
+	}
+
+	public void setDesc(boolean desc) {
+		this.desc = desc;
 	}
     
 }

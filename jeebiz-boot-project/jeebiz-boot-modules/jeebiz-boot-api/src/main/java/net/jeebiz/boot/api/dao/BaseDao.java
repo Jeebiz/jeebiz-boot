@@ -117,7 +117,7 @@ public interface BaseDao <T> {
 	 * @param key
 	 * @return
 	 */
-	public List<T> getModelList(String key);
+	public List<T> getModelList(@Param("key") String key);
 	
 	/**
 	 * 统计记录数

@@ -14,20 +14,20 @@ public abstract class AbstractPaginationVo {
 	/**
 	 * 每页记录数
 	 */
-	@ApiModelProperty(value = "limit", dataType = "Integer", example = "15", notes = "每页记录数")
+	@ApiModelProperty(name = "limit", dataType = "Integer", example = "15", value = "每页记录数")
 	private int limit = 15;
 
 	/**
 	 * 当前页码
 	 */
-	@ApiModelProperty(value = "pageNo", dataType = "Integer", example = "1", notes = "当前页码")
+	@ApiModelProperty(name = "pageNo", dataType = "Integer", example = "1", value = "当前页码")
 	private int pageNo = 1;
 	/**
 	 * 排序信息
 	 */
 	@ApiModelProperty(value = "orders", dataType = "java.util.List<OrderBy>", notes = "排序信息")
 	private List<OrderBy> orders;
-	
+
 	public int getLimit() {
 		return limit;
 	}

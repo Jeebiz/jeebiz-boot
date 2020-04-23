@@ -259,7 +259,7 @@ public enum ApiCode {
 	 */
 	SC_ILLEGAL_ARGUMENT_EXCEPTION("10206", Constants.RT_ERROR, "服务器：非法参数异常"),
 	/**
-	 * IndexOutOfBoundsException		500 (Internal Server Error)				      
+	 * IndexOutOfBoundsException	500 (Internal Server Error)				      
 	 */
 	SC_INDEX_OUT_OF_BOUNDS_EXCEPTION("10207", Constants.RT_ERROR, "服务器：数组越界异常"),
 	/**

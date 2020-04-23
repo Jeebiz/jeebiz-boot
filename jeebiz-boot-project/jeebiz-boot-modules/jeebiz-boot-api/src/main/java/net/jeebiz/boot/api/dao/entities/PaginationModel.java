@@ -31,6 +31,7 @@ public class PaginationModel<T> extends BaseModel<T> {
 	 * 总记录数
 	 */
 	private int totalCount;
+
 	/**
 	 * 排序信息
 	 */
