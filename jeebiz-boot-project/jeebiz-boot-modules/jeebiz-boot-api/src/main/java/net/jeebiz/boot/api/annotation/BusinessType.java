@@ -46,8 +46,16 @@ public enum BusinessType {
 	/**
 	 * 文件下载
 	 */
-	DOWNLOAD("download", "文件下载");
-
+	DOWNLOAD("download", "文件下载"),
+	/**
+	 * 发送邮件
+	 */
+	EMAIL("email", "发送邮件"),
+	/**
+	 * 发送短信
+	 */
+	SMS("sms", "发送短信");
+	
 	private String key;
 	private String desc;
 
