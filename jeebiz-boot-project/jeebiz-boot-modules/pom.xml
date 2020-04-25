@@ -13,6 +13,7 @@
 	
 	<modules>
 		<module>jeebiz-boot-api</module>
+		<module>jeebiz-boot-plugin-api</module>
 		<module>jeebiz-boot-autoconfigure</module>
 	</modules>
 	
