@@ -169,7 +169,7 @@
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
 		<jeebiz-devkit.version>1.0.0-SNAPSHOT</jeebiz-devkit.version>
 		<jep.version>2.4.2</jep.version>
-		<jjwt.version>0.11.0</jjwt.version>
+		<jjwt.version>0.11.1</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
 		<jgroups.version>4.2.0.Final</jgroups.version>
 		<jgit.version>5.6.1.202002131546-r</jgit.version>
@@ -179,7 +179,7 @@
 		<jsqlparser.version>3.1</jsqlparser.version>
 		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
-		<jwt-issuer.version>1.0.4.RELEASE</jwt-issuer.version>
+		<jwt-issuer.version>1.0.5-SNAPSHOT</jwt-issuer.version>
 		<kafka-clients.version>2.4.0</kafka-clients.version>
 		<knife4j.version>2.0.1</knife4j.version>
 		<kisso.version>3.7.5</kisso.version>
@@ -214,7 +214,7 @@
 		<neethi.version>3.1.1</neethi.version>
 		<nekohtml.version>1.9.22</nekohtml.version>
 		<netty-socketio.version>1.7.18</netty-socketio.version>
-		<nimbus-jose-jwt.version>8.8</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>8.15</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.6</okhttp.version>
 		<oksms.version>1.0.0-SNAPSHOT</oksms.version>
 		<oracle-10g-driver.version>10.2.0.5</oracle-10g-driver.version>
