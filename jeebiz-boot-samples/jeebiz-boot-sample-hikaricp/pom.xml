@@ -183,18 +183,23 @@
 			<groupId>com.github.hiwepy</groupId>
 			<artifactId>hikaricp-plus-spring-boot-starter</artifactId>
 		</dependency>
-		<!-- For Oracle 11g -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- For MySQL -->
+		<!-- JDBC Driver For MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- JDBC Driver For Oracle -->
+		<dependency>
+		    <groupId>com.oracle.ojdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <scope>runtime</scope>
+		</dependency>
+		<dependency>
+	        <groupId>com.oracle.ojdbc</groupId>
+	        <artifactId>ojdbc8dms</artifactId>
+	        <scope>runtime</scope>
+	    </dependency>
 			
 		<!-- For Embed Tomcat -->
         <!-- <dependency>
