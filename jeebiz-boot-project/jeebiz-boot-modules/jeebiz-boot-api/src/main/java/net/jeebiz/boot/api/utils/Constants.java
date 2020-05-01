@@ -33,6 +33,10 @@ public class Constants {
 	public static final String AUTHZ_USER = "认证授权-用户";
 	public static final String AUTHZ_USER_PERMS = "认证授权-用户-权限";
 
+	public static final String AUTHZ_SERVICE_CACHE = "service-feature";
+	public static final String AUTHZ_FEATURE_CACHE = "authorized-feature";
+	public static final String UPLOAD_PROCESS_CACHE = "upload-process";
+	
 	public static final String PERMS_CACHE_KEY = "authz-dbperms";
 	public static final String PERMS_CACHE_HASH = "dbperms:%s:%s";
 	
