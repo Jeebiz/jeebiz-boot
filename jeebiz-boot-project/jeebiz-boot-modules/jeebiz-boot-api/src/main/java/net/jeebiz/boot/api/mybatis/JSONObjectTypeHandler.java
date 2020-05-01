@@ -1,8 +1,8 @@
 /** 
- * Copyright (C) 2019 杭州知乎者也科技有限公司 (http://knowway.cn).
- * All Rights Reserved.
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved. 
  */
-package com.knowway.cloud.api.mybatis;
+package net.jeebiz.boot.api.mybatis;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
