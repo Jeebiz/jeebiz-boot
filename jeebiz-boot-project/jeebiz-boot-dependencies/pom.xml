@@ -226,6 +226,7 @@
 		<p6spy.version>3.8.7</p6spy.version>
 		<pac4j.version>4.0.0</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2-SNAPSHOT</pac4j-oauth-ext.version>
+		<pac4j-sudytech.version>1.0.0-SNAPSHOT</pac4j-sudytech.version>
 		<pac4j-webmvc.version>${pac4j.version}</pac4j-webmvc.version>
 		<pac4j-spring-security.version>5.0.0</pac4j-spring-security.version>
 		<perf4j.version>0.9.16</perf4j.version>
@@ -3034,6 +3035,11 @@
 		        <groupId>com.github.hiwepy</groupId>
 				<artifactId>pac4j-oauth-ext</artifactId>
 				<version>${pac4j-oauth-ext.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>pac4j-sudytech</artifactId>
+				<version>${pac4j-sudytech.version}</version>
 			</dependency>
 	        <!-- PAC4J For OpenId Protocol  -->
 	        <dependency>
