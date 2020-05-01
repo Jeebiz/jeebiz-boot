@@ -25,14 +25,13 @@ public class Constants {
 	public static final String RT_FAIL = "fail";
 	public static final String RT_ERROR = "error";
 	
-	public static final String AUTHZ_FEATURE = "Authz-Feature";
-	public static final String AUTHZ_FEATURE_CACHE = "Authz-Feature-Cache";
-	public static final String AUTHZ_FEATURE_OPT = "Authz-Feature-Opt";
-	public static final String AUTHZ_LOGIN = "Authz-Login";
-	public static final String AUTHZ_ROLE = "Authz-Role";
-	public static final String AUTHZ_ROLE_PERMS = "Authz-Role-Perms";
-	public static final String AUTHZ_USER = "Authz-User";
-	public static final String AUTHZ_USER_PERMS = "Authz-User-Perms";
+	public static final String AUTHZ_FEATURE = "认证授权-菜单";
+	public static final String AUTHZ_FEATURE_OPT = "认证授权-菜单-操作";
+	public static final String AUTHZ_LOGIN = "认证授权-登录";
+	public static final String AUTHZ_ROLE = "认证授权-角色";
+	public static final String AUTHZ_ROLE_PERMS = "认证授权-角色-权限";
+	public static final String AUTHZ_USER = "认证授权-用户";
+	public static final String AUTHZ_USER_PERMS = "认证授权-用户-权限";
 
 	public static final String PERMS_CACHE_KEY = "authz-dbperms";
 	public static final String PERMS_CACHE_HASH = "dbperms:%s:%s";

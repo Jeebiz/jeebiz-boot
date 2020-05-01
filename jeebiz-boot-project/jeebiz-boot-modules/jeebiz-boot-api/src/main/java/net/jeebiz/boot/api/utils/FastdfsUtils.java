@@ -12,7 +12,7 @@ public class FastdfsUtils {
 	 * get token for file URL
 	 * 
 	 * @param file_id    the file id return by FastDFS server
-	 * @param l         unix timestamp, unit: second
+	 * @param ts         unix timestamp, unit: second
 	 * @param secret_key the secret key
 	 * @return token string
 	 */
