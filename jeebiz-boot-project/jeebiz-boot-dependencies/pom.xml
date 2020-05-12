@@ -454,6 +454,7 @@
 		<spring-boot-starter-shiro-oauth2.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oauth2.version>
 		<spring-boot-starter-shiro-oidc.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oidc.version>
 		<spring-boot-starter-shiro-openid.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-openid.version>
+		<spring-boot-starter-shiro-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-pac4j.version>
 		<spring-boot-starter-shiro-saml.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-saml.version>
 		<spring-boot-starter-shiro-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
@@ -4975,6 +4976,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-openid-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-openid.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-pac4j-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>shiro-pac4j-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-shiro-pac4j.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-saml-spring-boot-starter -->
 			<dependency>
