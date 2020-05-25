@@ -104,6 +104,14 @@ public class ApiRestResponse<T> {
         return new ApiRestResponse<T>(code, Constants.RT_ERROR,  message);
     }
     
+    public static <T> ApiRestResponse<T> data(T data) {
+        return of(ApiCode.SC_SUCCESS.getCode(), ApiCode.SC_SUCCESS.getReason(), data);
+    }
+    
+    public static <T> ApiRestResponse<T> data(String msg, T data) {
+        return new ApiRestResponse<T>(ApiCode.SC_SUCCESS.getCode(), msg, data);
+    }
+    
     public static <T> ApiRestResponse<T> error(final T data) {
         return of(ApiCode.SC_INTERNAL_SERVER_ERROR, data);
     }
