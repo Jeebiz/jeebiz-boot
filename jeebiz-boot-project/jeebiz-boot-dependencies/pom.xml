@@ -451,7 +451,7 @@
 		<spring-boot-starter-shiro-saml.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-saml.version>
 		<spring-boot-starter-shiro-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
-		<spring-boot-starter-socketio.version>1.0.4.RELEASE</spring-boot-starter-socketio.version>
+		<spring-boot-starter-socketio.version>1.0.5-SNAPSHOT</spring-boot-starter-socketio.version>
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
