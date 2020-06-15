@@ -113,8 +113,8 @@
 		<echarts.version>3.0.0.6</echarts.version>
 		<ehcache.version>2.10.6</ehcache.version>
 		<ehcache3.version>3.7.1</ehcache3.version>
-		<fastdfs.version>1.26.7</fastdfs.version>
-		<fastjson.version>1.2.68</fastjson.version>
+		<fastdfs.version>1.27.2</fastdfs.version>
+		<fastjson.version>1.2.71</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
 		<feign.version>11.0</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
