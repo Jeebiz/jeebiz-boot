@@ -185,11 +185,11 @@
 		<mariadb.version>2.6.0</mariadb.version>
 		<metadata-extractor.version>2.12.0</metadata-extractor.version>
 		<mssql-jdbc.version>8.2.2.jre8</mssql-jdbc.version>
-		<mybatis.version>3.5.4</mybatis.version>
+		<mybatis.version>3.5.5</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0-SNAPSHOT</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
-		<mybatis-plus.version>3.3.1</mybatis-plus.version>
+		<mybatis-plus.version>3.3.2</mybatis-plus.version>
 		<mybatis-spring.version>2.0.4</mybatis-spring.version>
 		<mybatis-migrations.version>3.3.7</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
@@ -202,7 +202,7 @@
 		<mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
 		<mybatis-freemarker.version>1.1.2</mybatis-freemarker.version>
 		<mybatis-velocity.version>1.3</mybatis-velocity.version>
-		<mybatis-generator.version>1.3.7</mybatis-generator.version>
+		<mybatis-generator.version>1.4.0</mybatis-generator.version>
 		<mysql.version>8.0.20</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
