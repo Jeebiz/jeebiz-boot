@@ -96,7 +96,7 @@
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.1.3</derby.version>
 		<derby-locale.version>${derby.version}</derby-locale.version>
-		<dingtalk-sdk.version>20200103</dingtalk-sdk.version>
+		<dingtalk-sdk.version>20200617</dingtalk-sdk.version>
 		<docx4j-template.version>1.0.1-SNAPSHOT</docx4j-template.version>
 		<docker-client.version>8.16.0</docker-client.version>
 		<docker-java.version>3.2.1</docker-java.version>
