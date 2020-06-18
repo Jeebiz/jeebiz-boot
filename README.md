@@ -1,6 +1,6 @@
 ## Jeebiz Boot 简介：
 
->[danger] Jeebiz Boot 是以 Spring Boot 为基础，搭建的通用项目依赖和配置脚手架；
+> Jeebiz Boot 是以 Spring Boot 为基础，搭建的通用项目依赖和配置脚手架；
 
 - 1、继承 Spring Boot的各种特性和依赖组件
 
@@ -34,7 +34,7 @@
 
 **结构说明**
 
-![](./jeebiz-boot.png)
+![](https://github.com/Jeebiz/jeebiz-boot/blob/master/jeebiz-boot.png)
 
 ```
 |--jeebiz-boot
