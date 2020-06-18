@@ -34,7 +34,7 @@
 
 **结构说明**
 
-![jeebiz-boot](https://github.com/Jeebiz/jeebiz-boot/blob/master/screenshots/jeebiz-boot.png)
+![jeebiz-boot](https://github.com/Jeebiz/jeebiz-boot/blob/master/screenshots/jeebiz-boot.png "Jeebiz Boot")
 
 ```
 |--jeebiz-boot
