@@ -434,7 +434,7 @@
 		<spring-boot-starter-qqwry.version>1.0.1.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
-		<spring-boot-starter-rocketmq.version>2.0.4</spring-boot-starter-rocketmq.version>
+		<spring-boot-starter-rocketmq.version>2.1.0</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.6-SNAPSHOT</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-shiro-biz.version>1.0.5-SNAPSHOT</spring-boot-starter-shiro-biz.version>
