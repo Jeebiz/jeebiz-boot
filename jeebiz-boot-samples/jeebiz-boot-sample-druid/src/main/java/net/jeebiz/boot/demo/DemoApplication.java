@@ -13,11 +13,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.spring4all.swagger.EnableSwagger2Doc;
-
 @EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
-@EnableSwagger2Doc
 @EnableScheduling
 @EnableTransactionManagement
 @SpringBootApplication
