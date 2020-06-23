@@ -2,6 +2,7 @@ package net.jeebiz.boot.demo;
 
 import javax.sql.DataSource;
 
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
+@EnableDubbo
 @EnableScheduling
 @EnableTransactionManagement
 @SpringBootApplication
