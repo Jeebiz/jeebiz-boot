@@ -288,7 +288,7 @@
 		<snmp4j-agent.version>3.3.3</snmp4j-agent.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
-		<springfox.version>3.0.0-SNAPSHOT</springfox.version>
+		<springfox.version>2.10.5</springfox.version> <!-- 3.0.0-SNAPSHOT -->
 		<spring-biz.version>1.0.8.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
@@ -298,8 +298,8 @@
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.10.1</svnkit.version>
-		<swagger.version>1.5.23</swagger.version>
-		<swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version> 
+		<swagger.version>1.5.24</swagger.version>
+		<swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
 		<swagger-butler.version>1.2.0</swagger-butler.version> 
 		<swagger-codegen.version>2.4.8</swagger-codegen.version>
 		<swagger-generator.version>2.4.5</swagger-generator.version>
