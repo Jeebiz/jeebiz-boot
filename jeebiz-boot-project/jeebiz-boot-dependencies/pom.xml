@@ -270,7 +270,6 @@
 		<sharding-proxy.version>4.1.0</sharding-proxy.version>
 		<shedlock.version>4.9.3</shedlock.version>
 		<shiro.version>1.5.3</shiro.version>
-		<shiro-biz.version>1.0.9.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
@@ -3971,11 +3970,6 @@
 				<groupId>org.apache.shiro</groupId>
 				<artifactId>shiro-aspectj</artifactId>
 				<version>${shiro.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>com.github.hiwepy</groupId>
-				<artifactId>shiro-biz</artifactId>
-				<version>${shiro-biz.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
 			<dependency>
