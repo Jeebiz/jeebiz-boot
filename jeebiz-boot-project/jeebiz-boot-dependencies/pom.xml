@@ -393,7 +393,7 @@
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
-		<spring-boot-starter-druid-plus.version>1.0.7.RELEASE</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-druid-plus.version>1.0.8-SNAPSHOT</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
 		<spring-boot-starter-fastdfs.version>1.0.3-SNAPSHOT</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
