@@ -5375,24 +5375,6 @@
 				<artifactId>security-weixin-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-security-weixin.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-spring-boot-starter -->
-			<dependency>
-			    <groupId>io.shardingsphere</groupId>
-			    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-			    <version>${spring-boot-starter-sharding-jdbc.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-transaction-spring-boot-starter -->
-			<dependency>
-			    <groupId>io.shardingsphere</groupId>
-			    <artifactId>sharding-transaction-spring-boot-starter</artifactId>
-			    <version>${spring-boot-starter-sharding-jdbc.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.shardingsphere/sharding-jdbc-orchestration-spring-boot-starter -->
-			<dependency>
-			    <groupId>io.shardingsphere</groupId>
-			    <artifactId>sharding-jdbc-orchestration-spring-boot-starter</artifactId>
-			    <version>${spring-boot-starter-sharding-jdbc.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring-boot-starter -->
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
