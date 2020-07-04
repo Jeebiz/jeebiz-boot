@@ -731,9 +731,9 @@
 										<!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
 										<!-- 设置 STW 工作线程数的值.将 n 的值设置为逻辑处理器的数量 .n 的值与逻辑处理器的数量相同,最多为 8. -->
 										<!-- 如果逻辑处理器不止八个,则将 n 的值设置为逻辑处理器数的 5/8 左右.这适用于大多数情况, 除非是较大的 SPARC 系统,其中 n 的值可以是逻辑处理器数的 5/16 左右. -->
-										<extraArgument>-XX:ParallelGCThreads=8</extraArgument>
+										<extraArgument>-XX:ParallelGCThreads=10</extraArgument>
 										<!-- 设置并行标记的线程数.将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右. -->
-										<extraArgument>-XX:ConcGCThreads=2</extraArgument>
+										<extraArgument>-XX:ConcGCThreads=8</extraArgument>
 										<!-- 设置触发标记周期的 Java 堆占用率阈值.默认占用率是整个 Java 堆的 45%. -->
 										<extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument>
 										<!-- 为混合垃圾回收周期中要包括的旧区域设置占用率阈值.默认占用率为 65%.这是一个实验性的标志.此设置取代了 -XX:G1OldCSetRegionLiveThresholdPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
