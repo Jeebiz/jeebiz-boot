@@ -121,7 +121,7 @@ spring:
     #设置如果验证失败是否删除表结构
     clean-on-validation-error: true
     #禁止对数据库进行相关清除操作
-    clean-disabled: true
+    clean-disabled: false
 
 ################################################################################################################  
 ###mybatis-plus (MybatisPlusProperties) 基本配置：  
@@ -206,5 +206,5 @@ mybatis-plus:
 ###http://www.cnblogs.com/yhtboke/p/Mybatis.html
 ################################################################################################################
 logging: 
-  config: classpath:conf/log4j2.xml
+  config: classpath:conf/log4j2-dev.xml
   
