@@ -266,7 +266,7 @@
 		<scribejava-apis-ext.version>1.0.0-SNAPSHOT</scribejava-apis-ext.version>
 		<sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
-		<sharding-jdbc.version>4.1.0</sharding-jdbc.version>
+		<sharding-jdbc.version>4.1.1</sharding-jdbc.version>
 		<sharding-proxy.version>4.1.0</sharding-proxy.version>
 		<shedlock.version>4.9.3</shedlock.version>
 		<shiro.version>1.5.3</shiro.version>
@@ -5374,6 +5374,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>security-weixin-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-security-weixin.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-jdbc-spring-boot-starter -->
+			<dependency>
+			    <groupId>org.apache.shardingsphere</groupId>
+			    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+			    <version>${sharding-jdbc.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring-boot-starter -->
 			<dependency>
