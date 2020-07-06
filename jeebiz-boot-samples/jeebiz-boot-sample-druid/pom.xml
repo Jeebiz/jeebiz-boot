@@ -11,25 +11,6 @@
 
 	<artifactId>jeebiz-boot-sample-druid</artifactId>
 
-	<properties>
-		
-		<!-- 生成部署脚本参数 -->
-		<appassembler-bin-fileName>jeebiz-boot</appassembler-bin-fileName>
-		<appassembler-app-name>jeebiz-boot</appassembler-app-name>
-		
-		<!-- 生成Docker镜像参数: docker build、push地址-->
-		<docker.workdir>/u01/boot/${project.artifactId}</docker.workdir>
-		<docker.push.repostory>192.168.31.109</docker.push.repostory>
-		<docker.build.repostory>http://192.168.31.108:2375</docker.build.repostory>
-		<!--push镜像到私有库项目的名称 -->
-		<docker.registry.name>jeebiz</docker.registry.name>
-		
-		<!-- 生成API离线文参数-->
-		<swagger.input>http://localhost:8080/v2/api-docs</swagger.input>
-		<liquibase.version>3.8.0</liquibase.version>
-		
-	</properties>
-
 	<dependencies>
 
 		<!-- For Jeebiz -->
@@ -43,30 +24,15 @@
 			<artifactId>jeebiz-boot-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/com.eatthepath/java-otp -->
+		<!-- For Dubbo -->
 		<dependency>
-		    <groupId>com.eatthepath</groupId>
-		    <artifactId>java-otp</artifactId>
-		    <version>0.2.0</version>
+           	<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+		    <groupId>org.apache.dubbo</groupId>
+		    <artifactId>dubbo-spring-boot-actuator</artifactId>
 		</dependency>
-				
-		<!-- <dependency>
-		  	<groupId>com.github.linux-china</groupId>
-		  	<artifactId>open2internet-spring-boot-starter</artifactId>
-		</dependency> -->
-		
-		<dependency>
-			<groupId>com.alipay.sdk</groupId>
-			<artifactId>alipay-sdk-java</artifactId>
-		</dependency>
-
-		<!-- For Liquibase -->
-		<dependency>
-		    <groupId>org.liquibase</groupId>
-		    <artifactId>liquibase-core</artifactId>
-		</dependency>
-		
 		<!-- For Embedded Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -99,16 +65,12 @@
 		</dependency>
 		<!-- For Swagger -->
 		<dependency>
-			<groupId>com.spring4all</groupId>
-			<artifactId>swagger-spring-boot-starter</artifactId>
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
 		    <groupId>com.github.xiaoymin</groupId>
 		    <artifactId>swagger-bootstrap-ui</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.springfox</groupId>
-		    <artifactId>springfox-data-rest</artifactId>
 		</dependency>
 		<!-- For Validation -->
 		<dependency>
@@ -131,13 +93,9 @@
 		</dependency>
 		<!-- For Dozer -->
 		<dependency>
-			<groupId>com.github.hiwepy</groupId>
+			<groupId>com.github.dozermapper</groupId>
 			<artifactId>dozer-spring-boot-starter</artifactId>
-		</dependency>
-		<!-- <dependency>
-		    <groupId>com.github.dozermapper</groupId>
-		    <artifactId>dozer-spring-boot-starter</artifactId>
-		</dependency> -->
+		</dependency> 
 		<!-- For AOP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

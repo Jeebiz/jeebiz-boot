@@ -181,6 +181,9 @@ public class DefaultWebMvcConfiguration implements WebMvcConfigurer {
     	// 指定个性化资源映射
 		registry.addResourceHandler("/assets/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/assets/");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		// swagger增加url映射
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
 		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
 				.resourceChain(false).addResolver(new WebJarsResourceResolver())
 				.addResolver(new PathResourceResolver());
