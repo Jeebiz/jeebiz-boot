@@ -185,7 +185,7 @@
 		<liquibase.version>3.9.0</liquibase.version>
 		<mariadb.version>2.6.0</mariadb.version>
 		<metadata-extractor.version>2.12.0</metadata-extractor.version>
-		<mssql-jdbc.version>8.2.2.jre8</mssql-jdbc.version>
+		<mssql-jdbc.version>8.2.2.jre8</mssql-jdbc.version>		
 		<mybatis.version>3.5.5</mybatis.version>
 		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0-SNAPSHOT</mybatis-dbperms.version>
@@ -226,6 +226,7 @@
 		<pac4j-sudytech.version>1.0.0-SNAPSHOT</pac4j-sudytech.version>
 		<pac4j-webmvc.version>${pac4j.version}</pac4j-webmvc.version>
 		<pac4j-spring-security.version>5.0.0</pac4j-spring-security.version>
+		<paho-mqttv3.version>1.2.4</paho-mqttv3.version>
 		<perf4j.version>0.9.16</perf4j.version>
 		<prometheus.version>0.9.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
@@ -3423,6 +3424,13 @@
 	            <artifactId>pac4j-sql</artifactId>
 	            <version>${pac4j.version}</version>
 	        </dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
+			<dependency>
+			    <groupId>org.eclipse.paho</groupId>
+			    <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+			    <version>${paho-mqttv3.version}</version>
+			</dependency>
 			
 			<!-- http://mvnrepository.com/artifact/org.pf4j -->
 			<dependency>
