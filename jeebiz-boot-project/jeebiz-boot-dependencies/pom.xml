@@ -348,7 +348,7 @@
 		<maven-dependency-check-plugin.version>5.2.1</maven-dependency-check-plugin.version>
 		<maven-docker-plugin.version>1.2.0</maven-docker-plugin.version>
 		<maven-dockerfile-plugin.version>1.4.8</maven-dockerfile-plugin.version>
-		<maven-docker-fabric8-plugin.version>0.30.0</maven-docker-fabric8-plugin.version> 
+		<maven-docker-fabric8-plugin.version>0.33.0</maven-docker-fabric8-plugin.version> 
 		<maven-fabric8-plugin.version>4.1.0</maven-fabric8-plugin.version>
 		<maven-findbugs-plugin.version>3.0.5</maven-findbugs-plugin.version>
 		<maven-gwt-plugin.version>2.8.2</maven-gwt-plugin.version>
