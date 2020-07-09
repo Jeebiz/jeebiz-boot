@@ -422,7 +422,7 @@
 		<spring-boot-starter-mybatis-dbperms.version>1.0.0-SNAPSHOT</spring-boot-starter-mybatis-dbperms.version> 
 		<spring-boot-starter-myth.version>2.0.2-RELEASE</spring-boot-starter-myth.version>
 		<spring-boot-starter-mina.version>1.0.0-SNAPSHOT</spring-boot-starter-mina.version>
-		<spring-boot-starter-minio.version>1.0.0.RELEASE</spring-boot-starter-minio.version>
+		<spring-boot-starter-minio.version>1.0.1-SNAPSHOT</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
