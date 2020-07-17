@@ -7,9 +7,10 @@ package net.jeebiz.boot.api.service;
 import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import net.jeebiz.boot.api.dao.entities.PaginationModel;
+import net.jeebiz.boot.api.dao.entities.PaginationEntity;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
@@ -17,7 +18,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @author <a href="https://github.com/wandl">wandl</a>
  * @param <T> 持有的实体对象
  */
-public interface IBaseMapperService<T> {
+public interface IBaseMapperService<T extends Model<?>> {
 	
 	/**
 	 * 查询单条数据
@@ -70,8 +71,8 @@ public interface IBaseMapperService<T> {
 	 * @param t
 	 * @return
 	 */
-	public Page<T> getPagedList(PaginationModel<T> model);
-	public Page<T> getPagedList(Page<T> page, PaginationModel<T> model);
+	public Page<T> getPagedList(PaginationEntity<T> model);
+	public Page<T> getPagedList(Page<T> page, PaginationEntity<T> model);
 	
 	/**
 	 * 无分页查询

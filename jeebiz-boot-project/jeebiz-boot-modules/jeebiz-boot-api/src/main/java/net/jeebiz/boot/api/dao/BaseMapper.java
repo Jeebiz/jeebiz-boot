@@ -10,9 +10,10 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import net.jeebiz.boot.api.dao.entities.PaginationModel;
+import net.jeebiz.boot.api.dao.entities.PaginationEntity;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
@@ -20,7 +21,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @author <a href="https://github.com/wandl">wandl</a>
  * @param <T> 持有的实体对象
  */
-public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
+public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
 	
 	/**
 	 * 查询单条数据
@@ -74,7 +75,7 @@ public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.Base
 	 * @param t
 	 * @return
 	 */
-	public List<T> getPagedList(Page<T> page, @Param("model") PaginationModel<T> model);
+	public List<T> getPagedList(Page<T> page, @Param("model") PaginationEntity<T> model);
 	
 	/**
 	 * 无分页查询

@@ -32,13 +32,14 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.dozermapper.core.Mapper;
 
 import net.jeebiz.boot.api.dao.BaseMapper;
 import net.jeebiz.boot.api.dao.entities.OrderBy;
-import net.jeebiz.boot.api.dao.entities.PaginationModel;
+import net.jeebiz.boot.api.dao.entities.PaginationEntity;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
@@ -48,7 +49,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @param <T> {@link IBaseMapperService} 持有的实体对象
  * @param <E> {@link BaseMapper} 实现
  */
-public class BaseMapperServiceImpl<T, E extends BaseMapper<T>> extends ServiceImpl<E, T> implements InitializingBean,
+public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> extends ServiceImpl<E, T> implements InitializingBean,
 		ApplicationEventPublisherAware, ApplicationContextAware, EmbeddedValueResolverAware, IBaseMapperService<T> {
 
 	protected static Logger LOG = LoggerFactory.getLogger(BaseServiceImpl.class);
@@ -163,7 +164,7 @@ public class BaseMapperServiceImpl<T, E extends BaseMapper<T>> extends ServiceIm
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public Page<T> getPagedList(PaginationModel<T> model) {
+	public Page<T> getPagedList(PaginationEntity<T> model) {
 
 		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
 		if(!CollectionUtils.isEmpty(model.getOrders())) {
@@ -186,7 +187,7 @@ public class BaseMapperServiceImpl<T, E extends BaseMapper<T>> extends ServiceIm
 	 */
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public Page<T> getPagedList(Page<T> page, PaginationModel<T> model) {
+	public Page<T> getPagedList(Page<T> page, PaginationEntity<T> model) {
 
 		List<T> records = getBaseMapper().getPagedList(page, model);
 		page.setRecords(records);
