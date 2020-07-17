@@ -9,8 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * System Clock
  * <p>
- * 利用ScheduledExecutorService实现高并发场景下System.curentTimeMillis()的性能问题的优化.
- *
+ *     利用ScheduledExecutorService实现高并发场景下System.curentTimeMillis()的性能问题的优化.
  * @author lry
  */
 public enum SystemClock {
