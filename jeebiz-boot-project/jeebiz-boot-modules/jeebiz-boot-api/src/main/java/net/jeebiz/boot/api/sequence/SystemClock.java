@@ -1,6 +1,5 @@
 package net.jeebiz.boot.api.sequence;
 
-
 import java.sql.Timestamp;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
