@@ -18,6 +18,7 @@
 		<activemq.version>5.15.12</activemq.version>
 		<activation.version>1.1.1</activation.version>
 		<alipay.version>4.8.73.ALL</alipay.version>
+		<aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
 		<asciidoctorj.version>2.3.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
@@ -492,6 +493,13 @@
 				<groupId>com.alipay.sdk</groupId>
 				<artifactId>alipay-sdk-java</artifactId>
 				<version>${alipay.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
+			<dependency>
+			    <groupId>com.aliyun.oss</groupId>
+			    <artifactId>aliyun-sdk-oss</artifactId>
+			    <version>${aliyun-sdk-oss.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->

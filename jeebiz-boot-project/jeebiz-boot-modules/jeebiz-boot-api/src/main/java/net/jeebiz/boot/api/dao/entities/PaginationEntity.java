@@ -6,6 +6,7 @@ package net.jeebiz.boot.api.dao.entities;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 @SuppressWarnings("serial")
@@ -16,27 +17,33 @@ public class PaginationEntity<T extends Model<?>> extends BaseEntity<T> {
 	/**
 	 * 分页起始位置
 	 */
+	@TableField(exist = false)
 	private int offset = 0;
 	/**
 	 * 每页记录数
 	 */
+	@TableField(exist = false)
 	private int limit = 15;
 	/**
 	 * 当前页码
 	 */
+	@TableField(exist = false)
 	private int pageNo;
 	/**
 	 * 总页数
 	 */
+	@TableField(exist = false)
 	private int totalPage;
 	/**
 	 * 总记录数
 	 */
+	@TableField(exist = false)
 	private int totalCount;
 
 	/**
 	 * 排序信息
 	 */
+	@TableField(exist = false)
 	private List<OrderBy> orders;
 	
 	public int getPageNo() {
