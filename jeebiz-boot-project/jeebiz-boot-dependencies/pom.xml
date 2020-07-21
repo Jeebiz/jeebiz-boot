@@ -188,8 +188,8 @@
 		<metadata-extractor.version>2.12.0</metadata-extractor.version>
 		<mssql-jdbc.version>8.2.2.jre8</mssql-jdbc.version>		
 		<mybatis.version>3.5.5</mybatis.version>
-		<mybatis-biz.version>1.0.0-SNAPSHOT</mybatis-biz.version>
-		<mybatis-dbperms.version>1.0.0-SNAPSHOT</mybatis-dbperms.version>
+		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
+		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
 		<mybatis-plus.version>3.3.2</mybatis-plus.version>
 		<mybatis-spring.version>2.0.4</mybatis-spring.version>
