@@ -177,6 +177,7 @@
 		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
+		<jwt-issuer.version>1.0.5.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.5.0</kafka-clients.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
@@ -2880,6 +2881,25 @@
 			    <groupId>net.sourceforge.jtds</groupId>
 			    <artifactId>jtds</artifactId>
 			   <version>${jtds.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jwt-issuer-api -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>jwt-issuer-api</artifactId>
+				<version>${jwt-issuer.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jwt-issuer-with-jjwt -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>jwt-issuer-with-jjwt</artifactId>
+				<version>${jwt-issuer.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jwt-issuer-with-nimbus -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>jwt-issuer-with-nimbus</artifactId>
+				<version>${jwt-issuer.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
