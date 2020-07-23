@@ -76,7 +76,7 @@
 		<commons-jexl3.version>3.1</commons-jexl3.version>
 		<commons-jxpath.version>1.3</commons-jxpath.version>
 		<commons-lang.version>2.6</commons-lang.version>
-		<commons-lang3.version>3.10</commons-lang3.version>
+		<commons-lang3.version>3.11</commons-lang3.version>
 		<commons-logging.version>1.2</commons-logging.version>
 		<commons-math.version>2.2</commons-math.version>
 		<commons-math3.version>3.6.1</commons-math3.version>
@@ -177,7 +177,6 @@
 		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
-		<jwt-issuer.version>1.0.5-SNAPSHOT</jwt-issuer.version>
 		<kafka-clients.version>2.5.0</kafka-clients.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
@@ -455,7 +454,7 @@
 		<spring-boot-starter-security-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-security-weixin.version>
-		<spring-boot-starter-shiro-biz.version>1.0.5-SNAPSHOT</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.0.5.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
 		<spring-boot-starter-shiro-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>1.1.0-SNAPSHOT</spring-boot-starter-shiro-jwt.version>
@@ -2881,25 +2880,6 @@
 			    <groupId>net.sourceforge.jtds</groupId>
 			    <artifactId>jtds</artifactId>
 			   <version>${jtds.version}</version>
-			</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jwt-issuer-api -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>jwt-issuer-api</artifactId>
-				<version>${jwt-issuer.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jwt-issuer-with-jjwt -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>jwt-issuer-with-jjwt</artifactId>
-				<version>${jwt-issuer.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jwt-issuer-with-nimbus -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>jwt-issuer-with-nimbus</artifactId>
-				<version>${jwt-issuer.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
