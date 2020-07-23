@@ -291,7 +291,7 @@
 		<snmp4j-agent.version>3.3.3</snmp4j-agent.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
-		<springfox.version>3.0.0</springfox.version> <!-- 3.0.0-SNAPSHOT -->
+		<springfox.version>2.10.5</springfox.version> <!-- 3.0.0-SNAPSHOT -->
 		<spring-biz.version>1.0.8.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
@@ -473,8 +473,8 @@
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-swagger.version>1.9.0.RELEASE</spring-boot-starter-swagger.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.1.RELEASE</spring-boot-starter-webflux-swagger2.version>	
-		<spring-boot-starter-webmvc-swagger2.version>1.0.1.RELEASE</spring-boot-starter-webmvc-swagger2.version>
+		<spring-boot-starter-webflux-swagger2.version>1.0.0.RELEASE</spring-boot-starter-webflux-swagger2.version>	
+		<spring-boot-starter-webmvc-swagger2.version>1.0.0.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2-SNAPSHOT</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
