@@ -6,12 +6,9 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.spring4all.swagger.EnableSwagger2Doc;
-
 @EnableCaching(proxyTargetClass = true)
 @SpringBootApplication
 @EnableScheduling
-@EnableSwagger2Doc
 @EnableTransactionManagement
 public class DemoApplication {
 
