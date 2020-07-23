@@ -6,32 +6,26 @@ package net.jeebiz.boot.api.dao.entities;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 @SuppressWarnings("serial")
 public class BaseModel<T> implements Cloneable, Serializable {
 	
-	/**
-	 * 应用唯一ID
-	 */
-	private String appid;
-	/**
-	 * 国际化Local值，默认zh_CN,其他值如en_US,zh_CN
-	 */
-	private String locale = "zh_CN";
+	@Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
 
-	public String getAppid() {
-		return appid;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals(this, obj);
+    }
 
-	public void setAppid(String appid) {
-		this.appid = appid;
-	}
-
-	public String getLocale() {
-		return locale;
-	}
-
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
 	
 }
