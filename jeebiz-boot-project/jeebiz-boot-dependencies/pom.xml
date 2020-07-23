@@ -18,6 +18,7 @@
 		<activemq.version>5.15.12</activemq.version>
 		<activation.version>1.1.1</activation.version>
 		<alipay.version>4.8.73.ALL</alipay.version>
+		<aliyun-ons-client.version>1.8.7.1.Final</aliyun-ons-client.version>
 		<aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
 		<asciidoctorj.version>2.3.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
@@ -239,7 +240,7 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
 		<reactor-bom.version>Dysprosium-SR7</reactor-bom.version>
-		<redisson.version>3.13.0</redisson.version>
+		<redisson.version>3.13.2</redisson.version>
 		<resilience4j.version>1.4.0</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.7.0</rocketmq-client.version>
@@ -374,7 +375,12 @@
 		<maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 		 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
-		<spring-boot-admin.version>2.2.2</spring-boot-admin.version>
+		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
+		<spring-boot-starter-aliyun-oss.version>1.0.0</spring-boot-starter-aliyun-oss.version>
+		<spring-boot-starter-aliyun-rds.version>1.0.0</spring-boot-starter-aliyun-rds.version>
+		<spring-boot-starter-aliyun-redis.version>1.0.0</spring-boot-starter-aliyun-redis.version>
+		<spring-boot-starter-aliyun-schedulerx.version>1.0.0</spring-boot-starter-aliyun-schedulerx.version>
+		<spring-boot-starter-aliyun-sms.version>1.0.0</spring-boot-starter-aliyun-sms.version>
 		<spring-boot-starter-arcface.version>1.0.1-SNAPSHOT</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.1-SNAPSHOT</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.1-SNAPSHOT</spring-boot-starter-axis2.version>
@@ -493,6 +499,13 @@
 				<groupId>com.alipay.sdk</groupId>
 				<artifactId>alipay-sdk-java</artifactId>
 				<version>${alipay.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->
+			<dependency>
+			    <groupId>com.aliyun.openservices</groupId>
+			    <artifactId>ons-client</artifactId>
+			    <version>${aliyun-ons-client.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
@@ -4744,6 +4757,36 @@
 				<version>${spring-boot-admin.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/aliyun-oss-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.alibaba.cloud</groupId>
+			    <artifactId>aliyun-oss-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-aliyun-oss.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/aliyun-rds-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.alibaba.cloud</groupId>
+			    <artifactId>aliyun-rds-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-aliyun-rds.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/aliyun-redis-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.alibaba.cloud</groupId>
+			    <artifactId>aliyun-redis-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-aliyun-redis.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/aliyun-schedulerx-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.alibaba.cloud</groupId>
+			    <artifactId>aliyun-schedulerx-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-aliyun-schedulerx.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/aliyun-sms-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.alibaba.cloud</groupId>
+			    <artifactId>aliyun-sms-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-aliyun-sms.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-arcface -->
 			<dependency>
