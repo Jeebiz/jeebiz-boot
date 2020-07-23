@@ -472,8 +472,8 @@
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-swagger.version>1.9.0.RELEASE</spring-boot-starter-swagger.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.1-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>	
-		<spring-boot-starter-webmvc-swagger2.version>1.0.1-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
+		<spring-boot-starter-webflux-swagger2.version>1.0.1.RELEASE</spring-boot-starter-webflux-swagger2.version>	
+		<spring-boot-starter-webmvc-swagger2.version>1.0.1.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2-SNAPSHOT</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
@@ -4147,28 +4147,16 @@
 			    <artifactId>springfox-core</artifactId>
 			   <version>${springfox.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-data-rest -->
+			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-spring-webflux -->
 			<dependency>
 			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-data-rest</artifactId>
+			    <artifactId>springfox-spring-webflux</artifactId>
 			    <version>${springfox.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-petstore -->
+			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-spring-webmvc -->
 			<dependency>
 			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-petstore</artifactId>
-			    <version>${springfox.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-spring-web -->
-			<dependency>
-			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-spring-web</artifactId>
-			    <version>${springfox.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.springfox/springfox-spi -->
-			<dependency>
-			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-spi</artifactId>
+			    <artifactId>springfox-spring-webmvc</artifactId>
 			    <version>${springfox.version}</version>
 			</dependency>
 						
