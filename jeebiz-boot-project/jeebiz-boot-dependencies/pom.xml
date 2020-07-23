@@ -291,7 +291,7 @@
 		<snmp4j-agent.version>3.3.3</snmp4j-agent.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
-		<springfox.version>2.10.5</springfox.version> <!-- 3.0.0-SNAPSHOT -->
+		<springfox.version>3.0.0</springfox.version> <!-- 3.0.0-SNAPSHOT -->
 		<spring-biz.version>1.0.8.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
