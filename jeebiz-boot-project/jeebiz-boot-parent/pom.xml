@@ -534,9 +534,9 @@
 										<!-- 最大空间，默认是没有限制的 -->
 										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
 										<!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
-										<extraArgument>-XX:NewSize=256M</extraArgument>
+										<!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
 										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
-										<extraArgument>-XX:MaxNewSize=512M</extraArgument>
+										<!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
 										<!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
 										<extraArgument>-XX:SurvivorRatio=4</extraArgument>
 										<!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
@@ -597,13 +597,13 @@
 										<!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
 										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument> 
 										<!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
-										<extraArgument>-Xloggc:../logs/gc.log</extraArgument>
+										<extraArgument>-Xloggc:logs/gc.log</extraArgument>
 										<extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
 										<extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
 										<extraArgument>-XX:GCLogFileSize=20M</extraArgument>
 										<!--  当堆内存空间溢出时输出堆的内存快照 -->
 										<extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
-										<extraArgument>-XX:HeapDumpPath=../logs/heap.log</extraArgument>
+										<extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
 									</extraArguments>
 								</jvmSettings>
 							</program>
@@ -706,9 +706,9 @@
 										<!-- 最大空间，默认是没有限制的 -->
 										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
 										<!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
-										<extraArgument>-XX:NewSize=256M</extraArgument>
+										<!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
 										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
-										<extraArgument>-XX:MaxNewSize=512M</extraArgument>
+										<!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
 										<!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
 										<extraArgument>-XX:SurvivorRatio=4</extraArgument>
 										<!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
@@ -769,13 +769,13 @@
 										<!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
 										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument> 
 										<!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
-										<extraArgument>-Xloggc:../logs/gc.log</extraArgument>
+										<extraArgument>-Xloggc:logs/gc.log</extraArgument>
 										<extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
 										<extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
 										<extraArgument>-XX:GCLogFileSize=20M</extraArgument>
 										<!--  当堆内存空间溢出时输出堆的内存快照 -->
 										<extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
-										<extraArgument>-XX:HeapDumpPath=../logs/heap.log</extraArgument>
+										<extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
 									</extraArguments>
 									<systemProperties>
 										<systemProperty>java.security.policy=conf/policy.all</systemProperty>
