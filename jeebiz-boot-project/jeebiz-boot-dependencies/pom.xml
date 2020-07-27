@@ -276,12 +276,12 @@
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
-		<shiro-freemarker.version>1.0.0</shiro-freemarker.version>
+		<shiro-freemarker.version>1.0.2</shiro-freemarker.version>
 		<shiro-j2cache.version>1.0.2.RELEASE</shiro-j2cache.version>
 		<shiro-oltu.version>1.0</shiro-oltu.version>
 		<shiro-pf4j.version>1.0.1.RELEASE</shiro-pf4j.version>
-		<shiro-redis.version>3.2.3</shiro-redis.version>
-		<shiro-redisson.version>1.1.4</shiro-redisson.version> 
+		<shiro-redis.version>2.2.0</shiro-redis.version>
+		<shiro-redisson.version>1.5.0.RELEASE</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
 		<shiro-uaa.version>1.0.3</shiro-uaa.version>
 		<sitemesh3.version>3.0.1</sitemesh3.version>
@@ -389,7 +389,7 @@
 		<spring-boot-starter-baiduapi.version>1.0.0.RELEASE</spring-boot-starter-baiduapi.version>
 		<spring-boot-starter-beetl.version>1.2.19.RELEASE</spring-boot-starter-beetl.version>
 		<spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
-		<spring-boot-starter-casclient.version>1.0.3-SNAPSHOT</spring-boot-starter-casclient.version>
+		<spring-boot-starter-casclient.version>1.0.3.RELEASE</spring-boot-starter-casclient.version>
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
 		<spring-boot-starter-cxf-jaxws-plus.version>1.0.3-SNAPSHOT</spring-boot-starter-cxf-jaxws-plus.version>
 		<spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
@@ -465,6 +465,7 @@
 		<spring-boot-starter-shiro-oidc.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oidc.version>
 		<spring-boot-starter-shiro-openid.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-openid.version>
 		<spring-boot-starter-shiro-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-pac4j.version>
+		<spring-boot-starter-shiro-redis.version>${shiro-redis.version}</spring-boot-starter-shiro-redis.version>
 		<spring-boot-starter-shiro-saml.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-saml.version>
 		<spring-boot-starter-shiro-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
@@ -472,7 +473,6 @@
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-swagger.version>1.9.0.RELEASE</spring-boot-starter-swagger.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.0.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.0.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
@@ -508,7 +508,7 @@
 			    <artifactId>ons-client</artifactId>
 			    <version>${aliyun-ons-client.version}</version>
 			</dependency>
-			
+						
 			<!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
 			<dependency>
 			    <groupId>com.aliyun.oss</groupId>
@@ -4051,15 +4051,15 @@
 				<artifactId>shiro-pf4j</artifactId>
 				<version>${shiro-pf4j.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.crazycake/shiro-redis -->
+			<!-- https://mvnrepository.com/artifact/org.iherus.shiro/shiro-redis -->
 			<dependency>
-			    <groupId>org.crazycake</groupId>
+			    <groupId>org.iherus.shiro</groupId>
 			    <artifactId>shiro-redis</artifactId>
 			    <version>${shiro-redis.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.fartherp/shiro-redisson -->
+			<!-- https://mvnrepository.com/artifact/com.github.streamone/shiro-redisson -->
 			<dependency>
-			    <groupId>com.github.fartherp</groupId>
+			    <groupId>com.github.streamone</groupId>
 			    <artifactId>shiro-redisson</artifactId>
 			    <version>${shiro-redisson.version}</version>
 			</dependency>
@@ -5500,6 +5500,12 @@
 				<artifactId>shiro-pac4j-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-pac4j.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.iherus.shiro/shiro-redis-spring-boot-web-starter -->
+			<dependency>
+			    <groupId>org.iherus.shiro</groupId>
+			    <artifactId>shiro-redis-spring-boot-web-starter</artifactId>
+			    <version>${spring-boot-starter-shiro-redis.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-saml-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
@@ -5530,12 +5536,6 @@
 				<artifactId>sitemesh3-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-sitemesh3.version}</version>
 			</dependency>			
-			<!-- https://mvnrepository.com/artifact/com.spring4all/swagger-spring-boot-starter -->
-			<dependency>
-			    <groupId>com.spring4all</groupId>
-			    <artifactId>swagger-spring-boot-starter</artifactId>
-			    <version>${spring-boot-starter-swagger.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/webflux-swagger2-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
