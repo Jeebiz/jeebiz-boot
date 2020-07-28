@@ -73,8 +73,8 @@
 		</dependency>
 		<!-- For Swagger -->
 		<dependency>
-			<groupId>com.spring4all</groupId>
-			<artifactId>swagger-spring-boot-starter</artifactId>
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>webflux-swagger2-spring-boot-starter</artifactId>
 		</dependency>
 		<dependency>
 		    <groupId>com.github.xiaoymin</groupId>
