@@ -156,8 +156,8 @@ public class DefaultWebMvcConfiguration implements WebMvcConfigurer {
     @Override
 	public void addInterceptors(InterceptorRegistry registry) {
     	registry.addInterceptor(log4j2MDCInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE);
-		registry.addInterceptor(themeChangeInterceptor).addPathPatterns("/theme/change");
-		registry.addInterceptor(localeChangeInterceptor).addPathPatterns("/locale/change");
+		registry.addInterceptor(themeChangeInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE + 1);
+		registry.addInterceptor(localeChangeInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE + 2);
 	}
 
 	@Autowired
