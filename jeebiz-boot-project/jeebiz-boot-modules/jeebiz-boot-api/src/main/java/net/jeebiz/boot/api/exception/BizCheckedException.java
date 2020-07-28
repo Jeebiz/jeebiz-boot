@@ -6,6 +6,8 @@ package net.jeebiz.boot.api.exception;
 
 import org.springframework.core.NestedCheckedException;
 
+import net.jeebiz.boot.api.ApiCode;
+
 @SuppressWarnings("serial")
 public class BizCheckedException extends NestedCheckedException {
 
@@ -21,6 +23,11 @@ public class BizCheckedException extends NestedCheckedException {
 	public BizCheckedException(int code) {
 		super("");
 		this.code = code;
+	}
+	
+	public BizCheckedException(String msg) {
+		super(msg);
+		this.code = Integer.parseInt(ApiCode.SC_RUNTIME_EXCEPTION.getCode());
 	}
 
 	public BizCheckedException(int code, String msg) {
