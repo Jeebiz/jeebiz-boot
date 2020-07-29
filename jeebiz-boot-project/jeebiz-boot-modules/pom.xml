@@ -14,7 +14,8 @@
 	<modules>
 		<module>jeebiz-boot-api</module>
 		<module>jeebiz-boot-plugin-api</module>
-		<module>jeebiz-boot-autoconfigure</module>
+		<module>jeebiz-boot-webflux-autoconfigure</module>
+		<module>jeebiz-boot-webmvc-autoconfigure</module>
 	</modules>
 	
 	<dependencies>

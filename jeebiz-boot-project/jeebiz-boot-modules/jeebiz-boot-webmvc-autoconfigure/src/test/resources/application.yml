@@ -1,0 +1,37 @@
+################################################################################################################
+###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：
+################################################################################################################
+spring:
+  messages:
+    #指定message的basename，多个以逗号分隔，如果不加包名的话，默认从classpath路径开始，默认: messages
+    basename: i18n/*/messages,i18n/messages
+    #设定Message bundles的编码，默认: UTF-8
+    encoding: UTF-8
+
+  profiles:
+    active: dev
+
+  #MVC
+  mvc:
+    view:
+      suffix: .html
+    static-path-pattern: /**
+    throw-exception-if-no-handler-found: false
+  resources:
+    cache:
+      cachecontrol:
+        no-cache: true
+  storage:
+    # 系统文件本地存储地址：Window 示例
+    local-storage: E:\local\storage
+    # 系统文件本地存储地址：Linux 示例
+    #local-storage: /local/storage
+    # 将访问地址映射到local-storage指定目录下的子目录
+    local-locations:
+      '[/data/**]' : /data
+    # 本地静态资源映射是否是相对于localStorage的地址
+    local-relative: true
+  template:
+    rest:
+      client-type: simple
+  
