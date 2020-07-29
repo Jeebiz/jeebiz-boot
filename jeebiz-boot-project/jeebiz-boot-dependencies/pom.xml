@@ -70,7 +70,7 @@
 		<commons-fileupload.version>1.4</commons-fileupload.version>
 		<commons-httpclient.version>3.1</commons-httpclient.version>
 		<commons-imaging.version>1.0-alpha1</commons-imaging.version>
-		<commons-io.version>2.6</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<commons-jci.version>1.1</commons-jci.version>
 		<commons-jexl.version>2.1.1</commons-jexl.version>
 		<commons-jexl3.version>3.1</commons-jexl3.version>
