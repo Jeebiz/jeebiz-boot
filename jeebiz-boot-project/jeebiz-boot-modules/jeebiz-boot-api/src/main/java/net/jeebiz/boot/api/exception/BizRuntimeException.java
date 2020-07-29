@@ -6,6 +6,8 @@ package net.jeebiz.boot.api.exception;
 
 import org.springframework.core.NestedRuntimeException;
 
+import net.jeebiz.boot.api.ApiCode;
+
 @SuppressWarnings("serial")
 public class BizRuntimeException extends NestedRuntimeException {
 
@@ -21,6 +23,11 @@ public class BizRuntimeException extends NestedRuntimeException {
 	public BizRuntimeException(int code) {
 		super("");
 		this.code = code;
+	}
+	
+	public BizRuntimeException(String msg) {
+		super(msg);
+		this.code = Integer.parseInt(ApiCode.SC_RUNTIME_EXCEPTION.getCode());
 	}
 
 	public BizRuntimeException(int code, String msg) {

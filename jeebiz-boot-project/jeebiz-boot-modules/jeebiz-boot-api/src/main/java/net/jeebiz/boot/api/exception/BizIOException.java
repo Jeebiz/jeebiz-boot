@@ -6,6 +6,8 @@ package net.jeebiz.boot.api.exception;
 
 import org.springframework.core.NestedIOException;
 
+import net.jeebiz.boot.api.ApiCode;
+
 @SuppressWarnings("serial")
 public class BizIOException extends NestedIOException {
 
@@ -23,6 +25,11 @@ public class BizIOException extends NestedIOException {
 		this.code = code;
 	}
 
+	public BizIOException(String msg) {
+		super(msg);
+		this.code = Integer.parseInt(ApiCode.SC_IO_EXCEPTION.getCode());
+	}
+	
 	public BizIOException(int code, String msg) {
 		super(msg);
 		this.code = code;
