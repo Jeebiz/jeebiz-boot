@@ -21,7 +21,7 @@
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jeebiz-boot-autoconfigure</artifactId>
+			<artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
 		<!-- For Dubbo -->
