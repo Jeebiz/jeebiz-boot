@@ -8,6 +8,10 @@ public class MessagePushException extends BizRuntimeException {
 		super(code);
 	}
 
+	public MessagePushException(String msg) {
+		super(msg);
+	}
+	
 	public MessagePushException(int code, String msg) {
 		super(code, msg);
 	}
