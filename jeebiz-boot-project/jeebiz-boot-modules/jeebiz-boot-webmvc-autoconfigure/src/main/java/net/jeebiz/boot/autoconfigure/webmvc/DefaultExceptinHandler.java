@@ -583,7 +583,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> bizRuntimeException(BizRuntimeException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiRestResponse.error(ex.getCode(), this.getLocaleMessage(ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -594,7 +594,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> bizCheckedException(BizCheckedException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiRestResponse.error(ex.getCode(), this.getLocaleMessage(ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -605,7 +605,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> bizIOException(BizIOException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiRestResponse.error(ex.getCode(), this.getLocaleMessage(ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
