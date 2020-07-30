@@ -137,6 +137,7 @@
 		<httpconn.version>1.0.1.RELEASE</httpconn.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
 		<hikaricp.version>3.4.5</hikaricp.version>
+		<hitool.version>1.0.0-SNAPSHOT</hitool.version>
 		<hive.version>3.1.2</hive.version>
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
@@ -2356,6 +2357,21 @@
 	            <version>${hibernate4-sqlite-dialect.version}</version>
 	        </dependency>
 	        
+	        <dependency>
+		        <groupId>com.github.hiwepy</groupId>
+				<artifactId>hitool-core</artifactId>
+				<version>${hitool.version}</version>
+	        </dependency>
+	        <dependency>
+		        <groupId>com.github.hiwepy</groupId>
+				<artifactId>hitool-crypto</artifactId>
+				<version>${hitool.version}</version>
+	        </dependency>
+	        <dependency>
+		        <groupId>com.github.hiwepy</groupId>
+				<artifactId>hitool-mail</artifactId>
+				<version>${hitool.version}</version>
+	        </dependency>
 	        
 	        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-exec -->
 			<dependency>
