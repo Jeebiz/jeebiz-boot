@@ -6,7 +6,6 @@
 		<groupId>net.jeebiz</groupId>
 		<artifactId>jeebiz-boot</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
-		<relativePath>../..</relativePath>
 	</parent>
 
 	<artifactId>jeebiz-boot-dependencies</artifactId>
@@ -315,6 +314,7 @@
 		<swagger3.version>2.1.2</swagger3.version>
 		<tablesaw.version>0.38.1</tablesaw.version>
 		<tencentcloud-sdk-java.version>3.1.103</tencentcloud-sdk-java.version>
+		<tencentcloud-tls-sig-api-v2.version>1.1</tencentcloud-tls-sig-api-v2.version>
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
 		<thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
@@ -379,7 +379,7 @@
 		 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
-		<spring-boot-starter-aliyun-ons.version>1.0.0.RELEASE</spring-boot-starter-aliyun-ons.version>
+		<spring-boot-starter-aliyun-ons.version>1.0.1-SNAPSHOT</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.0</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-rds.version>1.0.0</spring-boot-starter-aliyun-rds.version>
 		<spring-boot-starter-aliyun-redis.version>1.0.0</spring-boot-starter-aliyun-redis.version>
@@ -4458,6 +4458,11 @@
 			    <artifactId>tencentcloud-sdk-java</artifactId>
 			    <version>${tencentcloud-sdk-java.version}</version>
 			</dependency>
+			<dependency>
+	            <groupId>com.github.tencentyun</groupId>
+	            <artifactId>tls-sig-api-v2</artifactId>
+	            <version>${tencentcloud-tls-sig-api-v2.version}</version>
+	        </dependency>
 			
 			<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 			<!-- Thumbnailator是一个用来生成图像缩略图的 Java类库，通过很简单的代码即可生成图片缩略图，也可直接对一整个目录的图片生成缩略图。 -->
