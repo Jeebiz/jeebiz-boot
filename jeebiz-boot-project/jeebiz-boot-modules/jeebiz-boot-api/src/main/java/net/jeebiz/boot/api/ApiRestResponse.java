@@ -82,7 +82,7 @@ public class ApiRestResponse<T> {
     
 	// success -----------------------------------------------------------------
 	
-    public static ApiRestResponse<String> success(final String msg) {
+    public static <T> ApiRestResponse<T> success(final String msg) {
     	return of(ApiCode.SC_SUCCESS, msg, null);
     }
     
@@ -90,17 +90,17 @@ public class ApiRestResponse<T> {
     	return of(ApiCode.SC_SUCCESS, data);
     }
     
-    public static ApiRestResponse<String> success(final int code, final String msg) {
+    public static <T> ApiRestResponse<T> success(final int code, final String msg) {
         return success(String.valueOf(code), msg);
     }
     
-    public static ApiRestResponse<String> success(final String code, final String msg) {
+    public static <T> ApiRestResponse<T> success(final String code, final String msg) {
     	return of(code, Constants.RT_SUCCESS, msg);
     }
     
     // fail -----------------------------------------------------------------
     
-    public static ApiRestResponse<String> fail(final String msg) {
+    public static <T> ApiRestResponse<T> fail(final String msg) {
     	return of(ApiCode.SC_FAIL, msg, null);
     }
     
@@ -108,17 +108,17 @@ public class ApiRestResponse<T> {
     	return of(ApiCode.SC_FAIL, data);
     }
     
-    public static ApiRestResponse<String> fail(final int code, final String msg) {
+    public static <T> ApiRestResponse<T> fail(final int code, final String msg) {
         return fail(String.valueOf(code), msg);
     }
     
-    public static ApiRestResponse<String> fail(final String code, final String msg) {
+    public static <T> ApiRestResponse<T> fail(final String code, final String msg) {
     	return of(code, Constants.RT_FAIL, msg);
     }
     
     // error -----------------------------------------------------------------
     
-    public static ApiRestResponse<String> error(final String msg) {
+    public static <T> ApiRestResponse<T> error(final String msg) {
     	return of(ApiCode.SC_INTERNAL_SERVER_ERROR, msg, null);
     }
     
@@ -126,11 +126,11 @@ public class ApiRestResponse<T> {
         return of(ApiCode.SC_INTERNAL_SERVER_ERROR, data);
     }
     
-    public static ApiRestResponse<String> error(final int code, final String msg) {
+    public static <T> ApiRestResponse<T> error(final int code, final String msg) {
         return error(String.valueOf(code), msg);
     }
     
-    public static ApiRestResponse<String> error(final String code, final String msg) {
+    public static <T> ApiRestResponse<T> error(final String code, final String msg) {
         return of(code, Constants.RT_ERROR, msg);
     }
     
@@ -148,19 +148,19 @@ public class ApiRestResponse<T> {
     	return new ApiRestResponse<T>(code, msg, data);
     }
     
-    public static ApiRestResponse<String> of(final int code, final String msg) {
+    public static <T> ApiRestResponse<T> of(final int code, final String msg) {
         return of(String.valueOf(code), msg);
     }
     
-    public static ApiRestResponse<String> of(final String code, final String msg) {
-        return new ApiRestResponse<String>(code, msg);
+    public static <T> ApiRestResponse<T> of(final String code, final String msg) {
+        return new ApiRestResponse<T>(code, msg);
     }
     
-    public static ApiRestResponse<String> of(final int code, final String status, final String msg) {
+    public static <T> ApiRestResponse<T> of(final int code, final String status, final String msg) {
         return of(String.valueOf(code), status, msg, null);
     }
     
-    public static ApiRestResponse<String> of(final String code, final String status, final String msg) {
+    public static <T> ApiRestResponse<T> of(final String code, final String status, final String msg) {
     	 return of(code, status, msg, null);
     }
     

@@ -74,13 +74,13 @@ public class ApiFluxResponse<T> {
         this.data = data;
     }
 
-	public static Mono<ApiFluxResponse<String>> empty(final String msg) {
+	public static <T> Mono<ApiFluxResponse<T>> empty(final String msg) {
 		return of(ApiCode.SC_EMPTY, msg, null);
 	}
     
 	// success -----------------------------------------------------------------
 	
-    public static Mono<ApiFluxResponse<String>> success(final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> success(final String msg) {
     	return of(ApiCode.SC_SUCCESS, msg, null);
     }
     
@@ -88,17 +88,17 @@ public class ApiFluxResponse<T> {
     	return of(ApiCode.SC_SUCCESS, data);
     }
     
-    public static Mono<ApiFluxResponse<String>> success(final int code, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> success(final int code, final String msg) {
         return success(String.valueOf(code), msg);
     }
     
-    public static Mono<ApiFluxResponse<String>> success(final String code, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> success(final String code, final String msg) {
     	return of(code, Constants.RT_SUCCESS, msg);
     }
     
     // fail -----------------------------------------------------------------
     
-    public static Mono<ApiFluxResponse<String>> fail(final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> fail(final String msg) {
     	return of(ApiCode.SC_FAIL, msg, null);
     }
     
@@ -106,17 +106,17 @@ public class ApiFluxResponse<T> {
     	return of(ApiCode.SC_FAIL, data);
     }
     
-    public static Mono<ApiFluxResponse<String>> fail(final int code, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> fail(final int code, final String msg) {
         return fail(String.valueOf(code), msg);
     }
     
-    public static Mono<ApiFluxResponse<String>> fail(final String code, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> fail(final String code, final String msg) {
     	return of(code, Constants.RT_FAIL, msg);
     }
     
     // error -----------------------------------------------------------------
     
-    public static Mono<ApiFluxResponse<String>> error(final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> error(final String msg) {
     	return of(ApiCode.SC_INTERNAL_SERVER_ERROR, msg, null);
     }
     
@@ -124,11 +124,11 @@ public class ApiFluxResponse<T> {
         return of(ApiCode.SC_INTERNAL_SERVER_ERROR, data);
     }
     
-    public static Mono<ApiFluxResponse<String>> error(final int code, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> error(final int code, final String msg) {
         return error(String.valueOf(code), msg);
     }
     
-    public static Mono<ApiFluxResponse<String>> error(final String code, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> error(final String code, final String msg) {
         return of(code, Constants.RT_ERROR, msg);
     }
     
@@ -146,19 +146,19 @@ public class ApiFluxResponse<T> {
     	return Mono.just(new ApiFluxResponse<T>(code, msg, data));
     }
     
-    public static Mono<ApiFluxResponse<String>> of(final int code, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> of(final int code, final String msg) {
         return of(String.valueOf(code), msg);
     }
     
-    public static Mono<ApiFluxResponse<String>> of(final String code, final String msg) {
-        return Mono.just(new ApiFluxResponse<String>(code, msg));
+    public static <T> Mono<ApiFluxResponse<T>> of(final String code, final String msg) {
+        return Mono.just(new ApiFluxResponse<T>(code, msg));
     }
     
-    public static Mono<ApiFluxResponse<String>> of(final int code, final String status, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> of(final int code, final String status, final String msg) {
         return of(String.valueOf(code), status, msg, null);
     }
     
-    public static Mono<ApiFluxResponse<String>> of(final String code, final String status, final String msg) {
+    public static <T> Mono<ApiFluxResponse<T>> of(final String code, final String status, final String msg) {
     	 return of(code, status, msg, null);
     }
     
