@@ -66,6 +66,7 @@ import org.springframework.web.bind.UnsatisfiedServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.WebExchangeBindException;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.method.annotation.MethodArgumentConversionNotSupportedException;
@@ -296,30 +297,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<?>> methodArgumentNotValidException(MethodArgumentNotValidException ex) {
 		this.logException(ex);
-		
-		BindingResult result = ex.getBindingResult();
-		if( result.getErrorCount() > 0) {
-			
-			List<Map<String,String>> errorList = Lists.newArrayList();
-			for (FieldError error : result.getFieldErrors()) {
-				Map<String,String> errorMap = Maps.newHashMap();
-				errorMap.put("field", error.getField());
-				errorMap.put("msg", error.getDefaultMessage());
-				LOG.error(error.getField() + ":"+ error.getDefaultMessage());
-				errorList.add(errorMap);
-			}
-			
-			return new ResponseEntity<ApiRestResponse<?>>(ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.toResponse(errorList), HttpStatus.BAD_REQUEST);
-			
-		} else{
-			
-			ObjectError error = result.getGlobalError();
-
-			ApiRestResponse<String> resp = ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.toResponse(this.getLocaleMessage(ex, error.getDefaultMessage()));
-			return new ResponseEntity<ApiRestResponse<?>>(resp, HttpStatus.BAD_REQUEST);
-			
-		}
-		
+		return this.bindException(ex, ex.getBindingResult());
 	}
 	
 	/**
@@ -332,8 +310,19 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<?>> bindException(BindException ex) {
 		this.logException(ex);
-		
-		BindingResult result = ex.getBindingResult();
+		return this.bindException(ex, ex.getBindingResult());
+	}
+	
+
+	@ExceptionHandler(WebExchangeBindException.class)
+    @ResponseBody
+    public ResponseEntity<ApiRestResponse<?>> webExchangeBindException(WebExchangeBindException ex) {
+		this.logException(ex);
+		return this.bindException(ex, ex.getBindingResult());
+    }
+
+	protected ResponseEntity<ApiRestResponse<?>> bindException(Exception ex, BindingResult result) {
+
 		if( result.getErrorCount() > 0) {
 			
 			List<Map<String,String>> errorList = Lists.newArrayList();
@@ -355,7 +344,6 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 			return new ResponseEntity<ApiRestResponse<?>>(resp, HttpStatus.BAD_REQUEST);
 			
 		}
-		
 	}
 	
 	/**
