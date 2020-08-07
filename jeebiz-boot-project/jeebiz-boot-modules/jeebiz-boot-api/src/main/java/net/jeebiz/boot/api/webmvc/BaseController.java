@@ -57,15 +57,15 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
 	}
 
-	protected <T> ApiRestResponse<T> success(String key, Object... args) {
+	protected ApiRestResponse<String> success(String key, Object... args) {
 		return ApiRestResponse.success(getMessage(key, args));
 	}
 
-	protected <T> ApiRestResponse<T> fail(String key, Object... args) {
+	protected ApiRestResponse<String> fail(String key, Object... args) {
 		return ApiRestResponse.fail(getMessage(key, args));
 	}
 
-	protected <T> ApiRestResponse<T> error(String key, Object... args) {
+	protected ApiRestResponse<String> error(String key, Object... args) {
 		return ApiRestResponse.error(getMessage(key, args));
 	}
 	

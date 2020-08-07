@@ -34,123 +34,138 @@ public class ApiRestResponse<T> {
 		this.status = Constants.RT_SUCCESS;
 		this.msg = ApiCode.SC_SUCCESS.getReason();
     }
- 
-    protected ApiRestResponse(final String code, final String message) {
-        this(code, Constants.RT_SUCCESS, message);
+    
+	protected ApiRestResponse(final ApiCode code) {
+		this.code = code.getCode();;
+        this.status = code.getStatus();
+        this.msg = code.getReason();
+    }
+	 
+    protected ApiRestResponse(final ApiCode code, final T data) {
+        this.code = code.getCode();;
+        this.status = code.getStatus();
+        this.msg = code.getReason();
+        this.data = data;
     }
     
-    protected ApiRestResponse(final String code, final String status, final String message) {
-        this.code = code;
-        this.status = status;
-        this.msg = message;
-    }
-    
-    protected ApiRestResponse(final String code, final String message, final T data) {
-        this(code, Constants.RT_SUCCESS, message, data);
-    }
-    
-    protected ApiRestResponse(final String code, final String status, final String message, final T data) {
-        this.code = code;
-        this.status = status;
-        this.msg = message;
+    protected ApiRestResponse(final ApiCode code, final String msg, final T data) {
+        this.code = code.getCode();;
+        this.status = code.getStatus();
+        this.msg = msg;
         this.data = data;
     }
 
-	public static <T> ApiRestResponse<T> empty(final String message) {
-		return of(ApiCode.SC_EMPTY, message);
-	}
-    
-    public static <T> ApiRestResponse<T> success(final String message) {
-        return of(ApiCode.SC_SUCCESS, message);
+    protected ApiRestResponse(final String code, final String msg) {
+        this(code, Constants.RT_SUCCESS, msg);
     }
     
-    public static <T> ApiRestResponse<T> success(final int code, final String message) {
-        return success(String.valueOf(code), message);
+    protected ApiRestResponse(final String code, final String status, final String msg) {
+        this.code = code;
+        this.status = status;
+        this.msg = msg;
     }
     
-    public static <T> ApiRestResponse<T> success(final String code, final String message) {
-        return new ApiRestResponse<T>(code, Constants.RT_SUCCESS, message);
+    protected ApiRestResponse(final String code, final String msg, final T data) {
+        this(code, Constants.RT_SUCCESS, msg, data);
+    }
+    
+    protected ApiRestResponse(final String code, final String status, final String msg, final T data) {
+        this.code = code;
+        this.status = status;
+        this.msg = msg;
+        this.data = data;
     }
 
-    public static <T> ApiRestResponse<T> success(final T data) {
-        return of(ApiCode.SC_SUCCESS, data);
+	public static <T> ApiRestResponse<T> empty(final String msg) {
+		return of(ApiCode.SC_EMPTY, msg, null);
+	}
+    
+	// success -----------------------------------------------------------------
+	
+    public static ApiRestResponse<String> success(final String msg) {
+    	return of(ApiCode.SC_SUCCESS, msg, null);
     }
     
-    public static <T> ApiRestResponse<T> fail(final String message) {
-        return of(ApiCode.SC_FAIL, message);
+    public static <T> ApiRestResponse<T> success(final T data) {
+    	return of(ApiCode.SC_SUCCESS, data);
+    }
+    
+    public static ApiRestResponse<String> success(final int code, final String msg) {
+        return success(String.valueOf(code), msg);
+    }
+    
+    public static ApiRestResponse<String> success(final String code, final String msg) {
+    	return of(code, Constants.RT_SUCCESS, msg);
+    }
+    
+    // fail -----------------------------------------------------------------
+    
+    public static ApiRestResponse<String> fail(final String msg) {
+    	return of(ApiCode.SC_FAIL, msg, null);
     }
     
     public static <T> ApiRestResponse<T> fail(final T data) {
-        return of(ApiCode.SC_FAIL, data);
+    	return of(ApiCode.SC_FAIL, data);
     }
     
-    public static <T> ApiRestResponse<T> fail(final int code, final String message) {
-        return fail(String.valueOf(code), message);
+    public static ApiRestResponse<String> fail(final int code, final String msg) {
+        return fail(String.valueOf(code), msg);
     }
     
-    public static <T> ApiRestResponse<T> fail(final String code, final String message) {
-        return new ApiRestResponse<T>(code, Constants.RT_FAIL, message);
+    public static ApiRestResponse<String> fail(final String code, final String msg) {
+    	return of(code, Constants.RT_FAIL, msg);
     }
     
-    public static <T> ApiRestResponse<T> error(final String message) {
-        return of(ApiCode.SC_INTERNAL_SERVER_ERROR, message);
-    }
+    // error -----------------------------------------------------------------
     
-    public static <T> ApiRestResponse<T> error(final int code, final String message) {
-        return error(String.valueOf(code), message);
-    }
-    
-    public static <T> ApiRestResponse<T> error(final String code, final String message) {
-        return new ApiRestResponse<T>(code, Constants.RT_ERROR,  message);
-    }
-    
-    public static <T> ApiRestResponse<T> data(T data) {
-        return of(ApiCode.SC_SUCCESS.getCode(), ApiCode.SC_SUCCESS.getReason(), data);
-    }
-    
-    public static <T> ApiRestResponse<T> data(String msg, T data) {
-        return new ApiRestResponse<T>(ApiCode.SC_SUCCESS.getCode(), msg, data);
+    public static ApiRestResponse<String> error(final String msg) {
+    	return of(ApiCode.SC_INTERNAL_SERVER_ERROR, msg, null);
     }
     
     public static <T> ApiRestResponse<T> error(final T data) {
         return of(ApiCode.SC_INTERNAL_SERVER_ERROR, data);
     }
     
-    public static <T> ApiRestResponse<T> of(final ApiCode code) {
-        return of(code.getCode(), code.getStatus(), code.getReason());
+    public static ApiRestResponse<String> error(final int code, final String msg) {
+        return error(String.valueOf(code), msg);
     }
     
-    public static <T> ApiRestResponse<T> of(final ApiCode code, final String message) {
-        return of(code.getCode(), code.getStatus(), message);
+    public static ApiRestResponse<String> error(final String code, final String msg) {
+        return of(code, Constants.RT_ERROR, msg);
+    }
+    
+    // -----------------------------------------------------------------
+    
+    public static <T> ApiRestResponse<T> of(final ApiCode code) {
+    	return new ApiRestResponse<T>(code);
     }
     
     public static <T> ApiRestResponse<T> of(final ApiCode code, final T data) {
-        return of(code.getCode(), code.getStatus(), code.getReason(), data);
+    	return new ApiRestResponse<T>(code, data);
     }
     
+    public static <T> ApiRestResponse<T> of(final ApiCode code, final String msg, final T data) {
+    	return new ApiRestResponse<T>(code, msg, data);
+    }
     
-    public static <T> ApiRestResponse<T> of(final int code, final String msg) {
+    public static ApiRestResponse<String> of(final int code, final String msg) {
         return of(String.valueOf(code), msg);
     }
     
-    public static <T> ApiRestResponse<T> of(final String code, final String msg) {
-        return new ApiRestResponse<T>(code, msg);
+    public static ApiRestResponse<String> of(final String code, final String msg) {
+        return new ApiRestResponse<String>(code, msg);
     }
     
-    public static <T> ApiRestResponse<T> of(final String code, final String msg, final T data) {
-        return new ApiRestResponse<T>(code, msg, data);
+    public static ApiRestResponse<String> of(final int code, final String status, final String msg) {
+        return of(String.valueOf(code), status, msg, null);
     }
     
-    public static <T> ApiRestResponse<T> of(final int code, final String status, final String message) {
-        return of(String.valueOf(code), status, message);
+    public static ApiRestResponse<String> of(final String code, final String status, final String msg) {
+    	 return of(code, status, msg, null);
     }
     
-    public static <T> ApiRestResponse<T> of(final String code, final String status, final String message) {
-    	 return of(code, status, message, null);
-    }
-    
-    public static <T> ApiRestResponse<T> of(final String code, final String status, final String message, final T data) {
-        return new ApiRestResponse<T>(code, status, message, data);
+    public static <T> ApiRestResponse<T> of(final String code, final String status, final String msg, final T data) {
+        return new ApiRestResponse<T>(code, status, msg, data);
     }
 
 	public String getCode() {

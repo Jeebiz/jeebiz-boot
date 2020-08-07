@@ -285,7 +285,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		}
 		
 		String message = StringUtils.defaultString(ex.getMessage(), ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.getReason());
-		ApiRestResponse<List<String>> response = ApiRestResponse.of(ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.getCode(), message, msgList);
+		ApiRestResponse<List<String>> response = ApiRestResponse.of(ApiCode.SC_METHOD_ARGUMENT_NOT_VALID, message, msgList);
 		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
 	
