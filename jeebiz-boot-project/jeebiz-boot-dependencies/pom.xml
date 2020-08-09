@@ -189,6 +189,7 @@
 		<liquibase.version>4.0.0</liquibase.version>
 		<mariadb.version>2.6.2</mariadb.version>
 		<metadata-extractor.version>2.14.0</metadata-extractor.version>
+		<mongo-java-driver.version>3.12.7</mongo-java-driver.version>
 		<mssql-jdbc.version>8.4.0.jre8</mssql-jdbc.version>		
 		<mybatis.version>3.5.5</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
@@ -3040,6 +3041,13 @@
 			    <groupId>cn.guoyukun.jdbc</groupId>
 			    <artifactId>mssql-jdbc4</artifactId>
 			    <version>16.2-b04</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+			<dependency>
+			    <groupId>org.mongodb</groupId>
+			    <artifactId>mongo-java-driver</artifactId>
+			    <version>${mongo-java-driver.version}</version>
 			</dependency>
 			
 			<!-- http://mvnrepository.com/artifact/org.mybatis -->
