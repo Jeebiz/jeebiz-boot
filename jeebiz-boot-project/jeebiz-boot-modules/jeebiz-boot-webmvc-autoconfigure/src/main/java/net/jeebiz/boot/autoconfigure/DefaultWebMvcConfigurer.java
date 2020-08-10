@@ -45,7 +45,7 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 @Configuration
 @ComponentScan({ "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
 @EnableConfigurationProperties(LocalResourceProperteis.class)
-public class DefaultWebMvcConfiguration implements WebMvcConfigurer {
+public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 	
 	@Bean
 	@ConditionalOnMissingBean

@@ -4,8 +4,6 @@
  */
 package net.jeebiz.boot.autoconfigure.webflux;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
@@ -23,8 +21,6 @@ import reactor.core.publisher.Mono;
  *
  * @author L.cm
  */
-@Configuration
-@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 public class ReactiveRequestContextFilter implements WebFilter {
 
     @Override

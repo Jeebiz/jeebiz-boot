@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.api.webmvc;
+package net.jeebiz.boot.api.web;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

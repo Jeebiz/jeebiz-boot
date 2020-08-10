@@ -2,9 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.api.webmvc;
-
-import javax.servlet.http.HttpServletRequest;
+package net.jeebiz.boot.api.web;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +12,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.EmbeddedValueResolverAware;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.util.StringValueResolver;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import net.jeebiz.boot.api.ApiRestResponse;
 import net.jeebiz.boot.api.exception.PayloadExceptionEvent;
@@ -49,12 +44,7 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 	 * @return 国际化字符串
 	 */
 	protected String getMessage(String key, Object... args) {
-		//两个方法在没有使用JSF的项目中是没有区别的
-		RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
-		//				                      RequestContextHolder.getRequestAttributes();
-		HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
-		//HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
-		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
+		return getMessageSource().getMessage(key, args, LocaleContextHolder.getLocale());
 	}
 
 	protected <T> ApiRestResponse<T> success(String key, Object... args) {
