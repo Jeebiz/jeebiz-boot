@@ -34,7 +34,6 @@ import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.springframework.web.servlet.theme.CookieThemeResolver;
 import org.springframework.web.servlet.theme.SessionThemeResolver;
@@ -46,6 +45,9 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 @ComponentScan({ "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
 @EnableConfigurationProperties(LocalResourceProperteis.class)
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
+	
+	private final String META_INF_RESOURCES = "classpath:/META-INF/resources/"; 
+	private final String META_INF_WEBJAR_RESOURCES = "classpath:/META-INF/resources/webjars/"; 
 	
 	@Bean
 	@ConditionalOnMissingBean
@@ -162,8 +164,8 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 
 	@Autowired
     private LocalResourceProperteis localResourceProperteis;
-	
-    @Override
+
+	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	// 本地资源映射
     	if(!CollectionUtils.isEmpty(localResourceProperteis.getLocalLocations())){
@@ -182,11 +184,16 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 		registry.addResourceHandler("/assets/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/assets/");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 		// swagger增加url映射
-        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
-		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
-				.resourceChain(false).addResolver(new WebJarsResourceResolver())
-				.addResolver(new PathResourceResolver());
+		if(registry.hasMappingForPattern("/doc.html**")) {
+			registry.addResourceHandler("/doc.html**").addResourceLocations(META_INF_RESOURCES);
+		}
+		if(registry.hasMappingForPattern("/swagger-ui.html**")) {
+			registry.addResourceHandler("/swagger-ui.html**").addResourceLocations(META_INF_RESOURCES);
+		}
+		if(registry.hasMappingForPattern("/webjars/**")) {
+			registry.addResourceHandler("/webjars/**").addResourceLocations(META_INF_WEBJAR_RESOURCES)
+				.resourceChain(false).addResolver(new WebJarsResourceResolver());
+		}
 		
 	}
 	
