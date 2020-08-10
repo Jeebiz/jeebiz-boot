@@ -92,12 +92,12 @@
 		    <artifactId>spring-webmvc</artifactId>
 		    <scope>provided</scope>
 		</dependency>
-		<!-- For Spring WebFlux -->
+		<!-- For Spring WebFlux 
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-webflux</artifactId>
 		    <scope>provided</scope>
-		</dependency>
+		</dependency>-->
 		<!-- For Spring Aop -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
