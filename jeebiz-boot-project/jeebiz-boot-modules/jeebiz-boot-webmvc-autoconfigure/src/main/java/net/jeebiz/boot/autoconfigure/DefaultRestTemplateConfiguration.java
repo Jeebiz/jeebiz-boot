@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +33,7 @@ import com.google.common.collect.Lists;
 import net.jeebiz.boot.autoconfigure.RestTemplateProperties.ClientType;
 
 @Configuration
+@EnableConfigurationProperties(RestTemplateProperties.class)
 public class DefaultRestTemplateConfiguration {
 
 	@Bean
