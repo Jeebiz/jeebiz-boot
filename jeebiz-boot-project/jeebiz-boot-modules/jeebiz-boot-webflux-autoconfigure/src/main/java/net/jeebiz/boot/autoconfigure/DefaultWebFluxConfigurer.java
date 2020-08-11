@@ -8,41 +8,23 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.Resource;
-import org.springframework.http.MediaType;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.reactive.config.ResourceHandlerRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
-import org.springframework.web.reactive.function.server.RequestPredicates;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.RouterFunctions;
-import org.springframework.web.reactive.function.server.ServerResponse;
 import org.springframework.web.reactive.resource.WebJarsResourceResolver;
 
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 
-@Configuration
-@EnableConfigurationProperties(LocalResourceProperteis.class)
 public class DefaultWebFluxConfigurer implements WebFluxConfigurer  {
-    
+	
 	private final String META_INF_RESOURCES = "classpath:/META-INF/resources/"; 
 	private final String META_INF_WEBJAR_RESOURCES = "classpath:/META-INF/resources/webjars/"; 
-	
-	@Autowired
     private LocalResourceProperteis localResourceProperteis;
-	
-	@Bean
-	public RouterFunction<ServerResponse> docRouter(
-			@Value("classpath:/META-INF/resources/doc.html") final Resource indexHtml) {
-		return RouterFunctions.route(RequestPredicates.GET("/"),
-				request -> ServerResponse.ok().contentType(MediaType.TEXT_HTML).bodyValue(indexHtml));
-	}
+    
+    public DefaultWebFluxConfigurer(LocalResourceProperteis localResourceProperteis) {
+    	this.localResourceProperteis = localResourceProperteis;
+    }
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

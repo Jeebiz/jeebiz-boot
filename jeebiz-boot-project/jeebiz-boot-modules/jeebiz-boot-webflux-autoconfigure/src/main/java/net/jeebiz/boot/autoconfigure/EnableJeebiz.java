@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import({ DefaultSpringContextConfiguration.class, DefaultWebFluxConfiguration.class })
+@Import({ DefaultSpringContextConfiguration.class, DefaultWebFluxConfiguration.class, DefaultRestTemplateConfiguration.class })
 public @interface EnableJeebiz {
 
 }
