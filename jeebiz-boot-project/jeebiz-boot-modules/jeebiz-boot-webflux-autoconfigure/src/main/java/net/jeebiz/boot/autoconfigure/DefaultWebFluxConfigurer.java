@@ -45,13 +45,13 @@ public class DefaultWebFluxConfigurer implements WebFluxConfigurer  {
 		registry.addResourceHandler("/assets/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/assets/");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 		// swagger增加url映射
-		if(registry.hasMappingForPattern("/doc.html**")) {
+		if(!registry.hasMappingForPattern("/doc.html**")) {
 			registry.addResourceHandler("/doc.html**").addResourceLocations(META_INF_RESOURCES);
 		}
-		if(registry.hasMappingForPattern("/swagger-ui.html**")) {
+		if(!registry.hasMappingForPattern("/swagger-ui.html**")) {
 			registry.addResourceHandler("/swagger-ui.html**").addResourceLocations(META_INF_RESOURCES);
 		}
-		if(registry.hasMappingForPattern("/webjars/**")) {
+		if(!registry.hasMappingForPattern("/webjars/**")) {
 			registry.addResourceHandler("/webjars/**").addResourceLocations(META_INF_WEBJAR_RESOURCES)
 				.resourceChain(false).addResolver(new WebJarsResourceResolver());
 		}
