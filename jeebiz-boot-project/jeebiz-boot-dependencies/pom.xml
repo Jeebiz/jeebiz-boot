@@ -479,8 +479,8 @@
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.0.RELEASE</spring-boot-starter-webflux-swagger2.version>	
-		<spring-boot-starter-webmvc-swagger2.version>1.0.0.RELEASE</spring-boot-starter-webmvc-swagger2.version>
+		<spring-boot-starter-webflux-swagger2.version>1.0.2-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>	
+		<spring-boot-starter-webmvc-swagger2.version>1.0.2-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2-SNAPSHOT</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
