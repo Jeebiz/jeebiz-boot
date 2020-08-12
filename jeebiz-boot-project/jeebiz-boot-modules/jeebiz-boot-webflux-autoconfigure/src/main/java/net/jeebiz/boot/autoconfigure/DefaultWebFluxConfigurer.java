@@ -19,7 +19,8 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 public class DefaultWebFluxConfigurer implements WebFluxConfigurer  {
 	
 	private final String META_INF_RESOURCES = "classpath:/META-INF/resources/"; 
-	private final String META_INF_WEBJAR_RESOURCES = "classpath:/META-INF/resources/webjars/"; 
+	private final String META_INF_WEBJAR_RESOURCES = META_INF_RESOURCES + "webjars/"; 
+	
     private LocalResourceProperteis localResourceProperteis;
     
     public DefaultWebFluxConfigurer(LocalResourceProperteis localResourceProperteis) {
@@ -44,13 +45,6 @@ public class DefaultWebFluxConfigurer implements WebFluxConfigurer  {
     	// 指定个性化资源映射
 		registry.addResourceHandler("/assets/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/assets/");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-		// swagger增加url映射
-		if(!registry.hasMappingForPattern("/doc.html**")) {
-			registry.addResourceHandler("/doc.html**").addResourceLocations(META_INF_RESOURCES);
-		}
-		if(!registry.hasMappingForPattern("/swagger-ui.html**")) {
-			registry.addResourceHandler("/swagger-ui.html**").addResourceLocations(META_INF_RESOURCES);
-		}
 		if(!registry.hasMappingForPattern("/webjars/**")) {
 			registry.addResourceHandler("/webjars/**").addResourceLocations(META_INF_WEBJAR_RESOURCES)
 				.resourceChain(false).addResolver(new WebJarsResourceResolver());
