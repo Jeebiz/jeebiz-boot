@@ -109,7 +109,11 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-tx</artifactId>
 		</dependency>
-		
+		<!-- For Libphonenumber -->
+	    <dependency>
+        	<groupId>com.googlecode.libphonenumber</groupId>
+  			<artifactId>libphonenumber</artifactId>
+        </dependency>
 		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
 		<dependency>
 		    <groupId>org.aspectj</groupId>
