@@ -35,6 +35,12 @@ public class BizCheckedException extends NestedCheckedException {
 		this.code = code;
 	}
 	
+	public BizCheckedException(ApiCode code, String i18n) {
+		super(code.getReason());
+		this.code = Integer.parseInt(code.getCode());
+		this.i18n = i18n;
+	}
+	
 	public BizCheckedException(int code, String i18n, String defMsg) {
 		super(defMsg);
 		this.code = code;

@@ -35,6 +35,12 @@ public class BizRuntimeException extends NestedRuntimeException {
 		this.code = code;
 	}
 	
+	public BizRuntimeException(ApiCode code, String i18n) {
+		super(code.getReason());
+		this.code = Integer.parseInt(code.getCode());
+		this.i18n = i18n;
+	}
+	
 	public BizRuntimeException(int code, String i18n, String defMsg) {
 		super(defMsg);
 		this.code = code;

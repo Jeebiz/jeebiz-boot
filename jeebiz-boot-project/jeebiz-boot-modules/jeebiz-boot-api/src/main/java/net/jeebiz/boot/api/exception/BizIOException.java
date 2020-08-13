@@ -35,6 +35,12 @@ public class BizIOException extends NestedIOException {
 		this.code = code;
 	}
 	
+	public BizIOException(ApiCode code, String i18n) {
+		super(code.getReason());
+		this.code = Integer.parseInt(code.getCode());
+		this.i18n = i18n;
+	}
+	
 	public BizIOException(int code, String i18n, String defMsg) {
 		super(defMsg);
 		this.code = code;
