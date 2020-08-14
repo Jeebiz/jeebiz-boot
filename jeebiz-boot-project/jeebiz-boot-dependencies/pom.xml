@@ -422,7 +422,7 @@
 		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
-		<spring-boot-starter-ip2region.version>1.0.2.RELEASE</spring-boot-starter-ip2region.version>
+		<spring-boot-starter-ip2region.version>1.0.3.RELEASE</spring-boot-starter-ip2region.version>
 		<spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
 		<spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
@@ -451,7 +451,7 @@
 		<spring-boot-starter-pf4j2.version>1.0.9-SNAPSHOT</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>1.0.1-SNAPSHOT</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
-		<spring-boot-starter-qqwry.version>1.0.1.RELEASE</spring-boot-starter-qqwry.version>
+		<spring-boot-starter-qqwry.version>1.0.2.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.1.0</spring-boot-starter-rocketmq.version>
@@ -478,12 +478,12 @@
 		<spring-boot-starter-shiro-saml.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-saml.version>
 		<spring-boot-starter-shiro-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
-		<spring-boot-starter-socketio.version>1.0.5-SNAPSHOT</spring-boot-starter-socketio.version>
+		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.2-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>	
-		<spring-boot-starter-webmvc-swagger2.version>1.0.2-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
+		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
+		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2-SNAPSHOT</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
@@ -3004,7 +3004,7 @@
 			    <artifactId>geocoder</artifactId>
 			    <version>${libphonenumber-geocoder.version}</version>
 			</dependency>
-		
+			
 			<!-- JDBC Driver For MariaDB : https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
  			<dependency>
 		      	<groupId>org.mariadb.jdbc</groupId>
