@@ -178,7 +178,7 @@ public enum ApiCode {
 
 	// --- Custom Server Error ---
 	
-	SC_SUCCESS("0", Constants.RT_SUCCESS, "请求成功"),
+	SC_SUCCESS("200", Constants.RT_SUCCESS, "请求成功"),
 	
 	SC_ACCESS_DENIED("10110", Constants.RT_FAIL, "不允许访问（功能未授权）"),
 	
