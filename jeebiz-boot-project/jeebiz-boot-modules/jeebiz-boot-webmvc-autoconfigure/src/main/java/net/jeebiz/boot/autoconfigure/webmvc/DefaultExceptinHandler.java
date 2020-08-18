@@ -108,7 +108,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("没有找到请求地址 [%s],请求方式 [%s]对应的处理对象.", ex.getRequestURL(), ex.getHttpMethod());
 		ApiRestResponse<String> resp = ApiCode.SC_NOT_FOUND.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.NOT_FOUND);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -120,7 +120,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("不支持的请求方法, 仅支持 [%s].", StringUtils.join(ex.getSupportedMethods()));
 		ApiRestResponse<String> resp = ApiCode.SC_METHOD_NOT_ALLOWED.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.METHOD_NOT_ALLOWED);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -137,7 +137,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		}
 		String message = String.format("不匹配的媒体类型, 仅匹配 [%s].", StringUtils.join(supportedMediaTypes));
 		ApiRestResponse<String> resp = ApiCode.SC_NOT_ACCEPTABLE.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.NOT_ACCEPTABLE);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("不支持的媒体类型, 仅支持 [%s].", StringUtils.join(ex.getSupportedMediaTypes()));
 		ApiRestResponse<String> resp = ApiCode.SC_UNSUPPORTED_MEDIA_TYPE.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -162,7 +162,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("缺少矩阵变量: [%s].", ex.getVariableName());
 		ApiRestResponse<String> resp = ApiCode.SC_MISSING_MATRIX_VARIABLE.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -174,7 +174,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("缺少URI模板变量: [%s].", ex.getVariableName());
 		ApiRestResponse<String> resp = ApiCode.SC_MISSING_PATH_VARIABLE.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}  
 	
 	/**
@@ -186,7 +186,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("缺少Cookie变量: [%s].", ex.getCookieName());
 		ApiRestResponse<String> resp = ApiCode.SC_MISSING_REQUEST_COOKIE.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -198,7 +198,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("缺少请求头: [%s].", ex.getHeaderName());
 		ApiRestResponse<String> resp = ApiCode.SC_MISSING_REQUEST_HEADER.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -210,7 +210,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("缺少参数: [%s]，类型为 [%s].", ex.getParameterName(), ex.getParameterType());
 		ApiRestResponse<String> resp = ApiCode.SC_MISSING_REQUEST_PARAM.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -222,7 +222,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("缺少请求对象: [%s].", ex.getRequestPartName());
 		ApiRestResponse<String> resp = ApiCode.SC_MISSING_REQUEST_PART.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -233,7 +233,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> unsatisfiedServletRequestParameterException(UnsatisfiedServletRequestParameterException ex) {
 		this.logException(ex);
 		ApiRestResponse<String> resp = ApiCode.SC_UNSATISFIED_PARAM.toResponse(this.getLocaleMessage(ex, ex.getMessage()));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 
 	/**
@@ -244,7 +244,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> servletRequestBindingException(ServletRequestBindingException ex) {
 		this.logException(ex);
 		ApiRestResponse<String> resp = ApiCode.SC_BINDING_ERROR.toResponse(this.getLocaleMessage(ex, ex.getMessage()));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -255,7 +255,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> jsonProcessingException(JsonProcessingException ex) {
 		this.logException(ex);
 		ApiRestResponse<String> resp = ApiCode.SC_PARSING_ERROR.toResponse(this.getLocaleMessage(ex, ex.getMessage()));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -266,7 +266,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> httpMessageNotReadableException(HttpMessageNotReadableException ex) {
 		this.logException(ex);
 		ApiRestResponse<String> resp = ApiCode.SC_PARSING_ERROR.toResponse(this.getLocaleMessage(ex, ex.getMessage()));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -287,7 +287,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		
 		String message = StringUtils.defaultString(ex.getMessage(), ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.getReason());
 		ApiRestResponse<List<String>> response = ApiRestResponse.of(ApiCode.SC_METHOD_ARGUMENT_NOT_VALID, message, msgList);
-		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
 	/**
@@ -334,14 +334,14 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 				errorList.add(errorMap);
 			}
 			
-			return new ResponseEntity<ApiRestResponse<?>>(ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.toResponse(errorList), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<ApiRestResponse<?>>(ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.toResponse(errorList), HttpStatus.OK);
 			
 		} else{
 			
 			ObjectError error = result.getGlobalError();
 
 			ApiRestResponse<String> resp = ApiCode.SC_METHOD_ARGUMENT_NOT_VALID.toResponse(this.getLocaleMessage(ex, error.getDefaultMessage()));
-			return new ResponseEntity<ApiRestResponse<?>>(resp, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<ApiRestResponse<?>>(resp, HttpStatus.OK);
 			
 		}
 	}
@@ -355,7 +355,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("Bean 属性 [%s]类型不匹配. 类型应该是 [%s].", ex.getPropertyName(), ex.getRequiredType());
 		ApiRestResponse<String> resp = ApiCode.SC_BAD_REQUEST.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -367,7 +367,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("参数类型不匹配，参数[%s]类型应该是 [%s].", ex.getName(), ex.getRequiredType().getSimpleName());
 		ApiRestResponse<String> resp = ApiCode.SC_BAD_REQUEST.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -379,7 +379,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("参数类型转换不支持，参数[%s]类型应该是 [%s].", ex.getName(), ex.getRequiredType().getSimpleName());
 		ApiRestResponse<String> resp = ApiCode.SC_BAD_REQUEST.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 
 	// --- 5xx Server Error ---
@@ -547,7 +547,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		*/
 		String message = String.format("上传文件超过%s字节的最大上传大小（字节）", ex.getMaxUploadSize());
 		ApiRestResponse<String> resp = ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -559,7 +559,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		this.logException(ex);
 		String message = String.format("单个文件超过%s字节的最大上传大小（字节）", ex.getMaxUploadSizePerFile());
 		ApiRestResponse<String> resp = ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(this.getLocaleMessage(ex, message));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**---------------------业务异常----------------------------*/
@@ -572,7 +572,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> bizRuntimeException(BizRuntimeException ex) {
 		this.logException(ex);
 		ApiRestResponse<String> resp = ApiRestResponse.error(ex.getCode(), this.getLocaleMessage(ex, ex.getMessage()));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -583,7 +583,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> bizCheckedException(BizCheckedException ex) {
 		this.logException(ex);
 		ApiRestResponse<String> resp = ApiRestResponse.error(ex.getCode(), this.getLocaleMessage(ex, ex.getMessage()));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**
@@ -594,7 +594,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> bizIOException(BizIOException ex) {
 		this.logException(ex);
 		ApiRestResponse<String> resp = ApiRestResponse.error(ex.getCode(), this.getLocaleMessage(ex, ex.getMessage()));
-		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
 	/**---------------------Mybatis 异常----------------------------*/
@@ -805,7 +805,8 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		}
 		return message;
 	}
-
+	
+	
 	public NestedMessageSource getMessageSource() {
 		return messageSource;
 	}
