@@ -27,7 +27,7 @@ public class BizIOException extends NestedIOException {
 
 	public BizIOException(String msg) {
 		super(msg);
-		this.code = Integer.parseInt(ApiCode.SC_IO_EXCEPTION.getCode());
+		this.code = Integer.parseInt(ApiCode.SC_INTERNAL_SERVER_ERROR.getCode());
 	}
 	
 	public BizIOException(int code, String msg) {

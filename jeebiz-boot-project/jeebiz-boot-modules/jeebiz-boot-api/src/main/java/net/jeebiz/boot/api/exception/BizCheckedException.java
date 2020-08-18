@@ -27,7 +27,7 @@ public class BizCheckedException extends NestedCheckedException {
 	
 	public BizCheckedException(String msg) {
 		super(msg);
-		this.code = Integer.parseInt(ApiCode.SC_RUNTIME_EXCEPTION.getCode());
+		this.code = Integer.parseInt(ApiCode.SC_INTERNAL_SERVER_ERROR.getCode());
 	}
 
 	public BizCheckedException(int code, String msg) {

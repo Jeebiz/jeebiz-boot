@@ -11,6 +11,10 @@ import net.jeebiz.boot.api.utils.Constants;
  */
 public enum ApiCode {
 	
+	// --- 2xx Client Error ---
+
+	SC_SUCCESS("200", Constants.RT_SUCCESS, "请求成功"),
+	
 	// --- 4xx Client Error ---
 	
     //HTTP Status 4xx(客户端错误，请求包含语法错误或无法完成请求)   ->这些状态代码表示请求可能出错，妨碍了服务器的处理。 
@@ -21,7 +25,7 @@ public enum ApiCode {
 	 * HttpMessageNotReadableException         400 (Bad Request)</br>
 	 * MissingServletRequestParameterException 400 (Bad Request)</br>
 	 */
-	SC_BAD_REQUEST("400", Constants.RT_FAIL, "错误请求"),
+	SC_BAD_REQUEST("400", Constants.RT_FAIL, "请求语法错误"),
 	/**
 	 * HTTP Status 401（未授权）     -> 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应
 	 */
@@ -120,7 +124,55 @@ public enum ApiCode {
 	 */
 	SC_UNAVAILABLE_FOR_LEGAL_REASONS("451", Constants.RT_FAIL, "该请求因法律原因不可用"),
 	
+	// --- Custom 4xx Client Error ---
+	
+	/**
+	 * TypeMismatchException	400 (Bad Request)
+	 */
+	SC_TYPE_MISMATCH("400", Constants.RT_FAIL, "参数类型不匹配"),
+	/**
+	 * MissingMatrixVariableException	400 (Bad Request)
+	 */
+	SC_MISSING_MATRIX_VARIABLE("400", Constants.RT_FAIL, "缺少矩阵变量"),
+	/**
+	 * MissingPathVariableException	400 (Bad Request)
+	 */
+	SC_MISSING_PATH_VARIABLE("400", Constants.RT_FAIL, "缺少URI模板变量"),
+	/**
+	 * MissingRequestCookieException	400 (Bad Request)
+	 */
+	SC_MISSING_REQUEST_COOKIE("400", Constants.RT_FAIL, "缺少Cookie变量"),
+	/**
+	 * MissingRequestHeaderException	400 (Bad Request)
+	 */
+	SC_MISSING_REQUEST_HEADER("400", Constants.RT_FAIL, "缺少请求头"),
+	/**
+	 * MissingServletRequestParameterException	400 (Bad Request)
+	 */
+	SC_MISSING_REQUEST_PARAM("400", Constants.RT_FAIL, "缺少参数"),
+	/**
+	 * MissingServletRequestPartException	400 (Bad Request)
+	 */
+	SC_MISSING_REQUEST_PART("400", Constants.RT_FAIL, "缺少请求对象"),
+	/**
+	 * UnsatisfiedServletRequestParameterException	400 (Bad Request)
+	 */
+	SC_UNSATISFIED_PARAM("400", Constants.RT_FAIL, "参数规则不满足"),
+	/**
+	 * MethodArgumentNotValidException	400 (Bad Request)
+	 * BindException					400 (Bad Request)								      
+	 */
+	SC_METHOD_ARGUMENT_NOT_VALID("400", Constants.RT_FAIL, "参数验证失败"),
+
+	SC_ACCESS_DENIED("401", Constants.RT_FAIL, "不允许访问（功能未授权）"),
+	
+	SC_FAIL("400", Constants.RT_FAIL,"请求失败"),
+	
+	SC_EMPTY("400", Constants.RT_FAIL,"数据为空" ),
+	
+	
 	// --- 5xx Server Error ---
+	
     //HTTP Status 5xx（服务器错误，服务器在处理请求的过程中发生了错误）    -> 这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。
     
 	/**
@@ -176,96 +228,17 @@ public enum ApiCode {
 	 */
 	SC_NETWORK_AUTHENTICATION_REQUIRED("511", Constants.RT_FAIL, "要求网络认证"),
 
-	// --- Custom Server Error ---
+	// --- Custom 5xx Server Error ---
 	
-	SC_SUCCESS("200", Constants.RT_SUCCESS, "请求成功"),
-	
-	SC_ACCESS_DENIED("10110", Constants.RT_FAIL, "不允许访问（功能未授权）"),
-	
-	SC_FAIL("10111", Constants.RT_FAIL,"请求失败"),
-	
-	SC_EMPTY("10112", Constants.RT_FAIL,"数据为空" ),
-
-	/**
-	 * TypeMismatchException	400 (Bad Request)
-	 */
-	SC_TYPE_MISMATCH("10113", Constants.RT_FAIL, "参数类型不匹配"),
-	/**
-	 * MissingMatrixVariableException	400 (Bad Request)
-	 */
-	SC_MISSING_MATRIX_VARIABLE("10114", Constants.RT_FAIL, "缺少矩阵变量"),
-	/**
-	 * MissingPathVariableException	400 (Bad Request)
-	 */
-	SC_MISSING_PATH_VARIABLE("10115", Constants.RT_FAIL, "缺少URI模板变量"),
-	/**
-	 * MissingRequestCookieException	400 (Bad Request)
-	 */
-	SC_MISSING_REQUEST_COOKIE("10116", Constants.RT_FAIL, "缺少Cookie变量"),
-	/**
-	 * MissingRequestHeaderException	400 (Bad Request)
-	 */
-	SC_MISSING_REQUEST_HEADER("10117", Constants.RT_FAIL, "缺少请求头"),
-	/**
-	 * MissingServletRequestParameterException	400 (Bad Request)
-	 */
-	SC_MISSING_REQUEST_PARAM("10118", Constants.RT_FAIL, "缺少参数"),
-	/**
-	 * MissingServletRequestPartException	400 (Bad Request)
-	 */
-	SC_MISSING_REQUEST_PART("10119", Constants.RT_FAIL, "缺少请求对象"),
-	/**
-	 * UnsatisfiedServletRequestParameterException	400 (Bad Request)
-	 */
-	SC_UNSATISFIED_PARAM("10120", Constants.RT_FAIL, "参数规则不满足"),
 	/**
 	 * ServletRequestBindingException	400 (Bad Request)
 	 */
-	SC_BINDING_ERROR("10121", Constants.RT_FAIL, "参数绑定错误"),
+	SC_BINDING_ERROR("500", Constants.RT_FAIL, "参数绑定错误"),
 	/**
 	 * JsonProcessingException	400 (Bad Request)
 	 * HttpMessageNotReadableException	400 (Bad Request)
 	 */
-	SC_PARSING_ERROR("10122", Constants.RT_FAIL, "参数解析错误"),
-	/**
-	 * MethodArgumentNotValidException	400 (Bad Request)
-	 * BindException					400 (Bad Request)								      
-	 */
-	SC_METHOD_ARGUMENT_NOT_VALID("10123", Constants.RT_FAIL, "参数验证失败"),
-	
-	
-	/**
-	 * RuntimeException		500 (Internal Server Error)							      
-	 */
-	SC_RUNTIME_EXCEPTION("10201", Constants.RT_ERROR, "服务器：运行时异常"),
-	/**
-	 * NullPointerException		500 (Internal Server Error)					      
-	 */
-	SC_NULL_POINTER_EXCEPTION("10202", Constants.RT_ERROR, "服务器：空值异常"),
-	/**
-	 * ClassCastException		500 (Internal Server Error)						      
-	 */
-	SC_CLASS_CAST_EXCEPTION("10203", Constants.RT_ERROR, "服务器：数据类型转换异常"),
-	/**
-	 * IOException		500 (Internal Server Error)								      
-	 */
-	SC_IO_EXCEPTION ("10204", Constants.RT_ERROR, "服务器：IO异常"),
-	/**
-	 * NoSuchMethodException		500 (Internal Server Error)					      
-	 */
-	SC_NO_SUCH_METHOD_EXCEPTION("10205", Constants.RT_ERROR, "服务器：未知方法异常"),
-	/**
-	 * IllegalArgumentException		500 (Internal Server Error)					      
-	 */
-	SC_ILLEGAL_ARGUMENT_EXCEPTION("10206", Constants.RT_ERROR, "服务器：非法参数异常"),
-	/**
-	 * IndexOutOfBoundsException	500 (Internal Server Error)				      
-	 */
-	SC_INDEX_OUT_OF_BOUNDS_EXCEPTION("10207", Constants.RT_ERROR, "服务器：数组越界异常"),
-	/**
-	 * NetworkException		500 (Internal Server Error)							      
-	 */
-	SC_NETWORK_EXCEPTION("10208", Constants.RT_ERROR, "服务器：网络异常");
+	SC_PARSING_ERROR("500", Constants.RT_FAIL, "参数解析错误");
   
 	private final String code;
 	private final String status;
@@ -307,4 +280,3 @@ public enum ApiCode {
 	}
     
 }
-
