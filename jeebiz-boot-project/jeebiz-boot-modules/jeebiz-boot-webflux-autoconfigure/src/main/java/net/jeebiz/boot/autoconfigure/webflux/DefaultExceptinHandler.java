@@ -448,7 +448,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> nullPointerException(ServerWebExchange exchange, NullPointerException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_NULL_POINTER_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -459,7 +459,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> classCastException(ServerWebExchange exchange, ClassCastException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_CLASS_CAST_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -470,7 +470,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> iOException(ServerWebExchange exchange, IOException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_IO_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -481,7 +481,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> noSuchMethodException(ServerWebExchange exchange, NoSuchMethodException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_NO_SUCH_METHOD_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
@@ -492,7 +492,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> indexOutOfBoundsException(ServerWebExchange exchange, IndexOutOfBoundsException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_INDEX_OUT_OF_BOUNDS_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -503,7 +503,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	@ResponseBody
 	public ResponseEntity<ApiRestResponse<String>> illegalArgumentException(ServerWebExchange exchange, IllegalArgumentException ex) {
 		this.logException(ex);
-		ApiRestResponse<String> resp = ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
+		ApiRestResponse<String> resp = ApiCode.SC_INTERNAL_SERVER_ERROR.toResponse(this.getLocaleMessage(exchange, ex, ex.getMessage()));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -530,7 +530,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		System.out.println(error.toString());
 		*/
 		String message = String.format("上传文件超过%s字节的最大上传大小（字节）", ex.getMaxUploadSize());
-		ApiRestResponse<String> resp = ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, message));
+		ApiRestResponse<String> resp = ApiCode.SC_BAD_REQUEST.toResponse(this.getLocaleMessage(exchange, ex, message));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
@@ -542,7 +542,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> maxUploadSizePerFileExceededException(ServerWebExchange exchange, MaxUploadSizePerFileExceededException ex) {
 		this.logException(ex);
 		String message = String.format("单个文件超过%s字节的最大上传大小（字节）", ex.getMaxUploadSizePerFile());
-		ApiRestResponse<String> resp = ApiCode.SC_ILLEGAL_ARGUMENT_EXCEPTION.toResponse(this.getLocaleMessage(exchange, ex, message));
+		ApiRestResponse<String> resp = ApiCode.SC_BAD_REQUEST.toResponse(this.getLocaleMessage(exchange, ex, message));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
