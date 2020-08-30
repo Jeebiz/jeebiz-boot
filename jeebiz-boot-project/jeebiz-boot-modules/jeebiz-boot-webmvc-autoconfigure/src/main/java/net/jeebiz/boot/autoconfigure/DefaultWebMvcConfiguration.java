@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.biz.web.servlet.handler.Log4j2MDCInterceptor;
 import org.springframework.biz.web.servlet.i18n.NestedLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
@@ -16,6 +19,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.context.support.ResourceBundleThemeSource;
 import org.springframework.web.filter.RequestContextFilter;
 import org.springframework.web.servlet.LocaleResolver;
@@ -66,15 +70,39 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
     	
     	List<LocaleResolver> resolvers = new LinkedList<LocaleResolver>();
     	
-    	AcceptHeaderLocaleResolver headerLocaleResolver = new AcceptHeaderLocaleResolver();
+    	AcceptHeaderLocaleResolver headerLocaleResolver = new AcceptHeaderLocaleResolver() {
+    		
+    		@Override
+    		public void setLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
+    			super.setLocale(request, response, locale);
+    			LocaleContextHolder.setLocale(locale);
+    		}
+    		
+    	};
     	headerLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
         resolvers.add(headerLocaleResolver);
         
-    	SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
+    	SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver(){
+    		
+    		@Override
+    		public void setLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
+    			super.setLocale(request, response, locale);
+    			LocaleContextHolder.setLocale(locale);
+    		}
+    		
+    	};
     	sessionLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
     	resolvers.add(sessionLocaleResolver);
     	
-        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver(){
+    		
+    		@Override
+    		public void setLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
+    			super.setLocale(request, response, locale);
+    			LocaleContextHolder.setLocale(locale);
+    		}
+    		
+    	};
         cookieLocaleResolver.setCookieName("lang");
         cookieLocaleResolver.setCookieMaxAge(-1);
         cookieLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
