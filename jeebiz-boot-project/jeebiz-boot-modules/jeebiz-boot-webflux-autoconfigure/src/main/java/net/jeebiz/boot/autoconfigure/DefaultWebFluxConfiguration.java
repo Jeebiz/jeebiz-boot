@@ -27,6 +27,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 import net.jeebiz.boot.autoconfigure.jackson.CustomizeNullJsonSerializer;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
+import net.jeebiz.boot.autoconfigure.webflux.DefaultExceptinHandler;
 import net.jeebiz.boot.autoconfigure.webflux.ReactiveRequestContextFilter;
 
 @Configuration
@@ -38,6 +39,11 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 	public ReactiveRequestContextFilter requestContextFilter() {
 		return new ReactiveRequestContextFilter();
+	}
+
+	@Bean
+	public DefaultExceptinHandler defaultExceptinHandler() {
+		return new DefaultExceptinHandler();
 	}
 
 	@Override
