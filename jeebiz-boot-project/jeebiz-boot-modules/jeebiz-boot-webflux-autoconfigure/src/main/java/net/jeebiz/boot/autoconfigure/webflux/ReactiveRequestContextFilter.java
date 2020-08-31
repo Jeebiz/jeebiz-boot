@@ -5,6 +5,7 @@
 package net.jeebiz.boot.autoconfigure.webflux;
 
 import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
@@ -23,11 +24,14 @@ import reactor.core.publisher.Mono;
  */
 public class ReactiveRequestContextFilter implements WebFilter {
 
-    @Override
+	@Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
+        ServerHttpResponse response = exchange.getResponse();
         return chain.filter(exchange)
-            .subscriberContext(ctx -> ctx.put(ReactiveRequestContextHolder.CONTEXT_KEY, request));
+            .subscriberContext(ctx -> ctx.put(ReactiveRequestContextHolder.EXCHANGE_KEY, exchange))
+            .subscriberContext(ctx -> ctx.put(ReactiveRequestContextHolder.REQUEST_KEY, request))
+            .subscriberContext(ctx -> ctx.put(ReactiveRequestContextHolder.RESPONSE_KEY, response));
     }
     
 }
