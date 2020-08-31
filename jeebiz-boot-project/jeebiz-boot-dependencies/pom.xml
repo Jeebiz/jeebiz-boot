@@ -15,7 +15,6 @@
 
 	<properties>
 		<!-- Dependency versions -->
-		<activemq.version>5.15.12</activemq.version>
 		<activation.version>1.1.1</activation.version>
 		<alipay.version>4.8.73.ALL</alipay.version>
 		<aliyun-ons-client.version>1.8.7.1.Final</aliyun-ons-client.version>
@@ -23,7 +22,6 @@
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
-		<assertj.version>3.16.1</assertj.version>
 		<async-http-client.version>2.12.1</async-http-client.version>
 		<axiom.version>1.2.22</axiom.version>
 		<axis.version>1.4</axis.version>
@@ -113,8 +111,6 @@
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>2.7.7</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
-		<ehcache.version>2.10.6</ehcache.version>
-		<ehcache3.version>3.7.1</ehcache3.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
 		<fastjson.version>1.2.73</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
@@ -123,9 +119,7 @@
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
 		<flowable.version>6.5.0</flowable.version>
-		<flyway.version>6.4.2</flyway.version> <!-- MySQL-v5.7.25 需要 5.2.0版本 -->
 		<formio.version>1.6.4</formio.version>
-		<freemarker.version>2.3.30</freemarker.version>
 		<geodesy.version>1.1.3</geodesy.version>
 		<google-http-client.version>1.34.0</google-http-client.version>
 		<guava.version>29.0-jre</guava.version>
@@ -137,7 +131,6 @@
 		<htmlparser.version>2.1</htmlparser.version>
 		<httpconn.version>1.0.1.RELEASE</httpconn.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
-		<hikaricp.version>3.4.5</hikaricp.version>
 		<hitool.version>1.0.0-SNAPSHOT</hitool.version>
 		<hive.version>3.1.2</hive.version>
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
@@ -153,7 +146,6 @@
 		<j2cache-mybatis.version>2.8.0-release</j2cache-mybatis.version>
 		<j2cache-session-manager.version>1.0.0-beta4</j2cache-session-manager.version>
 		<j2cache-springcache.version>2.8.0-release</j2cache-springcache.version>
-		<janino.version>3.1.2</janino.version>
 		<jackson-annotations.version>2.10.1</jackson-annotations.version>
 		<javassist.version>3.27.0-GA</javassist.version>
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
@@ -163,8 +155,6 @@
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
-		<jedis.version>3.3.0</jedis.version>
-		<jetty.version>9.4.31.v20200723</jetty.version>
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
 		<jeebiz-devkit.version>1.0.0-SNAPSHOT</jeebiz-devkit.version>
 		<jep.version>2.4.2</jep.version>
@@ -179,7 +169,7 @@
 		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
-		<jwt-issuer.version>1.0.5.RELEASE</jwt-issuer.version>
+		<jwt-issuer.version>1.0.6-SNAPSHOT</jwt-issuer.version>
 		<kafka-clients.version>2.5.0</kafka-clients.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
@@ -213,12 +203,9 @@
 		<mybatis-freemarker.version>1.1.2</mybatis-freemarker.version>
 		<mybatis-velocity.version>1.3</mybatis-velocity.version>
 		<mybatis-generator.version>1.4.0</mybatis-generator.version>
-		<mysql.version>8.0.20</mysql.version>
+		<mysql.version>8.0.21</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
-		<nekohtml.version>1.9.22</nekohtml.version>
-		<!-- <netty.version>4.1.50.Final</netty.version>
-		<netty-tcnative.version>2.0.31.Final</netty-tcnative.version> -->
 		<netty-socketio.version>1.7.18</netty-socketio.version>
 		<nimbus-jose-jwt.version>8.15</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.8</okhttp.version>
@@ -299,7 +286,7 @@
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
 		<springfox.version>2.10.5</springfox.version> <!-- 3.0.0-SNAPSHOT -->
-		<spring-biz.version>1.0.8.RELEASE</spring-biz.version>
+		<spring-biz.version>1.0.9-SNAPSHOT</spring-biz.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
 		<sqlite-jdbc.version>3.28.0</sqlite-jdbc.version>
@@ -464,6 +451,7 @@
 		<spring-boot-starter-security-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
+		<spring-boot-starter-security-unionid.version>1.0.0-SNAPSHOT</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-security-weixin.version>
 		<spring-boot-starter-shiro-biz.version>1.0.5.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
@@ -2632,13 +2620,6 @@
 			    <version>${jackson-annotations.version}</version>
 			</dependency>
 			
-			<!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
-			<dependency>
-			    <groupId>org.codehaus.janino</groupId>
-			    <artifactId>janino</artifactId>
-			    <version>${janino.version}</version>
-			</dependency>
-
 			<!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
 			<dependency>
 				<groupId>org.javassist</groupId>
@@ -3251,19 +3232,6 @@
 				<version>${neethi.version}</version>
 			</dependency>
 			
-			<!-- https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml -->
-			<!--
-				NekoHTML是一个简单地HTML扫描器和标签补偿器(tag balancer),使得程序能解析HTML文档并用标准的XML接口来访问其中的信息。
-				这个解析器能投扫描HTML文件并“修正”许多作者（人或机器）在编写HTML文档过程中常犯的错误。
-				NekoHTML能增补缺失的父元素、自动用结束标签关闭相应的元素，以及不匹配的内嵌元素标签。
-				NekoHTML的开发使用了Xerces Native Interface (XNI)，后者是Xerces2的实现基础。 
-			-->
-			<dependency>
-				<groupId>net.sourceforge.nekohtml</groupId>
-				<artifactId>nekohtml</artifactId>
-				<version>${nekohtml.version}</version>
-			</dependency>
-			
 			<!-- https://mvnrepository.com/artifact/io.netty/netty-tcnative-boringssl-static -->
 			<dependency>
 			    <groupId>io.netty</groupId>
@@ -3285,57 +3253,6 @@
 			    <type>pom</type>
 			    <scope>import</scope>
 			</dependency>
-			
-			
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>logging-interceptor</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okcurl -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okcurl</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-urlconnection -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-urlconnection</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-tls -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-tls</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-dnsoverhttps -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-dnsoverhttps</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-apache -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-apache</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp-sse -->
-			<dependency>
-			    <groupId>com.squareup.okhttp3</groupId>
-			    <artifactId>okhttp-sse</artifactId>
-			    <version>${okhttp.version}</version>
-			</dependency>
-									
 			
 			<!-- https://mvnrepository.com/artifact/org.owasp.antisamy/antisamy -->
 			<dependency>
@@ -5503,6 +5420,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>security-qrcode-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-security-qrcode.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-unionid-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-unionid-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-unionid.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-weixin-spring-boot-starter -->
 			<dependency>
