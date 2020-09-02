@@ -946,23 +946,6 @@
 								</target>
 							</configuration>
 						</execution>
-						<!-- 在Maven打包阶段进行进一步的脚本处理：构建zip压缩包 -->
-						<execution>
-							<id>build-zip-package</id>
-							<phase>install</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<echo message="build zip package" />
-									<delete file="${appassembler-jsw-dir}/${project.artifactId}-${project.version}-jsw.zip"></delete>
-									<zip basedir="${appassembler-jsw-dir}/${project.artifactId}" destfile="${appassembler-jsw-dir}/${project.artifactId}-${project.version}-jsw.zip" />
-									<delete file="${appassembler-dir}/${project.artifactId}-${project.version}.zip"></delete>
-									<zip basedir="${appassembler-dir}/${project.artifactId}" destfile="${appassembler-dir}/${project.artifactId}-${project.version}.zip" />
-								</target>
-							</configuration>
-						</execution>
 					</executions>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/com.spotify/docker-maven-plugin -->
