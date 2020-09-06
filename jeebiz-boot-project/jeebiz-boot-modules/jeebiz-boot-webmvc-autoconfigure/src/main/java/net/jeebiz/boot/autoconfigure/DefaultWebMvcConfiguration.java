@@ -25,6 +25,7 @@ import org.springframework.web.filter.RequestContextFilter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ThemeResolver;
 import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -37,6 +38,7 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 
 @Configuration
 @ComponentScan({ "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
+@EnableWebMvc
 @EnableConfigurationProperties(LocalResourceProperteis.class)
 public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
 

@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.reactive.config.DelegatingWebFluxConfiguration;
+import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.server.i18n.AcceptHeaderLocaleContextResolver;
 import org.springframework.web.server.i18n.LocaleContextResolver;
 
@@ -29,6 +30,7 @@ import net.jeebiz.boot.autoconfigure.webflux.DefaultExceptinHandler;
 
 @Configuration
 @ComponentScan(basePackages = { "net.jeebiz.**.flux", "net.jeebiz.**.web", "net.jeebiz.**.route" })
+@EnableWebFlux
 @EnableConfigurationProperties(LocalResourceProperteis.class)
 public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration {
 
