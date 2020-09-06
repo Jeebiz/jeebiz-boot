@@ -858,7 +858,7 @@
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${project.build.directory}/classes/application-pre.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-pro.yml" 
+									<copy file="${project.build.directory}/classes/application-prod.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>	
 									<copy file="${project.build.directory}/classes/application-qa.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>									
@@ -932,7 +932,7 @@
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									<copy file="${project.build.directory}/classes/application-pre.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-pro.yml" 
+									<copy file="${project.build.directory}/classes/application-prod.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									<copy file="${project.build.directory}/classes/application-qa.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
