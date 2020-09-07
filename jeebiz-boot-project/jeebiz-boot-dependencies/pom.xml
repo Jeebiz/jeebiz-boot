@@ -16,7 +16,8 @@
 	<properties>
 		<!-- Dependency versions -->
 		<activation.version>1.1.1</activation.version>
-		<alipay.version>4.8.73.ALL</alipay.version>
+		<alipay-sdk.version>4.10.119.ALL</alipay-sdk.version>
+		<alipay-easysdk.version>2.0.2</alipay-easysdk.version>
 		<aliyun-ons-client.version>1.8.7.1.Final</aliyun-ons-client.version>
 		<aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
@@ -286,7 +287,7 @@
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
 		<springfox.version>2.10.5</springfox.version> <!-- 3.0.0-SNAPSHOT -->
-		<spring-biz.version>1.0.9-SNAPSHOT</spring-biz.version>
+		<spring-biz.version>1.1.0.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
 		<sqlite-jdbc.version>3.28.0</sqlite-jdbc.version>
@@ -318,7 +319,7 @@
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-		<weixin-java.version>3.8.8.B</weixin-java.version>
+		<weixin-java.version>3.9.1.B</weixin-java.version>
 		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
@@ -498,7 +499,13 @@
 			<dependency>
 				<groupId>com.alipay.sdk</groupId>
 				<artifactId>alipay-sdk-java</artifactId>
-				<version>${alipay.version}</version>
+				<version>${alipay-sdk.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-easysdk -->
+			<dependency>
+			    <groupId>com.alipay.sdk</groupId>
+			    <artifactId>alipay-easysdk</artifactId>
+			    <version>${alipay-easysdk.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->
