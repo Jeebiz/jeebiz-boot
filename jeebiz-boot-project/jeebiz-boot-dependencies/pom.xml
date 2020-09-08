@@ -157,7 +157,6 @@
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
-		<jeebiz-devkit.version>1.0.0-SNAPSHOT</jeebiz-devkit.version>
 		<jep.version>2.4.2</jep.version>
 		<jjwt.version>0.11.2</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
@@ -170,7 +169,7 @@
 		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
-		<jwt-issuer.version>1.0.6-SNAPSHOT</jwt-issuer.version>
+		<jwt-issuer.version>1.0.6.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.5.0</kafka-clients.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
@@ -446,10 +445,10 @@
 		<spring-boot-starter-rocketmq.version>2.1.0</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.6-SNAPSHOT</spring-boot-starter-schemacrawler.version>
-		<spring-boot-starter-security-biz.version>1.0.0-SNAPSHOT</spring-boot-starter-security-biz.version>
+		<spring-boot-starter-security-biz.version>1.0.1.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
-		<spring-boot-starter-security-jwt.version>1.0.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
+		<spring-boot-starter-security-jwt.version>1.0.1.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0-SNAPSHOT</spring-boot-starter-security-unionid.version>
@@ -507,7 +506,7 @@
 			    <artifactId>alipay-easysdk</artifactId>
 			    <version>${alipay-easysdk.version}</version>
 			</dependency>
-			
+						
 			<!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->
 			<dependency>
 			    <groupId>com.aliyun.openservices</groupId>
@@ -2709,43 +2708,6 @@
 			    <version>${jcifs.version}</version>
 			</dependency>
 			
-			<dependency>
-				<groupId>net.jeebiz</groupId>
-				<artifactId>jeekit-beanutils</artifactId>
-				<version>${jeebiz-devkit.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.jeebiz</groupId>
-				<artifactId>jeekit-collections</artifactId>
-				<version>${jeebiz-devkit.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.jeebiz</groupId>
-				<artifactId>jeekit-compress</artifactId>
-				<version>${jeebiz-devkit.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.jeebiz</groupId>
-				<artifactId>jeekit-lang3</artifactId>
-				<version>${jeebiz-devkit.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.jeebiz</groupId>
-				<artifactId>jeekit-io</artifactId>
-				<version>${jeebiz-devkit.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.jeebiz</groupId>
-				<artifactId>jeekit-regexp</artifactId>
-				<version>${jeebiz-devkit.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.jeebiz</groupId>
-				<artifactId>jeekit-web</artifactId>
-				<version>${jeebiz-devkit.version}</version>
-			</dependency>
-
-
 			<!-- https://mvnrepository.com/artifact/org.scijava/jep -->
 			<dependency>
 			    <groupId>org.scijava</groupId>
