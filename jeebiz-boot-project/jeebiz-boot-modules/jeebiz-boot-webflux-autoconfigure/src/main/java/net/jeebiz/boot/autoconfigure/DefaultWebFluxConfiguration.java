@@ -63,7 +63,7 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
 		
 		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
-		objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+		//objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 		 
         /** 为objectMapper注册一个带有SerializerModifier的Factory */
         objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
