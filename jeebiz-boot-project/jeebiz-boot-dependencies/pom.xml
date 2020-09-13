@@ -390,7 +390,7 @@
 		<spring-boot-starter-cxf-jaxws-plus.version>1.0.3-SNAPSHOT</spring-boot-starter-cxf-jaxws-plus.version>
 		<spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
 		<spring-boot-starter-docx4j-exportfo.version>1.0.0-SNAPSHOT</spring-boot-starter-docx4j-exportfo.version>
-		<spring-boot-starter-docx4j.version>1.0.1-SNAPSHOT</spring-boot-starter-docx4j.version>
+		<spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-dingtalk.version>
@@ -398,13 +398,13 @@
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0-SNAPSHOT</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
-		<spring-boot-starter-druid-plus.version>1.0.8-SNAPSHOT</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-druid-plus.version>1.0.8.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-ehcache3.version>1.0.0-SNAPSHOT</spring-boot-starter-ehcache3.version>
 		<spring-boot-starter-fastdfs.version>1.0.3-SNAPSHOT</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
-		<spring-boot-starter-flyway-plus.version>1.0.6-SNAPSHOT</spring-boot-starter-flyway-plus.version>
+		<spring-boot-starter-flyway-plus.version>1.0.6.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
-		<spring-boot-starter-hikaricp-plus.version>1.0.6.RELEASE</spring-boot-starter-hikaricp-plus.version>
+		<spring-boot-starter-hikaricp-plus.version>1.0.7.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.0.6-RELEASE</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
@@ -424,7 +424,7 @@
 		<spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version> 
 		<spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
 		<spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
-		<spring-boot-starter-mybatis-dbperms.version>1.0.0-SNAPSHOT</spring-boot-starter-mybatis-dbperms.version> 
+		<spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version> 
 		<spring-boot-starter-myth.version>2.0.2-RELEASE</spring-boot-starter-myth.version>
 		<spring-boot-starter-mina.version>1.0.0-SNAPSHOT</spring-boot-starter-mina.version>
 		<spring-boot-starter-minio.version>1.0.1-SNAPSHOT</spring-boot-starter-minio.version>
@@ -435,9 +435,9 @@
 		<spring-boot-starter-opencv.version>1.0.0-SNAPSHOT</spring-boot-starter-opencv.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-pac4j.version>
-		<spring-boot-starter-pf4j.version>1.0.7-SNAPSHOT</spring-boot-starter-pf4j.version>
-		<spring-boot-starter-pf4j2.version>1.0.9-SNAPSHOT</spring-boot-starter-pf4j2.version>
-		<spring-boot-starter-pf4j3.version>1.0.1-SNAPSHOT</spring-boot-starter-pf4j3.version>
+		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
+		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
+		<spring-boot-starter-pf4j3.version>1.0.1.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.2.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
