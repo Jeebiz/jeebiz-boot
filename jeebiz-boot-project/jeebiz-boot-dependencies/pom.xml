@@ -415,7 +415,7 @@
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
 		<spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
 		<spring-boot-starter-jcaptcha.version>1.0.2.RELEASE</spring-boot-starter-jcaptcha.version>
-		<spring-boot-starter-jpush.version>1.0.0-SNAPSHOT</spring-boot-starter-jpush.version>
+		<spring-boot-starter-jpush.version>1.0.0.RELEASE</spring-boot-starter-jpush.version>
 		<spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-kettle.version>1.0.0-SNAPSHOT</spring-boot-starter-kettle.version>
 		<spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
@@ -477,7 +477,7 @@
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2-SNAPSHOT</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
-		<spring-boot-starter-zxing.version>1.0.1-SNAPSHOT</spring-boot-starter-zxing.version>
+		<spring-boot-starter-zxing.version>1.0.1.RELEASE</spring-boot-starter-zxing.version>
 		
 	</properties>
 
