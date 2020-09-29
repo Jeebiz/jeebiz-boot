@@ -33,15 +33,19 @@ public class CalendarUtils {
 
 		// 1970-07-01 00:00:00 作为时间的对比点
 		Calendar birth = Calendar.getInstance(zone, locale);
-		birth.set(Calendar.YEAR, 1970);
-		birth.set(Calendar.MONTH, 7);
-		birth.set(Calendar.DAY_OF_MONTH, 1);
-		birth.set(Calendar.HOUR_OF_DAY, 0);
-		birth.set(Calendar.SECOND, 0);
-		birth.set(Calendar.MINUTE, 0);
-		birth.set(Calendar.MILLISECOND, 0);
-		// 增加指定秒（可能是负数）
-		birth.add(Calendar.MINUTE, amount);
+		if(amount > 0 ) {
+			birth.setTimeInMillis((System.currentTimeMillis() / 1000 - amount) * 1000);
+		} else {
+			birth.set(Calendar.YEAR, 1970);
+			birth.set(Calendar.MONTH, 1);
+			birth.set(Calendar.DAY_OF_MONTH, 1);
+			birth.set(Calendar.HOUR_OF_DAY, 0);
+			birth.set(Calendar.SECOND, 0);
+			birth.set(Calendar.MINUTE, 0);
+			birth.set(Calendar.MILLISECOND, 0);
+			// 增加指定秒（可能是负数）
+			birth.add(Calendar.MINUTE, amount);
+		}
 
 		// 当前时间
 		Calendar now = Calendar.getInstance();
@@ -67,8 +71,9 @@ public class CalendarUtils {
 	}
 
 	public static void main(String[] args) {
-		
+
 		System.out.println(CalendarUtils.getYearSince1970(-28800));
+		System.out.println(CalendarUtils.getYearSince1970(839001600));
 		
 	}
 	
