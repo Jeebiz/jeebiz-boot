@@ -8,6 +8,33 @@ import java.util.TimeZone;
 public class CalendarUtils {
 
 	/**
+     * Gets the current day of month.
+     *
+     * @return the current day of month.
+     */
+    public static int getDayOfMonth() {
+        return Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+    }
+
+    /**
+     * Gets the current month.
+     *
+     * @return the current month.
+     */
+    public static int getMonth() {
+        return Calendar.getInstance().get(Calendar.MONTH);
+    }
+
+    /**
+     * Gets the current year.
+     *
+     * @return the current year.
+     */
+    public static int getYear() {
+        return Calendar.getInstance().get(Calendar.YEAR);
+    }
+    
+	/**
 	 * 判断当前时间距离第二天凌晨的秒数
 	 * 
 	 * @return 返回值单位为[s:秒]
