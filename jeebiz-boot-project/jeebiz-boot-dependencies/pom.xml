@@ -18,7 +18,7 @@
 		<activation.version>1.1.1</activation.version>
 		<alipay-sdk.version>4.10.124.ALL</alipay-sdk.version>
 		<alipay-easysdk.version>2.0.2</alipay-easysdk.version>
-		<aliyun-ons-client.version>1.8.7.1.Final</aliyun-ons-client.version>
+		<aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
@@ -372,7 +372,7 @@
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
 		<spring-boot-starter-aliyun-ons.version>1.0.2-SNAPSHOT</spring-boot-starter-aliyun-ons.version>
-		<spring-boot-starter-aliyun-oss.version>1.0.0</spring-boot-starter-aliyun-oss.version>
+		<spring-boot-starter-aliyun-oss.version>1.0.0-SNAPSHOT</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-rds.version>1.0.0</spring-boot-starter-aliyun-rds.version>
 		<spring-boot-starter-aliyun-redis.version>1.0.0</spring-boot-starter-aliyun-redis.version>
 		<spring-boot-starter-aliyun-schedulerx.version>1.0.0</spring-boot-starter-aliyun-schedulerx.version>
@@ -504,13 +504,6 @@
 			    <groupId>com.alipay.sdk</groupId>
 			    <artifactId>alipay-easysdk</artifactId>
 			    <version>${alipay-easysdk.version}</version>
-			</dependency>
-						
-			<!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->
-			<dependency>
-			    <groupId>com.aliyun.openservices</groupId>
-			    <artifactId>ons-client</artifactId>
-			    <version>${aliyun-ons-client.version}</version>
 			</dependency>
 						
 			<!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->
@@ -4706,11 +4699,10 @@
 				<artifactId>aliyun-ons-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-aliyun-ons.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/aliyun-oss-spring-boot-starter -->
 			<dependency>
-			    <groupId>com.alibaba.cloud</groupId>
-			    <artifactId>aliyun-oss-spring-boot-starter</artifactId>
-			    <version>${spring-boot-starter-aliyun-oss.version}</version>
+			    <groupId>com.github.hiwepy</groupId>
+				<artifactId>aliyun-oss-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-aliyun-oss.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.alibaba.cloud/aliyun-rds-spring-boot-starter -->
 			<dependency>
