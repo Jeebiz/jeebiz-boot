@@ -8,33 +8,6 @@ import java.util.TimeZone;
 public class CalendarUtils {
 
 	/**
-     * Gets the current day of month.
-     *
-     * @return the current day of month.
-     */
-    public static int getDayOfMonth() {
-        return Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-    }
-
-    /**
-     * Gets the current month.
-     *
-     * @return the current month.
-     */
-    public static int getMonth() {
-        return Calendar.getInstance().get(Calendar.MONTH);
-    }
-
-    /**
-     * Gets the current year.
-     *
-     * @return the current year.
-     */
-    public static int getYear() {
-        return Calendar.getInstance().get(Calendar.YEAR);
-    }
-    
-	/**
 	 * 判断当前时间距离第二天凌晨的秒数
 	 * 
 	 * @return 返回值单位为[s:秒]
@@ -58,15 +31,15 @@ public class CalendarUtils {
 		return new Timestamp(amount * 1000L);
 	}
 	
-	public static int getDiffYear(int amount) {
-		return getDiffYear(Locale.getDefault(), amount);
+	public static int getAgeFromUnixTime(int amount) {
+		return getAgeFromUnixTime(Locale.getDefault(), amount);
 	}
 	
-	public static int getDiffYear(Locale locale, int amount) {
-		return getDiffYear(TimeZone.getDefault(), locale, amount);
+	public static int getAgeFromUnixTime(Locale locale, int amount) {
+		return getAgeFromUnixTime(TimeZone.getDefault(), locale, amount);
 	}
 	
-	public static int getDiffYear(TimeZone zone, Locale locale, int amount) {
+	public static int getAgeFromUnixTime(TimeZone zone, Locale locale, int amount) {
 		
 		Calendar birth = Calendar.getInstance();
 		birth.setTimeInMillis(fromUnixTime(amount).getTime());
@@ -100,8 +73,8 @@ public class CalendarUtils {
 		System.out.println(CalendarUtils.fromUnixTime(400326583)); // 1982-09-08 17:49:43
 		System.out.println(CalendarUtils.fromUnixTime(-28800));
 		
-		System.out.println(CalendarUtils.getDiffYear(400326583)); // 2002-09-07 00:00:00.000000
-		System.out.println(CalendarUtils.getDiffYear(-28800));
+		System.out.println(CalendarUtils.getAgeFromUnixTime(400326583)); // 2002-09-07 00:00:00.000000
+		System.out.println(CalendarUtils.getAgeFromUnixTime(-28800));
 		
 	}
 	

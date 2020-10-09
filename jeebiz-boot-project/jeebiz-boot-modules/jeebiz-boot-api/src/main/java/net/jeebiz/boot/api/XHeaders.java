@@ -11,6 +11,8 @@ public class XHeaders {
 	public static final String X_PROVINCE_HEADER = "X-Province";
 	public static final String X_CITY_HEADER = "X-City";
 	public static final String X_AREA_HEADER = "X-Area";
+
+	public static final String X_APP_CHANNEL = "X-APP-CHANNEL";
 	public static final String X_APP_VERSION = "X-APP-VERSION";
 	public static final String X_APP_ID = "X-APP-ID";
 	
