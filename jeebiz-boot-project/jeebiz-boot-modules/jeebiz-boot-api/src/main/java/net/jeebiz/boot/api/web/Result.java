@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import net.jeebiz.boot.api.ApiCode;
 
 
 @ApiModel(value = "Result", description = "分页查询结果对象")
@@ -20,7 +21,7 @@ public class Result<T> {
 	 * 状态码
 	 */
 	@ApiModelProperty(name = "code", dataType = "String", value = "状态码")
-	private int code = 0;
+	private String code = ApiCode.SC_SUCCESS.getCode();
 	/**
 	 * 当前页码
 	 */
@@ -71,11 +72,11 @@ public class Result<T> {
 		
 	}
 	
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
