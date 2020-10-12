@@ -11,9 +11,9 @@ import net.jeebiz.boot.api.utils.Constants;
  */
 public enum ApiCode {
 	
-	// --- 2xx Client Error ---
+	// --- Success ---
 
-	SC_SUCCESS("200", Constants.RT_SUCCESS, "请求成功"),
+	SC_SUCCESS("0", Constants.RT_SUCCESS, "请求成功"),
 	
 	// --- 4xx Client Error ---
 	
