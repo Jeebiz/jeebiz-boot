@@ -370,8 +370,8 @@
 		 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
-		<spring-boot-starter-aliyun-ons.version>1.0.2-SNAPSHOT</spring-boot-starter-aliyun-ons.version>
-		<spring-boot-starter-aliyun-oss.version>1.0.0-SNAPSHOT</spring-boot-starter-aliyun-oss.version>
+		<spring-boot-starter-aliyun-ons.version>1.0.2.RELEASE</spring-boot-starter-aliyun-ons.version>
+		<spring-boot-starter-aliyun-oss.version>1.0.0.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-rds.version>1.0.0</spring-boot-starter-aliyun-rds.version>
 		<spring-boot-starter-aliyun-redis.version>1.0.0</spring-boot-starter-aliyun-redis.version>
 		<spring-boot-starter-aliyun-schedulerx.version>1.0.0</spring-boot-starter-aliyun-schedulerx.version>
@@ -451,8 +451,8 @@
 		<spring-boot-starter-security-qrcode.version>1.0.0-SNAPSHOT</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0-SNAPSHOT</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-security-weixin.version>
-		<spring-boot-starter-shiro-biz.version>1.0.6-SNAPSHOT</spring-boot-starter-shiro-biz.version>
-		<spring-boot-starter-shiro-cas.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-cas.version>
+		<spring-boot-starter-shiro-biz.version>1.0.6.RELEASE</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-cas.version>1.0.0.RELEASE</spring-boot-starter-shiro-cas.version>
 		<spring-boot-starter-shiro-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>1.1.0-SNAPSHOT</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-kisso.version>
@@ -473,8 +473,7 @@
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
-		<spring-boot-starter-websocket.version>1.0.2-SNAPSHOT</spring-boot-starter-websocket.version>
-		<spring-boot-starter-xfire.version>1.0.0-SNAPSHOT</spring-boot-starter-xfire.version>
+		<spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
 		<spring-boot-starter-zxing.version>1.0.1.RELEASE</spring-boot-starter-zxing.version>
 		
 	</properties>
@@ -5540,11 +5539,6 @@
 			    <groupId>com.github.binarywang</groupId>
 			    <artifactId>wx-java-mp-spring-boot-starter</artifactId>
 			    <version>${weixin-java.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>xfire-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-xfire.version}</version>
 			</dependency>
 			<!-- https://github.com/hiwepy/spring-boot-starter-zxing -->
 			<dependency>
