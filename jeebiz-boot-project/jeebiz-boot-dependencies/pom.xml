@@ -371,7 +371,7 @@
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
 		<spring-boot-starter-aliyun-ons.version>1.0.2.RELEASE</spring-boot-starter-aliyun-ons.version>
-		<spring-boot-starter-aliyun-oss.version>1.0.0.RELEASE</spring-boot-starter-aliyun-oss.version>
+		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-rds.version>1.0.0</spring-boot-starter-aliyun-rds.version>
 		<spring-boot-starter-aliyun-redis.version>1.0.0</spring-boot-starter-aliyun-redis.version>
 		<spring-boot-starter-aliyun-schedulerx.version>1.0.0</spring-boot-starter-aliyun-schedulerx.version>
