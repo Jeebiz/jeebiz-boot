@@ -403,7 +403,7 @@
 		<spring-boot-starter-flyway-plus.version>1.0.6.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.7.RELEASE</spring-boot-starter-hikaricp-plus.version>
-		<spring-boot-starter-hmily.version>2.0.6-RELEASE</spring-boot-starter-hmily.version>
+		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
 		<spring-boot-starter-httpclient.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient.version>
 		<spring-boot-starter-httpclient3.version>1.0.0-SNAPSHOT</spring-boot-starter-httpclient3.version>
@@ -438,7 +438,6 @@
 		<spring-boot-starter-pf4j3.version>1.0.1.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.2.RELEASE</spring-boot-starter-qqwry.version>
-		<spring-boot-starter-raincat.version>2.0.1-RELEASE</spring-boot-starter-raincat.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.1.0</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
@@ -5287,24 +5286,6 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>qqwry-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-qqwry.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/raincat-spring-boot-starter-dubbo -->
-			<dependency>
-			    <groupId>org.dromara</groupId>
-			    <artifactId>raincat-spring-boot-starter-dubbo</artifactId>
-			    <version>${spring-boot-starter-raincat.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/raincat-spring-boot-starter-motan -->
-			<dependency>
-			    <groupId>org.dromara</groupId>
-			    <artifactId>raincat-spring-boot-starter-motan</artifactId>
-			    <version>${spring-boot-starter-raincat.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/raincat-spring-boot-starter-springcloud -->
-			<dependency>
-			    <groupId>org.dromara</groupId>
-			    <artifactId>raincat-spring-boot-starter-springcloud</artifactId>
-			    <version>${spring-boot-starter-raincat.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter -->
 			<dependency>
