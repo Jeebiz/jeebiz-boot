@@ -326,7 +326,7 @@
 		<xnio.version>3.8.1.Final</xnio.version>
 		<xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
 		<xstream.version>1.4.12</xstream.version>
-		<xxl-job.version>2.1.2</xxl-job.version>
+		<xxl-job.version>2.2.0</xxl-job.version>
 		<zookeeper.version>3.6.1</zookeeper.version>
 		<zip4j.version>2.5.2</zip4j.version>
 		<zipkin.version>2.21.5</zipkin.version>
