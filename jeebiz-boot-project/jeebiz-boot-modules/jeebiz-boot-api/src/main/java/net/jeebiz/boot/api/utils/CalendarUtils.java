@@ -27,19 +27,19 @@ public class CalendarUtils {
 	 * @param amount
 	 * @return
 	 */
-	public static Timestamp fromUnixTime(int amount) {
+	public static Timestamp fromUnixTime(long amount) {
 		return new Timestamp(amount * 1000L);
 	}
 	
-	public static int getAgeFromUnixTime(int amount) {
+	public static int getAgeFromUnixTime(long amount) {
 		return getAgeFromUnixTime(Locale.getDefault(), amount);
 	}
 	
-	public static int getAgeFromUnixTime(Locale locale, int amount) {
+	public static int getAgeFromUnixTime(Locale locale, long amount) {
 		return getAgeFromUnixTime(TimeZone.getDefault(), locale, amount);
 	}
 	
-	public static int getAgeFromUnixTime(TimeZone zone, Locale locale, int amount) {
+	public static int getAgeFromUnixTime(TimeZone zone, Locale locale, long amount) {
 		
 		Calendar birth = Calendar.getInstance();
 		birth.setTimeInMillis(fromUnixTime(amount).getTime());
