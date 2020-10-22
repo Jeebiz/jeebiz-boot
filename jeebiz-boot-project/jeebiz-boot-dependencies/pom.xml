@@ -135,9 +135,9 @@
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
 		<icu4j.version>65.1</icu4j.version>
-		<imageio.version>3.5</imageio.version>
-		<influxdb-java.version>2.19</influxdb-java.version>
-		<istio-client.version>1.1.1</istio-client.version>
+		<imageio.version>3.6</imageio.version>
+		<influxdb-java.version>2.20</influxdb-java.version>
+		<istio-client.version>1.5.5</istio-client.version>
 		<j2cache-core.version>2.8.2-release</j2cache-core.version>
 		<j2cache-hibernate3.version>2.8.0-release</j2cache-hibernate3.version>
 		<j2cache-hibernate4.version>2.8.0-release</j2cache-hibernate4.version>
@@ -150,7 +150,7 @@
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>3.2.0</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
-		<javamelody.version>1.85.0</javamelody.version>
+		<javamelody.version>1.86.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
@@ -158,9 +158,9 @@
 		<jep.version>2.4.2</jep.version>
 		<jjwt.version>0.11.2</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
-		<jgroups.version>4.2.3.Final</jgroups.version>
-		<jgit.version>5.8.1.202007141445-r</jgit.version>
-		<jpush-client.version>3.4.6</jpush-client.version>
+		<jgroups.version>5.0.4.Final</jgroups.version>
+		<jgit.version>5.9.0.202009080501-r</jgit.version>
+		<jpush-client.version>3.4.7</jpush-client.version>
 		<jruby.version>9.2.13.0</jruby.version>
 		<jsch.version>0.1.55</jsch.version>
 		<jsqlparser.version>3.2</jsqlparser.version>
@@ -168,45 +168,46 @@
 		<junrar.version>4.0.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.6.RELEASE</jwt-issuer.version>
-		<kafka-clients.version>2.5.0</kafka-clients.version>
+		<kafka-clients.version>2.6.0</kafka-clients.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
-		<kylin-jdbc.version>3.1.0</kylin-jdbc.version>
+		<kylin-jdbc.version>3.1.1</kylin-jdbc.version>
 		<lettuce.version>5.3.2.RELEASE</lettuce.version>
-		<libphonenumber.version>8.12.7</libphonenumber.version>
-		<libphonenumber-carrier.version>1.133</libphonenumber-carrier.version>
-		<libphonenumber-prefixmapper.version>2.143</libphonenumber-prefixmapper.version>
-		<libphonenumber-geocoder.version>2.143</libphonenumber-geocoder.version>
-		<liquibase.version>4.0.0</liquibase.version>
-		<mariadb.version>2.6.2</mariadb.version>
+		<libphonenumber.version>8.12.11</libphonenumber.version>
+		<libphonenumber-carrier.version>1.137</libphonenumber-carrier.version>
+		<libphonenumber-prefixmapper.version>2.147</libphonenumber-prefixmapper.version>
+		<libphonenumber-geocoder.version>2.147</libphonenumber-geocoder.version>
+		<liquibase.version>4.1.1</liquibase.version>
+		<mariadb.version>2.7.0</mariadb.version>
 		<metadata-extractor.version>2.14.0</metadata-extractor.version>
 		<mongo-java-driver.version>3.12.7</mongo-java-driver.version>
-		<mssql-jdbc.version>8.4.0.jre8</mssql-jdbc.version>		
-		<mybatis.version>3.5.5</mybatis.version>
+		<mssql-jdbc.version>8.4.1.jre8</mssql-jdbc.version>		
+		<mybatis.version>3.5.6</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
-		<mybatis-dynamic-sql.version>1.1.4</mybatis-dynamic-sql.version>
-		<mybatis-plus.version>3.3.2</mybatis-plus.version>
-		<mybatis-spring.version>2.0.4</mybatis-spring.version>
-		<mybatis-migrations.version>3.3.7</mybatis-migrations.version>
+		<mybatis-dynamic-sql.version>1.2.1</mybatis-dynamic-sql.version>
+		<mybatis-plus.version>3.4.0</mybatis-plus.version>
+		<mybatis-spring.version>2.0.5</mybatis-spring.version>
+		<mybatis-migrations.version>3.3.8</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
-		<mybatis-ehcache.version>1.2.0</mybatis-ehcache.version>
-		<mybatis-hazelcast.version>1.1.1</mybatis-hazelcast.version>
-		<mybatis-ignite.version>1.0.6</mybatis-ignite.version>
+		<mybatis-ehcache.version>1.2.1</mybatis-ehcache.version>
+		<mybatis-hazelcast.version>1.1.2</mybatis-hazelcast.version>
+		<mybatis-ignite.version>1.1.0</mybatis-ignite.version>
 		<mybatis-memcached.version>1.1.0</mybatis-memcached.version>
 		<mybatis-oscache.version>1.0.2</mybatis-oscache.version>
 		<mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
-		<mybatis-freemarker.version>1.1.2</mybatis-freemarker.version>
-		<mybatis-velocity.version>1.3</mybatis-velocity.version>
+		<mybatis-thymeleaf.version>1.0.2</mybatis-thymeleaf.version>
+		<mybatis-freemarker.version>1.2.2</mybatis-freemarker.version>
+		<mybatis-velocity.version>2.1.0</mybatis-velocity.version>
 		<mybatis-generator.version>1.4.0</mybatis-generator.version>
-		<mysql.version>8.0.21</mysql.version>
+		<mysql.version>8.0.22</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
 		<netty-socketio.version>1.7.18</netty-socketio.version>
 		<nimbus-jose-jwt.version>8.15</nimbus-jose-jwt.version>
-		<okhttp.version>3.14.8</okhttp.version>
+		<okhttp.version>3.14.9</okhttp.version>
 		<oksms.version>1.0.0-SNAPSHOT</oksms.version>
 		<oltu.version>1.0.2</oltu.version>
 		<owasp-antisamy.version>1.5.8</owasp-antisamy.version>
@@ -215,7 +216,7 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.0</p6spy.version>
-		<pac4j.version>4.0.1</pac4j.version>
+		<pac4j.version>4.1.0</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2-SNAPSHOT</pac4j-oauth-ext.version>
 		<pac4j-sudytech.version>1.0.0-SNAPSHOT</pac4j-sudytech.version>
 		<pac4j-webmvc.version>${pac4j.version}</pac4j-webmvc.version>
@@ -225,20 +226,19 @@
 		<prometheus.version>0.9.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>		
-		<pf4j.version>3.3.1</pf4j.version>
+		<pf4j.version>3.4.1</pf4j.version>
 		<pf4j-update.version>2.3.0</pf4j-update.version>
 		<pf4j-spring.version>0.6.0</pf4j-spring.version>		
-		<pf4j-wicket.version>1.0.0</pf4j-wicket.version>		
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<reactor-bom.version>Dysprosium-SR7</reactor-bom.version>
+		<reactor-bom.version>Dysprosium-SR12</reactor-bom.version>
 		<redisson.version>3.13.6</redisson.version>
-		<resilience4j.version>1.4.0</resilience4j.version>
+		<resilience4j.version>1.6.1</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
-		<rocketmq-client.version>4.7.0</rocketmq-client.version>
+		<rocketmq-client.version>4.7.1</rocketmq-client.version>
 		<roses.version>2.0.0</roses.version>
 		<slf4j.version>1.7.30</slf4j.version>
-		<schemacrawler.version>16.9.3</schemacrawler.version>
+		<schemacrawler.version>16.11.1</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-distrib.version>${schemacrawler.version}</schemacrawler-distrib.version>
@@ -279,15 +279,15 @@
 		<sitemesh3.version>3.0.1</sitemesh3.version>
 		<smallsql.version>0.21</smallsql.version>
 		<smslib.version>3.5.4</smslib.version>
-		<snmp4j.version>3.4.2</snmp4j.version>
-		<snmp4j-agent.version>3.3.4</snmp4j-agent.version>
+		<snmp4j.version>3.4.3</snmp4j.version>
+		<snmp4j-agent.version>3.3.5</snmp4j-agent.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<!-- http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/ -->
 		<springfox.version>2.10.5</springfox.version> <!-- 3.0.0-SNAPSHOT -->
 		<spring-biz.version>1.1.0.RELEASE</spring-biz.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
-		<sqlite-jdbc.version>3.28.0</sqlite-jdbc.version>
+		<sqlite-jdbc.version>3.32.3.2</sqlite-jdbc.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.5.1</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
@@ -304,7 +304,7 @@
 		<swagger2markup.version>1.3.3</swagger2markup.version>
 		<swagger3.version>2.1.4</swagger3.version>
 		<tablesaw.version>0.38.1</tablesaw.version>
-		<tencentcloud-sdk-java.version>3.1.103</tencentcloud-sdk-java.version>
+		<tencentcloud-sdk-java.version>3.1.151</tencentcloud-sdk-java.version>
 		<tencentcloud-tls-sig-api-v2.version>1.1</tencentcloud-tls-sig-api-v2.version>
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
@@ -329,8 +329,8 @@
 		<xxl-job.version>2.2.0</xxl-job.version>
 		<zookeeper.version>3.6.1</zookeeper.version>
 		<zip4j.version>2.5.2</zip4j.version>
-		<zipkin.version>2.21.5</zipkin.version>
-		<zxing.version>3.4.0</zxing.version>
+		<zipkin2.version>2.21.7</zipkin2.version>
+		<zxing.version>3.4.1</zxing.version>
 
 		<!-- Maven Plugin versions -->
 		<maven-appassembler-plugin.version>2.1.0</maven-appassembler-plugin.version>
@@ -3095,6 +3095,11 @@
 				<artifactId>mybatis-velocity</artifactId>
 				<version>${mybatis-velocity.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.mybatis.scripting</groupId>
+				<artifactId>mybatis-thymeleaf</artifactId>
+				<version>${mybatis-thymeleaf.version}</version>
+			</dependency>
 			<!-- mybatis generator -->
 			<dependency>
 				<groupId>org.mybatis.generator</groupId>
@@ -3410,11 +3415,6 @@
 						<artifactId>slf4j-log4j12</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>
-			<dependency>
-			    <groupId>org.pf4j</groupId>
-			    <artifactId>pf4j-wicket</artifactId>
-			    <version>${pf4j-wicket.version}</version>
 			</dependency>
 			
 			<!-- PNG Encoder 是一个 Java 类，用来将图像保存为 PNG 格式，该项目只包含两个 java 文件 -->
@@ -4618,49 +4618,49 @@
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-collector-scribe</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-collector-kafka -->
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-collector-kafka</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-collector-kafka08 -->
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-collector-kafka08</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-collector-rabbitmq -->
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-collector-rabbitmq</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-storage-cassandra -->
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-storage-cassandra</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-storage-cassandra-v1 -->
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-storage-cassandra-v1</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-storage-elasticsearch -->
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-storage-elasticsearch</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-storage-mysql-v1 -->
 			<dependency>
 			    <groupId>io.zipkin.zipkin2</groupId>
 			    <artifactId>zipkin-storage-mysql-v1</artifactId>
-			    <version>${zipkin.version}</version>
+			    <version>${zipkin2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin-lens -->
 			<dependency>
