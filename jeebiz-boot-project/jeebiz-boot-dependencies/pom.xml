@@ -120,6 +120,7 @@
 		<flowable.version>6.5.0</flowable.version>
 		<formio.version>1.6.4</formio.version>
 		<geodesy.version>1.1.3</geodesy.version>
+		<goeasy.version>0.3.15</goeasy.version>
 		<google-http-client.version>1.34.0</google-http-client.version>
 		<guava.version>29.0-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
@@ -2077,6 +2078,13 @@
 			    <groupId>org.gavaghan</groupId>
 			    <artifactId>geodesy</artifactId>
 			    <version>${geodesy.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/io.goeasy/goeasy-sdk -->
+			<dependency>
+			    <groupId>io.goeasy</groupId>
+			    <artifactId>goeasy-sdk</artifactId>
+			    <version>${goeasy.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client-bom -->
