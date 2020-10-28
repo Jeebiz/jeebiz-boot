@@ -427,6 +427,7 @@
 		<spring-boot-starter-minio.version>1.0.1-SNAPSHOT</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
+		<spring-boot-starter-ishumei.version>1.0.0.RELEASE</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-oksms.version>1.0.0-SNAPSHOT</spring-boot-starter-oksms.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
@@ -465,6 +466,7 @@
 		<spring-boot-starter-shiro-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
+		<spring-boot-starter-shanyan.version>1.0.0-SNAPSHOT</spring-boot-starter-shanyan.version>
 		<spring-boot-starter-sitemesh3.version>1.0.3-SNAPSHOT</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
@@ -5217,6 +5219,12 @@
 			    <artifactId>opentracing-spring-jaeger-starter</artifactId>
 			    <version>${spring-boot-starter-opentracing.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/ishumei-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>ishumei-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-ishumei.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp3-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
@@ -5457,6 +5465,12 @@
 				<artifactId>socketio-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-socketio.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shanyan-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>shanyan-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-shanyan.version}</version>
+			</dependency>	
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/sitemesh3-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
