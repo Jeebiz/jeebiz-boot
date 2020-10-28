@@ -546,7 +546,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		System.out.println(error.toString());
 		*/
 		String message = String.format("上传文件超过%s字节的最大上传大小（字节）", ex.getMaxUploadSize());
-		ApiRestResponse<String> resp = ApiCode.SC_BAD_REQUEST.toResponse(this.getLocaleMessage(ex, message));
+		ApiRestResponse<String> resp = ApiCode.SC_REQUEST_TOO_LONG.toResponse(this.getLocaleMessage(ex, message));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
@@ -558,7 +558,7 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 	public ResponseEntity<ApiRestResponse<String>> maxUploadSizePerFileExceededException(MaxUploadSizePerFileExceededException ex) {
 		this.logException(ex);
 		String message = String.format("单个文件超过%s字节的最大上传大小（字节）", ex.getMaxUploadSizePerFile());
-		ApiRestResponse<String> resp = ApiCode.SC_BAD_REQUEST.toResponse(this.getLocaleMessage(ex, message));
+		ApiRestResponse<String> resp = ApiCode.SC_REQUEST_TOO_LONG.toResponse(this.getLocaleMessage(ex, message));
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	

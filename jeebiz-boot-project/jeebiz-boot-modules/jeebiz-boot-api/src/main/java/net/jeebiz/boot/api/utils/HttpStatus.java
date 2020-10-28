@@ -175,7 +175,17 @@ public interface HttpStatus {
     public static final int SC_LOCKED = 423;
     /** {@code 424 Failed Dependency} (WebDAV - RFC 2518) */
     public static final int SC_FAILED_DEPENDENCY = 424;
-
+    /** {@code 426 Upgrade Required} */
+    public static final int SC_UPGRADE_REQUIRED = 426;
+    /** {@code 428（要求先决条件）} */
+    public static final int SC_PRECONDITION_REQUIRED = 428;
+    /** {@code 429（太多请求）} */
+    public static final int SC_TOO_MANY_REQUESTS = 429;
+    /** {@code 431（请求头字段太大）} */
+    public static final int SC_REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
+    /** {@code 451（因法律原因不可用）} */
+    public static final int SC_UNAVAILABLE_FOR_LEGAL_REASONS = 451;
+    
     // --- 5xx Server Error ---
     //HTTP Status 5xx（服务器错误）    ->这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。
     
@@ -197,8 +207,16 @@ public interface HttpStatus {
     /** {@code 505 HTTP Version Not Supported} (HTTP/1.1 - RFC 2616) */
     //HTTP Status 505（HTTP 版本不受支持）    -> 服务器不支持请求中所用的 HTTP 协议版本。
     public static final int SC_HTTP_VERSION_NOT_SUPPORTED = 505;
-
+    // HTTP Status 506（服务器内部配置错误）-> 由《透明内容协商协议》（RFC 2295）扩展，代表服务器存在内部配置错误：被请求的协商变元资源被配置为在透明内容协商中使用自己，因此在一个协商处理中不是一个合适的重点。
+    public static final int SC_VARIANT_ALSO_NEGOTIATES = 506;
     /** {@code 507 Insufficient Storage} (WebDAV - RFC 2518) */
     public static final int SC_INSUFFICIENT_STORAGE = 507;
-    
+    // HTTP Status 508（存储空间不足）
+    public static final int SC_LOOP_DETECTED = 508;
+    // HTTP Status 509（服务器达到带宽限制）->这不是一个官方的状态码，但是仍被广泛使用。
+    public static final int SC_BANDWIDTH_LIMIT_EXCEEDED = 509;
+    // HTTP Status 510（获取资源所需要的策略并没有没满足）
+    public static final int SC_NOT_EXTENDED = 510;
+    // HTTP Status 511（要求网络认证）
+    public static final int SC_NETWORK_AUTHENTICATION_REQUIRED = 511;
 }

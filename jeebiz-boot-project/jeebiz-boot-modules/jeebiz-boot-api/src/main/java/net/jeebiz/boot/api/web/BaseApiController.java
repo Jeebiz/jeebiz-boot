@@ -10,12 +10,20 @@ import net.jeebiz.boot.api.ApiRestResponse;
 import net.jeebiz.boot.api.utils.HttpStatus;
 
 @ApiResponses({ 
-	@ApiResponse(code = 200, message = "请求成功", response = ApiRestResponse.class),
-	@ApiResponse(code = HttpStatus.SC_CREATED, message = "已创建", response = ApiRestResponse.class),
-	@ApiResponse(code = HttpStatus.SC_UNAUTHORIZED, message = "请求要求身份验证", response = ApiRestResponse.class),
-	@ApiResponse(code = HttpStatus.SC_FORBIDDEN, message = "权限不足", response = ApiRestResponse.class),
-	@ApiResponse(code = HttpStatus.SC_NOT_FOUND, message = "请求资源不存在", response = ApiRestResponse.class),
-	@ApiResponse(code = HttpStatus.SC_INTERNAL_SERVER_ERROR, message = "服务器内部异常", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_BAD_REQUEST, message = "参数类型不匹配或格式不正确", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_UNAUTHORIZED, message = "不允许访问（功能未授权）", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_FORBIDDEN, message = "服务器拒绝请求", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_NOT_FOUND, message = "请求地址不存在", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_METHOD_NOT_ALLOWED, message = "不支持的请求方法", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_NOT_ACCEPTABLE, message = "不匹配的媒体类型", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_UNSUPPORTED_MEDIA_TYPE, message = "不支持的媒体类型", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_REQUEST_TOO_LONG, message = "请求实体过大", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_INTERNAL_SERVER_ERROR, message = "服务器内部错误", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_BAD_GATEWAY, message = "错误网关", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_SERVICE_UNAVAILABLE, message = "服务不可用", response = ApiRestResponse.class),
+	@ApiResponse(code = HttpStatus.SC_GATEWAY_TIMEOUT, message = "网关访问超时", response = ApiRestResponse.class),
+	
+	
 	@ApiResponse(code = 10001, message = "认证失败", response = ApiRestResponse.class),
 	@ApiResponse(code = 10002, message = "认证请求方法不支持.", response = ApiRestResponse.class),
 	@ApiResponse(code = 10003, message = "登录失败次数操作最大限制，请输入验证码", response = ApiRestResponse.class),
@@ -41,28 +49,7 @@ import net.jeebiz.boot.api.utils.HttpStatus;
 	@ApiResponse(code = 10026, message = "临时授权码过期", response = ApiRestResponse.class),
 	@ApiResponse(code = 10027, message = "第三方授权服务端异常", response = ApiRestResponse.class),
 	@ApiResponse(code = 10028, message = "临时授权码错误", response = ApiRestResponse.class),
-	@ApiResponse(code = 10110, message = "不允许访问（功能未授权）", response = ApiRestResponse.class),
-	@ApiResponse(code = 10111, message = "请求失败", response = ApiRestResponse.class),
-	@ApiResponse(code = 10112, message = "数据为空", response = ApiRestResponse.class),
-	@ApiResponse(code = 10113, message = "参数类型不匹配", response = ApiRestResponse.class),
-	@ApiResponse(code = 10114, message = "缺少矩阵变量", response = ApiRestResponse.class),
-	@ApiResponse(code = 10115, message = "缺少URI模板变量", response = ApiRestResponse.class),
-	@ApiResponse(code = 10116, message = "缺少Cookie变量", response = ApiRestResponse.class),
-	@ApiResponse(code = 10117, message = "缺少请求头", response = ApiRestResponse.class),
-	@ApiResponse(code = 10118, message = "缺少参数", response = ApiRestResponse.class),
-	@ApiResponse(code = 10119, message = "缺少请求对象", response = ApiRestResponse.class),
-	@ApiResponse(code = 10120, message = "参数规则不满足", response = ApiRestResponse.class),
-	@ApiResponse(code = 10121, message = "参数绑定错误", response = ApiRestResponse.class),
-	@ApiResponse(code = 10122, message = "参数解析错误", response = ApiRestResponse.class),
-	@ApiResponse(code = 10123, message = "参数验证失败", response = ApiRestResponse.class),
-	@ApiResponse(code = 10201, message = "服务器：运行时异常", response = ApiRestResponse.class),
-	@ApiResponse(code = 10202, message = "服务器：空值异常", response = ApiRestResponse.class),
-	@ApiResponse(code = 10203, message = "服务器：数据类型转换异常", response = ApiRestResponse.class),
-	@ApiResponse(code = 10204, message = "服务器：IO异常", response = ApiRestResponse.class),
-	@ApiResponse(code = 10205, message = "服务器：未知方法异常", response = ApiRestResponse.class),
-	@ApiResponse(code = 10206, message = "服务器：非法参数异常", response = ApiRestResponse.class),
-	@ApiResponse(code = 10207, message = "服务器：数组越界异常", response = ApiRestResponse.class),
-	@ApiResponse(code = 10208, message = "服务器：网络异常", response = ApiRestResponse.class)
+	
 })
 public abstract class BaseApiController extends BaseMapperController {
 	

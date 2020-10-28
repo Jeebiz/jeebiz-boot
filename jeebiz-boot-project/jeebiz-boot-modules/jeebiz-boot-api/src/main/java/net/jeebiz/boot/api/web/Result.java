@@ -11,17 +11,19 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import net.jeebiz.boot.api.ApiCode;
 
 
 @ApiModel(value = "Result", description = "分页查询结果对象")
+@Data
 public class Result<T> {
 
 	/**
 	 * 状态码
 	 */
 	@ApiModelProperty(name = "code", dataType = "String", value = "状态码")
-	private String code = ApiCode.SC_SUCCESS.getCode();
+	private int code = ApiCode.SC_SUCCESS.getCode();
 	/**
 	 * 当前页码
 	 */
@@ -70,54 +72,6 @@ public class Result<T> {
 		this.pages = pageResult.getPages();
 		this.rows = rows;
 		
-	}
-	
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public long getCurrent() {
-		return current;
-	}
-
-	public void setCurrent(long current) {
-		this.current = current;
-	}
-
-	public long getSize() {
-		return size;
-	}
-
-	public void setSize(long size) {
-		this.size = size;
-	}
-
-	public long getPages() {
-		return pages;
-	}
-
-	public void setPages(long pages) {
-		this.pages = pages;
-	}
-
-	public long getTotal() {
-		return total;
-	}
-
-	public void setTotal(long total) {
-		this.total = total;
-	}
-
-	public List<T> getRows() {
-		return rows;
-	}
-
-	public void setRows(List<T> rows) {
-		this.rows = rows;
 	}
 
 }
