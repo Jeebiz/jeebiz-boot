@@ -136,8 +136,16 @@ public class ApiRestResponse<T> {
     	return new ApiRestResponse<T>(code, message, data);
     }
     
+    public static <T> ApiRestResponse<T> of(final String code, final String message) {
+        return new ApiRestResponse<T>(Integer.parseInt(code), message);
+    }
+    
     public static <T> ApiRestResponse<T> of(final int code, final String message) {
         return new ApiRestResponse<T>(code, message);
+    }
+    
+    public static <T> ApiRestResponse<T> of(final String code, final String status, final String message) {
+   	 	return of(Integer.parseInt(code), status, message, null);
     }
     
     public static <T> ApiRestResponse<T> of(final int code, final String status, final String message) {
