@@ -219,4 +219,5 @@ public interface HttpStatus {
     public static final int SC_NOT_EXTENDED = 510;
     // HTTP Status 511（要求网络认证）
     public static final int SC_NETWORK_AUTHENTICATION_REQUIRED = 511;
+    
 }

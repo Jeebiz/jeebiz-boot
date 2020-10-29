@@ -14,7 +14,7 @@ public enum ApiCode {
 
 	// --- 2xx Client Error ---
 
-	SC_SUCCESS(HttpStatus.SC_OK, Constants.RT_SUCCESS, "请求成功"),
+	SC_SUCCESS(ApiCodeValue.SC_SUCCESS, Constants.RT_SUCCESS, "请求成功"),
 
 	// --- 4xx Client Error ---
 
@@ -169,9 +169,9 @@ public enum ApiCode {
 
 	SC_ACCESS_DENIED(HttpStatus.SC_UNAUTHORIZED, Constants.RT_FAIL, "不允许访问（功能未授权）"),
 
-	SC_FAIL(HttpStatus.SC_BAD_REQUEST, Constants.RT_FAIL, "请求失败"),
+	SC_FAIL(ApiCodeValue.SC_FAIL, Constants.RT_FAIL, "失败"),
 
-	SC_EMPTY(HttpStatus.SC_BAD_REQUEST, Constants.RT_FAIL, "数据为空"),
+	SC_EMPTY(ApiCodeValue.SC_FAIL, Constants.RT_FAIL, "数据为空"),
 
 	/**
 	 * ServletRequestBindingException 400 (Bad Request)

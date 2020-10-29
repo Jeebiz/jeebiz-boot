@@ -76,10 +76,6 @@ public class ApiRestResponse<T> {
         this.data = data;
     }
 
-	public static <T> ApiRestResponse<T> empty(final String message) {
-		return of(ApiCode.SC_EMPTY, message, null);
-	}
-    
 	// success -----------------------------------------------------------------
 	
     public static <T> ApiRestResponse<T> success(final String message) {
