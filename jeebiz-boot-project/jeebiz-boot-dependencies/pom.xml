@@ -328,6 +328,7 @@
 		<xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
 		<xstream.version>1.4.12</xstream.version>
 		<xxl-job.version>2.2.0</xxl-job.version>
+		<zkclient.version>0.11</zkclient.version>
 		<zookeeper.version>3.6.1</zookeeper.version>
 		<zip4j.version>2.5.2</zip4j.version>
 		<zipkin2.version>2.21.7</zipkin2.version>
@@ -4609,7 +4610,14 @@
 			    <artifactId>xxl-job-core</artifactId>
 			    <version>${xxl-job.version}</version>
 			</dependency>
-			 
+			
+			<!-- https://mvnrepository.com/artifact/com.101tec/zkclient -->
+			<dependency>
+			    <groupId>com.101tec</groupId>
+			    <artifactId>zkclient</artifactId>
+			    <version>${zkclient.version}</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
