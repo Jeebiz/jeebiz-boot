@@ -3464,86 +3464,13 @@
 	            <scope>import</scope>
 			</dependency>
 			
-			<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-spring-boot2 -->
+			<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-bom -->
 			<dependency>
 			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-spring-boot2</artifactId>
+			    <artifactId>resilience4j-bom</artifactId>
 			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-all</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-cache</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-circularbuffer</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-core</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-documentation</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-metrics</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-micrometer</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-prometheus</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-ratpack</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-reactor</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-retrofit</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-retry</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>silience4j-rxjava2</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-timelimiter</artifactId>
-			    <version>${resilience4j.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>io.github.resilience4j</groupId>
-			    <artifactId>resilience4j-vertx</artifactId>
-			    <version>${resilience4j.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
@@ -4616,6 +4543,12 @@
 			    <groupId>com.101tec</groupId>
 			    <artifactId>zkclient</artifactId>
 			    <version>${zkclient.version}</version>
+			    <exclusions>
+	                <exclusion>
+	                    <artifactId>slf4j-log4j12</artifactId>
+	                    <groupId>org.slf4j</groupId>
+	                </exclusion>
+	            </exclusions>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
