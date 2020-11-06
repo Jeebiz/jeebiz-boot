@@ -29,8 +29,8 @@ public @interface Idempotent {
 	boolean spel() default false;
 	
 	/**
-	 * 幂等过期时间，即：在此时间段内，对API进行幂等处理。
+	 * 幂等过期时间，默认 200 毫秒，即：在此时间段内，对API进行幂等处理。
 	 */
-	long expireMillis();
+	long expireMillis() default 200;
 	 
 }
