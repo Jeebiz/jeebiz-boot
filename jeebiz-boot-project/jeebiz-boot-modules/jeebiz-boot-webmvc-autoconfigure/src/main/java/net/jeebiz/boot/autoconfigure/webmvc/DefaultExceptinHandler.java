@@ -85,6 +85,7 @@ import net.jeebiz.boot.api.ApiRestResponse;
 import net.jeebiz.boot.api.exception.BizCheckedException;
 import net.jeebiz.boot.api.exception.BizIOException;
 import net.jeebiz.boot.api.exception.BizRuntimeException;
+import net.jeebiz.boot.api.exception.IdempotentException;
 
 /**
  * 异常增强，以JSON的形式返回给客服端
@@ -597,6 +598,17 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
 	}
 	
+	/**
+	 * 500 (Internal Server Error)
+	 */
+	@ExceptionHandler(IdempotentException.class)
+	@ResponseBody
+	public ResponseEntity<ApiRestResponse<String>> idempotentException(IdempotentException ex) {
+		this.logException(ex);
+		ApiRestResponse<String> resp = ApiRestResponse.error(ex.getCode(), this.getLocaleMessage(ex, ex.getMessage()));
+		return new ResponseEntity<ApiRestResponse<String>>(resp, HttpStatus.OK);
+	}
+	
 	/**---------------------Mybatis 异常----------------------------*/
 	
 	/**
@@ -796,7 +808,10 @@ public class DefaultExceptinHandler extends ExceptinHandler {
 		} else if(ex instanceof BizRuntimeException) {
 			BizRuntimeException bizEx = (BizRuntimeException) ex;
 			i18nKey = bizEx.getI18n();
-		}
+		} else if(ex instanceof IdempotentException) {
+			IdempotentException bizEx = (IdempotentException) ex;
+			i18nKey = bizEx.getI18n();
+		} 
 		
 		if(StringUtils.isNoneBlank(i18nKey)) {
 			ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
