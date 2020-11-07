@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE })
-public @interface Idempotent {
+public @interface ApiIdempotent {
 
 	/**
 	 * 幂等名称：默认为空；
@@ -21,7 +21,7 @@ public @interface Idempotent {
 	/**
 	 * 幂等方式
 	 */
-	IdempotentType type() default IdempotentType.ARGS;
+	ApiIdempotentType type() default ApiIdempotentType.ARGS;
 	
 	/**
 	 * 是否启用 Spring Expression Language(SpEL) 表达式解析value值

@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 /**
  * 幂等方式
  */
-public enum IdempotentType {
+public enum ApiIdempotentType {
 
 	/**
 	 * 通过请求参数中的token值实现幂等
@@ -20,17 +20,17 @@ public enum IdempotentType {
 	 */
 	ARGS;
 	
-	public boolean equals(IdempotentType type) {
+	public boolean equals(ApiIdempotentType type) {
 		return this.compareTo(type) == 0;
 	}
 
 	public boolean equals(String type) {
-		return this.compareTo(IdempotentType.valueOfIgnoreCase(type)) == 0;
+		return this.compareTo(ApiIdempotentType.valueOfIgnoreCase(type)) == 0;
 	}
 
-	public static IdempotentType valueOfIgnoreCase(String type) {
+	public static ApiIdempotentType valueOfIgnoreCase(String type) {
 		
-		for (IdempotentType typeEnum : IdempotentType.values()) {
+		for (ApiIdempotentType typeEnum : ApiIdempotentType.values()) {
 			if (typeEnum.name().equals(type)) {
 				return typeEnum;
 			}
