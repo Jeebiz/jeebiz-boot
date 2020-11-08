@@ -18,6 +18,8 @@
 		<activation.version>1.1.1</activation.version>
 		<alipay-sdk.version>4.10.124.ALL</alipay-sdk.version>
 		<alipay-easysdk.version>2.0.2</alipay-easysdk.version>
+		<aliyun-ons-client.version>1.8.7.1.Final</aliyun-ons-client.version>
+		<aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
@@ -181,6 +183,7 @@
 		<libphonenumber-geocoder.version>2.147</libphonenumber-geocoder.version>
 		<liquibase.version>4.1.1</liquibase.version>
 		<mariadb.version>2.7.0</mariadb.version>
+		<maven.version>3.6.3</maven.version>
 		<metadata-extractor.version>2.14.0</metadata-extractor.version>
 		<mongo-java-driver.version>3.12.7</mongo-java-driver.version>
 		<mssql-jdbc.version>8.4.1.jre8</mssql-jdbc.version>		
