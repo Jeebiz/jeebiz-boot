@@ -3482,6 +3482,11 @@
 			    <artifactId>redisson</artifactId>
 			    <version>${redisson.version}</version>
 			</dependency>
+			<dependency>
+			    <groupId>org.redisson</groupId>
+			    <artifactId>redisson-mybatis</artifactId>
+			    <version>${redisson.version}</version>
+			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
 			<!-- https://www.cnblogs.com/zhangshihai1232/articles/6030796.html -->
