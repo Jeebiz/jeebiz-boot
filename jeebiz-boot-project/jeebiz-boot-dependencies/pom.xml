@@ -131,6 +131,7 @@
 		<h2.version>1.4.199</h2.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<httpconn.version>1.0.1.RELEASE</httpconn.version>
+		<httputils.version>1.0.0.RELEASE</httputils.version>
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
 		<hitool.version>1.0.0-SNAPSHOT</hitool.version>
 		<hive.version>3.1.2</hive.version>
@@ -389,7 +390,7 @@
 		<spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
-		<spring-boot-starter-dingtalk.version>1.0.1.RELEASE</spring-boot-starter-dingtalk.version>
+		<spring-boot-starter-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-dingtalk.version>
 		<spring-boot-starter-dingtalk-robot.version>1.0.3.RELEASE</spring-boot-starter-dingtalk-robot.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
@@ -442,26 +443,21 @@
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0.RELEASE</spring-boot-starter-security-weixin.version>
 		<spring-boot-starter-shiro-biz.version>1.0.7.RELEASE</spring-boot-starter-shiro-biz.version>
-		<spring-boot-starter-shiro-cas.version>1.0.0.RELEASE</spring-boot-starter-shiro-cas.version>
-		<spring-boot-starter-shiro-csrfguard.version>1.0.1.RELEASE</spring-boot-starter-shiro-csrfguard.version>
-		<spring-boot-starter-shiro-dingtalk.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-dingtalk.version>
+		<spring-boot-starter-shiro-cas.version>1.0.1.RELEASE</spring-boot-starter-shiro-cas.version>
+		<spring-boot-starter-shiro-csrfguard.version>1.0.2.RELEASE</spring-boot-starter-shiro-csrfguard.version>
+		<spring-boot-starter-shiro-dingtalk.version>1.0.0.RELEASE</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>1.1.0.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.0.RELEASE</spring-boot-starter-shiro-kisso.version>
-		<spring-boot-starter-shiro-ldap.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-ldap.version>
-		<spring-boot-starter-shiro-oauth2.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oauth2.version>
-		<spring-boot-starter-shiro-oidc.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-oidc.version>
-		<spring-boot-starter-shiro-openid.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-openid.version>
 		<spring-boot-starter-shiro-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-pac4j.version>
 		<spring-boot-starter-shiro-redis.version>${shiro-redis.version}</spring-boot-starter-shiro-redis.version>
-		<spring-boot-starter-shiro-saml.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-saml.version>
-		<spring-boot-starter-shiro-weixin.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-weixin.version>
+		<spring-boot-starter-shiro-weixin.version>1.0.0.RELEASE</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
 		<spring-boot-starter-shanyan.version>1.0.1.RELEASE</spring-boot-starter-shanyan.version>
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.0-SNAPSHOT</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.0.RELEASE</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
@@ -2185,7 +2181,7 @@
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>httputils</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${httputils.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client -->
@@ -5238,24 +5234,6 @@
 				<artifactId>shiro-kisso-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-kisso.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-ldap-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>shiro-ldap-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-shiro-ldap.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-oauth2-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>shiro-oauth2-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-shiro-oauth2.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-openid-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>shiro-openid-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-shiro-openid.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-pac4j-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
@@ -5267,12 +5245,6 @@
 			    <groupId>org.iherus.shiro</groupId>
 			    <artifactId>shiro-redis-spring-boot-web-starter</artifactId>
 			    <version>${spring-boot-starter-shiro-redis.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-saml-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>shiro-saml-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-shiro-saml.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-weixin-spring-boot-starter -->
 			<dependency>
