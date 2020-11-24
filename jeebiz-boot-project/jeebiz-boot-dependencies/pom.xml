@@ -96,7 +96,6 @@
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.2.0</derby.version>
 		<derby-locale.version>${derby.version}</derby-locale.version>
-		<dingtalk-sdk.version>20200617</dingtalk-sdk.version>
 		<docx4j-template.version>1.0.1.RELEASE</docx4j-template.version>
 		<docker-client.version>8.16.0</docker-client.version>
 		<docker-java.version>3.2.1</docker-java.version>
@@ -1441,12 +1440,6 @@
 			    <groupId>org.apache.derby</groupId>
 			    <artifactId>derbyLocale_zh_CN</artifactId>
 			    <version>${derby-locale.version}</version>
-			</dependency>
-			
-			<dependency>
-				<groupId>com.dingtalk</groupId>
-				<artifactId>dingtalk-sdk</artifactId>
-				<version>${dingtalk-sdk.version}</version>
 			</dependency>
 			
 			<dependency>
