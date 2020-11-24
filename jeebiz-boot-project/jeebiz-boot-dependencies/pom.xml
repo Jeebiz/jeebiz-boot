@@ -285,6 +285,7 @@
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<springfox.version>2.10.5</springfox.version>
 		<spring-biz.version>1.1.1.RELEASE</spring-biz.version>
+		<spring-bytebuddy.version>1.0.0.RELEASE</spring-bytebuddy.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
 		<sqlite-jdbc.version>3.32.3.2</sqlite-jdbc.version>
@@ -371,7 +372,7 @@
 		 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.2.3</spring-boot-admin.version>
-		<spring-boot-starter-aliyun-ons.version>1.0.2.RELEASE</spring-boot-starter-aliyun-ons.version>
+		<spring-boot-starter-aliyun-ons.version>1.0.3.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-rds.version>1.0.0</spring-boot-starter-aliyun-rds.version>
 		<spring-boot-starter-aliyun-redis.version>1.0.0</spring-boot-starter-aliyun-redis.version>
@@ -448,7 +449,7 @@
 		<spring-boot-starter-shiro-dingtalk.version>1.0.0.RELEASE</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>1.1.0.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.0.RELEASE</spring-boot-starter-shiro-kisso.version>
-		<spring-boot-starter-shiro-pac4j.version>1.0.0-SNAPSHOT</spring-boot-starter-shiro-pac4j.version>
+		<spring-boot-starter-shiro-pac4j.version>1.0.0.RELEASE</spring-boot-starter-shiro-pac4j.version>
 		<spring-boot-starter-shiro-redis.version>${shiro-redis.version}</spring-boot-starter-shiro-redis.version>
 		<spring-boot-starter-shiro-weixin.version>1.0.0.RELEASE</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
@@ -457,7 +458,7 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.0.RELEASE</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.1.RELEASE</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
@@ -490,6 +491,13 @@
 			    <groupId>com.alipay.sdk</groupId>
 			    <artifactId>alipay-easysdk</artifactId>
 			    <version>${alipay-easysdk.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
+			<dependency>
+				<groupId>com.aliyun.oss</groupId>
+				<artifactId>aliyun-sdk-oss</artifactId>
+				<version>${aliyun-sdk-oss.version}</version>
 			</dependency>
 						
 			<!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->
@@ -3968,11 +3976,11 @@
 				<artifactId>spring-biz</artifactId>
 				<version>${spring-biz.version}</version>
 			</dependency>
-			<!-- <dependency>
+			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>spring-bytebuddy</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
-			</dependency> -->
+				<version>${spring-bytebuddy.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>spring-javassist</artifactId>
