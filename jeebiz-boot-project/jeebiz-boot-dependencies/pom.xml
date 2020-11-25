@@ -396,6 +396,7 @@
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
 		<spring-boot-starter-druid-plus.version>1.0.8.RELEASE</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.6.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
@@ -1092,6 +1093,44 @@
 			    <artifactId>cronet-embedded</artifactId>
 			    <version>${cronet.version}</version>
 			</dependency>
+			
+						
+			<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
+			<dependency>
+			    <groupId>org.apache.curator</groupId>
+			    <artifactId>curator-recipes</artifactId>
+			    <version>${curator.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
+			<dependency>
+			    <groupId>org.apache.curator</groupId>
+			    <artifactId>curator-framework</artifactId>
+			    <version>${curator.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-client -->
+			<dependency>
+			    <groupId>org.apache.curator</groupId>
+			    <artifactId>curator-client</artifactId>
+			    <version>${curator.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-x-async -->
+			<dependency>
+			    <groupId>org.apache.curator</groupId>
+			    <artifactId>curator-x-async</artifactId>
+			    <version>${cronet.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-x-discovery -->
+			<dependency>
+			    <groupId>org.apache.curator</groupId>
+			    <artifactId>curator-x-discovery</artifactId>
+			    <version>${cronet.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-x-discovery-server -->
+			<dependency>
+			    <groupId>org.apache.curator</groupId>
+			    <artifactId>curator-x-discovery-server</artifactId>
+			    <version>${cronet.version}</version>
+			</dependency>						
 			
 			<!-- https://mvnrepository.com/artifact/net.sourceforge.cssparser/cssparser -->
 			<dependency>
@@ -3636,12 +3675,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>shardingsphere-sql-parser-sqlserver</artifactId>
-				<version>${sharding-jdbc.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>shardingsphere-sql-parser-postgresql</artifactId>
+				<artifactId>shardingsphere-sql-parser-oracle</artifactId>
 				<version>${sharding-jdbc.version}</version>
 			</dependency>
 			<dependency>
@@ -3651,12 +3685,17 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>shardingsphere-sql-parser-sql92</artifactId>
+				<artifactId>shardingsphere-sql-parser-postgresql</artifactId>
 				<version>${sharding-jdbc.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>shardingsphere-sql-parser-oracle</artifactId>
+				<artifactId>shardingsphere-sql-parser-sqlserver</artifactId>
+				<version>${sharding-jdbc.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>shardingsphere-sql-parser-sql92</artifactId>
 				<version>${sharding-jdbc.version}</version>
 			</dependency>
 			<dependency>
@@ -4730,6 +4769,13 @@
 			    <artifactId>dubbo-spring-boot-actuator</artifactId>
 			    <version>${dubbo.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere.elasticjob/elasticjob-lite-spring-boot-starter -->
+			<dependency>
+			    <groupId>org.apache.shardingsphere.elasticjob</groupId>
+			    <artifactId>elasticjob-lite-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-elasticjob.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/fastdfs-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>fastdfs-spring-boot-starter</artifactId>
@@ -4883,7 +4929,7 @@
 			    <artifactId>flowable-ui-task-conf</artifactId>
 			    <version>${flowable.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-flyway-plus -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/flyway-plus-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>flyway-plus-spring-boot-starter</artifactId>
@@ -5185,6 +5231,24 @@
 			<dependency>
 			    <groupId>org.apache.shardingsphere</groupId>
 			    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-jdbc-spring-boot-starter-infra -->
+			<dependency>
+			    <groupId>org.apache.shardingsphere</groupId>
+			    <artifactId>shardingsphere-jdbc-spring-boot-starter-infra</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-encrypt-spring-boot-starter -->
+			<dependency>
+			    <groupId>org.apache.shardingsphere</groupId>
+			    <artifactId>shardingsphere-encrypt-spring-boot-starter</artifactId>
+			    <version>${sharding-jdbc.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-shadow-spring-boot-starter -->
+			<dependency>
+			    <groupId>org.apache.shardingsphere</groupId>
+			    <artifactId>shardingsphere-shadow-spring-boot-starter</artifactId>
 			    <version>${sharding-jdbc.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring-boot-starter -->
