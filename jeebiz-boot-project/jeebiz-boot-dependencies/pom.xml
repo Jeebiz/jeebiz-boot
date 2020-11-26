@@ -89,6 +89,7 @@
 		<commons-vfs.version>2.0-21092010</commons-vfs.version>
 		<commons-vfs2.version>2.4.1</commons-vfs2.version>
 		<contiperf.version>2.3.4</contiperf.version>
+		<curator.version>5.1.0</curator.version>
 		<cronet.version>76.3809.111</cronet.version>
 		<cssparser.version>0.9.27</cssparser.version>
 		<cxf.version>3.3.7</cxf.version>
