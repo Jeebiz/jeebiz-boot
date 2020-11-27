@@ -9,12 +9,14 @@ import java.util.Map;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.ToString;
 import net.jeebiz.boot.api.utils.Constants;
 
 /**
  * model for interacting with client.
  */
 @ApiModel(value = "ApiRestResponse", description = "接口响应对象")
+@ToString
 public class ApiRestResponse<T> {
 
 	@ApiModelProperty(name = "code", dataType = "String", value = "成功或异常编码")
@@ -86,8 +88,16 @@ public class ApiRestResponse<T> {
     	return of(ApiCode.SC_SUCCESS, data);
     }
     
+    public static <T> ApiRestResponse<T> success(final ApiCode code,final T data) {
+    	return of(code, data);
+    }
+    
     public static <T> ApiRestResponse<T> success(final int code, final String message) {
     	return of(code, Constants.RT_SUCCESS, message);
+    }
+    
+    public static <T> ApiRestResponse<T> success(final ApiCode code, final String message) {
+    	 return of(code, message, null);
     }
     
     // fail -----------------------------------------------------------------
@@ -100,8 +110,16 @@ public class ApiRestResponse<T> {
     	return of(ApiCode.SC_FAIL, data);
     }
     
+    public static <T> ApiRestResponse<T> fail(final ApiCode code, final T data) {
+    	return of(code, data);
+    }
+    
     public static <T> ApiRestResponse<T> fail(final int code, final String message) {
     	return of(code, Constants.RT_FAIL, message);
+    }
+    
+    public static <T> ApiRestResponse<T> fail(final ApiCode code, final String message) {
+    	 return of(code, message, null);
     }
     
     // error -----------------------------------------------------------------
@@ -114,10 +132,17 @@ public class ApiRestResponse<T> {
         return of(ApiCode.SC_INTERNAL_SERVER_ERROR, data);
     }
     
+    public static <T> ApiRestResponse<T> error(final ApiCode code, final T data) {
+        return of(code, data);
+    }
+    
     public static <T> ApiRestResponse<T> error(final int code, final String message) {
         return of(code, Constants.RT_ERROR, message);
     }
     
+    public static <T> ApiRestResponse<T> error(final ApiCode code, final String message) {
+        return of(code, message, null);
+    }
     // -----------------------------------------------------------------
     
     public static <T> ApiRestResponse<T> of(final ApiCode code) {
