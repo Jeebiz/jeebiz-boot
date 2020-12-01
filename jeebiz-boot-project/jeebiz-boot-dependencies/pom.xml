@@ -464,6 +464,7 @@
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
+		<spring-boot-starter-xxljob.version>1.0.0.RELEASE</spring-boot-starter-xxljob.version>
 		<spring-boot-starter-zxing.version>1.0.1.RELEASE</spring-boot-starter-zxing.version>
 		
 	</properties>
@@ -5390,7 +5391,13 @@
 			    <artifactId>wx-java-mp-spring-boot-starter</artifactId>
 			    <version>${weixin-java.version}</version>
 			</dependency>
-			<!-- https://github.com/hiwepy/spring-boot-starter-zxing -->
+			<!-- https://github.com/hiwepy/xxljob-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>xxljob-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-xxljob.version}</version>
+			</dependency>
+			<!-- https://github.com/hiwepy/zxing-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>zxing-spring-boot-starter</artifactId>
