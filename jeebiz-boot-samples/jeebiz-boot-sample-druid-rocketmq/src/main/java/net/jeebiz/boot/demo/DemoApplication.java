@@ -2,8 +2,10 @@ package net.jeebiz.boot.demo;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -13,6 +15,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import net.jeebiz.boot.api.sequence.Sequence;
+
 
 @EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
@@ -21,11 +26,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
-	// 其中 dataSource 框架会自动为我们注入
-    @Bean
+	@Bean
     public PlatformTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
+    
+    @Bean
+    public MeterRegistryCustomizer<MeterRegistry> configurer(
+            @Value("${spring.application.name}") String applicationName) {
+        return (registry) -> registry.config().commonTags("application", applicationName);
+    }
+	
+    @Bean
+	public Sequence sequence() {
+		return new Sequence(0L);
+	}
     
 	public static void main(String[] args) throws Exception {
 		 SpringApplication.run(DemoApplication.class, args);
