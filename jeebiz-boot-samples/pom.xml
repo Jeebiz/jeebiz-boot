@@ -6,7 +6,7 @@
 		<groupId>net.jeebiz</groupId>
 		<artifactId>jeebiz-boot-parent</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
-		<relativePath>../jeebiz-boot-project/jeebiz-boot-parent</relativePath>
+		<relativePath>../jeebiz-boot-parent</relativePath>
 	</parent>
 
 	<artifactId>jeebiz-boot-samples</artifactId>
