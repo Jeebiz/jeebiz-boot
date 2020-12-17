@@ -2,12 +2,10 @@ package net.jeebiz.boot.demo;
 
 import javax.sql.DataSource;
 
-import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -19,9 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import io.micrometer.core.instrument.MeterRegistry;
 import net.jeebiz.boot.api.sequence.Sequence;
 
-@EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
-@EnableDubbo
 @EnableScheduling
 @EnableTransactionManagement
 @SpringBootApplication

@@ -18,9 +18,9 @@ import io.micrometer.core.instrument.MeterRegistry;
 import net.jeebiz.boot.api.sequence.Sequence;
 
 @EnableCaching(proxyTargetClass = true)
-@SpringBootApplication
 @EnableScheduling
 @EnableTransactionManagement
+@SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
 	@Bean
