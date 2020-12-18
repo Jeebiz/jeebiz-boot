@@ -18,7 +18,8 @@
 		<activation.version>1.1.1</activation.version>
 		<alipay-sdk.version>4.10.124.ALL</alipay-sdk.version>
 		<alipay-easysdk.version>2.0.2</alipay-easysdk.version>
-		<aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
+		<aliyun-sdk-oss.version>3.11.2</aliyun-sdk-oss.version>
+		<aliyun-sdk-mts.version>2.7.6</aliyun-sdk-mts.version>
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
@@ -172,6 +173,7 @@
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.6.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.6.0</kafka-clients.version>
+		<kding-boot.version>1.0.0-SNAPSHOT</kding-boot.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
@@ -374,6 +376,7 @@
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 		<spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
+		<spring-boot-starter-aliyun-schedulerx2.version>1.2.3</spring-boot-starter-aliyun-schedulerx2.version>
 		<spring-boot-starter-aliyun-ons.version>1.0.4.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-arcface.version>1.0.1.RELEASE</spring-boot-starter-arcface.version>
@@ -457,7 +460,7 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.1.RELEASE</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.2-SNAPSHOT</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
@@ -499,7 +502,13 @@
 				<artifactId>aliyun-sdk-oss</artifactId>
 				<version>${aliyun-sdk-oss.version}</version>
 			</dependency>
-						
+			<!-- https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-mts -->
+			<dependency>
+			    <groupId>com.aliyun</groupId>
+			    <artifactId>aliyun-java-sdk-mts</artifactId>
+			    <version>${aliyun-sdk-mts.version}</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->
 			<dependency>
 				<groupId>cn.wensiqun</groupId>
@@ -4600,6 +4609,12 @@
 			    <version>${spring-boot-aliyun.version}</version>
 			    <type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.aliyun.schedulerx/schedulerx2-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.aliyun.schedulerx</groupId>
+			    <artifactId>schedulerx2-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-aliyun-schedulerx2.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/aliyun-ons-spring-boot-starter -->			
 			<dependency>
