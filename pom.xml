@@ -40,7 +40,9 @@
 	</properties>
 	
 	<modules>
-		<module>jeebiz-boot-project</module>
+		<module>jeebiz-boot-dependencies</module>
+		<module>jeebiz-boot-modules</module>
+		<module>jeebiz-boot-parent</module>
 		<!-- <module>jeebiz-boot-samples</module> -->
 	</modules>
 

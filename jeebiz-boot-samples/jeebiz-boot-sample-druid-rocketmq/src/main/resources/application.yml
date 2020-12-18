@@ -1,13 +1,57 @@
 ################################################################################################################  
-###内置应用容器（Tomcat）配置：  
+###Spring Boot 监控（安全、开放信息等）配置：  
+################################################################################################################
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+################################################################################################################  
+###内置应用容器（Tomcat、Jetty、Undertow）配置：  
 ################################################################################################################
 server:
-  port: 8083
+  compression:
+    enabled: true
+  port: 8090
+  # 设置webflux netty的请求头大小为100kb
+  max-http-header-size: 102400
   servlet:
-    context-path: /
+    #context-path: /authz
     session:
-      timeout: 1800
-
+      timeout: 60m
+  undertow:
+    # 访问日志配置
+    accesslog:
+      enabled: true
+    # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理
+    # 每块buffer的空间大小,越小的空间被利用越充分，不要设置太大，以免影响其他应用，合适即可
+    buffer-size: 2048
+    # 是否分配的直接内存(NIO直接分配的堆外内存)
+    direct-buffers: true
+    # 线程优化：
+    # 《Java Concurrency in Practice》一书中，给出了估算线程池大小的公式：
+    # Nthreads = Ncpu x Ucpu x (1 + W/C)
+    # 《Programming Concurrency on the JVM Mastering》一书中，给出了估算线程池大小的公式：
+    # Nthreads = Ncpu / (1 - 阻塞系数)
+    # 概念：    
+    # Ncpu = CPU核心数
+    # Ucpu = CPU使用率，0~1
+    # W/C = 等待时间与计算时间的比率
+    # 实际： 
+    # IO密集型 = 2Ncpu（可以测试后自己控制大小，2Ncpu一般没问题）（常出现于线程中：数据库数据交互、文件上传下载、网络数据传输等等）
+    # 计算密集型 = Ncpu（常出现于线程中：复杂算法）
+    #threads:
+      # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
+      # 不要设置过大，如果过大，启动项目会报错：打开文件数过多
+      #io: 16
+      # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程
+      # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
+      #worker: 256
+     
 ################################################################################################################  
 ###接口文档（Swagger UI）配置：  
 ################################################################################################################
@@ -19,65 +63,29 @@ swagger:
   license: Apache License, Version 2.0
   license-url: https://www.apache.org/licenses/LICENSE-2.0.html
   contact:
-    name: 极蚁网络工作室
-    email: jeebiz_net@163.com
-    url: https://www.jeebiz.net
+    name: 杭州极蚁网络科技有限公司
+    email: hiwepy@163.com
+    url: http://www.hiwepy.com/
   base-package: net.jeebiz
-  base-path:
-  - /**
-  exclude-path:
-  - /error
-  - /ops/**
+  base-path-pattern: /**
+  apply-default-response-messages: true
 
 ################################################################################################################  
 ###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：  
 ################################################################################################################
 spring: 
-  messages:
-    #指定message的basename，多个以逗号分隔，如果不加包名的话，默认从classpath路径开始，默认: messages
-    basename: i18n/messages
-    #设定加载的资源文件缓存失效时间，-1的话为永不过期，默认为-1
-    #cache-seconds: 6000
-    #设定Message bundles的编码，默认: UTF-8
-    encoding: UTF-8
-    
-  profiles:
-    active: dev
-  
-  #MVC
-  mvc:
-    static-path-pattern: /**
-    view:
-      prefix: classpath:/templates/
-  resources:
-    static-locations:
-    - classpath:/templates/
-  #thymelea模板配置：https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
-  thymeleaf:
-    cache: false
-    enabled: true
-    prefix: classpath:/templates/
-    suffix: .html
-    mode: HTML5
-  
-  # 会话配置（交给Shiro管理，此处不再指定）：
-  session: 
-    store-type: none    
-    
+  # 应用信息配置
+  application:
+    name: jeebiz-boot-sample-druid
   # 缓存配置：
   cache: 
     type: ehcache
     ehcache:
       config: classpath:/conf/ehcache/ehcache.xml
-
   # 数据源配置：
   datasource:
     name: jeebiz_demo
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.98.123.43:3306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
-    username: jeebiz_demo
-    password: ntzre47GiAJnL3AS
     # Druid的数据源配置：
     druid: 
       enabled: true
@@ -156,10 +164,32 @@ spring:
             select-union-check: false
             # 是否允许执行锁定表操作
             lock-table-allow: true
-            
+  # 国际化信息配置
+  messages:
+    #指定message的basename，多个以逗号分隔，如果不加包名的话，默认从classpath路径开始，默认: messages
+    basename: i18n/*/messages,i18n/messages
+    #设定Message bundles的编码，默认: UTF-8
+    encoding: UTF-8
+  #出现错误时, 直接抛出异常
+  mvc:
+    throw-exception-if-no-handler-found: true
+    #不要为我们工程中的资源文件建立映射
+  resources:
+    add-mappings: true
+  # 会话配置（交个Shiro管理，此处不再指定）：
+  session:
+    store-type: none 
+  #thymelea模板配置：https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
+  thymeleaf:
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    
 ################################################################################################################  
 ###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
-################################################################################################################  
+################################################################################################################
   flyway: 
     enabled: true
     locations:
@@ -239,25 +269,18 @@ mybatis-plus:
     #log-impl: org.apache.ibatis.logging.log4j2.Log4j2LoggerImpl.class
     
   global-config: 
-    sql-parser-cache: true
     db-config:
       id-type: auto
-      field-strategy: not-empty
       #mp2.3+ 全局表前缀 mp_
       #table-prefix: mp_
       #刷新mapper 调试神器
       #refresh-mapper: true
       #数据库大写下划线转换
       #capital-mode: true
-      # Sequence序列接口实现类配置
-      #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
-      #逻辑删除配置（下面3个配置）
-      logic-delete-value: 1
-      logic-not-delete-value: 0
   
 ################################################################################################################  
 ###logging (log4j2) 基本配置：  
 ###http://www.cnblogs.com/yhtboke/p/Mybatis.html
 ################################################################################################################
 logging: 
-  config: classpath:conf/log4j2.xml  
+  config: classpath:conf/log4j2.xml
