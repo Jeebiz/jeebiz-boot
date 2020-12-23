@@ -327,7 +327,7 @@
 		<xfire.version>1.2.6</xfire.version>
 		<xnio.version>3.8.1.Final</xnio.version>
 		<xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
-		<xstream.version>1.4.14</xstream.version>
+		<xstream.version>1.4.15</xstream.version>
 		<xxl-job.version>2.2.0</xxl-job.version>
 		<zkclient.version>0.11</zkclient.version>
 		<zookeeper.version>3.6.1</zookeeper.version>
@@ -378,6 +378,7 @@
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.3</spring-boot-starter-aliyun-schedulerx2.version>
 		<spring-boot-starter-aliyun-ons.version>1.0.4.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
+		<spring-boot-starter-aliyun-mps.version>1.0.0-SNAPSHOT</spring-boot-starter-aliyun-mps.version>
 		<spring-boot-starter-arcface.version>1.0.1.RELEASE</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.1.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.1.RELEASE</spring-boot-starter-axis2.version>
@@ -4626,6 +4627,12 @@
 			    <groupId>com.github.hiwepy</groupId>
 				<artifactId>aliyun-oss-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-aliyun-oss.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/aliyun-mps-spring-boot-starter -->	
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>aliyun-mps-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-aliyun-mps.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/arcface-spring-boot-starter -->
 			<dependency>
