@@ -25,7 +25,6 @@
 | jeebiz-boot-parent  | pom类型模块，默认配置Maven插件相关参数和打包方式 |
 | jeebiz-boot-samples  |  具体服务示例，该模块下的各服务模块，均要继承 `jeebiz-boot-parent` |
 
-
 **注意事项**：
 
 - 1、新建独立项目需要继承 jeebiz-admin-parent，此处的项目指产品项目
