@@ -235,7 +235,7 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
 		<reactor-bom.version>Dysprosium-SR12</reactor-bom.version>
-		<redisson.version>3.14.0</redisson.version>
+		<redisson.version>3.14.1</redisson.version>
 		<resilience4j.version>1.6.1</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.7.1</rocketmq-client.version>
@@ -3882,12 +3882,6 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-pf4j</artifactId>
 				<version>${shiro-pf4j.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.iherus.shiro/shiro-redis -->
-			<dependency>
-			    <groupId>org.iherus.shiro</groupId>
-			    <artifactId>shiro-redis</artifactId>
-			    <version>${shiro-redis.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.streamone/shiro-redisson -->
 			<dependency>
