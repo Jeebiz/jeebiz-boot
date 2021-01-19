@@ -172,7 +172,6 @@
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.6.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.6.0</kafka-clients.version>
-		<kding-boot.version>1.0.0-SNAPSHOT</kding-boot.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
@@ -378,7 +377,7 @@
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.3</spring-boot-starter-aliyun-schedulerx2.version>
 		<spring-boot-starter-aliyun-ons.version>1.0.4.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
-		<spring-boot-starter-aliyun-mps.version>1.0.0-SNAPSHOT</spring-boot-starter-aliyun-mps.version>
+		<spring-boot-starter-aliyun-mps.version>1.0.0.RELEASE</spring-boot-starter-aliyun-mps.version>
 		<spring-boot-starter-arcface.version>1.0.1.RELEASE</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.1.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.1.RELEASE</spring-boot-starter-axis2.version>
@@ -392,7 +391,7 @@
 		<spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
-		<spring-boot-starter-dingtalk.version>1.0.4.RELEASE</spring-boot-starter-dingtalk.version>
+		<spring-boot-starter-dingtalk.version>1.0.5-SNAPSHOT</spring-boot-starter-dingtalk.version>
 		<spring-boot-starter-dingtalk-robot.version>1.0.3.RELEASE</spring-boot-starter-dingtalk-robot.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
@@ -411,7 +410,7 @@
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
 		<spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
 		<spring-boot-starter-jcaptcha.version>1.0.2.RELEASE</spring-boot-starter-jcaptcha.version>
-		<spring-boot-starter-jpush.version>1.0.0.RELEASE</spring-boot-starter-jpush.version>
+		<spring-boot-starter-jpush.version>1.0.1.RELEASE</spring-boot-starter-jpush.version>
 		<spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
 		<spring-boot-starter-maven-client.version>1.0.1.RELEASE</spring-boot-starter-maven-client.version>
@@ -423,7 +422,7 @@
 		<spring-boot-starter-minio.version>1.0.1.RELEASE</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
-		<spring-boot-starter-ishumei.version>1.0.1.RELEASE</spring-boot-starter-ishumei.version>
+		<spring-boot-starter-ishumei.version>1.0.3-SNAPSHOT</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.0.RELEASE</spring-boot-starter-pac4j.version>
@@ -437,8 +436,8 @@
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.6.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
-		<spring-boot-starter-security-biz.version>1.0.4.RELEASE</spring-boot-starter-security-biz.version>
-		<spring-boot-starter-security-cas.version>1.0.1.RELEASE</spring-boot-starter-security-cas.version>
+		<spring-boot-starter-security-biz.version>1.0.5-SNAPSHOT</spring-boot-starter-security-biz.version>
+		<spring-boot-starter-security-cas.version>1.0.5-SNAPSHOT</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.0.RELEASE</spring-boot-starter-security-dingtalk.version>
 		<spring-boot-starter-security-jwt.version>1.0.4.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-pac4j.version>1.0.0.RELEASE</spring-boot-starter-security-pac4j.version>
@@ -460,7 +459,7 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.2-SNAPSHOT</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.2.RELEASE</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
