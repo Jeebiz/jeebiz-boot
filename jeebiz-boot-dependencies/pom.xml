@@ -29,17 +29,17 @@
 		<axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
 		<axis2.version>1.7.9</axis2.version>
 		<axis2-api.version>1.4.1</axis2-api.version>
-		<beetl.version>3.1.8.RELEASE</beetl.version>
-		<batik.version>1.12</batik.version>
+		<beetl.version>3.3.2.RELEASE</beetl.version>
+		<batik.version>1.13</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
 		<buji-pac4j.version>5.0.1</buji-pac4j.version>
-		<bcprov.version>1.66</bcprov.version>
+		<bcprov.version>1.68</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
-		<cas-client.version>3.6.1</cas-client.version>
-		<camel.version>3.4.2</camel.version>
+		<cas-client.version>3.6.2</cas-client.version>
+		<camel.version>3.7.0</camel.version>
 		<cglib.version>3.3.0</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
@@ -47,18 +47,18 @@
 		<commons-attributes-plugin.version>2.2</commons-attributes-plugin.version>
 		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<commons-chain.version>1.2</commons-chain.version>
-		<commons-codec.version>1.13</commons-codec.version>
+		<commons-codec.version>1.15</commons-codec.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<commons-collections4.version>4.4</commons-collections4.version>
 		<commons-compiler.version>3.1.2</commons-compiler.version>
 		<commons-compress.version>1.20</commons-compress.version>
 		<commons-configuration.version>1.10</commons-configuration.version>
 		<commons-configuration2.version>2.7</commons-configuration2.version>
-		<commons-crypto.version>1.0.0</commons-crypto.version>
+		<commons-crypto.version>1.1.0</commons-crypto.version>
 		<commons-csv.version>1.8</commons-csv.version>
-		<commons-daemon.version>1.2.2</commons-daemon.version>
+		<commons-daemon.version>1.2.3</commons-daemon.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
-		<commons-dbcp2.version>2.7.0</commons-dbcp2.version>
+		<commons-dbcp2.version>2.8.0</commons-dbcp2.version>
 		<commons-dbutils.version>1.7</commons-dbutils.version>
 		<commons-digester.version>2.1</commons-digester.version>
 		<commons-digester3.version>3.2</commons-digester3.version>
@@ -67,7 +67,7 @@
 		<commons-exec.version>1.3</commons-exec.version>
 		<commons-fileupload.version>1.4</commons-fileupload.version>
 		<commons-httpclient.version>3.1</commons-httpclient.version>
-		<commons-imaging.version>1.0-alpha1</commons-imaging.version>
+		<commons-imaging.version>1.0-alpha2</commons-imaging.version>
 		<commons-io.version>2.8.0</commons-io.version>
 		<commons-jci.version>1.1</commons-jci.version>
 		<commons-jexl.version>2.1.1</commons-jexl.version>
@@ -78,21 +78,21 @@
 		<commons-logging.version>1.2</commons-logging.version>
 		<commons-math.version>2.2</commons-math.version>
 		<commons-math3.version>3.6.1</commons-math3.version>
-		<commons-net.version>3.6</commons-net.version>
+		<commons-net.version>3.7.2</commons-net.version>
 		<commons-pool.version>1.6</commons-pool.version>
-		<commons-pool2.version>2.8.0</commons-pool2.version>
+		<commons-pool2.version>2.9.0</commons-pool2.version>
 		<commons-proxy.version>1.0</commons-proxy.version>
 		<commons-rdf.version>0.5.0</commons-rdf.version>
 		<commons-ssl.version>0.3.9</commons-ssl.version>
-		<commons-text.version>1.8</commons-text.version>
+		<commons-text.version>1.9</commons-text.version>
 		<commons-validator.version>1.6</commons-validator.version>
 		<commons-vfs.version>2.0-21092010</commons-vfs.version>
-		<commons-vfs2.version>2.4.1</commons-vfs2.version>
+		<commons-vfs2.version>2.7.0</commons-vfs2.version>
 		<contiperf.version>2.3.4</contiperf.version>
 		<curator.version>5.1.0</curator.version>
 		<cronet.version>76.3809.111</cronet.version>
-		<cssparser.version>0.9.27</cssparser.version>
-		<cxf.version>3.3.7</cxf.version>
+		<cssparser.version>0.9.29</cssparser.version>
+		<cxf.version>3.4.2</cxf.version>
 		<cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.2.0</derby.version>
@@ -106,26 +106,26 @@
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
 		<dozer-extra-converters.version>1.0.0.RELEASE</dozer-extra-converters.version>
-		<druid.version>1.1.23</druid.version>
+		<druid.version>1.2.4</druid.version>
 		<dropwizard-metrics-influxdb.version>1.3.2</dropwizard-metrics-influxdb.version>
 		<disruptor.version>3.4.2</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
-		<dubbo.version>2.7.7</dubbo.version>
+		<dubbo.version>2.7.8</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
-		<fastjson.version>1.2.73</fastjson.version>
+		<fastjson.version>1.2.75</fastjson.version>
 		<feign.version>11.0</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
-		<flowable.version>6.5.0</flowable.version>
+		<flowable.version>6.6.0</flowable.version>
 		<formio.version>1.6.4</formio.version>
 		<geodesy.version>1.1.3</geodesy.version>
-		<goeasy.version>0.3.15</goeasy.version>
-		<google-http-client.version>1.34.0</google-http-client.version>
-		<guava.version>30.0-jre</guava.version>
+		<goeasy.version>0.3.16</goeasy.version>
+		<google-http-client.version>1.38.1</google-http-client.version>
+		<guava.version>30.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
-		<grpc.version>1.29.0</grpc.version>
+		<grpc.version>1.35.0</grpc.version>
 		<hadoop.version>3.2.1</hadoop.version>
 		<hbase.version>2.2.4</hbase.version>
 		<h2.version>1.4.199</h2.version>
@@ -137,10 +137,10 @@
 		<hive.version>3.1.2</hive.version>
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
-		<icu4j.version>65.1</icu4j.version>
-		<imageio.version>3.6</imageio.version>
-		<influxdb-java.version>2.20</influxdb-java.version>
-		<istio-client.version>1.5.5</istio-client.version>
+		<icu4j.version>68.2</icu4j.version>
+		<imageio.version>3.6.1</imageio.version>
+		<influxdb-java.version>2.21</influxdb-java.version>
+		<istio-client.version>1.6.14</istio-client.version>
 		<j2cache-core.version>2.8.2-release</j2cache-core.version>
 		<j2cache-hibernate3.version>2.8.0-release</j2cache-hibernate3.version>
 		<j2cache-hibernate4.version>2.8.0-release</j2cache-hibernate4.version>
@@ -151,7 +151,7 @@
 		<jackson-annotations.version>2.10.1</jackson-annotations.version>
 		<javassist.version>3.27.0-GA</javassist.version>
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
-		<java-uuid-generator.version>3.2.0</java-uuid-generator.version>
+		<java-uuid-generator.version>4.0.1</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
 		<javamelody.version>1.86.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
@@ -166,7 +166,7 @@
 		<jpush-client.version>3.4.7</jpush-client.version>
 		<jruby.version>9.2.13.0</jruby.version>
 		<jsch.version>0.1.55</jsch.version>
-		<jsqlparser.version>3.2</jsqlparser.version>
+		<jsqlparser.version>4.0</jsqlparser.version>
 		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
@@ -237,10 +237,10 @@
 		<redisson.version>3.14.1</redisson.version>
 		<resilience4j.version>1.6.1</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
-		<rocketmq-client.version>4.7.1</rocketmq-client.version>
+		<rocketmq-client.version>4.8.0</rocketmq-client.version>
 		<roses.version>2.0.0</roses.version>
 		<slf4j.version>1.7.30</slf4j.version>
-		<schemacrawler.version>16.11.1</schemacrawler.version>
+		<schemacrawler.version>16.11.7</schemacrawler.version>
 		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-distrib.version>${schemacrawler.version}</schemacrawler-distrib.version>
@@ -258,14 +258,14 @@
 		<schemacrawler-timesten.version>${schemacrawler.version}</schemacrawler-timesten.version>
 		<scribe.version>1.3.7</scribe.version>
 		<scribe-up.version>1.3.1</scribe-up.version>
-		<scribejava.version>6.9.0</scribejava.version>
+		<scribejava.version>8.1.0</scribejava.version>
 		<scribejava-apis-ext.version>1.0.0.RELEASE</scribejava-apis-ext.version>
 		<sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
 		<sharding-jdbc.version>4.1.1</sharding-jdbc.version>
 		<sharding-proxy.version>4.1.0</sharding-proxy.version>
 		<shedlock.version>4.9.3</shedlock.version>
-		<shiro.version>1.6.0</shiro.version>
+		<shiro.version>1.7.0</shiro.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
@@ -280,17 +280,17 @@
 		<sitemesh3.version>3.0.1</sitemesh3.version>
 		<smallsql.version>0.21</smallsql.version>
 		<smslib.version>3.5.4</smslib.version>
-		<snmp4j.version>3.4.3</snmp4j.version>
-		<snmp4j-agent.version>3.3.5</snmp4j-agent.version>
+		<snmp4j.version>3.4.4</snmp4j.version>
+		<snmp4j-agent.version>3.3.6</snmp4j-agent.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<springfox.version>2.10.5</springfox.version>
 		<spring-biz.version>1.1.1.RELEASE</spring-biz.version>
 		<spring-bytebuddy.version>1.0.0.RELEASE</spring-bytebuddy.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.8.0.RELEASE</spring-initializr.version>
-		<sqlite-jdbc.version>3.32.3.2</sqlite-jdbc.version>
+		<sqlite-jdbc.version>3.34.0</sqlite-jdbc.version>
 		<st4.version>4.0.8</st4.version>
-		<sshd.version>2.5.1</sshd.version>
+		<sshd.version>2.6.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.10.1</svnkit.version>
@@ -317,14 +317,14 @@
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-		<weixin-java.version>4.0.0</weixin-java.version>
+		<weixin-java.version>4.0.3.B</weixin-java.version>
 		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
-		<xmemcached.version>2.4.6</xmemcached.version>
+		<xmemcached.version>2.4.7</xmemcached.version>
 		<xmlschema-core.version>2.0.2</xmlschema-core.version>
 		<xfire.version>1.2.6</xfire.version>
-		<xnio.version>3.8.1.Final</xnio.version>
+		<xnio.version>3.8.4.Final</xnio.version>
 		<xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
 		<xstream.version>1.4.15</xstream.version>
 		<xxl-job.version>2.2.0</xxl-job.version>
@@ -377,7 +377,7 @@
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.3</spring-boot-starter-aliyun-schedulerx2.version>
 		<spring-boot-starter-aliyun-ons.version>1.0.4.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
-		<spring-boot-starter-aliyun-mps.version>1.0.0-SNAPSHOT</spring-boot-starter-aliyun-mps.version>
+		<spring-boot-starter-aliyun-mps.version>1.0.0.RELEASE</spring-boot-starter-aliyun-mps.version>
 		<spring-boot-starter-arcface.version>1.0.1.RELEASE</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.1.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.1.RELEASE</spring-boot-starter-axis2.version>
@@ -459,7 +459,7 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.2-SNAPSHOT</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.2.RELEASE</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
