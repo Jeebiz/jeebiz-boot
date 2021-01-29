@@ -163,7 +163,7 @@
 		<jgoodies.version>2.7.0</jgoodies.version>
 		<jgroups.version>5.0.4.Final</jgroups.version>
 		<jgit.version>5.9.0.202009080501-r</jgit.version>
-		<jpush-client.version>3.4.7</jpush-client.version>
+		<jpush-client.version>3.4.8</jpush-client.version>
 		<jruby.version>9.2.13.0</jruby.version>
 		<jsch.version>0.1.55</jsch.version>
 		<jsqlparser.version>4.0</jsqlparser.version>
