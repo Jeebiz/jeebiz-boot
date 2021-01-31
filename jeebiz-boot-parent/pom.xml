@@ -5,6 +5,7 @@
 		<groupId>net.jeebiz</groupId>
 		<artifactId>jeebiz-boot-dependencies</artifactId>
 		<version>1.0.3-SNAPSHOT</version>
+		<relativePath/>
 	</parent>
 	
 	<artifactId>jeebiz-boot-parent</artifactId>
