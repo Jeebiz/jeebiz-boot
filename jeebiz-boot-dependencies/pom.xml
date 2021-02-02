@@ -235,7 +235,7 @@
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
 		<reactor-bom.version>Dysprosium-SR16</reactor-bom.version>
 		<redisson.version>3.14.1</redisson.version>
-		<resilience4j.version>1.6.1</resilience4j.version>
+		<resilience4j.version>1.7.0</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.8.0</rocketmq-client.version>
 		<roses.version>2.0.0</roses.version>
