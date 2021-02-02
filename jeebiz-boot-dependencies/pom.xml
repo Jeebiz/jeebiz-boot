@@ -404,7 +404,7 @@
 		<spring-boot-starter-hikaricp-plus.version>1.0.7.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
-		<spring-boot-starter-ip2region.version>1.0.4-SNAPSHOT</spring-boot-starter-ip2region.version>
+		<spring-boot-starter-ip2region.version>1.0.4.RELEASE</spring-boot-starter-ip2region.version>
 		<spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
 		<spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
@@ -430,7 +430,7 @@
 		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>1.0.1.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
-		<spring-boot-starter-qqwry.version>1.0.3-SNAPSHOT</spring-boot-starter-qqwry.version>
+		<spring-boot-starter-qqwry.version>1.0.3.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.1.1</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
@@ -439,7 +439,7 @@
 		<spring-boot-starter-security-biz.version>1.0.5.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>1.0.2.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.1.RELEASE</spring-boot-starter-security-dingtalk.version>
-		<spring-boot-starter-security-jwt.version>1.0.5-SNAPSHOT</spring-boot-starter-security-jwt.version>
+		<spring-boot-starter-security-jwt.version>1.0.5.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-pac4j.version>1.0.0.RELEASE</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0.RELEASE</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
@@ -459,7 +459,7 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.3-SNAPSHOT</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.3.RELEASE</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
