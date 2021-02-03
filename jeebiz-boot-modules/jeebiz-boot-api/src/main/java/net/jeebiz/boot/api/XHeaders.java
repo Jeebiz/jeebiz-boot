@@ -59,6 +59,26 @@ public class XHeaders {
 	 */
 	public static final String X_DEVICE_IMEI = "X-Device-IMEI";
 	/**
+	 * IOS 6+的设备唯一标识
+	 */
+	public static final String X_DEVICE_IDFA = "X-Device-IDFA";
+	/**
+	 * IOS 设备识别码
+	 */
+	public static final String X_DEVICE_OPENUDID = "X-Device-OPENUDID";
+	/**
+	 * Android id原值
+	 */
+	public static final String X_DEVICE_ANDROIDID = "X-Device-ANDROIDID";
+	/**
+	 * Android Q及更高版本的设备号
+	 */
+	public static final String X_DEVICE_OAID = "X-Device-OAID";
+	/**
+	 * 客户端设备Mac地址
+	 */
+	public static final String X_DEVICE_MAC = "X-Device-MAC";
+	/**
 	 * 客户端设备型号
 	 */
 	public static final String X_DEVICE_MODEL = "X-Device-Model";
