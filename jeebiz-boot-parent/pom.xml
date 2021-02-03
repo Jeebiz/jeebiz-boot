@@ -855,10 +855,15 @@
 									<!-- 步骤1、拷贝应用程序Jar文件 -->
 									<copy file="${project.build.directory}/${project.build.finalName}.jar"
 										todir="${appassembler-dir}/${project.artifactId}/lib" />
+										
 									<!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
 									<mkdir dir="${appassembler-dir}/${project.artifactId}/conf" />
+									
 									<copy file="${project.build.directory}/classes/application.properties"
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
+										
+									<copy file="${project.build.directory}/classes/application.yml" 
+										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${project.build.directory}/classes/application-dev.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
 									<copy file="${project.build.directory}/classes/application-local.yml" 
@@ -933,6 +938,8 @@
 									<copy file="${project.build.directory}/classes/application.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
 									
+									<copy file="${project.build.directory}/classes/application.yml" 
+										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									<copy file="${project.build.directory}/classes/application-dev.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 									<copy file="${project.build.directory}/classes/application-local.yml" 
