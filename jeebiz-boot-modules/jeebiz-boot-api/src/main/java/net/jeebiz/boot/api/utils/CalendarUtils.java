@@ -2,6 +2,7 @@ package net.jeebiz.boot.api.utils;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -67,6 +68,16 @@ public class CalendarUtils {
 		}
 		return age;
 	}
+	
+	public static long getUnixTimeFromDate(Date date) {
+		return getUnixTimeFromDate(TimeZone.getDefault(), date);
+	}
+	
+	public static long getUnixTimeFromDate(TimeZone zone, Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeZone(zone);
+		return calendar.getTimeInMillis();
+	}
 
 	public static void main(String[] args) {
 
@@ -75,6 +86,8 @@ public class CalendarUtils {
 		
 		System.out.println(CalendarUtils.getAgeFromUnixTime(400326583)); // 2002-09-07 00:00:00.000000
 		System.out.println(CalendarUtils.getAgeFromUnixTime(-28800));
+		
+		System.out.println(CalendarUtils.getUnixTimeFromDate(new Date()));
 		
 	}
 	
