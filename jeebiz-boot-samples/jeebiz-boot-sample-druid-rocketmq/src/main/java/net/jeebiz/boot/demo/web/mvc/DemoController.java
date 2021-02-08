@@ -3,12 +3,13 @@
 package net.jeebiz.boot.demo.web.mvc;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,6 @@ import net.jeebiz.boot.demo.web.dto.DemoNewDTO;
 
 @RestController
 @RequestMapping("demo")
-@SuppressWarnings("unchecked")
 public class DemoController extends BaseMapperController{
 	
 	@Autowired
@@ -100,7 +100,7 @@ public class DemoController extends BaseMapperController{
 			if (StringUtils.isEmpty(ids)) {
 				return fail("demo.delete.fail");
 			}
-			List<String> list = CollectionUtils.arrayToList(StringUtils.tokenizeToStringArray(ids));
+			List<String> list = Stream.of(StringUtils.tokenizeToStringArray(ids)).collect(Collectors.toList());
 			// 批量删除数据库配置记录
 			getDemoService().batchDelete(list);
 			return success("demo.delete.success");
