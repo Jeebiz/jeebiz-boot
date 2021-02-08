@@ -241,15 +241,10 @@
 		<roses.version>2.0.0</roses.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<schemacrawler.version>16.11.7</schemacrawler.version>
-		<schemacrawler-commandline.version>${schemacrawler.version}</schemacrawler-commandline.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
-		<schemacrawler-distrib.version>${schemacrawler.version}</schemacrawler-distrib.version>
-		<schemacrawler-diff.version>${schemacrawler.version}</schemacrawler-diff.version>
-		<schemacrawler-lint.version>${schemacrawler.version}</schemacrawler-lint.version>
-		<schemacrawler-hsqldb.version>${schemacrawler.version}</schemacrawler-hsqldb.version>
-		<schemacrawler-integrations.version>${schemacrawler.version}</schemacrawler-integrations.version> 
 		<schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
-		<schemacrawler-offline.version>${schemacrawler.version}</schemacrawler-offline.version>
+		<schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
+		<schemacrawler-hsqldb.version>${schemacrawler.version}</schemacrawler-hsqldb.version>
 		<schemacrawler-oracle.version>${schemacrawler.version}</schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
 		<schemacrawler-postgresql.version>${schemacrawler.version}</schemacrawler-postgresql.version>
 		<schemacrawler-sqlserver.version>${schemacrawler.version}</schemacrawler-sqlserver.version>
@@ -3484,41 +3479,57 @@
 			    <artifactId>schemacrawler</artifactId>
 			    <version>${schemacrawler.version}</version>
 			</dependency>
-			<!-- SchemaCrawler Commandline ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-commandline -->
+			<dependency>
+			    <groupId>us.fatehi</groupId>
+			    <artifactId>schemacrawler-diff</artifactId>
+			    <version>${schemacrawler.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>us.fatehi</groupId>
+				<artifactId>schemacrawler-utility</artifactId>
+				<version>${schemacrawler.version}</version>
+			</dependency>
 			<dependency>
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-commandline</artifactId>
-			    <version>${schemacrawler-commandline.version}</version>
+			    <version>${schemacrawler.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/us.fatehi/schemacrawler-scripting -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-scripting</artifactId>
 			    <version>${schemacrawler.version}</version>
 			</dependency>
-			<!-- SchemaCrawler For IBM DB2 ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-db2 -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-db2</artifactId>
-			    <version>${schemacrawler-db2.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/us.fatehi/schemacrawler-distrib -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-distrib</artifactId>
-			    <version>${schemacrawler-distrib.version}</version>
+			    <version>${schemacrawler.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/us.fatehi/schemacrawler-diff -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-diff</artifactId>
-			    <version>${schemacrawler-diff.version}</version>
-			</dependency>
-			<!-- SchemaCrawler Lint: https://mvnrepository.com/artifact/us.fatehi/schemacrawler-lint -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-lint</artifactId>
-			    <version>${schemacrawler-lint.version}</version>
+			    <version>${schemacrawler.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>us.fatehi</groupId>
+			    <artifactId>schemacrawler-integrations</artifactId>
+			    <version>${schemacrawler.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>us.fatehi</groupId>
+			    <artifactId>schemacrawler-offline</artifactId>
+			    <version>${schemacrawler.version}</version>
+			</dependency>
+			<!-- SchemaCrawler For IBM DB2 : https://mvnrepository.com/artifact/us.fatehi/schemacrawler-db2 -->
+			<dependency>
+				<groupId>us.fatehi</groupId>
+				<artifactId>schemacrawler-db2</artifactId>
+				<version>${schemacrawler-db2.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-jdk14</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<!-- SchemaCrawler For MySQL : https://mvnrepository.com/artifact/us.fatehi/schemacrawler-mysql -->
 			<dependency>
@@ -3526,23 +3537,17 @@
 			    <artifactId>schemacrawler-mysql</artifactId>
 			    <version>${schemacrawler-mysql.version}</version>
 			</dependency>
+			<!-- SchemaCrawler For SAP HANA : https://mvnrepository.com/artifact/us.fatehi/schemacrawler-hana -->
+			<dependency>
+				<groupId>us.fatehi</groupId>
+				<artifactId>schemacrawler-hana</artifactId>
+				<version>${schemacrawler-hana.version}</version>
+			</dependency>
 			<!-- SchemaCrawler For HyperSQL ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-hsqldb -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-hsqldb</artifactId>
 			    <version>${schemacrawler-hsqldb.version}</version>
-			</dependency>
-			<!-- SchemaCrawler Integrations ： https://mvnrepository.com/artifact/us.fatehi/schemacrawler-integrations -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-integrations</artifactId>
-			    <version>${schemacrawler-integrations.version}</version>
-			</dependency>
-			<!-- SchemaCrawler For Offline Snapshots ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-offline -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-offline</artifactId>
-			    <version>${schemacrawler-offline.version}</version>
 			</dependency>
 			<!-- SchemaCrawler For Oracle ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-oracle -->
 			<dependency>
@@ -3556,17 +3561,17 @@
 			    <artifactId>schemacrawler-postgresql</artifactId>
 			    <version>${schemacrawler-postgresql.version}</version>
 			</dependency>
+			<!-- SchemaCrawler For SQLite : https://mvnrepository.com/artifact/us.fatehi/schemacrawler-sqlite -->
+			<dependency>
+				<groupId>us.fatehi</groupId>
+				<artifactId>schemacrawler-sqlite</artifactId>
+				<version>${schemacrawler-sqlite.version}</version>
+			</dependency>
 			<!-- SchemaCrawler For Microsoft SQL Server ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-sqlserver -->
 			<dependency>
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>schemacrawler-sqlserver</artifactId>
 			    <version>${schemacrawler-sqlserver.version}</version>
-			</dependency>
-			<!-- SchemaCrawler For SQLite ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-sqlite -->
-			<dependency>
-			    <groupId>us.fatehi</groupId>
-			    <artifactId>schemacrawler-sqlite</artifactId>
-			    <version>${schemacrawler-sqlite.version}</version>
 			</dependency>
 			<!-- SchemaCrawler For Sapiq ：https://mvnrepository.com/artifact/us.fatehi/schemacrawler-sapiq -->
 			<dependency>
