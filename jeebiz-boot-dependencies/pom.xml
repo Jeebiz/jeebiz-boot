@@ -439,15 +439,15 @@
 		<spring-boot-starter-security-qrcode.version>1.0.0.RELEASE</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0.RELEASE</spring-boot-starter-security-weixin.version>
-		<spring-boot-starter-shiro-biz.version>1.0.9.RELEASE</spring-boot-starter-shiro-biz.version>
-		<spring-boot-starter-shiro-cas.version>1.0.3.RELEASE</spring-boot-starter-shiro-cas.version>
-		<spring-boot-starter-shiro-csrfguard.version>1.0.3.RELEASE</spring-boot-starter-shiro-csrfguard.version>
-		<spring-boot-starter-shiro-dingtalk.version>1.0.1.RELEASE</spring-boot-starter-shiro-dingtalk.version>
-		<spring-boot-starter-shiro-jwt.version>1.1.1.RELEASE</spring-boot-starter-shiro-jwt.version>
-		<spring-boot-starter-shiro-kisso.version>1.0.1.RELEASE</spring-boot-starter-shiro-kisso.version>
-		<spring-boot-starter-shiro-pac4j.version>1.0.1.RELEASE</spring-boot-starter-shiro-pac4j.version>
+		<spring-boot-starter-shiro-biz.version>1.1.0.RELEASE</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-cas.version>1.0.4.RELEASE</spring-boot-starter-shiro-cas.version>
+		<spring-boot-starter-shiro-csrfguard.version>1.0.4.RELEASE</spring-boot-starter-shiro-csrfguard.version>
+		<spring-boot-starter-shiro-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-shiro-dingtalk.version>
+		<spring-boot-starter-shiro-jwt.version>1.1.2.RELEASE</spring-boot-starter-shiro-jwt.version>
+		<spring-boot-starter-shiro-kisso.version>1.0.2.RELEASE</spring-boot-starter-shiro-kisso.version>
+		<spring-boot-starter-shiro-pac4j.version>1.0.2.RELEASE</spring-boot-starter-shiro-pac4j.version>
 		<spring-boot-starter-shiro-redis.version>${shiro-redis.version}</spring-boot-starter-shiro-redis.version>
-		<spring-boot-starter-shiro-weixin.version>1.0.1.RELEASE</spring-boot-starter-shiro-weixin.version>
+		<spring-boot-starter-shiro-weixin.version>1.0.2.RELEASE</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
 		<spring-boot-starter-shanyan.version>1.0.1.RELEASE</spring-boot-starter-shanyan.version>
