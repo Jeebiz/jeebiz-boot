@@ -186,7 +186,7 @@
 		<maven.version>3.6.3</maven.version>
 		<metadata-extractor.version>2.14.0</metadata-extractor.version>
 		<mongo-java-driver.version>3.12.7</mongo-java-driver.version>
-		<mssql-jdbc.version>8.4.1.jre8</mssql-jdbc.version>		
+		<mssql-jdbc.version>9.2.0.jre8</mssql-jdbc.version>		
 		<mybatis.version>3.5.6</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
@@ -2521,6 +2521,12 @@
 			    <groupId>org.influxdb</groupId>
 			    <artifactId>influxdb-java</artifactId>
 			    <version>${influxdb-java.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.influxdb/influxdb-client-java -->
+			<dependency>
+			    <groupId>com.influxdb</groupId>
+			    <artifactId>influxdb-client-java</artifactId>
+			    <version>1.15.0</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/me.snowdrop/istio-client -->
