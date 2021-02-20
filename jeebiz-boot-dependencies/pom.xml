@@ -377,7 +377,7 @@
 		<spring-boot-starter-axis.version>1.0.1.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.1.RELEASE</spring-boot-starter-axis2.version>
 		<spring-boot-starter-axis2-client.version>1.0.1.RELEASE</spring-boot-starter-axis2-client.version>
-		<spring-boot-starter-baiduapi.version>1.0.0.RELEASE</spring-boot-starter-baiduapi.version>
+		<spring-boot-starter-baiduapi.version>1.0.1.RELEASE</spring-boot-starter-baiduapi.version>
 		<spring-boot-starter-beetl.version>1.2.19.RELEASE</spring-boot-starter-beetl.version>
 		<spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
 		<spring-boot-starter-casclient.version>1.0.3.RELEASE</spring-boot-starter-casclient.version>
