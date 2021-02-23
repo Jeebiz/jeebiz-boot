@@ -161,9 +161,9 @@
 		<jep.version>2.4.2</jep.version>
 		<jjwt.version>0.11.2</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
-		<jgroups.version>5.0.4.Final</jgroups.version>
-		<jgit.version>5.9.0.202009080501-r</jgit.version>
-		<jpush-client.version>3.4.8</jpush-client.version>
+		<jgroups.version>5.1.5.Final</jgroups.version>
+		<jgit.version>5.10.0.202012080955-r</jgit.version>
+		<jpush-client.version>3.4.7</jpush-client.version>
 		<jruby.version>9.2.13.0</jruby.version>
 		<jsch.version>0.1.55</jsch.version>
 		<jsqlparser.version>4.0</jsqlparser.version>
@@ -176,7 +176,6 @@
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
 		<kylin-jdbc.version>3.1.1</kylin-jdbc.version>
-		<lettuce.version>5.3.2.RELEASE</lettuce.version>
 		<libphonenumber.version>8.12.11</libphonenumber.version>
 		<libphonenumber-carrier.version>1.137</libphonenumber-carrier.version>
 		<libphonenumber-prefixmapper.version>2.147</libphonenumber-prefixmapper.version>
@@ -186,7 +185,7 @@
 		<maven.version>3.6.3</maven.version>
 		<metadata-extractor.version>2.14.0</metadata-extractor.version>
 		<mongo-java-driver.version>3.12.7</mongo-java-driver.version>
-		<mssql-jdbc.version>8.4.1.jre8</mssql-jdbc.version>		
+		<mssql-jdbc.version>8.4.1.jre8</mssql-jdbc.version>
 		<mybatis.version>3.5.6</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
@@ -210,7 +209,7 @@
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<neethi.version>3.1.1</neethi.version>
 		<netty-socketio.version>1.7.18</netty-socketio.version>
-		<nimbus-jose-jwt.version>8.15</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.9</okhttp.version>
 		<oltu.version>1.0.2</oltu.version>
 		<owasp-antisamy.version>1.5.8</owasp-antisamy.version>
@@ -218,7 +217,7 @@
 		<owasp-esapi.version>2.2.0.0-RC2</owasp-esapi.version>
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
-		<p6spy.version>3.9.0</p6spy.version>
+		<p6spy.version>3.9.1</p6spy.version>
 		<pac4j.version>4.1.0</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
 		<pac4j-webmvc.version>${pac4j.version}</pac4j-webmvc.version>
@@ -228,13 +227,13 @@
 		<prometheus.version>0.9.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>		
-		<pf4j.version>3.4.1</pf4j.version>
+		<pf4j.version>3.6.0</pf4j.version>
 		<pf4j-update.version>2.3.0</pf4j-update.version>
-		<pf4j-spring.version>0.6.0</pf4j-spring.version>		
+		<pf4j-spring.version>0.7.0</pf4j-spring.version>		
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<reactor-bom.version>Dysprosium-SR16</reactor-bom.version>
-		<redisson.version>3.14.1</redisson.version>
+		<reactor-bom.version>Dysprosium-SR17</reactor-bom.version>
+		<redisson.version>3.15.0</redisson.version>
 		<resilience4j.version>1.7.0</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.8.0</rocketmq-client.version>
