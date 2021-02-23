@@ -170,7 +170,7 @@
 		<jsoup.version>1.13.1</jsoup.version>
 		<junrar.version>4.0.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
-		<jwt-issuer.version>1.0.6.RELEASE</jwt-issuer.version>
+		<jwt-issuer.version>1.0.7.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.6.0</kafka-clients.version>
 		<knife4j.version>2.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
