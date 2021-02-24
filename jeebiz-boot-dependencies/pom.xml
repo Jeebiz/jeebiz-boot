@@ -232,7 +232,6 @@
 		<pf4j-spring.version>0.7.0</pf4j-spring.version>		
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<reactor-bom.version>Dysprosium-SR17</reactor-bom.version>
 		<redisson.version>3.15.0</redisson.version>
 		<resilience4j.version>1.7.0</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
@@ -422,7 +421,7 @@
 		<spring-boot-starter-pac4j.version>1.0.0.RELEASE</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
-		<spring-boot-starter-pf4j3.version>1.0.1.RELEASE</spring-boot-starter-pf4j3.version>
+		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.3.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
@@ -3390,15 +3389,6 @@
 				<groupId>com.belerweb</groupId>
 				<artifactId>pinyin4j</artifactId>
 				<version>${pinyin4j.version}</version>
-			</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-bom -->
-			<dependency>
-			    <groupId>io.projectreactor</groupId>
-			    <artifactId>reactor-bom</artifactId>
-			    <version>${reactor-bom.version}</version>
-			    <type>pom</type>
-	            <scope>import</scope>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-bom -->
