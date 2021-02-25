@@ -38,7 +38,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.dozermapper.core.Mapper;
 
 import net.jeebiz.boot.api.dao.BaseMapper;
-import net.jeebiz.boot.api.dao.entities.OrderBy;
 import net.jeebiz.boot.api.dao.entities.PaginationEntity;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
@@ -107,12 +106,8 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 
 		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
 		if(!CollectionUtils.isEmpty(model.getOrders())) {
-			for (OrderBy orderBy : model.getOrders()) {
-				if(orderBy.isAsc()) {
-					page.addOrder(OrderItem.asc(orderBy.getColumn()));
-				} else {
-					page.addOrder(OrderItem.desc(orderBy.getColumn()));
-				}
+			for (OrderItem orderBy : model.getOrders()) {
+				page.addOrder(orderBy);
 			}
 		}
 		List<T> records = getBaseMapper().getPagedList(page, model);

@@ -7,6 +7,7 @@ package net.jeebiz.boot.api.dao.entities;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 @SuppressWarnings("serial")
@@ -44,7 +45,7 @@ public class PaginationEntity<T extends Model<?>> extends BaseEntity<T> {
 	 * 排序信息
 	 */
 	@TableField(exist = false)
-	private List<OrderBy> orders;
+	private List<OrderItem> orders;
 	
 	public int getPageNo() {
 		return pageNo < 0 ? (getOffset() / getLimit() + 1 ) : pageNo;
@@ -97,11 +98,11 @@ public class PaginationEntity<T extends Model<?>> extends BaseEntity<T> {
 		this.totalCount = totalCount;
 	}
 
-	public List<OrderBy> getOrders() {
+	public List<OrderItem> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(List<OrderBy> orders) {
+	public void setOrders(List<OrderItem> orders) {
 		this.orders = orders;
 	}
 	

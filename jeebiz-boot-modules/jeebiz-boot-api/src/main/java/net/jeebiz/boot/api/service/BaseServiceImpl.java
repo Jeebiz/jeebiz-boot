@@ -36,7 +36,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.dozermapper.core.Mapper;
 
 import net.jeebiz.boot.api.dao.BaseDao;
-import net.jeebiz.boot.api.dao.entities.OrderBy;
 import net.jeebiz.boot.api.dao.entities.PaginationModel;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
@@ -210,12 +209,8 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 
 		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
 		if(!CollectionUtils.isEmpty(model.getOrders())) {
-			for (OrderBy orderBy : model.getOrders()) {
-				if(orderBy.isAsc()) {
-					page.addOrder(OrderItem.asc(orderBy.getColumn()));
-				} else {
-					page.addOrder(OrderItem.desc(orderBy.getColumn()));
-				}
+			for (OrderItem orderBy : model.getOrders()) {
+				page.addOrder(orderBy);
 			}
 		}
 		List<T> records = dao.getPagedList(page, model);
