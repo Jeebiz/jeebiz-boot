@@ -6,6 +6,8 @@ package net.jeebiz.boot.api.dao.entities;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+
 @SuppressWarnings("serial")
 public class PaginationModel<T> extends BaseModel<T> {
 
@@ -35,7 +37,7 @@ public class PaginationModel<T> extends BaseModel<T> {
 	/**
 	 * 排序信息
 	 */
-	private List<OrderBy> orders;
+	private List<OrderItem> orders;
 	
 	public int getPageNo() {
 		return pageNo < 0 ? (getOffset() / getLimit() + 1 ) : pageNo;
@@ -88,11 +90,11 @@ public class PaginationModel<T> extends BaseModel<T> {
 		this.totalCount = totalCount;
 	}
 
-	public List<OrderBy> getOrders() {
+	public List<OrderItem> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(List<OrderBy> orders) {
+	public void setOrders(List<OrderItem> orders) {
 		this.orders = orders;
 	}
 	
