@@ -2,6 +2,9 @@ package net.jeebiz.boot.api.utils;
 
 
 import java.util.Random;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A provider of randomized {@link java.lang.String} values.
@@ -119,4 +122,72 @@ public class RandomString {
         }
         return new String(buffer);
     }
+    
+    /**
+	 * 得到八位数随机唯一Id
+	 *
+	 * @return
+	 */
+	public String getRandomNum8() {
+		String all = "00000000";
+		while (true) {
+			String uuid = UUID.randomUUID().toString().replace("-", "");
+			Pattern pattern = Pattern.compile("[^0-9]");
+			Matcher matcher = pattern.matcher(uuid);
+			/*
+			 * Calendar c = Calendar.getInstance(); int seconds = c.get(Calendar.SECOND);
+			 * all = matcher.replaceAll("").substring(0,6)+seconds; Pattern compile =
+			 * Pattern.compile("^(\\d)\\1{7}$"); if(!compile.matcher(all).matches()){ break;
+			 * }
+			 */
+			all = matcher.replaceAll("").substring(0, 8);
+			if (!isMather(all)) {
+				break;
+			}
+		}
+		return all;
+	}
+
+	// 正则过滤
+	private boolean isMather(String oldStr) {
+		String w1 = "^(\\d)\\1{7}$";
+		// 不能以 520结尾
+		String w2 = "^[0-9]*(520)$";
+		// 4-8 位置重复
+		String w3 = "^\\d*(\\d)\\1{2,}\\d*$";
+		// AAABBB
+		String w4 = "^\\d*(\\d)\\1\\1(\\d)\\2\\2\\d*$";
+		// AABB
+		String w5 = "^\\d*(\\d)\\1(\\d)\\2\\d*$";
+		// 匹配4-9位连续的数字
+		String w6 = "(?:(?:0(?=1)|1(?=2)|2(?=3)|3(?=4)|4(?=5)|5(?=6)|6(?=7)|7(?=8)|8(?=9)){3,}|(?:9(?=8)|8(?=7)|7(?=6)|6(?=5)|5(?=4)|4(?=3)|3(?=2)|2(?=1)|1(?=0)){3,})\\d";
+		Pattern compile1 = Pattern.compile(w1);
+		if (compile1.matcher(oldStr).matches()) {
+			return true;
+		}
+		Pattern compile2 = Pattern.compile(w2);
+		if (compile2.matcher(oldStr).matches()) {
+			return true;
+		}
+		Pattern compile3 = Pattern.compile(w3);
+		if (compile3.matcher(oldStr).matches()) {
+			return true;
+		}
+		Pattern compile4 = Pattern.compile(w4);
+		if (compile4.matcher(oldStr).matches()) {
+			return true;
+		}
+		Pattern compile5 = Pattern.compile(w5);
+		if (compile5.matcher(oldStr).matches()) {
+			return true;
+		}
+		Pattern compile6 = Pattern.compile(w6);
+		if (compile6.matcher(oldStr).matches()) {
+			return true;
+		}
+		if (oldStr.startsWith("520")) {
+			return true;
+		}
+		return false;
+	}
 }
