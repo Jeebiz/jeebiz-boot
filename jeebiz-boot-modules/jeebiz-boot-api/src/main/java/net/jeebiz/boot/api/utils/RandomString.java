@@ -128,7 +128,7 @@ public class RandomString {
 	 *
 	 * @return
 	 */
-	public String getRandomNum8() {
+	public String nextNumberString() {
 		String all = "00000000";
 		while (true) {
 			String uuid = UUID.randomUUID().toString().replace("-", "");
