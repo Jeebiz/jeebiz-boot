@@ -371,7 +371,7 @@
 		<spring-boot-starter-aliyun-ons.version>1.0.4.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-mps.version>1.0.0.RELEASE</spring-boot-starter-aliyun-mps.version>
-		<spring-boot-starter-arcface.version>1.0.1.RELEASE</spring-boot-starter-arcface.version>
+		<spring-boot-starter-arcface.version>1.0.2.RELEASE</spring-boot-starter-arcface.version>
 		<spring-boot-starter-axis.version>1.0.1.RELEASE</spring-boot-starter-axis.version>
 		<spring-boot-starter-axis2.version>1.0.1.RELEASE</spring-boot-starter-axis2.version>
 		<spring-boot-starter-axis2-client.version>1.0.1.RELEASE</spring-boot-starter-axis2-client.version>
