@@ -17,7 +17,7 @@ import java.util.Map;
  *
  * @author yuhao.wang3
  */
-public class MdcThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
+public class Slf4jMDCThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 
 	/**
 	 * 所有线程都会委托给这个execute方法，在这个方法中我们把父线程的MDC内容赋值给子线程
