@@ -251,7 +251,7 @@
 		<schemacrawler-timesten.version>${schemacrawler.version}</schemacrawler-timesten.version>
 		<scribe.version>1.3.7</scribe.version>
 		<scribe-up.version>1.3.1</scribe-up.version>
-		<scribejava.version>camel</scribejava.version>
+		<scribejava.version>7.1.1</scribejava.version>
 		<scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
 		<sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
