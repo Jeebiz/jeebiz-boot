@@ -32,7 +32,7 @@
 		<beetl.version>3.3.2.RELEASE</beetl.version>
 		<batik.version>1.13</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
-		<buji-pac4j.version>5.0.1</buji-pac4j.version>
+		<buji-pac4j.version>6.0.0</buji-pac4j.version>
 		<bcprov.version>1.68</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
@@ -218,7 +218,7 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.1</p6spy.version>
-		<pac4j.version>4.1.0</pac4j.version>
+		<pac4j.version>5.0.0</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
 		<pac4j-webmvc.version>${pac4j.version}</pac4j-webmvc.version>
 		<pac4j-spring-security.version>5.0.0</pac4j-spring-security.version>
