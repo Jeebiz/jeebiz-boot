@@ -32,14 +32,14 @@
 		<beetl.version>3.3.2.RELEASE</beetl.version>
 		<batik.version>1.13</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
-		<buji-pac4j.version>6.0.0</buji-pac4j.version>
+		<buji-pac4j.version>5.0.1</buji-pac4j.version>
 		<bcprov.version>1.68</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
 		<cas-client.version>3.6.2</cas-client.version>
-		<camel.version>3.7.0</camel.version>
+		<camel.version>3.9.0</camel.version>
 		<cglib.version>3.3.0</cglib.version>
 		<commons-attributes.version>2.1</commons-attributes.version>
 		<commons-attributes-api.version>2.2</commons-attributes-api.version>
@@ -105,7 +105,7 @@
 		<dozer-core.version>6.5.0</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-		<dozer-extra-converters.version>1.0.0.RELEASE</dozer-extra-converters.version>
+		<dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
 		<druid.version>1.2.4</druid.version>
 		<dropwizard-metrics-influxdb.version>1.3.2</dropwizard-metrics-influxdb.version>
 		<disruptor.version>3.4.2</disruptor.version>
@@ -218,13 +218,11 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.1</p6spy.version>
-		<pac4j.version>5.0.0</pac4j.version>
+		<pac4j.version>4.4.0</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
-		<pac4j-webmvc.version>${pac4j.version}</pac4j-webmvc.version>
-		<pac4j-spring-security.version>5.0.0</pac4j-spring-security.version>
-		<paho-mqttv3.version>1.2.4</paho-mqttv3.version>
+		<paho-mqttv3.version>1.2.5</paho-mqttv3.version>
 		<perf4j.version>0.9.16</perf4j.version>
-		<prometheus.version>0.9.0</prometheus.version>
+		<prometheus.version>0.10.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>		
 		<pf4j.version>3.6.0</pf4j.version>
@@ -232,7 +230,7 @@
 		<pf4j-spring.version>0.7.0</pf4j-spring.version>		
 		<png-encoder.version>1.5</png-encoder.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<redisson.version>3.15.0</redisson.version>
+		<redisson.version>3.15.3</redisson.version>
 		<resilience4j.version>1.7.0</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.8.0</rocketmq-client.version>
@@ -251,8 +249,8 @@
 		<schemacrawler-timesten.version>${schemacrawler.version}</schemacrawler-timesten.version>
 		<scribe.version>1.3.7</scribe.version>
 		<scribe-up.version>1.3.1</scribe-up.version>
-		<scribejava.version>8.1.0</scribejava.version>
-		<scribejava-apis-ext.version>1.0.0.RELEASE</scribejava-apis-ext.version>
+		<scribejava.version>7.1.1</scribejava.version>
+		<scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
 		<sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
 		<sharding-jdbc.version>4.1.1</sharding-jdbc.version>
@@ -418,7 +416,7 @@
 		<spring-boot-starter-ishumei.version>1.0.3.RELEASE</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-okhttp3.version>1.0.2.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
-		<spring-boot-starter-pac4j.version>1.0.0.RELEASE</spring-boot-starter-pac4j.version>
+		<spring-boot-starter-pac4j.version>1.0.1.RELEASE</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
@@ -433,7 +431,7 @@
 		<spring-boot-starter-security-cas.version>1.0.2.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.1.RELEASE</spring-boot-starter-security-dingtalk.version>
 		<spring-boot-starter-security-jwt.version>1.0.6.RELEASE</spring-boot-starter-security-jwt.version>
-		<spring-boot-starter-security-pac4j.version>1.0.0.RELEASE</spring-boot-starter-security-pac4j.version>
+		<spring-boot-starter-security-pac4j.version>1.0.1.RELEASE</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0.RELEASE</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0.RELEASE</spring-boot-starter-security-weixin.version>
@@ -443,7 +441,7 @@
 		<spring-boot-starter-shiro-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>1.1.3.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.2.RELEASE</spring-boot-starter-shiro-kisso.version>
-		<spring-boot-starter-shiro-pac4j.version>1.0.2.RELEASE</spring-boot-starter-shiro-pac4j.version>
+		<spring-boot-starter-shiro-pac4j.version>1.0.3.RELEASE</spring-boot-starter-shiro-pac4j.version>
 		<spring-boot-starter-shiro-redis.version>${shiro-redis.version}</spring-boot-starter-shiro-redis.version>
 		<spring-boot-starter-shiro-weixin.version>1.0.2.RELEASE</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
