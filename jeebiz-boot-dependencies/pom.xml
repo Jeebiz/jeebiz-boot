@@ -293,8 +293,8 @@
 		<swagger.version>1.6.2</swagger.version>
 		<swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
 		<swagger-butler.version>1.2.0</swagger-butler.version> 
-		<swagger-codegen.version>2.4.14</swagger-codegen.version>
-		<swagger-generator.version>2.4.14</swagger-generator.version>
+		<swagger-codegen.version>2.4.19</swagger-codegen.version>
+		<swagger-generator.version>${swagger-codegen.version}</swagger-generator.version>
 		<swagger-parser.version>1.0.51</swagger-parser.version>
 		<swagger-inflector.version>2.0.5</swagger-inflector.version>
 		<swagger-validator.version>1.0.7</swagger-validator.version>
@@ -322,7 +322,7 @@
 		<xfire.version>1.2.6</xfire.version>
 		<xnio.version>3.8.4.Final</xnio.version>
 		<xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
-		<xstream.version>1.4.15</xstream.version>
+		<xstream.version>1.4.16</xstream.version>
 		<xxl-job.version>2.2.0</xxl-job.version>
 		<zkclient.version>0.11</zkclient.version>
 		<zookeeper.version>3.6.1</zookeeper.version>
