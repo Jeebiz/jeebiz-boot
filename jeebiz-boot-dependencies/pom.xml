@@ -231,6 +231,7 @@
 		<pf4j-update.version>2.3.0</pf4j-update.version>
 		<pf4j-spring.version>0.7.0</pf4j-spring.version>		
 		<png-encoder.version>1.5</png-encoder.version>
+		<reactor-bom.version>2020.0.5</reactor-bom.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
 		<redisson.version>3.15.3</redisson.version>
 		<resilience4j.version>1.7.0</resilience4j.version>
@@ -3400,6 +3401,15 @@
 				<groupId>com.belerweb</groupId>
 				<artifactId>pinyin4j</artifactId>
 				<version>${pinyin4j.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-bom -->
+			<dependency>
+			    <groupId>io.projectreactor</groupId>
+			    <artifactId>reactor-bom</artifactId>
+			    <version>${reactor-bom.version}</version>
+			    <type>pom</type>
+	            <scope>import</scope>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-bom -->
