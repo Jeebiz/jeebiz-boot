@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 public @interface ApiIdempotent {
 
 	/**
-	 * 幂等名称：默认为空；
+	 * 幂等Key：默认为空；
 	 * type为Args时自动获取 @RequestMapping、@PostMapping、@GetMapping、@PutMapping、@DeleteMapping、@PatchMapping 的 value 值；
 	 * type为Token时该值用于告诉拦截器取值的参数名
 	 */
