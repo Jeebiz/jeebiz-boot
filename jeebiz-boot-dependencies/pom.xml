@@ -261,7 +261,7 @@
 		<sharding-jdbc.version>4.1.1</sharding-jdbc.version>
 		<sharding-proxy.version>4.1.0</sharding-proxy.version>
 		<shedlock.version>4.9.3</shedlock.version>
-		<shiro.version>1.7.0</shiro.version>
+		<shiro.version>1.7.1</shiro.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
@@ -440,7 +440,7 @@
 		<spring-boot-starter-security-qrcode.version>1.0.0.RELEASE</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0.RELEASE</spring-boot-starter-security-weixin.version>
-		<spring-boot-starter-shiro-biz.version>1.1.2-SNAPSHOT</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.1.2.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.4.RELEASE</spring-boot-starter-shiro-cas.version>
 		<spring-boot-starter-shiro-csrfguard.version>1.0.4.RELEASE</spring-boot-starter-shiro-csrfguard.version>
 		<spring-boot-starter-shiro-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-shiro-dingtalk.version>
