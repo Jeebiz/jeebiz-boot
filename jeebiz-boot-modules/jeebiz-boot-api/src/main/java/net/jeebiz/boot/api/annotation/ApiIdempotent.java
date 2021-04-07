@@ -29,8 +29,18 @@ public @interface ApiIdempotent {
 	boolean spel() default false;
 	
 	/**
-	 * 幂等过期时间，默认 200 毫秒，即：在此时间段内，对API进行幂等处理。
+	 * 幂等过期时间，默认 2000 毫秒，即：在此时间段内，对API进行幂等处理。
 	 */
-	long expireMillis() default 200;
+	long expire() default 2000;
+
+	/**
+	 * 重试次数，默认0
+	 */
+	int retryTimes() default 0;
+
+	/**
+	 * 重试间隔时间，单位：ms，默认100
+	 */
+	long retryInterval() default 100;
 	 
 }
