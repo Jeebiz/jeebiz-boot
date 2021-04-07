@@ -269,7 +269,7 @@
 		<shiro-j2cache.version>1.0.2.RELEASE</shiro-j2cache.version>
 		<shiro-oltu.version>1.0</shiro-oltu.version>
 		<shiro-pf4j.version>1.0.1.RELEASE</shiro-pf4j.version>
-		<shiro-redis.version>2.2.0</shiro-redis.version>
+		<shiro-redis.version>2.5.0</shiro-redis.version>
 		<shiro-redisson.version>1.5.0.RELEASE</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
 		<shiro-uaa.version>1.0.3</shiro-uaa.version>
