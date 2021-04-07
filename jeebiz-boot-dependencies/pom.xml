@@ -281,7 +281,7 @@
 		<spring-biz.version>1.1.1.RELEASE</spring-biz.version>
 		<spring-bytebuddy.version>1.0.0.RELEASE</spring-bytebuddy.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
-		<spring-initializr.version>0.9.2</spring-initializr.version>
+		<spring-initializr.version>0.10.1</spring-initializr.version>
 		<sqlite-jdbc.version>3.34.0</sqlite-jdbc.version>
 		<st4.version>4.0.8</st4.version>
 		<sshd.version>2.6.0</sshd.version>
