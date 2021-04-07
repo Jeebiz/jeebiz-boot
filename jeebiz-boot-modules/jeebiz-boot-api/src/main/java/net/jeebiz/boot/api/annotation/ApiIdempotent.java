@@ -27,6 +27,11 @@ public @interface ApiIdempotent {
 	 * 是否启用 Spring Expression Language(SpEL) 表达式解析value值
 	 */
 	boolean spel() default false;
+
+	/**
+	 * 是否将参数作为幂等key的一部分
+	 */
+	boolean withArgs() default false;
 	
 	/**
 	 * 幂等过期时间，默认 2000 毫秒，即：在此时间段内，对API进行幂等处理。
