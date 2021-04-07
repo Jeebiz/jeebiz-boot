@@ -29,7 +29,7 @@ public abstract class ExceptinHandler {
     }
 	
 	protected void logException(Exception ex) {
-		LOG.error(bizExcpMarker, ex.getMessage(), ex);
+		LOG.error(bizExcpMarker, ex.getMessage());
 	}
 
 	protected void logException(Exception ex, Map<String, Object> detailMap) {
