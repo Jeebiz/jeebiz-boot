@@ -259,15 +259,15 @@
 		<sharding-jdbc.version>4.1.1</sharding-jdbc.version>
 		<sharding-proxy.version>4.1.0</sharding-proxy.version>
 		<shedlock.version>4.9.3</shedlock.version>
-		<shiro.version>1.7.0</shiro.version>
+		<shiro.version>1.7.1</shiro.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
 		<shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
 		<shiro-freemarker.version>1.0.2</shiro-freemarker.version>
 		<shiro-j2cache.version>1.0.2.RELEASE</shiro-j2cache.version>
+		<shiro-redis.version>3.3.1</shiro-redis.version>
 		<shiro-oltu.version>1.0</shiro-oltu.version>
 		<shiro-pf4j.version>1.0.1.RELEASE</shiro-pf4j.version>
-		<shiro-redis.version>2.2.0</shiro-redis.version>
 		<shiro-redisson.version>1.5.0.RELEASE</shiro-redisson.version> 
 		<shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
 		<shiro-uaa.version>1.0.3</shiro-uaa.version>
@@ -438,14 +438,13 @@
 		<spring-boot-starter-security-qrcode.version>1.0.0.RELEASE</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0.RELEASE</spring-boot-starter-security-weixin.version>
-		<spring-boot-starter-shiro-biz.version>1.1.0.RELEASE</spring-boot-starter-shiro-biz.version>
+		<spring-boot-starter-shiro-biz.version>1.1.2.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>1.0.4.RELEASE</spring-boot-starter-shiro-cas.version>
 		<spring-boot-starter-shiro-csrfguard.version>1.0.4.RELEASE</spring-boot-starter-shiro-csrfguard.version>
 		<spring-boot-starter-shiro-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>1.1.3.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>1.0.2.RELEASE</spring-boot-starter-shiro-kisso.version>
 		<spring-boot-starter-shiro-pac4j.version>1.0.3.RELEASE</spring-boot-starter-shiro-pac4j.version>
-		<spring-boot-starter-shiro-redis.version>${shiro-redis.version}</spring-boot-starter-shiro-redis.version>
 		<spring-boot-starter-shiro-weixin.version>1.0.2.RELEASE</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
@@ -3862,6 +3861,22 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.crazycake/shiro-redis -->
+			<dependency>
+			    <groupId>org.crazycake</groupId>
+			    <artifactId>shiro-redis</artifactId>
+			    <version>${shiro-redis.version}</version>
+			    <exclusions>
+			    	<exclusion>
+			    		<groupId>org.apache.shiro</groupId>
+			    		<artifactId>shiro-core</artifactId>
+			    	</exclusion>
+			    	<exclusion>
+			    		<groupId>com.puppycrawl.tools</groupId>
+			    		<artifactId>checkstyle</artifactId>
+			    	</exclusion>
+			    </exclusions>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/win.zqxu.shiro/shiro-oltu -->
 			<dependency>
 			    <groupId>win.zqxu.shiro</groupId>
@@ -5303,12 +5318,6 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shiro-pac4j-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shiro-pac4j.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.iherus.shiro/shiro-redis-spring-boot-web-starter -->
-			<dependency>
-			    <groupId>org.iherus.shiro</groupId>
-			    <artifactId>shiro-redis-spring-boot-web-starter</artifactId>
-			    <version>${spring-boot-starter-shiro-redis.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-weixin-spring-boot-starter -->
 			<dependency>
