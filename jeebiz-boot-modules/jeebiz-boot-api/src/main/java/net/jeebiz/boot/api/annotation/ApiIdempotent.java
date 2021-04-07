@@ -31,7 +31,7 @@ public @interface ApiIdempotent {
 	/**
 	 * 幂等过期时间，默认 2000 毫秒，即：在此时间段内，对API进行幂等处理。
 	 */
-	long expire() default 2000;
+	long expireMillis() default 2000;
 
 	/**
 	 * 重试次数，默认0
