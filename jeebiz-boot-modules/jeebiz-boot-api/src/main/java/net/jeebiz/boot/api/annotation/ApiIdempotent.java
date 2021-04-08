@@ -47,5 +47,10 @@ public @interface ApiIdempotent {
 	 * 重试间隔时间，单位：ms，默认100
 	 */
 	long retryInterval() default 100;
+
+	/**
+	 * 是否自动进行解锁操作，默认：false, 等待key过期
+	 */
+	boolean unlock() default false;
 	 
 }
