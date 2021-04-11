@@ -178,10 +178,10 @@
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
 		<kylin-jdbc.version>3.1.1</kylin-jdbc.version>
-		<libphonenumber.version>8.12.11</libphonenumber.version>
-		<libphonenumber-carrier.version>1.137</libphonenumber-carrier.version>
-		<libphonenumber-prefixmapper.version>2.147</libphonenumber-prefixmapper.version>
-		<libphonenumber-geocoder.version>2.147</libphonenumber-geocoder.version>
+		<libphonenumber.version>8.12.21</libphonenumber.version>
+		<libphonenumber-carrier.version>1.147</libphonenumber-carrier.version>
+		<libphonenumber-prefixmapper.version>2.157</libphonenumber-prefixmapper.version>
+		<libphonenumber-geocoder.version>2.157</libphonenumber-geocoder.version>
 		<liquibase.version>4.1.1</liquibase.version>
 		<mariadb.version>2.7.0</mariadb.version>
 		<maven.version>3.6.3</maven.version>
@@ -453,7 +453,7 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.4.RELEASE</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.5.RELEASE</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
 		<spring-boot-starter-webmvc-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
