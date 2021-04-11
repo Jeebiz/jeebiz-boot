@@ -391,7 +391,7 @@
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
-		<spring-boot-starter-druid-plus.version>1.0.9.RELEASE</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-druid-plus.version>1.1.0.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.6.RELEASE</spring-boot-starter-flyway-plus.version>
