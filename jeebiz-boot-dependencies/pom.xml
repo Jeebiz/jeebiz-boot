@@ -114,7 +114,7 @@
 		<dubbo.version>2.7.8</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
-		<fastjson.version>1.2.75</fastjson.version>
+		<fastjson.version>1.2.76</fastjson.version>
 		<feign.version>11.0</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
