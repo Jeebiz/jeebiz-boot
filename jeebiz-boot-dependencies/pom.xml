@@ -126,7 +126,7 @@
 		<google-api-client.version>1.31.4</google-api-client.version>
 		<google-http-client.version>1.39.2</google-http-client.version>
 		<google-cloud-translate.version>1.96.0</google-cloud-translate.version>
-		<guava.version>30.1-jre</guava.version>
+		<guava.version>30.1.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.35.0</grpc.version>
 		<hadoop.version>3.2.1</hadoop.version>
