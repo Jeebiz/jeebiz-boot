@@ -123,8 +123,9 @@
 		<formio.version>1.6.4</formio.version>
 		<geodesy.version>1.1.3</geodesy.version>
 		<goeasy.version>0.3.16</goeasy.version>
-		<google-http-client.version>1.39.2</google-http-client.version>
 		<google-api-client.version>1.31.4</google-api-client.version>
+		<google-http-client.version>1.39.2</google-http-client.version>
+		<google-cloud-translate.version>1.96.0</google-cloud-translate.version>
 		<guava.version>30.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.35.0</grpc.version>
@@ -2059,6 +2060,12 @@
 			    <version>${goeasy.version}</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
+			<dependency>
+			    <groupId>com.google.api-client</groupId>
+			    <artifactId>google-api-client</artifactId>
+			    <version>${google-api-client.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client-bom -->
 			<dependency>
 			    <groupId>com.google.http-client</groupId>
@@ -2067,11 +2074,13 @@
 			    <type>pom</type>
 			    <scope>import</scope>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
+			<!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-translate -->
 			<dependency>
-			    <groupId>com.google.api-client</groupId>
-			    <artifactId>google-api-client</artifactId>
-			    <version>${google-api-client.version}</version>
+			    <groupId>com.google.cloud</groupId>
+			    <artifactId>google-cloud-translate-bom</artifactId>
+			    <version>${google-cloud-translate.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
 			</dependency>
 			
 			<!-- http://mvnrepository.com/artifact/com.google.guava/guava -->
