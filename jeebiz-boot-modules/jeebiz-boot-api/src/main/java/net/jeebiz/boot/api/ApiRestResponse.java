@@ -192,6 +192,10 @@ public class ApiRestResponse<T> {
 	public T getData() {
 		return data;
 	}
+
+	public boolean isSuccess() {
+		return status == Constants.RT_SUCCESS || code == ApiCodeValue.SC_SUCCESS;
+	}
 	
 	public Map<String, Object> toMap(){
 		Map<String, Object> rtMap = new HashMap<String, Object>();
