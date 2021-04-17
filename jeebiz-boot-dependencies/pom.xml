@@ -436,7 +436,10 @@
 		<spring-boot-starter-security-biz.version>1.0.5.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>1.0.2.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.1.RELEASE</spring-boot-starter-security-dingtalk.version>
+		<spring-boot-starter-security-facebook.version>1.0.0-SNAPSHOT</spring-boot-starter-security-facebook.version>
+		<spring-boot-starter-security-google.version>1.0.0-SNAPSHOT</spring-boot-starter-security-google.version>
 		<spring-boot-starter-security-jwt.version>1.0.6.RELEASE</spring-boot-starter-security-jwt.version>
+		<spring-boot-starter-security-line.version>1.0.0-SNAPSHOT</spring-boot-starter-security-line.version>
 		<spring-boot-starter-security-pac4j.version>1.0.1.RELEASE</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0.RELEASE</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
@@ -5234,11 +5237,29 @@
 				<artifactId>security-dingtalk-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-security-dingtalk.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-security-jwt -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-facebook-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-facebook-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-facebook.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-google-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-google-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-google.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-jwt-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>security-jwt-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-security-jwt.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-line-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>security-line-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-security-line.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-pac4j-spring-boot-starter -->
 			<dependency>
