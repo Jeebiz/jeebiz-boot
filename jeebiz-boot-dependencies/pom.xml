@@ -302,8 +302,6 @@
 		<swagger2markup.version>1.3.3</swagger2markup.version>
 		<swagger3.version>2.1.4</swagger3.version>
 		<tablesaw.version>0.38.1</tablesaw.version>
-		<tencentcloud-sdk-java.version>3.1.151</tencentcloud-sdk-java.version>
-		<tencentcloud-tls-sig-api-v2.version>1.1</tencentcloud-tls-sig-api-v2.version>
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
 		<thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
@@ -422,7 +420,7 @@
 		<spring-boot-starter-ishumei.version>1.0.4.RELEASE</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-okhttp3.version>1.0.4.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
-		<spring-boot-starter-pac4j.version>1.0.1.RELEASE</spring-boot-starter-pac4j.version>
+		<spring-boot-starter-pac4j.version>1.0.2.RELEASE</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
@@ -440,7 +438,7 @@
 		<spring-boot-starter-security-google.version>1.0.0-SNAPSHOT</spring-boot-starter-security-google.version>
 		<spring-boot-starter-security-jwt.version>1.0.6.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-line.version>1.0.0-SNAPSHOT</spring-boot-starter-security-line.version>
-		<spring-boot-starter-security-pac4j.version>1.0.1.RELEASE</spring-boot-starter-security-pac4j.version>
+		<spring-boot-starter-security-pac4j.version>1.0.2-SNAPSHOT</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.0.RELEASE</spring-boot-starter-security-qrcode.version>
 		<spring-boot-starter-security-unionid.version>1.0.0.RELEASE</spring-boot-starter-security-unionid.version>
 		<spring-boot-starter-security-weixin.version>1.0.0.RELEASE</spring-boot-starter-security-weixin.version>
@@ -4294,18 +4292,6 @@
 			    <artifactId>tablesaw-saw</artifactId>
 			    <version>${tablesaw.version}</version>
 			</dependency>
-			
-			<!-- https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java -->
-			<dependency>
-			    <groupId>com.tencentcloudapi</groupId>
-			    <artifactId>tencentcloud-sdk-java</artifactId>
-			    <version>${tencentcloud-sdk-java.version}</version>
-			</dependency>
-			<dependency>
-	            <groupId>com.github.tencentyun</groupId>
-	            <artifactId>tls-sig-api-v2</artifactId>
-	            <version>${tencentcloud-tls-sig-api-v2.version}</version>
-	        </dependency>
 			
 			<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 			<!-- Thumbnailator是一个用来生成图像缩略图的 Java类库，通过很简单的代码即可生成图片缩略图，也可直接对一整个目录的图片生成缩略图。 -->
