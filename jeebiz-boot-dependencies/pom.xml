@@ -124,6 +124,7 @@
 		<geodesy.version>1.1.3</geodesy.version>
 		<goeasy.version>0.3.16</goeasy.version>
 		<google-api-client.version>1.31.4</google-api-client.version>
+		<google-api-services-androidpublisher.version>v3-rev142-1.25.0</google-api-services-androidpublisher.version>
 		<google-http-client.version>1.39.2</google-http-client.version>
 		<google-cloud-translate.version>1.96.0</google-cloud-translate.version>
 		<guava.version>30.1.1-jre</guava.version>
@@ -212,12 +213,14 @@
 		<mybatis-generator.version>1.4.0</mybatis-generator.version>
 		<mysql.version>8.0.22</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
+		<nacos-client.version>1.4.1</nacos-client.version>
 		<neethi.version>3.1.1</neethi.version>
 		<netty.version>4.1.60.Final</netty.version>
 		<netty-socketio.version>1.7.18</netty-socketio.version>
 		<nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.9</okhttp.version>
 		<oltu.version>1.0.2</oltu.version>
+		<ons-client.version>1.8.8.Final</ons-client.version>
 		<owasp-antisamy.version>1.5.8</owasp-antisamy.version>
 		<owasp-csrfguard.version>3.1.0.wso2v3</owasp-csrfguard.version>
 		<owasp-esapi.version>2.2.0.0-RC2</owasp-esapi.version>
@@ -227,6 +230,9 @@
 		<pac4j.version>4.4.0</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
 		<paho-mqttv3.version>1.2.5</paho-mqttv3.version>
+        <paypal-checkout-sdk.version>1.0.3</paypal-checkout-sdk.version> 
+        <paypal-rest-api-sdk.version>1.14.0</paypal-rest-api-sdk.version> 
+        <paymentwall-sdk.version>2.0.2</paymentwall-sdk.version>
 		<perf4j.version>0.9.16</perf4j.version>
 		<prometheus.version>0.10.0</prometheus.version>
 		<proxool.version>0.9.1</proxool.version>
@@ -304,9 +310,12 @@
 		<swagger2markup.version>1.3.3</swagger2markup.version>
 		<swagger3.version>2.1.4</swagger3.version>
 		<tablesaw.version>0.38.1</tablesaw.version>
+		<tencentcloud-sdk-java.version>4.0.11</tencentcloud-sdk-java.version>
+		<tencentcloud-tls-sig-api-v2.version>2.0</tencentcloud-tls-sig-api-v2.version>
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
 		<thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
+		<token-bucket.version>1.7</token-bucket.version>
 		<truelicense.version>3.2.0</truelicense.version>
 		<UserAgentUtils.version>1.21</UserAgentUtils.version>	
 		<webcollector.version>2.73-alpha</webcollector.version>
@@ -332,7 +341,7 @@
 		<zxing.version>3.4.1</zxing.version>
 
 		<!-- Maven Plugin versions -->
-		<maven-alibaba-plugin.version>1.1.4</maven-alibaba-plugin.version>
+		<maven-alibaba-plugin.version>1.1.6</maven-alibaba-plugin.version>
 		<maven-appassembler-plugin.version>2.1.0</maven-appassembler-plugin.version>
 		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
 		<maven-asciidoctor-plugin.version>1.6.0</maven-asciidoctor-plugin.version>
@@ -394,6 +403,7 @@
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
 		<spring-boot-starter-druid-plus.version>1.1.0.RELEASE</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-dynamic-datasource.version>3.3.2</spring-boot-starter-dynamic-datasource.version>
 		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.6.RELEASE</spring-boot-starter-flyway-plus.version>
@@ -720,7 +730,7 @@
 			    <artifactId>je</artifactId>
 			    <version>${berkeley-je.version}</version>
 			</dependency>
-			
+	        
 			<!-- https://mvnrepository.com/artifact/io.buji/buji-pac4j -->
 			<dependency>
 				<groupId>io.buji</groupId>
@@ -2067,6 +2077,12 @@
 			    <artifactId>google-api-client</artifactId>
 			    <version>${google-api-client.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-androidpublisher -->
+			<dependency>
+			    <groupId>com.google.apis</groupId>
+			    <artifactId>google-api-services-androidpublisher</artifactId>
+			    <version>${google-api-services-androidpublisher.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client-bom -->
 			<dependency>
 			    <groupId>com.google.http-client</groupId>
@@ -3161,6 +3177,13 @@
 			    <version>${myth.version}</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-client -->
+			<dependency>
+			    <groupId>com.alibaba.nacos</groupId>
+			    <artifactId>nacos-client</artifactId>
+			    <version>${nacos-client.version}</version>
+			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.apache.neethi -->
 			<!-- Apache Neethi该组件为Axis2提供了非完整的WS-Policy实现，允许 Axis2用户操作和组合策略文档。 是Axis2用于创建策略文档的运行时表示形式、以及对策略文档执行规范化、合并和求交操作的工具。 
 				WS-Policy 提供了指定Web服务的可能配置以及执行定义的安全性和身份验证的一种方式。 -->
@@ -3191,7 +3214,12 @@
 			    <type>pom</type>
 			    <scope>import</scope>
 			</dependency>
-			
+			<!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->
+			<dependency>
+			    <groupId>com.aliyun.openservices</groupId>
+			    <artifactId>ons-client</artifactId>
+			    <version>${ons-client.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.owasp.antisamy/antisamy -->
 			<dependency>
 			    <groupId>org.owasp.antisamy</groupId>
@@ -3366,6 +3394,25 @@
 			    <groupId>org.eclipse.paho</groupId>
 			    <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
 			    <version>${paho-mqttv3.version}</version>
+			</dependency>
+			
+	        <!-- https://mvnrepository.com/artifact/com.paypal.sdk/rest-api-sdk -->
+	        <dependency>
+	            <groupId>com.paypal.sdk</groupId>
+	            <artifactId>rest-api-sdk</artifactId>
+	            <version>${paypal-rest-api-sdk.version}</version>
+	        </dependency>
+			<!-- https://mvnrepository.com/artifact/com.paypal.sdk/checkout-sdk -->
+			<dependency>
+	            <groupId>com.paypal.sdk</groupId>
+	            <artifactId>checkout-sdk</artifactId>
+	            <version>${paypal-checkout-sdk.version}</version>
+	        </dependency>
+	        <!-- https://mvnrepository.com/artifact/com.paymentwall/paymentwall-java -->
+			<dependency>
+			    <groupId>com.paymentwall</groupId>
+			    <artifactId>paymentwall-java</artifactId>
+			    <version>${paymentwall-sdk.version}</version>
 			</dependency>
 			
 			<!-- http://mvnrepository.com/artifact/org.pf4j -->
@@ -4295,6 +4342,18 @@
 			    <version>${tablesaw.version}</version>
 			</dependency>
 			
+			<!-- https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java -->
+			<dependency>
+			    <groupId>com.tencentcloudapi</groupId>
+			    <artifactId>tencentcloud-sdk-java</artifactId>
+			    <version>${tencentcloud-sdk-java.version}</version>
+			</dependency>
+			<dependency>
+	            <groupId>com.github.tencentyun</groupId>
+	            <artifactId>tls-sig-api-v2</artifactId>
+	            <version>${tencentcloud-tls-sig-api-v2.version}</version>
+	        </dependency>
+	        
 			<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 			<!-- Thumbnailator是一个用来生成图像缩略图的 Java类库，通过很简单的代码即可生成图片缩略图，也可直接对一整个目录的图片生成缩略图。 -->
 			<!-- 
@@ -4318,6 +4377,13 @@
 			    <groupId>nz.net.ultraq.thymeleaf</groupId>
 			    <artifactId>thymeleaf-layout-dialect</artifactId>
 			    <version>${thymeleaf-layout-dialect.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.isomorphism/token-bucket -->
+			<dependency>
+			    <groupId>org.isomorphism</groupId>
+			    <artifactId>token-bucket</artifactId>
+			    <version>${token-bucket.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/net.truelicense/truelicense-core -->
@@ -4796,6 +4862,12 @@
 			    <groupId>org.apache.dubbo</groupId>
 			    <artifactId>dubbo-spring-boot-actuator</artifactId>
 			    <version>${dubbo.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.baomidou</groupId>
+			    <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-dynamic-datasource.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere.elasticjob/elasticjob-lite-spring-boot-starter -->
 			<dependency>
