@@ -330,7 +330,7 @@
 		<zxing.version>3.4.1</zxing.version>
 
 		<!-- Maven Plugin versions -->
-		<maven-alibaba-plugin.version>1.1.4</maven-alibaba-plugin.version>
+		<maven-alibaba-plugin.version>1.1.6</maven-alibaba-plugin.version>
 		<maven-appassembler-plugin.version>2.1.0</maven-appassembler-plugin.version>
 		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
 		<maven-asciidoctor-plugin.version>1.6.0</maven-asciidoctor-plugin.version>
