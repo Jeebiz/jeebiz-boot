@@ -38,6 +38,7 @@
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
+		<canal.client.version>1.1.5</canal.client.version>
 		<cas-client.version>3.6.2</cas-client.version>
 		<camel.version>3.9.0</camel.version>
 		<cglib.version>3.3.0</cglib.version>
@@ -742,6 +743,13 @@
 				<groupId>org.jasig.cas.client</groupId>
 				<artifactId>cas-client-core</artifactId>
 				<version>${cas-client.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/com.alibaba.otter/canal.client -->
+			<dependency>
+			    <groupId>com.alibaba.otter</groupId>
+			    <artifactId>canal.client</artifactId>
+			    <version>${canal.client.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/cglib/cglib -->
