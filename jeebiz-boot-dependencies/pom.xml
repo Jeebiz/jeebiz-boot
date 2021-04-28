@@ -408,7 +408,7 @@
 		<spring-boot-starter-dynamic-datasource.version>3.3.2</spring-boot-starter-dynamic-datasource.version>
 		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
-		<spring-boot-starter-flyway-plus.version>1.0.6.RELEASE</spring-boot-starter-flyway-plus.version>
+		<spring-boot-starter-flyway-plus.version>1.0.7.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
@@ -432,7 +432,7 @@
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
 		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
 		<spring-boot-starter-ishumei.version>1.0.4.RELEASE</spring-boot-starter-ishumei.version>
-		<spring-boot-starter-okhttp3.version>1.0.4.RELEASE</spring-boot-starter-okhttp3.version>
+		<spring-boot-starter-okhttp3.version>1.0.5.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.2.RELEASE</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
