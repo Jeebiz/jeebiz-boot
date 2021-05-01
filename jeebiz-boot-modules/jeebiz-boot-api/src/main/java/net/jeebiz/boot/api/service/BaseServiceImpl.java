@@ -204,7 +204,6 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	 * @return
 	 */
 	@Override
-	@Transactional(rollbackFor = Exception.class)
 	public Page<T> getPagedList(PaginationModel<T> model) {
 
 		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
@@ -223,7 +222,6 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	 * 分页查询
 	 */
 	@Override
-	@Transactional(rollbackFor = Exception.class)
 	public Page<T> getPagedList(Page<T> page, PaginationModel<T> model) {
 
 		List<T> records = dao.getPagedList(page, model);

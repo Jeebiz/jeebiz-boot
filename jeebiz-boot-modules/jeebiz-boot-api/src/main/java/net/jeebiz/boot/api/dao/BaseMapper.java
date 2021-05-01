@@ -52,6 +52,13 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @return
 	 */
 	public List<T> getEntityList(@Param("key") String key);
+
+	/**
+	 * 统计记录数
+	 * @param t
+	 * @return
+	 */
+	public int getCount(T t);
 	
 	/**
 	 * 根据唯一ID编码获取记录数
