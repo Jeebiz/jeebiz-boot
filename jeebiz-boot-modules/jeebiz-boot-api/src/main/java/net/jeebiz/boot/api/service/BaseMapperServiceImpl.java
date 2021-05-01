@@ -101,7 +101,6 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 	 * @return
 	 */
 	@Override
-	@Transactional(rollbackFor = Exception.class)
 	public Page<T> getPagedList(PaginationEntity<T> model) {
 
 		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
@@ -120,7 +119,6 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 	 * 分页查询
 	 */
 	@Override
-	@Transactional(rollbackFor = Exception.class)
 	public Page<T> getPagedList(Page<T> page, PaginationEntity<T> model) {
 
 		List<T> records = getBaseMapper().getPagedList(page, model);
@@ -149,6 +147,17 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 	@Override
 	public List<T> getEntityList(String key) {
 		return getBaseMapper().getEntityList(key);
+	}
+
+	/**
+	 * 统计记录数
+	 * 
+	 * @param t
+	 * @return
+	 */
+	@Override
+	public int getCount(T t) {
+		return getBaseMapper().getCount(t);
 	}
 
 	@Override
