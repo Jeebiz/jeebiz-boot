@@ -198,6 +198,7 @@
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.2.1</mybatis-dynamic-sql.version>
 		<mybatis-plus.version>3.4.2</mybatis-plus.version>
+		<mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
 		<mybatis-spring.version>2.0.6</mybatis-spring.version>
 		<mybatis-migrations.version>3.3.8</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
@@ -3133,7 +3134,7 @@
 			<dependency>
 			    <groupId>com.baomidou</groupId>
 			    <artifactId>mybatis-plus-generator</artifactId>
-			    <version>${mybatis-plus.version}</version>
+			    <version>${mybatis-plus-generator.version}</version>
 			</dependency>
 			<dependency>
 			    <groupId>com.baomidou</groupId>
