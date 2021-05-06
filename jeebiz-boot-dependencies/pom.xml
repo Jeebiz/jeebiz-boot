@@ -5125,6 +5125,12 @@
 				<artifactId>j2cache-spring-boot2-starter</artifactId>
 				<version>${spring-boot-starter-j2cache.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jcaptcha-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.hiwepy</groupId>
+			    <artifactId>jcaptcha-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-jcaptcha.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jpush-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
@@ -5466,7 +5472,19 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>sitemesh3-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-sitemesh3.version}</version>
-			</dependency>			
+			</dependency>	
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/simplecaptcha-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.hiwepy</groupId>
+			    <artifactId>simplecaptcha-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-simplecaptcha.version}</version>
+			</dependency>		
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/smartcaptcha-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.github.hiwepy</groupId>
+			    <artifactId>smartcaptcha-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-smartcaptcha.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/tencentapi-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
