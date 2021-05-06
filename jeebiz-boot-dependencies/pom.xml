@@ -408,7 +408,7 @@
 		<spring-boot-starter-dynamic-datasource.version>3.3.2</spring-boot-starter-dynamic-datasource.version>
 		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
-		<spring-boot-starter-flyway-plus.version>1.0.7.RELEASE</spring-boot-starter-flyway-plus.version>
+		<spring-boot-starter-flyway-plus.version>1.0.8.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
