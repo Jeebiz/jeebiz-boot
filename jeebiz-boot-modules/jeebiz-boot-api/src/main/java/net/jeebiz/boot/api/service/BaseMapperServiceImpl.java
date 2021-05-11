@@ -88,6 +88,45 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
 	}
 
+	/**
+	 * 批量删除
+	 * 
+	 * @param map
+	 * @return
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	public int batchDelete(Map<String, Object> map) {
+		return getBaseMapper().batchDelete(map);
+	}
+
+	/**
+	 * 批量删除
+	 * 
+	 * @param list
+	 * @return
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	public int batchDelete(List<?> list) {
+		return getBaseMapper().batchDelete(list);
+	}
+
+	/**
+	 * 批量删除
+	 * 
+	 * @param map
+	 * @return
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	public int batchUpdate(Map<String, Object> map) {
+		return getBaseMapper().batchUpdate(map);
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int batchUpdate(List<T> list) {
+		return getBaseMapper().batchUpdate(list);
+	}
+	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int setStatus(String id, String status) {

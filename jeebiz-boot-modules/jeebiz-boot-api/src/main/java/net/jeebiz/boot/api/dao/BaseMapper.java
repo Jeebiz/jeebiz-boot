@@ -22,6 +22,29 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @param <T> 持有的实体对象
  */
 public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
+
+	/**
+	 * 批量删除
+	 * @param map
+	 * @return
+	 */
+	public int batchDelete(Map<String,Object> map);
+	
+	/**
+	 * 批量删除
+	 * @param list
+	 * @return
+	 */
+	public int batchDelete(List<?> list);
+	
+	/**
+	 * 批量修改
+	 * @param map
+	 * @return
+	 */
+	public int batchUpdate(Map<String,Object> map);
+	
+	public int batchUpdate(List<T> list);
 	
 	/**
 	 * 更新数据状态

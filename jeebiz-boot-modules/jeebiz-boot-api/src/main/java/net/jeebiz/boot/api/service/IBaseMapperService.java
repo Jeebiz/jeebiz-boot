@@ -28,6 +28,30 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
 public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 
 	/**
+	 * 批量删除
+	 * @param map
+	 * @return
+	 */
+	public int batchDelete(Map<String,Object> map);
+	
+	
+	/**
+	 * 批量删除
+	 * @param list
+	 * @return
+	 */
+	public int batchDelete(List<?> list);
+	
+	/**
+	 * 批量修改
+	 * @param map
+	 * @return
+	 */
+	public int batchUpdate(Map<String,Object> map);
+
+	public int batchUpdate(List<T> list);
+	
+	/**
 	 * 更新数据状态
 	 * 
 	 * @param id
