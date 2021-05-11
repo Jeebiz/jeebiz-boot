@@ -134,8 +134,8 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 	 * @return
 	 */
 	@Override
-	public List<T> getEntityList(T t) {
-		return getBaseMapper().getEntityList(t);
+	public List<T> getModelList(T t) {
+		return getBaseMapper().getModelList(t);
 	}
 
 	/**
@@ -145,8 +145,8 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 	 * @return
 	 */
 	@Override
-	public List<T> getEntityList(String key) {
-		return getBaseMapper().getEntityList(key);
+	public List<T> getModelList(String key) {
+		return getBaseMapper().getModelList(key);
 	}
 
 	/**

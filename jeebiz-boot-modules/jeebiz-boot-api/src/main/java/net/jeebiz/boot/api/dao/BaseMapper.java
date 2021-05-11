@@ -43,7 +43,7 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @param t
 	 * @return
 	 */
-	public List<T> getEntityList(T t);
+	public List<T> getModelList(T t);
 	
 	
 	/**
@@ -51,7 +51,7 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @param key
 	 * @return
 	 */
-	public List<T> getEntityList(@Param("key") String key);
+	public List<T> getModelList(@Param("key") String key);
 
 	/**
 	 * 统计记录数

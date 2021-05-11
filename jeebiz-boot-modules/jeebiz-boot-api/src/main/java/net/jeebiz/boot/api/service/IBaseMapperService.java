@@ -52,7 +52,7 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	 * @param t
 	 * @return
 	 */
-	public List<T> getEntityList(T t);
+	public List<T> getModelList(T t);
 
 	/**
 	 * 无分页查询<br>
@@ -65,7 +65,7 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	 * @param key
 	 * @return
 	 */
-	public List<T> getEntityList(String key);
+	public List<T> getModelList(String key);
 
 	/**
 	 * 统计记录数
