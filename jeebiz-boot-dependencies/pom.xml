@@ -178,7 +178,7 @@
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.7.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.6.0</kafka-clients.version>
-		<knife4j.version>2.0.8</knife4j.version>
+		<knife4j.version>3.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
 		<kylin-jdbc.version>3.1.1</kylin-jdbc.version>
