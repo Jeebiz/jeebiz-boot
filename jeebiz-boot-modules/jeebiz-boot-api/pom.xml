@@ -48,6 +48,10 @@
 			<artifactId>swagger-annotations</artifactId>
 		</dependency>
 		<dependency>
+		    <groupId>com.github.xiaoymin</groupId>
+		    <artifactId>knife4j-annotations</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-core</artifactId>
 			<exclusions>
