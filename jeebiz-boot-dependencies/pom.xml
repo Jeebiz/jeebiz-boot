@@ -182,7 +182,6 @@
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
 		<kylin-jdbc.version>3.1.1</kylin-jdbc.version>
-		<lettuce.version>6.1.0.RELEASE</lettuce.version>
 		<libphonenumber.version>8.12.21</libphonenumber.version>
 		<libphonenumber-carrier.version>1.147</libphonenumber-carrier.version>
 		<libphonenumber-prefixmapper.version>2.157</libphonenumber-prefixmapper.version>
@@ -382,7 +381,7 @@
 		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 		<spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.3</spring-boot-starter-aliyun-schedulerx2.version>
-		<spring-boot-starter-aliyun-ons.version>1.0.6.RELEASE</spring-boot-starter-aliyun-ons.version>
+		<spring-boot-starter-aliyun-ons.version>1.0.8.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-mps.version>1.0.1.RELEASE</spring-boot-starter-aliyun-mps.version>
 		<spring-boot-starter-arcface.version>1.0.2.RELEASE</spring-boot-starter-arcface.version>
