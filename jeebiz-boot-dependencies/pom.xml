@@ -15,14 +15,14 @@
 	<properties>
 		<!-- Dependency versions -->
 		<activation.version>1.1.1</activation.version>
-		<alipay-sdk.version>4.10.124.ALL</alipay-sdk.version>
-		<alipay-easysdk.version>2.0.2</alipay-easysdk.version>
-		<aliyun-sdk-oss.version>3.11.2</aliyun-sdk-oss.version>
+		<alipay-sdk.version>4.13.50.ALL</alipay-sdk.version>
+		<alipay-easysdk.version>2.2.0</alipay-easysdk.version>
+		<aliyun-sdk-oss.version>3.12.0</aliyun-sdk-oss.version>
 		<aliyun-sdk-mts.version>2.7.6</aliyun-sdk-mts.version>
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
-		<async-http-client.version>2.12.1</async-http-client.version>
+		<async-http-client.version>2.12.3</async-http-client.version>
 		<axiom.version>1.2.22</axiom.version>
 		<axis.version>1.4</axis.version>
 		<axis-schema.version>1.3</axis-schema.version>
@@ -30,7 +30,7 @@
 		<axis2.version>1.7.9</axis2.version>
 		<axis2-api.version>1.4.1</axis2-api.version>
 		<beetl.version>3.3.2.RELEASE</beetl.version>
-		<batik.version>1.13</batik.version>
+		<batik.version>1.14</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
 		<buji-pac4j.version>5.0.1</buji-pac4j.version>
 		<bcprov.version>1.68</bcprov.version>
@@ -75,11 +75,11 @@
 		<commons-jexl3.version>3.1</commons-jexl3.version>
 		<commons-jxpath.version>1.3</commons-jxpath.version>
 		<commons-lang.version>2.6</commons-lang.version>
-		<commons-lang3.version>3.11</commons-lang3.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
 		<commons-logging.version>1.2</commons-logging.version>
 		<commons-math.version>2.2</commons-math.version>
 		<commons-math3.version>3.6.1</commons-math3.version>
-		<commons-net.version>3.7.2</commons-net.version>
+		<commons-net.version>3.8.0</commons-net.version>
 		<commons-pool.version>1.6</commons-pool.version>
 		<commons-pool2.version>2.9.0</commons-pool2.version>
 		<commons-proxy.version>1.0</commons-proxy.version>
@@ -94,7 +94,7 @@
 		<curator.version>5.1.0</curator.version>
 		<cronet.version>76.3809.111</cronet.version>
 		<cssparser.version>0.9.29</cssparser.version>
-		<cxf.version>3.4.2</cxf.version>
+		<cxf.version>3.4.3</cxf.version>
 		<cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.2.0</derby.version>
@@ -109,14 +109,14 @@
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
 		<dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
 		<druid.version>1.2.6</druid.version>
-		<dropwizard-metrics-influxdb.version>1.3.2</dropwizard-metrics-influxdb.version>
+		<dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
 		<disruptor.version>3.4.2</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>2.7.8</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
 		<fastjson.version>1.2.76</fastjson.version>
-		<feign.version>11.0</feign.version>
+		<feign.version>11.2</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -143,7 +143,7 @@
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
 		<icu4j.version>68.2</icu4j.version>
-		<imageio.version>3.6.1</imageio.version>
+		<imageio.version>3.7.0</imageio.version>
 		<influxdb-java.version>2.21</influxdb-java.version>
 		<istio-client.version>1.6.14</istio-client.version>
 		<j2cache-core.version>2.8.2-release</j2cache-core.version>
@@ -159,7 +159,7 @@
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>4.0.1</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
-		<javamelody.version>1.86.0</javamelody.version>
+		<javamelody.version>1.87.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
@@ -167,7 +167,7 @@
 		<jep.version>2.4.2</jep.version>
 		<jjwt.version>0.11.2</jjwt.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
-		<jgroups.version>5.1.5.Final</jgroups.version>
+		<jgroups.version>5.1.6.Final</jgroups.version>
 		<jgit.version>5.10.0.202012080955-r</jgit.version>
 		<jpush-client.version>3.4.7</jpush-client.version>
 		<jruby.version>9.2.13.0</jruby.version>
@@ -182,16 +182,16 @@
 		<kisso.version>3.7.6</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
 		<kylin-jdbc.version>3.1.1</kylin-jdbc.version>
-		<libphonenumber.version>8.12.21</libphonenumber.version>
-		<libphonenumber-carrier.version>1.147</libphonenumber-carrier.version>
-		<libphonenumber-prefixmapper.version>2.157</libphonenumber-prefixmapper.version>
-		<libphonenumber-geocoder.version>2.157</libphonenumber-geocoder.version>
-		<liquibase.version>4.1.1</liquibase.version>
-		<mariadb.version>2.7.0</mariadb.version>
+		<libphonenumber.version>8.12.23</libphonenumber.version>
+		<libphonenumber-carrier.version>1.149</libphonenumber-carrier.version>
+		<libphonenumber-prefixmapper.version>2.159</libphonenumber-prefixmapper.version>
+		<libphonenumber-geocoder.version>2.159</libphonenumber-geocoder.version>
+		<liquibase.version>4.3.5</liquibase.version>
+		<mariadb.version>2.7.3</mariadb.version>
 		<maven.version>3.6.3</maven.version>
-		<metadata-extractor.version>2.14.0</metadata-extractor.version>
-		<mongo-java-driver.version>3.12.7</mongo-java-driver.version>
-		<mssql-jdbc.version>8.4.1.jre8</mssql-jdbc.version>
+		<metadata-extractor.version>2.16.0</metadata-extractor.version>
+		<mongo-java-driver.version>3.12.8</mongo-java-driver.version>
+		<mssql-jdbc.version>9.2.1.jre8</mssql-jdbc.version>
 		<mybatis.version>3.5.7</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
@@ -214,7 +214,7 @@
 		<mybatis-generator.version>1.4.0</mybatis-generator.version>
 		<mysql.version>8.0.22</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
-		<nacos-client.version>1.4.1</nacos-client.version>
+		<nacos-client.version>2.0.1</nacos-client.version>
 		<neethi.version>3.1.1</neethi.version>
 		<netty-socketio.version>1.7.18</netty-socketio.version>
 		<nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
@@ -243,13 +243,13 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<reactor-bom.version>2020.0.5</reactor-bom.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<redisson.version>3.15.4</redisson.version>
+		<redisson.version>3.15.5</redisson.version>
 		<resilience4j.version>1.7.0</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.8.0</rocketmq-client.version>
 		<roses.version>2.0.0</roses.version>
 		<slf4j.version>1.7.30</slf4j.version>
-		<schemacrawler.version>16.14.1</schemacrawler.version>
+		<schemacrawler.version>16.14.6</schemacrawler.version>
 		<schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
 		<schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
 		<schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
@@ -285,7 +285,7 @@
 		<sitemesh3.version>3.0.1</sitemesh3.version>
 		<smallsql.version>0.21</smallsql.version>
 		<smslib.version>3.5.4</smslib.version>
-		<snmp4j.version>3.4.4</snmp4j.version>
+		<snmp4j.version>3.4.5</snmp4j.version>
 		<snmp4j-agent.version>3.3.6</snmp4j-agent.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<springfox.version>2.10.5</springfox.version>
@@ -444,7 +444,7 @@
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
-		<spring-boot-starter-security-biz.version>1.0.7.RELEASE</spring-boot-starter-security-biz.version>
+		<spring-boot-starter-security-biz.version>1.0.8.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>1.0.2.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.1.RELEASE</spring-boot-starter-security-dingtalk.version>
 		<spring-boot-starter-security-facebook.version>1.0.0-SNAPSHOT</spring-boot-starter-security-facebook.version>
