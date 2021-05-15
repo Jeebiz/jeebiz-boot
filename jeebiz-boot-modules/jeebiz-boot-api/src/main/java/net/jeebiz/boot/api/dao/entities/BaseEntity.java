@@ -21,16 +21,18 @@ public class BaseEntity<T extends Model<?>> extends Model<T> implements Cloneabl
 	/**
 	 * 创建人id
 	 */
+	@TableField(value = "creator")
 	private Long creator;
-	/**
-	 * 更新人id
-	 */
-	private Long modifyer;
 	/**
 	 * 创建时间
 	 */
 	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	private Date createTime;
+	/**
+	 * 更新人id
+	 */
+	@TableField(value = "modifyer")
+	private Long modifyer;
 	/**
 	 * 更新时间
 	 */
