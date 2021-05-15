@@ -101,7 +101,15 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	public int getCountByName(String name, String origin);
 
 	public int getCountByParent(String parent);
-
+	
+	/**
+	 * 
+	 * 通过指定key查询对应的唯一值
+	 * @param key
+	 * @return
+	 */
+	public String getValue(String key);
+	
 	/**
 	 * 通过指定key查询多个值
 	 * 

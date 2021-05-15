@@ -84,6 +84,13 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	public int getCountByName(@Param("name") String name, @Param("origin") String origin);
 	
 	public int getCountByParent(@Param("parent") String parent);
+
+	/**
+	 * 通过指定key查询对应的唯一值
+	 * @param key
+	 * @return
+	 */
+	public String getValue(@Param("key") String key);
 	
 	/**
 	 * 通过指定key查询多个值

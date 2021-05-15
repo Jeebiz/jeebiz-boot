@@ -180,6 +180,12 @@ public class BaseMapperServiceImpl<T extends Model<?>, E extends BaseMapper<T>> 
 		return getBaseMapper().getCountByParent(parent);
 	}
 	
+	
+	@Override
+	public String getValue(String key) {
+		return getBaseMapper().getValue(key);
+	}
+	
 	@Override
 	public Map<String, String> getValues(String key) {
 		return getBaseMapper().getValues(key);
