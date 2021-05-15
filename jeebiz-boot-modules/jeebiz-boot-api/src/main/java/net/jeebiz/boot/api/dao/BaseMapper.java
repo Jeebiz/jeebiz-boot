@@ -22,29 +22,6 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @param <T> 持有的实体对象
  */
 public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
-
-	/**
-	 * 批量删除
-	 * @param map
-	 * @return
-	 */
-	public int batchDelete(Map<String,Object> map);
-	
-	/**
-	 * 批量删除
-	 * @param list
-	 * @return
-	 */
-	public int batchDelete(List<?> list);
-	
-	/**
-	 * 批量修改
-	 * @param map
-	 * @return
-	 */
-	public int batchUpdate(Map<String,Object> map);
-	
-	public int batchUpdate(List<T> list);
 	
 	/**
 	 * 更新数据状态
@@ -66,7 +43,7 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @param t
 	 * @return
 	 */
-	public List<T> getModelList(T t);
+	public List<T> getEntityList(T t);
 	
 	
 	/**
@@ -74,7 +51,7 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @param key
 	 * @return
 	 */
-	public List<T> getModelList(@Param("key") String key);
+	public List<T> getEntityList(@Param("key") String key);
 
 	/**
 	 * 统计记录数
@@ -107,6 +84,13 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	public int getCountByName(@Param("name") String name, @Param("origin") String origin);
 	
 	public int getCountByParent(@Param("parent") String parent);
+
+	/**
+	 * 通过指定key查询对应的唯一值
+	 * @param key
+	 * @return
+	 */
+	public String getValue(@Param("key") String key);
 	
 	/**
 	 * 通过指定key查询多个值

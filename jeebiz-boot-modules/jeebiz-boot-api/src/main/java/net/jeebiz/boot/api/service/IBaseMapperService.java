@@ -28,30 +28,6 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
 public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 
 	/**
-	 * 批量删除
-	 * @param map
-	 * @return
-	 */
-	public int batchDelete(Map<String,Object> map);
-	
-	
-	/**
-	 * 批量删除
-	 * @param list
-	 * @return
-	 */
-	public int batchDelete(List<?> list);
-	
-	/**
-	 * 批量修改
-	 * @param map
-	 * @return
-	 */
-	public int batchUpdate(Map<String,Object> map);
-
-	public int batchUpdate(List<T> list);
-	
-	/**
 	 * 更新数据状态
 	 * 
 	 * @param id
@@ -76,7 +52,7 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	 * @param t
 	 * @return
 	 */
-	public List<T> getModelList(T t);
+	public List<T> getEntityList(T t);
 
 	/**
 	 * 无分页查询<br>
@@ -89,7 +65,7 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	 * @param key
 	 * @return
 	 */
-	public List<T> getModelList(String key);
+	public List<T> getEntityList(String key);
 
 	/**
 	 * 统计记录数
@@ -125,7 +101,15 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	public int getCountByName(String name, String origin);
 
 	public int getCountByParent(String parent);
-
+	
+	/**
+	 * 
+	 * 通过指定key查询对应的唯一值
+	 * @param key
+	 * @return
+	 */
+	public String getValue(String key);
+	
 	/**
 	 * 通过指定key查询多个值
 	 * 
