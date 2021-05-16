@@ -22,7 +22,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> implements Cloneabl
 	 * 创建人id
 	 */
 	@TableField(value = "creator")
-	private Long creator;
+	private String creator;
 	/**
 	 * 创建时间
 	 */
@@ -32,7 +32,7 @@ public class BaseEntity<T extends Model<?>> extends Model<T> implements Cloneabl
 	 * 更新人id
 	 */
 	@TableField(value = "modifyer")
-	private Long modifyer;
+	private String modifyer;
 	/**
 	 * 更新时间
 	 */
@@ -47,19 +47,19 @@ public class BaseEntity<T extends Model<?>> extends Model<T> implements Cloneabl
 		this.isDelete = isDelete;
 	}
 
-	public Long getCreator() {
+	public String getCreator() {
 		return creator;
 	}
 
-	public void setCreator(Long creator) {
+	public void setCreator(String creator) {
 		this.creator = creator;
 	}
 
-	public Long getModifyer() {
+	public String getModifyer() {
 		return modifyer;
 	}
 
-	public void setModifyer(Long modifyer) {
+	public void setModifyer(String modifyer) {
 		this.modifyer = modifyer;
 	}
 
