@@ -22,6 +22,13 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @param <T> 持有的实体对象
  */
 public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
+
+	/**
+	 * 查询单条数据
+	 * @param id
+	 * @return
+	 */
+	public T getModel(String id);
 	
 	/**
 	 * 更新数据状态
@@ -43,7 +50,7 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @param t
 	 * @return
 	 */
-	public List<T> getEntityList(T t);
+	public List<T> getModelList(T t);
 	
 	
 	/**
@@ -51,7 +58,7 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @param key
 	 * @return
 	 */
-	public List<T> getEntityList(@Param("key") String key);
+	public List<T> getModelList(@Param("key") String key);
 
 	/**
 	 * 统计记录数

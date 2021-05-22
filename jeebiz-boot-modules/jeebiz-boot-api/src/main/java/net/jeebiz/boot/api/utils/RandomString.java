@@ -1,6 +1,7 @@
 package net.jeebiz.boot.api.utils;
 
 
+import java.util.Calendar;
 import java.util.Random;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -134,6 +135,15 @@ public class RandomString {
 			String uuid = UUID.randomUUID().toString().replace("-", "");
 			Pattern pattern = Pattern.compile("[^0-9]");
 			Matcher matcher = pattern.matcher(uuid);
+
+			Calendar c = Calendar.getInstance();
+			int seconds = c.get(Calendar.SECOND);
+			all = matcher.replaceAll("").substring(0, 6) + seconds;
+			Pattern compile = Pattern.compile("^(\\d)\\1{7}$");
+			if (!compile.matcher(all).matches()) {
+				break;
+			}
+			
 			all = matcher.replaceAll("").substring(0, 8);
 			if (!isMather(all)) {
 				break;
