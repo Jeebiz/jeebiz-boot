@@ -1,46 +1,33 @@
 package net.jeebiz.boot.extras.redis.setup.geo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import org.gavaghan.geodesy.Ellipsoid;
 import org.gavaghan.geodesy.GeodeticCalculator;
 import org.gavaghan.geodesy.GeodeticCurve;
 import org.gavaghan.geodesy.GlobalCoordinates;
-import org.springframework.data.geo.Circle;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.GeoResult;
-import org.springframework.data.geo.GeoResults;
 import org.springframework.data.geo.Point;
 import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.connection.RedisGeoCommands.GeoLocation;
-import org.springframework.data.redis.core.BoundGeoOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.util.CollectionUtils;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
 
-import net.jeebiz.boot.extras.redis.setup.AbstractOperations;
 import net.jeebiz.boot.extras.redis.setup.RedisKeyGenerator;
+import reactor.core.publisher.Flux;
 
+public class ReactiveGeoTemplate {
 
-public class GeoTemplate extends AbstractOperations<String, Object>  {
-
-	private BoundGeoOperations<String, Object> boundGeoOperations;
+	private final static String USER_GEO_KEY = RedisKeyGenerator.getUserGeoLocation();
+	private ReactiveRedisTemplate<Object, Object> reactiveRedisTemplate;
 	
-	public GeoTemplate() {
-		super(null);
+	public ReactiveGeoTemplate() {
+		super();
 	}
 	
-	public GeoTemplate(RedisTemplate<String, Object> redisTemplate) {
-		super(redisTemplate);
-		this.boundGeoOperations = redisTemplate.boundGeoOps(RedisKeyGenerator.getUserGeoLocation());
-	}
-
-	public GeoTemplate(RedisTemplate<String, Object> redisTemplate, String geoKey) {
-		super(redisTemplate);
-		this.boundGeoOperations = redisTemplate.boundGeoOps(geoKey);
+	public ReactiveGeoTemplate(ReactiveRedisTemplate<Object, Object> reactiveRedisTemplate) {
+		super();
+		this.reactiveRedisTemplate = reactiveRedisTemplate;
 	}
 	
 	/**
@@ -127,45 +114,29 @@ public class GeoTemplate extends AbstractOperations<String, Object>  {
         return geoCurve.getEllipsoidalDistance();
     }
 	
-    // ===============================Geo=================================
-	
- 	public Long geoAdd(GeoLocation<Object> location) {
- 		return getBoundGeoOperations().add(location);
- 	}
-
- 	public Long geoAdd(Iterable<GeoLocation<Object>> locations) {
- 		return getBoundGeoOperations().add(locations);
- 	}
-
- 	public Long geoAdd(Point point, Object member) {
- 		return getBoundGeoOperations().add(point, member);
- 	}
-    
- 	public Long geoAdd(Map<Object, Point> memberCoordinateMap) {
- 		return getBoundGeoOperations().add(memberCoordinateMap);
- 	}
 
     /**
-     * @param member 用户id
+     * 
+     * @param uid 用户ID
      * @param longitude  用户最新位置经度
      * @param latitude  用户最新位置纬度
      */
-    public Long geoAdd(String member, double longitude, double latitude) {
+    public void setLocation(String uid, double longitude, double latitude) {
     	// 例：89 118.803805,32.060168
         Point point = new Point(longitude, latitude);
-        return getBoundGeoOperations().add(point, member);
+        getReactiveRedisTemplate().opsForGeo().add(USER_GEO_KEY, point, uid);
     }
     
     public String distance(String uid1, String uid2) {
     	// 例：89 118.803805,32.060168
-    	Distance distance = boundGeoOperations.distance(uid1, uid2);
-    	System.out.println(distance);
-    	return distance.getValue() + distance.getUnit();
+    	return getReactiveRedisTemplate().opsForGeo().distance(USER_GEO_KEY, uid1, uid2)
+    			.map(obj -> String.valueOf(obj.getValue() + obj.getUnit()))
+				.cast(String.class)
+				.block();
     }
     
-    public GeoResults<GeoLocation<Object>> getCircleUsersByDistance(String uid, double distance){
-
-    	// 1.1、设置geo查询参数
+    public <T> Flux<T> getCircleUsersByDistance(String uid, double distance, Function<GeoResult<GeoLocation<Object>>, T> mapper){
+    	 // 1.1、设置geo查询参数
         RedisGeoCommands.GeoRadiusCommandArgs geoRadiusArgs = RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs();
         // 1.2、查询返回结果包括距离和坐标
         geoRadiusArgs = geoRadiusArgs.includeCoordinates().includeDistance();
@@ -173,29 +144,15 @@ public class GeoTemplate extends AbstractOperations<String, Object>  {
         geoRadiusArgs.sortAscending();
         
         // 2、根据给定地理位置获取指定范围内的地理位置集合
-        GeoResults<GeoLocation<Object>> geoResults = boundGeoOperations.radius(uid, new Distance(distance), geoRadiusArgs); 
-        
-    	return geoResults;
-        
+        return getReactiveRedisTemplate().opsForGeo()
+        		  .radius(USER_GEO_KEY, uid, new Distance(distance), geoRadiusArgs)
+       					.map(geoResult -> mapper.apply(geoResult)); 
     }
-    
-    public <T> List<T> getCircleUsersByDistance(String uid, double distance, Function<GeoResult<GeoLocation<Object>>, T> mapper){
-
-        // 1、根据给定地理位置获取指定范围内的地理位置集合
-        GeoResults<GeoLocation<Object>> geoResults = this.getCircleUsersByDistance(uid, distance); 
-        
-        // 2、解析结果判断
-        List<GeoResult<GeoLocation<Object>>> geoResultList = geoResults.getContent();
-        if (CollectionUtils.isEmpty(geoResultList)) {
-			return new ArrayList<>();
-		}
-    	return geoResultList.stream().map(mapper).collect(Collectors.toList());
-        
-    }
-
-    public GeoResults<GeoLocation<Object>> getCircleUsersByRadius(String uid, double radius){
+    /*
+    public <T> List<T> getCircleUsersByRadius(String uid, double radius, Function<GeoResult<GeoLocation<Object>>, T> mapper){
     	
-    	// 1、根据Uid查询指定Uid对应坐标点指定范围内的用户
+    	
+    	// 1、根据UID查询指定UID对应坐标点指定范围内的用户
         Circle within = new Circle(boundGeoOperations.position(uid).get(0), radius);
         // 1.1、设置geo查询参数
         RedisGeoCommands.GeoRadiusCommandArgs geoRadiusArgs = RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs();
@@ -203,26 +160,20 @@ public class GeoTemplate extends AbstractOperations<String, Object>  {
         geoRadiusArgs = geoRadiusArgs.includeCoordinates().includeDistance();
         // 1.3、按查询出的坐标距离中心坐标的距离进行排序
         geoRadiusArgs.sortAscending();
-        
+        //geoRadiusArgs.limit(limit);
         // 2、执行查询操作
         GeoResults<GeoLocation<Object>> geoResults = boundGeoOperations.radius(within, geoRadiusArgs);
         
-    	return geoResults;
-    }
-    
-    public <T> List<T> getCircleUsersByRadius(String uid, double radius, Function<GeoResult<GeoLocation<Object>>, T> mapper){
-        // 1、执行查询操作
-        GeoResults<GeoLocation<Object>> geoResults = this.getCircleUsersByRadius(uid, radius);
-        // 2、解析结果判断
+        // 3、解析结果判断
         List<GeoResult<GeoLocation<Object>>> geoResultList = geoResults.getContent();
         if (CollectionUtils.isEmpty(geoResultList)) {
 			return new ArrayList<>();
 		}
     	return geoResultList.stream().map(mapper).collect(Collectors.toList());
-    }
+    }*/
     
-    public BoundGeoOperations<String, Object> getBoundGeoOperations() {
-		return boundGeoOperations;
+    public ReactiveRedisTemplate<Object, Object> getReactiveRedisTemplate() {
+		return reactiveRedisTemplate;
 	}
-
+	
 }
