@@ -37,6 +37,13 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	public int setStatus(String id, String status);
 
 	/**
+	 * 查询单条数据
+	 * @param id
+	 * @return
+	 */
+	public T getModel(String id);
+	
+	/**
 	 * 分页查询
 	 * 
 	 * @param t
@@ -52,7 +59,7 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	 * @param t
 	 * @return
 	 */
-	public List<T> getEntityList(T t);
+	public List<T> getModelList(T t);
 
 	/**
 	 * 无分页查询<br>
@@ -65,7 +72,7 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	 * @param key
 	 * @return
 	 */
-	public List<T> getEntityList(String key);
+	public List<T> getModelList(String key);
 
 	/**
 	 * 统计记录数
@@ -101,7 +108,15 @@ public interface IBaseMapperService<T extends Model<?>> extends IService<T> {
 	public int getCountByName(String name, String origin);
 
 	public int getCountByParent(String parent);
-
+	
+	/**
+	 * 
+	 * 通过指定key查询对应的唯一值
+	 * @param key
+	 * @return
+	 */
+	public String getValue(String key);
+	
 	/**
 	 * 通过指定key查询多个值
 	 * 

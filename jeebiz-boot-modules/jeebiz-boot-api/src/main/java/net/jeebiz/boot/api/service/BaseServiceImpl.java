@@ -136,7 +136,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	 * @param id
 	 * @return
 	 */
-	@Transactional(rollbackFor = Exception.class)
+	@Override
 	public T getModel(String id) {
 		return dao.getModel(id);
 	}
@@ -147,7 +147,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	 * @param t
 	 * @return
 	 */
-	@Transactional(rollbackFor = Exception.class)
+	@Override
 	public T getModel(T t) {
 		return dao.getModel(t);
 	}

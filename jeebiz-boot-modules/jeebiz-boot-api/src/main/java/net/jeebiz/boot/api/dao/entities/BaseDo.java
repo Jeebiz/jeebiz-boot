@@ -1,17 +1,13 @@
-/** 
- * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
- */
 package net.jeebiz.boot.api.dao.entities;
+
 
 import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 @SuppressWarnings("serial")
-public class BaseEntity<T extends Model<?>> extends Model<T> implements Cloneable {
+public class BaseDo extends BaseBean {
 
 	/**
 	 * 是否删除 0未删除 1已删除
