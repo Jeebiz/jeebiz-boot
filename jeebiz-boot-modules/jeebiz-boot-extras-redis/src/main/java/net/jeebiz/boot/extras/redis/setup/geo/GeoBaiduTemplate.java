@@ -13,18 +13,20 @@ import com.github.hiwepy.httpconn.HttpConnectionUtils;
 import com.github.hiwepy.httpconn.handler.JSONResponseHandler;
 
 /**
- * 	
- *  
- *  
+ * 	地址获取经纬度： http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
+ *  IP获取经纬度：   http://lbsyun.baidu.com/index.php?title=webapi/ip-api
  */
 public class GeoBaiduTemplate {
 	
-	private static String geocoding = "http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=%s";
-	private static String reverse_geocoding = "http://api.map.baidu.com/reverse_geocoding/v3/?ak=%s&output=json&coordtype=%s&location=%s,%s";
-	private static String location = "http://api.map.baidu.com/location/ip?ak=%s&ip=%s&coor=bd09ll";
-	
-	
+	private static String geocoder = "http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=%s";
+	private static String geocoder2 = "http://api.map.baidu.com/location/ip?ak=%s&ip=%s&coor=bd09ll";
 	private static JSONResponseHandler responseHandler = new JSONResponseHandler();
+	private final String ak;
+	
+	public GeoBaiduTemplate(String ak) {
+		super();
+		this.ak = ak;
+	}
 	
 	/**
 	 * 调用百度API 
@@ -32,10 +34,10 @@ public class GeoBaiduTemplate {
 	 * @return
 	 * @throws IOException 
 	 */
-	public Map<String, BigDecimal> getLatAndLngByAddress(String ak, String addr) throws IOException{
+	public Map<String, BigDecimal> getLatAndLngByAddress(String addr) throws IOException{
         
         // {"message":"APP Referer校验失败","status":220}
-        JSONObject json = this.getLocationByAddress(ak, addr);
+        JSONObject json = this.getLocationByAddress(addr);
         JSONObject result = json.getJSONObject("result");
         JSONObject location = result.getJSONObject("location");
         
@@ -45,22 +47,20 @@ public class GeoBaiduTemplate {
         return map;
 	}
 	
-	
 	/**
-	 * 1、地理编码服务： http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
+	 * 调用百度API 
 	 * @param addr
 	 * @return
 	 * @throws IOException 
 	 */
-	public JSONObject getLocationByAddress(String ak, String addr) throws IOException{
+	public JSONObject getLocationByAddress(String addr) throws IOException{
         String address = "";
         try {  
             address = java.net.URLEncoder.encode(addr,"UTF-8");  
         } catch (UnsupportedEncodingException e1) {  
             e1.printStackTrace();  
         }
-        String url = String.format(geocoding, address, ak);
-        System.out.println(url);
+        String url = String.format(geocoder, address, this.ak);
         // {"message":"APP Referer校验失败","status":220}
         JSONObject json = HttpConnectionUtils.httpRequestWithGet(url, new JSONResponseHandler());
         if(json.getInteger("status") != 0) {
@@ -69,49 +69,11 @@ public class GeoBaiduTemplate {
         return json;
 	}
     
-	/**
-	 * 2、逆地理编码：http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad
-	 * @param ak
-	 * @param lng lng<经度> 
-	 * @param lat lat<纬度>
-	 * @return
-	 */
-	public JSONObject getLocationByGeo(String ak, double lng, double lat) {
-		return this.getLocationByGeo(ak, "wgs84ll", lng, lat);
-	}
-	
-	/**
-	 * 2、逆地理编码：http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad
-	 * @param ak
-	 * @param coordtype 坐标的类型，目前支持的坐标类型包括：bd09ll（百度经纬度坐标）、bd09mc（百度米制坐标）、gcj02ll（国测局经纬度坐标，仅限中国）、wgs84ll（ GPS经纬度） 
-	 * @param lng lng<经度> 
-	 * @param lat lat<纬度>
-	 * @return
-	 */
-	public JSONObject getLocationByGeo(String ak, String coordtype, double lng, double lat) {
-		if (lng == 0 || lat == 0) {
-			throw new IllegalArgumentException ("lng or lat must greater than 0");
-		}
-		try {
-			String url = String.format(reverse_geocoding, ak, coordtype, lat, lng);
-	        System.out.println(url);
-			JSONObject json = HttpConnectionUtils.httpRequestWithGet(url, responseHandler);
-	        if(json.getInteger("status") != 0) {
-	        	throw new IOException(json.getString("message"));
-	        }
-	        return json;
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
    /**
-    * 3、IP获取经纬度：   http://lbsyun.baidu.com/index.php?title=webapi/ip-api
-	* 
-	* {  
+	* 获取指定IP对应的经纬度（为空返回当前机器经纬度）
+	/*
+	 * 
+	 * {  
 		    address: "CN|北京|北京|None|CHINANET|1|None",    #详细地址信息  
 		    content:    #结构信息  
 		    {  
@@ -137,13 +99,13 @@ public class GeoBaiduTemplate {
 	* @param ip
 	* @return
 	*/
-	public JSONObject getLocationByIp(String ak, String ip) {
+	public JSONObject getLocationByIp(String ip) {
 		if (Objects.isNull(ip)) {
 			throw new NullPointerException("ip can not empty");
 		}
 		try {
-			String url = String.format(location, ak, ip);
-	        System.out.println(url);
+			
+			String url = String.format(geocoder2, this.ak, ip);
 	        JSONObject json = HttpConnectionUtils.httpRequestWithGet(url, responseHandler);
 	        if(json.getInteger("status") != 0) {
 	        	throw new IOException(json.getString("message"));
@@ -229,22 +191,15 @@ public class GeoBaiduTemplate {
 	
 	public static void main(String[] args) throws IOException {
 		
-		GeoBaiduTemplate template = new GeoBaiduTemplate();
+		GeoBaiduTemplate template = new GeoBaiduTemplate("");
 		
-		String ak = "你的访问应用（AK）";
-		
-		Map<String, BigDecimal> mapLL = template.getLatAndLngByAddress(ak, "浙江省杭州市西湖区"); // lng：116.86380647644208  lat：38.297615350325717
+		Map<String, BigDecimal> mapLL = template.getLatAndLngByAddress("浙江省杭州市西湖区"); // lng：116.86380647644208  lat：38.297615350325717
 		mapLL.get("lat");
 		mapLL.get("lng");
 		System.out.println("lng："+mapLL.get("lng") + "  lat："+mapLL.get("lat"));
 		
-		JSONObject mapLL2 = template.getLocationByIp(ak, "115.204.225.154"); // lng：116.86380647644208  lat：38.297615350325717
+		JSONObject mapLL2 = template.getLocationByIp("115.204.225.154"); // lng：116.86380647644208  lat：38.297615350325717
 		System.out.println(mapLL2.toJSONString());
-
-		JSONObject mapLL3 = template.getLocationByGeo(ak, "wgs84ll", 120.005488, 30.285870 ); // lng：116.86380647644208  lat：38.297615350325717
-		System.out.println(mapLL3.toJSONString());
-		
-		
 	}
 
 	

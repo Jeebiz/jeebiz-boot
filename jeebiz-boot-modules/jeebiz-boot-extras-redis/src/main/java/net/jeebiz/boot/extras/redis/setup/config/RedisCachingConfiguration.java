@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -13,13 +14,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.connection.MessageListener;
+import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -45,16 +49,6 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 	
 	public final static String MESSAGE_TOPIC = "message.topic";
 	
-	/**
-	 * 选择redis作为默认缓存工具
-	 * 
-	 * @param redisTemplate
-	 * @return
-	 * 
-	 * @Bean public CacheManager cacheManager(RedisTemplate redisTemplate) {
-	 *       RedisCacheManager rcm = new RedisCacheManager(redisTemplate); return
-	 *       rcm; }
-	 */
 	@Bean
 	public Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer() {
 		// 使用Jackson2JsonRedisSerialize 替换默认序列化
@@ -70,7 +64,26 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 
 		return jackson2JsonRedisSerializer;
 	}
-
+	
+	@Bean(name = "reactiveRedisTemplate")
+	@ConditionalOnBean(ReactiveRedisConnectionFactory.class)
+	public ReactiveRedisTemplate<Object, Object> reactiveRedisTemplate(
+			ReactiveRedisConnectionFactory reactiveRedisConnectionFactory,
+			Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer) {
+        
+		RedisSerializationContext<Object, Object> serializationContext = RedisSerializationContext
+				.newSerializationContext()
+				 // 设置value的序列化规则和 key的序列化规则
+				.key(jackson2JsonRedisSerializer)
+				.value(jackson2JsonRedisSerializer)
+				 // 设置hash key 和 hash value序列化模式
+				.hashKey(jackson2JsonRedisSerializer)
+				.hashValue(jackson2JsonRedisSerializer)
+				.build();
+		
+		return new ReactiveRedisTemplate<>(reactiveRedisConnectionFactory, serializationContext);
+	}
+ 
 	/**
 	 * redisTemplate 序列化使用的jdkSerializeable, 存储二进制字节码, 所以自定义序列化类
 	 * 
