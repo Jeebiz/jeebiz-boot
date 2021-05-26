@@ -133,11 +133,6 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
 		</dependency>
-		<!-- For Solr -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-data-solr</artifactId>
-		</dependency>
 		<!-- For Log4j2 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
