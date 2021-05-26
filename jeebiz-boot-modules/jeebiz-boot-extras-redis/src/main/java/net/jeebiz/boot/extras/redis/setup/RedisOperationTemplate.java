@@ -1,6 +1,5 @@
 package net.jeebiz.boot.extras.redis.setup;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
@@ -523,7 +522,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			try (Cursor<byte[]> cursor = redisConnection.scan(ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
 				cursor.forEachRemaining(consumer);
 				return null;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new BizRuntimeException(e.getMessage());
 			}
@@ -1072,7 +1071,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			try (Cursor<Entry<byte[], byte[]>> cursor = redisConnection.hScan(rawHashKey(bigHashKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).build())) {
 				cursor.forEachRemaining(consumer);
 				return null;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new BizRuntimeException(e.getMessage());
 			}
@@ -1084,7 +1083,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			try (Cursor<Entry<byte[], byte[]>> cursor = redisConnection.hScan(rawHashKey(bigHashKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
 				cursor.forEachRemaining(consumer);
 				return null;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new BizRuntimeException(e.getMessage());
 			}
@@ -1468,7 +1467,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			try (Cursor<byte[]> cursor = redisConnection.sScan(rawKey(bigSetKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).build())) {
 				cursor.forEachRemaining(consumer);
 				return null;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new BizRuntimeException(e.getMessage());
 			}
@@ -1480,7 +1479,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			try (Cursor<byte[]> cursor = redisConnection.sScan(rawKey(bigSetKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
 				cursor.forEachRemaining(consumer);
 				return null;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new BizRuntimeException(e.getMessage());
 			}
@@ -1696,7 +1695,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			try (Cursor<Tuple> cursor = redisConnection.zScan(rawKey(bigZsetKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).build())) {
 				cursor.forEachRemaining(consumer);
 				return null;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new BizRuntimeException(e.getMessage());
 			}
@@ -1708,7 +1707,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			try (Cursor<Tuple> cursor = redisConnection.zScan(rawKey(bigZsetKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
 				cursor.forEachRemaining(consumer);
 				return null;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new BizRuntimeException(e.getMessage());
 			}
