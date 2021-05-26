@@ -1,3 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-net.jeebiz.boot.autoconfigure.DefaultMessageSourceAutoConfiguration
+net.jeebiz.boot.autoconfigure.DefaultMessageSourceAutoConfiguration,\
+net.jeebiz.boot.autoconfigure.DefaultSequenceConfiguration
