@@ -255,12 +255,21 @@
 	                            <outputDirectory>target/classes</outputDirectory>
 	                            <resources>
 	                                <resource>
-	                                    <directory>src/main/resources/</directory>
+	                                    <directory>src/main/java</directory>
+	                                    <includes>
+	                                        <include>**/*.xml</include>
+	                                    </includes>
 	                                    <filtering>true</filtering>
 	                                </resource>
 	                                <resource>
-	                                    <directory>src/main/application-${spring.profiles.active}.yml</directory>
-	                                    <filtering>false</filtering>
+	                                    <directory>src/main/resources/</directory>
+	                                    <filtering>true</filtering>
+	                                    <includes>
+	                                        <include>**/*.yml</include>
+	                                        <include>**/*.yaml</include>
+	                                        <include>**/*.xml</include>
+	                                        <include>**/*.properties</include>
+	                                    </includes>
 	                                </resource>
 	                            </resources>
 	                        </configuration>
