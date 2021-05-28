@@ -114,104 +114,16 @@
 			<name>Public Repositories</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
 			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<!--为了加快速度，修改成国内的代理-->
-        <repository>
-            <id>maven2-release</id>
-            <url>http://uk.maven.org/maven2/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>oss-snapshots</id>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <!--快照版本库两个小时检查更新一遍-->
-                <updatePolicy>interval:120</updatePolicy>
-            </snapshots>
-        </repository>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>
-		<repository>
-			<id>sonatype-nexus-releases</id>
-			<name>Sonatype Nexus Releases</name>
-			<url>http://oss.sonatype.org/content/repositories/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-		<repository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</repository>
-		<repository>
-			<id>shibboleth-releases</id>
-			<url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
-		</repository>
-		<repository>
-			<id>pentaho</id>
-			<name>Pentaho Repository</name>
-			<url>https://public.nexus.pentaho.org/content/groups/omni/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories>
-	
 	
 	<pluginRepositories>
 		<pluginRepository>
 			<id>public</id>
 			<name>Public Repositories</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
