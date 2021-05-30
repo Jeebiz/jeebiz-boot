@@ -4,7 +4,6 @@
  */
 package net.jeebiz.boot.api;
 
-import net.jeebiz.boot.api.utils.Constants;
 import net.jeebiz.boot.api.utils.HttpStatus;
 
 /**

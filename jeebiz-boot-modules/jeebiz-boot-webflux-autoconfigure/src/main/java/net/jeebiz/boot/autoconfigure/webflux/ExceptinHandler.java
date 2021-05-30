@@ -12,7 +12,7 @@ import org.apache.logging.log4j.ThreadContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.jeebiz.boot.api.utils.Constants;
+import net.jeebiz.boot.api.Constants;
 
 public abstract class ExceptinHandler {
 
