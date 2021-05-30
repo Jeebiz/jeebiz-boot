@@ -106,8 +106,10 @@ public interface RedisConstant {
 	 * 用户会员权益缓存
 	 */
 	String USER_VIP_INTEREST = "user:vip:interest";
-	
 
+	String USER_PERMS = "user:dbperms";
+	String USER_PERMS_HASH = "user:dbperms:%s:%s";
+		
 	String SET_APPS = "user:apps";
 
 	String DBMATA_CATALOG = "dbmata:catalog";
