@@ -16,7 +16,7 @@
 		　　	%l   输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java: 10 ) 
 		-->
 		<!-- 定义LOG存储位置 -->
-		<Property name="LOG_HOME">./logs</Property>
+		<Property name="LOG_HOME">/logs</Property>
 		<!-- 定义应用名称 -->
         <property name="APP_NAME">jeebiz-sample</property>
 		<!-- 日志输出格式:什么时间（日志时间）?什么应用（应用标记）?什么位置（线程、类、方法）?发送了什么（日志内容）? -->
@@ -24,18 +24,18 @@
 		<Property name="LOG_CONSOLE_LAYOUT2">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{[${APP_NAME}]}{red} [%clr{%p} %clr{${sys:PID}}{magenta}] %clr{---}{faint} %clr{[%t]}{faint} %clr{[%C:%M:%L]}{cyan} %clr{:}{faint} %m%n%xwEx</Property>
 		<Property name="LOG_FILE_LAYOUT">%d{yyyy-MM-dd HH:mm:ss.SSS} [${APP_NAME}] %p ${sys:PID} --- [%t] [%C:%M:%L] : %m%n%xwEx</Property>
 		<!-- 日志文件主名称规则 -->
-		<Property name="DEBUG_FILE_NAME">${LOG_HOME}/${APP_NAME}/debug.log</Property>
-		<Property name="INFO_FILE_NAME">${LOG_HOME}/${APP_NAME}/info.log</Property>
-		<Property name="WARN_FILE_NAME">${LOG_HOME}/${APP_NAME}/warn.log</Property>
-		<Property name="ERROR_FILE_NAME">${LOG_HOME}/${APP_NAME}/error.log</Property>
-		<Property name="DRUID_FILE_NAME">${LOG_HOME}/${APP_NAME}/druid-sql.log</Property>
+		<Property name="DEBUG_FILE_NAME">${LOG_HOME}/debug.log</Property>
+		<Property name="INFO_FILE_NAME">${LOG_HOME}/info.log</Property>
+		<Property name="WARN_FILE_NAME">${LOG_HOME}/warn.log</Property>
+		<Property name="ERROR_FILE_NAME">${LOG_HOME}/error.log</Property>
+		<Property name="DRUID_FILE_NAME">${LOG_HOME}/druid-sql.log</Property>
 		<!-- 日志文件备份名称规则 -->
-		<Property name="LOG_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/${APP_NAME}-%d{yyyy-MM-dd}-%i.log.gz</Property>
-		<Property name="DEBUG_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/debug-%d{yyyy-MM-dd}-%i.log.gz</Property>
-		<Property name="INFO_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log.gz</Property>
-		<Property name="WARN_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log.gz</Property>
-		<Property name="ERROR_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log.gz</Property>
-		<Property name="DRUID_FILE_PATTERN">${LOG_HOME}/${APP_NAME}/$${date:yyyy-MM}/druid-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="LOG_FILE_PATTERN">${LOG_HOME}/$${date:yyyy-MM}/${APP_NAME}-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="DEBUG_FILE_PATTERN">${LOG_HOME}/$${date:yyyy-MM}/debug-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="INFO_FILE_PATTERN">${LOG_HOME}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="WARN_FILE_PATTERN">${LOG_HOME}/$${date:yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="ERROR_FILE_PATTERN">${LOG_HOME}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log.gz</Property>
+		<Property name="DRUID_FILE_PATTERN">${LOG_HOME}/$${date:yyyy-MM}/druid-%d{yyyy-MM-dd}-%i.log.gz</Property>
 	</Properties>
 	
 	<!--先定义所有的appender-->
@@ -44,8 +44,8 @@
 		<!-- 控制台日志输出配置 -->
 		<Console name="Console" target="SYSTEM_OUT">
 			<!--只接受程序中DEBUG级别的日志进行处理-->
-            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
-			<PatternLayout pattern="${LOG_CONSOLE_LAYOUT}" />
+            <!-- <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/> -->
+			<PatternLayout pattern="${LOG_CONSOLE_LAYOUT2}" />
 			<!-- <PatternLayout pattern="[%d{HH:mm:ss.SSS}] %-5level %class{36} %L %M - %msg%xEx%n"/> -->
 		</Console>
 		
@@ -138,8 +138,7 @@
 			#INFO 为一般要显示的信息，比如登录登出
 			#DEBUG 为程序的调试信息
 		 -->
-        <Root level="DEBUG" includeLocation="true">  
-            <AppenderRef ref="Console" /> 
+        <Root level="DEBUG" includeLocation="true">   
             <AppenderRef ref="RollingFileDebug"/>
             <AppenderRef ref="RollingFileInfo"/>
             <AppenderRef ref="RollingFileWarn"/>
@@ -147,46 +146,71 @@
         </Root>
         
         <!--记录druid-sql-->
-		<logger name="druid.sql.Statement" level="debug" additivity="false">
+		<logger name="druid.sql.Statement" level="DEBUG" additivity="true">
             <AppenderRef ref="RollingFileDruidSql"/>
         </logger>
         
-        <!-- 框架、依赖组件日志过滤-->
-		<Logger name="com.mongodb" level="WARN" additivity="false"/>    
-		<Logger name="com.opensymphony.xwork2" level="WARN" additivity="false"/>
-		<Logger name="java.sql" level="DEBUG" additivity="false"/>  
-		<Logger name="java.sql.Connection" level="WARN" additivity="false"/>  
-        <Logger name="java.sql.Statement" level="WARN" additivity="false"/>  
-		<Logger name="java.sql.PreparedStatement" level="WARN" additivity="false"/>  
-		<Logger name="java.sql.ResultSet" level="WARN" additivity="false"/>  
-        <Logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR" />
-        <Logger name="org.apache.catalina.util.LifecycleBase" level="ERROR" />
-        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN" />
-        <Logger name="org.apache.ibatis" level="DEBUG" additivity="false"/>  
-		<Logger name="org.apache.ibatis.jdbc.ScriptRunner" level="DEBUG" additivity="false"/>  
-		<Logger name="org.apache.rocketmq" level="WARN" additivity="false"/>  
+        <!-- 框架、依赖组件日志过滤 -->
+		<Logger name="com.alibaba.druid" level="ERROR" additivity="true"/>
+		<Logger name="com.alibaba.nacos" level="ERROR" additivity="true"/>
+		<Logger name="com.baomidou.mybatisplus" level="WARN" additivity="true"/>   
+        <Logger name="com.github.dozermapper" level="ERROR" additivity="true"/>
+		<Logger name="com.mongodb" level="WARN" additivity="true"/>   
+		<Logger name="com.netflix" level="WARN" additivity="true"/> 
+		<Logger name="com.opensymphony.xwork2" level="WARN" additivity="true"/>
+		<Logger name="com.zaxxer.hikari" level="WARN" additivity="true"/>
+		<Logger name="de.codecentric.boot" level="WARN" additivity="true"/>
+		<Logger name="io.lettuce" level="WARN" additivity="true"/>
+		<Logger name="io.undertow" level="WARN" additivity="true"/>
+        <Logger name="io.netty" level="WARN" additivity="true"/>
+		<Logger name="net.sf.ehcache" level="WARN" additivity="true"/>
+		<Logger name="java.sql" level="INFO" additivity="true"/>  
+		<Logger name="java.sql.Connection" level="WARN" additivity="true"/>  
+        <Logger name="java.sql.Statement" level="WARN" additivity="true"/>  
+		<Logger name="java.sql.PreparedStatement" level="WARN" additivity="true"/>  
+		<Logger name="java.sql.ResultSet" level="WARN" additivity="true"/>  
+        <Logger name="org.apache.commons" level="ERROR" additivity="true"/>
+        <Logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR" additivity="true"/>
+        <Logger name="org.apache.catalina.util.LifecycleBase" level="ERROR" additivity="true"/>
+        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN" additivity="true"/>
+        <Logger name="org.apache.http" level="WARN" additivity="true" />
+        <Logger name="org.apache.shiro" level="WARN" additivity="true" />
+        <Logger name="org.apache.ibatis" level="INFO" additivity="true"/>  
+		<Logger name="org.apache.ibatis.jdbc.ScriptRunner" level="INFO" additivity="true"/>  
+		<Logger name="org.apache.rocketmq" level="WARN" additivity="true"/>  
         <logger name="org.apache.sshd.common.util.SecurityUtils" level="WARN"/>
-		<Logger name="org.apache.struts2" level="WARN" additivity="false"/>  
-        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN" />
-        <Logger name="org.dozer" level="WARN" additivity="false"/>  
-        <Logger name="org.crsh.plugin" level="WARN" />
-        <logger name="org.crsh.ssh" level="WARN"/>
-        <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="ERROR" />
-        <Logger name="org.flywaydb" level="WARN" additivity="false"/>  
-        <Logger name="org.hibernate.validator.internal.util.Version" level="WARN" />
-		<Logger name="org.mybatis" level="WARN" additivity="false"/>  
-		<Logger name="org.springframework" level="WARN" additivity="false"/>  
-        <Logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="WARN"/>
-        <Logger name="org.springframework.boot.actuate.endpoint.jmx" level="WARN"/>
-        <Logger name="org.thymeleaf" level="WARN"/>
-        <Logger name="RocketmqClient" level="WARN" additivity="false"/>  
-        <Logger name="springfox" level="WARN" additivity="false"/>  
+		<Logger name="org.apache.struts2" level="WARN" additivity="true"/>  
+        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN" additivity="true"/>
+        <Logger name="org.dozer" level="WARN" additivity="true"/>  
+        <Logger name="org.crsh.plugin" level="WARN" additivity="true" />
+        <logger name="org.crsh.ssh" level="WARN" additivity="true"/>
+        <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="ERROR" additivity="true" />
+        <Logger name="org.flywaydb" level="WARN" additivity="true"/>  
+        <Logger name="org.hibernate.validator" level="WARN" additivity="true" />
+		<Logger name="org.mybatis" level="WARN" additivity="true"/>
+		<Logger name="org.pac4j" level="WARN" additivity="true"/>
+		<Logger name="org.quartz" level="WARN" additivity="true"/> 
+		<Logger name="org.redisson" level="WARN" additivity="true"/>  
+		<Logger name="org.springframework" level="WARN" additivity="true"/>
+		<Logger name="org.springframework.data.redis" level="WARN" additivity="true"/>  
+		<Logger name="org.springframework.security" level="WARN" additivity="true"/>  
+        <Logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="WARN" additivity="true"/>
+        <Logger name="org.springframework.boot.actuate.endpoint.jmx" level="WARN" additivity="true"/>
+        <Logger name="org.thymeleaf" level="WARN" additivity="true"/>
+        <Logger name="org.xnio" level="WARN" additivity="true"/>
+        <Logger name="net.bull.javamelody" level="WARN" additivity="true"/>
+        <Logger name="net.oschina" level="WARN" additivity="true"/>
+        <Logger name="reactor" level="WARN" additivity="true"/> 
+        <Logger name="RocketmqClient" level="WARN" additivity="true"/>  
+        <Logger name="springfox" level="WARN" additivity="true"/>    
          
         <!--log4j2 自带过滤日志-->
         
 		<!-- 应用系统日志过滤 -->
-		<Logger name="net.jeebiz" level="DEBUG" additivity="false"/>
-        <Logger name="[Mybatis]net.jeebiz" level="DEBUG" additivity="false"/>  
+		<Logger name="com.kding" level="DEBUG" additivity="true"/>
+		<Logger name="com.kding.authz" level="DEBUG" additivity="true"/>
+		<Logger name="com.kding.biz" level="DEBUG" additivity="true"/>
+        <Logger name="[Mybatis]com.kding" level="DEBUG" additivity="true"/>
 
 	</Loggers>
 </Configuration>
