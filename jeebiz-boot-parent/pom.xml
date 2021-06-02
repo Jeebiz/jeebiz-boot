@@ -241,6 +241,7 @@
 						<encoding>${project.build.sourceEncoding}</encoding>
 						<nonFilteredFileExtensions>
 							 <nonFilteredFileExtension>publicKeys.store</nonFilteredFileExtension>
+							 <nonFilteredFileExtension>sql</nonFilteredFileExtension>
 						</nonFilteredFileExtensions>
 					</configuration>
 					<!-- 配置文件变量替换 -->
@@ -258,18 +259,13 @@
 	                                    <directory>src/main/java</directory>
 	                                    <includes>
 	                                        <include>**/*.xml</include>
+	                                        <include>**/*.properties</include>
 	                                    </includes>
 	                                    <filtering>true</filtering>
 	                                </resource>
 	                                <resource>
 	                                    <directory>src/main/resources/</directory>
 	                                    <filtering>true</filtering>
-	                                    <includes>
-	                                        <include>**/*.yml</include>
-	                                        <include>**/*.yaml</include>
-	                                        <include>**/*.xml</include>
-	                                        <include>**/*.properties</include>
-	                                    </includes>
 	                                </resource>
 	                            </resources>
 	                        </configuration>
