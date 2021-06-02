@@ -239,6 +239,10 @@
 					<configuration>
 						<!-- 字符集编码 -->
 						<encoding>${project.build.sourceEncoding}</encoding>
+						<nonFilteredFileExtensions>
+							 <nonFilteredFileExtension>publicKeys.store</nonFilteredFileExtension>
+							 <nonFilteredFileExtension>sql</nonFilteredFileExtension>
+						</nonFilteredFileExtensions>
 					</configuration>
 					<!-- 配置文件变量替换 -->
 					<executions>
