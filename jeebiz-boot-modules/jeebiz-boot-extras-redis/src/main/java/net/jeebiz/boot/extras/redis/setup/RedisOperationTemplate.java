@@ -2077,5 +2077,16 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    		}, this.valueSerializer());
    		return result;
    	}
+   	
+	public List<Object> batchGetUserInfo(String... uids) {
+   		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+   			Stream.of(uids).forEach(uid -> {
+   				String hashKey = RedisKey.USER_INFO.getFunction().apply(uid);
+   				connection.hGetAll(rawKey(hashKey));
+   			});
+   			return null;
+   		}, this.valueSerializer());
+   		return result;
+   	}
 	
 }

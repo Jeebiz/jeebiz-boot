@@ -2,7 +2,10 @@ package net.jeebiz.boot.extras.redis.setup;
 
 public interface RedisKeyConstant {
 	
-	static String DELIMITER = ":";
+	String DELIMITER = ":";
+	String YYYYMMDD = "yyyyMMdd";
+	String YYYYMM = "yyyyMM";
+	String YYYY = "yyyy";
 	
 	/**
 	 * 用户token过期时间
