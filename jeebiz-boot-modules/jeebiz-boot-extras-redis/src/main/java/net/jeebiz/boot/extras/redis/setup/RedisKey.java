@@ -38,6 +38,20 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
+	 * redis 我关注的用户 
+	 */
+	USER_FOLLOW("我关注的用户", (userId)->{
+		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_FOLLOW_KEY, userId).getMessage();
+		return RedisKeyConstant.getKeyStr(keyStr);
+    }),
+	/**
+	 * redis 关注我的用户
+	 */
+	USER_FOLLOWERS("关注我的用户", (userId)->{
+		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_FOLLOWERS_KEY, userId).getMessage();
+		return RedisKeyConstant.getKeyStr(keyStr);
+    }),
+	/**
 	 * redis 用户信息
 	 */
 	USER_INFO("用户信息", (userId)->{

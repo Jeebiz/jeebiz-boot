@@ -62,6 +62,14 @@ public interface RedisKeyConstant {
 	 */
 	String USER_BLACKLIST_KEY = "user:{}:blacklist";
 	/**
+	 * redis 我关注的用户缓存
+	 */
+	String USER_FOLLOW_KEY = "user:{}:follow";
+	/**
+	 * redis 关注我的用户缓存
+	 */
+	String USER_FOLLOWERS_KEY = "user:{}:followers";
+	/**
 	 * redis 用户信息前缀
 	 */
 	String USER_INFO_KEY = "user:{}:info";
