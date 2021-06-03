@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.jeebiz.boot.api.annotation.RedisTopic;
 import net.jeebiz.boot.api.utils.CollectionUtils;
 import net.jeebiz.boot.api.utils.StringUtils;
-import net.jeebiz.boot.extras.redis.setup.RedisKeyGenerator;
+import net.jeebiz.boot.extras.redis.setup.RedisKey;
 import net.jeebiz.boot.extras.redis.setup.RedisOperationTemplate;
 import net.jeebiz.boot.extras.redis.setup.RedissonOperationTemplate;
 import net.jeebiz.boot.extras.redis.setup.geo.GeoTemplate;
@@ -134,7 +134,7 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 	
 	@Bean
 	public GeoTemplate geoTemplate(RedisTemplate<String, Object> redisTemplate) {
-		return new GeoTemplate(redisTemplate, RedisKeyGenerator.getUserGeoLocation());
+		return new GeoTemplate(redisTemplate, RedisKey.USER_GEO_LOCATION.getFunction().apply(null));
 	}
 
 	/**
