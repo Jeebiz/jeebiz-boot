@@ -22,7 +22,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
 
 import net.jeebiz.boot.extras.redis.setup.AbstractOperations;
-import net.jeebiz.boot.extras.redis.setup.RedisKeyGenerator;
+import net.jeebiz.boot.extras.redis.setup.RedisKey;
 
 
 public class GeoTemplate extends AbstractOperations<String, Object>  {
@@ -35,7 +35,7 @@ public class GeoTemplate extends AbstractOperations<String, Object>  {
 	
 	public GeoTemplate(RedisTemplate<String, Object> redisTemplate) {
 		super(redisTemplate);
-		this.boundGeoOperations = redisTemplate.boundGeoOps(RedisKeyGenerator.getUserGeoLocation());
+		this.boundGeoOperations = redisTemplate.boundGeoOps(RedisKey.USER_GEO_LOCATION.getFunction().apply(null));
 	}
 
 	public GeoTemplate(RedisTemplate<String, Object> redisTemplate, String geoKey) {

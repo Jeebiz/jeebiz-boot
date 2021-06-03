@@ -13,12 +13,12 @@ import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.connection.RedisGeoCommands.GeoLocation;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 
-import net.jeebiz.boot.extras.redis.setup.RedisKeyGenerator;
+import net.jeebiz.boot.extras.redis.setup.RedisKey;
 import reactor.core.publisher.Flux;
 
 public class ReactiveGeoTemplate {
 
-	private final static String USER_GEO_KEY = RedisKeyGenerator.getUserGeoLocation();
+	private final static String USER_GEO_KEY = RedisKey.USER_GEO_LOCATION.getFunction().apply(null);
 	private ReactiveRedisTemplate<Object, Object> reactiveRedisTemplate;
 	
 	public ReactiveGeoTemplate() {

@@ -334,7 +334,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public List<Object> mGet(Collection<Object> keys, String redisPrefix) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
-				connection.get(rawKey(RedisKeyGenerator.getKeyStr(redisPrefix, key.toString())));
+				connection.get(rawKey(RedisKeyConstant.getKeyStr(redisPrefix, key.toString())));
 			});
 			return null;
 		}, this.valueSerializer());
@@ -953,7 +953,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public List<Object> hGet(Collection<Object> keys, String redisPrefix) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
-				String hashKey = RedisKeyGenerator.getKeyStr(redisPrefix, key.toString());
+				String hashKey = RedisKeyConstant.getKeyStr(redisPrefix, key.toString());
 				connection.hGetAll(rawKey(hashKey));
 			});
 			return null;
@@ -964,7 +964,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public List<Object> hGet(Collection<Object> keys, String redisPrefix, String redisField) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
-				String hashKey = RedisKeyGenerator.getKeyStr(redisPrefix, key.toString());
+				String hashKey = RedisKeyConstant.getKeyStr(redisPrefix, key.toString());
 				connection.hGet(rawKey(hashKey), rawHashKey(redisField));
 			});
 			return null;
@@ -2070,7 +2070,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    	public List<Object> batchGetUserInfo(Collection<String> uids) {
    		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
    			uids.stream().forEach(uid -> {
-   				String hashKey = RedisKeyGenerator.getUserInfoPrefix(uid);
+   				String hashKey = RedisKey.USER_INFO.getFunction().apply(uid);
    				connection.hGetAll(rawKey(hashKey));
    			});
    			return null;
