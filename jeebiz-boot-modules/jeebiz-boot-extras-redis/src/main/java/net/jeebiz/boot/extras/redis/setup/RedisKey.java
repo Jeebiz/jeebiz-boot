@@ -11,9 +11,9 @@ public enum RedisKey {
 	/**
 	 * 用户任务列表
 	 */
-	USER_TASK_DAY("每日任务列表", (userId)->{
+	USER_TASK_DAY("每日任务列表", (userId )->{
 		String prefix = MessageFormatter.format(RedisKeyConstant.USER_TASK_KEY, userId).getMessage();
-		DateTimeFormatter formatter = DateTimeFormatter.BASIC_ISO_DATE;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(RedisKeyConstant.YYYYMMDD);
         return RedisKeyConstant.getKeyStr(prefix, LocalDate.now().format(formatter));
     }),
 	/**
