@@ -52,35 +52,35 @@ public interface RedisKeyConstant {
 	/**
 	 * redis 用户登陆次数
 	 */
-	String USER_LOGIN_AMOUNT_KEY = "user:{}:login:amount";
+	String USER_LOGIN_AMOUNT_KEY = "user:login:amount:{}";
 	/**
 	 * redis 用户 token
 	 */
-	String USER_TOKEN_KEY = "user:{}:token";
+	String USER_TOKEN_KEY = "user:token:{}";
 	/**
 	 * redis 用户黑名单缓存
 	 */
-	String USER_BLACKLIST_KEY = "user:{}:blacklist";
+	String USER_BLACKLIST_KEY = "user:blacklist:{}";
 	/**
 	 * redis 我关注的用户缓存
 	 */
-	String USER_FOLLOW_KEY = "user:{}:follow";
+	String USER_FOLLOW_KEY = "user:follow:{}";
 	/**
 	 * redis 关注我的用户缓存
 	 */
-	String USER_FOLLOWERS_KEY = "user:{}:followers";
+	String USER_FOLLOWERS_KEY = "user:followers:{}";
 	/**
 	 * redis 新关注我的用户缓存
 	 */
-	String USER_NEW_FOLLOWERS_KEY = "user:{}:new:followers";
+	String USER_NEW_FOLLOWERS_KEY = "user:new:followers:{}";
 	/**
 	 * redis 用户信息前缀
 	 */
-	String USER_INFO_KEY = "user:{}:info";
+	String USER_INFO_KEY = "user:info:{}";
 	/**
 	 * redis 用户单点登录状态
 	 */
-	String USER_SSO_STATE_KEY = "user:{}:sso:state";
+	String USER_SSO_STATE_KEY = "user:sso:{}";
 	/**
 	 * 用户坐标缓存
 	 */
@@ -88,23 +88,23 @@ public interface RedisKeyConstant {
 	/**
 	 * 用户任务列表
 	 */
-	String USER_TASK_KEY = "user:{}:task";
+	String USER_TASK_KEY = "user:task:{}";
 	/**
 	 * 用户金币增量缓存
 	 */
-	String USER_COIN_AMOUNT_KEY = "user:{}:coin:amount";
+	String USER_COIN_AMOUNT_KEY = "user:coin:amount:{}";
 	/**
 	 * 用户珍珠增量缓存
 	 */
-	String USER_PEARL_AMOUNT_KEY = "user:{}:pearl:amount";
+	String USER_PEARL_AMOUNT_KEY = "user:pearl:amount:{}";
 	/**
 	 * 用户经验增量缓存
 	 */
-	String USER_EXP_AMOUNT_KEY = "user:{}:exp:amount";
+	String USER_EXP_AMOUNT_KEY = "user:exp:amount:{}";
 	/**
 	 * 用户会员权益缓存
 	 */
-	String USER_RITHTS_KEY = "user:{}:rights";
+	String USER_RITHTS_KEY = "user:rights:{}";
 	
 	public static String getKeyStr(String... args) {
 		StringBuilder tempKey = new StringBuilder("kding");
