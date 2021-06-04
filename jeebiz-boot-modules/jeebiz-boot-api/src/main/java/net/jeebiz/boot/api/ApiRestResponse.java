@@ -49,6 +49,19 @@ public class ApiRestResponse<T> {
         this.data = data;
     }
     
+    protected ApiRestResponse(final CustomApiCode code) {
+		this.code = code.getCode();;
+        this.status = code.getStatus();
+        this.message = code.getReason();
+    }
+    
+    protected ApiRestResponse(final CustomApiCode code, final T data) {
+        this.code = code.getCode();;
+        this.status = code.getStatus();
+        this.message = code.getReason();
+        this.data = data;
+    }
+    
     protected ApiRestResponse(final ApiCode code, final String message, final T data) {
         this.code = code.getCode();;
         this.status = code.getStatus();
@@ -175,6 +188,15 @@ public class ApiRestResponse<T> {
     public static <T> ApiRestResponse<T> of(final int code, final String status, final String message, final T data) {
         return new ApiRestResponse<T>(code, status, message, data);
     }
+    
+    public static <T> ApiRestResponse<T> of(final CustomApiCode code) {
+    	return new ApiRestResponse<T>(code);
+    }
+    
+    public static <T> ApiRestResponse<T> of(final CustomApiCode code, final T data) {
+    	return new ApiRestResponse<T>(code, data);
+    }
+    
 
 	public int getCode() {
 		return code;
