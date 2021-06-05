@@ -562,55 +562,55 @@
 										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
 										<!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
 										<!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
-										<extraArgument>-XX:SurvivorRatio=4</extraArgument>
+										<!-- <extraArgument>-XX:SurvivorRatio=4</extraArgument> -->
 										<!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
-										<extraArgument>-XX:NewRatio=4</extraArgument>
+										<!-- <extraArgument>-XX:NewRatio=4</extraArgument> -->
 										<!-- 设置让大于此阈值的对象直接分配在老年代（只对Serial、ParNew收集器有效），单位为字节 -->
 										<!-- <extraArgument>-XX:PretenureSizeThreadshold=1024</extraArgument> -->
 										<!-- 指定使用G1圾收集器 -->
-										<extraArgument>-XX:+UseG1GC</extraArgument>
+										<!-- <extraArgument>-XX:+UseG1GC</extraArgument> -->
 										<!-- 解锁实验性虚拟机标志 -->
-										<extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument>
-										<extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument>
+										<!-- <extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument> -->
+										<!-- <extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument> -->
 										<!-- 设置的 G1 区域的大小.值是 2 的幂,范围是 1 MB 到 32 MB 之间.目标是根据最小的 Java 堆大小划分出约 2048 个区域. -->
-										<extraArgument>-XX:G1HeapRegionSize=8</extraArgument>
+										<!-- <extraArgument>-XX:G1HeapRegionSize=8</extraArgument> -->
 										<!-- 为所需的最长暂停时间, 设置目标值.默认值是 200 毫秒.如果MaxGCPauseMillis设置的过小,GC就会频繁,吞吐量就会下降.如果MaxGCPauseMillis设置的过大,应用程序暂停时间就会变长.G1的默认暂停时间是200毫秒. -->
-										<extraArgument>-XX:MaxGCPauseMillis=200</extraArgument>
+										<!-- <extraArgument>-XX:MaxGCPauseMillis=200</extraArgument> -->
 										<!-- 设置要用作年轻代大小最小值的堆百分比.默认值是 Java 堆的 5%.这是一个实验性的标志.有关示例,请参见“如何解锁实验性虚拟机标志”.此设置取代了 -XX:DefaultMinNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1NewSizePercent=5</extraArgument>
+										<!-- <extraArgument>-XX:G1NewSizePercent=5</extraArgument> -->
 										<!-- # 设置要用作年轻代大小最大值的堆大小百分比.默认值是 Java 堆的 60%.这是一个实验性的标志.此设置取代了 -XX:DefaultMaxNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument>
+										<!-- <extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument> -->
 										<!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
 										<!-- 设置 STW 工作线程数的值.将 n 的值设置为逻辑处理器的数量 .n 的值与逻辑处理器的数量相同,最多为 8. -->
 										<!-- 如果逻辑处理器不止八个,则将 n 的值设置为逻辑处理器数的 5/8 左右.这适用于大多数情况, 除非是较大的 SPARC 系统,其中 n 的值可以是逻辑处理器数的 5/16 左右. -->
-										<extraArgument>-XX:ParallelGCThreads=8</extraArgument>
+										<!-- <extraArgument>-XX:ParallelGCThreads=8</extraArgument> -->
 										<!-- 设置并行标记的线程数.将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右. -->
-										<extraArgument>-XX:ConcGCThreads=2</extraArgument>
+										<!-- <extraArgument>-XX:ConcGCThreads=2</extraArgument> -->
 										<!-- 设置触发标记周期的 Java 堆占用率阈值.默认占用率是整个 Java 堆的 45%. -->
-										<extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument>
+										<!-- <extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument> -->
 										<!-- 为混合垃圾回收周期中要包括的旧区域设置占用率阈值.默认占用率为 65%.这是一个实验性的标志.此设置取代了 -XX:G1OldCSetRegionLiveThresholdPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument>
+										<!-- <extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument> -->
 										<!-- 设置您愿意浪费的堆百分比.如果可回收百分比小于堆废物百分比,Java HotSpot VM 不会启动混合垃圾回收周期.默认值是 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1HeapWastePercent=10</extraArgument>
+										<!-- <extraArgument>-XX:G1HeapWastePercent=10</extraArgument> -->
 										<!-- 设置标记周期完成后,对存活数据上限为 G1MixedGCLIveThresholdPercent 的旧区域执行混合垃圾回收的目标次数.默认值是 8 次混合垃圾回收.混合回收的目标是要控制在此目标次数以内.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument>
+										<!-- <extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument> -->
 										<!-- 设置混合垃圾回收期间要回收的最大旧区域数.默认值是 Java 堆的 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument>
+										<!-- <extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument> -->
 										<!-- 设置作为空闲空间的预留内存百分比,以降低目标空间溢出的风险.默认值是 10%.增加或减少百分比时,请确保对总的 Java 堆调整相同的量.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1ReservePercent=10</extraArgument>
+										<!-- <extraArgument>-XX:G1ReservePercent=10</extraArgument> -->
 										<!-- 手动开启Java String对象的分割工作,这个是JDK8u20之后新增的参数,主要用于相同String避免重复申请内存,节约Region的使用； -->
-										<extraArgument>-XX:+UseStringDeduplication</extraArgument>
+										<!-- <extraArgument>-XX:+UseStringDeduplication</extraArgument> -->
 										<!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
-										<extraArgument>-XX:-UseGCOverheadLimit</extraArgument>
+										<!-- <extraArgument>-XX:-UseGCOverheadLimit</extraArgument> -->
 										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用， 
 											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率， 
 											减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
-										<extraArgument>-XX:MaxTenuringThreshold=10</extraArgument>
+										<!-- <extraArgument>-XX:MaxTenuringThreshold=10</extraArgument> -->
 										<!-- 取消 内存整理，G1GC 天生优势 --> 
-										<extraArgument>-XX:-ResizePLAB</extraArgument>
+										<!-- <extraArgument>-XX:-ResizePLAB</extraArgument>
 										<extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
 										<extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
-										<extraArgument>-XX:+G1SummarizeConcMark</extraArgument>
+										<extraArgument>-XX:+G1SummarizeConcMark</extraArgument> -->
 										<!-- 开启GC日志，等同于-verbose:gc 表示打开简化的GC日志 -->
 										<extraArgument>-XX:+PrintGC</extraArgument>
 										<!-- 在发生垃圾回收时打印内存回收日志，并在进程退出时输出当前内存各区域分配情况 -->
@@ -734,55 +734,55 @@
 										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
 										<!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
 										<!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
-										<extraArgument>-XX:SurvivorRatio=4</extraArgument>
+										<!-- <extraArgument>-XX:SurvivorRatio=4</extraArgument> -->
 										<!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
-										<extraArgument>-XX:NewRatio=4</extraArgument>
+										<!-- <extraArgument>-XX:NewRatio=4</extraArgument> -->
 										<!-- 设置让大于此阈值的对象直接分配在老年代（只对Serial、ParNew收集器有效），单位为字节 -->
 										<!-- <extraArgument>-XX:PretenureSizeThreadshold=1024</extraArgument> -->
 										<!-- 指定使用G1圾收集器 -->
-										<extraArgument>-XX:+UseG1GC</extraArgument>
+										<!-- <extraArgument>-XX:+UseG1GC</extraArgument> -->
 										<!-- 解锁实验性虚拟机标志 -->
-										<extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument>
-										<extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument>
+										<!-- <extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument> -->
+										<!-- <extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument> -->
 										<!-- 设置的 G1 区域的大小.值是 2 的幂,范围是 1 MB 到 32 MB 之间.目标是根据最小的 Java 堆大小划分出约 2048 个区域. -->
-										<extraArgument>-XX:G1HeapRegionSize=8</extraArgument>
+										<!-- <extraArgument>-XX:G1HeapRegionSize=8</extraArgument> -->
 										<!-- 为所需的最长暂停时间, 设置目标值.默认值是 200 毫秒.如果MaxGCPauseMillis设置的过小,GC就会频繁,吞吐量就会下降.如果MaxGCPauseMillis设置的过大,应用程序暂停时间就会变长.G1的默认暂停时间是200毫秒. -->
-										<extraArgument>-XX:MaxGCPauseMillis=200</extraArgument>
+										<!-- <extraArgument>-XX:MaxGCPauseMillis=200</extraArgument> -->
 										<!-- 设置要用作年轻代大小最小值的堆百分比.默认值是 Java 堆的 5%.这是一个实验性的标志.有关示例,请参见“如何解锁实验性虚拟机标志”.此设置取代了 -XX:DefaultMinNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1NewSizePercent=5</extraArgument>
+										<!-- <extraArgument>-XX:G1NewSizePercent=5</extraArgument> -->
 										<!-- # 设置要用作年轻代大小最大值的堆大小百分比.默认值是 Java 堆的 60%.这是一个实验性的标志.此设置取代了 -XX:DefaultMaxNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument>
+										<!-- <extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument> -->
 										<!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
 										<!-- 设置 STW 工作线程数的值.将 n 的值设置为逻辑处理器的数量 .n 的值与逻辑处理器的数量相同,最多为 8. -->
 										<!-- 如果逻辑处理器不止八个,则将 n 的值设置为逻辑处理器数的 5/8 左右.这适用于大多数情况, 除非是较大的 SPARC 系统,其中 n 的值可以是逻辑处理器数的 5/16 左右. -->
-										<extraArgument>-XX:ParallelGCThreads=10</extraArgument>
+										<!-- <extraArgument>-XX:ParallelGCThreads=10</extraArgument> -->
 										<!-- 设置并行标记的线程数.将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右. -->
-										<extraArgument>-XX:ConcGCThreads=8</extraArgument>
+										<!-- <extraArgument>-XX:ConcGCThreads=8</extraArgument> -->
 										<!-- 设置触发标记周期的 Java 堆占用率阈值.默认占用率是整个 Java 堆的 45%. -->
-										<extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument>
+										<!-- <extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument> -->
 										<!-- 为混合垃圾回收周期中要包括的旧区域设置占用率阈值.默认占用率为 65%.这是一个实验性的标志.此设置取代了 -XX:G1OldCSetRegionLiveThresholdPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument>
+										<!-- <extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument> -->
 										<!-- 设置您愿意浪费的堆百分比.如果可回收百分比小于堆废物百分比,Java HotSpot VM 不会启动混合垃圾回收周期.默认值是 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1HeapWastePercent=10</extraArgument>
+										<!-- <extraArgument>-XX:G1HeapWastePercent=10</extraArgument> -->
 										<!-- 设置标记周期完成后,对存活数据上限为 G1MixedGCLIveThresholdPercent 的旧区域执行混合垃圾回收的目标次数.默认值是 8 次混合垃圾回收.混合回收的目标是要控制在此目标次数以内.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument>
+										<!-- <extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument> -->
 										<!-- 设置混合垃圾回收期间要回收的最大旧区域数.默认值是 Java 堆的 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument>
+										<!-- <extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument> -->
 										<!-- 设置作为空闲空间的预留内存百分比,以降低目标空间溢出的风险.默认值是 10%.增加或减少百分比时,请确保对总的 Java 堆调整相同的量.Java HotSpot VM build 23 中没有此设置. -->
-										<extraArgument>-XX:G1ReservePercent=10</extraArgument>
+										<!-- <extraArgument>-XX:G1ReservePercent=10</extraArgument> -->
 										<!-- 手动开启Java String对象的分割工作,这个是JDK8u20之后新增的参数,主要用于相同String避免重复申请内存,节约Region的使用； -->
-										<extraArgument>-XX:+UseStringDeduplication</extraArgument>
+										<!-- <extraArgument>-XX:+UseStringDeduplication</extraArgument> -->
 										<!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
-										<extraArgument>-XX:-UseGCOverheadLimit</extraArgument>
+										<!-- <extraArgument>-XX:-UseGCOverheadLimit</extraArgument> -->
 										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用， 
 											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率， 
 											减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
-										<extraArgument>-XX:MaxTenuringThreshold=10</extraArgument>
+										<!-- <extraArgument>-XX:MaxTenuringThreshold=10</extraArgument> -->
 										<!-- 取消 内存整理，G1GC 天生优势 --> 
-										<extraArgument>-XX:-ResizePLAB</extraArgument>
+										<!-- <extraArgument>-XX:-ResizePLAB</extraArgument>
 										<extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
 										<extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
-										<extraArgument>-XX:+G1SummarizeConcMark</extraArgument>
+										<extraArgument>-XX:+G1SummarizeConcMark</extraArgument> -->
 										<!-- 开启GC日志，等同于-verbose:gc 表示打开简化的GC日志 -->
 										<extraArgument>-XX:+PrintGC</extraArgument>
 										<!-- 在发生垃圾回收时打印内存回收日志，并在进程退出时输出当前内存各区域分配情况 -->
@@ -858,18 +858,7 @@
 										
 									<copy file="${project.build.directory}/classes/application.yml" 
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-dev.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-local.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-pre.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-prod.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>	
-									<copy file="${project.build.directory}/classes/application-qa.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>									
-									<copy file="${project.build.directory}/classes/application-test.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>
+										
 									<!-- 步骤3、拷贝Java环境变量设置文件 
 									<copy file="${basedir}/runenv/setenv" todir="${appassembler-dir}/${project.artifactId}/bin" />
 									<copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-dir}/${project.artifactId}/bin" />
@@ -934,18 +923,7 @@
 									
 									<copy file="${project.build.directory}/classes/application.yml" 
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-dev.yml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-local.yml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-pre.yml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-prod.yml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-qa.yml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-test.yml" 
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+
 									
 									<!-- 步骤3、拷贝Java环境变量设置文件 
 									<copy file="${basedir}/runenv/setenv" todir="${appassembler-jsw-dir}/${project.artifactId}/bin" />
