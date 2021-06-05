@@ -999,6 +999,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return Maps.newHashMap();
 		}
 	}
+	
 	/**
 	 * 获取hashKey对应的指定键值
 	 * @param key 键
@@ -1544,15 +1545,19 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	// ===============================ZSet=================================
 	
 	public Boolean zAdd(String key, String value, double score) {
-		return getOperations().opsForZSet().add(key, value, score);
+		return getOperations().boundZSetOps(key).add(value, score);
 	}
 
 	public Long zAdd(String key, Set<TypedTuple<Object>> tuples) {
-		return getOperations().opsForZSet().add(key, tuples);
+		return getOperations().boundZSetOps(key).add(tuples);
 	}
 
 	public Long zCard(String key) {
-		return getOperations().opsForZSet().zCard(key);
+		return getOperations().boundZSetOps(key).zCard();
+	}
+	
+	public Boolean zHas(String key, String value) {
+		return getOperations().boundZSetOps(key).score(value) != null;
 	}
 	
 	/**
@@ -1563,7 +1568,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param max
 	 */
 	public Long zCount(String key, double min, double max) {
-		return getOperations().opsForZSet().count(key, min, max);
+		return getOperations().boundZSetOps(key).count(min, max);
 	}
 
 
@@ -1587,17 +1592,16 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	public Double zIncr(String key, String value, double delta) {
-		return getOperations().opsForZSet().incrementScore(key, value, delta);
+		return getOperations().boundZSetOps(key).incrementScore(value, delta);
 	}
 
 	public Double zIncr(String key, String value, double delta, long seconds) {
-		Double result = getOperations().opsForZSet().incrementScore(key, value, delta);
+		Double result = getOperations().boundZSetOps(key).incrementScore(value, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
 		}
 		return result;
 	}
-
 	
 	/**
 	 * 移除zset中的元素
@@ -1606,7 +1610,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param values
 	 */
 	public Long zRem(String key, Object... values) {
-		return getOperations().opsForZSet().remove(key, values);
+		return getOperations().boundZSetOps(key).remove(values);
 	}
 
 	/**
@@ -1617,26 +1621,26 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param max
 	 */
 	public void zRemByScore(String key, double min, double max) {
-		getOperations().opsForZSet().removeRangeByScore(key, min, max);
+		getOperations().boundZSetOps(key).removeRangeByScore(min, max);
 	}
 	
 	public Set<Object> zRange(String key, long start, long end) {
-		return getOperations().opsForZSet().range(key, start, end);
+		return getOperations().boundZSetOps(key).range(start, end);
 	}
 	
 	public Set<Object> zRangeByScore(String key, double min, double max) {
-		return getOperations().opsForZSet().rangeByScore(key, min, max);
+		return getOperations().boundZSetOps(key).rangeByScore(min, max);
 	}
 	
 	public Set<TypedTuple<Object>> zRangeWithScores(String key, long start, long end) {
-		return getOperations().opsForZSet().rangeWithScores(key, start, end);
+		return getOperations().boundZSetOps(key).rangeWithScores(start, end);
 	}
 	
 	/**
 	 * 在min到max范围内倒序获取zset及对应的score
 	 */
 	public Set<TypedTuple<Object>> zRangeByScoreWithScores(String key, double min, double max) {
-		return getOperations().opsForZSet().rangeByScoreWithScores(key, min, max);  
+		return getOperations().boundZSetOps(key).rangeByScoreWithScores(min, max);  
 	}
 
 	/**
@@ -1646,7 +1650,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return {@link Set< Object>}
 	 */
 	public Set<Object> zRevrange(String key, long start, long end) {
-		return getOperations().opsForZSet().reverseRange(key, start, end);
+		return getOperations().boundZSetOps(key).reverseRange(start, end);
 	}
 
 	/**
@@ -1656,7 +1660,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return {@link Set< Long>}
 	 */
 	public Set<Long> zRevrangeForLong(String key, long  start, long end) {
-		Set<Object> objects = getOperations().opsForZSet().reverseRange(key, start, end);
+		Set<Object> objects = getOperations().boundZSetOps(key).reverseRange(start, end);
 		Set<Long> collect = objects.stream().map(object -> Long.valueOf(object.toString()))
 				.collect(Collectors.toCollection(LinkedHashSet::new));
 		return collect;
@@ -1671,7 +1675,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public Set<TypedTuple<Object>> zRevrangeWithScores(String key, long start, long end) {
-		return getOperations().opsForZSet().reverseRangeWithScores(key, start, end);
+		return getOperations().boundZSetOps(key).reverseRangeWithScores(start, end);
 	}
 	
 	/**
@@ -1683,11 +1687,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public Set<TypedTuple<Object>> zRevrangeByScoreWithScores(String key, double min, double max) {
-		return getOperations().opsForZSet().reverseRangeByScoreWithScores(key, min, max);
+		return getOperations().boundZSetOps(key).reverseRangeByScoreWithScores(min, max);
 	}
 
 	public Long zRevRank(String key, Object value) {
-		return getOperations().opsForZSet().reverseRank(key, value);
+		return getOperations().boundZSetOps(key).reverseRank(value);
 	}
 	
 	public void zScan(String bigZsetKey, Consumer<Tuple> consumer) {
@@ -1715,7 +1719,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public Double zScore(String key, Object value) {
-		return getOperations().opsForZSet().score(key, value);
+		return getOperations().boundZSetOps(key).score(value);
 	}
 	
 
@@ -2070,6 +2074,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    	public List<Object> batchGetUserInfo(Collection<String> uids) {
    		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
    			uids.stream().forEach(uid -> {
+   				String hashKey = RedisKey.USER_INFO.getFunction().apply(uid);
+   				connection.hGetAll(rawKey(hashKey));
+   			});
+   			return null;
+   		}, this.valueSerializer());
+   		return result;
+   	}
+	
+	public List<Object> batchGetUserInfo(String... uids) {
+   		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+   			Stream.of(uids).forEach(uid -> {
    				String hashKey = RedisKey.USER_INFO.getFunction().apply(uid);
    				connection.hGetAll(rawKey(hashKey));
    			});
