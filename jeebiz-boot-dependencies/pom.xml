@@ -382,7 +382,7 @@
 		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 		<spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.3</spring-boot-starter-aliyun-schedulerx2.version>
-		<spring-boot-starter-aliyun-ons.version>1.0.9-SNAPSHOT</spring-boot-starter-aliyun-ons.version>
+		<spring-boot-starter-aliyun-ons.version>1.0.9.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-mps.version>1.0.1.RELEASE</spring-boot-starter-aliyun-mps.version>
 		<spring-boot-starter-arcface.version>1.0.2.RELEASE</spring-boot-starter-arcface.version>
@@ -408,7 +408,7 @@
 		<spring-boot-starter-dynamic-datasource.version>3.3.2</spring-boot-starter-dynamic-datasource.version>
 		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
-		<spring-boot-starter-flyway-plus.version>1.0.8.RELEASE</spring-boot-starter-flyway-plus.version>
+		<spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
@@ -471,8 +471,8 @@
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-tencentapi.version>1.0.7-SNAPSHOT</spring-boot-starter-tencentapi.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.2.RELEASE</spring-boot-starter-webflux-swagger2.version>	
-		<spring-boot-starter-webmvc-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webmvc-swagger2.version>
+		<spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>	
+		<spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xxljob.version>1.0.0.RELEASE</spring-boot-starter-xxljob.version>
