@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class RedissonOperationTemplate {
 	
 	private RedissonClient redissonClient;
+	
 	public RedissonOperationTemplate(RedissonClient redissonClient) {
 		this.redissonClient = redissonClient;
 	}
