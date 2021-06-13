@@ -75,7 +75,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 											+ "	end",
 									        Long.class);
 	
-	private static final RedisScript<Long> HINCR_SCRIPT = RedisScript.of(" if redis.call('hget', KEYS[1]) == 1 then  "
+    public static final RedisScript<Long> HINCR_SCRIPT = RedisScript.of(" if redis.call('hget', KEYS[1]) == 1 then  "
 			+ "		local current = redis.call('incr', KEYS[1]); "
 			+ "		if current < 0 then "
 			+ "			redis.call('decr', KEYS[1]) "
@@ -253,6 +253,43 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 				byte[] serValue = rawString(value);
 				return redisConnection.setNX(serKey, serValue);
 			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return false;
+		}
+	}
+	
+	/**
+	 * 1、仅可用于低并发功能，高并发严禁使用此方法
+	 * @param key		并发锁
+	 * @param value		锁key（务必能区别不同线程的请求）
+	 * @param timeout		锁过期时间（单位：毫秒）
+	 * @return
+	 */
+	public boolean setNx(String key, String value, long timeout) {
+		Assert.hasLength(key, "key must not be empty");
+		Assert.hasLength(value, "value must not be empty");
+		try {
+			return redisTemplate.opsForValue().setIfAbsent(key, value, Duration.ofMillis(timeout));
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return false;
+		}
+	}
+	
+	/**
+	 * 2、仅可用于低并发功能，高并发严禁使用此方法
+	 * @param key		并发锁
+	 * @param value		锁key（务必能区别不同线程的请求）
+	 * @param timeout		锁过期时间
+	 * @param unit 			锁过期时间单位
+	 * @return
+	 */
+	public boolean setNx(String key, String value, long timeout, TimeUnit unit) {
+		Assert.hasLength(key, "key must not be empty");
+		Assert.hasLength(value, "value must not be empty");
+		try {
+			return redisTemplate.opsForValue().setIfAbsent(key, value, timeout, unit);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return false;
@@ -1788,23 +1825,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	// ===============================Lock=================================
 	
-	public Long luaIncr(String lockKey, long amount) {
-		Assert.hasLength(lockKey, "lockKey must not be empty");
-		return this.executeLuaScript(INCR_SCRIPT, Collections.singletonList(lockKey), amount);
-	}
-	
-	public boolean tryLock(String lockKey, String requestId, long timeout) {
-		Assert.hasLength(lockKey, "lockKey must not be empty");
-		Assert.hasLength(requestId, "requestId must not be empty");
-		return redisTemplate.opsForValue().setIfAbsent(lockKey, requestId, Duration.ofSeconds(timeout));
-	}
-	
-	public boolean tryLock(String lockKey, String requestId, long timeout, TimeUnit unit) {
-		Assert.hasLength(lockKey, "lockKey must not be empty");
-		Assert.hasLength(requestId, "requestId must not be empty");
-		return redisTemplate.opsForValue().setIfAbsent(lockKey, requestId, timeout, unit);
-	}
-
+	/**
+	 * 1、对指定key来进行加锁逻辑（此锁是全局性的）
+	 * @param lockKey  锁key
+	 * @return
+	 */
 	public boolean tryLock(String lockKey, long expireMillis) {
         try {
 			return redisTemplate.execute((RedisCallback<Boolean>) redisConnection -> {
@@ -1932,6 +1957,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	// ===============================RedisScript=================================
+
+	public Long luaIncr(String lockKey, long amount) {
+		Assert.hasLength(lockKey, "lockKey must not be empty");
+		return this.executeLuaScript(INCR_SCRIPT, Collections.singletonList(lockKey), amount);
+	}
 	
 	/**
 	 * 执行lua脚本
