@@ -243,7 +243,7 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<reactor-bom.version>2020.0.7</reactor-bom.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<redisson.version>3.15.5</redisson.version>
+		<redisson.version>3.15.6</redisson.version>
 		<resilience4j.version>1.7.0</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.8.0</rocketmq-client.version>
