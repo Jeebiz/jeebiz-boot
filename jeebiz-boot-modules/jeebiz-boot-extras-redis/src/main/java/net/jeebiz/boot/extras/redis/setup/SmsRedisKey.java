@@ -60,6 +60,33 @@ public enum SmsRedisKey {
     public String getDesc() {
 		return desc;
 	}
+    
+    /**
+     * 1、获取全名称key
+     * @param key
+     * @return
+     */
+    public String getKey() {
+        return this.function.apply(null, null);
+    }
+    
+    /**
+     * 1、获取全名称key
+     * @param key
+     * @return
+     */
+    public String getKey(String key) {
+        return this.function.apply(key, null);
+    }
+    
+    /**
+     * 2、获取全名称key
+     * @param key
+     * @return
+     */
+    public String getKey(String key, String key2) {
+        return this.function.apply(key, key2);
+    }
 
     public BiFunction<String, String, String> getFunction() {
         return function;
