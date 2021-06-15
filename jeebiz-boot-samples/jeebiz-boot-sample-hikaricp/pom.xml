@@ -120,6 +120,10 @@
 		    <groupId>com.baomidou</groupId>
 		    <artifactId>mybatis-plus-boot-starter</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>org.redisson</groupId>
+		    <artifactId>redisson-mybatis</artifactId>
+		</dependency>
 		<!-- For Flyway -->
 		<dependency>
 			<groupId>com.github.hiwepy</groupId>
