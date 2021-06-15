@@ -1,6 +1,9 @@
 package net.jeebiz.boot.api.utils;
 
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import lombok.extern.slf4j.Slf4j;
@@ -62,6 +65,44 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 		 
 		return remoteAddr;
 	}
+
+	public static boolean isSameSegment(HttpServletRequest request) {
+        String localIp = null;
+        try {
+            localIp = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        String remoteIp = getRemoteAddr(request);
+        log.info("localIp:{},remoteIp:{} url:{}", localIp, remoteIp, request.getRequestURI());
+        int mask = getIpV4Value("255.255.255.0");
+        boolean flag = (mask & getIpV4Value(localIp)) == (mask & getIpV4Value(remoteIp));
+        return flag;
+    }
+	
+	public static int getIpV4Value(String ipOrMask) {
+        byte[] addr = getIpV4Bytes(ipOrMask);
+        int address1 = addr[3] & 0xFF;
+        address1 |= ((addr[2] << 8) & 0xFF00);
+        address1 |= ((addr[1] << 16) & 0xFF0000);
+        address1 |= ((addr[0] << 24) & 0xFF000000);
+        return address1;
+    }
+
+    public static byte[] getIpV4Bytes(String ipOrMask) {
+        try {
+
+            String[] addrs = ipOrMask.split("\\.");
+            int length = addrs.length;
+            byte[] addr = new byte[length];
+            for (int index = 0; index < length; index++) {
+                addr[index] = (byte) (Integer.parseInt(addrs[index]) & 0xff);
+            }
+            return addr;
+        } catch (Exception e) {
+        }
+        return new byte[4];
+    }
 	
 	/**
 	 *  获得请求的客户端信息【ip,port,name】
@@ -74,8 +115,5 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
 		}
 		return new String[] { getRemoteAddr(request), request.getRemotePort() + "", request.getRemoteHost()};
 	}
-	
-	
-	 
 	
 }
