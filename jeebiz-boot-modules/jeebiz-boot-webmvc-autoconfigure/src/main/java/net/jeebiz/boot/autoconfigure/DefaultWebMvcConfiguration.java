@@ -10,7 +10,6 @@ import java.util.Locale;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.biz.context.NestedMessageSource;
-import org.springframework.biz.web.servlet.handler.Log4j2MDCInterceptor;
 import org.springframework.biz.web.servlet.i18n.XHeaderLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -128,9 +127,9 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
 	@Bean
 	public DefaultWebMvcConfigurer defaultWebMvcConfigurer(LocalResourceProperteis localResourceProperteis,
 			ThemeChangeInterceptor themeChangeInterceptor, LocaleChangeInterceptor localeChangeInterceptor,
-			Log4j2MDCInterceptor log4j2mdcInterceptor) {
+			Slf4jMDCInterceptor slf4jMDCInterceptor) {
 		return new DefaultWebMvcConfigurer(localResourceProperteis, themeChangeInterceptor, localeChangeInterceptor,
-				log4j2mdcInterceptor);
+				slf4jMDCInterceptor);
 	}
 
 }
