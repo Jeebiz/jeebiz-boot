@@ -7,7 +7,10 @@ package net.jeebiz.boot.demo;
 import java.net.URL;
 import java.util.Map;
 
+import org.databene.contiperf.PerfTest;
+import org.databene.contiperf.junit.ContiPerfRule;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +34,9 @@ public class DemoApplication_Test {
    @LocalServerPort
    private int port;
    private URL base;
+   
+   @Rule
+   public ContiPerfRule contiPerfRule = new ContiPerfRule();
 
    @Autowired
    private TestRestTemplate restTemplate;
@@ -47,6 +53,7 @@ public class DemoApplication_Test {
     * @throws Exception
     */
    @Test
+   @PerfTest(invocations = 100,threads = 10)
    public void test1() throws Exception {
 
 		Map<String, Object> requestBody = new ImmutableMap.Builder<String, Object>()
