@@ -27,8 +27,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
-import net.jeebiz.boot.autoconfigure.jackson.CustomizeNullJsonSerializer;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
+import net.jeebiz.boot.autoconfigure.jackson.NullObjectJsonSerializer;
 
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 	
@@ -64,8 +64,7 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
                 .withSerializerModifier(new MyBeanSerializerModifier()));
 
         SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
-        serializerProvider.setNullValueSerializer(new CustomizeNullJsonSerializer
-        										.NullObjectJsonSerializer());
+        serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
         
 		converters.add(new MappingJackson2HttpMessageConverter(objectMapper));
 	}

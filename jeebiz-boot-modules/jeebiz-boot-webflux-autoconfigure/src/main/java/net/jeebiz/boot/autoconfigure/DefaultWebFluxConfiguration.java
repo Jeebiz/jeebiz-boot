@@ -23,8 +23,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
-import net.jeebiz.boot.autoconfigure.jackson.CustomizeNullJsonSerializer;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
+import net.jeebiz.boot.autoconfigure.jackson.NullObjectJsonSerializer;
 import net.jeebiz.boot.autoconfigure.webflux.DefaultExceptinHandler;
 
 @Configuration
@@ -69,8 +69,7 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
                 .withSerializerModifier(new MyBeanSerializerModifier()));
 
         SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
-        serializerProvider.setNullValueSerializer(new CustomizeNullJsonSerializer
-        										.NullObjectJsonSerializer());
+        serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
 		
         return new MappingJackson2HttpMessageConverter(objectMapper);
     }
