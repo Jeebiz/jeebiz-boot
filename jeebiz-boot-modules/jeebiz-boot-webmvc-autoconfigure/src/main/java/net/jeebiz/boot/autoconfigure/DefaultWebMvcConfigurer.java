@@ -9,7 +9,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.springframework.biz.web.servlet.handler.Log4j2MDCInterceptor;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -25,6 +24,7 @@ import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.jeebiz.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 
@@ -35,17 +35,17 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
     
 	private ThemeChangeInterceptor themeChangeInterceptor;
 	private LocaleChangeInterceptor localeChangeInterceptor;
-	private Log4j2MDCInterceptor log4j2MDCInterceptor;
+	private Slf4jMDCInterceptor slf4jMDCInterceptor;
     private LocalResourceProperteis localResourceProperteis;
     
     public DefaultWebMvcConfigurer(LocalResourceProperteis localResourceProperteis,
 			ThemeChangeInterceptor themeChangeInterceptor, LocaleChangeInterceptor localeChangeInterceptor,
-			Log4j2MDCInterceptor log4j2mdcInterceptor) {
+			Slf4jMDCInterceptor slf4jMDCInterceptor) {
 		super();
 		this.localResourceProperteis = localResourceProperteis;
 		this.themeChangeInterceptor = themeChangeInterceptor;
 		this.localeChangeInterceptor = localeChangeInterceptor;
-		log4j2MDCInterceptor = log4j2mdcInterceptor;
+		this.slf4jMDCInterceptor = slf4jMDCInterceptor;
 	}
 	
     @Override
@@ -69,7 +69,7 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
     
     @Override
 	public void addInterceptors(InterceptorRegistry registry) {
-    	registry.addInterceptor(log4j2MDCInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE);
+    	registry.addInterceptor(slf4jMDCInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE);
 		registry.addInterceptor(themeChangeInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE + 1);
 		registry.addInterceptor(localeChangeInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE + 2);
 	}
