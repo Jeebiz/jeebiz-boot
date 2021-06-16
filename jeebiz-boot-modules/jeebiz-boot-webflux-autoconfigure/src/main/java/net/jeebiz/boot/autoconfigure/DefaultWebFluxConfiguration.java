@@ -29,10 +29,8 @@ import org.springframework.web.server.i18n.AcceptHeaderLocaleContextResolver;
 import org.springframework.web.server.i18n.LocaleContextResolver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializerProvider;
 
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
-import net.jeebiz.boot.autoconfigure.jackson.CustomizeNullJsonSerializer;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 import net.jeebiz.boot.autoconfigure.webflux.DefaultExceptinHandler;
 import net.jeebiz.boot.autoconfigure.webflux.GlobalErrorWebExceptionHandler;
@@ -91,9 +89,8 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
         objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
                 .withSerializerModifier(new MyBeanSerializerModifier()));
 
-        SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
-        serializerProvider.setNullValueSerializer(new CustomizeNullJsonSerializer
-        										.NullObjectJsonSerializer());
+        //SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
+        //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
 		
         return new MappingJackson2HttpMessageConverter(objectMapper);
     }
