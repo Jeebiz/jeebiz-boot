@@ -8,9 +8,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.ThreadContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
@@ -29,7 +29,7 @@ public abstract class ExceptinHandler {
     }
 	
 	protected void logException(Exception ex) {
-		LOG.error(bizExcpMarker, ex.getMessage());
+		LOG.error(bizExcpMarker, ex.getMessage(), ex);
 	}
 
 	protected void logException(Exception ex, Map<String, Object> detailMap) {
@@ -37,7 +37,7 @@ public abstract class ExceptinHandler {
 		for (final Map.Entry<String, Object> entry : detailMap.entrySet()) {
 			Object val = entry.getValue();
 			if (val instanceof String) {
-				ThreadContext.put(entry.getKey(), String.valueOf(entry.getValue()));
+				MDC.put(entry.getKey(), String.valueOf(entry.getValue()));
 			}
 		}
 
@@ -46,10 +46,10 @@ public abstract class ExceptinHandler {
 
 	protected void logException(Exception ex, String code) {
 
-		ThreadContext.put("clazz", ex.getClass().getName());
-		ThreadContext.put("type", ex.getClass().getSimpleName());
-		ThreadContext.put("code", code);
-		ThreadContext.put("msg", ex.getClass().getSimpleName());
+		MDC.put("clazz", ex.getClass().getName());
+		MDC.put("type", ex.getClass().getSimpleName());
+		MDC.put("code", code);
+		MDC.put("msg", ex.getClass().getSimpleName());
 
 		// 自身类.class.isAssignableFrom(自身类或子类.class)
 		// Exception.class.isAssignableFrom(ex.getClass())

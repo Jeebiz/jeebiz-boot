@@ -16,7 +16,11 @@ import net.jeebiz.boot.api.sequence.Sequence;
 
 public class Slf4jMDCInterceptor implements HandlerInterceptor {
 
-	private final Sequence sequence = new Sequence(0);
+	private final Sequence sequence;
+	
+	public Slf4jMDCInterceptor(Sequence sequence) {
+		this.sequence = sequence;
+	}
 	
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 

@@ -24,11 +24,9 @@ import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializerProvider;
 
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
-import net.jeebiz.boot.autoconfigure.jackson.NullObjectJsonSerializer;
 
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 	
@@ -63,8 +61,8 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
         objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
                 .withSerializerModifier(new MyBeanSerializerModifier()));
 
-        SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
-        serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
+        //SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
+        //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
         
 		converters.add(new MappingJackson2HttpMessageConverter(objectMapper));
 	}

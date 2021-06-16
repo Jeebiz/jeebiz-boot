@@ -16,7 +16,6 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 @Component
 public class GlobalErrorAttributes extends DefaultErrorAttributes {
 
-    @Override
     public Map<String, Object> getErrorAttributes(ServerRequest request, boolean includeStackTrace) {
         return assembleError(request);
     }
