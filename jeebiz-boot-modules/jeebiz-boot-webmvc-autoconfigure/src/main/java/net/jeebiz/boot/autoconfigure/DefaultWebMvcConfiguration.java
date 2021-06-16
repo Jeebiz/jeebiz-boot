@@ -8,32 +8,32 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.web.servlet.handler.Log4j2MDCInterceptor;
-import org.springframework.biz.web.servlet.i18n.NestedLocaleResolver;
+import org.springframework.biz.web.servlet.i18n.XHeaderLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Role;
 import org.springframework.ui.context.support.ResourceBundleThemeSource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.filter.RequestContextFilter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ThemeResolver;
 import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
-import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.theme.CookieThemeResolver;
 import org.springframework.web.servlet.theme.SessionThemeResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
+import net.jeebiz.boot.api.sequence.Sequence;
+import net.jeebiz.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 
 @Configuration
@@ -63,59 +63,24 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
     	return localeChangeInterceptor;
     }
     
-   @Bean
-   public LocaleResolver localeResolver() {
+    @Bean
+    public LocaleResolver localeResolver() {
     	
-    	NestedLocaleResolver nestedLocaleResolver = new NestedLocaleResolver();
-    	
-    	nestedLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-    	
-    	List<LocaleResolver> resolvers = new LinkedList<LocaleResolver>();
-    	
-    	AcceptHeaderLocaleResolver headerLocaleResolver = new AcceptHeaderLocaleResolver() {
-    		
-    		@Override
-    		public void setLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
-    			super.setLocale(request, response, locale);
-    			LocaleContextHolder.setLocale(locale);
-    		}
-    		
-    	};
-    	headerLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-        resolvers.add(headerLocaleResolver);
+    	XHeaderLocaleResolver xheaderLocaleResolver = new XHeaderLocaleResolver();
+        xheaderLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
         
-    	SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver(){
-    		
-    		@Override
-    		public void setLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
-    			super.setLocale(request, response, locale);
-    			LocaleContextHolder.setLocale(locale);
-    		}
-    		
-    	};
-    	sessionLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-    	resolvers.add(sessionLocaleResolver);
-    	
-        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver(){
-    		
-    		@Override
-    		public void setLocale(HttpServletRequest request, HttpServletResponse response, Locale locale) {
-    			super.setLocale(request, response, locale);
-    			LocaleContextHolder.setLocale(locale);
-    		}
-    		
-    	};
-        cookieLocaleResolver.setCookieName("lang");
-        cookieLocaleResolver.setCookieMaxAge(-1);
-        cookieLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-        resolvers.add(cookieLocaleResolver);
-        
-        
-        nestedLocaleResolver.setResolvers(resolvers);
-        
-        return nestedLocaleResolver;
+        return xheaderLocaleResolver;
     }
-
+   
+   	@Bean
+	@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+	@Primary
+	public LocalValidatorFactoryBean mvcValidator(NestedMessageSource messageSource) {
+		LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
+		factoryBean.setValidationMessageSource(messageSource);
+		return factoryBean;
+	}
+   	
     /*###########Spring MVC 主题支持########### */
 	/*参考 ： http://blog.csdn.net/wutbiao/article/details/7450281 */
 	
@@ -155,9 +120,9 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
     	return nestedThemeResolver;
     }
 
-	@Bean
-	public Log4j2MDCInterceptor log4j2MDCInterceptor() {
-		return new Log4j2MDCInterceptor();
+    @Bean
+	public Slf4jMDCInterceptor slf4jMDCInterceptor(Sequence sequence) {
+		return new Slf4jMDCInterceptor(sequence);
 	}
 	
 	@Bean

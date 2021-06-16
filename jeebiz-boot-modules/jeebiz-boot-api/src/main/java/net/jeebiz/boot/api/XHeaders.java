@@ -11,6 +11,7 @@ public class XHeaders {
 	 * JWT Token
 	 */
 	public static final String X_AUTHORIZATION = "X-Authorization";
+
 	/**
 	 * 经度
 	 */
@@ -31,6 +32,7 @@ public class XHeaders {
 	 * 最新定位区
 	 */
 	public static final String X_AREA = "X-Area";
+
 	/**
 	 * 国际化（zh_CN：简体中文、zh_TW：繁体中文、en_US：英语）
 	 */
@@ -55,10 +57,6 @@ public class XHeaders {
 	 * 客户端应用版本号
 	 */
 	public static final String X_APP_VERSION = "X-APP-VERSION";
-	/**
-	 * 接口请求来源（用于行为统计）
-	 */
-	public static final String X_REFERRER = "X-Referrer";
 	/**
 	 * 客户端设备唯一标识
 	 */
@@ -87,6 +85,18 @@ public class XHeaders {
 	 * 客户端设备型号
 	 */
 	public static final String X_DEVICE_MODEL = "X-Device-Model";
+	/**
+	 * 客户端设备类型（ 2G、3G、4G、5G）
+	 */
+	public static final String X_DEVICE_NET_TYPE = "X-Device-NetType";
+	/**
+	 * 客户端设备系统版本
+	 */
+	public static final String X_DEVICE_OS = "X-OS";
+	/**
+	 * 接口请求来源（用于行为统计）
+	 */
+	public static final String X_REFERRER = "X-Referrer";
 
 }
 

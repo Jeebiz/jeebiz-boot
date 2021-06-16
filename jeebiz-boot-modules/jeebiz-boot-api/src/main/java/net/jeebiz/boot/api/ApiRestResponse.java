@@ -5,7 +5,11 @@
 package net.jeebiz.boot.api;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,7 +20,8 @@ import lombok.ToString;
  */
 @ApiModel(value = "ApiRestResponse", description = "接口响应对象")
 @ToString
-public class ApiRestResponse<T> {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ApiRestResponse<T extends Object> {
 
 	@ApiModelProperty(name = "code", dataType = "String", value = "成功或异常编码")
     private final int code;
@@ -29,7 +34,10 @@ public class ApiRestResponse<T> {
     
 	@ApiModelProperty(name = "data", dataType = "java.lang.Object", value = "成功或异常数据")
     private T data;
-
+	
+	@ApiModelProperty(name = "error", dataType = "java.util.List<Map<String, String>>", value = "校验失败信息")
+    private List<Map<String,String>> error;
+	
 	public ApiRestResponse() {
 		this.code = ApiCode.SC_SUCCESS.getCode();
 		this.status = Constants.RT_SUCCESS;
@@ -67,6 +75,14 @@ public class ApiRestResponse<T> {
         this.status = code.getStatus();
         this.message = message;
         this.data = data;
+    }
+
+    protected ApiRestResponse(final ApiCode code, final String message, final T data, List<Map<String,String>> error) {
+        this.code = code.getCode();;
+        this.status = code.getStatus();
+        this.message = message;
+        this.data = data;
+        this.error = error;
     }
 
     protected ApiRestResponse(final int code, final String message) {
@@ -155,6 +171,11 @@ public class ApiRestResponse<T> {
     public static <T> ApiRestResponse<T> error(final ApiCode code, final String message) {
         return of(code, message, null);
     }
+
+    public static <T> ApiRestResponse<T> error(final ApiCode code, final String message, List<Map<String,String>> error) {
+        return of(code, message, null, error);
+    }
+    
     // -----------------------------------------------------------------
     
     public static <T> ApiRestResponse<T> of(final ApiCode code) {
@@ -167,6 +188,10 @@ public class ApiRestResponse<T> {
     
     public static <T> ApiRestResponse<T> of(final ApiCode code, final String message, final T data) {
     	return new ApiRestResponse<T>(code, message, data);
+    }
+
+    public static <T> ApiRestResponse<T> of(final ApiCode code, final String message, final T data, List<Map<String,String>> error) {
+    	return new ApiRestResponse<T>(code, message, data, error);
     }
     
     public static <T> ApiRestResponse<T> of(final String code, final String message) {
@@ -214,6 +239,12 @@ public class ApiRestResponse<T> {
 		return data;
 	}
 
+	@JsonIgnore
+	public List<Map<String, String>> getError() {
+		return error;
+	}
+	
+	@JsonIgnore
 	public boolean isSuccess() {
 		return status == Constants.RT_SUCCESS || code == ApiCodeValue.SC_SUCCESS;
 	}
