@@ -119,7 +119,6 @@ public enum RedisKey {
 		return desc;
 	}
 
-<<<<<<< HEAD
     /**
      * 1、获取全名称key
      * @param key
@@ -138,8 +137,6 @@ public enum RedisKey {
         return this.function.apply(key);
     }
     
-=======
->>>>>>> refs/remotes/origin/1.0.2-SNAPSHOT
     public Function<String, String> getFunction() {
         return function;
     }

@@ -7,14 +7,10 @@ package net.jeebiz.boot.demo;
 import java.net.URL;
 import java.util.Map;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.databene.contiperf.PerfTest;
 import org.databene.contiperf.junit.ContiPerfRule;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -33,7 +29,6 @@ public class DemoApplication_Test {
    private int port;
    private URL base;
    
-   @Rule
    public ContiPerfRule contiPerfRule = new ContiPerfRule();
 
    @Autowired
