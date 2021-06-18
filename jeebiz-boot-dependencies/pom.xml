@@ -430,6 +430,8 @@
 		<spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version> 
 		<spring-boot-starter-minio.version>1.0.1.RELEASE</spring-boot-starter-minio.version>
 		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
+		<spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
+		<spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
 		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
 		<spring-boot-starter-ishumei.version>1.0.4.RELEASE</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-okhttp3.version>1.0.5.RELEASE</spring-boot-starter-okhttp3.version>
@@ -5216,6 +5218,18 @@
 			    <groupId>com.spring4all</groupId>
 			    <artifactId>mongodb-plus-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-mongodb-plus.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba.boot/nacos-config-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.alibaba.boot</groupId>
+			    <artifactId>nacos-config-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-nacos-config.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba.boot/nacos-discovery-spring-boot-starter -->
+			<dependency>
+			    <groupId>com.alibaba.boot</groupId>
+			    <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+			    <version>${spring-boot-starter-nacos-discovery.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.opentracing.contrib/opentracing-spring-jaeger-web-starter -->
 			<dependency>
