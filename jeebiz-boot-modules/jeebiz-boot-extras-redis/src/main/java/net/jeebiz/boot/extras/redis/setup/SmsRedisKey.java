@@ -60,6 +60,7 @@ public enum SmsRedisKey {
     public String getDesc() {
 		return desc;
 	}
+<<<<<<< HEAD
     
     /**
      * 1、获取全名称key
@@ -87,6 +88,8 @@ public enum SmsRedisKey {
     public String getKey(String key, String key2) {
         return this.function.apply(key, key2);
     }
+=======
+>>>>>>> refs/remotes/origin/1.0.2-SNAPSHOT
 
     public BiFunction<String, String, String> getFunction() {
         return function;
