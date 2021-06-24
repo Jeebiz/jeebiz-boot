@@ -5,6 +5,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.TreeMap;
 
+import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.LinkedMultiValueMap;
@@ -41,20 +42,22 @@ public class SignUtils {
      * @throws UnsupportedEncodingException 
      */
     protected static String signOrigin(String token, MultiValueMap<String, String> formData, String body, String salt) throws UnsupportedEncodingException {
-
-        TreeMap<String, String> params = new TreeMap<>((o1, o2) -> o1.compareTo(o2));
-        formData.forEach((key, value) -> {
-            if(value.isEmpty()) {
-                params.put(key, "");
-            } else {
-                params.put(key, value.get(0));
-            }
-        });
+        
         StringBuilder requestData = new StringBuilder(StringUtils.defaultString(token)).append("|");
         // form参数
-        if(params.isEmpty()) {
+        if(MapUtils.isEmpty(formData)) {
             requestData.append("|");
         } else {
+        	
+        	TreeMap<String, String> params = new TreeMap<>((o1, o2) -> o1.compareTo(o2));
+            formData.forEach((key, value) -> {
+                if(value.isEmpty()) {
+                    params.put(key, "");
+                } else {
+                    params.put(key, value.get(0));
+                }
+            });
+            
             params.forEach((key, value) -> {
                 if(StringUtils.isEmpty(value)) {
                     requestData.append("|");
