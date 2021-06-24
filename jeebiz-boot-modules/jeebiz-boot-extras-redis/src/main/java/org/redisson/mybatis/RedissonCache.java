@@ -18,7 +18,6 @@ import org.springframework.biz.utils.SpringResourceUtils;
 
 /**
  * MyBatis cache implementation
- *
  * @author Nikita Koksharov、hiwepy
  *
  */
