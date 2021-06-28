@@ -74,6 +74,11 @@
 		    <groupId>com.baomidou</groupId>
 		    <artifactId>mybatis-plus</artifactId>
 		</dependency>
+		<!-- For Hitool -->
+		<dependency>
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>hitool-core</artifactId>
+		</dependency>
 		<!-- For Spring Biz -->
 		<dependency>
 			<groupId>com.github.hiwepy</groupId>
