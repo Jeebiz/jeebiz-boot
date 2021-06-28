@@ -2,7 +2,7 @@ package net.jeebiz.boot.extras.redis.setup;
 
 import java.util.function.BiFunction;
 
-import org.springframework.biz.utils.DateUtils;
+import hitool.core.lang3.time.DateUtils;
 
 public enum SmsRedisKey {
 

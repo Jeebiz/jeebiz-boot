@@ -1,3 +1,5 @@
+
+
 /**
  */
 package net.jeebiz.boot.demo.web.mvc;
@@ -10,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
+=======
+import org.springframework.biz.utils.StringUtils;
+import org.springframework.util.CollectionUtils;
+>>>>>>> refs/remotes/origin/1.0.2-SNAPSHOT
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +27,6 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import net.jeebiz.boot.api.annotation.BusinessLog;
 import net.jeebiz.boot.api.annotation.BusinessType;
-import net.jeebiz.boot.api.utils.StringUtils;
 import net.jeebiz.boot.api.web.BaseMapperController;
 import net.jeebiz.boot.demo.dao.entities.DemoModel;
 import net.jeebiz.boot.demo.service.IDemoService;
