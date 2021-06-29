@@ -1,6 +1,6 @@
 package net.jeebiz.boot.api;
 
-import net.jeebiz.boot.api.utils.RandomString;
+import hitool.core.lang3.RandomString;
 
 public class RandomString_Test {
 

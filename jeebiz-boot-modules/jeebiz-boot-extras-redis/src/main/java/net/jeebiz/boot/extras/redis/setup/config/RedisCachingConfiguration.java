@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.biz.utils.StringUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -30,9 +31,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hitool.core.collections.CollectionUtils;
 import net.jeebiz.boot.api.annotation.RedisTopic;
-import net.jeebiz.boot.api.utils.CollectionUtils;
-import net.jeebiz.boot.api.utils.StringUtils;
 import net.jeebiz.boot.extras.redis.setup.RedisKey;
 import net.jeebiz.boot.extras.redis.setup.RedisOperationTemplate;
 import net.jeebiz.boot.extras.redis.setup.RedissonOperationTemplate;
