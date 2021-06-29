@@ -16,7 +16,6 @@ import net.jeebiz.boot.api.sequence.Sequence;
 import net.jeebiz.boot.autoconfigure.config.SequenceProperties;
 
 @Configuration
-
 @ConditionalOnClass(Sequence.class)
 @EnableConfigurationProperties(SequenceProperties.class)
 public class DefaultSequenceConfiguration {

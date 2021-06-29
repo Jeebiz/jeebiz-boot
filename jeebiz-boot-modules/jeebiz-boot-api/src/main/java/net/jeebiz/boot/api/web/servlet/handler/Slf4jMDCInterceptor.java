@@ -26,7 +26,7 @@ public class Slf4jMDCInterceptor implements HandlerInterceptor {
 
 			throws Exception {
         
-        MDC.put("requestId", StringUtils.defaultString(request.getHeader(XHeaders.X_REQUEST_ID), sequence.nextId().toString()));
+        MDC.put("requestId", StringUtils.defaultString(request.getHeader(XHeaders.X_REQUEST_ID), String.valueOf(sequence.nextId())));
 		MDC.put("requestURL", request.getRequestURL().toString());
 		MDC.put("requestURI", request.getRequestURI());
 		MDC.put("queryString", request.getQueryString());
