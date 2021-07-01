@@ -2123,4 +2123,22 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    		return result;
    	}
 	
+	/**
+	 * 批量获取hash 某个值
+	 * 
+	 * @param redisKey
+	 * @param redisField
+	 */
+	public List<Object> batchGetHashKeyField(Collection<Long> ids, String redisKey, String redisField) {
+		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+			ids.stream().forEach(id -> {
+				String hashKey = RedisKeyConstant.getKeyStr(redisKey, id.toString());
+				connection.hGet(rawKey(hashKey), rawHashKey(redisField));
+				// connection.hGet(key.getBytes(), redisField.getBytes());
+			});
+			return null;
+		}, this.valueSerializer());
+		return result;
+	}
+	
 }

@@ -105,9 +105,11 @@ public abstract class RedisKeyConstant {
 	 * 用户会员权益缓存
 	 */
 	public static String USER_RITHTS_KEY = "user:rights:{}";
+
+	public static String REDIS_PREFIX = "rds";
 	
 	public static String getKeyStr(String... args) {
-		StringBuilder tempKey = new StringBuilder("kding");
+		StringBuilder tempKey = new StringBuilder(REDIS_PREFIX);
 		for (String s : args) {
 			if (s.length() <= 0) {
 				continue;
