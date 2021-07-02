@@ -190,6 +190,7 @@
 		<liquibase.version>4.3.5</liquibase.version>
 		<mariadb.version>2.7.3</mariadb.version>
 		<maven.version>3.6.3</maven.version>
+		<mockito.version>3.11.2</mockito.version>
 		<metadata-extractor.version>2.16.0</metadata-extractor.version>
 		<mongo-java-driver.version>3.12.8</mongo-java-driver.version>
 		<mssql-jdbc.version>9.2.1.jre8</mssql-jdbc.version>
