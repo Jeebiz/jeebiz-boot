@@ -1,6 +1,7 @@
 package net.jeebiz.boot.extras.redis.setup;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -2156,6 +2157,18 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public List<Object> batchGetUserFields(Object uid, Collection<Object> fields) {
     	String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
     	return this.hMultiGet(userKey, fields);
+    }
+	
+	public List<Object> batchGetUserFields(Object uid, String... fields) {
+		String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
+    	return this.hMultiGet(userKey, Stream.of(fields).collect(Collectors.toList()));
+    }
+    
+	public List<Map<String, Object>> batchGetUserFields(Collection<Long> uids, String... fields) {
+		List<String> uKeys = uids.stream().map(uid -> {
+			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+		}).collect(Collectors.toList());
+        return this.hmMultiGet(uKeys, Stream.of(fields).collect(Collectors.toList()));
     }
 	
 	public List<Map<String, Object>> batchGetUserFields(Collection<Long> uids, Collection<Object> fields) {
