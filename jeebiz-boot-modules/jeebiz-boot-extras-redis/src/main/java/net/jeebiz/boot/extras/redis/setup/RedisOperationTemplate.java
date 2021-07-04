@@ -1,7 +1,6 @@
 package net.jeebiz.boot.extras.redis.setup;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -15,9 +14,11 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.collections.MapUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisZSetCommands.Tuple;
@@ -1099,6 +1100,24 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
     	}).collect(Collectors.toList());
     }
     
+    public Map<String, Map<String, Object>> hmMultiGet(Collection<String> keys, String identityField, Collection<Object> fields) {
+    	if (CollectionUtils.isEmpty(keys) || CollectionUtils.isEmpty(fields)) {
+			return Maps.newHashMap();
+		} 
+    	return keys.parallelStream().map(key -> {
+    		List<Object> result = getOperations().opsForHash().multiGet(key, fields);
+	        Map<String, Object> ans = new HashMap<>(fields.size());
+	        int index = 0;
+	        for (Object field : fields) {
+	            if (result.get(index) == null) {
+	                continue;
+	            }
+	            ans.put(field.toString(), result.get(index));
+	        }
+	        return ans;
+    	}).collect(Collectors.toMap(kv -> MapUtils.getString(kv, identityField), Function.identity()));
+    }
+    
 	/**
 	 * HashSet
 	 *
@@ -2154,28 +2173,35 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    		return result;
    	}
 	
-	public List<Object> batchGetUserFields(Object uid, Collection<Object> fields) {
+	public <K> List<Object> batchGetUserFields(K uid, Collection<Object> fields) {
     	String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
     	return this.hMultiGet(userKey, fields);
     }
 	
-	public List<Object> batchGetUserFields(Object uid, String... fields) {
+	public <K> List<Object> batchGetUserFields(K uid, String... fields) {
 		String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
     	return this.hMultiGet(userKey, Stream.of(fields).collect(Collectors.toList()));
     }
     
-	public List<Map<String, Object>> batchGetUserFields(Collection<Long> uids, String... fields) {
+	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, String... fields) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, Stream.of(fields).collect(Collectors.toList()));
     }
 	
-	public List<Map<String, Object>> batchGetUserFields(Collection<Long> uids, Collection<Object> fields) {
+	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, Collection<Object> fields) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, fields);
+    }
+	
+	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,  Collection<Object> fields) {
+		List<String> uKeys = uids.stream().map(uid -> {
+			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+		}).collect(Collectors.toList());
+        return this.hmMultiGet(uKeys, identityField, fields);
     }
 
 }
