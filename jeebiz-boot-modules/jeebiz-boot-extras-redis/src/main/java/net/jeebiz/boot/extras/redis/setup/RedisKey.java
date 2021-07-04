@@ -118,6 +118,23 @@ public enum RedisKey {
     public String getDesc() {
 		return desc;
 	}
+    
+    /**
+     * 1、获取全名称key
+     * @return
+     */
+    public String getKey() {
+        return this.function.apply(null);
+    }
+
+    /**
+     * 1、获取全名称key
+     * @param key
+     * @return
+     */
+    public String getKey(String key) {
+        return this.function.apply(key);
+    }
 
     public Function<String, String> getFunction() {
         return function;

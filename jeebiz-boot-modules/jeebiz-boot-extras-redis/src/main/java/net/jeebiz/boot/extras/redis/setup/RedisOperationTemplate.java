@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -978,7 +979,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param hashKeys 要筛选项
 	 * @return
 	 */
-    public List<Object> hGet(String key, Collection hashKeys) {
+    public List<Object> hGet(String key, Collection<Object> hashKeys) {
     	try {
 			return getOperations().opsForHash().multiGet(key, hashKeys);
 		} catch (Exception e) {
@@ -1052,7 +1053,20 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return null;
 		}
 	}
-	
+
+    public Map<String, Object> hMultiGet(String key, Collection<Object> fields) {
+        List<Object> result = getOperations().opsForHash().multiGet(key, fields);
+        Map<String, Object> ans = new HashMap<>(fields.size());
+        int index = 0;
+        for (Object field : fields) {
+            if (result.get(index) == null) {
+                continue;
+            }
+            ans.put(field.toString(), result.get(index));
+        }
+        return ans;
+    }
+
 	/**
 	 * HashSet
 	 *
@@ -1580,8 +1594,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	// ===============================ZSet=================================
-	
-	public Boolean zAdd(String key, String value, double score) {
+
+	public Boolean zAdd(String key, Object value, double score) {
 		return getOperations().boundZSetOps(key).add(value, score);
 	}
 
@@ -1592,11 +1606,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Long zCard(String key) {
 		return getOperations().boundZSetOps(key).zCard();
 	}
-	
-	public Boolean zHas(String key, String value) {
+
+	public Boolean zHas(String key, Object value) {
 		return getOperations().boundZSetOps(key).score(value) != null;
 	}
-	
+
 	/**
 	 * 通过分数返回有序集合指定区间内的成员个数
 	 * 
@@ -1613,7 +1627,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * Set删除: sscan + srem
 	 *
 	 * @param bigZsetKey 键
-	 * @return 
 	 * @return
 	 */
 	public Boolean zDel(String bigZsetKey) {
@@ -1627,12 +1640,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return Boolean.FALSE;
 		}
 	}
-	
-	public Double zIncr(String key, String value, double delta) {
+
+	public Double zIncr(String key, Object value, double delta) {
 		return getOperations().boundZSetOps(key).incrementScore(value, delta);
 	}
 
-	public Double zIncr(String key, String value, double delta, long seconds) {
+	public Double zIncr(String key, Object value, double delta, long seconds) {
 		Double result = getOperations().boundZSetOps(key).incrementScore(value, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
@@ -2104,28 +2117,46 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    	public List<Object> batchGetUserInfo(Collection<String> uids) {
    		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
    			uids.stream().forEach(uid -> {
-   				String hashKey = RedisKey.USER_INFO.getFunction().apply(uid);
+   				String hashKey = RedisKey.USER_INFO.getKey(uid);
    				connection.hGetAll(rawKey(hashKey));
    			});
    			return null;
    		}, this.valueSerializer());
    		return result;
    	}
-   	
+
 	public List<Object> batchGetUserInfo(String... uids) {
    		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
    			Stream.of(uids).forEach(uid -> {
-   				String hashKey = RedisKey.USER_INFO.getFunction().apply(uid);
+   				String hashKey = RedisKey.USER_INFO.getKey(uid);
    				connection.hGetAll(rawKey(hashKey));
    			});
    			return null;
    		}, this.valueSerializer());
    		return result;
    	}
+
+	/**
+	 * 批量获取用户hash 多个值
+	 */
+	public List<Object> batchGetUserFields(Collection<Long> uids, String[] redisFields) {
+		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+			uids.stream().forEach(uid -> {
+				String hashKey = RedisKey.USER_INFO.getKey(uid.toString());
+				byte[][] fields = new byte[redisFields.length][];
+				for (int i = 0; i < redisFields.length; i++) {
+					fields[i] = rawHashKey(redisFields[i]);
+				}
+				connection.hMGet(rawKey(hashKey), fields);
+			});
+			return null;
+		}, this.valueSerializer());
+		return result;
+	}
 	
 	/**
 	 * 批量获取hash 某个值
-	 * 
+	 *
 	 * @param redisKey
 	 * @param redisField
 	 */
@@ -2140,5 +2171,26 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}, this.valueSerializer());
 		return result;
 	}
-	
+
+	/**
+	 * 批量获取hash 多个值
+	 *
+	 * @param redisKey
+	 * @param redisFields
+	 */
+	public List<Object> batchGetHashKeyFields(Collection<Long> ids, String redisKey, String[] redisFields) {
+		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+			ids.stream().forEach(id -> {
+				String hashKey = RedisKeyConstant.getKeyStr(redisKey, id.toString());
+				byte[][] fields = new byte[redisFields.length][];
+				for (int i = 0; i < redisFields.length; i++) {
+					fields[i] = rawHashKey(redisFields[i]);
+				}
+				connection.hMGet(rawKey(hashKey), fields);
+			});
+			return null;
+		}, this.valueSerializer());
+		return result;
+	}
+
 }

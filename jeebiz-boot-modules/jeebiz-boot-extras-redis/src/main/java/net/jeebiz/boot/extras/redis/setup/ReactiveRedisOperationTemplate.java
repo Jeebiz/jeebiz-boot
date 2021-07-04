@@ -529,7 +529,7 @@ public class ReactiveRedisOperationTemplate {
 	public Mono<Boolean> hset(String key, String hashKey, Object hashValue) {
 		try {
 			ReactiveHashOperations<Object, Object, Object> opsForHash = reactiveRedisTemplate.opsForHash();
-			return reactiveRedisTemplate.opsForHash().put(key, hashKey, hashValue);
+			return opsForHash.put(key, hashKey, hashValue);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return Mono.just(Boolean.FALSE);
