@@ -53,42 +53,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	private static final Long LOCK_SUCCESS = 1L;
     private static final Long LOCK_EXPIRED = -1L;
     
-    private static final RedisScript<Long> LOCK_LUA_SCRIPT = RedisScript.of(
-        "if redis.call('setnx', KEYS[1], ARGV[1]) == 1 then return redis.call('pexpire', KEYS[1], ARGV[2]) else return -1 end",
-         Long.class
-    );
+    private static final RedisScript<Long> LOCK_LUA_SCRIPT = RedisScript.of(RedisLua.LOCK_LUA_SCRIPT, Long.class );
     
-    private static final RedisScript<Long> UNLOCK_LUA_SCRIPT = RedisScript.of(
-		"if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return -1 end",
-        Long.class
-    );
+    private static final RedisScript<Long> UNLOCK_LUA_SCRIPT = RedisScript.of(RedisLua.UNLOCK_LUA_SCRIPT, Long.class );
    
-    public static final RedisScript<Long> INCR_SCRIPT = RedisScript.of(
-    										" 	if redis.call('exists', KEYS[1]) == 1 then \n "
-											+ "		local current = redis.call('incr', KEYS[1], ARGV[1]) \n"
-											+ "		if current < 0 then \n"
-											+ "			redis.call('decr', KEYS[1], ARGV[1]) \n"
-											+ "			return 0 \n"
-											+ "		else \n"
-											+ "			return current \n"
-											+ "		end \n"
-											+ " else "
-											+ "		redis.call('set', KEYS[1], 0) "
-											+ "		return 0 "
-											+ "	end",
-									        Long.class);
+    public static final RedisScript<Long> INCR_SCRIPT = RedisScript.of(RedisLua.INCR_SCRIPT, Long.class);
 	
-    public static final RedisScript<Long> HINCR_SCRIPT = RedisScript.of(" if redis.call('hget', KEYS[1]) == 1 then  "
-			+ "		local current = redis.call('incr', KEYS[1]); "
-			+ "		if current < 0 then "
-			+ "			redis.call('decr', KEYS[1]) "
-			+ "			return 0 "
-			+ "		else "
-			+ "			return current "
-			+ "		end "
-			+ " else return 0 end",
-	        Long.class);
-	
+    public static final RedisScript<Long> HINCR_SCRIPT = RedisScript.of(RedisLua.HINCR_SCRIPT, Long.class);
+    
 	private final RedisTemplate<String, Object> redisTemplate;
 	
 	public RedisOperationTemplate(RedisTemplate<String, Object> redisTemplate) {
