@@ -1986,19 +1986,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	/**
 	 * 执行lua脚本
 	 * 
-	 * @param luaScript 脚本内容
-	 * @param keys      redis键列表
-	 * @param values    值列表
-	 * @return
-	 */
-	public <R> R executeLuaScript(String luaScript, List<String> keys, Object... values) {
-		RedisScript redisScript = RedisScript.of(luaScript);
-		return (R) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
-	}
-	
-	/**
-	 * 执行lua脚本
-	 * 
 	 * @param luaScript  脚本内容
 	 * @param keys       redis键列表
 	 * @param values     值列表
@@ -2020,17 +2007,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <R> R executeLuaScript(RedisScript<R> luaScript, List<String> keys, Object... values) {
 		return (R) getOperations().execute(luaScript, RedisSerializer.java(), valueSerializer(), keys, values);
-	}
-	
-	/*
-	 * @param luaScript 脚本内容
-	 * @param keys      redis键列表
-	 * @param values    值列表
-	 * @return
-	 */
-	public <R> R executeLuaScript(Resource luaScript, List<String> keys, Object... values) {
-		RedisScript redisScript = RedisScript.of(luaScript);
-		return (R) getOperations().execute(redisScript, RedisSerializer.java(), valueSerializer(), keys, values);
 	}
 	
 	/**
