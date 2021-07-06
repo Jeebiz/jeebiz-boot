@@ -17,15 +17,16 @@ import org.springframework.util.Assert;
 
 import lombok.extern.slf4j.Slf4j;
 
+
 /**
- * 1、基于RedissonClient操作的二次封装 2、参考：
+ * 1、基于RedissonClient操作的二次封装
+ * 2、参考：
  * https://blog.csdn.net/qq_24598601/article/details/105876432
  */
 @Slf4j
 public class RedissonOperationTemplate {
-
+	
 	private RedissonClient redissonClient;
-
 	public RedissonOperationTemplate(RedissonClient redissonClient) {
 		this.redissonClient = redissonClient;
 	}
@@ -149,5 +150,5 @@ public class RedissonOperationTemplate {
 		}
 		return false;
 	}
-
+	
 }

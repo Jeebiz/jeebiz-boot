@@ -559,19 +559,19 @@
 									<extraArguments>
 										<!-- 后台服务运行 -->
 										<extraArgument>-server</extraArgument>
-										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
-											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
-											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 
-										-->
-										<extraArgument>-Xmn512M</extraArgument>	
-										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
-										<extraArgument>-Xms1024M</extraArgument>
-										<!-- 设置JVM最大可用内存为1024M -->
-										<extraArgument>-Xmx1024M</extraArgument>
+										<!-- JVM堆内新生代的大小。通过这个值也可以得到老生代的大小：-Xmx减去-Xmn-->
+										<!-- JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。  持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。 此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 -->
+										<extraArgument>-Xmn64M</extraArgument>
+										<!-- JVM堆内存的初始大小，默认为物理内存的1/64 -->
+										<!-- 默认空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制；空余堆内存大于70%时，JVM会减少堆直到 -Xms的最小限制。
+											 因此服务器一般设置-Xms、-Xmx相等以避免在每次GC 后调整堆的大小。对象的堆内存由称为垃圾回收器的自动内存管理系统回收。 -->
+										<extraArgument>-Xms512M</extraArgument>
+										<!-- JVM堆内存的最大大小，默认为物理内存的1/4 -->
+										<extraArgument>-Xmx512M</extraArgument>
 										<!-- 初始元空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=512M</extraArgument>
+										<extraArgument>-XX:MetaspaceSize=128M</extraArgument>
 										<!-- 最大空间，默认是没有限制的 -->
-										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
+										<extraArgument>-XX:MaxMetaspaceSize=256M</extraArgument>
 										<!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
 										<!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
 										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
@@ -731,19 +731,19 @@
 									<!-- http://www.cnblogs.com/paddix/p/5309550.html -->
 									<!-- http://unixboy.iteye.com/blog/174173/ -->
 									<extraArguments>
-										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
-											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
-											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 
-										-->
-										<extraArgument>-Xmn512M</extraArgument>	
-										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
-										<extraArgument>-Xms1024M</extraArgument>
-										<!-- 设置JVM最大可用内存为1024M -->
-										<extraArgument>-Xmx1024M</extraArgument>
+										<!-- JVM堆内新生代的大小。通过这个值也可以得到老生代的大小：-Xmx减去-Xmn-->
+										<!-- JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。  持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。 此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 -->
+										<extraArgument>-Xmn64M</extraArgument>
+										<!-- JVM堆内存的初始大小，默认为物理内存的1/64 -->
+										<!-- 默认空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制；空余堆内存大于70%时，JVM会减少堆直到 -Xms的最小限制。
+											 因此服务器一般设置-Xms、-Xmx相等以避免在每次GC 后调整堆的大小。对象的堆内存由称为垃圾回收器的自动内存管理系统回收。 -->
+										<extraArgument>-Xms512M</extraArgument>
+										<!-- JVM堆内存的最大大小，默认为物理内存的1/4 -->
+										<extraArgument>-Xmx512M</extraArgument>
 										<!-- 初始元空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=512M</extraArgument>
+										<extraArgument>-XX:MetaspaceSize=128M</extraArgument>
 										<!-- 最大空间，默认是没有限制的 -->
-										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
+										<extraArgument>-XX:MaxMetaspaceSize=256M</extraArgument>
 										<!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
 										<!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
 										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
