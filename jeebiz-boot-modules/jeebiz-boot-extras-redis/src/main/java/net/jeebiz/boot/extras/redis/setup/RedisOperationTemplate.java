@@ -1980,7 +1980,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Long luaIncr(String lockKey, long amount) {
 		Assert.hasLength(lockKey, "lockKey must not be empty");
-		return this.executeLuaScript(INCR_SCRIPT, Collections.singletonList(lockKey), amount);
+		return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(lockKey), amount);
 	}
 	
 	/**
@@ -1991,9 +1991,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param values    值列表
 	 * @return
 	 */
-	public Object executeLuaScript(String luaScript, List<String> keys, Object... values) {
+	public <R> R executeLuaScript(String luaScript, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript);
-		return getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
+		return (R) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
 	}
 	
 	/**
@@ -2005,9 +2005,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param returnType 返回值类型
 	 * @return
 	 */
-	public <T> T executeLuaScript(String luaScript, Class<T> returnType, List<String> keys, Object... values) {
+	public <R> R executeLuaScript(String luaScript, Class<R> returnType, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript, returnType);
-		return (T) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
+		return (R) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
 	}
 	
 	/**
@@ -2018,8 +2018,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param values     值列表
 	 * @return
 	 */
-	public <T> T executeLuaScript(RedisScript<T> luaScript, List<String> keys, Object... values) {
-		return (T) getOperations().execute(luaScript, RedisSerializer.java(), valueSerializer(), keys, values);
+	public <R> R executeLuaScript(RedisScript<R> luaScript, List<String> keys, Object... values) {
+		return (R) getOperations().execute(luaScript, RedisSerializer.java(), valueSerializer(), keys, values);
 	}
 	
 	/*
@@ -2028,9 +2028,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param values    值列表
 	 * @return
 	 */
-	public <T> T executeLuaScript(Resource luaScript, List<String> keys, Object... values) {
+	public <R> R executeLuaScript(Resource luaScript, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript);
-		return (T) getOperations().execute(redisScript, RedisSerializer.java(), valueSerializer(), keys, values);
+		return (R) getOperations().execute(redisScript, RedisSerializer.java(), valueSerializer(), keys, values);
 	}
 	
 	/**
@@ -2042,9 +2042,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param returnType 返回值类型
 	 * @return
 	 */
-	public <T> T executeLuaScript(Resource luaScript, Class<T> returnType, List<String> keys, Object... values) {
+	public <R> R executeLuaScript(Resource luaScript, Class<R> returnType, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript, returnType);
-		return (T) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
+		return (R) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
 	}
 	
 	// ===============================RedisCommand=================================
