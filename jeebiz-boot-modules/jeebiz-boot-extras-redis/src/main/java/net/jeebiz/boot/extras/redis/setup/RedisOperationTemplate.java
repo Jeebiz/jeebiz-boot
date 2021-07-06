@@ -930,20 +930,25 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new BizRuntimeException(e.getMessage());
 		}
 	}
-	
+
 	/**
-	 * HashGet
-	 *
-	 * @param key  键 不能为null
-	 * @param hashKey 项 不能为null
-	 * @return 值
+	 * 获取hashKey对应的指定键值
+	 * @param key 键
+	 * @param hashKey hash键
+	 * @return 对应的键值
 	 */
-	public Object hGet(String key, String hashKey) {
+	public <V> V hGet(String key, String hashKey) {
+		return this.hGet(key, hashKey, null);
+	}
+	
+	public <V> V hGet(String key, String hashKey, V defaultVal) {
 		try {
-			return getOperations().opsForHash().get(key, hashKey);
+			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
+			Object rtVal = opsForHash.get(key, hashKey);
+			return Objects.nonNull(rtVal) ? defaultVal : (V) rtVal;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			return defaultVal;
 		}
 	}
 	
@@ -1022,21 +1027,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	/**
-	 * 获取hashKey对应的指定键值
-	 * @param key 键
-	 * @param field hash键
-	 * @return 对应的键值
-	 */
-	public Object hmGet(String key, String field) {
-		try {
-			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
-			return opsForHash.get(key, field);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return null;
-		}
-	}
 	
     public Map<String, Object> hmMultiGet(String key, Collection<Object> fields) {
     	if (CollectionUtils.isEmpty(fields)) {
