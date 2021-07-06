@@ -2009,7 +2009,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Object executeLuaScript(String luaScript, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript);
-		return getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
+		return getOperations().execute(redisScript, keySerializer(), valueSerializer(), keys, values);
 	}
 	
 	/**
@@ -2023,7 +2023,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <T> T executeLuaScript(String luaScript, Class<T> resultType, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript, resultType);
-		return (T) getOperations().execute(redisScript, keys, values);
+		return (T) getOperations().execute(redisScript, keySerializer(), valueSerializer(), keys, values);
 	}
 	
 	/**
@@ -2035,7 +2035,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public <T> T executeLuaScript(RedisScript<T> luaScript, List<String> keys, Object... values) {
-		return getOperations().execute(luaScript, keys, values);
+		return (T) getOperations().execute(luaScript, keySerializer(), valueSerializer(), keys, values);
 	}
 	
 	/*
@@ -2046,7 +2046,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Object executeLuaScript(Resource luaScript, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript);
-		return getOperations().execute(redisScript, keys, values);
+		return getOperations().execute(redisScript, keySerializer(), valueSerializer(), keys, values);
 	}
 	
 	/**
@@ -2060,7 +2060,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <T> T executeLuaScript(Resource luaScript, Class<T> resultType, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript, resultType);
-		return (T) getOperations().execute(redisScript, keys, values);
+		return (T) getOperations().execute(redisScript, keySerializer(), valueSerializer(), keys, values);
 	}
 	
 	// ===============================RedisCommand=================================
