@@ -10,8 +10,7 @@ public class RedisLua {
     
 	public static final String UNLOCK_LUA_SCRIPT = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return -1 end";
 
-    public static final String INCR_SCRIPT = 
-    										"   if (redis.call('exists', KEYS[1]) == 1) then "
+    public static final String INCR_SCRIPT =" if (redis.call('exists', KEYS[1]) == 1) then "
 											+ "	 local current = redis.call('incr', KEYS[1], ARGV[1]) "
 											+ "	 if #current < 0 then "
 											+ "	  redis.call('decr', KEYS[1], ARGV[1]) "

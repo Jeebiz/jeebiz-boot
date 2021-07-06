@@ -1994,7 +1994,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <R> R executeLuaScript(String luaScript, Class<R> returnType, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript, returnType);
-		return (R) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
+		return (R) getOperations().execute(redisScript, keys, values);
 	}
 	
 	/**
@@ -2006,7 +2006,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public <R> R executeLuaScript(RedisScript<R> luaScript, List<String> keys, Object... values) {
-		return (R) getOperations().execute(luaScript, RedisSerializer.java(), valueSerializer(), keys, values);
+		return (R) getOperations().execute(luaScript, keys, values);
 	}
 	
 	/**
@@ -2020,7 +2020,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <R> R executeLuaScript(Resource luaScript, Class<R> returnType, List<String> keys, Object... values) {
 		RedisScript redisScript = RedisScript.of(luaScript, returnType);
-		return (R) getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
+		return (R) getOperations().execute(redisScript, keys, values);
 	}
 	
 	// ===============================RedisCommand=================================
