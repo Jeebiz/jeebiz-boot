@@ -4,28 +4,86 @@
  */
 package net.jeebiz.boot.extras.redis.setup;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.redisson.api.RAtomicLong;
+import org.redisson.api.RBucket;
 import org.redisson.api.RLock;
+import org.redisson.api.RScript;
 import org.redisson.api.RedissonClient;
+import org.springframework.util.Assert;
 
 import lombok.extern.slf4j.Slf4j;
 
-
 /**
- * 1、基于RedissonClient操作的二次封装
- * 2、参考：
+ * 1、基于RedissonClient操作的二次封装 2、参考：
  * https://blog.csdn.net/qq_24598601/article/details/105876432
  */
 @Slf4j
 public class RedissonOperationTemplate {
-	
+
 	private RedissonClient redissonClient;
-	
+
 	public RedissonOperationTemplate(RedissonClient redissonClient) {
 		this.redissonClient = redissonClient;
 	}
+
+	// ===============================RedisScript=================================
+
+	public RAtomicLong luaIncr(String lockKey, long amount) {
+		Assert.hasLength(lockKey, "lockKey must not be empty");
+		RScript script = redissonClient.getScript();
+		List<Object> keys = new ArrayList<>();
+		keys.add(lockKey);
+		String re = script.eval(
+		        RScript.Mode.READ_WRITE,
+		        "return redis.call('set',KEYS[1],ARGV[1]);",
+		        RScript.ReturnType.VALUE,
+		        keys, amount );
+		return redissonClient.getAtomicLong(lockKey);
+	}
 	
+	/**
+	 * 扣取现金账本
+	 * @param actid 账户id
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public boolean deductCashAccount(String actid, int amount) throws InterruptedException {
+		/** 扣余额直接操作redis缓存数据库，key由账户ID，-字符，字符串balance组成 */
+		long start = System.currentTimeMillis();
+		String key = "CASH_" + actid;
+		String lock_point = "LOCK_CASH_" + actid;
+		RLock lock = redissonClient.getLock(lock_point);// 获取账户锁对象
+		log.info("get lock " + lock_point);
+		try {
+			boolean locked = lock.tryLock(10, 60, TimeUnit.SECONDS); // 尝试锁住账户对象,waitTime第一个参数获取锁超时时间30毫秒,leaseTime第二参数,锁自动释放时间
+			if (!locked) {
+				log.info("cann't get lock ,id=" + actid);
+				return false;
+			}
+			log.info("get lock " + lock_point + " ok");
+			RBucket<Integer> atomicbalance = redissonClient.<Integer>getBucket(key); // 获取原子余量
+			boolean result_flag = true;
+			if (atomicbalance.get() == 0) {
+				log.error(" error ,balance less than  or equal to 0");
+
+				result_flag = false;
+			} else {
+				atomicbalance.set(atomicbalance.get().intValue() - amount);// 扣除余量
+				log.info("balance is  " + atomicbalance.get());
+				result_flag = true;
+			}
+			log.info("debut cash , cost time:" + (System.currentTimeMillis() - start));
+			return result_flag;
+		} finally {
+			lock.unlock(); // 解锁
+		}
+		
+	}
+
 	/**
 	 * 加锁
 	 * 
@@ -39,7 +97,7 @@ public class RedissonOperationTemplate {
 		log.info("locking... redisK = {}", lockKey);
 		RLock fairLock = redissonClient.getFairLock(lockKey);
 		try {
-			boolean tryLock = fairLock.tryLock(1000, expire, TimeUnit.MILLISECONDS);
+			boolean tryLock = fairLock.tryLock(10000, expire, TimeUnit.MILLISECONDS);
 			if (tryLock) {
 				log.info("locked... redisK = {}", lockKey);
 				return fairLock;
@@ -50,7 +108,7 @@ public class RedissonOperationTemplate {
 				while (count < retryTimes) {
 					try {
 						Thread.sleep(retryInterval);
-						tryLock = fairLock.tryLock(10, expire, TimeUnit.MILLISECONDS);
+						tryLock = fairLock.tryLock(10000, expire, TimeUnit.MILLISECONDS);
 						if (tryLock) {
 							log.info("locked... redisK = {}", lockKey);
 							return fairLock;
@@ -91,5 +149,5 @@ public class RedissonOperationTemplate {
 		}
 		return false;
 	}
-	
+
 }

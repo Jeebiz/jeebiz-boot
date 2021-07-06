@@ -118,7 +118,7 @@ public enum RedisKey {
     public String getDesc() {
 		return desc;
 	}
-
+    
     /**
      * 1、获取全名称key
      * @param key
