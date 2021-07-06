@@ -19,8 +19,10 @@ import org.springframework.util.Assert;
 
 import lombok.extern.slf4j.Slf4j;
 
+
 /**
- * 1、基于RedissonClient操作的二次封装 2、参考：
+ * 1、基于RedissonClient操作的二次封装
+ * 2、参考：
  * https://blog.csdn.net/qq_24598601/article/details/105876432
  */
 @Slf4j
@@ -39,14 +41,16 @@ public class RedissonOperationTemplate {
 		RScript script = redissonClient.getScript();
 		List<Object> keys = new ArrayList<>();
 		keys.add(lockKey);
-		String re = script.eval(RScript.Mode.READ_WRITE, "return redis.call('set',KEYS[1],ARGV[1]);",
-				RScript.ReturnType.VALUE, keys, amount);
+		String re = script.eval(
+		        RScript.Mode.READ_WRITE,
+		        "return redis.call('set',KEYS[1],ARGV[1]);",
+		        RScript.ReturnType.VALUE,
+		        keys, amount );
 		return redissonClient.getAtomicLong(lockKey);
 	}
-
+	
 	/**
 	 * 扣取现金账本
-	 * 
 	 * @param actid 账户id
 	 * @return
 	 * @throws InterruptedException
