@@ -1046,10 +1046,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
         Map<String, Object> ans = new HashMap<>(fields.size());
         int index = 0;
         for (Object field : fields) {
-            if (result.get(index) == null) {
-                continue;
-            }
             ans.put(field.toString(), result.get(index));
+            index ++;
         }
         return ans;
     }
@@ -1063,10 +1061,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	        Map<String, Object> ans = new HashMap<>(fields.size());
 	        int index = 0;
 	        for (Object field : fields) {
-	            if (result.get(index) == null) {
-	                continue;
-	            }
 	            ans.put(field.toString(), result.get(index));
+	            index ++;
 	        }
 	        return ans;
     	}).collect(Collectors.toList());
@@ -1081,10 +1077,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	        Map<String, Object> ans = new HashMap<>(fields.size());
 	        int index = 0;
 	        for (Object field : fields) {
-	            if (result.get(index) == null) {
-	                continue;
-	            }
 	            ans.put(field.toString(), result.get(index));
+	            index ++;
 	        }
 	        return ans;
     	}).collect(Collectors.toMap(kv -> MapUtils.getString(kv, identityField), Function.identity()));
