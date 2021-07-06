@@ -12,6 +12,8 @@ import org.redisson.api.RAtomicLong;
 import org.redisson.api.RBucket;
 import org.redisson.api.RLock;
 import org.redisson.api.RScript;
+import org.redisson.api.RScript.Mode;
+import org.redisson.api.RScript.ReturnType;
 import org.redisson.api.RedissonClient;
 import org.springframework.util.Assert;
 
@@ -37,16 +39,14 @@ public class RedissonOperationTemplate {
 		RScript script = redissonClient.getScript();
 		List<Object> keys = new ArrayList<>();
 		keys.add(lockKey);
-		String re = script.eval(
-		        RScript.Mode.READ_WRITE,
-		        "return redis.call('set',KEYS[1],ARGV[1]);",
-		        RScript.ReturnType.VALUE,
-		        keys, amount );
+		String re = script.eval(RScript.Mode.READ_WRITE, "return redis.call('set',KEYS[1],ARGV[1]);",
+				RScript.ReturnType.VALUE, keys, amount);
 		return redissonClient.getAtomicLong(lockKey);
 	}
-	
+
 	/**
 	 * 扣取现金账本
+	 * 
 	 * @param actid 账户id
 	 * @return
 	 * @throws InterruptedException
@@ -81,9 +81,73 @@ public class RedissonOperationTemplate {
 		} finally {
 			lock.unlock(); // 解锁
 		}
-		
+
 	}
 
+	/**
+	 * 家族lua脚本，返回sha值
+	 * 
+	 * @param luaScript 脚本内容
+	 * @return
+	 */
+	public String loadLuaScript(String luaScript) {
+		return redissonClient.getScript().scriptLoad(luaScript);
+	}
+	
+	/**
+	 * 执行lua脚本
+	 * 
+	 * @param luaScript  脚本内容
+	 * @param resultType 返回值类型
+	 * @param keys       redis键列表
+	 * @param values     值列表
+	 * @return
+	 */
+	public <R> R executeLuaScript(String luaScript, ReturnType returnType, List<Object> keys, Object... values) {
+		RScript script = redissonClient.getScript();
+		return script.eval(Mode.READ_WRITE, luaScript, returnType, keys, values);
+	}
+	
+	/**
+	 * 执行lua脚本
+	 * 
+	 * @param mode  	   执行模式
+	 * @param luaScript  脚本内容
+	 * @param resultType 返回值类型
+	 * @param keys       redis键列表
+	 * @param values     值列表
+	 * @return
+	 */
+	public <R> R executeLuaScript(Mode mode, String luaScript, ReturnType returnType, List<Object> keys, Object... values) {
+		RScript script = redissonClient.getScript();
+		return script.eval(mode, luaScript, returnType, keys, values);
+	}
+	
+	/**
+	 * 执行lua脚本
+	 * 
+	 * @param luaScript  脚本内容
+	 * @param resultType 返回值类型
+	 * @return
+	 */
+	public <R> R executeLuaScript(String luaScript, ReturnType returnType) {
+		RScript script = redissonClient.getScript();
+		return script.eval(Mode.READ_WRITE, luaScript, returnType);
+	}
+	
+	/**
+	 * 执行lua脚本
+	 * 
+	 * @param mode  	   执行模式
+	 * @param luaScript  脚本内容
+	 * @param resultType 返回值类型
+	 * @return
+	 */
+	public <R> R executeLuaScript(Mode mode, String luaScript, ReturnType returnType) {
+		RScript script = redissonClient.getScript();
+		return script.eval(mode, luaScript, returnType);
+	}
+ 
 	/**
 	 * 加锁
 	 * 
