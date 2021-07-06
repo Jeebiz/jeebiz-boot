@@ -945,7 +945,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		try {
 			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
 			Object rtVal = opsForHash.get(key, hashKey);
-			return Objects.nonNull(rtVal) ? defaultVal : (V) rtVal;
+			return Objects.nonNull(rtVal) ? (V) rtVal : defaultVal;
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return defaultVal;
