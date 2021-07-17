@@ -930,20 +930,25 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new BizRuntimeException(e.getMessage());
 		}
 	}
-	
+
 	/**
-	 * HashGet
-	 *
-	 * @param key  键 不能为null
-	 * @param hashKey 项 不能为null
-	 * @return 值
+	 * 获取hashKey对应的指定键值
+	 * @param key 键
+	 * @param hashKey hash键
+	 * @return 对应的键值
 	 */
-	public Object hGet(String key, String hashKey) {
+	public <V> V hGet(String key, String hashKey) {
+		return this.hGet(key, hashKey, null);
+	}
+	
+	public <V> V hGet(String key, String hashKey, V defaultVal) {
 		try {
-			return getOperations().opsForHash().get(key, hashKey);
+			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
+			Object rtVal = opsForHash.get(key, hashKey);
+			return Objects.nonNull(rtVal) ? (V) rtVal : defaultVal;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			return defaultVal;
 		}
 	}
 	
@@ -1022,21 +1027,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	/**
-	 * 获取hashKey对应的指定键值
-	 * @param key 键
-	 * @param field hash键
-	 * @return 对应的键值
-	 */
-	public Object hmGet(String key, String field) {
-		try {
-			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
-			return opsForHash.get(key, field);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return null;
-		}
-	}
 	
     public Map<String, Object> hmMultiGet(String key, Collection<Object> fields) {
     	if (CollectionUtils.isEmpty(fields)) {
@@ -1046,10 +1036,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
         Map<String, Object> ans = new HashMap<>(fields.size());
         int index = 0;
         for (Object field : fields) {
-            if (result.get(index) == null) {
-                continue;
-            }
             ans.put(field.toString(), result.get(index));
+            index ++;
         }
         return ans;
     }
@@ -1063,10 +1051,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	        Map<String, Object> ans = new HashMap<>(fields.size());
 	        int index = 0;
 	        for (Object field : fields) {
-	            if (result.get(index) == null) {
-	                continue;
-	            }
 	            ans.put(field.toString(), result.get(index));
+	            index ++;
 	        }
 	        return ans;
     	}).collect(Collectors.toList());
@@ -1081,10 +1067,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	        Map<String, Object> ans = new HashMap<>(fields.size());
 	        int index = 0;
 	        for (Object field : fields) {
-	            if (result.get(index) == null) {
-	                continue;
-	            }
 	            ans.put(field.toString(), result.get(index));
+	            index ++;
 	        }
 	        return ans;
     	}).collect(Collectors.toMap(kv -> MapUtils.getString(kv, identityField), Function.identity()));
@@ -1996,20 +1980,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Long luaIncr(String lockKey, long amount) {
 		Assert.hasLength(lockKey, "lockKey must not be empty");
-		return this.executeLuaScript(INCR_SCRIPT, Collections.singletonList(lockKey), amount);
-	}
-	
-	/**
-	 * 执行lua脚本
-	 * 
-	 * @param luaScript 脚本内容
-	 * @param keys      redis键列表
-	 * @param values    值列表
-	 * @return
-	 */
-	public Object executeLuaScript(String luaScript, List<String> keys, Object... values) {
-		RedisScript redisScript = RedisScript.of(luaScript);
-		return getOperations().execute(redisScript, RedisSerializer.java(), RedisSerializer.java(), keys, values);
+		return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(lockKey), amount);
 	}
 	
 	/**
@@ -2018,12 +1989,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param luaScript  脚本内容
 	 * @param keys       redis键列表
 	 * @param values     值列表
-	 * @param resultType 返回值类型
+	 * @param returnType 返回值类型
 	 * @return
 	 */
-	public <T> T executeLuaScript(String luaScript, Class<T> resultType, List<String> keys, Object... values) {
-		RedisScript redisScript = RedisScript.of(luaScript, resultType);
-		return (T) getOperations().execute(redisScript, keys, values);
+	public <R> R executeLuaScript(String luaScript, Class<R> returnType, List<String> keys, Object... values) {
+		RedisScript redisScript = RedisScript.of(luaScript, returnType);
+		return (R) getOperations().execute(redisScript, keys, values);
 	}
 	
 	/**
@@ -2034,19 +2005,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param values     值列表
 	 * @return
 	 */
-	public <T> T executeLuaScript(RedisScript<T> luaScript, List<String> keys, Object... values) {
-		return getOperations().execute(luaScript, keys, values);
-	}
-	
-	/*
-	 * @param luaScript 脚本内容
-	 * @param keys      redis键列表
-	 * @param values    值列表
-	 * @return
-	 */
-	public Object executeLuaScript(Resource luaScript, List<String> keys, Object... values) {
-		RedisScript redisScript = RedisScript.of(luaScript);
-		return getOperations().execute(redisScript, keys, values);
+	public <R> R executeLuaScript(RedisScript<R> luaScript, List<String> keys, Object... values) {
+		return (R) getOperations().execute(luaScript, keys, values);
 	}
 	
 	/**
@@ -2055,12 +2015,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param luaScript  脚本内容
 	 * @param keys       redis键列表
 	 * @param values     值列表
-	 * @param resultType 返回值类型
+	 * @param returnType 返回值类型
 	 * @return
 	 */
-	public <T> T executeLuaScript(Resource luaScript, Class<T> resultType, List<String> keys, Object... values) {
-		RedisScript redisScript = RedisScript.of(luaScript, resultType);
-		return (T) getOperations().execute(redisScript, keys, values);
+	public <R> R executeLuaScript(Resource luaScript, Class<R> returnType, List<String> keys, Object... values) {
+		RedisScript redisScript = RedisScript.of(luaScript, returnType);
+		return (R) getOperations().execute(redisScript, keys, values);
 	}
 	
 	// ===============================RedisCommand=================================

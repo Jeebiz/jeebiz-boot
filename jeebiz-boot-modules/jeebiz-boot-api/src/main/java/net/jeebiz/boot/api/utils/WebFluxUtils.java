@@ -15,6 +15,7 @@ import org.springframework.http.HttpRequest;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 
 import lombok.extern.slf4j.Slf4j;
+import net.jeebiz.boot.api.XHeaders;
 import reactor.core.publisher.Flux;
 
 @Slf4j
@@ -163,5 +164,28 @@ public class WebFluxUtils {
         }
         return new byte[4];
     }
-	
+    
+    public static String getDeviceId(ServerHttpRequest request ) {
+        HttpHeaders headers = request.getHeaders();
+    	// 1、判断是否 Apple 设备
+        String deviceId = headers.getFirst(XHeaders.X_DEVICE_IDFA);
+		if(!StringUtils.hasText(deviceId)) {
+			deviceId = headers.getFirst(XHeaders.X_DEVICE_OAID);
+		}
+		if(!StringUtils.hasText(deviceId)) {
+			deviceId = headers.getFirst(XHeaders.X_DEVICE_OPENUDID);
+		}
+		// 2、判断是否 Android 设备
+		if(!StringUtils.hasText(deviceId)) {
+			deviceId = headers.getFirst(XHeaders.X_DEVICE_IMEI);
+		}
+		if(!StringUtils.hasText(deviceId)) {
+			deviceId = headers.getFirst(XHeaders.X_DEVICE_ANDROIDID);
+		}
+		if(!StringUtils.hasText(deviceId)) {
+			deviceId = headers.getFirst(XHeaders.X_DEVICE_OAID);
+		}
+        return deviceId;
+    }
+    
 }
