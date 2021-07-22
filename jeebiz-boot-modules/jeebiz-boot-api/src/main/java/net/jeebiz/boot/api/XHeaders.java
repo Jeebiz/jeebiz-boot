@@ -38,6 +38,10 @@ public class XHeaders {
 	 */
 	public static final String X_LANGUAGE = "X-Language";
 	/**
+	 * 客户端时区
+	 */
+	public static final String X_TIMEZONE = "X-TimeZone";
+	/**
 	 * 账户UID
 	 */
 	public static final String X_UID = "X-Uid";
