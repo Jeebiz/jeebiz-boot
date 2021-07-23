@@ -638,6 +638,8 @@
 										<!--  当堆内存空间溢出时输出堆的内存快照 -->
 										<extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
 										<extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
+										<!-- 设置JVM时区-->
+										<extraArgument>-Duser.timezone=GMT+8</extraArgument>
 									</extraArguments>
 								</jvmSettings>
 							</program>
@@ -810,6 +812,8 @@
 										<!--  当堆内存空间溢出时输出堆的内存快照 -->
 										<extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
 										<extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
+										<!-- 设置JVM时区-->
+										<extraArgument>-Duser.timezone=GMT+8</extraArgument>
 									</extraArguments>
 									<systemProperties>
 										<systemProperty>java.security.policy=conf/policy.all</systemProperty>
