@@ -17,39 +17,6 @@ public abstract class RedisKeyConstant {
 	public static Long FIVE_SECONDS = 5 * 1000L;
 	
 	/**
-	 * 短信发送次数最大值
-	 */
-	public static Integer SMS_TIME_MAX = 10;
-	/**
-	 * 手机/设备发送短信次数记录过期时间
-	 */
-	public static Long SMS_TIME_EXPIRE = 3500 * 6L;
-	/**
-	 * 验证码过期时间
-	 */
-	public static Long SMS_EXPIRE = 60 * 5L;
-
-	/**
-	 * 手机号黑名单
-	 */
-	public static String SET_SMS_BLACK_LIST = "set:sms:blacklist";
-	/**
-	 * 记录手机号发短信次数
-	 */
-	public static String STR_SMS_MOBILE_TIME = "str:sms:mobile:time:";
-	/**
-	 * 记录设备发短信次数
-	 */
-	public static String STR_SMS_DEV_TIME = "str:sms:dev:time:";
-	/**
-	 * 发送短信锁
-	 */
-	public static String STR_SMS_LOCK_MOBILE = "str:sms:lock:";
-	/**
-	 * 短信验证码 type + 手机号
-	 */
-	public static String STR_SMS_CODE = "str:sms:code:";
-	/**
 	 * redis 用户登陆次数
 	 */
 	public static String USER_LOGIN_AMOUNT_KEY = "user:login:amount:{}";
