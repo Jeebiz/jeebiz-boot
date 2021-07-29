@@ -988,6 +988,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return result;
 	}
 	
+	public List<Object> hMultiGetAll(Collection<Object> keys) {
+		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+			keys.stream().forEach(key -> {
+				byte[] rawKey = rawKey(String.valueOf(key));
+				connection.hGetAll(rawKey(rawKey));
+			});
+			return null;
+		}, this.valueSerializer());
+		return result;
+	}
+	
    	public List<Object> hMultiGetAll(Collection<Object> keys, String redisPrefix) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
