@@ -21,7 +21,11 @@ import java.util.stream.Stream;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisZSetCommands.Aggregate;
+import org.springframework.data.redis.connection.RedisZSetCommands.Limit;
+import org.springframework.data.redis.connection.RedisZSetCommands.Range;
 import org.springframework.data.redis.connection.RedisZSetCommands.Tuple;
+import org.springframework.data.redis.connection.RedisZSetCommands.Weights;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisCallback;
@@ -1447,13 +1451,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	/**
 	 * 获取两个key的不同value
 	 * 
-	 * @param key1 键
-	 * @param key2 键
-	 * @return 返回key1中和key2的不同数据
+	 * @param key 键
+	 * @param otherKey 键
+	 * @return 返回key中和otherKey的不同数据
 	 */
-	public Set<Object> sDiff(String key1, String key2) {
+	public Set<Object> sDiff(String key, String otherKey) {
 		try {
-			return getOperations().opsForSet().difference(key1, key2);
+			return getOperations().opsForSet().difference(key, otherKey);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return Sets.newHashSet();
@@ -1461,16 +1465,49 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	/**
-	 * 获取两个key的不同数据，放到key3中
+	 * 获取两个key的不同数据，存储到destKey中
 	 * 
-	 * @param key1 键
-	 * @param key2 键
-	 * @param key3 键
+	 * @param key 键
+	 * @param otherKey 键
+	 * @param destKey 键
 	 * @return 返回成功数据
 	 */
-	public Long sDiffStore(String key1, String key2, String key3) {
+	public Long sDiffAndStore(String key, String otherKey, String destKey) {
 		try {
-			return getOperations().opsForSet().differenceAndStore(key1, key2, key3);
+			return getOperations().opsForSet().differenceAndStore(key, otherKey, destKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+
+	/**
+	 *   获取key和keys的不同数据，存储到destKey中
+	 * 
+	 * @param key 键
+	 * @param keys 键集合
+	 * @param destKey 键
+	 * @return 返回成功数据
+	 */
+	public Long sDiffAndStore(String key, Collection<String> keys, String destKey) {
+		try {
+			return getOperations().opsForSet().differenceAndStore(key, keys, destKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	/**
+	 * 获取多个keys的不同数据，存储到destKey中
+	 * 
+	 * @param keys 键集合
+	 * @param destKey 键
+	 * @return 返回成功数据
+	 */
+	public Long sDiffAndStore(Collection<String> keys, String destKey) {
+		try {
+			return getOperations().opsForSet().differenceAndStore(keys, destKey);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return 0L;
@@ -1491,6 +1528,30 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			log.error(e.getMessage());
 			return false;
 		}
+	}
+	
+	public Set<Object> sIntersect(String key, String otherKey) {
+		return getOperations().opsForSet().intersect(key, otherKey);
+	}
+	
+	public Set<Object> sIntersect(String key, Collection<String> otherKeys) {
+		return getOperations().opsForSet().intersect(key, otherKeys);
+	}
+	
+	public Set<Object> sIntersect(Collection<String> otherKeys) {
+		return getOperations().opsForSet().intersect(otherKeys);
+	}
+	
+	public Long sIntersectAndStore(String key, String otherKey, String destKey) {
+		return getOperations().opsForSet().intersectAndStore(key, otherKey, destKey);
+	}
+	
+	public Long sIntersectAndStore(String key, Collection<String> otherKeys, String destKey) {
+		return getOperations().opsForSet().intersectAndStore(key, otherKeys, destKey);
+	}
+	
+	public Long sIntersectAndStore(Collection<String> otherKeys, String destKey) {
+		return getOperations().opsForSet().intersectAndStore(otherKeys, destKey);
 	}
 
 	/**
@@ -1592,22 +1653,70 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return 0L;
 		}
 	}
-	
-	/**
-	 * 获取两个key的所有数据，放到key3中
-	 * 
-	 * @param key1 键
-	 * @param key2 键
-	 * @param key3 键
-	 * @return 返回成功数据
-	 */
-	public Boolean sUnionAndStore(String key1, String key2, String key3) {
+
+	public Set<Object> sUnion(String key, String otherKey) {
 		try {
-			getOperations().opsForSet().unionAndStore(key1, key2, key3);
-			return true;
+			return getOperations().opsForSet().union(key, otherKey);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			return Sets.newHashSet();
+		}
+	}
+	
+	public Set<Object> sUnion(String key, Collection<String> keys) {
+		try {
+			return getOperations().opsForSet().union(key, keys);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return Sets.newHashSet();
+		}
+	}
+	
+	/**
+	 * 合并所有指定keys的数据
+	 * @param keys 键集合
+	 * @param destKey 键
+	 * @return 返回成功数据
+	 */
+	public Set<Object> sUnion(Collection<String> keys) {
+		try {
+			return getOperations().opsForSet().union(keys);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return Sets.newHashSet();
+		}
+	}
+	
+	public Long sUnionAndStore(String key, String otherKey, String destKey) {
+		try {
+			return getOperations().opsForSet().unionAndStore(key, otherKey, destKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	public Long sUnionAndStore(String key, Collection<String> keys, String destKey) {
+		try {
+			return getOperations().opsForSet().unionAndStore(key, keys, destKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	/**
+	 * 合并所有指定keys的数据，存储到destKey中
+	 * @param keys 键集合
+	 * @param destKey 键
+	 * @return 返回成功数据
+	 */
+	public Long sUnionAndStore(Collection<String> keys, String destKey) {
+		try {
+			return getOperations().opsForSet().unionAndStore(keys, destKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
 		}
 	}
 	
@@ -1671,6 +1780,22 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return result;
 	}
 	
+	public Long zIntersectAndStore(String key, String otherKey, String destKey) {
+		return getOperations().opsForZSet().intersectAndStore(key, otherKey, destKey);
+	}
+	
+	public Long zIntersectAndStore(String key, Collection<String> otherKeys, String destKey) {
+		return getOperations().opsForZSet().intersectAndStore(key, otherKeys, destKey);
+	}
+	
+	public Long zIntersectAndStore(String key, Collection<String> otherKeys, String destKey, Aggregate aggregate) {
+		return getOperations().opsForZSet().intersectAndStore(key, otherKeys, destKey, aggregate);
+	}
+
+	public Long zIntersectAndStore(String key, Collection<String> otherKeys, String destKey, Aggregate aggregate, Weights weights) {
+		return getOperations().opsForZSet().intersectAndStore(key, otherKeys, destKey, aggregate, weights);
+	}
+	
 	/**
 	 * 移除zset中的元素
 	 * 
@@ -1710,7 +1835,15 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Set<TypedTuple<Object>> zRangeByScoreWithScores(String key, double min, double max) {
 		return getOperations().boundZSetOps(key).rangeByScoreWithScores(min, max);  
 	}
-
+	
+	public Set<Object> zRangeByLex(String key, Range range) {
+		return getOperations().boundZSetOps(key).rangeByLex(range);
+	}
+	
+	public Set<Object> zRangeByLex(String key, Range range, Limit limit) {
+		return getOperations().boundZSetOps(key).rangeByLex(range, limit);
+	}
+	
 	/**
 	 * @param key   :
 	 * @param start :
@@ -1790,7 +1923,42 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return getOperations().boundZSetOps(key).score(value);
 	}
 	
-
+	public Long zUnionAndStore(String key, String otherKey, String destKey) {
+		try {
+			return getOperations().opsForZSet().unionAndStore(key, otherKey, destKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	public Long zUnionAndStore(String key, Collection<String> keys, String destKey) {
+		try {
+			return getOperations().opsForZSet().unionAndStore(key, keys, destKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	public Long zUnionAndStore(String key, Collection<String> keys, String destKey, Aggregate aggregate) {
+		try {
+			return getOperations().opsForZSet().unionAndStore(key, keys, destKey, aggregate);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	public Long zUnionAndStore(String key, Collection<String> keys, String destKey, Aggregate aggregate, Weights weights) {
+		try {
+			return getOperations().opsForZSet().unionAndStore(key, keys, destKey, aggregate, weights);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
 	// ===============================HyperLogLog=================================
 	
 	public Long pfAdd(String key, Object... values) {
