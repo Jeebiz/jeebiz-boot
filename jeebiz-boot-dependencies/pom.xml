@@ -300,7 +300,7 @@
 		<spring-initializr.version>0.10.1</spring-initializr.version>
 		<sqlite-jdbc.version>3.34.0</sqlite-jdbc.version>
 		<st4.version>4.0.8</st4.version>
-		<sshd.version>2.6.0</sshd.version>
+		<sshd.version>2.7.0</sshd.version>
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.10.1</svnkit.version>
