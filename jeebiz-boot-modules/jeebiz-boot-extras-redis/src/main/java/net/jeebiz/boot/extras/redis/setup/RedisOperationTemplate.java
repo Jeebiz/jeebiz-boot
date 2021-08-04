@@ -584,18 +584,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-
-	public List<String> lGet(String key, Integer count) {
-		List<Object> result = getOperations().executePipelined((RedisConnection redisConnection) -> {
-			byte[] serKey = rawString(key);
-			redisConnection.lRange(serKey, 0, count - 1);
-			redisConnection.lTrim(serKey, count, -1);
-			return null;
-		}, this.valueSerializer());
-		
-		return (List<String>) result.get(0);
-	}
-	
 	/**
 	 * 获取list缓存的内容
 	 *
@@ -650,7 +638,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public <V> Long lLeftPush(String key, V value) {
 		if(value instanceof Collection) {
-			return lLeftPush(key, (Collection) value);
+			return lLeftPushAll(key, (Collection) value);
 		}
 		try {
 			return getOperations().opsForList().leftPush(key, value);
@@ -659,9 +647,10 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return 0L;
 		}
 	}
+	
 	public <V> Long lLeftPush(String key, V value, long seconds) {
 		if(value instanceof Collection) {
-			return lLeftPush(key, (Collection) value, seconds);
+			return lLeftPushAll(key, (Collection) value, seconds);
 		}
 		try {
 			Long rt = getOperations().opsForList().leftPush(key, value);
@@ -677,7 +666,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public <V> Long lLeftPush(String key, V value, Duration duration) {
 		if(value instanceof Collection) {
-			return lLeftPush(key, (Collection) value, duration);
+			return lLeftPushAll(key, (Collection) value, duration);
 		}
 		try {
 			Long rt = getOperations().opsForList().leftPush(key, value);
@@ -691,9 +680,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPush(String key, Collection<V> values) {
+	public <V> Long lLeftPushAll(String key, Collection<V> values) {
 		try {
-			Long rt = getOperations().opsForList().leftPushAll(key, values);
+			Long rt = getOperations().opsForList().leftPushAll(key, values.toArray());
 			return rt;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -701,9 +690,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPush(String key, Collection<V> values, long seconds) {
+	public <V> Long lLeftPushAll(String key, Collection<V> values, long seconds) {
 		try {
-			Long rt = getOperations().opsForList().leftPushAll(key, values);
+			Long rt = getOperations().opsForList().leftPushAll(key, values.toArray());
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -714,9 +703,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPush(String key, Collection<V> values, Duration duration) {
+	public <V> Long lLeftPushAll(String key, Collection<V> values, Duration duration) {
 		try {
-			Long rt = getOperations().opsForList().leftPushAll(key, values);
+			Long rt = getOperations().opsForList().leftPushAll(key, values.toArray());
 			if(!duration.isNegative()) {
 				expire(key, duration);
 			}
@@ -736,7 +725,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <V> Long lRightPush(String key, V value) {
 		if(value instanceof Collection) {
-			return lRightPush(key, (Collection) value);
+			return lRightPushAll(key, (Collection) value);
 		}
 		try {
 			Long rt = getOperations().opsForList().rightPush(key, value);
@@ -757,7 +746,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <V> Long lRightPush(String key, V value, long seconds) {
 		if(value instanceof Collection) {
-			return lRightPush(key, (Collection) value, seconds);
+			return lRightPushAll(key, (Collection) value, seconds);
 		}
 		try {
 			Long rt = getOperations().opsForList().rightPush(key, value);
@@ -773,7 +762,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public <V> Long lRightPush(String key, V value, Duration duration) {
 		if(value instanceof Collection) {
-			return lRightPush(key, (Collection) value, duration);
+			return lRightPushAll(key, (Collection) value, duration);
 		}
 		try {
 			Long rt = getOperations().opsForList().rightPush(key, value);
@@ -787,18 +776,31 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	public <V> Long lRightPush(String key, Collection<V> values) {
+	public <V> Long lRightPushAll(String key, Collection<V> values) {
 		try {
-			return getOperations().opsForList().rightPushAll(key, values);
+			return getOperations().opsForList().rightPushAll(key, values.toArray());
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return 0L;
 		}
 	}
 	
-	public <V> Long lRightPush(String key, Collection<V> values, Duration duration) {
+	public <V> Long lRightPushAll(String key, Collection<V> values, long seconds) {
 		try {
-			Long rt = getOperations().opsForList().rightPushAll(key, values);
+			Long rt = getOperations().opsForList().rightPushAll(key, values.toArray());
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return rt;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	public <V> Long lRightPushAll(String key, Collection<V> values, Duration duration) {
+		try {
+			Long rt = getOperations().opsForList().rightPushAll(key, values.toArray());
 			if(!duration.isNegative()) {
 				expire(key, duration);
 			}
@@ -824,6 +826,33 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return null;
+		}
+	}
+	
+	/**
+	 * 从左侧取count个元素并移除已经去除的元素
+	 * @param key
+	 * @param count
+	 * @return
+	 */
+	public List<Object> lLeftPop(String key, Integer count) {
+		List<Object> result = getOperations().executePipelined((RedisConnection redisConnection) -> {
+			byte[] serKey = rawString(key);
+			redisConnection.lRange(serKey, 0, count - 1);
+			redisConnection.lTrim(serKey, count, -1);
+			return null;
+		}, this.valueSerializer());
+		return (List<Object>) result.get(0);
+	}
+	
+	public <T> List<T> lLeftPop(String key, Integer count, Class<T> clazz) {
+		try {
+			List<Object> range = this.lLeftPop(key, count);
+			List<T> result = range.stream().map(member -> clazz.cast(member)).collect(Collectors.toList());
+			return result;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return Lists.newArrayList();
 		}
 	}
 
