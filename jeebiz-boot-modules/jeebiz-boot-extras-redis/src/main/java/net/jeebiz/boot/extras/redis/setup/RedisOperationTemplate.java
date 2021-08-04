@@ -1117,7 +1117,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			});
 			return null;
 		}, this.valueSerializer());
-		return result.stream().map(mapper -> Map.class.cast(mapper)).collect(Collectors.toList());
+		return result.stream().map(mapper -> (Map<String, Object>)mapper).collect(Collectors.toList());
 	}
 	
    	public List<Map<String, Object>> hmMultiGetAll(Collection<Object> keys, String redisPrefix) {
@@ -1128,7 +1128,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			});
 			return null;
 		}, this.valueSerializer());
-		return result.stream().map(mapper -> Map.class.cast(mapper)).collect(Collectors.toList());
+		return result.stream().map(mapper -> (Map<String, Object>)mapper).collect(Collectors.toList());
 	}
     
 	/**
