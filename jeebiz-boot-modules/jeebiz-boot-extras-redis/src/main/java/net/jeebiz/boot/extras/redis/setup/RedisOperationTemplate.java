@@ -310,11 +310,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public String getString(String key) {
 		try {
-			Object obj = this.get(key);
-			if(Objects.nonNull(obj)) {
-				return Objects.toString(obj, EMPTY);
-			}
-			return EMPTY;
+			return Objects.toString(this.get(key), EMPTY);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return EMPTY;
