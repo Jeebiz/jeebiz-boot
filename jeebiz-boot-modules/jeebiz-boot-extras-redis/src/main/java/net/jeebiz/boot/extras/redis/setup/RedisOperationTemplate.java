@@ -53,9 +53,14 @@ import net.jeebiz.boot.api.exception.BizRuntimeException;
 @SuppressWarnings({"unchecked","rawtypes"})
 @Slf4j
 public class RedisOperationTemplate extends AbstractOperations<String, Object> {
-
+    
+	/**
+     * The empty String {@code ""}.
+     */
+	private static final String EMPTY = "";
 	private static final Long LOCK_SUCCESS = 1L;
     private static final Long LOCK_EXPIRED = -1L;
+
     
     private static final RedisScript<Long> LOCK_LUA_SCRIPT = RedisScript.of(RedisLua.LOCK_LUA_SCRIPT, Long.class );
     
@@ -228,9 +233,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		try {
 			//return getOperations().opsForValue().setIfAbsent(key, value);
 			return this.execute((RedisCallback<Boolean>) redisConnection -> {
-				byte[] serKey = rawString(key);
+				byte[] rawKey = rawString(key);
 				byte[] serValue = rawString(value);
-				return redisConnection.setNX(serKey, serValue);
+				return redisConnection.setNX(rawKey, serValue);
 			});
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -305,13 +310,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public String getString(String key) {
 		try {
-			return !StringUtils.hasText(key) ? null : getOperations().execute((RedisCallback<String>) redisConnection -> {
-				byte[] serValue = redisConnection.get(rawKey(key));
-				return deserializeString(serValue);
-			});
+			Object obj = this.get(key);
+			if(Objects.nonNull(obj)) {
+				return Objects.toString(obj, EMPTY);
+			}
+			return EMPTY;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			return EMPTY;
 		}
 	}
 	
@@ -820,6 +826,23 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
+	/**
+	 * 从list右侧取count个元素并移除已经去除的元素
+	 * @param key
+	 * @param count
+	 * @return
+	 */
+	public List<Object> lRightPop(String key, Integer count) {
+		List<Object> result = getOperations().executePipelined((RedisConnection redisConnection) -> {
+			byte[] rawKey = rawKey(key);
+			Long len = redisConnection.lLen(rawKey);
+			redisConnection.lRange(rawKey, len - count, -1);
+			redisConnection.lTrim(rawKey, len - count, -1);
+			return null;
+		}, this.valueSerializer());
+		return (List<Object>) result.get(0);
+	}
+	
 	public Object lLeftPop(String key) {
 		try {
 			return getOperations().opsForList().leftPop(key);
@@ -830,16 +853,16 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	/**
-	 * 从左侧取count个元素并移除已经去除的元素
+	 * 从list左侧取count个元素并移除已经去除的元素
 	 * @param key
 	 * @param count
 	 * @return
 	 */
 	public List<Object> lLeftPop(String key, Integer count) {
 		List<Object> result = getOperations().executePipelined((RedisConnection redisConnection) -> {
-			byte[] serKey = rawString(key);
-			redisConnection.lRange(serKey, 0, count - 1);
-			redisConnection.lTrim(serKey, count, -1);
+			byte[] rawKey = rawKey(key);
+			redisConnection.lRange(rawKey, 0, count - 1);
+			redisConnection.lTrim(rawKey, count, -1);
 			return null;
 		}, this.valueSerializer());
 		return (List<Object>) result.get(0);
