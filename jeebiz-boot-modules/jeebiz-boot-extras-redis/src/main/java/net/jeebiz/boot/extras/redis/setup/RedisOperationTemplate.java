@@ -53,9 +53,14 @@ import net.jeebiz.boot.api.exception.BizRuntimeException;
 @SuppressWarnings({"unchecked","rawtypes"})
 @Slf4j
 public class RedisOperationTemplate extends AbstractOperations<String, Object> {
-
+    
+	/**
+     * The empty String {@code ""}.
+     */
+	private static final String EMPTY = "";
 	private static final Long LOCK_SUCCESS = 1L;
     private static final Long LOCK_EXPIRED = -1L;
+
     
     private static final RedisScript<Long> LOCK_LUA_SCRIPT = RedisScript.of(RedisLua.LOCK_LUA_SCRIPT, Long.class );
     
@@ -228,9 +233,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		try {
 			//return getOperations().opsForValue().setIfAbsent(key, value);
 			return this.execute((RedisCallback<Boolean>) redisConnection -> {
-				byte[] serKey = rawString(key);
+				byte[] rawKey = rawString(key);
 				byte[] serValue = rawString(value);
-				return redisConnection.setNX(serKey, serValue);
+				return redisConnection.setNX(rawKey, serValue);
 			});
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -305,13 +310,10 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public String getString(String key) {
 		try {
-			return !StringUtils.hasText(key) ? null : getOperations().execute((RedisCallback<String>) redisConnection -> {
-				byte[] serValue = redisConnection.get(rawKey(key));
-				return deserializeString(serValue);
-			});
+			return Objects.toString(this.get(key), EMPTY);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			return EMPTY;
 		}
 	}
 	
@@ -584,18 +586,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-
-	public List<String> lGet(String key, Integer count) {
-		List<Object> result = getOperations().executePipelined((RedisConnection redisConnection) -> {
-			byte[] serKey = rawString(key);
-			redisConnection.lRange(serKey, 0, count - 1);
-			redisConnection.lTrim(serKey, count, -1);
-			return null;
-		}, this.valueSerializer());
-		
-		return (List<String>) result.get(0);
-	}
-	
 	/**
 	 * 获取list缓存的内容
 	 *
@@ -650,7 +640,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public <V> Long lLeftPush(String key, V value) {
 		if(value instanceof Collection) {
-			return lLeftPush(key, (Collection) value);
+			return lLeftPushAll(key, (Collection) value);
 		}
 		try {
 			return getOperations().opsForList().leftPush(key, value);
@@ -659,9 +649,10 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return 0L;
 		}
 	}
+	
 	public <V> Long lLeftPush(String key, V value, long seconds) {
 		if(value instanceof Collection) {
-			return lLeftPush(key, (Collection) value, seconds);
+			return lLeftPushAll(key, (Collection) value, seconds);
 		}
 		try {
 			Long rt = getOperations().opsForList().leftPush(key, value);
@@ -677,7 +668,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public <V> Long lLeftPush(String key, V value, Duration duration) {
 		if(value instanceof Collection) {
-			return lLeftPush(key, (Collection) value, duration);
+			return lLeftPushAll(key, (Collection) value, duration);
 		}
 		try {
 			Long rt = getOperations().opsForList().leftPush(key, value);
@@ -691,9 +682,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPush(String key, Collection<V> values) {
+	public <V> Long lLeftPushAll(String key, Collection<V> values) {
 		try {
-			Long rt = getOperations().opsForList().leftPushAll(key, values);
+			Long rt = getOperations().opsForList().leftPushAll(key, values.toArray());
 			return rt;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -701,9 +692,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPush(String key, Collection<V> values, long seconds) {
+	public <V> Long lLeftPushAll(String key, Collection<V> values, long seconds) {
 		try {
-			Long rt = getOperations().opsForList().leftPushAll(key, values);
+			Long rt = getOperations().opsForList().leftPushAll(key, values.toArray());
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -714,9 +705,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPush(String key, Collection<V> values, Duration duration) {
+	public <V> Long lLeftPushAll(String key, Collection<V> values, Duration duration) {
 		try {
-			Long rt = getOperations().opsForList().leftPushAll(key, values);
+			Long rt = getOperations().opsForList().leftPushAll(key, values.toArray());
 			if(!duration.isNegative()) {
 				expire(key, duration);
 			}
@@ -736,7 +727,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <V> Long lRightPush(String key, V value) {
 		if(value instanceof Collection) {
-			return lRightPush(key, (Collection) value);
+			return lRightPushAll(key, (Collection) value);
 		}
 		try {
 			Long rt = getOperations().opsForList().rightPush(key, value);
@@ -757,7 +748,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public <V> Long lRightPush(String key, V value, long seconds) {
 		if(value instanceof Collection) {
-			return lRightPush(key, (Collection) value, seconds);
+			return lRightPushAll(key, (Collection) value, seconds);
 		}
 		try {
 			Long rt = getOperations().opsForList().rightPush(key, value);
@@ -773,7 +764,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public <V> Long lRightPush(String key, V value, Duration duration) {
 		if(value instanceof Collection) {
-			return lRightPush(key, (Collection) value, duration);
+			return lRightPushAll(key, (Collection) value, duration);
 		}
 		try {
 			Long rt = getOperations().opsForList().rightPush(key, value);
@@ -787,18 +778,31 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	public <V> Long lRightPush(String key, Collection<V> values) {
+	public <V> Long lRightPushAll(String key, Collection<V> values) {
 		try {
-			return getOperations().opsForList().rightPushAll(key, values);
+			return getOperations().opsForList().rightPushAll(key, values.toArray());
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return 0L;
 		}
 	}
 	
-	public <V> Long lRightPush(String key, Collection<V> values, Duration duration) {
+	public <V> Long lRightPushAll(String key, Collection<V> values, long seconds) {
 		try {
-			Long rt = getOperations().opsForList().rightPushAll(key, values);
+			Long rt = getOperations().opsForList().rightPushAll(key, values.toArray());
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return rt;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
+	public <V> Long lRightPushAll(String key, Collection<V> values, Duration duration) {
+		try {
+			Long rt = getOperations().opsForList().rightPushAll(key, values.toArray());
 			if(!duration.isNegative()) {
 				expire(key, duration);
 			}
@@ -818,12 +822,56 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
+	/**
+	 * 从list右侧取count个元素并移除已经去除的元素
+	 * @param key
+	 * @param count
+	 * @return
+	 */
+	public List<Object> lRightPop(String key, Integer count) {
+		List<Object> result = getOperations().executePipelined((RedisConnection redisConnection) -> {
+			byte[] rawKey = rawKey(key);
+			Long len = redisConnection.lLen(rawKey);
+			redisConnection.lRange(rawKey, len - count, -1);
+			redisConnection.lTrim(rawKey, len - count, -1);
+			return null;
+		}, this.valueSerializer());
+		return (List<Object>) result.get(0);
+	}
+	
 	public Object lLeftPop(String key) {
 		try {
 			return getOperations().opsForList().leftPop(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return null;
+		}
+	}
+	
+	/**
+	 * 从list左侧取count个元素并移除已经去除的元素
+	 * @param key
+	 * @param count
+	 * @return
+	 */
+	public List<Object> lLeftPop(String key, Integer count) {
+		List<Object> result = getOperations().executePipelined((RedisConnection redisConnection) -> {
+			byte[] rawKey = rawKey(key);
+			redisConnection.lRange(rawKey, 0, count - 1);
+			redisConnection.lTrim(rawKey, count, -1);
+			return null;
+		}, this.valueSerializer());
+		return (List<Object>) result.get(0);
+	}
+	
+	public <T> List<T> lLeftPop(String key, Integer count, Class<T> clazz) {
+		try {
+			List<Object> range = this.lLeftPop(key, count);
+			List<T> result = range.stream().map(member -> clazz.cast(member)).collect(Collectors.toList());
+			return result;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return Lists.newArrayList();
 		}
 	}
 
@@ -956,22 +1004,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	/**
-	 * 获取hashKey对应的指定键值
-	 * @param key 键
-	 * @param hashKeys 要筛选项
-	 * @return
-	 */
-    public List<Object> hMultiGet(String key, Collection<Object> hashKeys) {
-    	try {
-			return getOperations().opsForHash().multiGet(key, hashKeys);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return Lists.newArrayList();
-		}
-	}
-    
-    public List<Object> hMultiGet(Collection<Object> keys, String redisField) {
+    public List<Object> hGet(Collection<Object> keys, String redisField) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
 				connection.hGet(rawKey(key), rawHashKey(redisField));
@@ -981,7 +1014,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return result;
 	}
 	
-	public List<Object> hMultiGet(Collection<Object> keys, String redisPrefix, String field) {
+	public List<Object> hGet(Collection<Object> keys, String redisPrefix, String field) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
 				byte[] rawKey = rawKey(RedisKeyConstant.getKeyStr(redisPrefix, String.valueOf(key)));
@@ -992,28 +1025,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return result;
 	}
 	
-	public List<Object> hMultiGetAll(Collection<Object> keys) {
-		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
-			keys.stream().forEach(key -> {
-				byte[] rawKey = rawKey(String.valueOf(key));
-				connection.hGetAll(rawKey(rawKey));
-			});
-			return null;
-		}, this.valueSerializer());
-		return result;
-	}
-	
-   	public List<Object> hMultiGetAll(Collection<Object> keys, String redisPrefix) {
-		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
-			keys.stream().forEach(key -> {
-				byte[] rawKey = rawKey(RedisKeyConstant.getKeyStr(redisPrefix, String.valueOf(key)));
-				connection.hGetAll(rawKey(rawKey));
-			});
-			return null;
-		}, this.valueSerializer());
-		return result;
-	}
-   	
 	/**
 	 * 判断hash表中是否有该项的值
 	 *
@@ -1024,7 +1035,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public boolean hHasKey(String key, String item) {
 		return getOperations().opsForHash().hasKey(key, item);
 	}
-	
 	
     /**
 	 * 获取hashKey对应的所有键值
@@ -1042,6 +1052,32 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
+	public List<Map<String, Object>> hmGet(Collection<String> keys) {
+		if (CollectionUtils.isEmpty(keys)) {
+			return Collections.emptyList();
+		}
+    	return keys.parallelStream().map(key -> {
+    		HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
+			return opsForHash.entries(key);
+    	}).collect(Collectors.toList());
+	}
+	
+	public List<Map<String, Object>> hmGet(Collection<String> keys, String redisPrefix) {
+		if (CollectionUtils.isEmpty(keys)) {
+			return Collections.emptyList();
+		}
+    	return keys.parallelStream().map(key -> {
+    		HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
+			return opsForHash.entries(RedisKeyConstant.getKeyStr(redisPrefix, key));
+    	}).collect(Collectors.toList());
+	}
+	
+	public List<Object> hMultiGet(String key, Collection<Object> fields) {
+    	if (CollectionUtils.isEmpty(fields)) {
+			return Lists.newArrayList();
+		}
+    	return getOperations().opsForHash().multiGet(key, fields);
+    }
 	
     public Map<String, Object> hmMultiGet(String key, Collection<Object> fields) {
     	if (CollectionUtils.isEmpty(fields)) {
@@ -1088,6 +1124,31 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	        return ans;
     	}).collect(Collectors.toMap(kv -> MapUtils.getString(kv, identityField), Function.identity()));
     }
+    
+    public List<Map<String, Object>> hmMultiGetAll(Collection<Object> keys) {
+		if (CollectionUtils.isEmpty(keys)) {
+			return Collections.emptyList();
+		}
+		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+			keys.stream().forEach(key -> {
+				byte[] rawKey = rawKey(String.valueOf(key));
+				connection.hGetAll(rawKey);
+			});
+			return null;
+		}, this.valueSerializer());
+		return result.stream().map(mapper -> (Map<String, Object>)mapper).collect(Collectors.toList());
+	}
+	
+   	public List<Map<String, Object>> hmMultiGetAll(Collection<Object> keys, String redisPrefix) {
+		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+			keys.stream().forEach(key -> {
+				byte[] rawKey = rawKey(RedisKeyConstant.getKeyStr(redisPrefix, String.valueOf(key)));
+				connection.hGetAll(rawKey);
+			});
+			return null;
+		}, this.valueSerializer());
+		return result.stream().map(mapper -> (Map<String, Object>)mapper).collect(Collectors.toList());
+	}
     
 	/**
 	 * HashSet
@@ -2273,7 +2334,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	// ===============================batchGet=================================
 	
-   	public List<Object> batchGetUserInfo(Collection<Object> uids) {
+   	public <K> List<Object> batchGetUserInfo(Collection<K> uids) {
    		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
    			uids.stream().forEach(uid -> {
    				byte[] rawKey = rawKey(RedisKey.USER_INFO.getKey(String.valueOf(uid)));
@@ -2284,14 +2345,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    		return result;
    	}
 	
-	public <K> List<Object> batchGetUserFields(K uid, Collection<Object> fields) {
+	public <K> Map<String, Object> batchGetUserFields(K uid, Collection<Object> fields) {
     	String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
-    	return this.hMultiGet(userKey, fields);
+    	return this.hmMultiGet(userKey, fields);
     }
 	
-	public <K> List<Object> batchGetUserFields(K uid, String... fields) {
+	public <K> Map<String, Object> batchGetUserFields(K uid, String... fields) {
 		String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
-    	return this.hMultiGet(userKey, Stream.of(fields).collect(Collectors.toList()));
+    	return this.hmMultiGet(userKey, Stream.of(fields).collect(Collectors.toList()));
     }
     
 	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, String... fields) {
