@@ -115,7 +115,8 @@
 		<dubbo.version>2.7.8</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
-		<fastjson.version>1.2.76</fastjson.version>
+		<fastjson.version>1.2.78</fastjson.version>
+		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
 		<feign.version>11.2</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
@@ -409,6 +410,7 @@
 		<spring-boot-starter-druid-plus.version>1.1.1.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-dynamic-datasource.version>3.3.2</spring-boot-starter-dynamic-datasource.version>
 		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
+		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
@@ -1960,6 +1962,72 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>${fastjson.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-core</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-jexcel</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-poi</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-beetl</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-freemarker</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-httl</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-jetbrick</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-jxls1</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-jxls2</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-rythm</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-thymeleaf</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-velocity</artifactId>
+				<version>${fastxls.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-template-webit</artifactId>
+				<version>${fastxls.version}</version>
 			</dependency>
 			
 			<!-- https://mvnrepository.com/artifact/io.github.openfeign.form/feign-form -->
@@ -4920,6 +4988,12 @@
 			    <groupId>org.apache.shardingsphere.elasticjob</groupId>
 			    <artifactId>elasticjob-lite-spring-boot-starter</artifactId>
 			    <version>${spring-boot-starter-elasticjob.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/fastxls-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>fastxls-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-fastxls.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/fastdfs-spring-boot-starter -->
 			<dependency>
