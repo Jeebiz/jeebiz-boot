@@ -179,7 +179,7 @@
 		<json.version>20210307</json.version>
 		<junrar.version>7.4.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
-		<jwt-issuer.version>1.0.7.RELEASE</jwt-issuer.version>
+		<jwt-issuer.version>1.0.8-SNAPSHOT</jwt-issuer.version>
 		<kafka-clients.version>2.6.0</kafka-clients.version>
 		<knife4j.version>3.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>

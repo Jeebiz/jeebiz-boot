@@ -37,14 +37,12 @@ public class XHeaders {
 	 * 国际化（zh_CN：简体中文、zh_TW：繁体中文、en_US：英语）
 	 */
 	public static final String X_LANGUAGE = "X-Language";
+
 	/**
 	 * 客户端时区
 	 */
 	public static final String X_TIMEZONE = "X-TimeZone";
-	/**
-	 * 账户UID
-	 */
-	public static final String X_UID = "X-Uid";
+	
 	/**
 	 * 参数签名
 	 */
@@ -101,6 +99,36 @@ public class XHeaders {
 	 * 接口请求来源（用于行为统计）
 	 */
 	public static final String X_REFERRER = "X-Referrer";
-
+	
+	/**
+	 * 账户UID
+	 */
+	public static final String X_UID = "X-Uid";
+	/**
+	 * 用户名
+	 */
+	public static final String X_UNAME = "X-Uname";
+	/**
+	 * 用户Key：用户业务表中的唯一ID
+	 */
+	public static final String X_UKEY = "X-Ukey";
+	/**
+	 * 用户Code：用户业务表中的唯一编码
+	 */
+	public static final String X_UCODE = "X-Ucode";
+	/**
+	 * 角色ID（角色表Id）
+	 */
+	public static final String X_RID = "X-Rid";
+	/**
+	 * 角色Key：角色业务表中的唯一ID
+	 */
+	public static final String X_RKEY = "X-Rkey";
+	/**
+	 * 角色Code：角色业务表中的唯一编码
+	 */
+	public static final String X_RCODE = "X-Rcode";
+	
+	
 }
 
