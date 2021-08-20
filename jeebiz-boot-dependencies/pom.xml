@@ -179,7 +179,7 @@
 		<json.version>20210307</json.version>
 		<junrar.version>7.4.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
-		<jwt-issuer.version>1.0.8-SNAPSHOT</jwt-issuer.version>
+		<jwt-issuer.version>1.0.8.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>2.6.0</kafka-clients.version>
 		<knife4j.version>3.0.2</knife4j.version>
 		<kisso.version>3.7.6</kisso.version>
@@ -294,7 +294,7 @@
 		<snmp4j-agent.version>3.3.6</snmp4j-agent.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
 		<springfox.version>2.10.5</springfox.version>
-		<spring-biz.version>1.1.4-SNAPSHOT</spring-biz.version>
+		<spring-biz.version>1.1.4.RELEASE</spring-biz.version>
 		<spring-bytebuddy.version>1.0.0.RELEASE</spring-bytebuddy.version>
 		<spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
 		<spring-initializr.version>0.10.1</spring-initializr.version>
