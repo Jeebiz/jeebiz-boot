@@ -52,19 +52,19 @@ public class XHeaders {
 	/**
 	 * 客户端ID
 	 */
-	public static final String APP_ID_HEADER = "X-App-Id";
+	public static final String X_APP_ID = "X-App-Id";
 	/**
 	 * 客户端渠道编码
 	 */
-	public static final String APP_CHANNEL_HEADER = "X-App-Channel";
+	public static final String X_APP_CHANNEL = "X-App-Channel";
 	/**
 	 * 客户端版本号
 	 */
-	public static final String APP_VERSION_HEADER = "X-App-Version";
+	public static final String X_APP_VERSION = "X-App-Version";
 	/**
 	 * 客户端Key
 	 */
-	public static final String APP_KEY_HEADER = "X-App-Key";
+	public static final String X_APP_KEY = "X-App-Key";
 	/**
 	 * 客户端设备唯一标识
 	 */
