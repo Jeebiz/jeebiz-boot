@@ -54,10 +54,6 @@ import net.jeebiz.boot.api.exception.BizRuntimeException;
 @Slf4j
 public class RedisOperationTemplate extends AbstractOperations<String, Object> {
     
-	/**
-     * The empty String {@code ""}.
-     */
-	private static final String EMPTY = "";
 	private static final Long LOCK_SUCCESS = 1L;
     private static final Long LOCK_EXPIRED = -1L;
 
@@ -310,10 +306,10 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	public String getString(String key) {
 		try {
-			return Objects.toString(this.get(key), EMPTY);
+			return Objects.toString(this.get(key), null);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return EMPTY;
+			return null;
 		}
 	}
 	
@@ -1839,6 +1835,37 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			expire(key, seconds);
 		}
 		return result;
+	}
+	
+	// zset指定元素增加值，并监听指定区域的顺序变化，如果指定区域元素发送变化，则返回true
+	public Boolean zIncrAndWatch(String key, Object value, double delta, long start, long end) {
+		byte[] rawKey = rawKey(key);
+		byte[] rawValue = rawValue(value);
+		return this.execute(connection -> {
+			// 1、增加score之前查询指定区域的元素对象
+			Set<TypedTuple<Object>> zset1 = deserializeTupleValues(connection.zRevRangeWithScores(rawKey, start, end));
+			// 2、增加score
+			connection.zIncrBy(rawKey, delta, rawValue);
+			// 3、增加score之后查询指定区域的元素对象
+			Set<TypedTuple<Object>> zset2 = deserializeTupleValues(connection.zRevRangeWithScores(rawKey, start, end));
+			// 4、如果同一key两次取值有一个为空，表示元素发生了新增或移除，那两个元素一定有变化了
+			if(CollectionUtils.isEmpty(zset1) && !CollectionUtils.isEmpty(zset2) || !CollectionUtils.isEmpty(zset1) && CollectionUtils.isEmpty(zset2)) {
+				return Boolean.TRUE;
+	        }
+			// 5、如果两个元素都不为空，但是长度不相同，表示元素一定有变化了
+			if(zset1.size() != zset2.size()) {
+				return Boolean.TRUE;
+	        }
+	        // 6、 两个set都不为空，且长度相同，则对key进行提取，并比较keyList与keyList2,一旦遇到相同位置处的值不一样，表示顺序发生了变化
+			List<String> keyList1 = Objects.isNull(zset1) ? Lists.newArrayList() : zset1.stream().map(item -> item.getValue().toString()).collect(Collectors.toList());
+			List<String> keyList2 = Objects.isNull(zset2) ? Lists.newArrayList() : zset2.stream().map(item -> item.getValue().toString()).collect(Collectors.toList());
+	        for (int i = 0; i < keyList1.size(); i++) {
+				if(!Objects.equals(keyList1.get(i), keyList2.get(i))) {
+					return Boolean.TRUE;
+				}
+			}
+			return Boolean.FALSE;
+		}, true);
 	}
 	
 	public Long zIntersectAndStore(String key, String otherKey, String destKey) {
