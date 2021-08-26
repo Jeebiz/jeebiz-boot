@@ -29,6 +29,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import hitool.core.collections.CollectionUtils;
@@ -60,7 +61,9 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 		objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
 		// 指定序列化输入的类型，类必须是非final修饰的，final修饰的类，比如String,Integer等会跑出异常
 		objectMapper.activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(), ObjectMapper.DefaultTyping.NON_FINAL);
+		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+		
 
 		return jackson2JsonRedisSerializer;
 	}
