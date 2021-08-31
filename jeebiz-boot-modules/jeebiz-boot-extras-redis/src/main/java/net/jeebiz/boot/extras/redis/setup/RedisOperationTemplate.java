@@ -2361,15 +2361,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	// ===============================batchGet=================================
 	
-   	public <K> List<Object> batchGetUserInfo(Collection<K> uids) {
-   		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
-   			uids.stream().forEach(uid -> {
-   				byte[] rawKey = rawKey(RedisKey.USER_INFO.getKey(String.valueOf(uid)));
-   				connection.hGetAll(rawKey);
-   			});
-   			return null;
-   		}, this.valueSerializer());
-   		return result;
+   	public <K> List<Map<String, Object>> batchGetUserInfo(Collection<K> uids) {
+   		Collection<Object> uKeys = uids.stream().map(uid -> {
+			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+		}).collect(Collectors.toList());
+   		return this.hmMultiGetAll(uKeys);
    	}
 	
 	public <K> Map<String, Object> batchGetUserFields(K uid, Collection<Object> fields) {
