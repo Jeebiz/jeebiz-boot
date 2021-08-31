@@ -2300,7 +2300,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
      */
 	public Long luaHdecr(String key, String field, long amount) {
 		Assert.hasLength(key, "key must not be empty");
-		return this.executeLuaScript(HDECR_SCRIPT, Lists.newArrayList(key), field, amount);
+		return getOperations().execute(HDECR_SCRIPT, this.hashValueSerializer(), this.hashValueSerializer(), Lists.newArrayList(key), field, amount);
+		//return this.executeLuaScript(HDECR_SCRIPT, Lists.newArrayList(key), field, amount);
 	}
 	
 	/**
