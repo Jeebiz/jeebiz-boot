@@ -64,7 +64,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    
     public static final RedisScript<Long> INCR_SCRIPT = RedisScript.of(RedisLua.INCR_SCRIPT, Long.class);
 	
+    public static final RedisScript<Long> DECR_SCRIPT = RedisScript.of(RedisLua.DECR_SCRIPT, Long.class);
+	
     public static final RedisScript<Long> HINCR_SCRIPT = RedisScript.of(RedisLua.HINCR_SCRIPT, Long.class);
+    
+    public static final RedisScript<Long> HDECR_SCRIPT = RedisScript.of(RedisLua.HDECR_SCRIPT, Long.class);
     
 	private final RedisTemplate<String, Object> redisTemplate;
 	
@@ -2245,9 +2249,58 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	// ===============================RedisScript=================================
 
-	public Long luaIncr(String lockKey, long amount) {
-		Assert.hasLength(lockKey, "lockKey must not be empty");
-		return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(lockKey), amount);
+	/**
+     * 库存增加
+     * @return
+     *      -4:代表库存传进来的值是负数（非法值）
+     *      -3:库存未初始化
+     *      大于等于0:剩余库存（新增之后剩余的库存）
+     */
+	public Long luaIncr(String key, long amount) {
+		Assert.hasLength(key, "key must not be empty");
+		return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(key), amount);
+	}
+	
+	 /**
+     * 库存扣减
+     * @return
+     *      -4:代表库存传进来的值是负数（非法值）
+     *      -3:库存未初始化
+     *      -2:库存不足
+     *      -1:库存为0
+     *      大于等于0:剩余库存（扣减之后剩余的库存）
+     *      
+     */
+	public Long luaDecr(String key, long amount) {
+		Assert.hasLength(key, "lockKey must not be empty");
+		return this.executeLuaScript(DECR_SCRIPT, Lists.newArrayList(key), amount);
+	}
+	
+	/**
+     * 库存增加
+     * @return
+     *      -4:代表库存传进来的值是负数（非法值）
+     *      -3:库存未初始化
+     *      大于等于0:剩余库存（新增之后剩余的库存）
+     */
+	public Long luaHincr(String key, String item, long amount) {
+		Assert.hasLength(key, "key must not be empty");
+		return this.executeLuaScript(HINCR_SCRIPT, Lists.newArrayList(key), item, amount);
+	}
+	
+	 /**
+     * 库存扣减
+     * @return
+     *      -4:代表库存传进来的值是负数（非法值）
+     *      -3:库存未初始化
+     *      -2:库存不足
+     *      -1:库存为0
+     *      大于等于0:剩余库存（扣减之后剩余的库存）
+     *      
+     */
+	public Long luaHdecr(String key, String item, long amount) {
+		Assert.hasLength(key, "key must not be empty");
+		return this.executeLuaScript(HDECR_SCRIPT, Lists.newArrayList(key), item, amount);
 	}
 	
 	/**
