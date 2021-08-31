@@ -2272,7 +2272,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
      *      
      */
 	public Long luaDecr(String key, long amount) {
-		Assert.hasLength(key, "lockKey must not be empty");
+		Assert.hasLength(key, "key must not be empty");
 		return this.executeLuaScript(DECR_SCRIPT, Lists.newArrayList(key), amount);
 	}
 	
