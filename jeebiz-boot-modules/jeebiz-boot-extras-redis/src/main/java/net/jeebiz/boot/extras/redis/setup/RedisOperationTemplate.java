@@ -916,45 +916,45 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * hash递减
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta   要减少记(小于0)
 	 * @return
 	 */
-	public Long hDecr(String key, String item, int delta) {
+	public Long hDecr(String key, String field, int delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递减因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, -delta);
+		return getOperations().opsForHash().increment(key, field, -delta);
 	}
 	
 	/**
 	 * hash递减
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta   要减少记(>=0)
 	 * @return
 	 */
-	public Long hDecr(String key, String item, long delta) {
+	public Long hDecr(String key, String field, long delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递减因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, -delta);
+		return getOperations().opsForHash().increment(key, field, -delta);
 	}
 
 	/**
 	 * hash递减
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta 要减少记(>=0)
 	 * @return
 	 */
-	public Double hDecr(String key, String item, double delta) {
+	public Double hDecr(String key, String field, double delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递减因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, -delta);
+		return getOperations().opsForHash().increment(key, field, -delta);
 	}
 
 	/**
@@ -1029,11 +1029,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * 判断hash表中是否有该项的值
 	 *
 	 * @param key  键 不能为null
-	 * @param item 项 不能为null
+	 * @param field 项 不能为null
 	 * @return true 存在 false不存在
 	 */
-	public boolean hHasKey(String key, String item) {
-		return getOperations().opsForHash().hasKey(key, item);
+	public boolean hHasKey(String key, String field) {
+		return getOperations().opsForHash().hasKey(key, field);
 	}
 	
     /**
@@ -1229,13 +1229,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * 向一张hash表中放入数据,如果不存在将创建
 	 *
 	 * @param key   键
-	 * @param item  项
+	 * @param field  项
 	 * @param value 值
 	 * @return true 成功 false失败
 	 */
-	public boolean hSet(String key, String item, Object value) {
+	public boolean hSet(String key, String field, Object value) {
 		try {
-			getOperations().opsForHash().put(key, item, value);
+			getOperations().opsForHash().put(key, field, value);
 			return true;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -1247,14 +1247,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * 向一张hash表中放入数据,如果不存在将创建
 	 *
 	 * @param key   键
-	 * @param item  项
+	 * @param field  项
 	 * @param value 值
 	 * @param time  时间(秒) 注意:如果已存在的hash表有时间,这里将会替换原有的时间
 	 * @return true 成功 false失败
 	 */
-	public boolean hSet(String key, String item, Object value, long seconds) {
+	public boolean hSet(String key, String field, Object value, long seconds) {
 		try {
-			getOperations().opsForHash().put(key, item, value);
+			getOperations().opsForHash().put(key, field, value);
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -1265,9 +1265,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public boolean hSet(String key, String item, Object value, Duration duration) {
+	public boolean hSet(String key, String field, Object value, Duration duration) {
 		try {
-			getOperations().opsForHash().put(key, item, value);
+			getOperations().opsForHash().put(key, field, value);
 			if(!duration.isNegative()) {
 				expire(key, duration);
 			}
@@ -1311,42 +1311,42 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta  要增加几(>=0)
 	 * @return
 	 */
-	public Long hIncr(String key, String item, int delta) {
+	public Long hIncr(String key, String field, int delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, delta);
+		return getOperations().opsForHash().increment(key, field, delta);
 	}
 
 	/**
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta  要增加几(>=0)
 	 * @param seconds 过期时长（秒）
 	 * @return
 	 */
-	public Long hIncr(String key, String item, int delta, long seconds) {
+	public Long hIncr(String key, String field, int delta, long seconds) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, field, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
 		}
 		return increment;
 	}
 	
-	public Long hIncr(String key, String item, int delta, Duration duration) {
+	public Long hIncr(String key, String field, int delta, Duration duration) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, field, delta);
 		if(!duration.isNegative()) {
 			expire(key, duration);
 		}
@@ -1357,42 +1357,42 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta  要增加几(>=0)
 	 * @return
 	 */
-	public Long hIncr(String key, String item, long delta) {
+	public Long hIncr(String key, String field, long delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, delta);
+		return getOperations().opsForHash().increment(key, field, delta);
 	}
 	
 	/**
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta  要增加几(>=0)
 	 * @param seconds 过期时长（秒）
 	 * @return
 	 */
-	public Long hIncr(String key, String item, long delta, long seconds) {
+	public Long hIncr(String key, String field, long delta, long seconds) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, field, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
 		}
 		return increment;
 	}
 
-	public Long hIncr(String key, String item, long delta, Duration duration) {
+	public Long hIncr(String key, String field, long delta, Duration duration) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, field, delta);
 		if(!duration.isNegative()) {
 			expire(key, duration);
 		}
@@ -1403,33 +1403,33 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param field 项
 	 * @param delta   要增加几(>=0)
 	 * @return
 	 */
-	public Double hIncr(String key, String item, double delta) {
+	public Double hIncr(String key, String field, double delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, delta);
+		return getOperations().opsForHash().increment(key, field, delta);
 	}
 	
-	public Double hIncr(String key, String item, double delta, long seconds) {
+	public Double hIncr(String key, String field, double delta, long seconds) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Double increment = getOperations().opsForHash().increment(key, item, delta);
+		Double increment = getOperations().opsForHash().increment(key, field, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
 		}
 		return increment;
 	}
 	
-	public Double hIncr(String key, String item, double delta, Duration duration) {
+	public Double hIncr(String key, String field, double delta, Duration duration) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Double increment = getOperations().opsForHash().increment(key, item, delta);
+		Double increment = getOperations().opsForHash().increment(key, field, delta);
 		if(!duration.isNegative()) {
 			expire(key, duration);
 		}
@@ -2283,9 +2283,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
      *      -3:库存未初始化
      *      大于等于0:剩余库存（新增之后剩余的库存）
      */
-	public Long luaHincr(String key, String item, long amount) {
+	public Long luaHincr(String key, String field, long amount) {
 		Assert.hasLength(key, "key must not be empty");
-		return this.executeLuaScript(HINCR_SCRIPT, Lists.newArrayList(key), item, amount);
+		return this.executeLuaScript(HINCR_SCRIPT, Lists.newArrayList(key), field, amount);
 	}
 	
 	 /**
@@ -2298,9 +2298,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
      *      大于等于0:剩余库存（扣减之后剩余的库存）
      *      
      */
-	public Long luaHdecr(String key, String item, long amount) {
+	public Long luaHdecr(String key, String field, long amount) {
 		Assert.hasLength(key, "key must not be empty");
-		return this.executeLuaScript(HDECR_SCRIPT, Lists.newArrayList(key), item, amount);
+		return this.executeLuaScript(HDECR_SCRIPT, Lists.newArrayList(key), field, amount);
 	}
 	
 	/**

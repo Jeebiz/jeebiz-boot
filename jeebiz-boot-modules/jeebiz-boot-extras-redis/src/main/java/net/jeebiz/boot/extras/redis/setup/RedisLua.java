@@ -77,7 +77,7 @@ public class RedisLua {
 	    + "        return -1;"
 	    + "    end;"
 	    + "    if (stock >= num) then"
-	    + "        return redis.call('HINCRBY', KEYS[1], 0 - num);"
+	    + "        return redis.call('HINCRBY', KEYS[1], ARGV[1], 0 - num);"
 	    + "    end;"
 	    + "    return -2;"
 	    + "end;"
