@@ -1,5 +1,6 @@
 package net.jeebiz.boot.extras.redis.setup;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
@@ -63,8 +64,16 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
     private static final RedisScript<Long> UNLOCK_LUA_SCRIPT = RedisScript.of(RedisLua.UNLOCK_LUA_SCRIPT, Long.class );
    
     public static final RedisScript<Long> INCR_SCRIPT = RedisScript.of(RedisLua.INCR_SCRIPT, Long.class);
-	
+    public static final RedisScript<Long> DECR_SCRIPT = RedisScript.of(RedisLua.DECR_SCRIPT, Long.class);
+    
+    public static final RedisScript<Object> INCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.INCR_BYFLOAT_SCRIPT, Object.class);
+    public static final RedisScript<Object> DECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.DECR_BYFLOAT_SCRIPT, Object.class);
+
     public static final RedisScript<Long> HINCR_SCRIPT = RedisScript.of(RedisLua.HINCR_SCRIPT, Long.class);
+    public static final RedisScript<Long> HDECR_SCRIPT = RedisScript.of(RedisLua.HDECR_SCRIPT, Long.class);
+    
+    public static final RedisScript<Object> HINCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HINCR_BYFLOAT_SCRIPT, Object.class);
+    public static final RedisScript<Object> HDECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HDECR_BYFLOAT_SCRIPT, Object.class);
     
 	private final RedisTemplate<String, Object> redisTemplate;
 	
@@ -912,45 +921,45 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * hash递减
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta   要减少记(小于0)
 	 * @return
 	 */
-	public Long hDecr(String key, String item, int delta) {
+	public Long hDecr(String key, String hashKey, int delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递减因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, -delta);
+		return getOperations().opsForHash().increment(key, hashKey, -delta);
 	}
 	
 	/**
 	 * hash递减
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta   要减少记(>=0)
 	 * @return
 	 */
-	public Long hDecr(String key, String item, long delta) {
+	public Long hDecr(String key, String hashKey, long delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递减因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, -delta);
+		return getOperations().opsForHash().increment(key, hashKey, -delta);
 	}
 
 	/**
 	 * hash递减
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta 要减少记(>=0)
 	 * @return
 	 */
-	public Double hDecr(String key, String item, double delta) {
+	public Double hDecr(String key, String hashKey, double delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递减因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, -delta);
+		return getOperations().opsForHash().increment(key, hashKey, -delta);
 	}
 
 	/**
@@ -1000,21 +1009,21 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-    public List<Object> hGet(Collection<Object> keys, String redisField) {
+    public List<Object> hGet(Collection<Object> keys, String hashKey) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
-				connection.hGet(rawKey(key), rawHashKey(redisField));
+				connection.hGet(rawKey(key), rawHashKey(hashKey));
 			});
 			return null;
 		}, this.valueSerializer());
 		return result;
 	}
 	
-	public List<Object> hGet(Collection<Object> keys, String redisPrefix, String field) {
+	public List<Object> hGet(Collection<Object> keys, String redisPrefix, String hashKey) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
 				byte[] rawKey = rawKey(RedisKeyConstant.getKeyStr(redisPrefix, String.valueOf(key)));
-				connection.hGet(rawKey, rawHashKey(field));
+				connection.hGet(rawKey, rawHashKey(hashKey));
 			});
 			return null;
 		}, this.valueSerializer());
@@ -1025,11 +1034,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * 判断hash表中是否有该项的值
 	 *
 	 * @param key  键 不能为null
-	 * @param item 项 不能为null
+	 * @param hashKey 项 不能为null
 	 * @return true 存在 false不存在
 	 */
-	public boolean hHasKey(String key, String item) {
-		return getOperations().opsForHash().hasKey(key, item);
+	public boolean hHasKey(String key, String hashKey) {
+		return getOperations().opsForHash().hasKey(key, hashKey);
 	}
 	
     /**
@@ -1068,57 +1077,57 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
     	}).collect(Collectors.toList());
 	}
 	
-	public List<Object> hMultiGet(String key, Collection<Object> fields) {
-    	if (CollectionUtils.isEmpty(fields)) {
+	public List<Object> hMultiGet(String key, Collection<Object> hashKeys) {
+    	if (CollectionUtils.isEmpty(hashKeys)) {
 			return Lists.newArrayList();
 		}
-    	return getOperations().opsForHash().multiGet(key, fields);
+    	return getOperations().opsForHash().multiGet(key, hashKeys);
     }
 	
-    public Map<String, Object> hmMultiGet(String key, Collection<Object> fields) {
-    	if (CollectionUtils.isEmpty(fields)) {
+    public Map<String, Object> hmMultiGet(String key, Collection<Object> hashKeys) {
+    	if (CollectionUtils.isEmpty(hashKeys)) {
 			return Maps.newHashMap();
 		}
-        List<Object> result = getOperations().opsForHash().multiGet(key, fields);
-        Map<String, Object> ans = new HashMap<>(fields.size());
+        List<Object> result = getOperations().opsForHash().multiGet(key, hashKeys);
+        Map<String, Object> ans = new HashMap<>(hashKeys.size());
         int index = 0;
-        for (Object field : fields) {
-            ans.put(field.toString(), result.get(index));
+        for (Object hashKey : hashKeys) {
+            ans.put(hashKey.toString(), result.get(index));
             index ++;
         }
         return ans;
     }
     
-    public List<Map<String, Object>> hmMultiGet(Collection<String> keys, Collection<Object> fields) {
-    	if (CollectionUtils.isEmpty(keys) || CollectionUtils.isEmpty(fields)) {
+    public List<Map<String, Object>> hmMultiGet(Collection<String> keys, Collection<Object> hashKeys) {
+    	if (CollectionUtils.isEmpty(keys) || CollectionUtils.isEmpty(hashKeys)) {
 			return Collections.emptyList();
 		}
     	return keys.parallelStream().map(key -> {
-    		List<Object> result = getOperations().opsForHash().multiGet(key, fields);
-	        Map<String, Object> ans = new HashMap<>(fields.size());
+    		List<Object> result = getOperations().opsForHash().multiGet(key, hashKeys);
+	        Map<String, Object> ans = new HashMap<>(hashKeys.size());
 	        int index = 0;
-	        for (Object field : fields) {
-	            ans.put(field.toString(), result.get(index));
+	        for (Object hashKey : hashKeys) {
+	            ans.put(hashKey.toString(), result.get(index));
 	            index ++;
 	        }
 	        return ans;
     	}).collect(Collectors.toList());
     }
     
-    public Map<String, Map<String, Object>> hmMultiGet(Collection<String> keys, String identityField, Collection<Object> fields) {
-    	if (CollectionUtils.isEmpty(keys) || CollectionUtils.isEmpty(fields)) {
+    public Map<String, Map<String, Object>> hmMultiGet(Collection<String> keys, String identityHashKey, Collection<Object> hashKeys) {
+    	if (CollectionUtils.isEmpty(keys) || CollectionUtils.isEmpty(hashKeys)) {
 			return Maps.newHashMap();
 		} 
     	return keys.parallelStream().map(key -> {
-    		List<Object> result = getOperations().opsForHash().multiGet(key, fields);
-	        Map<String, Object> ans = new HashMap<>(fields.size());
+    		List<Object> result = getOperations().opsForHash().multiGet(key, hashKeys);
+	        Map<String, Object> ans = new HashMap<>(hashKeys.size());
 	        int index = 0;
-	        for (Object field : fields) {
-	            ans.put(field.toString(), result.get(index));
+	        for (Object hashKey : hashKeys) {
+	            ans.put(hashKey.toString(), result.get(index));
 	            index ++;
 	        }
 	        return ans;
-    	}).collect(Collectors.toMap(kv -> MapUtils.getString(kv, identityField), Function.identity()));
+    	}).collect(Collectors.toMap(kv -> MapUtils.getString(kv, identityHashKey), Function.identity()));
     }
     
     public List<Map<String, Object>> hmMultiGetAll(Collection<Object> keys) {
@@ -1225,13 +1234,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * 向一张hash表中放入数据,如果不存在将创建
 	 *
 	 * @param key   键
-	 * @param item  项
+	 * @param hashKey  项
 	 * @param value 值
 	 * @return true 成功 false失败
 	 */
-	public boolean hSet(String key, String item, Object value) {
+	public boolean hSet(String key, String hashKey, Object value) {
 		try {
-			getOperations().opsForHash().put(key, item, value);
+			getOperations().opsForHash().put(key, hashKey, value);
 			return true;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -1243,14 +1252,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * 向一张hash表中放入数据,如果不存在将创建
 	 *
 	 * @param key   键
-	 * @param item  项
+	 * @param hashKey  项
 	 * @param value 值
 	 * @param time  时间(秒) 注意:如果已存在的hash表有时间,这里将会替换原有的时间
 	 * @return true 成功 false失败
 	 */
-	public boolean hSet(String key, String item, Object value, long seconds) {
+	public boolean hSet(String key, String hashKey, Object value, long seconds) {
 		try {
-			getOperations().opsForHash().put(key, item, value);
+			getOperations().opsForHash().put(key, hashKey, value);
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -1261,9 +1270,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public boolean hSet(String key, String item, Object value, Duration duration) {
+	public boolean hSet(String key, String hashKey, Object value, Duration duration) {
 		try {
-			getOperations().opsForHash().put(key, item, value);
+			getOperations().opsForHash().put(key, hashKey, value);
 			if(!duration.isNegative()) {
 				expire(key, duration);
 			}
@@ -1298,51 +1307,46 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-
-	
-	
-	
-	
 	/**
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta  要增加几(>=0)
 	 * @return
 	 */
-	public Long hIncr(String key, String item, int delta) {
+	public Long hIncr(String key, String hashKey, int delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, delta);
+		return getOperations().opsForHash().increment(key, hashKey, delta);
 	}
 
 	/**
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta  要增加几(>=0)
 	 * @param seconds 过期时长（秒）
 	 * @return
 	 */
-	public Long hIncr(String key, String item, int delta, long seconds) {
+	public Long hIncr(String key, String hashKey, int delta, long seconds) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, hashKey, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
 		}
 		return increment;
 	}
 	
-	public Long hIncr(String key, String item, int delta, Duration duration) {
+	public Long hIncr(String key, String hashKey, int delta, Duration duration) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, hashKey, delta);
 		if(!duration.isNegative()) {
 			expire(key, duration);
 		}
@@ -1353,42 +1357,42 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta  要增加几(>=0)
 	 * @return
 	 */
-	public Long hIncr(String key, String item, long delta) {
+	public Long hIncr(String key, String hashKey, long delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, delta);
+		return getOperations().opsForHash().increment(key, hashKey, delta);
 	}
 	
 	/**
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta  要增加几(>=0)
 	 * @param seconds 过期时长（秒）
 	 * @return
 	 */
-	public Long hIncr(String key, String item, long delta, long seconds) {
+	public Long hIncr(String key, String hashKey, long delta, long seconds) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, hashKey, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
 		}
 		return increment;
 	}
 
-	public Long hIncr(String key, String item, long delta, Duration duration) {
+	public Long hIncr(String key, String hashKey, long delta, Duration duration) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForHash().increment(key, item, delta);
+		Long increment = getOperations().opsForHash().increment(key, hashKey, delta);
 		if(!duration.isNegative()) {
 			expire(key, duration);
 		}
@@ -1399,33 +1403,33 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * hash递增 如果不存在,就会创建一个 并把新增后的值返回
 	 *
 	 * @param key  键
-	 * @param item 项
+	 * @param hashKey 项
 	 * @param delta   要增加几(>=0)
 	 * @return
 	 */
-	public Double hIncr(String key, String item, double delta) {
+	public Double hIncr(String key, String hashKey, double delta) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		return getOperations().opsForHash().increment(key, item, delta);
+		return getOperations().opsForHash().increment(key, hashKey, delta);
 	}
 	
-	public Double hIncr(String key, String item, double delta, long seconds) {
+	public Double hIncr(String key, String hashKey, double delta, long seconds) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Double increment = getOperations().opsForHash().increment(key, item, delta);
+		Double increment = getOperations().opsForHash().increment(key, hashKey, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
 		}
 		return increment;
 	}
 	
-	public Double hIncr(String key, String item, double delta, Duration duration) {
+	public Double hIncr(String key, String hashKey, double delta, Duration duration) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
-		Double increment = getOperations().opsForHash().increment(key, item, delta);
+		Double increment = getOperations().opsForHash().increment(key, hashKey, delta);
 		if(!duration.isNegative()) {
 			expire(key, duration);
 		}
@@ -2245,9 +2249,132 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	// ===============================RedisScript=================================
 
-	public Long luaIncr(String lockKey, long amount) {
-		Assert.hasLength(lockKey, "lockKey must not be empty");
-		return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(lockKey), amount);
+	/**
+     * 库存增加
+     * @param key   库存key
+	 * @param delta 增加数量
+     * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * 大于等于0:剩余库存（新增之后剩余的库存）
+     */
+	public Long luaIncr(String key, long delta) {
+		Assert.hasLength(key, "key must not be empty");
+		return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(key), delta);
+	}
+
+	/**
+     * 库存增加
+     * @param key   库存key
+	 * @param delta 增加数量
+     * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * 大于等于0:剩余库存（新增之后剩余的库存）
+     */
+	public Double luaIncr(String key, double delta) {
+		Assert.hasLength(key, "key must not be empty");
+		Object rst = this.executeLuaScript(INCR_BYFLOAT_SCRIPT, Lists.newArrayList(key), delta);
+		return new BigDecimal(rst.toString()).doubleValue();
+	}
+	
+	/**
+     * 库存扣减
+	 * @param key   库存key
+	 * @param delta 扣减数量
+	 * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * -2:库存不足
+     * -1:库存为0
+     * 大于等于0:剩余库存（扣减之后剩余的库存）
+	 */
+	public Long luaDecr(String key, long delta) {
+		Assert.hasLength(key, "key must not be empty");
+		return this.executeLuaScript(DECR_SCRIPT, Lists.newArrayList(key), delta);
+	}
+
+	/**
+     * 库存扣减
+	 * @param key   库存key
+	 * @param delta 扣减数量
+	 * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * -2:库存不足
+     * -1:库存为0
+     * 大于等于0:剩余库存（扣减之后剩余的库存）
+	 */
+	public Double luaDecr(String key, double delta) {
+		Assert.hasLength(key, "key must not be empty");
+		Object rst = this.executeLuaScript(DECR_BYFLOAT_SCRIPT, Lists.newArrayList(key), delta);
+		return new BigDecimal(rst.toString()).doubleValue();
+	}
+	
+	/**
+     * 库存增加
+     * @param key   库存key
+	 * @param hashKey Hash键
+	 * @param delta 增加数量
+     * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * 大于等于0:剩余库存（新增之后剩余的库存）
+     */
+	public Long luaHincr(String key, String hashKey, long delta) {
+		Assert.hasLength(key, "key must not be empty");
+		return getOperations().execute(HINCR_SCRIPT, this.hashValueSerializer(), this.hashValueSerializer(), Lists.newArrayList(key, hashKey), delta);
+	}
+	
+	/**
+     * 库存增加
+     * @param key   库存key
+	 * @param hashKey Hash键
+	 * @param delta 增加数量
+     * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * 大于等于0:剩余库存（新增之后剩余的库存）
+     */
+	public Double luaHincr(String key, String hashKey, double delta) {
+		Assert.hasLength(key, "key must not be empty");
+		Object rst = getOperations().execute(HINCR_BYFLOAT_SCRIPT, this.hashValueSerializer(), this.hashValueSerializer(), Lists.newArrayList(key, hashKey), delta);
+		return new BigDecimal(rst.toString()).doubleValue();
+	}
+	
+	/**
+     * 库存扣减
+	 * @param key   库存key
+	 * @param hashKey Hash键
+	 * @param delta 扣减数量
+	 * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * -2:库存不足
+     * -1:库存为0
+     * 大于等于0:剩余库存（扣减之后剩余的库存）
+	 */
+	public Long luaHdecr(String key, String hashKey, long delta) {
+		Assert.hasLength(key, "key must not be empty");
+		return getOperations().execute(HDECR_SCRIPT, this.hashValueSerializer(), this.hashValueSerializer(), Lists.newArrayList(key, hashKey), delta);
+	}
+
+	/**
+     * 库存扣减
+	 * @param key   库存key
+	 * @param hashKey Hash键
+	 * @param delta 扣减数量
+	 * @return
+     * -4:代表库存传进来的值是负数（非法值）
+     * -3:库存未初始化
+     * -2:库存不足
+     * -1:库存为0
+     * 大于等于0:剩余库存（扣减之后剩余的库存）
+	 */
+	public Double luaHdecr(String key, String hashKey, double delta) {
+		Assert.hasLength(key, "key must not be empty");
+		Object rst = getOperations().execute(HDECR_BYFLOAT_SCRIPT, this.hashValueSerializer(), this.hashValueSerializer(), Lists.newArrayList(key, hashKey), delta);;
+		return new BigDecimal(rst.toString()).doubleValue();
 	}
 	
 	/**
@@ -2368,28 +2495,28 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    		return this.hmMultiGetAll(uKeys);
    	}
 	
-	public <K> Map<String, Object> batchGetUserFields(K uid, Collection<Object> fields) {
+	public <K> Map<String, Object> batchGetUserFields(K uid, Collection<Object> hashKeys) {
     	String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
-    	return this.hmMultiGet(userKey, fields);
+    	return this.hmMultiGet(userKey, hashKeys);
     }
 	
-	public <K> Map<String, Object> batchGetUserFields(K uid, String... fields) {
+	public <K> Map<String, Object> batchGetUserFields(K uid, String... hashKeys) {
 		String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
-    	return this.hmMultiGet(userKey, Stream.of(fields).collect(Collectors.toList()));
+    	return this.hmMultiGet(userKey, Stream.of(hashKeys).collect(Collectors.toList()));
     }
     
-	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, String... fields) {
+	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, String... hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
 		}).collect(Collectors.toList());
-        return this.hmMultiGet(uKeys, Stream.of(fields).collect(Collectors.toList()));
+        return this.hmMultiGet(uKeys, Stream.of(hashKeys).collect(Collectors.toList()));
     }
 	
-	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, Collection<Object> fields) {
+	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
 		}).collect(Collectors.toList());
-        return this.hmMultiGet(uKeys, fields);
+        return this.hmMultiGet(uKeys, hashKeys);
     }
 	
 	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,  Collection<Object> fields) {

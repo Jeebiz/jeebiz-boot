@@ -25,7 +25,10 @@ import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.SerializationException;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -73,18 +76,31 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 	public ReactiveRedisTemplate<Object, Object> reactiveRedisTemplate(
 			ReactiveRedisConnectionFactory reactiveRedisConnectionFactory,
 			Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer) {
-        
+		
+		SerializationPair<Object> keySerializationPair = SerializationPair.fromSerializer(new RedisSerializer<Object>(){
+
+			@Override
+			public byte[] serialize(Object t) throws SerializationException {
+				return StringRedisSerializer.UTF_8.serialize(t.toString());
+			}
+
+			@Override
+			public Object deserialize(byte[] bytes) throws SerializationException {
+				return StringRedisSerializer.UTF_8.deserialize(bytes);
+			}}
+		);
+		
 		RedisSerializationContext<Object, Object> serializationContext = RedisSerializationContext
 				.newSerializationContext()
-				 // 设置value的序列化规则和 key的序列化规则
-				.key(jackson2JsonRedisSerializer)
+				.key(keySerializationPair)  // 设置value的序列化规则和 key的序列化规则
 				.value(jackson2JsonRedisSerializer)
 				 // 设置hash key 和 hash value序列化模式
-				.hashKey(jackson2JsonRedisSerializer)
+				.hashKey(keySerializationPair)
 				.hashValue(jackson2JsonRedisSerializer)
 				.build();
 		
-		return new ReactiveRedisTemplate<>(reactiveRedisConnectionFactory, serializationContext);
+		return new ReactiveRedisTemplate<Object, Object>(reactiveRedisConnectionFactory, serializationContext);
+		
 	}
  
 	/**
