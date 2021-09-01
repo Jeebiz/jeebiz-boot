@@ -28,6 +28,16 @@ public class RedisLua {
 	   + "    return redis.call('INCRBY', KEYS[1], num);"
 	   + "end;"
 	   + "return -3;";
+
+    public static final String INCR_BYFLOAT_SCRIPT = 
+		"if (redis.call('EXISTS', KEYS[1]) == 1) then"
+	   + "    local num = tonumber(ARGV[1]);" 
+	   + "    if (num < 0) then "
+	   + "    	  return -4;" 
+	   + "    end;"
+	   + "    return redis.call('INCRBYFLOAT', KEYS[1], num);"
+	   + "end;"
+	   + "return -3;";
     
     /**
      * 库存扣减
@@ -50,26 +60,17 @@ public class RedisLua {
 	    + "        return -1;"
 	    + "    end;"
 	    + "    if (stock >= num) then"
-	    + "        return redis.call('DECRBY', KEYS[1], num);"
+	    + "        return redis.call('INCRBY', KEYS[1], 0 - num);"
 	    + "    end;"
 	    + "    return -2;"
 	    + "end;"
 	    + "return -3;";
+    
 
-    public static final String HINCR_SCRIPT = 
-		  "if (redis.call('HEXISTS', KEYS[1], ARGV[1]) == 1) then"
-	    + "    local num = tonumber(ARGV[2]);"
-	    + "    if (num < 0) then "
-	    + "    	  return -4;" 
-	    + "    end;"
-	    + "    return redis.call('HINCRBY', KEYS[1], ARGV[1], num);"
-	    + "end;"
-	    + "return -3;";
-	
-    public static final String HDECR_SCRIPT =  
-		  "if (redis.call('HEXISTS', KEYS[1], ARGV[1]) == 1) then"
-	    + "    local stock = tonumber(redis.call('HGET', KEYS[1], ARGV[1]));"
-	    + "    local num = tonumber(ARGV[2]);"
+    public static final String DECR_BYFLOAT_SCRIPT =  
+    	  "if (redis.call('EXISTS', KEYS[1]) == 1) then"
+	    + "    local stock = tonumber(redis.call('GET', KEYS[1]));"
+	    + "    local num = tonumber(ARGV[1]);"
 	    + "    if (num <= 0) then"
 	    + "        return -4;"
 	    + "    end;"
@@ -77,10 +78,64 @@ public class RedisLua {
 	    + "        return -1;"
 	    + "    end;"
 	    + "    if (stock >= num) then"
-	    + "        return redis.call('HINCRBY', KEYS[1], ARGV[1], 0 - num);"
+	    + "        return redis.call('INCRBYFLOAT', KEYS[1], 0 - num);"
 	    + "    end;"
 	    + "    return -2;"
 	    + "end;"
-	    + "return -3;";    		
+	    + "return -3;";
+
+    public static final String HINCR_SCRIPT = 
+		  "if (redis.call('HEXISTS', KEYS[1], KEYS[2]) == 1) then"
+	    + "    local num = tonumber(ARGV[1]);"
+	    + "    if (num < 0) then "
+	    + "    	  return -4;" 
+	    + "    end;"
+	    + "    return redis.call('HINCRBY', KEYS[1], KEYS[2], num);"
+	    + "end;"
+	    + "return -3;";
+	
+    public static final String HDECR_SCRIPT =  
+		  "if (redis.call('HEXISTS', KEYS[1], KEYS[2]) == 1) then"
+	    + "    local stock = tonumber(redis.call('HGET', KEYS[1], KEYS[2]));"
+	    + "    local num = tonumber(ARGV[1]);"
+	    + "    if (num <= 0) then"
+	    + "        return -4;"
+	    + "    end;"
+	    + "    if (stock <= 0) then"
+	    + "        return -1;"
+	    + "    end;"
+	    + "    if (stock >= num) then"
+	    + "        return redis.call('HINCRBY', KEYS[1], KEYS[2], 0 - num);"
+	    + "    end;"
+	    + "    return -2;"
+	    + "end;"
+	    + "return -3;";   
+    
+    public static final String HINCR_BYFLOAT_SCRIPT = 
+  		  "if (redis.call('HEXISTS', KEYS[1], KEYS[2]) == 1) then"
+  	    + "    local num = tonumber(ARGV[1]);"
+  	    + "    if (num < 0) then "
+  	    + "    	  return -4;" 
+  	    + "    end;"
+  	    + "    return redis.call('HINCRBYFLOAT', KEYS[1], KEYS[2], num);"
+  	    + "end;"
+  	    + "return -3;";
+  	
+      public static final String HDECR_BYFLOAT_SCRIPT =  
+  		  "if (redis.call('HEXISTS', KEYS[1], KEYS[2]) == 1) then"
+  	    + "    local stock = tonumber(redis.call('HGET', KEYS[1], KEYS[2]));"
+  	    + "    local num = tonumber(ARGV[1]);"
+  	    + "    if (num <= 0) then"
+  	    + "        return -4;"
+  	    + "    end;"
+  	    + "    if (stock <= 0) then"
+  	    + "        return -1;"
+  	    + "    end;"
+  	    + "    if (stock >= num) then"
+  	    + "        return redis.call('HINCRBYFLOAT', KEYS[1], KEYS[2], 0 - num);"
+  	    + "    end;"
+  	    + "    return -2;"
+  	    + "end;"
+  	    + "return -3;"; 
     
 }
