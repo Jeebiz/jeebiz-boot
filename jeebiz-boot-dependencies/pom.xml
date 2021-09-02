@@ -190,6 +190,7 @@
 		<libphonenumber-prefixmapper.version>2.159</libphonenumber-prefixmapper.version>
 		<libphonenumber-geocoder.version>2.159</libphonenumber-geocoder.version>
 		<liquibase.version>4.3.5</liquibase.version>
+		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<mariadb.version>2.7.3</mariadb.version>
 		<maven.version>3.6.3</maven.version>
 		<mockito.version>3.11.2</mockito.version>
@@ -386,7 +387,7 @@
 		<!-- Third Party Spring Boot Starter Dependency versions -->
 		<spring-boot-admin.version>2.4.1</spring-boot-admin.version>
 		<spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
-		<spring-boot-starter-aliyun-schedulerx2.version>1.2.3</spring-boot-starter-aliyun-schedulerx2.version>
+		<spring-boot-starter-aliyun-schedulerx2.version>1.2.9.1</spring-boot-starter-aliyun-schedulerx2.version>
 		<spring-boot-starter-aliyun-ons.version>1.0.9.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-mps.version>1.0.1.RELEASE</spring-boot-starter-aliyun-mps.version>
@@ -3058,6 +3059,25 @@
 			    <groupId>com.googlecode.libphonenumber</groupId>
 			    <artifactId>geocoder</artifactId>
 			    <version>${libphonenumber-geocoder.version}</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-jdk8 -->
+			<dependency>
+			    <groupId>org.mapstruct</groupId>
+			    <artifactId>mapstruct</artifactId>
+			    <version>${mapstruct.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-jdk8 -->
+			<dependency>
+			    <groupId>org.mapstruct</groupId>
+			    <artifactId>mapstruct-jdk8</artifactId>
+			    <version>${mapstruct.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+			<dependency>
+			    <groupId>org.mapstruct</groupId>
+			    <artifactId>mapstruct-processor</artifactId>
+			    <version>${mapstruct.version}</version>
 			</dependency>
 			
 			<!-- JDBC Driver For MariaDB : https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
