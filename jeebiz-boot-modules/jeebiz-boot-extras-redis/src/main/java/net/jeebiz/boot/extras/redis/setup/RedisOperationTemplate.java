@@ -617,15 +617,32 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public <T> List<T> lRange(String key, long start, long end, Class<T> clazz) {
+		return lRangeFor(key, start, end, member -> clazz.cast(member));
+	}
+	
+	public List<Long> lRangeForLong(String key, long  start, long end) {
+		return lRangeFor(key, start, end, (obj) -> Long.parseLong(obj.toString()));
+	}
+	
+	/**
+	 * @param key   :
+	 * @param start :
+	 * @param end   :0 到-1表示查全部
+	 * @return {@link Set< Long>}
+	 */
+	public <T> List<T> lRangeFor(String key, long  start, long end, Function<Object, T> func) {
 		try {
-			List<Object> range = getOperations().opsForList().range(key, start, end);
-			List<T> result = range.stream().map(member -> clazz.cast(member)).collect(Collectors.toList());
-			return result;
+			Set<Object> objects = getOperations().boundZSetOps(key).range(start, end);
+			if(Objects.isNull(objects)) {
+				return Lists.newArrayList();
+			}
+			return objects.stream().map(object -> func.apply(object)).collect(Collectors.toList());
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			return Lists.newArrayList();
 		}
 	}
+	
 
 	/**
 	 * 通过索引 获取list中的值
@@ -1913,22 +1930,26 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return getOperations().boundZSetOps(key).range(start, end);
 	}
 	
+	public <T> Set<T> zRange(String key, long start, long end, Class<T> clazz) {
+		return zRangeFor(key, start, end, member -> clazz.cast(member));
+	}
+	
 	public Set<Long> zRangeForLong(String key, long  start, long end) {
-		return zRangeFor(key, start, end, (obj) -> Long.parseLong(obj.toString()));
+		return zRangeFor(key, start, end, member -> Long.parseLong(member.toString()));
 	}
 	
 	/**
 	 * @param key   :
 	 * @param start :
 	 * @param end   :0 到-1表示查全部
-	 * @return {@link Set< Long>}
+	 * @return {@link Set<T>}
 	 */
-	public <R> Set<R> zRangeFor(String key, long  start, long end, Function<Object, R> func) {
+	public <T> Set<T> zRangeFor(String key, long  start, long end, Function<Object, T> func) {
 		Set<Object> objects = getOperations().boundZSetOps(key).range(start, end);
 		if(Objects.isNull(objects)) {
 			return Sets.newHashSet();
 		}
-		return objects.stream().map(object -> func.apply(object))
+		return objects.stream().map(member -> func.apply(member))
 				.collect(Collectors.toCollection(LinkedHashSet::new));
 	}
 	
@@ -1964,6 +1985,10 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Set<Object> zRevrange(String key, long start, long end) {
 		return getOperations().boundZSetOps(key).reverseRange(start, end);
 	}
+	
+	public <T> Set<T> zRevrange(String key, long start, long end, Class<T> clazz) {
+		return zRevrangeFor(key, start, end, member -> clazz.cast(member));
+	}
 
 	/**
 	 * @param key   :
@@ -1975,12 +2000,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return zRevrangeFor(key, start, end, (obj) -> Long.parseLong(obj.toString()));
 	}
 	
-	public <R> Set<R> zRevrangeFor(String key, long  start, long end, Function<Object, R> func) {
+	public <T> Set<T> zRevrangeFor(String key, long  start, long end, Function<Object, T> func) {
 		Set<Object> objects = getOperations().boundZSetOps(key).reverseRange(start, end);
 		if(Objects.isNull(objects)) {
 			return Sets.newHashSet();
 		}
-		return objects.stream().map(object -> func.apply(object))
+		return objects.stream().map(member -> func.apply(member))
 				.collect(Collectors.toCollection(LinkedHashSet::new));
 	}
 	
