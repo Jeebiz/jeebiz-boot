@@ -183,7 +183,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public boolean set(String key, Object value) {
 		try {
-			getOperations().opsForValue().set(key, value);
+			getOperations().boundValueOps(key).set(value);
 			return true;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -202,7 +202,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public boolean set(String key, Object value, long seconds) {
 		try {
 			if (seconds > 0) {
-				getOperations().opsForValue().set(key, value, seconds, TimeUnit.SECONDS);
+				getOperations().boundValueOps(key).set(value, seconds, TimeUnit.SECONDS);
 				return true;
 			} else {
 				return set(key, value);
@@ -218,15 +218,15 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 *
 	 * @param key   键
 	 * @param value 值
-	 * @param duration  时间
+	 * @param timeout  时间
 	 * @return true成功 false 失败
 	 */
-	public boolean set(String key, Object value, Duration duration) {
-		if (Objects.isNull(duration) || duration.isNegative()) {
+	public boolean set(String key, Object value, Duration timeout) {
+		if (Objects.isNull(timeout) || timeout.isNegative()) {
 			return false;
 		}
 		try {
-			getOperations().opsForValue().set(key, value, duration);
+			getOperations().boundValueOps(key).set(value, timeout);;
 			return true;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -259,7 +259,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Assert.hasLength(key, "key must not be empty");
 		Assert.hasLength(value, "value must not be empty");
 		try {
-			return redisTemplate.opsForValue().setIfAbsent(key, value, Duration.ofMillis(timeout));
+			return getOperations().boundValueOps(key).setIfAbsent(value, Duration.ofMillis(timeout));
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return false;
@@ -278,7 +278,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Assert.hasLength(key, "key must not be empty");
 		Assert.hasLength(value, "value must not be empty");
 		try {
-			return redisTemplate.opsForValue().setIfAbsent(key, value, timeout, unit);
+			return getOperations().boundValueOps(key).setIfAbsent(value, timeout, unit);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return false;
@@ -306,20 +306,41 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Object get(String key) {
 		try {
-			return !StringUtils.hasText(key) ? null : getOperations().opsForValue().get(key);
+			return getOperations().boundValueOps(key).get();
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return null;
 		}
 	}
+
+	public Double getDouble(String key) {
+		return getFor(key, member -> new BigDecimal(member.toString()).doubleValue());
+	}
 	
+	public Long getLong(String key) {
+		return getFor(key, member -> new BigDecimal(member.toString()).longValue());
+	}
+
 	public String getString(String key) {
-		try {
-			return Objects.toString(this.get(key), null);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return null;
+		return getFor(key, member -> Objects.toString(member, null));
+	}
+	
+	public <T> T getFor(String key, Class<T> clazz) {
+		return getFor(key, member -> clazz.cast(member));
+	}
+	
+	/**
+	 * 根据key获取值，并按Function函数进行转换
+	 * @param key 键
+	 * @param mapper 对象转换函数
+	 * @return xx
+	 */
+	public <T> T getFor(String key, Function<Object, T> mapper) {
+		Object obj = this.get(key);
+		if(Objects.nonNull(obj)) {
+			return mapper.apply(obj);
 		}
+		return null;
 	}
 	
 	/**
@@ -601,11 +622,23 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public List<Object> lRange(String key, long start, long end) {
 		try {
-			return getOperations().opsForList().range(key, start, end);
+			return getOperations().boundListOps(key).range(start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return null;
 		}
+	}
+	
+	public List<String> lRangeString(String key, long  start, long end) {
+		return lRangeFor(key, start, end, member -> Objects.toString(member, null));
+	}
+	
+	public List<Double> lRangeDouble(String key, long  start, long end) {
+		return lRangeFor(key, start, end, member -> new BigDecimal(member.toString()).doubleValue());
+	}
+	
+	public List<Long> lRangeLong(String key, long  start, long end) {
+		return lRangeFor(key, start, end, member -> new BigDecimal(member.toString()).longValue());
 	}
 
 	/**
@@ -616,34 +649,25 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param end   结束 0 到 -1代表所有值
 	 * @return
 	 */
-	public <T> List<T> lRange(String key, long start, long end, Class<T> clazz) {
+	public <T> List<T> lRangeFor(String key, long start, long end, Class<T> clazz) {
 		return lRangeFor(key, start, end, member -> clazz.cast(member));
-	}
-	
-	public List<Long> lRangeForLong(String key, long  start, long end) {
-		return lRangeFor(key, start, end, (obj) -> Long.parseLong(obj.toString()));
 	}
 	
 	/**
 	 * @param key   :
 	 * @param start :
 	 * @param end   :0 到-1表示查全部
+	 * @param mapper 对象转换函数
 	 * @return {@link Set< Long>}
 	 */
-	public <T> List<T> lRangeFor(String key, long  start, long end, Function<Object, T> func) {
-		try {
-			Set<Object> objects = getOperations().boundZSetOps(key).range(start, end);
-			if(Objects.isNull(objects)) {
-				return Lists.newArrayList();
-			}
-			return objects.stream().map(object -> func.apply(object)).collect(Collectors.toList());
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return Lists.newArrayList();
+	public <T> List<T> lRangeFor(String key, long  start, long end, Function<Object, T> mapper) {
+		List<Object> members = this.lRange(key, start, end);
+		if(Objects.nonNull(members)) {
+			return members.stream().map(mapper).collect(Collectors.toList());
 		}
+		return null;
 	}
 	
-
 	/**
 	 * 通过索引 获取list中的值
 	 *
@@ -688,14 +712,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPush(String key, V value, Duration duration) {
+	public <V> Long lLeftPush(String key, V value, Duration timeout) {
 		if(value instanceof Collection) {
-			return lLeftPushAll(key, (Collection) value, duration);
+			return lLeftPushAll(key, (Collection) value, timeout);
 		}
 		try {
 			Long rt = getOperations().opsForList().leftPush(key, value);
-			if(!duration.isNegative()) {
-				expire(key, duration);
+			if(!timeout.isNegative()) {
+				expire(key, timeout);
 			}
 			return rt;
 		} catch (Exception e) {
@@ -727,11 +751,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lLeftPushAll(String key, Collection<V> values, Duration duration) {
+	public <V> Long lLeftPushAll(String key, Collection<V> values, Duration timeout) {
 		try {
 			Long rt = getOperations().opsForList().leftPushAll(key, values.toArray());
-			if(!duration.isNegative()) {
-				expire(key, duration);
+			if(!timeout.isNegative()) {
+				expire(key, timeout);
 			}
 			return rt;
 		} catch (Exception e) {
@@ -784,14 +808,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lRightPush(String key, V value, Duration duration) {
+	public <V> Long lRightPush(String key, V value, Duration timeout) {
 		if(value instanceof Collection) {
-			return lRightPushAll(key, (Collection) value, duration);
+			return lRightPushAll(key, (Collection) value, timeout);
 		}
 		try {
 			Long rt = getOperations().opsForList().rightPush(key, value);
-			if(!duration.isNegative()) {
-				expire(key, duration);
+			if(!timeout.isNegative()) {
+				expire(key, timeout);
 			}
 			return rt;
 		} catch (Exception e) {
@@ -822,11 +846,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public <V> Long lRightPushAll(String key, Collection<V> values, Duration duration) {
+	public <V> Long lRightPushAll(String key, Collection<V> values, Duration timeout) {
 		try {
 			Long rt = getOperations().opsForList().rightPushAll(key, values.toArray());
-			if(!duration.isNegative()) {
-				expire(key, duration);
+			if(!timeout.isNegative()) {
+				expire(key, timeout);
 			}
 			return rt;
 		} catch (Exception e) {
@@ -1210,11 +1234,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public boolean hmSet(String key, Map<String, Object> map, Duration duration) {
+	public boolean hmSet(String key, Map<String, Object> map, Duration timeout) {
 		try {
 			getOperations().opsForHash().putAll(key, map);
-			if(!duration.isNegative()) {
-				expire(key, duration);
+			if(!timeout.isNegative()) {
+				expire(key, timeout);
 			}
 			return true;
 		} catch (Exception e) {
@@ -1287,11 +1311,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
-	public boolean hSet(String key, String hashKey, Object value, Duration duration) {
+	public boolean hSet(String key, String hashKey, Object value, Duration timeout) {
 		try {
 			getOperations().opsForHash().put(key, hashKey, value);
-			if(!duration.isNegative()) {
-				expire(key, duration);
+			if(!timeout.isNegative()) {
+				expire(key, timeout);
 			}
 			return true;
 		} catch (Exception e) {
@@ -1359,13 +1383,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return increment;
 	}
 	
-	public Long hIncr(String key, String hashKey, int delta, Duration duration) {
+	public Long hIncr(String key, String hashKey, int delta, Duration timeout) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
 		Long increment = getOperations().opsForHash().increment(key, hashKey, delta);
-		if(!duration.isNegative()) {
-			expire(key, duration);
+		if(!timeout.isNegative()) {
+			expire(key, timeout);
 		}
 		return increment;
 	}
@@ -1405,13 +1429,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return increment;
 	}
 
-	public Long hIncr(String key, String hashKey, long delta, Duration duration) {
+	public Long hIncr(String key, String hashKey, long delta, Duration timeout) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
 		Long increment = getOperations().opsForHash().increment(key, hashKey, delta);
-		if(!duration.isNegative()) {
-			expire(key, duration);
+		if(!timeout.isNegative()) {
+			expire(key, timeout);
 		}
 		return increment;
 	}
@@ -1442,13 +1466,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return increment;
 	}
 	
-	public Double hIncr(String key, String hashKey, double delta, Duration duration) {
+	public Double hIncr(String key, String hashKey, double delta, Duration timeout) {
 		if (delta < 0) {
 			throw new BizRuntimeException("递增因子必须>=0");
 		}
 		Double increment = getOperations().opsForHash().increment(key, hashKey, delta);
-		if(!duration.isNegative()) {
-			expire(key, duration);
+		if(!timeout.isNegative()) {
+			expire(key, timeout);
 		}
 		return increment;
 	}
@@ -1503,27 +1527,47 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Set<Object> sGet(String key) {
 		try {
-			return getOperations().opsForSet().members(key);
+			return getOperations().boundSetOps(key).members();
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return null;
 		}
 	}
 
+	public Set<String> sGetString(String key) {
+		return sGetFor(key, member -> Objects.toString(member, null));
+	} 
+	
+	public Set<Double> sGetDouble(String key) {
+		return sGetFor(key, member -> new BigDecimal(member.toString()).doubleValue());
+	}
+	
+	public Set<Long> sGetLong(String key) {
+		return sGetFor(key, member -> new BigDecimal(member.toString()).longValue());
+	}
+	
 	/**
 	 * 根据key获取Set中的所有值
-	 *
 	 * @param key 键
-	 * @return
+	 * @param clazz 值的类型
+	 * @return 类型处理后的Set
 	 */
-	public <T> Set<T> sGet(String key, Class<T> clazz) {
-		try {
-			Set<Object> members = getOperations().opsForSet().members(key);
-			return members.stream().map(member -> clazz.cast(member)).collect(Collectors.toSet());
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return null;
+	public <T> Set<T> sGetFor(String key, Class<T> clazz) {
+		return sGetFor(key, member -> clazz.cast(member));
+	}
+	
+	/**
+	 * 根据key获取Set中的所有值，并按Function函数进行转换
+	 * @param key 键
+	 * @param mapper 对象转换函数
+	 * @return 类型处理后的Set
+	 */
+	public <T> Set<T> sGetFor(String key, Function<Object, T> mapper) {
+		Set<Object> members = this.sGet(key);
+		if(Objects.nonNull(members)) {
+			members.stream().map(mapper).collect(Collectors.toCollection(LinkedHashSet::new));
 		}
+		return null;
 	}
 	
 	/**
@@ -1601,7 +1645,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public boolean sHasKey(String key, Object value) {
 		try {
-			return getOperations().opsForSet().isMember(key, value);
+			return getOperations().boundSetOps(key).isMember(value);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return false;
@@ -1640,9 +1684,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public List<Object> sRandomSet(String key, long count) {
-		return getOperations().opsForSet().randomMembers(key, count);
+		return getOperations().boundSetOps(key).randomMembers(count);
 	}
-
+	
 	/**
 	 * 随机获取指定数量的元素,去重(同一个元素只能选择一次)
 	 * 
@@ -1651,7 +1695,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public Set<Object> sRandomSetDistinct(String key, long count) {
-		return getOperations().opsForSet().distinctRandomMembers(key, count);
+		return getOperations().boundSetOps(key).distinctRandomMembers(count);
 	}
 	
 	/**
@@ -1663,7 +1707,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long sRemove(String key, Object... values) {
 		try {
-			Long count = getOperations().opsForSet().remove(key, values);
+			Long count = getOperations().boundSetOps(key).remove(values);
 			return count;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -1706,7 +1750,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long sSetAndTime(String key, long seconds, Object... values) {
 		try {
-			Long count = getOperations().opsForSet().add(key, values);
+			Long count = getOperations().boundSetOps(key).add(values);
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -1912,7 +1956,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param values
 	 */
 	public Long zRem(String key, Object... values) {
-		return getOperations().boundZSetOps(key).remove(values);
+		try {
+			return getOperations().boundZSetOps(key).remove(values);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return null;
+		}
 	}
 
 	/**
@@ -1922,35 +1971,54 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param min
 	 * @param max
 	 */
-	public void zRemByScore(String key, double min, double max) {
-		getOperations().boundZSetOps(key).removeRangeByScore(min, max);
+	public Long zRemByScore(String key, double min, double max) {
+		try {
+			return getOperations().boundZSetOps(key).removeRangeByScore(min, max);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return null;
+		}
 	}
 	
 	public Set<Object> zRange(String key, long start, long end) {
-		return getOperations().boundZSetOps(key).range(start, end);
+		try {
+			return getOperations().boundZSetOps(key).range(start, end);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return null;
+		}
 	}
 	
-	public <T> Set<T> zRange(String key, long start, long end, Class<T> clazz) {
+	public Set<String> zRangeString(String key, long  start, long end) {
+		return zRangeFor(key, start, end, member -> Objects.toString(member, null));
+	}
+	
+	public Set<Double> zRangeDouble(String key, long  start, long end) {
+		return zRangeFor(key, start, end, member -> new BigDecimal(member.toString()).doubleValue());
+	}
+	
+	public Set<Long> zRangeLong(String key, long  start, long end) {
+		return zRangeFor(key, start, end, member -> new BigDecimal(member.toString()).longValue());
+	}
+
+	public <T> Set<T> zRangeFor(String key, long start, long end, Class<T> clazz) {
 		return zRangeFor(key, start, end, member -> clazz.cast(member));
-	}
-	
-	public Set<Long> zRangeForLong(String key, long  start, long end) {
-		return zRangeFor(key, start, end, member -> Long.parseLong(member.toString()));
 	}
 	
 	/**
 	 * @param key   :
 	 * @param start :
 	 * @param end   :0 到-1表示查全部
+	 * @param mapper 对象转换函数
 	 * @return {@link Set<T>}
 	 */
-	public <T> Set<T> zRangeFor(String key, long  start, long end, Function<Object, T> func) {
-		Set<Object> objects = getOperations().boundZSetOps(key).range(start, end);
-		if(Objects.isNull(objects)) {
-			return Sets.newHashSet();
+	public <T> Set<T> zRangeFor(String key, long  start, long end, Function<Object, T> mapper) {
+		Set<Object> members = this.zRange(key, start, end);
+		if(Objects.nonNull(members)) {
+			return members.stream().map(mapper)
+					.collect(Collectors.toCollection(LinkedHashSet::new));
 		}
-		return objects.stream().map(member -> func.apply(member))
-				.collect(Collectors.toCollection(LinkedHashSet::new));
+		return null;
 	}
 	
 	public Set<Object> zRangeByScore(String key, double min, double max) {
@@ -1983,30 +2051,50 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return {@link Set< Object>}
 	 */
 	public Set<Object> zRevrange(String key, long start, long end) {
-		return getOperations().boundZSetOps(key).reverseRange(start, end);
-	}
-	
-	public <T> Set<T> zRevrange(String key, long start, long end, Class<T> clazz) {
-		return zRevrangeFor(key, start, end, member -> clazz.cast(member));
+		try {
+			return getOperations().boundZSetOps(key).reverseRange(start, end);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return null;
+		}
 	}
 
+	public Set<String> zRevrangeString(String key, long  start, long end) {
+		return zRevrangeFor(key, start, end, member -> Objects.toString(member, null));
+	}
+	
+	public Set<Double> zRevrangeDouble(String key, long  start, long end) {
+		return zRevrangeFor(key, start, end, member -> new BigDecimal(member.toString()).doubleValue());
+	}
+	
 	/**
 	 * @param key   :
 	 * @param start :
 	 * @param end   :0 到-1表示查全部
 	 * @return {@link Set< Long>}
 	 */
-	public Set<Long> zRevrangeForLong(String key, long  start, long end) {
-		return zRevrangeFor(key, start, end, (obj) -> Long.parseLong(obj.toString()));
+	public Set<Long> zRevrangeLong(String key, long  start, long end) {
+		return zRevrangeFor(key, start, end, member -> new BigDecimal(member.toString()).longValue());
 	}
 	
-	public <T> Set<T> zRevrangeFor(String key, long  start, long end, Function<Object, T> func) {
-		Set<Object> objects = getOperations().boundZSetOps(key).reverseRange(start, end);
-		if(Objects.isNull(objects)) {
-			return Sets.newHashSet();
+	/**
+	 * 获取list缓存的内容
+	 *
+	 * @param key   键
+	 * @param start 开始
+	 * @param end   结束 0 到 -1代表所有值
+	 * @return
+	 */
+	public <T> Set<T> zRevrangeFor(String key, long start, long end, Class<T> clazz) {
+		return zRevrangeFor(key, start, end, member -> clazz.cast(member));
+	}
+	
+	public <T> Set<T> zRevrangeFor(String key, long  start, long end, Function<Object, T> mapper) {
+		Set<Object> members = this.zRevrange(key, start, end);
+		if(Objects.nonNull(members)) {
+			return members.stream().map(mapper).collect(Collectors.toCollection(LinkedHashSet::new));
 		}
-		return objects.stream().map(member -> func.apply(member))
-				.collect(Collectors.toCollection(LinkedHashSet::new));
+		return null;
 	}
 	
 	/**
