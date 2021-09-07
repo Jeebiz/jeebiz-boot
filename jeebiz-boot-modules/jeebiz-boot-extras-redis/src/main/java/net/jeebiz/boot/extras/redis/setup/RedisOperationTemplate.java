@@ -252,7 +252,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * 1、仅可用于低并发功能，高并发严禁使用此方法
 	 * @param key		并发锁
 	 * @param value		锁key（务必能区别不同线程的请求）
-	 * @param timeout		锁过期时间（单位：毫秒）
+	 * @param timeout	锁过期时间（单位：毫秒）
 	 * @return
 	 */
 	public boolean setNx(String key, String value, long timeout) {
@@ -260,6 +260,24 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Assert.hasLength(value, "value must not be empty");
 		try {
 			return getOperations().boundValueOps(key).setIfAbsent(value, Duration.ofMillis(timeout));
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return false;
+		}
+	}
+	
+	/**
+	 * 1、仅可用于低并发功能，高并发严禁使用此方法
+	 * @param key		并发锁
+	 * @param value		锁key（务必能区别不同线程的请求）
+	 * @param timeout	锁过期时间
+	 * @return
+	 */
+	public boolean setNx(String key, String value, Duration timeout) {
+		Assert.hasLength(key, "key must not be empty");
+		Assert.hasLength(value, "value must not be empty");
+		try {
+			return getOperations().boundValueOps(key).setIfAbsent(value, timeout);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return false;
@@ -1565,7 +1583,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public <T> Set<T> sGetFor(String key, Function<Object, T> mapper) {
 		Set<Object> members = this.sGet(key);
 		if(Objects.nonNull(members)) {
-			members.stream().map(mapper).collect(Collectors.toCollection(LinkedHashSet::new));
+			return members.stream().map(mapper).collect(Collectors.toCollection(LinkedHashSet::new));
 		}
 		return null;
 	}
@@ -2254,6 +2272,10 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
 	// ===============================Lock=================================
 	
+	public boolean tryLock(String lockKey, Duration timeout) {
+		return tryLock( lockKey, timeout.toMillis());
+	}
+	
 	/**
 	 * 1、对指定key来进行加锁逻辑（此锁是全局性的）
 	 * @param lockKey  锁key
@@ -2303,7 +2325,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
        	return false;
 	}
-
+    
+    public boolean tryLock(String lockKey, String requestId, Duration timeout, int retryTimes, long retryInterval) {
+    	return tryLock(lockKey, requestId, timeout.toMillis(), retryTimes, retryInterval);
+    }
+    
     /**
 	 * 1、lua脚本加锁
 	 * @param lockKey       锁的 key
