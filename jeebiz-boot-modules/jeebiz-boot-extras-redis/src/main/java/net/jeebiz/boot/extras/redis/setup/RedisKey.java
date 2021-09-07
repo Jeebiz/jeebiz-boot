@@ -79,6 +79,13 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_LOCATION_KEY);
     }),
 	/**
+	 * 用户资产缓存
+	 */
+	USER_ASSETS_AMOUNT("用户资产", (userId)->{
+		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_ASSETS_AMOUNT_KEY, userId).getMessage();
+		return RedisKeyConstant.getKeyStr(keyStr);
+    }),
+	/**
 	 * 用户金币增量缓存
 	 */
 	USER_COIN_AMOUNT("用户珍珠", (userId)->{
@@ -105,8 +112,16 @@ public enum RedisKey {
 	USER_RITHTS("用户权益", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_RITHTS_KEY, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
-    });
+    }),
+	/**
+	 * 消息队列消息消费锁
+	 */
+	MQ_CONSUME_LOCK("消息队列消息消费锁", (msgKey)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, msgKey);
+    })
 	
+	;
+
 	private String desc;
     private Function<String, String> function;
     
