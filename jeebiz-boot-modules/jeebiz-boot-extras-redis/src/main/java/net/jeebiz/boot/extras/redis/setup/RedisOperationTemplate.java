@@ -1213,6 +1213,26 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}, this.valueSerializer());
 		return result.stream().map(mapper -> (Map<String, Object>)mapper).collect(Collectors.toList());
 	}
+   	
+   	public boolean hmMultiSet(String key, Collection<Object> hashKeys, Object value) {
+   		if (CollectionUtils.isEmpty(hashKeys) || !StringUtils.hasText(key)) {
+			return false;
+		}
+    	try {
+			getOperations().executePipelined((RedisConnection connection) -> {
+				byte[] rawKey = rawKey(key);
+				byte[] rawHashValue = rawHashValue(value);
+				for (Object hashKey : hashKeys) {
+					connection.hSet(rawKey, rawHashKey(hashKey), rawHashValue);
+				}
+				return null;
+			});
+			return true;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return false;
+		}
+    }
     
 	/**
 	 * HashSet
@@ -2683,11 +2703,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
         return this.hmMultiGet(uKeys, hashKeys);
     }
 	
-	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,  Collection<Object> fields) {
+	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,  Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
 		}).collect(Collectors.toList());
-        return this.hmMultiGet(uKeys, identityField, fields);
+        return this.hmMultiGet(uKeys, identityField, hashKeys);
     }
 
 }
