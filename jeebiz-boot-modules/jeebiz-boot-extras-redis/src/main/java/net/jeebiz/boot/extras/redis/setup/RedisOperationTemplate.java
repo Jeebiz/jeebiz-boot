@@ -432,6 +432,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return increment;
 	}
 	
+	public Long incr(String key, long delta, Duration timeout) {
+		if (delta < 0) {
+			throw new BizRuntimeException("递增因子必须>=0");
+		}
+		Long increment = getOperations().opsForValue().increment(key, delta);
+		if (!timeout.isNegative()) {
+			expire(key, timeout);
+		}
+		return increment;
+	}
+	
 	/**
 	 * 递增
 	 *
@@ -465,6 +476,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return increment;
 	}
 
+	public Double incr(String key, double delta, Duration timeout) {
+		if (delta < 0) {
+			throw new BizRuntimeException("递增因子必须>=0");
+		}
+		Double increment = getOperations().opsForValue().increment(key, delta);
+		if (!timeout.isNegative()) {
+			expire(key, timeout);
+		}
+		return increment;
+	}
+	
 	/**
 	 * 递减
 	 *
@@ -498,6 +520,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return increment;
 	}
 	
+	public Long decr(String key, long delta, Duration timeout) {
+		if (delta < 0) {
+			throw new BizRuntimeException("递减因子必须>=0");
+		}
+		Long increment = getOperations().opsForValue().increment(key, -delta);
+		if (!timeout.isNegative()) {
+			expire(key, timeout);
+		}
+		return increment;
+	}
+	
 	/**
 	 * 递减
 	 *
@@ -527,6 +560,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Double increment = getOperations().opsForValue().increment(key, -delta);
 		if (seconds > 0) {
 			expire(key, seconds);
+		}
+		return increment;
+	}
+	
+	public Double decr(String key, double delta, Duration timeout) {
+		if (delta < 0) {
+			throw new BizRuntimeException("递减因子必须>=0");
+		}
+		Double increment = getOperations().opsForValue().increment(key, -delta);
+		if (!timeout.isNegative()) {
+			expire(key, timeout);
 		}
 		return increment;
 	}
@@ -1936,6 +1980,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Double result = getOperations().boundZSetOps(key).incrementScore(value, delta);
 		if (seconds > 0) {
 			expire(key, seconds);
+		}
+		return result;
+	}
+	
+	public Double zIncr(String key, Object value, double delta, Duration timeout) {
+		Double result = getOperations().boundZSetOps(key).incrementScore(value, delta);
+		if (!timeout.isNegative()) {
+			expire(key, timeout);
 		}
 		return result;
 	}
