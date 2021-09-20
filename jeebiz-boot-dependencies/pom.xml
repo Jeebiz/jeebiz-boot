@@ -276,7 +276,7 @@
 		<sharding-sphere.version>4.1.1</sharding-sphere.version>
 		<sharding-proxy.version>4.1.0</sharding-proxy.version>
 		<shedlock.version>4.9.3</shedlock.version>
-		<shiro.version>1.7.1</shiro.version>
+		<shiro.version>1.8.0</shiro.version>
 		<shiro-biz.version>1.1.9.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
