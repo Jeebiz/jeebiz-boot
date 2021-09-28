@@ -17,6 +17,7 @@
 		<module>jeebiz-boot-plugin-api</module>
 		<module>jeebiz-boot-webflux-autoconfigure</module>
 		<module>jeebiz-boot-webmvc-autoconfigure</module>
+		<module>jeebiz-boot-extras-redisson</module>
 	</modules>
 	
 	<dependencies>
