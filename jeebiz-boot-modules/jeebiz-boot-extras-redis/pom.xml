@@ -63,14 +63,9 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 		</dependency>
-		<!-- For Redisson -->
 		<dependency>
-		    <groupId>org.redisson</groupId>
-		    <artifactId>redisson-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.reactivex.rxjava2</groupId>
-		    <artifactId>rxjava</artifactId>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
 		</dependency>
 		
 	</dependencies>
