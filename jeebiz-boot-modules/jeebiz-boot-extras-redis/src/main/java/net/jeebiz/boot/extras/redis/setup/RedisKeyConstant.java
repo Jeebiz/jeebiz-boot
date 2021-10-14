@@ -56,6 +56,14 @@ public abstract class RedisKeyConstant {
 	 */
 	public final static String USER_SSO_STATE_KEY = "user:sso:{}";
 	/**
+	 * 用户会话列表
+	 */
+	public final static String USER_SESSIONS_KEY = "user:sessions";
+	/**
+	 * 用户会话信息
+	 */
+	public final static String USER_SESSION_KEY = "user:session:{}";
+	/**
 	 * 用户坐标缓存
 	 */
 	public final static String USER_GEO_LOCATION_KEY = "user:geo:location";
