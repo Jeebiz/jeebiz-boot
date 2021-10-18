@@ -33,8 +33,10 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.reactive.result.view.ViewResolver;
 import org.springframework.web.server.i18n.LocaleContextResolver;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hitool.core.lang3.time.DateFormats;
 import net.jeebiz.boot.api.sequence.Sequence;
 import net.jeebiz.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
@@ -104,15 +106,16 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
 		
 		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
-		//objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
-		 
+        
         /** 为objectMapper注册一个带有SerializerModifier的Factory */
         objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-                .withSerializerModifier(new MyBeanSerializerModifier()));
-
+                .withSerializerModifier(new MyBeanSerializerModifier()))
+        		.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        		.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
+        
         //SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
         //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
-		
+        
         return new MappingJackson2HttpMessageConverter(objectMapper);
     }
 

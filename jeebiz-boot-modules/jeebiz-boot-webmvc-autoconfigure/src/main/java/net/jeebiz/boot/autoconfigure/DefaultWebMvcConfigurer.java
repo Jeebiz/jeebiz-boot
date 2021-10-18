@@ -5,11 +5,13 @@
 package net.jeebiz.boot.autoconfigure;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.util.CollectionUtils;
@@ -22,8 +24,10 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hitool.core.lang3.time.DateFormats;
 import net.jeebiz.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
@@ -56,15 +60,19 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
     @Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 
-        ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
+    	ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
+        
         /** 为objectMapper注册一个带有SerializerModifier的Factory */
         objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-                .withSerializerModifier(new MyBeanSerializerModifier()));
-
+                .withSerializerModifier(new MyBeanSerializerModifier()))
+        		.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+        		.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
+        
         //SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
         //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
         
 		converters.add(new MappingJackson2HttpMessageConverter(objectMapper));
+        converters.add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
 	}
     
     @Override
