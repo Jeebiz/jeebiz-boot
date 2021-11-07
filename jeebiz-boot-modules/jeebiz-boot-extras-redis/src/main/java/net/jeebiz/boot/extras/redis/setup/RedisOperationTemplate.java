@@ -3069,38 +3069,38 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
    	public <K> List<Map<String, Object>> batchGetUserInfo(Collection<K> uids) {
    		Collection<Object> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
    		return this.hmMultiGetAll(uKeys);
    	}
 	
 	public <K> Map<String, Object> batchGetUserFields(K uid, Collection<Object> hashKeys) {
-    	String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
+    	String userKey = RedisKey.USER_INFO.getKey(Objects.toString(uid));
     	return this.hmMultiGet(userKey, hashKeys);
     }
 	
 	public <K> Map<String, Object> batchGetUserFields(K uid, String... hashKeys) {
-		String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
+		String userKey = RedisKey.USER_INFO.getKey(Objects.toString(uid));
     	return this.hmMultiGet(userKey, Stream.of(hashKeys).collect(Collectors.toList()));
     }
     
 	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, String... hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, Stream.of(hashKeys).collect(Collectors.toList()));
     }
 	
 	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, hashKeys);
     }
 	
 	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,  Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, identityField, hashKeys);
     }

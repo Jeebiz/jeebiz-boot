@@ -18,7 +18,7 @@ import reactor.core.publisher.Flux;
 
 public class ReactiveGeoTemplate {
 
-	private final static String USER_GEO_KEY = RedisKey.USER_GEO_LOCATION.getFunction().apply(null);
+	private final static String USER_GEO_KEY = RedisKey.USER_GEO_LOCATION.getKey();
 	private ReactiveRedisTemplate<Object, Object> reactiveRedisTemplate;
 	
 	public ReactiveGeoTemplate() {

@@ -2,6 +2,7 @@ package net.jeebiz.boot.extras.redis.setup;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.function.Function;
 
 import org.slf4j.helpers.MessageFormatter;
@@ -92,6 +93,12 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_LOCATION_KEY);
     }),
 	/**
+	 * 用户坐标对应的地理位置缓存
+	 */
+	USER_GEO_INFO("用户坐标对应的地理位置缓存", (userId)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_INFO_KEY);
+    }),
+	/**
 	 * 用户资产缓存
 	 */
 	USER_ASSETS_AMOUNT("用户资产", (userId)->{
@@ -130,7 +137,7 @@ public enum RedisKey {
 	 * 消息队列消息消费锁
 	 */
 	MQ_CONSUME_LOCK("消息队列消息消费锁", (msgKey)->{
-		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, msgKey);
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, Objects.toString(msgKey));
     })
 	
 	;
@@ -162,10 +169,6 @@ public enum RedisKey {
      */
     public String getKey(String key) {
         return this.function.apply(key);
-    }
-
-    public Function<String, String> getFunction() {
-        return function;
     }
 	
 }

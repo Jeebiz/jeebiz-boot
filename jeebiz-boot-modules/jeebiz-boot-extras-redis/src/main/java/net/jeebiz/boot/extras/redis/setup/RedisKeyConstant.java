@@ -68,6 +68,10 @@ public abstract class RedisKeyConstant {
 	 */
 	public final static String USER_GEO_LOCATION_KEY = "user:geo:location";
 	/**
+	 * 用户坐标对应的地理位置缓存
+	 */
+	public final static String USER_GEO_INFO_KEY = "user:geo:info";
+	/**
 	 * 用户任务列表
 	 */
 	public final static String USER_TASK_KEY = "user:task:{}";

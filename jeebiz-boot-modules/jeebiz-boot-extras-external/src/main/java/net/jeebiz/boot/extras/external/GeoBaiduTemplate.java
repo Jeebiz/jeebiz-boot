@@ -1,4 +1,4 @@
-package net.jeebiz.boot.extras.redis.setup.geo;
+package net.jeebiz.boot.extras.external;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -8,9 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.alibaba.fastjson.JSONObject;
 import com.github.hiwepy.httpconn.HttpConnectionUtils;
 import com.github.hiwepy.httpconn.handler.JSONResponseHandler;
+
+import okhttp3.OkHttpClient;
 
 /**
  * 	地址获取经纬度： http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
@@ -20,12 +24,13 @@ public class GeoBaiduTemplate {
 	
 	private static String geocoder = "http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=%s";
 	private static String geocoder2 = "http://api.map.baidu.com/location/ip?ak=%s&ip=%s&coor=bd09ll";
-	private static JSONResponseHandler responseHandler = new JSONResponseHandler();
+	private final OkHttpClient okhttp3Client;
 	private final String ak;
-	
-	public GeoBaiduTemplate(String ak) {
+
+	public GeoBaiduTemplate(OkHttpClient okhttp3Client, String ak) {
 		super();
-		this.ak = ak;
+		this.okhttp3Client = okhttp3Client;
+		this.ak = ak; 
 	}
 	
 	/**

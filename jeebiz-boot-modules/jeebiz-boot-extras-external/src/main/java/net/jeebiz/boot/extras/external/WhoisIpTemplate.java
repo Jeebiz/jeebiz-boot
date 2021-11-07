@@ -179,6 +179,10 @@ public class WhoisIpTemplate {
 			return RegionEnum.UK;
 		}
 	}
+
+	public RegionEnum getRegionByGeo(double latitude, double longitude) {
+		return RegionEnum.UK;
+	}
 	
 	public boolean isMainlandIp(String ip) {
 		try {

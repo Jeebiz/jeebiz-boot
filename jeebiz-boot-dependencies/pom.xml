@@ -2139,7 +2139,7 @@
 			    <artifactId>google-oauth-client-servlet</artifactId>
 			    <version>1.23.0</version>
 			</dependency>
-
+			
 			<!-- https://mvnrepository.com/artifact/org.gavaghan/geodesy -->
 			<dependency>
 			    <groupId>org.gavaghan</groupId>

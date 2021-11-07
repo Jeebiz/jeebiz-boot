@@ -21,10 +21,11 @@ import org.springframework.data.redis.core.BoundGeoOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
 
+import lombok.extern.slf4j.Slf4j;
 import net.jeebiz.boot.extras.redis.setup.AbstractOperations;
 import net.jeebiz.boot.extras.redis.setup.RedisKey;
 
-
+@Slf4j
 public class GeoTemplate extends AbstractOperations<String, Object>  {
 
 	private BoundGeoOperations<String, Object> boundGeoOperations;
@@ -35,12 +36,7 @@ public class GeoTemplate extends AbstractOperations<String, Object>  {
 	
 	public GeoTemplate(RedisTemplate<String, Object> redisTemplate) {
 		super(redisTemplate);
-		this.boundGeoOperations = redisTemplate.boundGeoOps(RedisKey.USER_GEO_LOCATION.getFunction().apply(null));
-	}
-
-	public GeoTemplate(RedisTemplate<String, Object> redisTemplate, String geoKey) {
-		super(redisTemplate);
-		this.boundGeoOperations = redisTemplate.boundGeoOps(geoKey);
+		this.boundGeoOperations = redisTemplate.boundGeoOps(RedisKey.USER_GEO_LOCATION.getKey());
 	}
 	
 	/**
@@ -156,11 +152,17 @@ public class GeoTemplate extends AbstractOperations<String, Object>  {
         return getBoundGeoOperations().add(point, member);
     }
     
-    public String distance(String uid1, String uid2) {
+    public Distance distance(String uid1, String uid2) {
     	// 例：89 118.803805,32.060168
     	Distance distance = boundGeoOperations.distance(uid1, uid2);
+    	log.info("UserId {} >> UserId {} . distance = {}{}", uid1, uid2, distance.getValue(), distance.getUnit());
     	System.out.println(distance);
-    	return distance.getValue() + distance.getUnit();
+    	return distance;
+    }
+    
+    public double distanceValue(String uid1, String uid2) {
+    	Distance distance = this.distance(uid1, uid2);
+    	return distance.getValue();
     }
     
     public GeoResults<GeoLocation<Object>> getCircleUsersByDistance(String uid, double distance){
