@@ -13,16 +13,24 @@ public abstract class AbstractPaginationDTO {
 	/**
 	 * 每页记录数
 	 */
-	@ApiModelProperty(name = "limit", dataType = "Integer", example = "15", value = "每页记录数")
+	@ApiModelProperty(name = "limit", example = "15", value = "每页记录数")
 	@Min(value = 2, message = "每页至少2条数据")
 	private int limit = 15;
 
 	/**
 	 * 当前页码
 	 */
-	@ApiModelProperty(name = "pageNo", dataType = "Integer", example = "1", value = "当前页码")
+	@ApiModelProperty(name = "pageNo", example = "1", value = "当前页码")
 	@Min(value = 1, message = "最小页码不能小于1")
 	private int pageNo = 1;
+
+    /** 开始时间 */
+	@ApiModelProperty(name = "pageNo", value = "开始时间")
+    private String beginTime;
+
+    /** 结束时间 */
+	@ApiModelProperty(name = "pageNo", value = "结束时间")
+    private String endTime;
 
 	public int getLimit() {
 		return limit;

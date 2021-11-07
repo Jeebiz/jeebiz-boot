@@ -73,6 +73,19 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
+	 * 用户会话列表
+	 */
+	USER_SESSIONS("用户会话列表", (p)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_SESSIONS_KEY);
+    }),
+	/**
+	 * 用户会话信息
+	 */
+	USER_SESSION("用户会话信息", (sessionId)->{
+		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_SESSION_KEY, sessionId).getMessage();
+		return RedisKeyConstant.getKeyStr(keyStr);
+    }),
+	/**
 	 * 用户坐标缓存
 	 */
 	USER_GEO_LOCATION("用户坐标", (userId)->{

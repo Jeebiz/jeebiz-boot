@@ -1850,6 +1850,32 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
+	public Long sAddAndExpire(String key , long seconds, Object... values) {
+		try {
+			Long rt = getOperations().opsForSet().add(key, values);
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return rt;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+
+	public Long sAddAndExpire(String key , Duration timeout, Object... values) {
+		try {
+			Long rt = getOperations().opsForSet().add(key, values);
+			if (!timeout.isNegative()) {
+				expire(key, timeout);
+			}
+			return rt;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return 0L;
+		}
+	}
+	
 	/**
 	 * Set删除: sscan + srem
 	 *
@@ -2611,6 +2637,55 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	// ===============================Lock=================================
+	
+	/**
+	 * 1、对指定key来进行加锁逻辑（此锁是分布式阻塞锁）
+	 * https://www.jianshu.com/p/6dbc44defd94
+	 * @param lockKey  锁 key
+	 * @param timeout  最大阻塞时间(秒)，超过时间将不再等待拿锁
+	 * @return 获取锁成功/失败
+	 */
+	public boolean tryBlockLock(String lockKey, int seconds) {
+        try {
+			return redisTemplate.execute((RedisCallback<Boolean>) redisConnection -> {
+			    // 1、获取时间毫秒值
+			    long expireAt = redisConnection.time() + seconds * 1000 + 1;
+			    // 2、第一次请求, 锁标识不存在的情况，直接拿到锁
+			    Boolean acquire = redisConnection.setNX(rawKey(lockKey), String.valueOf(expireAt).getBytes());
+			    if (acquire) {
+			        return true;
+			    } else {
+			    	// 3、非第一次请求，阻塞等待拿到锁
+			    	redisConnection.bRPop(seconds, rawKey(lockKey + ":list"));
+			    }
+			    return false;
+			});
+        } catch (Exception e) {
+			log.error("acquire redis occurred an exception", e);
+		}
+       	return false;
+    }
+	
+	/**
+	 * 2、删除指定key来进行完成解锁逻辑
+	 * @param lockKey  锁key
+	 * @param requestId  锁值
+	 * @return 释放锁成功/失败
+	 */
+    public boolean unBlockLock(String lockKey, String requestId) {
+    	try {
+    		return redisTemplate.execute((RedisCallback<Boolean>) redisConnection -> {
+    			redisConnection.del(rawKey(lockKey));
+    			byte[] rawKey = rawKey(lockKey + ":list");
+    			byte[] rawValue = rawValue(requestId);
+    			redisConnection.rPush(rawKey, rawValue);
+    		    return true;
+    		}, true);
+        } catch (Exception e) {
+			log.error("acquire redis occurred an exception", e);
+		}
+       	return false;
+	}
 	
 	public boolean tryLock(String lockKey, Duration timeout) {
 		return tryLock( lockKey, timeout.toMillis());

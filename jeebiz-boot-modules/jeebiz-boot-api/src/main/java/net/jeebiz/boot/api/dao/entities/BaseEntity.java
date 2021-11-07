@@ -9,6 +9,7 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @SuppressWarnings("serial")
 public class BaseEntity<T extends Model<?>> extends Model<T> implements Cloneable {
@@ -38,6 +39,16 @@ public class BaseEntity<T extends Model<?>> extends Model<T> implements Cloneabl
 	 */
 	@TableField(value = "modify_time", fill = FieldFill.INSERT_UPDATE)
 	private Date modifyTime;
+	
+    /** 开始时间 */
+    @JsonIgnore
+	@TableField(exist = false)
+    private String beginTime;
+
+    /** 结束时间 */
+    @JsonIgnore
+	@TableField(exist = false)
+    private String endTime;
 
 	public Integer getIsDelete() {
 		return isDelete;
