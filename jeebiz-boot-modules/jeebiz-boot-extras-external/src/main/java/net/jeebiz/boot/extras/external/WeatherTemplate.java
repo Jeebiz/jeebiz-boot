@@ -49,7 +49,7 @@ public class WeatherTemplate {
 			.removalListener(new RemovalListener<String, Optional<JSONObject>>() {
 				@Override
 				public void onRemoval(RemovalNotification<String, Optional<JSONObject>> notification) {
-					System.out.println(notification.getKey() + " was removed, cause is " + notification.getCause());
+					log.info("{} was removed, cause is {}", notification.getKey(), notification.getCause());
 				}
 			})
 			// build方法中可以指定CacheLoader，在缓存不存在时通过CacheLoader的实现自动加载缓存
@@ -69,6 +69,7 @@ public class WeatherTemplate {
 						JSONObject jsonObject = JSONObject.parseObject(bodyString);
 						return Optional.ofNullable(jsonObject);
 					}
+					log.error("Weather Query Error. Response Code >> {}, Body >> {}", response.code(), response.body().string());
 					return Optional.empty();
 				}
 			});

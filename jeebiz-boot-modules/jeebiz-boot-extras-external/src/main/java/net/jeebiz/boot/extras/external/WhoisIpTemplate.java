@@ -62,7 +62,7 @@ public class WhoisIpTemplate {
 			.removalListener(new RemovalListener<String, Optional<JSONObject>>() {
 				@Override
 				public void onRemoval(RemovalNotification<String, Optional<JSONObject>> notification) {
-					System.out.println(notification.getKey() + " was removed, cause is " + notification.getCause());
+					log.info("{} was removed, cause is {}", notification.getKey(), notification.getCause());
 				}
 			})
 			// build方法中可以指定CacheLoader，在缓存不存在时通过CacheLoader的实现自动加载缓存
@@ -84,6 +84,7 @@ public class WhoisIpTemplate {
 							return Optional.ofNullable(jsonObject);
 						}
 					}
+					log.error("IP Region Query Error. Response Code >> {}, Body >> {}", response.code(), response.body().string());
 					return Optional.empty();
 				}
 			});
@@ -178,12 +179,12 @@ public class WhoisIpTemplate {
 			return RegionEnum.UK;
 		}
 	}
-
+	
 	public boolean isMainlandIp(String ip) {
 		try {
 			Optional<JSONObject> optional = REGION_DATA_CACHES.get(ip);
 			if(optional.isPresent()) {
-
+				
 				JSONObject regionData = optional.get();
 				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
 
@@ -193,19 +194,6 @@ public class WhoisIpTemplate {
 				}
 
 			}
-
-
-			HttpUrl httpUrl = HttpUrl.parse(GET_COUNTRY_BY_IP_URL).newBuilder()
-					.addQueryParameter("json", Boolean.TRUE.toString())
-					.addQueryParameter("ip", ip).build();
-			Request request = new Request.Builder().url(httpUrl).build();
-			Response response = okhttp3Client.newCall(request).execute();
-			if (response.isSuccessful()) {
-				log.info("ip{}  对应地区  {}", ip, response);
-				JSONObject jsonObject = JSONObject.parseObject(response.body().string());
-
-			}
-
 		} catch (Exception e) {
 			log.error("IP Region Parser Error：{}", e.getMessage());
 		}
