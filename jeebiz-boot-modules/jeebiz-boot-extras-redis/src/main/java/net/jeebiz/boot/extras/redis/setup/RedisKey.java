@@ -99,6 +99,12 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_INFO_KEY);
     }),
 	/**
+	 * 用户坐标对应的地理位置缓存
+	 */
+	USER_GEO_IPV4("用户坐标对应的地理位置缓存", (userId)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_INFO_KEY);
+    }),
+	/**
 	 * 用户资产缓存
 	 */
 	USER_ASSETS_AMOUNT("用户资产", (userId)->{

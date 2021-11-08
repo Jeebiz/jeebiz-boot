@@ -7,23 +7,27 @@ import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.hiwepy.httpconn.HttpConnectionUtils;
-import com.github.hiwepy.httpconn.handler.JSONResponseHandler;
 
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * 	地址获取经纬度： http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
  *  IP获取经纬度：   http://lbsyun.baidu.com/index.php?title=webapi/ip-api
+ *  https://blog.csdn.net/Li_Chunxiao_/article/details/107082921
  */
+@Slf4j
 public class GeoBaiduTemplate {
 	
 	private static String geocoder = "http://api.map.baidu.com/geocoding/v3/?address=%s&output=json&ak=%s";
 	private static String geocoder2 = "http://api.map.baidu.com/location/ip?ak=%s&ip=%s&coor=bd09ll";
+	private static String highacciploc = "https://api.map.baidu.com/highacciploc/v1?qcip=220.181.38.113&qterm=pc&ak=%s&coord=bd09ll";
+		
 	private final OkHttpClient okhttp3Client;
 	private final String ak;
 
@@ -42,8 +46,8 @@ public class GeoBaiduTemplate {
 	public Map<String, BigDecimal> getLatAndLngByAddress(String addr) throws IOException{
         
         // {"message":"APP Referer校验失败","status":220}
-        JSONObject json = this.getLocationByAddress(addr);
-        JSONObject result = json.getJSONObject("result");
+        Optional<JSONObject> json = this.getLocationByAddress(addr);
+        JSONObject result = json.get().getJSONObject("result");
         JSONObject location = result.getJSONObject("location");
         
         Map<String, BigDecimal> map = new HashMap<String, BigDecimal>();
@@ -58,7 +62,7 @@ public class GeoBaiduTemplate {
 	 * @return
 	 * @throws IOException 
 	 */
-	public JSONObject getLocationByAddress(String addr) throws IOException{
+	public Optional<JSONObject> getLocationByAddress(String addr) throws IOException{
         String address = "";
         try {  
             address = java.net.URLEncoder.encode(addr,"UTF-8");  
@@ -67,11 +71,19 @@ public class GeoBaiduTemplate {
         }
         String url = String.format(geocoder, address, this.ak);
         // {"message":"APP Referer校验失败","status":220}
-        JSONObject json = HttpConnectionUtils.httpRequestWithGet(url, new JSONResponseHandler());
-        if(json.getInteger("status") != 0) {
-        	throw new IOException(json.getString("message"));
-        }
-        return json;
+		Request request = new Request.Builder().url(url).build();
+		Response response = okhttp3Client.newCall(request).execute();
+		if (response.isSuccessful()) {
+			String bodyString = response.body().string();
+			log.info(" Addr : {} >> Location : {} ", addr, bodyString);
+			JSONObject jsonObject = JSONObject.parseObject(bodyString);
+			if (jsonObject.getInteger("status") != 0) {
+				throw new IOException(jsonObject.getString("message"));
+			}
+			return Optional.ofNullable(jsonObject);
+		}
+		log.error("Addr Location Query Error. Response Code >> {}, Body >> {}", response.code(), response.body().string());
+		return Optional.empty();
 	}
     
    /**
@@ -104,18 +116,23 @@ public class GeoBaiduTemplate {
 	* @param ip
 	* @return
 	*/
-	public JSONObject getLocationByIp(String ip) {
+	public Optional<JSONObject> getLocationByIp(String ip) {
 		if (Objects.isNull(ip)) {
 			throw new NullPointerException("ip can not empty");
 		}
 		try {
-			
 			String url = String.format(geocoder2, this.ak, ip);
-	        JSONObject json = HttpConnectionUtils.httpRequestWithGet(url, responseHandler);
-	        if(json.getInteger("status") != 0) {
-	        	throw new IOException(json.getString("message"));
-	        }
-	        return json;
+			Request request = new Request.Builder().url(url).build();
+			Response response = okhttp3Client.newCall(request).execute();
+			if (response.isSuccessful()) {
+				String bodyString = response.body().string();
+				log.info(" IP : {} >> Location : {} ", ip, bodyString);
+				JSONObject jsonObject = JSONObject.parseObject(bodyString);
+				if (jsonObject.getInteger("status") != 0) {
+					throw new IOException(jsonObject.getString("message"));
+				}
+				return Optional.ofNullable(jsonObject);
+			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -196,15 +213,15 @@ public class GeoBaiduTemplate {
 	
 	public static void main(String[] args) throws IOException {
 		
-		GeoBaiduTemplate template = new GeoBaiduTemplate("");
+		GeoBaiduTemplate template = new GeoBaiduTemplate(new OkHttpClient.Builder().build(),"");
 		
 		Map<String, BigDecimal> mapLL = template.getLatAndLngByAddress("浙江省杭州市西湖区"); // lng：116.86380647644208  lat：38.297615350325717
 		mapLL.get("lat");
 		mapLL.get("lng");
 		System.out.println("lng："+mapLL.get("lng") + "  lat："+mapLL.get("lat"));
 		
-		JSONObject mapLL2 = template.getLocationByIp("115.204.225.154"); // lng：116.86380647644208  lat：38.297615350325717
-		System.out.println(mapLL2.toJSONString());
+		Optional<JSONObject> mapLL2 = template.getLocationByIp("115.204.225.154"); // lng：116.86380647644208  lat：38.297615350325717
+		System.out.println(mapLL2.get().toJSONString());
 	}
 
 	
