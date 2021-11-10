@@ -415,11 +415,13 @@
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
+		<spring-boot-starter-geoip.version>1.0.0-SNAPSHOT</spring-boot-starter-geoip.version>
+		<spring-boot-starter-grpc.version>4.5.9</spring-boot-starter-grpc.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
-		<spring-boot-starter-ip2region.version>1.0.7.RELEASE</spring-boot-starter-ip2region.version>
+		<spring-boot-starter-ip2region.version>1.0.8-SNAPSHOT</spring-boot-starter-ip2region.version>
 		<spring-boot-starter-ishumei.version>1.0.4.RELEASE</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
 		<spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
@@ -447,7 +449,7 @@
 		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
-		<spring-boot-starter-qqwry.version>1.0.3.RELEASE</spring-boot-starter-qqwry.version>
+		<spring-boot-starter-qqwry.version>1.0.4-SNAPSHOT</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.2.0</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
@@ -5261,11 +5263,17 @@
 				<artifactId>flyway-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-flyway-plus.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/geoip-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>geoip-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-geoip.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.github.lognet/grpc-spring-boot-starter -->
 			<dependency>
 			    <groupId>io.github.lognet</groupId>
 			    <artifactId>grpc-spring-boot-starter</artifactId>
-			    <version>3.4.0</version>
+			    <version>${spring-boot-starter-grpc.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.spring4all/spring-boot-starter-hbase -->
 			<dependency>

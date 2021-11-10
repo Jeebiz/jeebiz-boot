@@ -46,6 +46,12 @@
 			<groupId>com.github.hiwepy</groupId>
 			<artifactId>ip2region-spring-boot-starter</artifactId>
 		</dependency>
+        <!-- For Redis -->
+		<dependency>
+			<groupId>net.jeebiz</groupId>
+			<artifactId>jeebiz-boot-extras-redis</artifactId>
+			<version>${jeebiz-boot.version}</version>
+		</dependency> 	
 						
 	</dependencies>
 	

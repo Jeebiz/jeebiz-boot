@@ -99,12 +99,6 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_INFO_KEY);
     }),
 	/**
-	 * 用户坐标对应的地理位置缓存
-	 */
-	USER_GEO_IPV4("用户坐标对应的地理位置缓存", (userId)->{
-		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_INFO_KEY);
-    }),
-	/**
 	 * 用户资产缓存
 	 */
 	USER_ASSETS_AMOUNT("用户资产", (userId)->{
@@ -144,8 +138,25 @@ public enum RedisKey {
 	 */
 	MQ_CONSUME_LOCK("消息队列消息消费锁", (msgKey)->{
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, Objects.toString(msgKey));
+    }),
+	/**
+	 * IP坐标缓存
+	 */
+	IP_LOCATION_INFO("用户坐标对应的地理位置缓存", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_LOCATION_KEY, ip);
+    }),
+	/**
+	 * IP坐标缓存（百度服务缓存）
+	 */
+	IP_LOCATION_BAIDU_INFO("IP坐标缓存（百度服务缓存）", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_BAIDU_LOCATION_KEY, ip);
+    }),
+	/**
+	 * IP坐标缓存（太平洋网络）
+	 */
+	IP_LOCATION_PCONLINE_INFO("IP坐标缓存（太平洋网络）", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_PCONLINE_LOCATION_KEY, ip);
     })
-	
 	;
 
 	private String desc;

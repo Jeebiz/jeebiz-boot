@@ -1,4 +1,4 @@
-package net.jeebiz.boot.extras.external;
+package net.jeebiz.boot.extras.external.geo;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
