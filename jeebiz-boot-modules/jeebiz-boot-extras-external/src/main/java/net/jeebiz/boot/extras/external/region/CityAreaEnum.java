@@ -6,6 +6,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * http://www.mca.gov.cn/article/sj/xzqh/1980/201903/201903011447.html
+ */
 public enum CityAreaEnum {
 	
 	/**

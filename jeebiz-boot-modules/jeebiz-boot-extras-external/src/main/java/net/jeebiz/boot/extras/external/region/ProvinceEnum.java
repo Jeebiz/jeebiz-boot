@@ -3,6 +3,9 @@ package net.jeebiz.boot.extras.external.region;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * http://www.mca.gov.cn/article/sj/xzqh/1980/201903/201903011447.html
+ */
 public enum ProvinceEnum {
 
     P110000("110000", "北京市"),
