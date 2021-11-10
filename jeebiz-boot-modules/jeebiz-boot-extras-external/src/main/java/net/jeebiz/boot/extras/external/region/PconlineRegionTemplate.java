@@ -178,15 +178,19 @@ public class PconlineRegionTemplate {
 			return RegionEnum.UK;
 		}
 	}
-	
+
+	public RegionEnum getRegionByGeo(double longitude, double latitude){
+		return RegionEnum.UK;
+	}
+
 	public boolean isMainlandIp(String ip) {
 		try {
 			Optional<JSONObject> optional = this.getLocationByIp(ip);
 			if(optional.isPresent()) {
-				
+
 				JSONObject regionData = optional.get();
 				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
-				
+
 				String proCode = regionData.getString("proCode");
 				if (!StringUtils.hasText(proCode) || SPECIAL_PROVINCE_SET.contains(proCode)) {
 					return false;
@@ -201,11 +205,11 @@ public class PconlineRegionTemplate {
 
 
 	public static void main(String[] args) throws IOException {
-		
+
 		PconlineRegionTemplate template = new PconlineRegionTemplate(new OkHttpClient.Builder().build());
-		
+
 		Optional<JSONObject> mapLL2 = template.getLocationByIp("183.128.136.82"); // lng：116.86380647644208  lat：38.297615350325717
 		System.out.println(mapLL2.get().toJSONString());
 	}
-	
+
 }
