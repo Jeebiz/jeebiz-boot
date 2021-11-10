@@ -42,12 +42,22 @@ public class PconlineRegionTemplate {
 	private static final String GET_COUNTRY_BY_IP_URL = "https://whois.pconline.com.cn/ipJson.jsp";
 	private static final String NOT_MATCH = "未分配或者内网IP|0|0|0|0";
 	private static final RegionAddress NOT_MATCH_REGION_ADDRESS = new RegionAddress(NOT_MATCH.split("\\|"));
-	// 810000 香港， 820000 澳门 ，710000 台湾， 999999国外
+	/**
+	 * 810000 香港， 820000 澳门 ，710000 台湾， 999999国外
+ 	 */
 	private static final String[] SPECIAL_PROVINCE = new String[] { "810000", "820000", "710000", "999999" };
 	private static final String CHINA = "中国";
 	private static final String[] SPECIAL_REGION = new String[] { "香港", "澳门", "台湾" };
 	private static Map<String, RegionEnum> SPECIAL_REGION_MAP;
 	private static Set<String> SPECIAL_PROVINCE_SET;
+
+	protected static String REGION_KEY = "region";
+	protected static String COUNTRY_KEY = "country";
+	protected static String PROVINCE_KEY = "province";
+	protected static String CITY_KEY = "city";
+	protected static String AREA_KEY = "area";
+	protected static String ADDR_KEY = "addr";
+	protected static String ISP_KEY = "isp";
 
 	static {
 		SPECIAL_REGION_MAP = new HashMap<>();
@@ -104,7 +114,7 @@ public class PconlineRegionTemplate {
 				String bodyString = response.body().string();
 				log.info(" IP : {} >> Location : {} ", ip, bodyString);
 				JSONObject jsonObject = JSONObject.parseObject(bodyString);
-				String addr = jsonObject.getString("addr");
+				String addr = jsonObject.getString(ADDR_KEY);
 				if (StringUtils.hasText(addr)) {
 					if(Objects.nonNull(redisOperation)) {
 						redisOperation.set(redisKey, bodyString, CalendarUtils.getSecondsNextEarlyMorning());
@@ -130,7 +140,7 @@ public class PconlineRegionTemplate {
 
 				String province = regionData.getString("pro");
 				String city = regionData.getString("city");
-				String addr = StringUtils.trimWhitespace(regionData.getString("addr"));
+				String addr = StringUtils.trimWhitespace(regionData.getString(ADDR_KEY));
 				String country = addr;
 
 				if(Stream.of(SPECIAL_REGION).anyMatch(region -> addr.contains(region))) {
@@ -159,7 +169,7 @@ public class PconlineRegionTemplate {
 				JSONObject regionData = optional.get();
 				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
 
-				String addr = StringUtils.trimWhitespace(regionData.getString("addr"));
+				String addr = StringUtils.trimWhitespace(regionData.getString(ADDR_KEY));
 				String country = addr;
 
 				Optional<String> regionOptional = Stream.of(SPECIAL_REGION).filter(region -> addr.contains(region)).findFirst();
@@ -190,8 +200,12 @@ public class PconlineRegionTemplate {
 
 				JSONObject regionData = optional.get();
 				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
-
 				String proCode = regionData.getString("proCode");
+				ProvinceEnum proEnum = ProvinceEnum.getByCode(proCode);
+				
+				
+				
+				
 				if (!StringUtils.hasText(proCode) || SPECIAL_PROVINCE_SET.contains(proCode)) {
 					return false;
 				}
