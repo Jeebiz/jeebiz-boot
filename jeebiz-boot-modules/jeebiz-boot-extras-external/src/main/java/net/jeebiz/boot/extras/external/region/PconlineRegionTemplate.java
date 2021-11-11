@@ -15,7 +15,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.nutz.plugins.ip2region.Util;
 import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
@@ -42,22 +41,12 @@ public class PconlineRegionTemplate {
 	private static final String GET_COUNTRY_BY_IP_URL = "https://whois.pconline.com.cn/ipJson.jsp";
 	private static final String NOT_MATCH = "未分配或者内网IP|0|0|0|0";
 	private static final RegionAddress NOT_MATCH_REGION_ADDRESS = new RegionAddress(NOT_MATCH.split("\\|"));
-	/**
-	 * 810000 香港， 820000 澳门 ，710000 台湾， 999999国外
- 	 */
+	// 810000 香港， 820000 澳门 ，710000 台湾， 999999国外
 	private static final String[] SPECIAL_PROVINCE = new String[] { "810000", "820000", "710000", "999999" };
 	private static final String CHINA = "中国";
 	private static final String[] SPECIAL_REGION = new String[] { "香港", "澳门", "台湾" };
 	private static Map<String, RegionEnum> SPECIAL_REGION_MAP;
 	private static Set<String> SPECIAL_PROVINCE_SET;
-
-	protected static String REGION_KEY = "region";
-	protected static String COUNTRY_KEY = "country";
-	protected static String PROVINCE_KEY = "province";
-	protected static String CITY_KEY = "city";
-	protected static String AREA_KEY = "area";
-	protected static String ADDR_KEY = "addr";
-	protected static String ISP_KEY = "isp";
 
 	static {
 		SPECIAL_REGION_MAP = new HashMap<>();
@@ -69,7 +58,7 @@ public class PconlineRegionTemplate {
 
 	private final OkHttpClient okhttp3Client;
 	private RedisOperationTemplate redisOperation;
-
+	
 	public PconlineRegionTemplate(OkHttpClient okhttp3Client) {
 		this.okhttp3Client = okhttp3Client;
 	}
@@ -94,7 +83,7 @@ public class PconlineRegionTemplate {
 			throw new IllegalArgumentException("Invalid IPv4 address");
 		}
 		// 2、优先从本地缓存获取数据
-		String redisKey = RedisKey.IP_LOCATION_PCONLINE_INFO.getKey(String.valueOf(Util.ip2long(ip)));
+		String redisKey = RedisKey.IP_LOCATION_PCONLINE_INFO.getKey(ip);
 		if(Objects.nonNull(redisOperation)) {
 			String redisValue = redisOperation.getString(redisKey);
 			if(Objects.nonNull(redisValue)) {
@@ -114,7 +103,7 @@ public class PconlineRegionTemplate {
 				String bodyString = response.body().string();
 				log.info(" IP : {} >> Location : {} ", ip, bodyString);
 				JSONObject jsonObject = JSONObject.parseObject(bodyString);
-				String addr = jsonObject.getString(ADDR_KEY);
+				String addr = jsonObject.getString("addr");
 				if (StringUtils.hasText(addr)) {
 					if(Objects.nonNull(redisOperation)) {
 						redisOperation.set(redisKey, bodyString, CalendarUtils.getSecondsNextEarlyMorning());
@@ -140,7 +129,7 @@ public class PconlineRegionTemplate {
 
 				String province = regionData.getString("pro");
 				String city = regionData.getString("city");
-				String addr = StringUtils.trimWhitespace(regionData.getString(ADDR_KEY));
+				String addr = StringUtils.trimWhitespace(regionData.getString("addr"));
 				String country = addr;
 
 				if(Stream.of(SPECIAL_REGION).anyMatch(region -> addr.contains(region))) {
@@ -169,7 +158,7 @@ public class PconlineRegionTemplate {
 				JSONObject regionData = optional.get();
 				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
 
-				String addr = StringUtils.trimWhitespace(regionData.getString(ADDR_KEY));
+				String addr = StringUtils.trimWhitespace(regionData.getString("addr"));
 				String country = addr;
 
 				Optional<String> regionOptional = Stream.of(SPECIAL_REGION).filter(region -> addr.contains(region)).findFirst();
@@ -188,24 +177,16 @@ public class PconlineRegionTemplate {
 			return RegionEnum.UK;
 		}
 	}
-
-	public RegionEnum getRegionByGeo(double longitude, double latitude){
-		return RegionEnum.UK;
-	}
-
+	
 	public boolean isMainlandIp(String ip) {
 		try {
 			Optional<JSONObject> optional = this.getLocationByIp(ip);
 			if(optional.isPresent()) {
-
+				
 				JSONObject regionData = optional.get();
 				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
+				
 				String proCode = regionData.getString("proCode");
-				ProvinceEnum proEnum = ProvinceEnum.getByCode(proCode);
-				
-				
-				
-				
 				if (!StringUtils.hasText(proCode) || SPECIAL_PROVINCE_SET.contains(proCode)) {
 					return false;
 				}
@@ -216,13 +197,13 @@ public class PconlineRegionTemplate {
 		}
 		return true;
 	}
-
+	
 
 	public static void main(String[] args) throws IOException {
-
+		
 		PconlineRegionTemplate template = new PconlineRegionTemplate(new OkHttpClient.Builder().build());
-
-		Optional<JSONObject> mapLL2 = template.getLocationByIp("183.128.136.82"); // lng：116.86380647644208  lat：38.297615350325717
+		
+		Optional<JSONObject> mapLL2 = template.getLocationByIp("13.228.204.118"); // lng：116.86380647644208  lat：38.297615350325717
 		System.out.println(mapLL2.get().toJSONString());
 	}
 
