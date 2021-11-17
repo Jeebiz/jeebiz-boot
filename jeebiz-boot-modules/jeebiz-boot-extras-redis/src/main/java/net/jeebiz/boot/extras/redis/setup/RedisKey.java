@@ -100,25 +100,32 @@ public enum RedisKey {
     }),
 	/**
 	 * 用户资产缓存
-	 */
+	
 	USER_ASSETS_AMOUNT("用户资产", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_ASSETS_AMOUNT_KEY, userId).getMessage();
+		return RedisKeyConstant.getKeyStr(keyStr);
+    }), */
+	/**
+	 * 用户资产换算临时缓存
+	 */
+	USER_EXCHANGE_AMOUNT("用户资产换算临时缓存", (userId)->{
+		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_EXCHANGE_AMOUNT, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
 	 * 用户金币增量缓存
 	 */
-	USER_COIN_AMOUNT("用户珍珠", (userId)->{
+	USER_COIN_AMOUNT("用户金币", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_COIN_AMOUNT_KEY, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
 	 * 用户珍珠增量缓存
-	 */
+	*/
 	USER_PEARL_AMOUNT("用户珍珠", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_PEARL_AMOUNT_KEY, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
-    }),
+    }), 
 	/**
 	 * 用户经验增量缓存
 	 */
