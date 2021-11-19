@@ -840,7 +840,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public List<Integer> lRangeInteger(String key, long  start, long end) {
 		return lRangeFor(key, start, end, TO_INTEGER);
 	}
-
+	
 	/**
 	 * 获取list缓存的内容
 	 *
