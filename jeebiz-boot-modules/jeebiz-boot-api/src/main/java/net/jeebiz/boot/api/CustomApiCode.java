@@ -8,7 +8,7 @@ public class CustomApiCode {
 	
 	public CustomApiCode(int code, String reason) {
 		this.code = code;
-		this.status = Constants.RT_FAIL;
+		this.status = code ==  ApiCodeValue.SC_SUCCESS ? Constants.RT_SUCCESS : Constants.RT_FAIL;
 		this.reason = reason;
 	}
 	

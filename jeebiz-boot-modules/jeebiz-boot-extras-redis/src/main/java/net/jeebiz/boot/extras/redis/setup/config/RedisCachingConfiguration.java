@@ -145,7 +145,7 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 	
 	@Bean
 	public GeoTemplate geoTemplate(RedisTemplate<String, Object> redisTemplate) {
-		return new GeoTemplate(redisTemplate, RedisKey.USER_GEO_LOCATION.getFunction().apply(null));
+		return new GeoTemplate(redisTemplate);
 	}
 
 	/**

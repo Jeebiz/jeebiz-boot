@@ -68,6 +68,14 @@ public abstract class RedisKeyConstant {
 	 */
 	public final static String USER_GEO_LOCATION_KEY = "user:geo:location";
 	/**
+	 * 用户坐标对应的地理位置缓存
+	 */
+	public final static String USER_GEO_INFO_KEY = "user:geo:info";
+	/**
+	 * 用户资产同步锁
+	 */
+	public final static String USER_CAPITAL_DUMP_LOCK = "user:capital:dump:lock";
+	/**
 	 * 用户任务列表
 	 */
 	public final static String USER_TASK_KEY = "user:task:{}";
@@ -75,6 +83,10 @@ public abstract class RedisKeyConstant {
 	 * 用户资产缓存
 	 */
 	public final static String USER_ASSETS_AMOUNT_KEY = "user:assets:{}";
+	/**
+	 * 用户资产换算临时缓存
+	 */
+	public static String USER_EXCHANGE_AMOUNT = "user:exchange:amount:{}";
 	/**
 	 * 用户金币增量缓存
 	 */
@@ -95,6 +107,20 @@ public abstract class RedisKeyConstant {
 	 * 消息队列消息消费锁
 	 */
 	public final static String MQ_CONSUME_LOCK = "mq:consume:lock";
+	
+	/**
+	 * IP坐标缓存
+	 */
+	public final static String IP_LOCATION_KEY = "ip:location";
+	/**
+	 * IP坐标缓存（百度服务缓存）
+	 */
+	public final static String IP_BAIDU_LOCATION_KEY = "baidu:ip:location";
+	/**
+	 * IP坐标缓存（太平洋网络）
+	 */
+	public final static String IP_PCONLINE_LOCATION_KEY = "pconline:ip:location";
+	
 
 	public static String REDIS_PREFIX = "rds";
 	

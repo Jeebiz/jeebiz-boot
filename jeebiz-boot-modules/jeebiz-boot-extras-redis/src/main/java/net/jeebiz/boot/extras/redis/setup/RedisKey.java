@@ -38,7 +38,7 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
-	 * redis 我关注的用户 
+	 * redis 我关注的用户
 	 */
 	USER_FOLLOW("我关注的用户", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_FOLLOW_KEY, userId).getMessage();
@@ -92,22 +92,35 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_LOCATION_KEY);
     }),
 	/**
-	 * 用户资产缓存
+	 * 用户坐标对应的地理位置缓存
 	 */
+	USER_GEO_INFO("用户坐标对应的地理位置缓存", (userId)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.USER_GEO_INFO_KEY);
+    }),
+	/**
+	 * 用户资产缓存
+
 	USER_ASSETS_AMOUNT("用户资产", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_ASSETS_AMOUNT_KEY, userId).getMessage();
+		return RedisKeyConstant.getKeyStr(keyStr);
+    }), */
+	/**
+	 * 用户资产换算临时缓存
+	 */
+	USER_EXCHANGE_AMOUNT("用户资产换算临时缓存", (userId)->{
+		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_EXCHANGE_AMOUNT, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
 	 * 用户金币增量缓存
 	 */
-	USER_COIN_AMOUNT("用户珍珠", (userId)->{
+	USER_COIN_AMOUNT("用户金币", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_COIN_AMOUNT_KEY, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
 	 * 用户珍珠增量缓存
-	 */
+	*/
 	USER_PEARL_AMOUNT("用户珍珠", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_PEARL_AMOUNT_KEY, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
@@ -130,32 +143,49 @@ public enum RedisKey {
 	 * 消息队列消息消费锁
 	 */
 	MQ_CONSUME_LOCK("消息队列消息消费锁", (msgKey)->{
-		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, msgKey);
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, Objects.toString(msgKey));
+    }),
+	/**
+	 * IP坐标缓存
+	 */
+	IP_LOCATION_INFO("用户坐标对应的地理位置缓存", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_LOCATION_KEY, ip);
+    }),
+	/**
+	 * IP坐标缓存（百度服务缓存）
+	 */
+	IP_LOCATION_BAIDU_INFO("IP坐标缓存（百度服务缓存）", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_BAIDU_LOCATION_KEY, ip);
+    }),
+	/**
+	 * IP坐标缓存（太平洋网络）
+	 */
+	IP_LOCATION_PCONLINE_INFO("IP坐标缓存（太平洋网络）", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_PCONLINE_LOCATION_KEY, ip);
     })
-	
+
 	;
 
 	private String desc;
     private Function<String, String> function;
-    
+
     RedisKey(String desc, Function<String, String> function) {
         this.desc = desc;
         this.function = function;
     }
-    
+
     public String getDesc() {
 		return desc;
 	}
-    
+
     /**
      * 1、获取全名称key
-     * @param key
      * @return
      */
     public String getKey() {
         return this.function.apply(null);
     }
-    
+
     /**
      * 1、获取全名称key
      * @param key
@@ -164,9 +194,5 @@ public enum RedisKey {
     public String getKey(String key) {
         return this.function.apply(key);
     }
-    
-    public Function<String, String> getFunction() {
-        return function;
-    }
-	
+
 }

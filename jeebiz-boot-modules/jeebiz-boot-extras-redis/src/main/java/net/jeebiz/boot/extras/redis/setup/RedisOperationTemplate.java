@@ -21,7 +21,9 @@ import java.util.stream.Stream;
 
 import org.apache.commons.collections.MapUtils;
 import org.springframework.core.io.Resource;
+import org.springframework.data.geo.GeoResults;
 import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisGeoCommands.GeoLocation;
 import org.springframework.data.redis.connection.RedisZSetCommands.Aggregate;
 import org.springframework.data.redis.connection.RedisZSetCommands.Limit;
 import org.springframework.data.redis.connection.RedisZSetCommands.Range;
@@ -35,6 +37,7 @@ import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -74,6 +77,29 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
     
     public static final RedisScript<Object> HINCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HINCR_BYFLOAT_SCRIPT, Object.class);
     public static final RedisScript<Object> HDECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HDECR_BYFLOAT_SCRIPT, Object.class);
+
+    public static final Function<Object, String> TO_STRING = member -> Objects.toString(member, null);
+    
+    public static final Function<Object, Double> TO_DOUBLE = member -> {
+		if(Objects.isNull(member)) {
+			return null;
+		}
+		return member instanceof Double ? (Double) member : new BigDecimal(member.toString()).doubleValue();
+	};
+	
+	public static final Function<Object, Long> TO_LONG = member -> {
+		if(Objects.isNull(member)) {
+			return null;
+		}
+		return member instanceof Long ? (Long) member : new BigDecimal(member.toString()).longValue();
+	};
+	
+	public static final Function<Object, Integer> TO_INTEGER = member -> {
+		if(Objects.isNull(member)) {
+			return null;
+		}
+		return member instanceof Integer ? (Integer) member : new BigDecimal(member.toString()).intValue();
+	}; 
     
 	private final RedisTemplate<String, Object> redisTemplate;
 	
@@ -86,6 +112,110 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return redisTemplate;
 	}
 
+	// =============================Serializer============================
+	
+	public byte[] getRawKey(Object key) {
+		return rawKey(key);
+	}
+	
+	public byte[] getRawString(String key) {
+		return rawString(key);
+	}
+
+	public byte[] getRawValue(Object value) {
+		return rawValue(value);
+	}
+	
+	public <V> byte[][] getRawValues(Collection<V> values) {
+		return rawValues(values);
+	}
+	
+	public <HK> byte[] getRawHashKey(HK hashKey) {
+		return rawHashKey(hashKey);
+	}
+	
+	public  <HK> byte[][] getRawHashKeys(HK... hashKeys){
+		return rawHashKeys(hashKeys);
+	}
+
+	public <HV> byte[] getRawHashValue(HV value) {
+		return rawHashValue(value);
+	}
+
+	public byte[][] getRawKeys(String key, String otherKey) {
+		return rawKeys(key, otherKey);
+	}
+	
+	public byte[][] getRawKeys(Collection<String> keys) {
+		return rawKeys(keys);
+	}
+	
+	public byte[][] getRawKeys(String key, Collection<String> keys) {
+		return rawKeys(key, keys);
+	}
+
+	// =============================Deserialize============================
+	
+	public Set<Object> getDeserializeValues(Set<byte[]> rawValues) {
+		return deserializeValues(rawValues);
+	}
+	
+	public Set<TypedTuple<Object>> getDeserializeTupleValues(Collection<Tuple> rawValues){
+		return deserializeTupleValues(rawValues);
+	}
+	
+	public TypedTuple<Object> getDeserializeTuple(Tuple tuple){
+		return deserializeTuple(tuple);
+	}
+	
+	public Set<Tuple> getRawTupleValues(Set<TypedTuple<Object>> values){
+		return rawTupleValues(values);
+	}
+	
+	public List<Object> getDeserializeValues(List<byte[]> rawValues) {
+		return deserializeValues(rawValues);
+	}
+
+	public <T> Set<T> getDeserializeHashKeys(Set<byte[]> rawKeys) {
+		return deserializeHashKeys(rawKeys);
+	}
+
+	public <T> List<T> getDeserializeHashValues(List<byte[]> rawValues) {
+		return deserializeHashValues(rawValues);
+	}
+
+	public <HK, HV> Map<HK, HV> getDeserializeHashMap(@Nullable Map<byte[], byte[]> entries) {
+		return deserializeHashMap(entries);
+	}
+
+	public String getDeserializeKey(byte[] value) {
+		return deserializeKey(value);
+	}
+
+	public Set<String> getDeserializeKeys(Set<byte[]> keys) {
+		return deserializeKeys(keys);
+	}
+
+	public Object getDeserializeValue(byte[] value) {
+		return deserializeValue(value);
+	}
+
+	public String getDeserializeString(byte[] value) {
+		return deserializeString(value);
+	}
+
+	public <HK> HK getDeserializeHashKey(byte[] value) {
+		return deserializeHashKey(value);
+	}
+
+	public <HV> HV getDeserializeHashValue(byte[] value) {
+		return deserializeHashValue(value);
+	}
+
+	public GeoResults<GeoLocation<Object>> getDeserializeGeoResults(GeoResults<GeoLocation<byte[]>> source) {
+		return deserializeGeoResults(source);
+	}
+	
 	// =============================Keys============================
 
 	/**
@@ -332,15 +462,19 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public Double getDouble(String key) {
-		return getFor(key, member -> new BigDecimal(member.toString()).doubleValue());
+		return getFor(key, TO_DOUBLE);
 	}
 	
 	public Long getLong(String key) {
-		return getFor(key, member -> new BigDecimal(member.toString()).longValue());
+		return getFor(key, TO_LONG);
+	}
+
+	public Integer getInteger(String key) {
+		return getFor(key, TO_INTEGER);
 	}
 
 	public String getString(String key) {
-		return getFor(key, member -> Objects.toString(member, null));
+		return getFor(key, TO_STRING);
 	}
 	
 	public <T> T getFor(String key, Class<T> clazz) {
@@ -692,17 +826,21 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	public List<String> lRangeString(String key, long  start, long end) {
-		return lRangeFor(key, start, end, member -> Objects.toString(member, null));
+		return lRangeFor(key, start, end, TO_STRING);
 	}
 	
 	public List<Double> lRangeDouble(String key, long  start, long end) {
-		return lRangeFor(key, start, end, member -> new BigDecimal(member.toString()).doubleValue());
+		return lRangeFor(key, start, end, TO_DOUBLE);
 	}
 	
 	public List<Long> lRangeLong(String key, long  start, long end) {
-		return lRangeFor(key, start, end, member -> new BigDecimal(member.toString()).longValue());
+		return lRangeFor(key, start, end, TO_LONG);
 	}
 
+	public List<Integer> lRangeInteger(String key, long  start, long end) {
+		return lRangeFor(key, start, end, TO_INTEGER);
+	}
+	
 	/**
 	 * 获取list缓存的内容
 	 *
@@ -1380,6 +1518,46 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 	
+	public String hGetString(String key, String hashKey) {
+		return hGetFor(key, hashKey, TO_STRING);
+	}
+	
+	public Double hGetDouble(String key, String hashKey) {
+		return hGetFor(key, hashKey, TO_DOUBLE);
+	}
+	
+	public Double hGetDouble(String key, String hashKey, double defaultVal) {
+		Double rtVal = hGetDouble(key, hashKey);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
+	}
+	
+	public Long hGetLong(String key, String hashKey) {
+		return hGetFor(key, hashKey, TO_LONG);
+	}
+	
+	public Long hGetLong(String key, String hashKey, long defaultVal) {
+		Long rtVal = hGetLong(key, hashKey);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
+	}
+	
+	public Integer hGetInteger(String key, String hashKey) {
+		return hGetFor(key, hashKey, TO_INTEGER);
+	}
+	
+	public Integer hGetInteger(String key, String hashKey, int defaultVal) {
+		Integer rtVal = hGetInteger(key, hashKey);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
+	}
+
+	public <T> T hGetFor(String key, String hashKey, Class<T> clazz) {
+		return hGetFor(key, hashKey, member -> clazz.cast(member));
+	}
+	
+	public <T> T hGetFor(String key, String hashKey, Function<Object, T> mapper) {
+		Object rt = this.hGet(key, hashKey);
+		return Objects.nonNull(rt) ? mapper.apply(rt) : null;
+	}
+	
     public List<Object> hGet(Collection<Object> keys, String hashKey) {
 		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
 			keys.stream().forEach(key -> {
@@ -1911,17 +2089,21 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public Set<String> sGetString(String key) {
-		return sGetFor(key, member -> Objects.toString(member, null));
+		return sGetFor(key, TO_STRING);
 	} 
 	
 	public Set<Double> sGetDouble(String key) {
-		return sGetFor(key, member -> new BigDecimal(member.toString()).doubleValue());
+		return sGetFor(key, TO_DOUBLE);
 	}
 	
 	public Set<Long> sGetLong(String key) {
-		return sGetFor(key, member -> new BigDecimal(member.toString()).longValue());
+		return sGetFor(key, TO_LONG);
 	}
-	
+
+	public Set<Integer> sGetInteger(String key) {
+		return sGetFor(key, TO_INTEGER);
+	}
+		
 	/**
 	 * 根据key获取Set中的所有值
 	 * @param key 键
@@ -2374,15 +2556,19 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 	
 	public Set<String> zRangeString(String key, long  start, long end) {
-		return zRangeFor(key, start, end, member -> Objects.toString(member, null));
+		return zRangeFor(key, start, end, TO_STRING);
 	}
 	
 	public Set<Double> zRangeDouble(String key, long  start, long end) {
-		return zRangeFor(key, start, end, member -> new BigDecimal(member.toString()).doubleValue());
+		return zRangeFor(key, start, end, TO_DOUBLE);
 	}
 	
 	public Set<Long> zRangeLong(String key, long  start, long end) {
-		return zRangeFor(key, start, end, member -> new BigDecimal(member.toString()).longValue());
+		return zRangeFor(key, start, end, TO_LONG);
+	}
+
+	public Set<Integer> zRangeInteger(String key, long  start, long end) {
+		return zRangeFor(key, start, end, TO_INTEGER);
 	}
 
 	public <T> Set<T> zRangeFor(String key, long start, long end, Class<T> clazz) {
@@ -2444,11 +2630,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public Set<String> zRevrangeString(String key, long  start, long end) {
-		return zRevrangeFor(key, start, end, member -> Objects.toString(member, null));
+		return zRevrangeFor(key, start, end, TO_STRING);
 	}
 	
 	public Set<Double> zRevrangeDouble(String key, long  start, long end) {
-		return zRevrangeFor(key, start, end, member -> new BigDecimal(member.toString()).doubleValue());
+		return zRevrangeFor(key, start, end, TO_DOUBLE);
 	}
 	
 	/**
@@ -2458,7 +2644,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return {@link Set< Long>}
 	 */
 	public Set<Long> zRevrangeLong(String key, long  start, long end) {
-		return zRevrangeFor(key, start, end, member -> new BigDecimal(member.toString()).longValue());
+		return zRevrangeFor(key, start, end, TO_LONG);
+	}
+	
+	public Set<Integer> zRevrangeInteger(String key, long  start, long end) {
+		return zRevrangeFor(key, start, end, TO_INTEGER);
 	}
 	
 	/**
@@ -3069,38 +3259,38 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	
    	public <K> List<Map<String, Object>> batchGetUserInfo(Collection<K> uids) {
    		Collection<Object> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
    		return this.hmMultiGetAll(uKeys);
    	}
 	
 	public <K> Map<String, Object> batchGetUserFields(K uid, Collection<Object> hashKeys) {
-    	String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
+    	String userKey = RedisKey.USER_INFO.getKey(Objects.toString(uid));
     	return this.hmMultiGet(userKey, hashKeys);
     }
 	
 	public <K> Map<String, Object> batchGetUserFields(K uid, String... hashKeys) {
-		String userKey = RedisKey.USER_INFO.getFunction().apply(String.valueOf(uid));
+		String userKey = RedisKey.USER_INFO.getKey(Objects.toString(uid));
     	return this.hmMultiGet(userKey, Stream.of(hashKeys).collect(Collectors.toList()));
     }
     
 	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, String... hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, Stream.of(hashKeys).collect(Collectors.toList()));
     }
 	
 	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, hashKeys);
     }
 	
 	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,  Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
-			return RedisKey.USER_INFO.getKey(String.valueOf(uid));
+			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
         return this.hmMultiGet(uKeys, identityField, hashKeys);
     }

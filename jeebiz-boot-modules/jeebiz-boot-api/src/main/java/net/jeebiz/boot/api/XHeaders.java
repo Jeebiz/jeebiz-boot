@@ -6,7 +6,7 @@ public class XHeaders {
 	 * 客户端唯一请求ID
 	 */
 	public static final String X_REQUEST_ID = "X-Request-ID";
-	
+
 	/**
 	 * JWT Token
 	 */
@@ -20,6 +20,10 @@ public class XHeaders {
 	 * 纬度
 	 */
 	public static final String X_LATITUDE = "X-Latitude";
+	/**
+	 * 国家地区编码：http://doc.chacuo.net/iso-3166-1
+	 */
+	public static final String X_REGION = "X-Region";
 	/**
 	 * 最新定位省份
 	 */
@@ -42,27 +46,23 @@ public class XHeaders {
 	 * 客户端时区
 	 */
 	public static final String X_TIMEZONE = "X-TimeZone";
-	
+
 	/**
 	 * 参数签名
 	 */
 	public static final String X_SIGN = "X-Sign";
 	/**
-	 * 客户端ID
+	 * 客户端应用ID
 	 */
-	public static final String X_APP_ID = "X-App-Id";
+	public static final String X_APP_ID = "X-App-ID";
 	/**
-	 * 客户端渠道编码
+	 * 客户端应用渠道
 	 */
 	public static final String X_APP_CHANNEL = "X-App-Channel";
 	/**
-	 * 客户端版本号
+	 * 客户端应用版本号
 	 */
 	public static final String X_APP_VERSION = "X-App-Version";
-	/**
-	 * 客户端Key
-	 */
-	public static final String X_APP_KEY = "X-App-Key";
 	/**
 	 * 客户端设备唯一标识
 	 */
@@ -103,7 +103,7 @@ public class XHeaders {
 	 * 接口请求来源（用于行为统计）
 	 */
 	public static final String X_REFERRER = "X-Referrer";
-	
+
 	/**
 	 * 账户UID
 	 */
@@ -132,7 +132,7 @@ public class XHeaders {
 	 * 角色Code：角色业务表中的唯一编码
 	 */
 	public static final String X_RCODE = "X-Rcode";
-	
-	
+
+
 }
 
