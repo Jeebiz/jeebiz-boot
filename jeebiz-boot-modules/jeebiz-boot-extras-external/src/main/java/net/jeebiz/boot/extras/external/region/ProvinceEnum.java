@@ -1,5 +1,8 @@
 package net.jeebiz.boot.extras.external.region;
 
+import java.util.List;
+import java.util.function.Function;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,6 +55,8 @@ public enum ProvinceEnum {
 
     // 单位名称
     private String cname;
+    
+    private Function<String, List<CityAreaEnum>> function;
 
 	private static Logger log = LoggerFactory.getLogger(ProvinceEnum.class);
 
