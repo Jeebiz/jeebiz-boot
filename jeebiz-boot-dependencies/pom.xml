@@ -241,6 +241,7 @@
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
 		<perf4j.version>0.9.16</perf4j.version>
 		<prometheus.version>0.10.0</prometheus.version>
+		<protobuf.version>4.0.0-rc-2</protobuf.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>
 		<pf4j.version>3.6.0</pf4j.version>
@@ -482,7 +483,7 @@
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-tencentapi.version>1.0.9-SNAPSHOT</spring-boot-starter-tencentapi.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>	
+		<spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
 		<spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
@@ -3587,6 +3588,13 @@
 				<version>${png-encoder.version}</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java</artifactId>
+				<version>${protobuf.version}</version>
+			</dependency>
+
 			<!-- Proxool是一种Java数据库连接池技术。sourceforge下的一个开源项目,这个项目提供一个健壮、易用的连接池，最为关键的是这个连接池提供监控的功能，方便易用，便于发现连接泄漏的情况。 -->
 			<dependency>
 				<groupId>com.cloudhopper.proxool</groupId>
@@ -3757,7 +3765,7 @@
 			    <artifactId>redisson-mybatis</artifactId>
 			    <version>${redisson.version}</version>
 			</dependency>
-			
+
 			<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
 			<!-- https://www.cnblogs.com/zhangshihai1232/articles/6030796.html -->
 			<dependency>
@@ -3765,7 +3773,7 @@
 			    <artifactId>reflections</artifactId>
 			    <version>${reflections.version}</version>
 			</dependency>
-			
+
 			<!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-client -->
 			<dependency>
 			    <groupId>org.apache.rocketmq</groupId>
@@ -3792,21 +3800,21 @@
 				<artifactId>quartz-jobs</artifactId>
 				<version>${quartz.version}</version>
 			</dependency>
-			
+
 			<!-- Perf4J 是一个新的开放源码的性能记录，监测和分析库，主要用于企业Java应用程序。 -->
 			<dependency>
 			    <groupId>org.perf4j</groupId>
 			    <artifactId>perf4j</artifactId>
 			    <version>${perf4j.version}</version>
 			</dependency>
-			
+
 			<!-- https://mvnrepository.com/artifact/io.prometheus/sampleclient -->
 			<dependency>
 				<groupId>io.prometheus</groupId>
 				<artifactId>sampleclient</artifactId>
 				<version>${prometheus.version}</version>
 			</dependency>
-			
+
 			<!-- https://mvnrepository.com/artifact/us.fatehi/schemacrawler -->
 			<!-- SchemaCrawler提供一组用于增强标准JDBC Metadata的API.SchemaCrawler还包含一个命令行工具能够将数据库结构和数据以一种易读的形式输出. -->
 			<dependency>
