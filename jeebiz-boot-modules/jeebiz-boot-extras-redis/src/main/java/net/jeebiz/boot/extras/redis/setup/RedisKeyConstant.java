@@ -72,6 +72,10 @@ public abstract class RedisKeyConstant {
 	 */
 	public final static String USER_GEO_INFO_KEY = "user:geo:info";
 	/**
+	 * 用户资产同步锁
+	 */
+	public final static String USER_CAPITAL_DUMP_LOCK = "user:capital:dump:lock";
+	/**
 	 * 用户任务列表
 	 */
 	public final static String USER_TASK_KEY = "user:task:{}";
@@ -79,6 +83,10 @@ public abstract class RedisKeyConstant {
 	 * 用户资产缓存
 	 */
 	public final static String USER_ASSETS_AMOUNT_KEY = "user:assets:{}";
+	/**
+	 * 用户资产换算临时缓存
+	 */
+	public static String USER_EXCHANGE_AMOUNT = "user:exchange:amount:{}";
 	/**
 	 * 用户金币增量缓存
 	 */
