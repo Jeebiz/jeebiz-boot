@@ -248,7 +248,7 @@
 		<pf4j-update.version>2.3.0</pf4j-update.version>
 		<pf4j-spring.version>0.7.0</pf4j-spring.version>
 		<png-encoder.version>1.5</png-encoder.version>
-		<reactor-bom.version>Dysprosium-SR24</reactor-bom.version>
+		<reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
 		<redisson.version>3.16.4</redisson.version>
 		<resilience4j.version>1.7.1</resilience4j.version>
