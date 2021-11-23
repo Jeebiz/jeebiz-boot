@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.autoconfigure;
 
@@ -10,6 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
@@ -33,15 +35,15 @@ import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
-	
-	private final String META_INF_RESOURCES = "classpath:/META-INF/resources/"; 
-	private final String META_INF_WEBJAR_RESOURCES = META_INF_RESOURCES + "webjars/"; 
-    
+
+	private final String META_INF_RESOURCES = "classpath:/META-INF/resources/";
+	private final String META_INF_WEBJAR_RESOURCES = META_INF_RESOURCES + "webjars/";
+
 	private ThemeChangeInterceptor themeChangeInterceptor;
 	private LocaleChangeInterceptor localeChangeInterceptor;
 	private Slf4jMDCInterceptor slf4jMDCInterceptor;
     private LocalResourceProperteis localResourceProperteis;
-    
+
     public DefaultWebMvcConfigurer(LocalResourceProperteis localResourceProperteis,
 			ThemeChangeInterceptor themeChangeInterceptor, LocaleChangeInterceptor localeChangeInterceptor,
 			Slf4jMDCInterceptor slf4jMDCInterceptor) {
@@ -51,30 +53,33 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 		this.localeChangeInterceptor = localeChangeInterceptor;
 		this.slf4jMDCInterceptor = slf4jMDCInterceptor;
 	}
-	
+
     @Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
-	
+
     @Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 
     	ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
-        
+
         /** 为objectMapper注册一个带有SerializerModifier的Factory */
-        objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-                .withSerializerModifier(new MyBeanSerializerModifier()))
-        		.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        		.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
-        
+		objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
+				.withSerializerModifier(new MyBeanSerializerModifier()))
+				.enable(MapperFeature.USE_GETTERS_AS_SETTERS)
+				.enable(MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
+				.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+				.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+				.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
+
         //SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
         //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
-        
+
 		converters.add(new MappingJackson2HttpMessageConverter(objectMapper));
         converters.add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
 	}
-    
+
     @Override
 	public void addInterceptors(InterceptorRegistry registry) {
     	registry.addInterceptor(slf4jMDCInterceptor).addPathPatterns("/**").order(Integer.MIN_VALUE);
@@ -106,7 +111,7 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 			registry.addResourceHandler("/webjars/**").addResourceLocations(META_INF_WEBJAR_RESOURCES)
 				.resourceChain(false).addResolver(new WebJarsResourceResolver());
 		}
-		
+
 	}
-	
+
 }

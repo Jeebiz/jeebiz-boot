@@ -482,8 +482,6 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.8.RELEASE</spring-boot-starter-tencentapi.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
 		<spring-boot-starter-tencentapi.version>1.0.9-SNAPSHOT</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
 		<spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
@@ -3625,6 +3623,12 @@
 			    <type>pom</type>
 	            <scope>import</scope>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams -->
+			<dependency>
+				<groupId>org.reactivestreams</groupId>
+				<artifactId>reactive-streams</artifactId>
+				<version>1.0.3</version>
+			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-bom -->
 			<!--
@@ -3782,7 +3786,14 @@
 			    <artifactId>rocketmq-client</artifactId>
 			    <version>${rocketmq-client.version}</version>
 			</dependency>
-
+			<!-- https://mvnrepository.com/artifact/io.rsocket/rsocket-bom -->
+			<dependency>
+				<groupId>io.rsocket</groupId>
+				<artifactId>rsocket-bom</artifactId>
+				<version>${rsocket.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava -->
 			<dependency>
 			    <groupId>io.reactivex.rxjava2</groupId>

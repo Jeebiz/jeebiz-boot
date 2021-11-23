@@ -1,12 +1,14 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.autoconfigure;
 
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.biz.context.NestedMessageSource;
@@ -55,7 +57,7 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 	public ReactiveRequestContextFilter requestContextFilter() {
 		return new ReactiveRequestContextFilter();
 	}
-	
+
 	@Override
 	protected LocaleContextResolver createLocaleContextResolver() {
 
@@ -73,7 +75,7 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 		factoryBean.setValidationMessageSource(messageSource);
 		return factoryBean;
 	}
-   	
+
 	@Bean
 	public DefaultExceptinHandler defaultExceptinHandler() {
 		return new DefaultExceptinHandler();
@@ -91,31 +93,34 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 		exceptionHandler.setMessageReaders(serverCodecConfigurer.getReaders());
 		return exceptionHandler;
 	}
-	
+
 	@Bean
 	public DefaultWebFluxConfigurer defaultWebFluxConfigurer(LocalResourceProperteis localResourceProperteis) {
 		return new DefaultWebFluxConfigurer(localResourceProperteis);
 	}
-	
+
 	@Bean
 	public Slf4jMDCInterceptor slf4jMDCInterceptor(Sequence sequence) {
 		return new Slf4jMDCInterceptor(sequence);
 	}
-	
+
 	@Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-		
+
 		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
-        
+
         /** 为objectMapper注册一个带有SerializerModifier的Factory */
-        objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-                .withSerializerModifier(new MyBeanSerializerModifier()))
-        		.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        		.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
-        
-        //SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
+		objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
+				.withSerializerModifier(new MyBeanSerializerModifier()))
+				.enable(MapperFeature.USE_GETTERS_AS_SETTERS)
+				.enable(MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
+				.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+				.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+				.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
+
+		//SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
         //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
-        
+
         return new MappingJackson2HttpMessageConverter(objectMapper);
     }
 
