@@ -134,8 +134,14 @@ public class PconlineRegionTemplate {
 
 				if(Stream.of(SPECIAL_REGION).anyMatch(region -> addr.contains(region))) {
 					country = CHINA;
+				} else {
+					Optional<ProvinceEnum> proEnum = Stream.of(ProvinceEnum.values()).filter(pro -> addr.contains(pro.getCname())).findFirst();
+					if(proEnum.isPresent()) {
+						country = CHINA;
+						province = proEnum.get().getCname();
+					}
 				}
-
+				
 				log.info(" IP : {} >> Country/Region : {} ", ip, country);
 
 				return new RegionAddress(country, province, city, "", "");
@@ -166,7 +172,13 @@ public class PconlineRegionTemplate {
 					log.info(" IP : {} >> Country/Region : {} ", ip, country);
 					return SPECIAL_REGION_MAP.get(regionOptional.get());
 				}
-
+				
+				Optional<ProvinceEnum> proEnum = Stream.of(ProvinceEnum.values()).filter(pro -> addr.contains(pro.getCname())).findFirst();
+				if(proEnum.isPresent()) {
+					log.info(" IP : {} >> Country/Region : {} ", ip, proEnum.get().getCname());
+					return RegionEnum.CN;
+				}
+				
 				log.info(" IP : {} >> Country/Region : {} ", ip, country);
 
 				return RegionEnum.getByCnName(country);

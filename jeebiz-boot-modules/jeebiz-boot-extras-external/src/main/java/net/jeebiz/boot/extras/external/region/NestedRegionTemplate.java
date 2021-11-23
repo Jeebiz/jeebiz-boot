@@ -5,6 +5,8 @@
 package net.jeebiz.boot.extras.external.region;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.collections.MapUtils;
@@ -46,20 +48,25 @@ public class NestedRegionTemplate {
 	@Autowired
 	private RedisOperationTemplate redisOperation;
 
-    public RegionEnum getRegion(String countryCode, String ipAddress) {
-		RegionEnum regionEnum = RegionEnum.getByCode2(countryCode);
-		log.debug("Get Region : {} By countryCode : {}, is Valid : {} ", regionEnum.name(), countryCode, regionEnum.isValidRegion());
-		if(!regionEnum.isValidRegion()) {
-			regionEnum = RegionEnum.getByCode3(countryCode);
-			log.debug("Get Region : {} By countryCode : {}, is Valid : {} ", regionEnum.name(), countryCode, regionEnum.isValidRegion());
-		}
+    public RegionEnum getRegion(String regionCode, String ipAddress) {
+		RegionEnum regionEnum = this.getRegionByCode(regionCode);
 		if(!regionEnum.isValidRegion()) {
 			regionEnum = this.getRegionByIp(ipAddress);
 		}
-		log.info("Get Final Region : {} By countryCode : {}, ipAddress : {}, is Valid : {} ", regionEnum.name(), countryCode, ipAddress, regionEnum.isValidRegion());
+		log.info("Get Final Region : {} By regionCode : {}, ipAddress : {}, is Valid : {} ", regionEnum.name(), regionCode, ipAddress, regionEnum.isValidRegion());
 		return regionEnum;
 	}
-
+    
+    public RegionEnum getRegionByCode(String regionCode) {
+		RegionEnum regionEnum = RegionEnum.getByCode2(regionCode);
+		log.debug("Get Region : {} By regionCode : {}, is Valid : {} ", regionEnum.name(), regionCode, regionEnum.isValidRegion());
+		if(!regionEnum.isValidRegion()) {
+			regionEnum = RegionEnum.getByCode3(regionCode);
+			log.debug("Get Region : {} By regionCode : {}, is Valid : {} ", regionEnum.name(), regionCode, regionEnum.isValidRegion());
+		}
+		return regionEnum;
+	}
+    
 	public RegionEnum getRegionByIp(String ipAddress) {
 		// 1、尝试从缓存中获取ip对应的信息
 		String redisKey = RedisKey.IP_LOCATION_INFO.getKey(ipAddress);
@@ -87,25 +94,12 @@ public class NestedRegionTemplate {
 		}
 		if(regionEnum.isValidRegion()) {
 			// 4、更新缓存中的数据
-			redisOperation.hSet(redisKey, REGION_KEY, regionEnum.getCode2());
+			redisOperation.hSet(redisKey, REGION_KEY, regionEnum.getCode2(), Duration.ofHours(6));
 			return regionEnum;
 		}
 		return RegionEnum.UK;
 	}
-
-    public RegionAddress getRegionAddress(String countryCode, String ipAddress) throws IOException {
-    	RegionEnum regionEnum = RegionEnum.getByCode2(countryCode);
-		log.debug("Get Region : {} By countryCode : {}, is Valid : {} ", regionEnum.name(), countryCode, regionEnum.isValidRegion());
-		if(!regionEnum.isValidRegion()) {
-			regionEnum = RegionEnum.getByCode3(countryCode);
-			log.debug("Get Region : {} By countryCode : {}, is Valid : {} ", regionEnum.name(), countryCode, regionEnum.isValidRegion());
-		}
-		if(!regionEnum.isValidRegion()) {
-			return this.getRegionAddress(ipAddress);
-		}
-		return new RegionAddress(regionEnum.getCname(), "", "", "", "");
-	}
-
+	
     public RegionAddress getRegionAddress(String ipAddress) {
     	// 1、尝试从缓存中获取ip对应的信息
 		String redisKey = RedisKey.IP_LOCATION_INFO.getKey(ipAddress);
@@ -135,16 +129,16 @@ public class NestedRegionTemplate {
     	map.put(CITY_KEY, regionAddress.getCity());
     	map.put(AREA_KEY, regionAddress.getArea());
     	map.put(ISP_KEY, regionAddress.getISP());
-    	redisOperation.hmSet(redisKey, map, Duration.ofDays(1));
+    	redisOperation.hmSet(redisKey, map, Duration.ofHours(6));
 		return regionAddress;
 	}
 
-	public boolean isMainlandIp(String countryCode, String ipAddress) {
-		RegionEnum regionEnum = RegionEnum.getByCode2(countryCode);
-		log.debug("Get Region : {} By countryCode : {}, is Valid : {} ", regionEnum.name(), countryCode, regionEnum.isValidRegion());
+	public boolean isMainlandIp(String regionCode, String ipAddress) {
+		RegionEnum regionEnum = RegionEnum.getByCode2(regionCode);
+		log.debug("Get Region : {} By regionCode : {}, is Valid : {} ", regionEnum.name(), regionCode, regionEnum.isValidRegion());
 		if(!regionEnum.isValidRegion()) {
-			regionEnum = RegionEnum.getByCode3(countryCode);
-			log.debug("Get Region : {} By countryCode : {}, is Valid : {} ", regionEnum.name(), countryCode, regionEnum.isValidRegion());
+			regionEnum = RegionEnum.getByCode3(regionCode);
+			log.debug("Get Region : {} By regionCode : {}, is Valid : {} ", regionEnum.name(), regionCode, regionEnum.isValidRegion());
 		}
 		if(regionEnum.isValidRegion()) {
 			return this.isMainlandIp(ipAddress);
