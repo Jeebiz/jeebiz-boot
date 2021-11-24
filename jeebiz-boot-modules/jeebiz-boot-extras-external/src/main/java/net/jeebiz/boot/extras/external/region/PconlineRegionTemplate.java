@@ -142,6 +142,11 @@ public class PconlineRegionTemplate {
 					}
 				}
 				
+				Optional<RegionEnum> regionEnum = Stream.of(RegionEnum.values()).filter(region -> addr.contains(region.getCname())).findFirst();
+				if(regionEnum.isPresent()) {
+					country = regionEnum.get().getCname();
+				}
+				
 				log.info(" IP : {} >> Country/Region : {} ", ip, country);
 
 				return new RegionAddress(country, province, city, "", "");
@@ -179,9 +184,13 @@ public class PconlineRegionTemplate {
 					return RegionEnum.CN;
 				}
 				
-				log.info(" IP : {} >> Country/Region : {} ", ip, country);
-
-				return RegionEnum.getByCnName(country);
+				Optional<RegionEnum> regionEnum = Stream.of(RegionEnum.values()).filter(region -> addr.contains(region.getCname())).findFirst();
+				if(regionEnum.isPresent()) {
+					log.info(" IP : {} >> Country/Region : {} ", ip, regionEnum.get().getCname());
+					return regionEnum.get();
+				}
+				
+				return RegionEnum.UK;
 			}
 			return RegionEnum.UK;
 		} catch (Exception e) {
