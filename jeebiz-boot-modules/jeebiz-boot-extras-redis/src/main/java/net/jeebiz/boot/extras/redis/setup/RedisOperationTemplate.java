@@ -283,7 +283,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().hasKey(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -296,7 +296,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().keys(pattern);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Sets.newHashSet();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -309,7 +309,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().keys("*" + pattern + "*");
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Sets.newHashSet();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -321,7 +321,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().keys(prefixPattern + "*");
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Sets.newHashSet();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -398,7 +398,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			});
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -417,7 +417,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundValueOps(key).setIfAbsent(value, Duration.ofMillis(timeout));
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -436,7 +436,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundValueOps(key).setIfAbsent(value, timeout);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -456,7 +456,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundValueOps(key).setIfAbsent(value, timeout, unit);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -469,7 +469,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			});
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -484,7 +484,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundValueOps(key).get();
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -538,7 +538,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().opsForValue().multiGet(keys);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Lists.newArrayList();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -581,7 +581,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return CollectionUtils.isEmpty(keys) ? Lists.newArrayList() : getOperations().opsForValue().multiGet(keys);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Lists.newArrayList();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -596,7 +596,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return result;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Lists.newArrayList();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -608,7 +608,15 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public Long incr(String key, long delta) {
-		return getOperations().opsForValue().increment(key, delta);
+		if (delta < 0) {
+			throw new RedisOperationException("递增因子必须>=0");
+		}
+		try {
+			return getOperations().opsForValue().increment(key, delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -623,22 +631,32 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		if (delta < 0) {
 			throw new RedisOperationException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForValue().increment(key, delta);
-		if (seconds > 0) {
-			expire(key, seconds);
+		try {
+			Long increment = getOperations().opsForValue().increment(key, delta);
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	public Long incr(String key, long delta, Duration timeout) {
 		if (delta < 0) {
 			throw new RedisOperationException("递增因子必须>=0");
 		}
-		Long increment = getOperations().opsForValue().increment(key, delta);
-		if (!timeout.isNegative()) {
-			expire(key, timeout);
+		try {
+			Long increment = getOperations().opsForValue().increment(key, delta);
+			if (!timeout.isNegative()) {
+				expire(key, timeout);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	/**
@@ -652,7 +670,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		if (delta < 0) {
 			throw new RedisOperationException("递增因子必须>=0");
 		}
-		return getOperations().opsForValue().increment(key, delta);
+		try {
+			return getOperations().opsForValue().increment(key, delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -667,22 +690,32 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		if (delta < 0) {
 			throw new RedisOperationException("递增因子必须>=0");
 		}
-		Double increment = getOperations().opsForValue().increment(key, delta);
-		if (seconds > 0) {
-			expire(key, seconds);
+		try {
+			Double increment = getOperations().opsForValue().increment(key, delta);
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	public Double incr(String key, double delta, Duration timeout) {
 		if (delta < 0) {
 			throw new RedisOperationException("递增因子必须>=0");
 		}
-		Double increment = getOperations().opsForValue().increment(key, delta);
-		if (!timeout.isNegative()) {
-			expire(key, timeout);
+		try {
+			Double increment = getOperations().opsForValue().increment(key, delta);
+			if (!timeout.isNegative()) {
+				expire(key, timeout);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	/**
@@ -696,7 +729,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		if (delta < 0) {
 			throw new RedisOperationException("递减因子必须>=0");
 		}
-		return getOperations().opsForValue().increment(key, -delta);
+		try {
+			return getOperations().opsForValue().increment(key, -delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -711,22 +749,32 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		if (delta < 0) {
 			throw new RedisOperationException("递减因子必须>=0");
 		}
-		Long increment = getOperations().opsForValue().increment(key, -delta);
-		if (seconds > 0) {
-			expire(key, seconds);
+		try {
+			Long increment = getOperations().opsForValue().increment(key, -delta);
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	public Long decr(String key, long delta, Duration timeout) {
 		if (delta < 0) {
 			throw new RedisOperationException("递减因子必须>=0");
 		}
-		Long increment = getOperations().opsForValue().increment(key, -delta);
-		if (!timeout.isNegative()) {
-			expire(key, timeout);
+		try {
+			Long increment = getOperations().opsForValue().increment(key, -delta);
+			if (!timeout.isNegative()) {
+				expire(key, timeout);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	/**
@@ -740,7 +788,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		if (delta < 0) {
 			throw new RedisOperationException("递减因子必须>=0");
 		}
-		return getOperations().opsForValue().increment(key, -delta);
+		try {
+			return getOperations().opsForValue().increment(key, -delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -755,22 +808,32 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		if (delta < 0) {
 			throw new RedisOperationException("递减因子必须>=0");
 		}
-		Double increment = getOperations().opsForValue().increment(key, -delta);
-		if (seconds > 0) {
-			expire(key, seconds);
+		try {
+			Double increment = getOperations().opsForValue().increment(key, -delta);
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	public Double decr(String key, double delta, Duration timeout) {
 		if (delta < 0) {
 			throw new RedisOperationException("递减因子必须>=0");
 		}
-		Double increment = getOperations().opsForValue().increment(key, -delta);
-		if (!timeout.isNegative()) {
-			expire(key, timeout);
+		try {
+			Double increment = getOperations().opsForValue().increment(key, -delta);
+			if (!timeout.isNegative()) {
+				expire(key, timeout);
+			}
+			return increment;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return increment;
 	}
 
 	/**
@@ -819,7 +882,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return keys;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -892,7 +955,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundListOps(key).range(start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -1490,7 +1553,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().opsForList().size(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return 0;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -1616,7 +1679,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return Objects.nonNull(rtVal) ? (V) rtVal : defaultVal;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return defaultVal;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -1699,7 +1762,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return result;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Lists.newArrayList();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -1715,7 +1778,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return result;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Lists.newArrayList();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -1747,56 +1810,39 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return opsForHash.entries(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Maps.newHashMap();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
 	public List<Map<String, Object>> hmGet(Collection<String> keys) {
 		if (CollectionUtils.isEmpty(keys)) {
-			return Collections.emptyList();
+			return Lists.newArrayList();
 		}
 		return keys.parallelStream().map(key -> {
-			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
-			return opsForHash.entries(key);
+			return this.hmGet(key);
 		}).collect(Collectors.toList());
 	}
 
 	public List<Map<String, Object>> hmGet(Collection<String> keys, String redisPrefix) {
 		if (CollectionUtils.isEmpty(keys)) {
-			return Collections.emptyList();
+			return Lists.newArrayList();
 		}
 		return keys.parallelStream().map(key -> {
-			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
-			return opsForHash.entries(RedisKeyConstant.getKeyStr(redisPrefix, key));
+			return this.hmGet(RedisKeyConstant.getKeyStr(redisPrefix, key));
 		}).collect(Collectors.toList());
 	}
 
 	public List<Object> hMultiGet(String key, Collection<Object> hashKeys) {
-		if (CollectionUtils.isEmpty(hashKeys)) {
-			return Lists.newArrayList();
+		try {
+			return getOperations().opsForHash().multiGet(key, hashKeys);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		return getOperations().opsForHash().multiGet(key, hashKeys);
 	}
 
 	public Map<String, Object> hmMultiGet(String key, Collection<Object> hashKeys) {
-		if (CollectionUtils.isEmpty(hashKeys)) {
-			return Maps.newHashMap();
-		}
-		List<Object> result = getOperations().opsForHash().multiGet(key, hashKeys);
-		Map<String, Object> ans = new HashMap<>(hashKeys.size());
-		int index = 0;
-		for (Object hashKey : hashKeys) {
-			ans.put(hashKey.toString(), result.get(index));
-			index++;
-		}
-		return ans;
-	}
-
-	public List<Map<String, Object>> hmMultiGet(Collection<String> keys, Collection<Object> hashKeys) {
-		if (CollectionUtils.isEmpty(keys) || CollectionUtils.isEmpty(hashKeys)) {
-			return Collections.emptyList();
-		}
-		return keys.parallelStream().map(key -> {
+		try {
 			List<Object> result = getOperations().opsForHash().multiGet(key, hashKeys);
 			Map<String, Object> ans = new HashMap<>(hashKeys.size());
 			int index = 0;
@@ -1805,6 +1851,18 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 				index++;
 			}
 			return ans;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	public List<Map<String, Object>> hmMultiGet(Collection<String> keys, Collection<Object> hashKeys) {
+		if (CollectionUtils.isEmpty(keys) || CollectionUtils.isEmpty(hashKeys)) {
+			return Lists.newArrayList();
+		}
+		return keys.parallelStream().map(key -> {
+			return this.hmMultiGet(key, hashKeys);
 		}).collect(Collectors.toList());
 	}
 
@@ -1814,40 +1872,40 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return Maps.newHashMap();
 		}
 		return keys.parallelStream().map(key -> {
-			List<Object> result = getOperations().opsForHash().multiGet(key, hashKeys);
-			Map<String, Object> ans = new HashMap<>(hashKeys.size());
-			int index = 0;
-			for (Object hashKey : hashKeys) {
-				ans.put(hashKey.toString(), result.get(index));
-				index++;
-			}
-			return ans;
+			return this.hmMultiGet(key, hashKeys);
 		}).collect(Collectors.toMap(kv -> MapUtils.getString(kv, identityHashKey), Function.identity()));
 	}
 
 	public List<Map<String, Object>> hmMultiGetAll(Collection<Object> keys) {
-		if (CollectionUtils.isEmpty(keys)) {
-			return Collections.emptyList();
+		try {
+			List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+				keys.stream().forEach(key -> {
+					byte[] rawKey = rawKey(String.valueOf(key));
+					connection.hGetAll(rawKey);
+				});
+				return null;
+			}, this.valueSerializer());
+			return result.stream().map(mapper -> (Map<String, Object>) mapper).collect(Collectors.toList());
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
 		}
-		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
-			keys.stream().forEach(key -> {
-				byte[] rawKey = rawKey(String.valueOf(key));
-				connection.hGetAll(rawKey);
-			});
-			return null;
-		}, this.valueSerializer());
-		return result.stream().map(mapper -> (Map<String, Object>) mapper).collect(Collectors.toList());
 	}
 
 	public List<Map<String, Object>> hmMultiGetAll(Collection<Object> keys, String redisPrefix) {
-		List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
-			keys.stream().forEach(key -> {
-				byte[] rawKey = rawKey(RedisKeyConstant.getKeyStr(redisPrefix, String.valueOf(key)));
-				connection.hGetAll(rawKey);
-			});
-			return null;
-		}, this.valueSerializer());
-		return result.stream().map(mapper -> (Map<String, Object>) mapper).collect(Collectors.toList());
+		try {
+			List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+				keys.stream().forEach(key -> {
+					byte[] rawKey = rawKey(RedisKeyConstant.getKeyStr(redisPrefix, String.valueOf(key)));
+					connection.hGetAll(rawKey);
+				});
+				return null;
+			}, this.valueSerializer());
+			return result.stream().map(mapper -> (Map<String, Object>) mapper).collect(Collectors.toList());
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public boolean hmMultiSet(String key, Collection<Object> hashKeys, Object value) {
@@ -1866,7 +1924,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return true;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2020,7 +2078,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().opsForHash().size(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return 0L;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2203,7 +2261,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().opsForHash().keys(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2281,7 +2339,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundSetOps(key).members();
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2339,7 +2397,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().opsForSet().difference(key, otherKey);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Sets.newHashSet();
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2405,7 +2463,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundSetOps(key).isMember(value);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return false;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2675,7 +2733,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).score(value) != null;
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return Boolean.FALSE;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2857,7 +2915,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).range(start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2902,7 +2960,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).rangeByScore(min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2940,7 +2998,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).rangeWithScores(start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2952,7 +3010,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).rangeByScoreWithScores(min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2961,7 +3019,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).rangeByLex(range);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2970,7 +3028,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).rangeByLex(range, limit);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -2985,7 +3043,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).reverseRange(start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -3044,7 +3102,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).reverseRangeWithScores(start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -3061,7 +3119,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).reverseRangeByScoreWithScores(min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -3070,7 +3128,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return getOperations().boundZSetOps(key).reverseRank(value);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			return null;
+			throw new RedisOperationException(e.getMessage());
 		}
 	}
 
@@ -3266,8 +3324,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
     		}, true);
         } catch (Exception e) {
 			log.error("acquire redis occurred an exception", e);
+			throw new RedisOperationException(e.getMessage());
 		}
-       	return false;
 	}
 
 	public boolean tryLock(String lockKey, Duration timeout) {
@@ -3637,9 +3695,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return Redis服务器时间戳
 	 */
 	public Long timeNow() {
-		return getOperations().execute((RedisCallback<Long>) redisConnection -> {
-			return redisConnection.time();
-		});
+		try {
+			return getOperations().execute((RedisCallback<Long>) redisConnection -> {
+				return redisConnection.time();
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -3647,56 +3710,96 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return Redis服务器时间戳
 	 */
 	public Long period(long expiration) {
-		return getOperations().execute((RedisCallback<Long>) redisConnection -> {
-			return expiration - redisConnection.time();
-		});
+		try {
+			return getOperations().execute((RedisCallback<Long>) redisConnection -> {
+				return expiration - redisConnection.time();
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public Long dbSize() {
-		return getOperations().execute((RedisCallback<Long>) redisConnection -> {
-			return redisConnection.dbSize();
-		});
+		try {
+			return getOperations().execute((RedisCallback<Long>) redisConnection -> {
+				return redisConnection.dbSize();
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public Long lastSave() {
-		return getOperations().execute((RedisCallback<Long>) redisConnection -> {
-			return redisConnection.lastSave();
-		});
+		try {
+			return getOperations().execute((RedisCallback<Long>) redisConnection -> {
+				return redisConnection.lastSave();
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public void bgReWriteAof() {
-		getOperations().execute((RedisCallback<Void>) redisConnection -> {
-			redisConnection.bgReWriteAof();
-			return null;
-		});
+		try {
+			getOperations().execute((RedisCallback<Void>) redisConnection -> {
+				redisConnection.bgReWriteAof();
+				return null;
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public void bgSave() {
-		getOperations().execute((RedisCallback<Void>) redisConnection -> {
-			redisConnection.bgSave();
-			return null;
-		});
+		try {
+			getOperations().execute((RedisCallback<Void>) redisConnection -> {
+				redisConnection.bgSave();
+				return null;
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public void save() {
-		getOperations().execute((RedisCallback<Void>) redisConnection -> {
-			redisConnection.save();
-			return null;
-		});
+		try {
+			getOperations().execute((RedisCallback<Void>) redisConnection -> {
+				redisConnection.save();
+				return null;
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public void flushDb() {
-		getOperations().execute((RedisCallback<Void>) redisConnection -> {
-			redisConnection.flushDb();
-			return null;
-		});
+		try {
+			getOperations().execute((RedisCallback<Void>) redisConnection -> {
+				redisConnection.flushDb();
+				return null;
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public void flushAll() {
-		getOperations().execute((RedisCallback<Void>) redisConnection -> {
-			redisConnection.flushAll();
-			return null;
-		});
+		try {
+			getOperations().execute((RedisCallback<Void>) redisConnection -> {
+				redisConnection.flushAll();
+				return null;
+			});
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	// ===============================batchGet=================================
@@ -3705,34 +3808,35 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
    		Collection<Object> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
-   		return this.hmMultiGetAll(uKeys);
-   	}
+		return this.hmMultiGetAll(uKeys);
+	}
 
 	public <K> Map<String, Object> batchGetUserFields(K uid, Collection<Object> hashKeys) {
-    	String userKey = RedisKey.USER_INFO.getKey(Objects.toString(uid));
-    	return this.hmMultiGet(userKey, hashKeys);
-    }
+		String userKey = RedisKey.USER_INFO.getKey(Objects.toString(uid));
+		return this.hmMultiGet(userKey, hashKeys);
+	}
 
 	public <K> Map<String, Object> batchGetUserFields(K uid, String... hashKeys) {
 		String userKey = RedisKey.USER_INFO.getKey(Objects.toString(uid));
-    	return this.hmMultiGet(userKey, Stream.of(hashKeys).collect(Collectors.toList()));
-    }
+		return this.hmMultiGet(userKey, Stream.of(hashKeys).collect(Collectors.toList()));
+	}
 
 	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, String... hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
-        return this.hmMultiGet(uKeys, Stream.of(hashKeys).collect(Collectors.toList()));
-    }
+		return this.hmMultiGet(uKeys, Stream.of(hashKeys).collect(Collectors.toList()));
+	}
 
 	public <K> List<Map<String, Object>> batchGetUserFields(Collection<K> uids, Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
-        return this.hmMultiGet(uKeys, hashKeys);
-    }
+		return this.hmMultiGet(uKeys, hashKeys);
+	}
 
-	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,  Collection<Object> hashKeys) {
+	public <K> Map<String, Map<String, Object>> batchGetUserFields(Collection<K> uids, String identityField,
+			Collection<Object> hashKeys) {
 		List<String> uKeys = uids.stream().map(uid -> {
 			return RedisKey.USER_INFO.getKey(Objects.toString(uid));
 		}).collect(Collectors.toList());
