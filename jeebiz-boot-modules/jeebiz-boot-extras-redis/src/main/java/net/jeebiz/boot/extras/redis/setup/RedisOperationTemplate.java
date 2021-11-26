@@ -220,7 +220,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 指定缓存失效时间
-	 * 
+	 *
 	 * @param key     键
 	 * @param seconds 时间(秒)
 	 * @return
@@ -239,7 +239,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 指定缓存失效时间
-	 * 
+	 *
 	 * @param key     键
 	 * @param timeout 时间
 	 * @return
@@ -264,7 +264,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 根据key 获取过期时间
-	 * 
+	 *
 	 * @param key 键 不能为null
 	 * @return 时间(秒) 返回0代表为永久有效
 	 */
@@ -404,7 +404,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 1、仅可用于低并发功能，高并发严禁使用此方法
-	 * 
+	 *
 	 * @param key     并发锁
 	 * @param value   锁key（务必能区别不同线程的请求）
 	 * @param timeout 锁过期时间（单位：毫秒）
@@ -423,7 +423,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 1、仅可用于低并发功能，高并发严禁使用此方法
-	 * 
+	 *
 	 * @param key     并发锁
 	 * @param value   锁key（务必能区别不同线程的请求）
 	 * @param timeout 锁过期时间
@@ -442,7 +442,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 2、仅可用于低并发功能，高并发严禁使用此方法
-	 * 
+	 *
 	 * @param key     并发锁
 	 * @param value   锁key（务必能区别不同线程的请求）
 	 * @param timeout 锁过期时间
@@ -510,7 +510,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 根据key获取值，并按Function函数进行转换
-	 * 
+	 *
 	 * @param key    键
 	 * @param mapper 对象转换函数
 	 * @return xx
@@ -525,7 +525,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 根据key表达式获取缓存
-	 * 
+	 *
 	 * @param pattern 键表达式
 	 * @return 值
 	 */
@@ -572,7 +572,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 批量获取缓存值
-	 * 
+	 *
 	 * @param keys 键集合
 	 * @return 值
 	 */
@@ -602,7 +602,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 递增
-	 * 
+	 *
 	 * @param key   键
 	 * @param delta 要增加几(>=0)
 	 * @return
@@ -838,7 +838,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 删除缓存
-	 * 
+	 *
 	 * @param keys 可以传一个值 或多个
 	 */
 	public void del(String... keys) {
@@ -926,7 +926,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * List删除: ltrim
-	 * 
+	 *
 	 * @param key
 	 * @param start
 	 * @param end
@@ -1217,7 +1217,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 从list左侧取count个元素并移除已经去除的元素
-	 * 
+	 *
 	 * @param key
 	 * @param count
 	 * @return
@@ -1646,7 +1646,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * Hash删除: hscan + hdel
-	 * 
+	 *
 	 * @param bigHashKey
 	 */
 	public void hDel(String bigHashKey) {
@@ -1663,7 +1663,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 获取hashKey对应的指定键值
-	 * 
+	 *
 	 * @param key     键
 	 * @param hashKey hash键
 	 * @return 对应的键值
@@ -2029,7 +2029,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param key     键
 	 * @param hashKey 项
 	 * @param value   值
-	 * @param time    时间(秒) 注意:如果已存在的hash表有时间,这里将会替换原有的时间
+	 * @param seconds    时间(秒) 注意:如果已存在的hash表有时间,这里将会替换原有的时间
 	 * @return true 成功 false失败
 	 */
 	public boolean hSet(String key, String hashKey, Object value, long seconds) {
@@ -2361,7 +2361,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 根据key获取Set中的所有值
-	 * 
+	 *
 	 * @param key   键
 	 * @param clazz 值的类型
 	 * @return 类型处理后的Set
@@ -2372,7 +2372,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 根据key获取Set中的所有值，并按Function函数进行转换
-	 * 
+	 *
 	 * @param key    键
 	 * @param mapper 对象转换函数
 	 * @return 类型处理后的Set
@@ -2652,7 +2652,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 合并所有指定keys的数据
-	 * 
+	 *
 	 * @param keys 键集合
 	 * @return 返回成功数据
 	 */
@@ -2685,7 +2685,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	/**
 	 * 合并所有指定keys的数据，存储到destKey中
-	 * 
+	 *
 	 * @param keys    键集合
 	 * @param destKey 键
 	 * @return 返回成功数据
