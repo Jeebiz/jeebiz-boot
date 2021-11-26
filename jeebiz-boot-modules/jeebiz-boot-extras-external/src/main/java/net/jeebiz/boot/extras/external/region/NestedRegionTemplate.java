@@ -4,12 +4,6 @@
  */
 package net.jeebiz.boot.extras.external.region;
 
-import java.io.IOException;
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -19,11 +13,7 @@ import com.github.hiwepy.ip2region.spring.boot.ext.RegionAddress;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionEnum;
 
 import lombok.extern.slf4j.Slf4j;
-import net.jeebiz.boot.extras.redis.setup.RedisKey;
-import net.jeebiz.boot.extras.redis.setup.RedisOperationTemplate;
 
-import java.time.Duration;
-import java.util.HashMap;
 
 /**
  * 嵌套的地区解析模板
@@ -45,8 +35,6 @@ public class NestedRegionTemplate {
     private IP2regionTemplate ip2RegionTemplate;
     @Autowired
     private PconlineRegionTemplate pconlineRegionTemplate;
-	@Autowired
-	private RedisOperationTemplate redisOperation;
 
     public RegionEnum getRegion(String regionCode, String ipAddress) {
 		RegionEnum regionEnum = this.getRegionByCode(regionCode);
@@ -68,51 +56,29 @@ public class NestedRegionTemplate {
 	}
     
 	public RegionEnum getRegionByIp(String ipAddress) {
-		// 1、尝试从缓存中获取ip对应的信息
-		String redisKey = RedisKey.IP_LOCATION_INFO.getKey(ipAddress);
-		Map<String, Object> locationMap = redisOperation.hmGet(redisKey);
-		String region = MapUtils.getString(locationMap, REGION_KEY);
-		if(StringUtils.hasText(region)) {
-			// 1.1、如果解析到了region的属性，说明IP已经解析过地区信息，则直接返回
-			RegionEnum regionEnum = RegionEnum.valueOf(region);
-			if(regionEnum.isValidRegion()) {
-				log.info("Get Region : {} By ipAddress: {} From Cache ", regionEnum.name(), ipAddress);
-				return regionEnum;
-			}
-		}
+		// 1、去除参数两头空白
+		ipAddress = StringUtils.trimWhitespace(ipAddress);
 		// 2、尝试使用ip2region的ip库进行IP解析
 		RegionEnum regionEnum = getIp2RegionTemplate().getRegionByIp(ipAddress);
-		log.debug("Get Region : {} By ipAddress: {} From Ip2Region, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
+		log.info("Get Region : {} By ipAddress: {} From Ip2Region, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
 		if(!regionEnum.isValidRegion()) {
 			try {
 				// 3、尝试使用太平洋网络的ip库进行IP解析
 				regionEnum = getPconlineRegionTemplate().getRegionByIp(ipAddress);
-				log.debug("Get Region {} By ipAddress: {} From Pconline, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
+				log.info("Get Region {} By ipAddress: {} From Pconline, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
 			} catch (Exception e) {
 				log.error("太平洋网络IP地址查询失败！{}", e.getMessage());
 			}
 		}
 		if(regionEnum.isValidRegion()) {
-			// 4、更新缓存中的数据
-			redisOperation.hSet(redisKey, REGION_KEY, regionEnum.getCode2(), Duration.ofHours(6));
 			return regionEnum;
 		}
 		return RegionEnum.UK;
 	}
 	
     public RegionAddress getRegionAddress(String ipAddress) {
-    	// 1、尝试从缓存中获取ip对应的信息
-		String redisKey = RedisKey.IP_LOCATION_INFO.getKey(ipAddress);
-		Map<String, Object> locationMap = redisOperation.hmGet(redisKey);
-		String country = MapUtils.getString(locationMap, COUNTRY_KEY);
-		if(StringUtils.hasText(country)) {
-			String province = MapUtils.getString(locationMap, PROVINCE_KEY);
-			String city = MapUtils.getString(locationMap, CITY_KEY, "");
-			String area = MapUtils.getString(locationMap, AREA_KEY, "");
-			String isp = MapUtils.getString(locationMap, ISP_KEY, "");
-			// 1.1、如果解析到了country的属性，说明IP已经解析过地区信息，则直接返回
-			return new RegionAddress(country, province, city, area, isp);
-		}
+    	// 1、去除参数两头空白
+		ipAddress = StringUtils.trimWhitespace(ipAddress);
 		// 2、尝试使用ip2region的ip库进行IP解析
     	RegionAddress regionAddress = getIp2RegionTemplate().getRegionAddress(ipAddress);
     	if(NOT_MATCH.contains(regionAddress.getCountry())) {
@@ -123,41 +89,20 @@ public class NestedRegionTemplate {
 				log.error("太平洋网络IP地址查询失败！{}", e.getMessage());
 			}
 		}
-    	Map<String, Object> map = new HashMap<>();
-    	map.put(COUNTRY_KEY, regionAddress.getCountry());
-    	map.put(PROVINCE_KEY, regionAddress.getProvince());
-    	map.put(CITY_KEY, regionAddress.getCity());
-    	map.put(AREA_KEY, regionAddress.getArea());
-    	map.put(ISP_KEY, regionAddress.getISP());
-    	redisOperation.hmSet(redisKey, map, Duration.ofHours(6));
 		return regionAddress;
 	}
 
 	public boolean isMainlandIp(String regionCode, String ipAddress) {
-		RegionEnum regionEnum = RegionEnum.getByCode2(regionCode);
-		log.debug("Get Region : {} By regionCode : {}, is Valid : {} ", regionEnum.name(), regionCode, regionEnum.isValidRegion());
+		RegionEnum regionEnum = this.getRegionByCode(regionCode);
 		if(!regionEnum.isValidRegion()) {
-			regionEnum = RegionEnum.getByCode3(regionCode);
-			log.debug("Get Region : {} By regionCode : {}, is Valid : {} ", regionEnum.name(), regionCode, regionEnum.isValidRegion());
-		}
-		if(regionEnum.isValidRegion()) {
 			return this.isMainlandIp(ipAddress);
 		}
 		return regionEnum.isChinaMainland();
 	}
 
 	public boolean isMainlandIp(String ipAddress) {
-		// 1、尝试从缓存中获取ip对应的信息
-		String redisKey = RedisKey.IP_LOCATION_INFO.getKey(ipAddress);
-		Map<String, Object> locationMap = redisOperation.hmGet(redisKey);
-		String region = MapUtils.getString(locationMap, REGION_KEY);
-		if(StringUtils.hasText(region)) {
-			// 1.1、如果解析到了region的属性，说明IP已经解析过地区信息，则直接返回
-			RegionEnum regionEnum = RegionEnum.valueOf(region);
-			if(regionEnum.isValidRegion()) {
-				return regionEnum.isChinaMainland();
-			}
-		}
+		// 1、去除参数两头空白
+		ipAddress = StringUtils.trimWhitespace(ipAddress);
 		// 2、尝试使用ip2region的ip库进行IP解析
 		RegionEnum regionEnum = getIp2RegionTemplate().getRegionByIp(ipAddress);
 		if(!regionEnum.isValidRegion()) {
@@ -168,8 +113,6 @@ public class NestedRegionTemplate {
 				log.error("太平洋网络IP地址查询失败！{}", e.getMessage());
 			}
 		}
-		// 4、更新缓存中的数据
-		redisOperation.hSet(redisKey, REGION_KEY, regionEnum.getCode2());
 		return regionEnum.isChinaMainland();
 	}
 
