@@ -334,7 +334,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public boolean set(String key, Object value) {
 		try {
-			getOperations().boundValueOps(key).set(value);
+			getOperations().opsForValue().set(key, value);
 			return true;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -353,7 +353,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public boolean set(String key, Object value, long seconds) {
 		try {
 			if (seconds > 0) {
-				getOperations().boundValueOps(key).set(value, seconds, TimeUnit.SECONDS);
+				getOperations().opsForValue().set(key, value, seconds, TimeUnit.SECONDS);
 				return true;
 			} else {
 				return set(key, value);
@@ -377,7 +377,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return false;
 		}
 		try {
-			getOperations().boundValueOps(key).set(value, timeout);
+			getOperations().opsForValue().set(key, value, timeout);
 			;
 			return true;
 		} catch (Exception e) {
@@ -412,7 +412,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Assert.hasLength(key, "key must not be empty");
 		Assert.hasLength(value, "value must not be empty");
 		try {
-			return getOperations().boundValueOps(key).setIfAbsent(value, Duration.ofMillis(timeout));
+			return getOperations().opsForValue().setIfAbsent(key, value, Duration.ofMillis(timeout));
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -431,7 +431,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Assert.hasLength(key, "key must not be empty");
 		Assert.hasLength(value, "value must not be empty");
 		try {
-			return getOperations().boundValueOps(key).setIfAbsent(value, timeout);
+			return getOperations().opsForValue().setIfAbsent(key, value, timeout);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -451,7 +451,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		Assert.hasLength(key, "key must not be empty");
 		Assert.hasLength(value, "value must not be empty");
 		try {
-			return getOperations().boundValueOps(key).setIfAbsent(value, timeout, unit);
+			return getOperations().opsForValue().setIfAbsent(key, value, timeout, unit);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -460,8 +460,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public boolean setEx(String key, String value, long seconds) {
 		try {
-			// getOperations().opsForValue().set(key, value, Duration.ofMillis(seconds));
-			// return true;
 			return getOperations().execute((RedisCallback<Boolean>) redisConnection -> {
 				return redisConnection.setEx(rawKey(key), seconds, rawValue(value));
 			});
@@ -479,7 +477,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Object get(String key) {
 		try {
-			return getOperations().boundValueOps(key).get();
+			return getOperations().opsForValue().get(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -950,7 +948,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public List<Object> lRange(String key, long start, long end) {
 		try {
-			return getOperations().boundListOps(key).range(start, end);
+			return getOperations().opsForList().range(key, start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2334,7 +2332,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Set<Object> sGet(String key) {
 		try {
-			return getOperations().boundSetOps(key).members();
+			return getOperations().opsForSet().members(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2458,7 +2456,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public boolean sHasKey(String key, Object value) {
 		try {
-			return getOperations().boundSetOps(key).isMember(value);
+			return getOperations().opsForSet().isMember(key, value);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2528,7 +2526,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public List<Object> sRandomSet(String key, long count) {
 		try {
-			return getOperations().boundSetOps(key).randomMembers(count);
+			return getOperations().opsForSet().randomMembers(key, count);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2544,7 +2542,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Set<Object> sRandomSetDistinct(String key, long count) {
 		try {
-			return getOperations().boundSetOps(key).distinctRandomMembers(count);
+			return getOperations().opsForSet().distinctRandomMembers(key, count);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2560,7 +2558,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long sRemove(String key, Object... values) {
 		try {
-			Long count = getOperations().boundSetOps(key).remove(values);
+			Long count = getOperations().opsForSet().remove(key, values);
 			return count;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -2604,7 +2602,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long sSetAndTime(String key, long seconds, Object... values) {
 		try {
-			Long count = getOperations().boundSetOps(key).add(values);
+			Long count = getOperations().opsForSet().add(key, values);
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -2701,7 +2699,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Boolean zAdd(String key, Object value, double score) {
 		try {
-			return getOperations().boundZSetOps(key).add(value, score);
+			return getOperations().opsForZSet().add(key, value, score);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2710,7 +2708,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Long zAdd(String key, Set<TypedTuple<Object>> tuples) {
 		try {
-			return getOperations().boundZSetOps(key).add(tuples);
+			return getOperations().opsForZSet().add(key, tuples);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2719,7 +2717,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Long zCard(String key) {
 		try {
-			return getOperations().boundZSetOps(key).zCard();
+			return getOperations().opsForZSet().zCard(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2728,7 +2726,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Boolean zHas(String key, Object value) {
 		try {
-			return getOperations().boundZSetOps(key).score(value) != null;
+			return getOperations().opsForZSet().score(key, value) != null;
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2744,7 +2742,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long zCount(String key, double min, double max) {
 		try {
-			return getOperations().boundZSetOps(key).count(min, max);
+			return getOperations().opsForZSet().count(key, min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2771,7 +2769,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Double zIncr(String key, Object value, double delta) {
 		try {
-			return getOperations().boundZSetOps(key).incrementScore(value, delta);
+			return getOperations().opsForZSet().incrementScore(key, value, delta);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2780,7 +2778,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Double zIncr(String key, Object value, double delta, long seconds) {
 		try {
-			Double result = getOperations().boundZSetOps(key).incrementScore(value, delta);
+			Double result = getOperations().opsForZSet().incrementScore(key, value, delta);
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -2793,7 +2791,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Double zIncr(String key, Object value, double delta, Duration timeout) {
 		try {
-			Double result = getOperations().boundZSetOps(key).incrementScore(value, delta);
+			Double result = getOperations().opsForZSet().incrementScore(key, value, delta);
 			if (!timeout.isNegative()) {
 				expire(key, timeout);
 			}
@@ -2885,7 +2883,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long zRem(String key, Object... values) {
 		try {
-			return getOperations().boundZSetOps(key).remove(values);
+			return getOperations().opsForZSet().remove(key, values);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2901,7 +2899,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long zRemByScore(String key, double min, double max) {
 		try {
-			return getOperations().boundZSetOps(key).removeRangeByScore(min, max);
+			return getOperations().opsForZSet().removeRangeByScore(key, min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2910,7 +2908,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Set<Object> zRange(String key, long start, long end) {
 		try {
-			return getOperations().boundZSetOps(key).range(start, end);
+			return getOperations().opsForZSet().range(key, start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2955,7 +2953,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Set<Object> zRangeByScore(String key, double min, double max) {
 		try {
-			return getOperations().boundZSetOps(key).rangeByScore(min, max);
+			return getOperations().opsForZSet().rangeByScore(key, min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2993,7 +2991,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Set<TypedTuple<Object>> zRangeWithScores(String key, long start, long end) {
 		try {
-			return getOperations().boundZSetOps(key).rangeWithScores(start, end);
+			return getOperations().opsForZSet().rangeWithScores(key, start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3005,7 +3003,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Set<TypedTuple<Object>> zRangeByScoreWithScores(String key, double min, double max) {
 		try {
-			return getOperations().boundZSetOps(key).rangeByScoreWithScores(min, max);
+			return getOperations().opsForZSet().rangeByScoreWithScores(key, min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3014,7 +3012,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Set<Object> zRangeByLex(String key, Range range) {
 		try {
-			return getOperations().boundZSetOps(key).rangeByLex(range);
+			return getOperations().opsForZSet().rangeByLex(key, range);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3023,7 +3021,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Set<Object> zRangeByLex(String key, Range range, Limit limit) {
 		try {
-			return getOperations().boundZSetOps(key).rangeByLex(range, limit);
+			return getOperations().opsForZSet().rangeByLex(key, range, limit);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3038,7 +3036,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Set<Object> zRevrange(String key, long start, long end) {
 		try {
-			return getOperations().boundZSetOps(key).reverseRange(start, end);
+			return getOperations().opsForZSet().reverseRange(key, start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3097,7 +3095,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Set<TypedTuple<Object>> zRevrangeWithScores(String key, long start, long end) {
 		try {
-			return getOperations().boundZSetOps(key).reverseRangeWithScores(start, end);
+			return getOperations().opsForZSet().reverseRangeWithScores(key, start, end);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3114,7 +3112,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Set<TypedTuple<Object>> zRevrangeByScoreWithScores(String key, double min, double max) {
 		try {
-			return getOperations().boundZSetOps(key).reverseRangeByScoreWithScores(min, max);
+			return getOperations().opsForZSet().reverseRangeByScoreWithScores(key, min, max);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3123,7 +3121,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Long zRevRank(String key, Object value) {
 		try {
-			return getOperations().boundZSetOps(key).reverseRank(value);
+			return getOperations().opsForZSet().reverseRank(key, value);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3156,7 +3154,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Double zScore(String key, Object value) {
 		try {
-			return getOperations().boundZSetOps(key).score(value);
+			return getOperations().opsForZSet().score(key, value);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
