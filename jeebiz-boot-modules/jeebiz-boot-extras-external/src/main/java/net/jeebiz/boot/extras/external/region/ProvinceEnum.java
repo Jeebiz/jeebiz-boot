@@ -47,16 +47,14 @@ public enum ProvinceEnum {
     P820000("820000", "澳门特别行政区"),
 
 	UK("999999", "未知行政区"),
-	
+
 	;
-	
+
     // 行政区划代码
     private String code;
 
     // 单位名称
     private String cname;
-    
-    private Function<String, List<CityAreaEnum>> function;
 
 	private static Logger log = LoggerFactory.getLogger(ProvinceEnum.class);
 
@@ -68,7 +66,7 @@ public enum ProvinceEnum {
     public String getCode() {
 		return code;
 	}
-    
+
 	public String getCname() {
 		return cname;
 	}
@@ -82,7 +80,7 @@ public enum ProvinceEnum {
 		log.error("Cannot found ProvinceEnum with code '" + code + "'.");
 		return ProvinceEnum.UK;
 	}
-	
+
 	public static ProvinceEnum getByCnName(String cn_name) {
 		for (ProvinceEnum region : ProvinceEnum.values()) {
 			if (region.getCname().equalsIgnoreCase(cn_name)) {
@@ -92,5 +90,5 @@ public enum ProvinceEnum {
 		log.error("Cannot found ProvinceEnum with cn_name '" + cn_name + "'.");
 		return ProvinceEnum.UK;
 	}
-	
+
 }
