@@ -15,10 +15,10 @@
 	<properties>
 		<!-- Dependency versions -->
 		<activation.version>1.1.1</activation.version>
-		<alipay-sdk.version>4.13.50.ALL</alipay-sdk.version>
-		<alipay-easysdk.version>2.2.0</alipay-easysdk.version>
-		<aliyun-sdk-oss.version>3.12.0</aliyun-sdk-oss.version>
-		<aliyun-sdk-mts.version>2.7.6</aliyun-sdk-mts.version>
+		<alipay-sdk.version>4.20.13.ALL</alipay-sdk.version>
+		<alipay-easysdk.version>2.2.1</alipay-easysdk.version>
+		<aliyun-sdk-oss.version>3.13.2</aliyun-sdk-oss.version>
+		<aliyun-sdk-mts.version>3.3.39</aliyun-sdk-mts.version>
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
@@ -29,11 +29,11 @@
 		<axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
 		<axis2.version>1.7.9</axis2.version>
 		<axis2-api.version>1.4.1</axis2-api.version>
-		<beetl.version>3.3.2.RELEASE</beetl.version>
+		<beetl.version>3.9.0.RELEASE</beetl.version>
 		<batik.version>1.14</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
-		<buji-pac4j.version>5.0.1</buji-pac4j.version>
-		<bcprov.version>1.68</bcprov.version>
+		<buji-pac4j.version>6.1.0</buji-pac4j.version>
+		<bcprov.version>1.70</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
@@ -56,10 +56,10 @@
 		<commons-configuration.version>1.10</commons-configuration.version>
 		<commons-configuration2.version>2.7</commons-configuration2.version>
 		<commons-crypto.version>1.1.0</commons-crypto.version>
-		<commons-csv.version>1.8</commons-csv.version>
+		<commons-csv.version>1.9.0</commons-csv.version>
 		<commons-daemon.version>1.2.3</commons-daemon.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
-		<commons-dbcp2.version>2.8.0</commons-dbcp2.version>
+		<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
 		<commons-dbutils.version>1.7</commons-dbutils.version>
 		<commons-digester.version>2.1</commons-digester.version>
 		<commons-digester3.version>3.2</commons-digester3.version>
@@ -69,10 +69,10 @@
 		<commons-fileupload.version>1.4</commons-fileupload.version>
 		<commons-httpclient.version>3.1</commons-httpclient.version>
 		<commons-imaging.version>1.0-alpha2</commons-imaging.version>
-		<commons-io.version>2.10.0</commons-io.version>
+		<commons-io.version>2.11.0</commons-io.version>
 		<commons-jci.version>1.1</commons-jci.version>
 		<commons-jexl.version>2.1.1</commons-jexl.version>
-		<commons-jexl3.version>3.1</commons-jexl3.version>
+		<commons-jexl3.version>3.2.1</commons-jexl3.version>
 		<commons-jxpath.version>1.3</commons-jxpath.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
@@ -88,13 +88,13 @@
 		<commons-text.version>1.9</commons-text.version>
 		<commons-validator.version>1.6</commons-validator.version>
 		<commons-vfs.version>2.0-21092010</commons-vfs.version>
-		<commons-vfs2.version>2.7.0</commons-vfs2.version>
+		<commons-vfs2.version>2.9.0</commons-vfs2.version>
 		<contiperf.version>2.3.4</contiperf.version>
 		<cos.version>2020.4</cos.version>
-		<curator.version>5.1.0</curator.version>
-		<cronet.version>76.3809.111</cronet.version>
+		<curator.version>5.2.0</curator.version>
+		<cronet.version>95.4638.50</cronet.version>
 		<cssparser.version>0.9.29</cssparser.version>
-		<cxf.version>3.4.3</cxf.version>
+		<cxf.version>3.4.5</cxf.version>
 		<cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.2.0</derby.version>
@@ -110,14 +110,14 @@
 		<dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
 		<druid.version>1.2.8</druid.version>
 		<dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
-		<disruptor.version>3.4.2</disruptor.version>
+		<disruptor.version>3.4.4</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
-		<dubbo.version>2.7.13</dubbo.version>
+		<dubbo.version>3.0.4</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
 		<fastjson.version>1.2.78</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-		<feign.version>11.6</feign.version>
+		<feign.version>11.7</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -130,7 +130,7 @@
 		<google-auth-library.version>0.26.0</google-auth-library.version>
 		<google-http-client.version>1.39.2</google-http-client.version>
 		<google-cloud-translate.version>1.98.5</google-cloud-translate.version>
-		<guava.version>30.1.1-jre</guava.version>
+		<guava.version>31.0.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.35.0</grpc.version>
 		<hadoop.version>3.2.1</hadoop.version>
@@ -148,20 +148,13 @@
 		<imageio.version>3.7.0</imageio.version>
 		<influxdb-java.version>2.21</influxdb-java.version>
 		<istio-client.version>1.6.14</istio-client.version>
-		<j2cache-core.version>2.8.2-release</j2cache-core.version>
-		<j2cache-hibernate3.version>2.8.0-release</j2cache-hibernate3.version>
-		<j2cache-hibernate4.version>2.8.0-release</j2cache-hibernate4.version>
-		<j2cache-hibernate5.version>2.8.0-release</j2cache-hibernate5.version>
-		<j2cache-mybatis.version>2.8.0-release</j2cache-mybatis.version>
-		<j2cache-session-manager.version>1.0.0-beta4</j2cache-session-manager.version>
-		<j2cache-springcache.version>2.8.0-release</j2cache-springcache.version>
 		<janino.version>3.1.3</janino.version>
 		<!-- <jackson-annotations.version>2.10.1</jackson-annotations.version> -->
-		<javassist.version>3.27.0-GA</javassist.version>
+		<javassist.version>3.28.0-GA</javassist.version>
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>4.0.1</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
-		<javamelody.version>1.87.0</javamelody.version>
+		<javamelody.version>1.88.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
@@ -174,29 +167,29 @@
 		<jpush-client.version>3.4.7</jpush-client.version>
 		<jruby.version>9.2.13.0</jruby.version>
 		<jsch.version>0.1.55</jsch.version>
-		<jsqlparser.version>4.1</jsqlparser.version>
-		<jsoup.version>1.14.2</jsoup.version>
+		<jsqlparser.version>4.2</jsqlparser.version>
+		<jsoup.version>1.14.3</jsoup.version>
 		<json.version>20210307</json.version>
 		<junrar.version>7.4.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.8.RELEASE</jwt-issuer.version>
-		<kafka-clients.version>2.6.0</kafka-clients.version>
+		<kafka-clients.version>3.0.0</kafka-clients.version>
 		<knife4j.version>3.0.3</knife4j.version>
-		<kisso.version>3.7.6</kisso.version>
+		<kisso.version>3.8.1</kisso.version>
 		<kubernetes-client.version>4.10.1</kubernetes-client.version>
-		<kylin-jdbc.version>3.1.1</kylin-jdbc.version>
-		<libphonenumber.version>8.12.35</libphonenumber.version>
-		<libphonenumber-carrier.version>1.161</libphonenumber-carrier.version>
-		<libphonenumber-prefixmapper.version>2.171</libphonenumber-prefixmapper.version>
-		<libphonenumber-geocoder.version>2.171</libphonenumber-geocoder.version>
-		<liquibase.version>4.5.0</liquibase.version>
+		<kylin-jdbc.version>4.0.0</kylin-jdbc.version>
+		<libphonenumber.version>8.12.39</libphonenumber.version>
+		<libphonenumber-carrier.version>1.165</libphonenumber-carrier.version>
+		<libphonenumber-prefixmapper.version>2.175</libphonenumber-prefixmapper.version>
+		<libphonenumber-geocoder.version>2.175</libphonenumber-geocoder.version>
+		<liquibase.version>4.6.2</liquibase.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<mariadb.version>2.7.4</mariadb.version>
 		<maven.version>3.6.3</maven.version>
 		<metadata-extractor.version>2.16.0</metadata-extractor.version>
-		<mockito.version>4.0.0</mockito.version>
+		<mockito.version>4.1.0</mockito.version>
 		<mongo-java-driver.version>3.12.10</mongo-java-driver.version>
-		<mssql-jdbc.version>9.4.0.jre8</mssql-jdbc.version>
+		<mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
 		<mybatis.version>3.5.7</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
@@ -217,7 +210,7 @@
 		<mybatis-freemarker.version>1.2.2</mybatis-freemarker.version>
 		<mybatis-velocity.version>2.1.0</mybatis-velocity.version>
 		<mybatis-generator.version>1.4.0</mybatis-generator.version>
-		<mysql.version>8.0.26</mysql.version>
+		<mysql.version>8.0.27</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<nacos-client.version>2.0.3</nacos-client.version>
 		<neethi.version>3.1.1</neethi.version>
@@ -250,10 +243,11 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<reactor-bom.version>2020.0.7</reactor-bom.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<redisson.version>3.16.4</redisson.version>
+		<redisson.version>3.16.6</redisson.version>
 		<resilience4j.version>1.7.1</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.9.2</rocketmq-client.version>
+		<rsocket.version>1.1.1</rsocket.version>
 		<rxjava2.version>2.2.21</rxjava2.version>
 		<rxjava3.version>3.1.2</rxjava3.version>
 		<slf4j.version>1.7.30</slf4j.version>
@@ -2118,7 +2112,7 @@
 			<dependency>
 			    <groupId>com.google.oauth-client</groupId>
 			    <artifactId>google-oauth-client</artifactId>
-			    <version>1.31.0</version>
+			    <version>1.23.0</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
 			<dependency>
@@ -2662,50 +2656,6 @@
 			    <groupId>me.snowdrop</groupId>
 			    <artifactId>istio-client</artifactId>
 			    <version>${istio-client.version}</version>
-			</dependency>
-
-
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-core -->
-			<dependency>
-				<groupId>net.oschina.j2cache</groupId>
-				<artifactId>j2cache-core</artifactId>
-				<version>${j2cache-core.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-hibernate3 -->
-			<dependency>
-			    <groupId>net.oschina.j2cache</groupId>
-			    <artifactId>j2cache-hibernate3</artifactId>
-			    <version>${j2cache-hibernate3.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-hibernate4 -->
-			<dependency>
-			    <groupId>net.oschina.j2cache</groupId>
-			    <artifactId>j2cache-hibernate4</artifactId>
-			    <version>${j2cache-hibernate4.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-hibernate5 -->
-			<dependency>
-			    <groupId>net.oschina.j2cache</groupId>
-			    <artifactId>j2cache-hibernate5</artifactId>
-			    <version>${j2cache-hibernate5.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-mybatis -->
-			<dependency>
-			    <groupId>net.oschina.j2cache</groupId>
-			    <artifactId>j2cache-mybatis</artifactId>
-			    <version>${j2cache-mybatis.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-session-manager -->
-			<dependency>
-			    <groupId>net.oschina.j2cache</groupId>
-			    <artifactId>j2cache-session-manager</artifactId>
-			    <version>${j2cache-session-manager.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-springcache -->
-			<dependency>
-			    <groupId>net.oschina.j2cache</groupId>
-			    <artifactId>j2cache-springcache</artifactId>
-			    <version>${j2cache-springcache.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations

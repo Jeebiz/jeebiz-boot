@@ -1682,7 +1682,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public String hGetString(String key, String hashKey) {
 		return hGetFor(key, hashKey, TO_STRING);
 	}
-
+	
+	public String hGetString(String key, String hashKey, String defaultVal) {
+		String rtVal = hGetString(key, hashKey);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
+	}
+	
 	public Double hGetDouble(String key, String hashKey) {
 		return hGetFor(key, hashKey, TO_DOUBLE);
 	}
@@ -3051,12 +3056,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return zRevrangeFor(key, start, end, TO_DOUBLE);
 	}
 
-	/**
-	 * @param key   :
-	 * @param start :
-	 * @param end   :0 到-1表示查全部
-	 * @return {@link Set< Long>}
-	 */
 	public Set<Long> zRevrangeLong(String key, long  start, long end) {
 		return zRevrangeFor(key, start, end, TO_LONG);
 	}
@@ -3065,14 +3064,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return zRevrangeFor(key, start, end, TO_INTEGER);
 	}
 
-	/**
-	 * 获取list缓存的内容
-	 *
-	 * @param key   键
-	 * @param start 开始
-	 * @param end   结束 0 到 -1代表所有值
-	 * @return
-	 */
 	public <T> Set<T> zRevrangeFor(String key, long start, long end, Class<T> clazz) {
 		return zRevrangeFor(key, start, end, member -> clazz.cast(member));
 	}
@@ -3102,6 +3093,51 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
+	/**
+	 * 获取指定key的scores正序，指定start-end位置的元素
+	 *
+	 * @param key
+	 * @param min
+	 * @param max
+	 * @return
+	 */
+	public Set<Object> zRevrangeByScore(String key, double min, double max) {
+		try {
+			return getOperations().opsForZSet().reverseRangeByScore(key, min, max);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+	
+	public Set<String> zRevrangeStringByScore(String key, long  start, long end) {
+		return zRevrangeForByScore(key, start, end, TO_STRING);
+	}
+	
+	public Set<Double> zRevrangeDoubleByScore(String key, long  start, long end) {
+		return zRevrangeForByScore(key, start, end, TO_DOUBLE);
+	}
+	
+	public Set<Long> zRevrangeLongByScore(String key, long  start, long end) {
+		return zRevrangeForByScore(key, start, end, TO_LONG);
+	}
+
+	public Set<Integer> zRevrangeIntegerByScore(String key, long  start, long end) {
+		return zRevrangeForByScore(key, start, end, TO_INTEGER);
+	}
+	
+	public <T> Set<T> zRevrangeForByScore(String key, double min, double max, Class<T> clazz) {
+		return zRevrangeForByScore(key, min, max, member -> clazz.cast(member));
+	}
+	
+	public <T> Set<T> zRevrangeForByScore(String key, double min, double max, Function<Object, T> mapper) {
+		Set<Object> members = this.zRevrangeByScore(key, min, max);
+		if(Objects.nonNull(members)) {
+			return members.stream().map(mapper).collect(Collectors.toCollection(LinkedHashSet::new));
+		}
+		return null;
+	}
+	
 	/**
 	 * 获取指定key的scores正序，指定start-end位置的元素
 	 *
