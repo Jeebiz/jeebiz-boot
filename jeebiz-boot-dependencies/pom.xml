@@ -183,6 +183,7 @@
 		<libphonenumber-prefixmapper.version>2.175</libphonenumber-prefixmapper.version>
 		<libphonenumber-geocoder.version>2.175</libphonenumber-geocoder.version>
 		<liquibase.version>4.6.2</liquibase.version>
+		<log4j2.version>2.15.0</log4j2.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<mariadb.version>2.7.4</mariadb.version>
 		<maven.version>3.6.3</maven.version>
