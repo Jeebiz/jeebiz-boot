@@ -41,16 +41,16 @@ import net.jeebiz.boot.extras.redis.setup.RedisOperationTemplate;
 import net.jeebiz.boot.extras.redis.setup.geo.GeoTemplate;
 
 /**
- * Reids 相关bean的配置 
+ * Reids 相关bean的配置
  * https://www.cnblogs.com/liuyp-ken/p/10538658.html
  * https://www.cnblogs.com/aoeiuv/p/6760798.html
  */
 @Configuration
 @EnableCaching(proxyTargetClass = true)
 public class RedisCachingConfiguration extends CachingConfigurerSupport {
-	
+
 	public final static String MESSAGE_TOPIC = "message.topic";
-	
+
 	@Bean
 	public Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer() {
 		// 使用Jackson2JsonRedisSerialize 替换默认序列化
@@ -64,46 +64,14 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 		objectMapper.activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(), ObjectMapper.DefaultTyping.NON_FINAL);
 		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
-		
+
 
 		return jackson2JsonRedisSerializer;
 	}
-	
-	@Bean(name = "reactiveRedisTemplate")
-	@ConditionalOnBean(ReactiveRedisConnectionFactory.class)
-	public ReactiveRedisTemplate<Object, Object> reactiveRedisTemplate(
-			ReactiveRedisConnectionFactory reactiveRedisConnectionFactory,
-			Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer) {
-		
-		SerializationPair<Object> keySerializationPair = SerializationPair.fromSerializer(new RedisSerializer<Object>(){
 
-			@Override
-			public byte[] serialize(Object t) throws SerializationException {
-				return StringRedisSerializer.UTF_8.serialize(t.toString());
-			}
-
-			@Override
-			public Object deserialize(byte[] bytes) throws SerializationException {
-				return StringRedisSerializer.UTF_8.deserialize(bytes);
-			}}
-		);
-		
-		RedisSerializationContext<Object, Object> serializationContext = RedisSerializationContext
-				.newSerializationContext()
-				.key(keySerializationPair)  // 设置value的序列化规则和 key的序列化规则
-				.value(jackson2JsonRedisSerializer)
-				 // 设置hash key 和 hash value序列化模式
-				.hashKey(keySerializationPair)
-				.hashValue(jackson2JsonRedisSerializer)
-				.build();
-		
-		return new ReactiveRedisTemplate<Object, Object>(reactiveRedisConnectionFactory, serializationContext);
-		
-	}
- 
 	/**
 	 * redisTemplate 序列化使用的jdkSerializeable, 存储二进制字节码, 所以自定义序列化类
-	 * 
+	 *
 	 * @param redisConnectionFactory
 	 * @return
 	 */
@@ -136,13 +104,13 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 		redisTemplate.setEnableTransactionSupport(true);
 		return redisTemplate;
 	}
-	
+
 	@Bean
 	@Order(1)
 	public RedisOperationTemplate redisOperationTemplate(RedisTemplate<String, Object> redisTemplate) {
 		return new RedisOperationTemplate(redisTemplate);
 	}
-	
+
 	@Bean
 	public GeoTemplate geoTemplate(RedisTemplate<String, Object> redisTemplate) {
 		return new GeoTemplate(redisTemplate);
@@ -151,7 +119,7 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 	/**
 	 * redis消息监听器容器 可以添加多个监听不同话题的redis监听器，只需要把消息监听器和相应的消息订阅处理器绑定，该消息监听器
 	 * 通过反射技术调用消息订阅处理器的相关方法进行一些业务处理
-	 * 
+	 *
 	 * @param connectionFactory
 	 * @param messageListenerProvider
 	 * @return

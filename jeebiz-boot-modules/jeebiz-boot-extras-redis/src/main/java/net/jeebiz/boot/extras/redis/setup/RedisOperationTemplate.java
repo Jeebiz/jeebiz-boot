@@ -67,14 +67,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
     public static final RedisScript<Long> INCR_SCRIPT = RedisScript.of(RedisLua.INCR_SCRIPT, Long.class);
     public static final RedisScript<Long> DECR_SCRIPT = RedisScript.of(RedisLua.DECR_SCRIPT, Long.class);
 
-    public static final RedisScript<Object> INCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.INCR_BYFLOAT_SCRIPT, Object.class);
-    public static final RedisScript<Object> DECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.DECR_BYFLOAT_SCRIPT, Object.class);
+    public static final RedisScript<Double> INCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.INCR_BYFLOAT_SCRIPT, Double.class);
+    public static final RedisScript<Double> DECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.DECR_BYFLOAT_SCRIPT, Double.class);
 
     public static final RedisScript<Long> HINCR_SCRIPT = RedisScript.of(RedisLua.HINCR_SCRIPT, Long.class);
     public static final RedisScript<Long> HDECR_SCRIPT = RedisScript.of(RedisLua.HDECR_SCRIPT, Long.class);
 
-    public static final RedisScript<Object> HINCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HINCR_BYFLOAT_SCRIPT, Object.class);
-    public static final RedisScript<Object> HDECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HDECR_BYFLOAT_SCRIPT, Object.class);
+    public static final RedisScript<Double> HINCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HINCR_BYFLOAT_SCRIPT, Double.class);
+    public static final RedisScript<Double> HDECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HDECR_BYFLOAT_SCRIPT, Double.class);
 
     public static final Function<Object, String> TO_STRING = member -> Objects.toString(member, null);
 
@@ -224,9 +224,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public Boolean expire(String key, long seconds) {
-		if (seconds <= 0) {
-			return Boolean.FALSE;
-		}
 		try {
 			return getOperations().expire(key, seconds, TimeUnit.SECONDS);
 		} catch (Exception e) {
@@ -267,7 +264,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return 时间(秒) 返回0代表为永久有效
 	 */
 	public Long getExpire(String key) {
-		return getOperations().getExpire(key, TimeUnit.SECONDS);
+		try {
+			return getOperations().getExpire(key, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -378,22 +380,16 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 		try {
 			getOperations().opsForValue().set(key, value, timeout);
-			;
 			return true;
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
-
-	public boolean setNx(String key, String value) {
+	
+	public boolean setNx(String key, Object value) {
 		try {
-			// return getOperations().opsForValue().setIfAbsent(key, value);
-			return this.execute((RedisCallback<Boolean>) redisConnection -> {
-				byte[] rawKey = rawString(key);
-				byte[] serValue = rawString(value);
-				return redisConnection.setNX(rawKey, serValue);
-			});
+			return getOperations().opsForValue().setIfAbsent(key, value);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -405,33 +401,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 *
 	 * @param key     并发锁
 	 * @param value   锁key（务必能区别不同线程的请求）
-	 * @param timeout 锁过期时间（单位：毫秒）
+	 * @param milliseconds 锁过期时间（单位：毫秒）
 	 * @return
 	 */
-	public boolean setNx(String key, String value, long timeout) {
-		Assert.hasLength(key, "key must not be empty");
-		Assert.hasLength(value, "value must not be empty");
+	public boolean setNx(String key, Object value, long milliseconds) {
 		try {
-			return getOperations().opsForValue().setIfAbsent(key, value, Duration.ofMillis(timeout));
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
-	}
-
-	/**
-	 * 1、仅可用于低并发功能，高并发严禁使用此方法
-	 *
-	 * @param key     并发锁
-	 * @param value   锁key（务必能区别不同线程的请求）
-	 * @param timeout 锁过期时间
-	 * @return
-	 */
-	public boolean setNx(String key, String value, Duration timeout) {
-		Assert.hasLength(key, "key must not be empty");
-		Assert.hasLength(value, "value must not be empty");
-		try {
-			return getOperations().opsForValue().setIfAbsent(key, value, timeout);
+			return getOperations().opsForValue().setIfAbsent(key, value, Duration.ofMillis(milliseconds));
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -447,9 +422,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param unit    锁过期时间单位
 	 * @return
 	 */
-	public boolean setNx(String key, String value, long timeout, TimeUnit unit) {
-		Assert.hasLength(key, "key must not be empty");
-		Assert.hasLength(value, "value must not be empty");
+	public boolean setNx(String key, Object value, long timeout, TimeUnit unit) {
 		try {
 			return getOperations().opsForValue().setIfAbsent(key, value, timeout, unit);
 		} catch (Exception e) {
@@ -458,17 +431,23 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	public boolean setEx(String key, String value, long seconds) {
+	/**
+	 * 1、仅可用于低并发功能，高并发严禁使用此方法
+	 *
+	 * @param key     并发锁
+	 * @param value   锁key（务必能区别不同线程的请求）
+	 * @param timeout 锁过期时间
+	 * @return
+	 */
+	public boolean setNx(String key, Object value, Duration timeout) {
 		try {
-			return getOperations().execute((RedisCallback<Boolean>) redisConnection -> {
-				return redisConnection.setEx(rawKey(key), seconds, rawValue(value));
-			});
+			return getOperations().opsForValue().setIfAbsent(key, value, timeout);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
-
+ 
 	/**
 	 * 普通缓存获取
 	 *
@@ -574,7 +553,10 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public List<Object> mGet(Collection keys) {
 		try {
-			return CollectionUtils.isEmpty(keys) ? Lists.newArrayList() : getOperations().opsForValue().multiGet(keys);
+			if(CollectionUtils.isEmpty(keys)) {
+				return Lists.newArrayList();
+			}
+			return getOperations().opsForValue().multiGet(keys);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -583,13 +565,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public List<Object> mGet(Collection<Object> keys, String redisPrefix) {
 		try {
-			List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
-				keys.stream().forEach(key -> {
-					connection.get(rawKey(RedisKeyConstant.getKeyStr(redisPrefix, key.toString())));
-				});
-				return null;
-			}, this.valueSerializer());
-			return result;
+			if(CollectionUtils.isEmpty(keys)) {
+				return Lists.newArrayList();
+			}
+			Collection newKeys = keys.stream().map(key -> RedisKeyConstant.getKeyStr(redisPrefix, key.toString())).collect(Collectors.toList());
+			return getOperations().opsForValue().multiGet(newKeys);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -903,42 +883,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	// ===============================List=================================
 
 	/**
-	 * 移除N个值为value
-	 *
-	 * @param key   键
-	 * @param count 移除多少个
-	 * @param value 值
-	 * @return 移除的个数
-	 */
-	public long lDel(String key, long count, Object value) {
-		try {
-			Long remove = getOperations().opsForList().remove(key, count, value);
-			return remove;
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
-	}
-
-	/**
-	 * List删除: ltrim
-	 *
-	 * @param key
-	 * @param start
-	 * @param end
-	 * @return
-	 */
-	public boolean lDel(String key, int start, int end) {
-		try {
-			getOperations().opsForList().trim(key, start, end);
-			return true;
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
-	}
-
-	/**
 	 * 获取list缓存的内容
 	 *
 	 * @param key   键
@@ -1140,10 +1084,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public <V> Long lLeftPushxAll(String key, Collection<V> values, long seconds) {
 		try {
-			long rt = 0L;
-			for (V value : values) {
-				rt += getOperations().opsForList().leftPushIfPresent(key, value);
-			}
+			long rt = values.stream().map(value -> getOperations().opsForList().leftPushIfPresent(key, value)).count();
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -1156,10 +1097,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public <V> Long lLeftPushxAll(String key, Collection<V> values, Duration timeout) {
 		try {
-			long rt = 0L;
-			for (V value : values) {
-				rt += getOperations().opsForList().leftPushIfPresent(key, value);
-			}
+			long rt = values.stream().map(value -> getOperations().opsForList().leftPushIfPresent(key, value)).count();
 			if (!timeout.isNegative()) {
 				expire(key, timeout);
 			}
@@ -1399,10 +1337,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public <V> Long lRightPushxAll(String key, Collection<V> values, long seconds) {
 		try {
-			long rt = 0L;
-			for (V value : values) {
-				rt += getOperations().opsForList().rightPushIfPresent(key, value);
-			}
+			long rt = values.stream().map(value -> getOperations().opsForList().rightPushIfPresent(key, value)).count();
 			if (seconds > 0) {
 				expire(key, seconds);
 			}
@@ -1415,10 +1350,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public <V> Long lRightPushxAll(String key, Collection<V> values, Duration timeout) {
 		try {
-			long rt = 0L;
-			for (V value : values) {
-				rt += getOperations().opsForList().rightPushIfPresent(key, value);
-			}
+			long rt = values.stream().map(value -> getOperations().opsForList().rightPushIfPresent(key, value)).count();
 			if (!timeout.isNegative()) {
 				expire(key, timeout);
 			}
@@ -1562,7 +1494,24 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
-
+	
+	/**
+	 * 移除N个值为value
+	 *
+	 * @param key   键
+	 * @param count 移除多少个
+	 * @param value 值
+	 * @return 移除的个数
+	 */
+	public Long lRem(String key, long count, Object value) {
+		try {
+			return getOperations().opsForList().remove(key, count, value);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+	
 	// ================================Hash=================================
 
 	/**
@@ -1648,7 +1597,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public void hDel(String bigHashKey) {
 		try {
 			this.hScan(bigHashKey, (entry) -> {
-				this.hDel(bigHashKey, deserializeHashKey(entry.getKey()));
+				this.hDel(bigHashKey, entry.getKey());
 			});
 			this.del(bigHashKey);
 		} catch (Exception e) {
@@ -1664,14 +1613,18 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param hashKey hash键
 	 * @return 对应的键值
 	 */
-	public <V> V hGet(String key, String hashKey) {
-		return this.hGet(key, hashKey, null);
+	public Object hGet(String key, String hashKey) {
+		try {
+			return getOperations().opsForHash().get(key, hashKey);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	public <V> V hGet(String key, String hashKey, V defaultVal) {
 		try {
-			HashOperations<String, String, Object> opsForHash = getOperations().opsForHash();
-			Object rtVal = opsForHash.get(key, hashKey);
+			Object rtVal = getOperations().opsForHash().get(key, hashKey);
 			return Objects.nonNull(rtVal) ? (V) rtVal : defaultVal;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -1980,30 +1933,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	public void hScan(String bigHashKey, Consumer<Entry<byte[], byte[]>> consumer) {
-		this.getOperations().execute((RedisConnection redisConnection) -> {
-			try (Cursor<Entry<byte[], byte[]>> cursor = redisConnection.hScan(rawHashKey(bigHashKey),
-					ScanOptions.scanOptions().count(Long.MAX_VALUE).build())) {
-				cursor.forEachRemaining(consumer);
-				return null;
-			} catch (Exception e) {
-				log.error(e.getMessage());
-				throw new RedisOperationException(e.getMessage());
-			}
-		});
+	public void hScan(String bigHashKey, Consumer<Entry<Object,Object>> consumer) {
+		getOperations().opsForHash().scan(bigHashKey, ScanOptions.scanOptions().count(Long.MAX_VALUE).build()).forEachRemaining(consumer);
 	}
 
-	public void hScan(String bigHashKey, String pattern, Consumer<Entry<byte[], byte[]>> consumer) {
-		this.getOperations().execute((RedisConnection redisConnection) -> {
-			try (Cursor<Entry<byte[], byte[]>> cursor = redisConnection.hScan(rawHashKey(bigHashKey),
-					ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
-				cursor.forEachRemaining(consumer);
-				return null;
-			} catch (Exception e) {
-				log.error(e.getMessage());
-				throw new RedisOperationException(e.getMessage());
-			}
-		});
+	public void hScan(String bigHashKey, String pattern, Consumer<Entry<Object,Object>> consumer) {
+		getOperations().opsForHash().scan(bigHashKey, ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build()).forEachRemaining(consumer);
 	}
 
 	/**
@@ -2319,8 +2254,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Boolean sDel(String bigSetKey) {
 		try {
-			this.sScan(bigSetKey, (hashKey) -> {
-				getOperations().opsForHash().delete(bigSetKey, deserializeHashKey(hashKey));
+			this.sScan(bigSetKey, (value) -> {
+				getOperations().opsForSet().remove(bigSetKey, deserializeValue(value));
 			});
 			return getOperations().delete(bigSetKey);
 		} catch (Exception e) {
@@ -3523,7 +3458,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
      */
 	public Long luaIncr(String key, long delta) {
 		Assert.hasLength(key, "key must not be empty");
-		return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(key), delta);
+		try {
+			return this.executeLuaScript(INCR_SCRIPT, Lists.newArrayList(key), delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -3537,8 +3477,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
      */
 	public Double luaIncr(String key, double delta) {
 		Assert.hasLength(key, "key must not be empty");
-		Object rst = this.executeLuaScript(INCR_BYFLOAT_SCRIPT, Lists.newArrayList(key), delta);
-		return new BigDecimal(rst.toString()).doubleValue();
+		try {
+			return this.executeLuaScript(INCR_BYFLOAT_SCRIPT, Lists.newArrayList(key), delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -3554,7 +3498,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Long luaDecr(String key, long delta) {
 		Assert.hasLength(key, "key must not be empty");
-		return this.executeLuaScript(DECR_SCRIPT, Lists.newArrayList(key), delta);
+		try {
+			return this.executeLuaScript(DECR_SCRIPT, Lists.newArrayList(key), delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -3570,8 +3519,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 */
 	public Double luaDecr(String key, double delta) {
 		Assert.hasLength(key, "key must not be empty");
-		Object rst = this.executeLuaScript(DECR_BYFLOAT_SCRIPT, Lists.newArrayList(key), delta);
-		return new BigDecimal(rst.toString()).doubleValue();
+		try {
+			return this.executeLuaScript(DECR_BYFLOAT_SCRIPT, Lists.newArrayList(key), delta);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+		
 	}
 
 	/**
@@ -3608,9 +3562,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Double luaHincr(String key, String hashKey, double delta) {
 		Assert.hasLength(key, "key must not be empty");
 		try {
-			Object rst = getOperations().execute(HINCR_BYFLOAT_SCRIPT, this.hashValueSerializer(),
+			return getOperations().execute(HINCR_BYFLOAT_SCRIPT, this.hashValueSerializer(),
 					this.hashValueSerializer(), Lists.newArrayList(key, hashKey), delta);
-			return new BigDecimal(rst.toString()).doubleValue();
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -3655,10 +3608,8 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Double luaHdecr(String key, String hashKey, double delta) {
 		Assert.hasLength(key, "key must not be empty");
 		try {
-			Object rst = getOperations().execute(HDECR_BYFLOAT_SCRIPT, this.hashValueSerializer(),
+			return getOperations().execute(HDECR_BYFLOAT_SCRIPT, this.hashValueSerializer(),
 					this.hashValueSerializer(), Lists.newArrayList(key, hashKey), delta);
-			;
-			return new BigDecimal(rst.toString()).doubleValue();
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
