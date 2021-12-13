@@ -1613,9 +1613,9 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param hashKey hash键
 	 * @return 对应的键值
 	 */
-	public <V> V hGet(String key, String hashKey) {
+	public Object hGet(String key, String hashKey) {
 		try {
-			return (V) getOperations().opsForHash().get(key, hashKey);
+			return getOperations().opsForHash().get(key, hashKey);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
