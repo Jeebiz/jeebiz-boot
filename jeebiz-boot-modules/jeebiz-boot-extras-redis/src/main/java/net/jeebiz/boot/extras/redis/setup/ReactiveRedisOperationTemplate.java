@@ -18,6 +18,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import net.jeebiz.boot.api.exception.RedisOperationException;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Range;
@@ -71,7 +72,7 @@ public class ReactiveRedisOperationTemplate {
     public static final RedisScript<Object> HINCR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HINCR_BYFLOAT_SCRIPT, Object.class);
     public static final RedisScript<Object> HDECR_BYFLOAT_SCRIPT = RedisScript.of(RedisLua.HDECR_BYFLOAT_SCRIPT, Object.class);
 
-    
+
 	public static final Function<Object, String> TO_STRING = member -> Objects.toString(member, null);
 
     public static final Function<Object, Double> TO_DOUBLE = member -> {
@@ -203,7 +204,7 @@ public class ReactiveRedisOperationTemplate {
 	 * 指定缓存失效时间
 	 *
 	 * @param key     键
-	 * @param timeout 时间
+	 * @param duration 时间
 	 * @return
 	 */
 	public Mono<Boolean> expire(String key, Duration duration) {
@@ -307,7 +308,7 @@ public class ReactiveRedisOperationTemplate {
 	 *
 	 * @param key   键
 	 * @param value 值
-	 * @param time  时间(秒) time要>=0 如果time小于等于0 将设置无限期
+	 * @param seconds  时间(秒) time要>=0 如果time小于等于0 将设置无限期
 	 * @return true成功 false 失败
 	 */
 	public Mono<Boolean> set(String key, Object value, long seconds) {
@@ -2414,8 +2415,7 @@ public class ReactiveRedisOperationTemplate {
 	 * 通过分数返回有序集合指定区间内的成员个数
 	 *
 	 * @param key
-	 * @param min
-	 * @param max
+	 * @param range
 	 */
 	public Mono<Long> zCount(String key, Range<Double> range) {
 		try {
@@ -2527,8 +2527,7 @@ public class ReactiveRedisOperationTemplate {
 	 * 移除分数区间内的元素
 	 *
 	 * @param key
-	 * @param min
-	 * @param max
+	 * @param range
 	 */
 	public Mono<Long> zRemByScore(String key, Range<Double> range) {
 		try {
@@ -2568,8 +2567,7 @@ public class ReactiveRedisOperationTemplate {
 
 	/**
 	 * @param key   :
-	 * @param start :
-	 * @param end   :0 到-1表示查全部
+	 * @param range
 	 * @param mapper 对象转换函数
 	 * @return {@link Set<T>}
 	 */
@@ -2648,8 +2646,7 @@ public class ReactiveRedisOperationTemplate {
 
 	/**
 	 * @param key   :
-	 * @param start :
-	 * @param end   :0 到-1表示查全部
+	 * @param range :0 到-1表示查全部
 	 * @return {@link Set< Object>}
 	 */
 	public Flux<Object> zRevrange(String key, Range<Long> range) {
@@ -2689,8 +2686,7 @@ public class ReactiveRedisOperationTemplate {
 	 * 获取指定key的scores正序，指定start-end位置的元素
 	 *
 	 * @param key
-	 * @param start
-	 * @param end
+	 * @param range
 	 * @return
 	 */
 	public Flux<TypedTuple<Object>> zRevrangeWithScores(String key, Range<Long> range) {
@@ -2705,8 +2701,7 @@ public class ReactiveRedisOperationTemplate {
 	 * 获取指定key的scores正序，指定start-end位置的元素
 	 *
 	 * @param key
-	 * @param min
-	 * @param max
+	 * @param range
 	 * @return
 	 */
 	public Flux<Object> zRevrangeByScore(String key, Range<Double> range) {
@@ -2746,8 +2741,7 @@ public class ReactiveRedisOperationTemplate {
 	 * 获取指定key的scores正序，指定start-end位置的元素
 	 *
 	 * @param key
-	 * @param min
-	 * @param max
+	 * @param range
 	 * @return
 	 */
 	public Flux<TypedTuple<Object>> zRevrangeByScoreWithScores(String key, Range<Double> range) {
@@ -2940,7 +2934,7 @@ public class ReactiveRedisOperationTemplate {
 			return monoError(e);
 		}
 	}
-    
+
     public Mono<Boolean> tryLock(String lockKey, Duration timeout) {
 		return tryLock( lockKey, timeout.toMillis());
 	}
@@ -3015,7 +3009,7 @@ public class ReactiveRedisOperationTemplate {
 				Long result =  this.executeLuaScript(LOCK_LUA_SCRIPT, Collections.singletonList(lockKey), requestId, expire).block();
 				if(LOCK_SUCCESS.equals(result)) {
 				    log.info("locked... redisK = {}", lockKey);
-				    return Mono.just(true); 
+				    return Mono.just(true);
 				} else {
 					// 2、重试获取锁
 			        int count = 0;
@@ -3025,7 +3019,7 @@ public class ReactiveRedisOperationTemplate {
 			                result = this.executeLuaScript(LOCK_LUA_SCRIPT, Collections.singletonList(lockKey), requestId, expire).block();
 			                if(LOCK_SUCCESS.equals(result)) {
 			                	log.info("locked... redisK = {}", lockKey);
-			                	return Mono.just(true); 
+			                	return Mono.just(true);
 			                }
 			                log.warn("{} times try to acquire lock", count + 1);
 			                count++;
@@ -3164,14 +3158,14 @@ public class ReactiveRedisOperationTemplate {
 	public Mono<Long> luaHincr(String key, String hashKey, long delta) {
 		Assert.hasLength(key, "key must not be empty");
 		try {
-			
+
 			SerializationPair<Long> serializationPair = reactiveRedisTemplate.getSerializationContext().getHashValueSerializationPair();
-			
-			Flux<Long> rst = reactiveRedisTemplate.execute(HINCR_SCRIPT, Lists.newArrayList(key, hashKey), 
+
+			Flux<Long> rst = reactiveRedisTemplate.execute(HINCR_SCRIPT, Lists.newArrayList(key, hashKey),
 					Arrays.asList(delta), serializationPair.getWriter(), serializationPair.getReader());
-			
+
 			return rst.last().map(TO_LONG);
-			
+
 		} catch (Exception e) {
 			return monoError(e);
 		}
@@ -3193,7 +3187,7 @@ public class ReactiveRedisOperationTemplate {
 
 			SerializationPair<Object> serializationPair = reactiveRedisTemplate.getSerializationContext().getHashValueSerializationPair();
 
-			Flux<Object> rst = reactiveRedisTemplate.execute(HINCR_BYFLOAT_SCRIPT, Lists.newArrayList(key, hashKey), 
+			Flux<Object> rst = reactiveRedisTemplate.execute(HINCR_BYFLOAT_SCRIPT, Lists.newArrayList(key, hashKey),
 					Arrays.asList(delta), serializationPair.getWriter(),
 					serializationPair.getReader());
 			;
@@ -3221,10 +3215,10 @@ public class ReactiveRedisOperationTemplate {
 		try {
 
 			SerializationPair<Long> serializationPair = reactiveRedisTemplate.getSerializationContext().getHashValueSerializationPair();
-			
-			Flux<Long> rst = reactiveRedisTemplate.execute(HDECR_SCRIPT, Lists.newArrayList(key, hashKey), 
+
+			Flux<Long> rst = reactiveRedisTemplate.execute(HDECR_SCRIPT, Lists.newArrayList(key, hashKey),
 					Arrays.asList(delta), serializationPair.getWriter(), serializationPair.getReader());
-			
+
 			return rst.last().map(TO_LONG);
 		} catch (Exception e) {
 			return monoError(e);
@@ -3246,10 +3240,10 @@ public class ReactiveRedisOperationTemplate {
 	public Mono<Double> luaHdecr(String key, String hashKey, double delta) {
 		Assert.hasLength(key, "key must not be empty");
 		try {
-			
+
 			SerializationPair<Object> serializationPair = reactiveRedisTemplate.getSerializationContext().getHashValueSerializationPair();
 
-			Flux<Object> rst = reactiveRedisTemplate.execute(HDECR_BYFLOAT_SCRIPT, Lists.newArrayList(key, hashKey), 
+			Flux<Object> rst = reactiveRedisTemplate.execute(HDECR_BYFLOAT_SCRIPT, Lists.newArrayList(key, hashKey),
 					Arrays.asList(delta), serializationPair.getWriter(),
 					serializationPair.getReader());
 			;
@@ -3333,7 +3327,7 @@ public class ReactiveRedisOperationTemplate {
 			return redisConnection.serverCommands().time().map(time -> expiration - time);
 		});
 	}
-	
+
 	public Mono<Long> dbSize() {
 		return reactiveRedisTemplate.createMono((ReactiveRedisCallback<Long>) redisConnection -> {
 			return redisConnection.serverCommands().dbSize();
