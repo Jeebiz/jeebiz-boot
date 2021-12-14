@@ -161,6 +161,7 @@
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
 		<jep.version>2.4.2</jep.version>
 		<jjwt.version>0.11.2</jjwt.version>
+		<jakarta-websocket.version>2.0.0</jakarta-websocket.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
 		<jgroups.version>5.1.6.Final</jgroups.version>
 		<jgit.version>5.10.0.202012080955-r</jgit.version>
@@ -183,7 +184,7 @@
 		<libphonenumber-prefixmapper.version>2.175</libphonenumber-prefixmapper.version>
 		<libphonenumber-geocoder.version>2.175</libphonenumber-geocoder.version>
 		<liquibase.version>4.6.2</liquibase.version>
-		<log4j2.version>2.15.0</log4j2.version>
+		<log4j2.version>2.16.0</log4j2.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<mariadb.version>2.7.4</mariadb.version>
 		<maven.version>3.6.3</maven.version>
@@ -235,7 +236,7 @@
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
 		<perf4j.version>0.9.16</perf4j.version>
 		<prometheus.version>0.10.0</prometheus.version>
-		<protobuf.version>4.0.0-rc-2</protobuf.version>
+		<protobuf.version>3.19.1</protobuf.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>
 		<pf4j.version>3.6.0</pf4j.version>
@@ -3544,6 +3545,11 @@
 			<dependency>
 				<groupId>com.google.protobuf</groupId>
 				<artifactId>protobuf-java</artifactId>
+				<version>${protobuf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java-util</artifactId>
 				<version>${protobuf.version}</version>
 			</dependency>
 
