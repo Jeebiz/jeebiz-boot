@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.autoconfigure;
 
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.web.servlet.i18n.XHeaderLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -35,11 +36,11 @@ import net.jeebiz.boot.api.sequence.Sequence;
 import net.jeebiz.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
 import net.jeebiz.boot.autoconfigure.config.LocalResourceProperteis;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ComponentScan({ "net.jeebiz.**.webmvc", "net.jeebiz.**.web", "net.jeebiz.**.controller" })
 @EnableWebMvc
 @EnableConfigurationProperties(LocalResourceProperteis.class)
-public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
+public class DefaultWebMvcConfiguration  {
 
 	@Bean
 	@ConditionalOnMissingBean
@@ -48,12 +49,12 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
 		contextFilter.setThreadContextInheritable(true);
 		return contextFilter;
 	}
-	
+
     /*########### SpringMVC本地化支持 ###########*/
-    
-    /* 参考 ： 
-		http://blog.csdn.net/wutbiao/article/details/7454345 
-		http://yvonxiao.iteye.com/blog/1005183 
+
+    /* 参考 ：
+		http://blog.csdn.net/wutbiao/article/details/7454345
+		http://yvonxiao.iteye.com/blog/1005183
 	*/
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
@@ -61,16 +62,16 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
     	localeChangeInterceptor.setParamName("lang");
     	return localeChangeInterceptor;
     }
-    
+
     @Bean
     public LocaleResolver localeResolver() {
-    	
+
     	XHeaderLocaleResolver xheaderLocaleResolver = new XHeaderLocaleResolver();
         xheaderLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-        
+
         return xheaderLocaleResolver;
     }
-   
+
    	@Bean
 	@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 	@Primary
@@ -79,43 +80,43 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
 		factoryBean.setValidationMessageSource(messageSource);
 		return factoryBean;
 	}
-   	
+
     /*###########Spring MVC 主题支持########### */
 	/*参考 ： http://blog.csdn.net/wutbiao/article/details/7450281 */
-	
+
     @Bean
     public ThemeChangeInterceptor themeChangeInterceptor() {
     	ThemeChangeInterceptor themeChangeInterceptor = new ThemeChangeInterceptor();
     	themeChangeInterceptor.setParamName("theme");
     	return themeChangeInterceptor;
     }
-    
+
     @Bean
     public ResourceBundleThemeSource themeSource() {
     	ResourceBundleThemeSource themeSource = new ResourceBundleThemeSource();
     	themeSource.setBasenamePrefix("classpath:/static/assets/css/themes/");
     	return themeSource;
     }
-    
+
     @Bean
     public ThemeResolver themeResolver() {
-    	
+
     	NestedThemeResolver nestedThemeResolver = new NestedThemeResolver();
     	nestedThemeResolver.setDefaultThemeName("default");
-    	
+
     	List<ThemeResolver> resolvers = new LinkedList<ThemeResolver>();
-    	
+
     	//基于Session的主题解析
     	SessionThemeResolver sessionThemeResolver = new SessionThemeResolver();
     	sessionThemeResolver.setDefaultThemeName("default");
         resolvers.add(sessionThemeResolver);
-    	
+
         //基于Cokie的主题解析
     	CookieThemeResolver cookieThemeResolver = new CookieThemeResolver();
     	cookieThemeResolver.setCookieName("theme");
     	cookieThemeResolver.setDefaultThemeName("default");
     	resolvers.add(cookieThemeResolver);
-    	
+
     	return nestedThemeResolver;
     }
 
@@ -123,7 +124,7 @@ public class DefaultWebMvcConfiguration extends DelegatingWebMvcConfiguration {
 	public Slf4jMDCInterceptor slf4jMDCInterceptor(Sequence sequence) {
 		return new Slf4jMDCInterceptor(sequence);
 	}
-	
+
 	@Bean
 	public DefaultWebMvcConfigurer defaultWebMvcConfigurer(LocalResourceProperteis localResourceProperteis,
 			ThemeChangeInterceptor themeChangeInterceptor, LocaleChangeInterceptor localeChangeInterceptor,
