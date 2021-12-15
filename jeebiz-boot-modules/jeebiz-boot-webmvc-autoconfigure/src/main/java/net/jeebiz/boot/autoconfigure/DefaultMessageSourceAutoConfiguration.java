@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.autoconfigure;
 
@@ -33,7 +33,7 @@ import org.springframework.util.StringUtils;
 
 import net.jeebiz.boot.autoconfigure.webmvc.I18nResourceBasenameHandler;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @AutoConfigureBefore(MessageSourceAutoConfiguration.class)
 @EnableConfigurationProperties
@@ -46,7 +46,7 @@ public class DefaultMessageSourceAutoConfiguration {
 	public MessageSourceProperties myMessageSourceProperties() {
 		return new MessageSourceProperties();
 	}
-	
+
 	@Bean
 	public ResourceBasenameHandler resourceBasenameHandler() {
 		return new I18nResourceBasenameHandler();
@@ -121,13 +121,13 @@ public class DefaultMessageSourceAutoConfiguration {
 		}
 
 	}
-	
+
 	@Bean
 	public NestedMessageSource nestedMessageSource(List<MessageSource> sources) {
 		return new NestedMessageSource(sources.toArray(new MessageSource[sources.size()]));
 	}
-	
-	
-	
+
+
+
 
 }

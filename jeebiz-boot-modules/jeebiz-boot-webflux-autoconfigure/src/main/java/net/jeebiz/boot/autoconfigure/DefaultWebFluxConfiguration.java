@@ -46,7 +46,7 @@ import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 import net.jeebiz.boot.autoconfigure.webflux.DefaultExceptinHandler;
 import net.jeebiz.boot.autoconfigure.webflux.GlobalErrorWebExceptionHandler;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ComponentScan(basePackages = { "net.jeebiz.**.flux", "net.jeebiz.**.web", "net.jeebiz.**.route" })
 @EnableWebFlux
 @EnableConfigurationProperties(LocalResourceProperteis.class)
