@@ -7,6 +7,7 @@ package net.jeebiz.boot.autoconfigure;
 import java.time.Duration;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.context.support.MultiResourceBundleMessageSource;
 import org.springframework.biz.context.support.ResourceBasenameHandler;
