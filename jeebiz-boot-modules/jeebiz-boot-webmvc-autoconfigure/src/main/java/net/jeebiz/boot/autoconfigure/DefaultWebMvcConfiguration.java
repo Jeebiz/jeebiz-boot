@@ -7,6 +7,7 @@ package net.jeebiz.boot.autoconfigure;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.biz.context.NestedMessageSource;
@@ -67,8 +68,8 @@ public class DefaultWebMvcConfiguration  {
     public LocaleResolver localeResolver() {
 
     	XHeaderLocaleResolver xheaderLocaleResolver = new XHeaderLocaleResolver();
-        xheaderLocaleResolver.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
-
+        xheaderLocaleResolver.setDefaultLocale(Locale.getDefault());
+        xheaderLocaleResolver.setDefaultTimeZone(TimeZone.getDefault());
         return xheaderLocaleResolver;
     }
 

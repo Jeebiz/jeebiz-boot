@@ -5,6 +5,7 @@
 package net.jeebiz.boot.autoconfigure;
 
 import java.util.Locale;
+import java.util.TimeZone;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -46,11 +47,11 @@ import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 import net.jeebiz.boot.autoconfigure.webflux.DefaultExceptinHandler;
 import net.jeebiz.boot.autoconfigure.webflux.GlobalErrorWebExceptionHandler;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ComponentScan(basePackages = { "net.jeebiz.**.flux", "net.jeebiz.**.web", "net.jeebiz.**.route" })
 @EnableWebFlux
 @EnableConfigurationProperties(LocalResourceProperteis.class)
-public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration {
+public class DefaultWebFluxConfiguration {
 
 	@Bean
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
@@ -58,22 +59,13 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 		return new ReactiveRequestContextFilter();
 	}
 
-	@Override
-	protected LocaleContextResolver createLocaleContextResolver() {
+	@Bean
+	public LocaleContextResolver localeContextResolver() {
 
 		XHeaderLocaleContextResolver localeContextResolver = new XHeaderLocaleContextResolver();
 		localeContextResolver.setDefaultLocale(Locale.getDefault());
-
+		localeContextResolver.setDefaultTimeZone(TimeZone.getDefault());
 		return localeContextResolver;
-	}
-
-   	@Bean
-	@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
-	@Primary
-	public LocalValidatorFactoryBean mvcValidator(NestedMessageSource messageSource) {
-		LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
-		factoryBean.setValidationMessageSource(messageSource);
-		return factoryBean;
 	}
 
 	@Bean
@@ -81,6 +73,7 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 		return new DefaultExceptinHandler();
 	}
 
+	/*
 	@Bean
 	@Order(-2)
 	public ErrorWebExceptionHandler errorWebExceptionHandler(ErrorAttributes errorAttributes,
@@ -92,7 +85,7 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 		exceptionHandler.setMessageWriters(serverCodecConfigurer.getWriters());
 		exceptionHandler.setMessageReaders(serverCodecConfigurer.getReaders());
 		return exceptionHandler;
-	}
+	}*/
 
 	@Bean
 	public DefaultWebFluxConfigurer defaultWebFluxConfigurer(LocalResourceProperteis localResourceProperteis) {
@@ -100,28 +93,23 @@ public class DefaultWebFluxConfiguration extends DelegatingWebFluxConfiguration 
 	}
 
 	@Bean
-	public Slf4jMDCInterceptor slf4jMDCInterceptor(Sequence sequence) {
-		return new Slf4jMDCInterceptor(sequence);
-	}
-
-	@Bean
-    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
 
 		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
 
-        /** 为objectMapper注册一个带有SerializerModifier的Factory */
-		objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-				.withSerializerModifier(new MyBeanSerializerModifier()))
-				.enable(MapperFeature.USE_GETTERS_AS_SETTERS)
-				.enable(MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
-				.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
-				.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-				.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
+		/** 为objectMapper注册一个带有SerializerModifier的Factory */
+		  objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
+	                .withSerializerModifier(new MyBeanSerializerModifier()))
+	        		.enable(MapperFeature.USE_GETTERS_AS_SETTERS)
+	                .enable(MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
+	                .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+	                .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+	        		.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
 
 		//SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
-        //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
+		//serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
 
-        return new MappingJackson2HttpMessageConverter(objectMapper);
-    }
+		return new MappingJackson2HttpMessageConverter(objectMapper);
+	}
 
 }

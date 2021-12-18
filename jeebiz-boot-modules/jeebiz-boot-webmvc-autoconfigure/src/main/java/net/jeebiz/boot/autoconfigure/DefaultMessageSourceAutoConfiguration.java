@@ -1,12 +1,13 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.autoconfigure;
 
 import java.time.Duration;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.context.support.MultiResourceBundleMessageSource;
 import org.springframework.biz.context.support.ResourceBasenameHandler;
@@ -33,7 +34,7 @@ import org.springframework.util.StringUtils;
 
 import net.jeebiz.boot.autoconfigure.webmvc.I18nResourceBasenameHandler;
 
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @AutoConfigureBefore(MessageSourceAutoConfiguration.class)
 @EnableConfigurationProperties
@@ -42,11 +43,12 @@ public class DefaultMessageSourceAutoConfiguration {
 	private static final Resource[] NO_RESOURCES = {};
 
 	@Bean
+	@Primary
 	@ConfigurationProperties(prefix = "spring.messages")
 	public MessageSourceProperties myMessageSourceProperties() {
 		return new MessageSourceProperties();
 	}
-	
+
 	@Bean
 	public ResourceBasenameHandler resourceBasenameHandler() {
 		return new I18nResourceBasenameHandler();
@@ -54,8 +56,7 @@ public class DefaultMessageSourceAutoConfiguration {
 
 	@Bean
 	@Primary
-	public MessageSource messageSource(ResourceBasenameHandler resourceBasenameHandler) {
-		MessageSourceProperties properties = myMessageSourceProperties();
+	public MessageSource messageSource(@Qualifier("myMessageSourceProperties") MessageSourceProperties properties, ResourceBasenameHandler resourceBasenameHandler) {
 		MultiResourceBundleMessageSource messageSource = new MultiResourceBundleMessageSource();
 		messageSource.setBasenameHandler(resourceBasenameHandler);
 		if (StringUtils.hasText(properties.getBasename())) {
@@ -121,13 +122,13 @@ public class DefaultMessageSourceAutoConfiguration {
 		}
 
 	}
-	
+
 	@Bean
 	public NestedMessageSource nestedMessageSource(List<MessageSource> sources) {
 		return new NestedMessageSource(sources.toArray(new MessageSource[sources.size()]));
 	}
-	
-	
-	
+
+
+
 
 }

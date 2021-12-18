@@ -463,22 +463,42 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
+	public String getString(String key) {
+		return getFor(key, TO_STRING);
+	}
+	
+	public String getString(String key, String defaultVal) {
+		String rtVal = getString(key);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
+	}
+
 	public Double getDouble(String key) {
 		return getFor(key, TO_DOUBLE);
+	}
+	
+	public Double getDouble(String key, double defaultVal) {
+		Double rtVal = getDouble(key);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
 	}
 
 	public Long getLong(String key) {
 		return getFor(key, TO_LONG);
 	}
 
+	public Long getLong(String key, long defaultVal) {
+		Long rtVal = getLong(key);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
+	}
+
 	public Integer getInteger(String key) {
 		return getFor(key, TO_INTEGER);
 	}
-
-	public String getString(String key) {
-		return getFor(key, TO_STRING);
+	
+	public Integer getInteger(String key, int defaultVal) {
+		Integer rtVal = getInteger(key);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
 	}
-
+	
 	public <T> T getFor(String key, Class<T> clazz) {
 		return getFor(key, member -> clazz.cast(member));
 	}
@@ -2294,25 +2314,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Set<Integer> sGetInteger(String key) {
 		return sGetFor(key, TO_INTEGER);
 	}
-
-	/**
-	 * 根据key获取Set中的所有值
-	 *
-	 * @param key   键
-	 * @param clazz 值的类型
-	 * @return 类型处理后的Set
-	 */
+ 
 	public <T> Set<T> sGetFor(String key, Class<T> clazz) {
 		return sGetFor(key, member -> clazz.cast(member));
 	}
 
-	/**
-	 * 根据key获取Set中的所有值，并按Function函数进行转换
-	 *
-	 * @param key    键
-	 * @param mapper 对象转换函数
-	 * @return 类型处理后的Set
-	 */
 	public <T> Set<T> sGetFor(String key, Function<Object, T> mapper) {
 		Set<Object> members = this.sGet(key);
 		if (Objects.nonNull(members)) {
