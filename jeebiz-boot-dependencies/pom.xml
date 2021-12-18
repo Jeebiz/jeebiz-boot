@@ -136,7 +136,7 @@
 		<grpc.version>1.35.0</grpc.version>
 		<hadoop.version>3.2.1</hadoop.version>
 		<hbase.version>2.2.4</hbase.version>
-		<h2.version>1.4.199</h2.version>
+		<h2.version>2.0.202</h2.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<httpconn.version>1.0.1.RELEASE</httpconn.version>
 		<httputils.version>1.0.0.RELEASE</httputils.version>
