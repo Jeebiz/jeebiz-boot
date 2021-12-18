@@ -42,6 +42,7 @@ public class DefaultMessageSourceAutoConfiguration {
 	private static final Resource[] NO_RESOURCES = {};
 
 	@Bean
+	@Primary
 	@ConfigurationProperties(prefix = "spring.messages")
 	public MessageSourceProperties myMessageSourceProperties() {
 		return new MessageSourceProperties();
@@ -54,8 +55,7 @@ public class DefaultMessageSourceAutoConfiguration {
 
 	@Bean
 	@Primary
-	public MessageSource messageSource(ResourceBasenameHandler resourceBasenameHandler) {
-		MessageSourceProperties properties = myMessageSourceProperties();
+	public MessageSource messageSource(@Qualifier("myMessageSourceProperties") MessageSourceProperties properties, ResourceBasenameHandler resourceBasenameHandler) {
 		MultiResourceBundleMessageSource messageSource = new MultiResourceBundleMessageSource();
 		messageSource.setBasenameHandler(resourceBasenameHandler);
 		if (StringUtils.hasText(properties.getBasename())) {
