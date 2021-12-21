@@ -384,7 +384,7 @@
 		<maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
-		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
+		<spring-boot-admin.version>2.5.5</spring-boot-admin.version>
 		<spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
 		<spring-boot-starter-agora.version>1.0.0-SNAPSHOT</spring-boot-starter-agora.version>
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.9.1</spring-boot-starter-aliyun-schedulerx2.version>
