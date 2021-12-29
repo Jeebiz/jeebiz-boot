@@ -386,7 +386,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
-	
+
 	public boolean setNx(String key, Object value) {
 		try {
 			return getOperations().opsForValue().setIfAbsent(key, value);
@@ -447,7 +447,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
- 
+
 	/**
 	 * 普通缓存获取
 	 *
@@ -466,7 +466,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public String getString(String key) {
 		return getFor(key, TO_STRING);
 	}
-	
+
 	public String getString(String key, String defaultVal) {
 		String rtVal = getString(key);
 		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
@@ -475,7 +475,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Double getDouble(String key) {
 		return getFor(key, TO_DOUBLE);
 	}
-	
+
 	public Double getDouble(String key, double defaultVal) {
 		Double rtVal = getDouble(key);
 		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
@@ -493,12 +493,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Integer getInteger(String key) {
 		return getFor(key, TO_INTEGER);
 	}
-	
+
 	public Integer getInteger(String key, int defaultVal) {
 		Integer rtVal = getInteger(key);
 		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
 	}
-	
+
 	public <T> T getFor(String key, Class<T> clazz) {
 		return getFor(key, member -> clazz.cast(member));
 	}
@@ -1514,7 +1514,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * 移除N个值为value
 	 *
@@ -1531,7 +1531,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
-	
+
 	// ================================Hash=================================
 
 	/**
@@ -1655,12 +1655,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public String hGetString(String key, String hashKey) {
 		return hGetFor(key, hashKey, TO_STRING);
 	}
-	
+
 	public String hGetString(String key, String hashKey, String defaultVal) {
 		String rtVal = hGetString(key, hashKey);
 		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
 	}
-	
+
 	public Double hGetDouble(String key, String hashKey) {
 		return hGetFor(key, hashKey, TO_DOUBLE);
 	}
@@ -2314,7 +2314,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Set<Integer> sGetInteger(String key) {
 		return sGetFor(key, TO_INTEGER);
 	}
- 
+
 	public <T> Set<T> sGetFor(String key, Class<T> clazz) {
 		return sGetFor(key, member -> clazz.cast(member));
 	}
@@ -2470,7 +2470,35 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param count
 	 * @return
 	 */
-	public List<Object> sRandomSet(String key, long count) {
+	public List<String> sRandomString(String key, long count) {
+		return sRandomFor(key, count, TO_STRING);
+	}
+
+	public List<Double> sRandomDouble(String key, long count) {
+		return sRandomFor(key, count, TO_DOUBLE);
+	}
+
+	public List<Long> sRandomLong(String key, long count) {
+		return sRandomFor(key, count, TO_LONG);
+	}
+
+	public List<Integer> sRandomInteger(String key, long count) {
+		return sRandomFor(key, count, TO_INTEGER);
+	}
+
+	public <T> List<T> sRandomFor(String key, long count, Class<T> clazz) {
+		return sRandomFor(key, count, member -> clazz.cast(member));
+	}
+
+	public <T> List<T> sRandomFor(String key, long count, Function<Object, T> mapper) {
+		List<Object> members = this.sRandom(key, count);
+		if (Objects.nonNull(members)) {
+			return members.stream().map(mapper).collect(Collectors.toList());
+		}
+		return null;
+	}
+
+	public List<Object> sRandom(String key, long count) {
 		try {
 			return getOperations().opsForSet().randomMembers(key, count);
 		} catch (Exception e) {
@@ -2486,7 +2514,35 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param count
 	 * @return
 	 */
-	public Set<Object> sRandomSetDistinct(String key, long count) {
+	public Set<String> sRandomDistinctString(String key, long count) {
+		return sRandomDistinctFor(key, count, TO_STRING);
+	}
+
+	public Set<Double> sRandomDistinctDouble(String key, long count) {
+		return sRandomDistinctFor(key, count, TO_DOUBLE);
+	}
+
+	public Set<Long> sRandomDistinctLong(String key, long count) {
+		return sRandomDistinctFor(key, count, TO_LONG);
+	}
+
+	public Set<Integer> sRandomDistinctInteger(String key, long count) {
+		return sRandomDistinctFor(key, count, TO_INTEGER);
+	}
+
+	public <T> Set<T> sRandomDistinctFor(String key, long count, Class<T> clazz) {
+		return sRandomDistinctFor(key, count, member -> clazz.cast(member));
+	}
+
+	public <T> Set<T> sRandomDistinctFor(String key, long count, Function<Object, T> mapper) {
+		Set<Object> members = this.sRandomDistinct(key, count);
+		if (Objects.nonNull(members)) {
+			return members.stream().map(mapper).collect(Collectors.toCollection(LinkedHashSet::new));
+		}
+		return null;
+	}
+
+	public Set<Object> sRandomDistinct(String key, long count) {
 		try {
 			return getOperations().opsForSet().distinctRandomMembers(key, count);
 		} catch (Exception e) {
@@ -3050,15 +3106,15 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
-	
+
 	public Set<String> zRevrangeStringByScore(String key, long  start, long end) {
 		return zRevrangeForByScore(key, start, end, TO_STRING);
 	}
-	
+
 	public Set<Double> zRevrangeDoubleByScore(String key, long  start, long end) {
 		return zRevrangeForByScore(key, start, end, TO_DOUBLE);
 	}
-	
+
 	public Set<Long> zRevrangeLongByScore(String key, long  start, long end) {
 		return zRevrangeForByScore(key, start, end, TO_LONG);
 	}
@@ -3066,11 +3122,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Set<Integer> zRevrangeIntegerByScore(String key, long  start, long end) {
 		return zRevrangeForByScore(key, start, end, TO_INTEGER);
 	}
-	
+
 	public <T> Set<T> zRevrangeForByScore(String key, double min, double max, Class<T> clazz) {
 		return zRevrangeForByScore(key, min, max, member -> clazz.cast(member));
 	}
-	
+
 	public <T> Set<T> zRevrangeForByScore(String key, double min, double max, Function<Object, T> mapper) {
 		Set<Object> members = this.zRevrangeByScore(key, min, max);
 		if(Objects.nonNull(members)) {
@@ -3078,7 +3134,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 获取指定key的scores正序，指定start-end位置的元素
 	 *
@@ -3127,6 +3183,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 				throw new RedisOperationException(e.getMessage());
 			}
 		});
+	}
+
+	public Double zScore(String key, Object value, double defaultVal) {
+		Double rtVal = zScore(key, value);
+		return Objects.nonNull(rtVal) ? rtVal : defaultVal;
 	}
 
 	public Double zScore(String key, Object value) {
@@ -3531,7 +3592,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
 		}
-		
+
 	}
 
 	/**
