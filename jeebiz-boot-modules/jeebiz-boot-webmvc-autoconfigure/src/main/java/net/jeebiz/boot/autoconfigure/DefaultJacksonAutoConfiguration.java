@@ -19,7 +19,7 @@ import net.jeebiz.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({ ObjectMapper.class, Jackson2ObjectMapperBuilder.class })
-@AutoConfigureBefore({JacksonAutoConfiguration.class, DefaultMessageConvertersConfiguration.class})
+@AutoConfigureBefore(JacksonAutoConfiguration.class)
 public class DefaultJacksonAutoConfiguration {
 
 	@Bean
@@ -28,44 +28,16 @@ public class DefaultJacksonAutoConfiguration {
 	public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
 		return Jackson2ObjectMapperBuilder.json()
 				.simpleDateFormat(DateFormats.DATE_LONGFORMAT)
-				.failOnEmptyBeans(false).failOnUnknownProperties(false)
-				.featuresToEnable(MapperFeature.USE_GETTERS_AS_SETTERS, MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
-				.serializationInclusion(JsonInclude.Include.NON_NULL);
-	}
-	
-	@Bean
-	@Order(Integer.MIN_VALUE)
-	@Primary
-	public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
-		return new Jackson2ObjectMapperBuilderCustomizer() {
-
-			@Override
-			public void customize(Jackson2ObjectMapperBuilder jacksonObjectMapperBuilder) {
-
-				jacksonObjectMapperBuilder
-					.simpleDateFormat(DateFormats.DATE_LONGFORMAT)	
-					.failOnEmptyBeans(false)
-					.failOnUnknownProperties(false)
-					.featuresToEnable(MapperFeature.USE_GETTERS_AS_SETTERS, MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
-					.serializationInclusion(JsonInclude.Include.NON_NULL);
-				
-			}
-
-		};
+				.failOnEmptyBeans(false)
+				.failOnUnknownProperties(false)
+				.featuresToEnable(MapperFeature.USE_GETTERS_AS_SETTERS, MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS);
 	}
 
 	@Bean
 	@Order(Integer.MIN_VALUE)
 	@Primary
 	public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
-		
-		ObjectMapper objectMapper = builder.createXmlMapper(false).build();
-		
-		/** 为objectMapper注册一个带有SerializerModifier的Factory */
-		objectMapper.setSerializerFactory(
-				objectMapper.getSerializerFactory().withSerializerModifier(new MyBeanSerializerModifier()));
-		
-		return objectMapper;
+		return builder.createXmlMapper(false).build();
 	}
-	
+
 }
