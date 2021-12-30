@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.*;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter;
+import org.springframework.http.converter.xml.SourceHttpMessageConverter;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -26,7 +26,6 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import hitool.core.lang3.time.DateFormats;
@@ -59,25 +58,49 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 		configurer.enable();
 	}
 
-    @Override
+	/**
+	 * https://blog.csdn.net/litte_frog/article/details/82764215
+	 ByteArrayHttpMessageConverter – converts byte arrays
+	 StringHttpMessageConverter – converts Strings
+	 ResourceHttpMessageConverter – converts org.springframework.core.io.Resource for any type of octet stream
+	 SourceHttpMessageConverter – converts javax.xml.transform.Source
+	 FormHttpMessageConverter – converts form data to/from a MultiValueMap<String, String>.
+	 Jaxb2RootElementHttpMessageConverter – converts Java objects to/from XML (added only if JAXB2 is present on the classpath)
+	 MappingJackson2HttpMessageConverter – converts JSON (added only if Jackson 2 is present on the classpath)
+	 * @param converters
+	 */
+	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 
-    	ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
+		// 单独初始化ObjectMapper，不使用全局对象，因为下面要指定特殊的输出处理，会影响内部业务逻辑
+		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json()
+				.simpleDateFormat(DateFormats.DATE_LONGFORMAT)
+				.failOnEmptyBeans(false)
+				.failOnUnknownProperties(false)
+				.featuresToEnable(MapperFeature.USE_GETTERS_AS_SETTERS, MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS).build();
 
-        /** 为objectMapper注册一个带有SerializerModifier的Factory */
-		objectMapper.setSerializerFactory(objectMapper.getSerializerFactory()
-				.withSerializerModifier(new MyBeanSerializerModifier()))
-				.enable(MapperFeature.USE_GETTERS_AS_SETTERS)
-				.enable(MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
-				.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
-				.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-				.setDateFormat(DateFormats.getDateFormat(DateFormats.DATE_LONGFORMAT));
+		/** 为objectMapper注册一个带有SerializerModifier的Factory */
+		objectMapper.setSerializerFactory(objectMapper.getSerializerFactory().withSerializerModifier(new MyBeanSerializerModifier()));
 
-        //SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
-        //serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
-
+		//SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
+		//serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
 		converters.add(new MappingJackson2HttpMessageConverter(objectMapper));
-        converters.add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
+		converters.add(new ByteArrayHttpMessageConverter());
+		converters.add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
+		converters.add(new ResourceHttpMessageConverter());
+		converters.add(new ResourceRegionHttpMessageConverter());
+		try {
+			converters.add(new SourceHttpMessageConverter<>());
+		}
+		catch (Throwable ex) {
+			// Ignore when no TransformerFactory implementation is available...
+		}
+		converters.add(new AllEncompassingFormHttpMessageConverter());
+	}
+
+	@Override
+	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+
 	}
 
     @Override
