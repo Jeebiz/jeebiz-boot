@@ -5,6 +5,7 @@
 package net.jeebiz.boot.extras.external.region;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -58,7 +59,7 @@ public class PconlineRegionTemplate {
 
 	private final OkHttpClient okhttp3Client;
 	private RedisOperationTemplate redisOperation;
-	
+
 	public PconlineRegionTemplate(OkHttpClient okhttp3Client) {
 		this.okhttp3Client = okhttp3Client;
 	}
@@ -97,7 +98,7 @@ public class PconlineRegionTemplate {
 			HttpUrl httpUrl = HttpUrl.parse(GET_COUNTRY_BY_IP_URL).newBuilder()
 					.addQueryParameter("json", Boolean.TRUE.toString())
 					.addQueryParameter("ip", ip).build();
-			Request request = new Request.Builder().url(httpUrl).build();
+			Request request = new Request.Builder().addHeader("Connection","close").url(httpUrl).build();
 			Response response = okhttp3Client.newCall(request).execute();
 			if (response.isSuccessful()) {
 				String bodyString = response.body().string();
@@ -106,7 +107,7 @@ public class PconlineRegionTemplate {
 				String addr = jsonObject.getString("addr");
 				if (StringUtils.hasText(addr)) {
 					if(Objects.nonNull(redisOperation)) {
-						redisOperation.set(redisKey, bodyString, CalendarUtils.getSecondsNextEarlyMorning());
+						redisOperation.set(redisKey, bodyString, Duration.ofMinutes(30));
 					}
 					return Optional.ofNullable(jsonObject);
 				}
@@ -125,7 +126,7 @@ public class PconlineRegionTemplate {
 
 				JSONObject regionData = optional.get();
 
-				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
+				log.debug(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
 
 				String province = regionData.getString("pro");
 				String city = regionData.getString("city");
@@ -141,13 +142,13 @@ public class PconlineRegionTemplate {
 						province = proEnum.get().getCname();
 					}
 				}
-				
+
 				Optional<RegionEnum> regionEnum = Stream.of(RegionEnum.values()).filter(region -> addr.contains(region.getCname())).findFirst();
 				if(regionEnum.isPresent()) {
 					country = regionEnum.get().getCname();
 				}
-				
-				log.info(" IP : {} >> Country/Region : {} ", ip, country);
+
+				log.debug(" IP : {} >> Country/Region : {} ", ip, country);
 
 				return new RegionAddress(country, province, city, "", "");
 			}
@@ -167,29 +168,29 @@ public class PconlineRegionTemplate {
 			if(optional.isPresent()) {
 
 				JSONObject regionData = optional.get();
-				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
+				log.debug(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
 
 				String addr = StringUtils.trimWhitespace(regionData.getString("addr"));
 				String country = addr;
 
 				Optional<String> regionOptional = Stream.of(SPECIAL_REGION).filter(region -> addr.contains(region)).findFirst();
 				if(regionOptional.isPresent()) {
-					log.info(" IP : {} >> Country/Region : {} ", ip, country);
+					log.debug(" IP : {} >> Country/Region : {} ", ip, country);
 					return SPECIAL_REGION_MAP.get(regionOptional.get());
 				}
-				
+
 				Optional<ProvinceEnum> proEnum = Stream.of(ProvinceEnum.values()).filter(pro -> addr.contains(pro.getCname())).findFirst();
 				if(proEnum.isPresent()) {
-					log.info(" IP : {} >> Country/Region : {} ", ip, proEnum.get().getCname());
+					log.debug(" IP : {} >> Country/Region : {} ", ip, proEnum.get().getCname());
 					return RegionEnum.CN;
 				}
-				
+
 				Optional<RegionEnum> regionEnum = Stream.of(RegionEnum.values()).filter(region -> addr.contains(region.getCname())).findFirst();
 				if(regionEnum.isPresent()) {
-					log.info(" IP : {} >> Country/Region : {} ", ip, regionEnum.get().getCname());
+					log.debug(" IP : {} >> Country/Region : {} ", ip, regionEnum.get().getCname());
 					return regionEnum.get();
 				}
-				
+
 				return RegionEnum.UK;
 			}
 			return RegionEnum.UK;
@@ -198,15 +199,15 @@ public class PconlineRegionTemplate {
 			return RegionEnum.UK;
 		}
 	}
-	
+
 	public boolean isMainlandIp(String ip) {
 		try {
 			Optional<JSONObject> optional = this.getLocationByIp(ip);
 			if(optional.isPresent()) {
-				
+
 				JSONObject regionData = optional.get();
-				log.info(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
-				
+				log.debug(" IP : {} >> Region : {} ", ip, regionData.toJSONString());
+
 				String proCode = regionData.getString("proCode");
 				if (!StringUtils.hasText(proCode) || SPECIAL_PROVINCE_SET.contains(proCode)) {
 					return false;
@@ -218,12 +219,12 @@ public class PconlineRegionTemplate {
 		}
 		return true;
 	}
-	
+
 
 	public static void main(String[] args) throws IOException {
-		
+
 		PconlineRegionTemplate template = new PconlineRegionTemplate(new OkHttpClient.Builder().build());
-		
+
 		Optional<JSONObject> mapLL2 = template.getLocationByIp("13.228.204.118"); // lng：116.86380647644208  lat：38.297615350325717
 		System.out.println(mapLL2.get().toJSONString());
 	}
