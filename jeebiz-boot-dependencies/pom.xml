@@ -155,7 +155,7 @@
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>4.0.1</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
-		<javamelody.version>1.88.0</javamelody.version>
+		<javamelody.version>1.90.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
