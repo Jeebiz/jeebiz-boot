@@ -147,6 +147,12 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, Objects.toString(msgKey));
     }),
 	/**
+	 * IP地区编码缓存
+	 */
+	IP_REGION_INFO("用户坐标对应的地区编码缓存", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_REGION_KEY, ip);
+	}),
+	/**
 	 * IP坐标缓存
 	 */
 	IP_LOCATION_INFO("用户坐标对应的地理位置缓存", (ip)->{

@@ -4,6 +4,8 @@
  */
 package net.jeebiz.boot.extras.external.region;
 
+import net.jeebiz.boot.extras.redis.setup.RedisKey;
+import net.jeebiz.boot.extras.redis.setup.RedisOperationTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -13,6 +15,8 @@ import com.github.hiwepy.ip2region.spring.boot.ext.RegionAddress;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionEnum;
 
 import lombok.extern.slf4j.Slf4j;
+
+import java.time.Duration;
 
 
 /**
@@ -32,6 +36,8 @@ public class NestedRegionTemplate {
 	protected static String ISP_KEY = "isp";
 
 	@Autowired
+	private RedisOperationTemplate redisOperation;
+	@Autowired
     private IP2regionTemplate ip2RegionTemplate;
     @Autowired
     private PconlineRegionTemplate pconlineRegionTemplate;
@@ -44,7 +50,7 @@ public class NestedRegionTemplate {
 		log.info("Get Final Region : {} By regionCode : {}, ipAddress : {}, is Valid : {} ", regionEnum.name(), regionCode, ipAddress, regionEnum.isValidRegion());
 		return regionEnum;
 	}
-    
+
     public RegionEnum getRegionByCode(String regionCode) {
 		RegionEnum regionEnum = RegionEnum.getByCode2(regionCode);
 		log.debug("Get Region : {} By regionCode : {}, is Valid : {} ", regionEnum.name(), regionCode, regionEnum.isValidRegion());
@@ -54,11 +60,17 @@ public class NestedRegionTemplate {
 		}
 		return regionEnum;
 	}
-    
+
 	public RegionEnum getRegionByIp(String ipAddress) {
 		// 1、去除参数两头空白
 		ipAddress = StringUtils.trimWhitespace(ipAddress);
-		// 2、尝试使用ip2region的ip库进行IP解析
+		// 2、优先从本地缓存获取数据
+		String redisKey = RedisKey.IP_REGION_INFO.getKey(ipAddress);
+		String regionCode = redisOperation.getString(redisKey);
+		if(StringUtils.hasText(regionCode)){
+			return RegionEnum.getByCode2(regionCode);
+		}
+		// 3、尝试使用ip2region的ip库进行IP解析
 		RegionEnum regionEnum = getIp2RegionTemplate().getRegionByIp(ipAddress);
 		log.info("Get Region : {} By ipAddress: {} From Ip2Region, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
 		if(!regionEnum.isValidRegion()) {
@@ -71,11 +83,13 @@ public class NestedRegionTemplate {
 			}
 		}
 		if(regionEnum.isValidRegion()) {
+			redisOperation.set(redisKey, regionEnum.getCode2(), Duration.ofMinutes(10));
 			return regionEnum;
 		}
+		redisOperation.set(redisKey, RegionEnum.UK.getCode2(), Duration.ofMinutes(10));
 		return RegionEnum.UK;
 	}
-	
+
     public RegionAddress getRegionAddress(String ipAddress) {
     	// 1、去除参数两头空白
 		ipAddress = StringUtils.trimWhitespace(ipAddress);
