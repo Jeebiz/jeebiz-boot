@@ -39,7 +39,7 @@ public enum RedisKey {
 		return RedisKeyConstant.getKeyStr(keyStr);
     }),
 	/**
-	 * redis 我关注的用户 
+	 * redis 我关注的用户
 	 */
 	USER_FOLLOW("我关注的用户", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_FOLLOW_KEY, userId).getMessage();
@@ -100,7 +100,7 @@ public enum RedisKey {
     }),
 	/**
 	 * 用户资产缓存
-	
+
 	USER_ASSETS_AMOUNT("用户资产", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_ASSETS_AMOUNT_KEY, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
@@ -125,7 +125,7 @@ public enum RedisKey {
 	USER_PEARL_AMOUNT("用户珍珠", (userId)->{
 		String keyStr = MessageFormatter.format(RedisKeyConstant.USER_PEARL_AMOUNT_KEY, userId).getMessage();
 		return RedisKeyConstant.getKeyStr(keyStr);
-    }), 
+    }),
 	/**
 	 * 用户经验增量缓存
 	 */
@@ -146,6 +146,12 @@ public enum RedisKey {
 	MQ_CONSUME_LOCK("消息队列消息消费锁", (msgKey)->{
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.MQ_CONSUME_LOCK, Objects.toString(msgKey));
     }),
+	/**
+	 * IP地区编码缓存
+	 */
+	IP_REGION_INFO("用户坐标对应的地区编码缓存", (ip)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_REGION_KEY, ip);
+	}),
 	/**
 	 * IP坐标缓存
 	 */
@@ -168,16 +174,16 @@ public enum RedisKey {
 
 	private String desc;
     private Function<String, String> function;
-    
+
     RedisKey(String desc, Function<String, String> function) {
         this.desc = desc;
         this.function = function;
     }
-    
+
     public String getDesc() {
 		return desc;
 	}
-    
+
     /**
      * 1、获取全名称key
      * @return
@@ -194,5 +200,5 @@ public enum RedisKey {
     public String getKey(String key) {
         return this.function.apply(key);
     }
-	
+
 }
