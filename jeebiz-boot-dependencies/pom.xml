@@ -229,7 +229,7 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.1</p6spy.version>
-		<pac4j.version>4.5.4</pac4j.version>
+		<pac4j.version>5.2.0</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
 		<paho-mqttv3.version>1.2.5</paho-mqttv3.version>
         <paypal-checkout-sdk.version>1.0.3</paypal-checkout-sdk.version>
