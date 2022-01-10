@@ -136,7 +136,7 @@
 		<grpc.version>1.35.0</grpc.version>
 		<hadoop.version>3.2.1</hadoop.version>
 		<hbase.version>2.2.4</hbase.version>
-		<h2.version>1.4.199</h2.version>
+		<h2.version>2.0.206</h2.version>
 		<htmlparser.version>2.1</htmlparser.version>
 		<httpconn.version>1.0.1.RELEASE</httpconn.version>
 		<httputils.version>1.0.0.RELEASE</httputils.version>
@@ -229,7 +229,7 @@
 		<owasp-encoder.version>1.2.2</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.1</p6spy.version>
-		<pac4j.version>4.4.0</pac4j.version>
+		<pac4j.version>4.5.4</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
 		<paho-mqttv3.version>1.2.5</paho-mqttv3.version>
         <paypal-checkout-sdk.version>1.0.3</paypal-checkout-sdk.version>
@@ -237,7 +237,7 @@
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
 		<perf4j.version>0.9.16</perf4j.version>
 		<prometheus.version>0.10.0</prometheus.version>
-		<protobuf.version>3.19.1</protobuf.version>
+		<protobuf.version>3.19.2</protobuf.version>
 		<proxool.version>0.9.1</proxool.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>
 		<pf4j.version>3.6.0</pf4j.version>
