@@ -170,6 +170,7 @@ public enum RedisKey {
 	IP_LOCATION_PCONLINE_INFO("IP坐标缓存（太平洋网络）", (ip)->{
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_PCONLINE_LOCATION_KEY, ip);
     })
+
 	;
 
 	private String desc;

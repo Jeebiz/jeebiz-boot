@@ -2,14 +2,15 @@
  */
 package net.jeebiz.boot.demo.web.mvc;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.biz.utils.StringUtils;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,6 @@ import net.jeebiz.boot.demo.web.dto.DemoNewDTO;
 
 @RestController
 @RequestMapping("demo")
-@SuppressWarnings("unchecked")
 public class DemoController extends BaseMapperController{
 	
 	@Autowired
@@ -97,10 +97,10 @@ public class DemoController extends BaseMapperController{
 	@ResponseBody
 	public Object delete(@RequestParam(value = "ids") String ids, HttpServletRequest request) throws Exception {
 		try {
-			if (StringUtils.isEmpty(ids)) {
+			if (ObjectUtils.isEmpty(ids)) {
 				return fail("demo.delete.fail");
 			}
-			List<String> list = CollectionUtils.arrayToList(StringUtils.tokenizeToStringArray(ids));
+			List<String> list = Arrays.asList(StringUtils.tokenizeToStringArray(ids));
 			// 批量删除数据库配置记录
 			getDemoService().batchDelete(list);
 			return success("demo.delete.success");

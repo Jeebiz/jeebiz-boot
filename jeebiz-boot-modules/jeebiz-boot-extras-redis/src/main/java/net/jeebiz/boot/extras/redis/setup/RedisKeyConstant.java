@@ -3,7 +3,7 @@ package net.jeebiz.boot.extras.redis.setup;
 import java.util.Objects;
 
 public abstract class RedisKeyConstant {
-
+	
 	public final static String DELIMITER = ":";
 	public final static String YYYYMMDD = "yyyyMMdd";
 	public final static String YYYYMM = "yyyyMM";

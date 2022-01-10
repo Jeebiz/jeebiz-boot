@@ -2,7 +2,8 @@ package net.jeebiz.boot.autoconfigure.license;
 
 import java.util.Calendar;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import net.jeebiz.boot.autoconfigure.license.creator.LicenseCreator;
@@ -45,5 +46,5 @@ public class License_Test {
         licenseCreator.generateLicense();
     }
 
-	
+
 }

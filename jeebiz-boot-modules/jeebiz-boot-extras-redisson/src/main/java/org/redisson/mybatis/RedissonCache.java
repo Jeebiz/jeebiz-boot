@@ -18,8 +18,7 @@ import org.springframework.biz.utils.SpringResourceUtils;
 
 /**
  * MyBatis cache implementation
- *
- * @author Nikita Koksharov
+ * @author Nikita Koksharov、hiwepy
  *
  */
 public class RedissonCache implements Cache {

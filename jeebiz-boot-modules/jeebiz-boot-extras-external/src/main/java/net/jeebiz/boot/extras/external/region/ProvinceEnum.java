@@ -1,5 +1,8 @@
 package net.jeebiz.boot.extras.external.region;
 
+import java.util.List;
+import java.util.function.Function;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,9 +47,9 @@ public enum ProvinceEnum {
     P820000("820000", "澳门特别行政区"),
 
 	UK("999999", "未知行政区"),
-	
+
 	;
-	
+
     // 行政区划代码
     private String code;
 
@@ -63,7 +66,7 @@ public enum ProvinceEnum {
     public String getCode() {
 		return code;
 	}
-    
+
 	public String getCname() {
 		return cname;
 	}
@@ -77,7 +80,7 @@ public enum ProvinceEnum {
 		log.error("Cannot found ProvinceEnum with code '" + code + "'.");
 		return ProvinceEnum.UK;
 	}
-	
+
 	public static ProvinceEnum getByCnName(String cn_name) {
 		for (ProvinceEnum region : ProvinceEnum.values()) {
 			if (region.getCname().equalsIgnoreCase(cn_name)) {
@@ -87,5 +90,5 @@ public enum ProvinceEnum {
 		log.error("Cannot found ProvinceEnum with cn_name '" + cn_name + "'.");
 		return ProvinceEnum.UK;
 	}
-	
+
 }
