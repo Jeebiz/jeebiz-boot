@@ -1,13 +1,15 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.autoconfigure.webmvc;
 
 import java.util.Map;
+import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.jeebiz.boot.api.utils.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -27,13 +29,20 @@ public abstract class ExceptinHandler {
 	protected boolean isAjaxRequest(HttpServletRequest request) {
         return XML_HTTP_REQUEST.equalsIgnoreCase(request.getHeader(X_REQUESTED_WITH));
     }
-	
+
 	protected void logException(Exception ex) {
+		HttpServletRequest request = WebUtils.getHttpServletRequest();
+		if(Objects.nonNull(request)) {
+			LOG.error(bizExcpMarker, "URI : {} Request Fail. ", request.getRequestURI());
+		}
 		LOG.error(bizExcpMarker, ex.getMessage(), ex);
 	}
 
 	protected void logException(Exception ex, Map<String, Object> detailMap) {
-
+		HttpServletRequest request = WebUtils.getHttpServletRequest();
+		if(Objects.nonNull(request)) {
+			LOG.error(bizExcpMarker, "URI : {} Request Fail. ", request.getRequestURI());
+		}
 		for (final Map.Entry<String, Object> entry : detailMap.entrySet()) {
 			Object val = entry.getValue();
 			if (val instanceof String) {
