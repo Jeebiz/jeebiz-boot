@@ -22,7 +22,7 @@ public abstract class RedisKeyConstant {
 	 * 应用黑名单缓存
 	 */
 	public final static String APP_BLACKLIST_PREFIX = "app:blacklist";
-	
+
 	/**
 	 * redis 用户登陆次数
 	 */
@@ -107,7 +107,11 @@ public abstract class RedisKeyConstant {
 	 * 消息队列消息消费锁
 	 */
 	public final static String MQ_CONSUME_LOCK = "mq:consume:lock";
-	
+
+	/**
+	 * IP坐标缓存
+	 */
+	public final static String IP_REGION_KEY = "ip:region";
 	/**
 	 * IP坐标缓存
 	 */
@@ -120,10 +124,10 @@ public abstract class RedisKeyConstant {
 	 * IP坐标缓存（太平洋网络）
 	 */
 	public final static String IP_PCONLINE_LOCATION_KEY = "pconline:ip:location";
-	
+
 
 	public static String REDIS_PREFIX = "rds";
-	
+
 	public static String getKeyStr(String... args) {
 		StringBuilder tempKey = new StringBuilder(REDIS_PREFIX);
 		for (String s : args) {
