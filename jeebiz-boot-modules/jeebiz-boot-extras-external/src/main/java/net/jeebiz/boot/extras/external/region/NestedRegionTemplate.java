@@ -72,12 +72,12 @@ public class NestedRegionTemplate {
 		}
 		// 3、尝试使用ip2region的ip库进行IP解析
 		RegionEnum regionEnum = getIp2RegionTemplate().getRegionByIp(ipAddress);
-		log.info("Get Region : {} By ipAddress: {} From Ip2Region, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
+		log.debug("Get Region : {} By ipAddress: {} From Ip2Region, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
 		if(!regionEnum.isValidRegion()) {
 			try {
 				// 3、尝试使用太平洋网络的ip库进行IP解析
 				regionEnum = getPconlineRegionTemplate().getRegionByIp(ipAddress);
-				log.info("Get Region {} By ipAddress: {} From Pconline, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
+				log.debug("Get Region {} By ipAddress: {} From Pconline, is Valid : {} ", regionEnum.name(), ipAddress, regionEnum.isValidRegion());
 			} catch (Exception e) {
 				log.error("太平洋网络IP地址查询失败！{}", e.getMessage());
 			}
