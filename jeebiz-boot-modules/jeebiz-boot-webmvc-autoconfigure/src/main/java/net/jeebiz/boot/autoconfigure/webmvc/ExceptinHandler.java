@@ -33,7 +33,7 @@ public abstract class ExceptinHandler {
 	protected void logException(Exception ex) {
 		HttpServletRequest request = WebUtils.getHttpServletRequest();
 		if(Objects.nonNull(request)) {
-			LOG.error(bizExcpMarker, "URI : {} Request Fail. ", request.getRequestURI());
+			LOG.error(bizExcpMarker, "URI : {} Request Fail. IP >> {} ", request.getRequestURI(), WebUtils.getRemoteAddr(request));
 		}
 		LOG.error(bizExcpMarker, ex.getMessage(), ex);
 	}
@@ -41,7 +41,7 @@ public abstract class ExceptinHandler {
 	protected void logException(Exception ex, Map<String, Object> detailMap) {
 		HttpServletRequest request = WebUtils.getHttpServletRequest();
 		if(Objects.nonNull(request)) {
-			LOG.error(bizExcpMarker, "URI : {} Request Fail. ", request.getRequestURI());
+			LOG.error(bizExcpMarker, "URI : {} Request Fail. IP >> {} ", request.getRequestURI(), WebUtils.getRemoteAddr(request));
 		}
 		for (final Map.Entry<String, Object> entry : detailMap.entrySet()) {
 			Object val = entry.getValue();
