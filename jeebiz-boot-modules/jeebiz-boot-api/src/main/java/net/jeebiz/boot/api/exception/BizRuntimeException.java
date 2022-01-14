@@ -1,9 +1,10 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.api.exception;
 
+import net.jeebiz.boot.api.CustomApiCode;
 import org.springframework.core.NestedRuntimeException;
 
 import net.jeebiz.boot.api.ApiCode;
@@ -24,7 +25,7 @@ public class BizRuntimeException extends NestedRuntimeException {
 		super("");
 		this.code = code;
 	}
-	
+
 	public BizRuntimeException(String msg) {
 		super(msg);
 		this.code = ApiCode.SC_FAIL.getCode();
@@ -34,13 +35,13 @@ public class BizRuntimeException extends NestedRuntimeException {
 		super(msg);
 		this.code = code;
 	}
-	
+
 	public BizRuntimeException(ApiCode code, String i18n) {
 		super(code.getReason());
 		this.code = code.getCode();
 		this.i18n = i18n;
 	}
-	
+
 	public BizRuntimeException(int code, String i18n, String defMsg) {
 		super(defMsg);
 		this.code = code;
@@ -51,19 +52,24 @@ public class BizRuntimeException extends NestedRuntimeException {
 		super(msg, cause);
 		this.code = code;
 	}
-	
+
 	public BizRuntimeException(int code, String i18n, String defMsg, Throwable cause) {
 		super(defMsg, cause);
 		this.code = code;
 		this.i18n = i18n;
 	}
 
+	public BizRuntimeException(CustomApiCode code) {
+		super(code.getReason());
+		this.code = code.getCode();
+	}
+
 	public int getCode() {
 		return code;
 	}
-	
+
 	public String getI18n() {
 		return i18n;
 	}
-	
+
 }
