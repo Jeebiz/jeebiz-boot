@@ -301,10 +301,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			if (Objects.isNull(pattern)) {
 				return null;
 			}
-			Set<String> keys = new HashSet<>();
-			this.scan(pattern, (value) -> {
-				keys.add(deserializeString(value));
-			});
+			Set<String> keys = this.scan(pattern);
 			return keys;
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -939,23 +936,26 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * scan 实现
 	 *
 	 * @param pattern  表达式
-	 * @param consumer 对迭代到的key进行操作
+	 * @param count 数量限制
 	 */
-	public void scan(String pattern, long count, Consumer<byte[]> consumer) {
+	public Set<String> scan(String pattern, long count) {
 		ScanOptions options = ScanOptions.scanOptions().count(count).match(pattern).build();
-		this.scan(options, consumer);
+		return this.scan(options);
 	}
 
-	public void scan(String pattern, Consumer<byte[]> consumer) {
+	public Set<String> scan(String pattern) {
 		ScanOptions options = ScanOptions.scanOptions().match(pattern).build();
-		this.scan(options, consumer);
+		return this.scan(options);
 	}
 
-	public void scan(ScanOptions options, Consumer<byte[]> consumer) {
-		this.getOperations().execute((RedisConnection redisConnection) -> {
+	public Set<String> scan(ScanOptions options) {
+		return this.getOperations().execute((RedisConnection redisConnection) -> {
 			try (Cursor<byte[]> cursor = redisConnection.scan(options)) {
-				cursor.forEachRemaining(consumer);
-				return null;
+				Set<String> keysTmp = new HashSet<>();
+				while (cursor.hasNext()) {
+					keysTmp.add(deserializeString(cursor.next()));
+				}
+				return keysTmp;
 			} catch (Exception e) {
 				log.error(e.getMessage());
 				throw new RedisOperationException(e.getMessage());
@@ -2674,22 +2674,18 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public void sScan(String bigSetKey, Consumer<byte[]> consumer) {
-		this.getOperations().execute((RedisConnection redisConnection) -> {
-			try (Cursor<byte[]> cursor = redisConnection.sScan(rawKey(bigSetKey),
-					ScanOptions.scanOptions().count(Long.MAX_VALUE).build())) {
-				cursor.forEachRemaining(consumer);
-				return null;
-			} catch (Exception e) {
-				log.error(e.getMessage());
-				throw new RedisOperationException(e.getMessage());
-			}
-		});
+		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).build();
+		this.sScan(bigSetKey, options, consumer);
 	}
 
 	public void sScan(String bigSetKey, String pattern, Consumer<byte[]> consumer) {
+		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build();
+		this.sScan(bigSetKey, options, consumer);
+	}
+
+	public void sScan(String bigSetKey, ScanOptions options, Consumer<byte[]> consumer) {
 		this.getOperations().execute((RedisConnection redisConnection) -> {
-			try (Cursor<byte[]> cursor = redisConnection.sScan(rawKey(bigSetKey),
-					ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
+			try (Cursor<byte[]> cursor = redisConnection.sScan(rawKey(bigSetKey), options)) {
 				cursor.forEachRemaining(consumer);
 				return null;
 			} catch (Exception e) {
@@ -3267,20 +3263,18 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public void zScan(String bigZsetKey, Consumer<Tuple> consumer) {
-		this.getOperations().execute((RedisConnection redisConnection) -> {
-			try (Cursor<Tuple> cursor = redisConnection.zScan(rawKey(bigZsetKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).build())) {
-				cursor.forEachRemaining(consumer);
-				return null;
-			} catch (Exception e) {
-				log.error(e.getMessage());
-				throw new RedisOperationException(e.getMessage());
-			}
-		});
+		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).build();
+		this.zScan(bigZsetKey, options, consumer);
 	}
 
 	public void zScan(String bigZsetKey, String pattern, Consumer<Tuple> consumer) {
+		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build();
+		this.zScan(bigZsetKey, options, consumer);
+	}
+
+	public void zScan(String bigZsetKey, ScanOptions options, Consumer<Tuple> consumer) {
 		this.getOperations().execute((RedisConnection redisConnection) -> {
-			try (Cursor<Tuple> cursor = redisConnection.zScan(rawKey(bigZsetKey), ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
+			try (Cursor<Tuple> cursor = redisConnection.zScan(rawKey(bigZsetKey), options)) {
 				cursor.forEachRemaining(consumer);
 				return null;
 			} catch (Exception e) {
