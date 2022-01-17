@@ -2,16 +2,8 @@ package net.jeebiz.boot.extras.redis.setup;
 
 import java.math.BigDecimal;
 import java.time.Duration;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -309,7 +301,11 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			if (Objects.isNull(pattern)) {
 				return null;
 			}
-			return getOperations().keys(pattern);
+			Set<String> keys = new HashSet<>();
+			this.scan(pattern, (value) -> {
+				keys.add(deserializeString(value));
+			});
+			return keys;
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -603,7 +599,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			if (!StringUtils.hasText(pattern)) {
 				return Lists.newArrayList();
 			}
-			Set<String> keys = getOperations().keys(pattern);
+			Set<String> keys = this.keys(pattern);
 			return getOperations().opsForValue().multiGet(keys);
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -928,7 +924,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	public Long delPattern(String pattern) {
 		try {
-			Set<String> keys = getOperations().keys(pattern);
+			Set<String> keys = this.keys(pattern);
 			if(CollectionUtils.isEmpty(keys)){
 				return 0L;
 			}
@@ -951,7 +947,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public void scan(String pattern, Consumer<byte[]> consumer) {
-		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build();
+		ScanOptions options = ScanOptions.scanOptions().match(pattern).build();
 		this.scan(options, consumer);
 	}
 
@@ -965,6 +961,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 				throw new RedisOperationException(e.getMessage());
 			}
 		});
+	}
+
+	/**
+	 * 追加到末尾
+	 *
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	public Integer append(String key, String value) {
+		return redisTemplate.opsForValue().append(key, value);
 	}
 
 	// ===============================List=================================
