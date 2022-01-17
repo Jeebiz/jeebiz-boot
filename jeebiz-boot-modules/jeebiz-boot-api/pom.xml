@@ -10,7 +10,7 @@
 	<artifactId>jeebiz-boot-api</artifactId>
 
 	<dependencies>
-		
+
 		<!-- For Servlet Api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -26,6 +26,11 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
+		<!-- For Transmittable -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>transmittable-thread-local</artifactId>
+		</dependency>
 		<!-- For Fastjson -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -40,7 +45,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-		</dependency> 
+		</dependency>
 		<!-- For Swagger -->
 		<dependency>
 			<groupId>io.swagger</groupId>
@@ -132,7 +137,7 @@
             <groupId>de.schlichtherle.truelicense</groupId>
             <artifactId>truelicense-core</artifactId>
         </dependency>
-        				
+
 	</dependencies>
 
 </project>

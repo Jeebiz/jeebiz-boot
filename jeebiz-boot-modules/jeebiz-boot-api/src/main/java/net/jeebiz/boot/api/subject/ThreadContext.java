@@ -1,6 +1,7 @@
 package net.jeebiz.boot.api.subject;
 
 
+import com.alibaba.ttl.TransmittableThreadLocal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,8 +24,6 @@ import java.util.Map;
  * bind and remove any necessary values at the beginning and end of stack
  * execution, respectively (i.e. individually explicitly or all via the <tt>clear</tt> method).</p>
  *
- * @see #remove()
- * @since 0.1
  */
 public class ThreadContext {
 
@@ -36,7 +35,7 @@ public class ThreadContext {
     public static final String SECURITY_MANAGER_KEY = ThreadContext.class.getName() + "_SECURITY_MANAGER_KEY";
     public static final String SUBJECT_KEY = ThreadContext.class.getName() + "_SUBJECT_KEY";
 
-    private static final ThreadLocal<Map<Object, Object>> resources = new InheritableThreadLocalMap<Map<Object, Object>>();
+    private static final ThreadLocal<Map<Object, Object>> resources = new TransmittableThreadLocal<Map<Object, Object>>();
 
     /**
      * Default no-argument constructor.
@@ -303,7 +302,7 @@ public class ThreadContext {
     public static Subject unbindSubject() {
         return (Subject) remove(SUBJECT_KEY);
     }
-    
+
     private static final class InheritableThreadLocalMap<T extends Map<Object, Object>> extends InheritableThreadLocal<Map<Object, Object>> {
 
         /**
