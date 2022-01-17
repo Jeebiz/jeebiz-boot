@@ -21,6 +21,7 @@ import java.util.stream.Stream;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.data.geo.GeoResults;
+import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisGeoCommands.GeoLocation;
 import org.springframework.data.redis.connection.RedisZSetCommands.Aggregate;
@@ -217,6 +218,21 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	// =============================Keys============================
 
 	/**
+	 * 判断key是否存在
+	 *
+	 * @param key 键
+	 * @return true 存在 false不存在
+	 */
+	public Boolean hasKey(String key) {
+		try {
+			return getOperations().hasKey(key);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	/**
 	 * 指定缓存失效时间
 	 *
 	 * @param key     键
@@ -258,7 +274,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	/**
-	 * 根据key 获取过期时间
+	 * 返回 key 的剩余的过期时间
 	 *
 	 * @param key 键 不能为null
 	 * @return 时间(秒) 返回0代表为永久有效
@@ -273,14 +289,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	/**
-	 * 判断key是否存在
+	 * 返回 key 的剩余的过期时间
 	 *
-	 * @param key 键
-	 * @return true 存在 false不存在
+	 * @param key 键 不能为null
+	 * @return 时间(秒) 返回0代表为永久有效
 	 */
-	public Boolean hasKey(String key) {
+	public Long getExpire(String key, TimeUnit unit) {
 		try {
-			return getOperations().hasKey(key);
+			return getOperations().getExpire(key, unit);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -288,7 +304,7 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	// 模糊匹配缓存中的key
-	public Set<String> getKey(String pattern) {
+	public Set<String> keys(String pattern) {
 		try {
 			if (Objects.isNull(pattern)) {
 				return null;
@@ -300,29 +316,54 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	// 模糊匹配缓存中的key
-	public Set<String> getVagueKey(String pattern) {
-		try {
-			if (Objects.isNull(pattern)) {
-				return null;
-			}
-			return getOperations().keys("*" + pattern + "*");
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
+	/**
+	 * 移除 key 的过期时间，key 将持久保持
+	 *
+	 * @param key
+	 * @return
+	 */
+	public Boolean persist(String key) {
+		return redisTemplate.persist(key);
 	}
 
-	public Set<String> getValueKeyByPrefix(String prefixPattern) {
-		try {
-			if (Objects.isNull(prefixPattern)) {
-				return null;
-			}
-			return getOperations().keys(prefixPattern + "*");
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
+	/**
+	 * 从当前数据库中随机返回一个 key
+	 *
+	 * @return
+	 */
+	public String randomKey() {
+		return redisTemplate.randomKey();
+	}
+
+	/**
+	 * 修改 key 的名称
+	 *
+	 * @param oldKey
+	 * @param newKey
+	 */
+	public void rename(String oldKey, String newKey) {
+		redisTemplate.rename(oldKey, newKey);
+	}
+
+	/**
+	 * 仅当 newkey 不存在时，将 oldKey 改名为 newkey
+	 *
+	 * @param oldKey
+	 * @param newKey
+	 * @return
+	 */
+	public Boolean renameIfAbsent(String oldKey, String newKey) {
+		return redisTemplate.renameIfAbsent(oldKey, newKey);
+	}
+
+	/**
+	 * 返回 key 所储存的值的类型
+	 *
+	 * @param key
+	 * @return
+	 */
+	public DataType type(String key) {
+		return redisTemplate.type(key);
 	}
 
 	// ============================String=============================
@@ -852,30 +893,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	public void delPattern(String pattern) {
+	public Long delPattern(String pattern) {
 		try {
-			this.scan(pattern, (value) -> {
-				getOperations().delete(deserializeKey(value));
-			});
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
-	}
-
-	/**
-	 * 获取符合条件的key
-	 *
-	 * @param pattern 表达式
-	 * @return
-	 */
-	public List<String> keys(String pattern) {
-		try {
-			List<String> keys = Lists.newArrayList();
-			this.scan(pattern, value -> {
-				keys.add(deserializeString(value));
-			});
-			return keys;
+			Set<String> keys = getOperations().keys(pattern);
+			if(CollectionUtils.isEmpty(keys)){
+				return 0L;
+			}
+			return getOperations().delete(keys);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -888,9 +912,19 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @param pattern  表达式
 	 * @param consumer 对迭代到的key进行操作
 	 */
+	public void scan(String pattern, long count, Consumer<byte[]> consumer) {
+		ScanOptions options = ScanOptions.scanOptions().count(count).match(pattern).build();
+		this.scan(options, consumer);
+	}
+
 	public void scan(String pattern, Consumer<byte[]> consumer) {
+		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build();
+		this.scan(options, consumer);
+	}
+
+	public void scan(ScanOptions options, Consumer<byte[]> consumer) {
 		this.getOperations().execute((RedisConnection redisConnection) -> {
-			try (Cursor<byte[]> cursor = redisConnection.scan(ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build())) {
+			try (Cursor<byte[]> cursor = redisConnection.scan(options)) {
 				cursor.forEachRemaining(consumer);
 				return null;
 			} catch (Exception e) {
@@ -1954,11 +1988,21 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	public void hScan(String bigHashKey, Consumer<Entry<Object,Object>> consumer) {
-		getOperations().opsForHash().scan(bigHashKey, ScanOptions.scanOptions().count(Long.MAX_VALUE).build()).forEachRemaining(consumer);
+		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).build();
+		this.hScan(bigHashKey, options).forEachRemaining(consumer);
 	}
 
 	public void hScan(String bigHashKey, String pattern, Consumer<Entry<Object,Object>> consumer) {
-		getOperations().opsForHash().scan(bigHashKey, ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build()).forEachRemaining(consumer);
+		ScanOptions options = ScanOptions.scanOptions().count(Long.MAX_VALUE).match(pattern).build();
+		this.hScan(bigHashKey, options).forEachRemaining(consumer);
+	}
+
+	public void hScan(String bigHashKey, ScanOptions options, Consumer<Entry<Object,Object>> consumer) {
+		this.hScan(bigHashKey, options).forEachRemaining(consumer);
+	}
+
+	public Cursor<Entry<Object, Object>> hScan(String bigHashKey, ScanOptions options) {
+		return  getOperations().opsForHash().scan(bigHashKey, options);
 	}
 
 	/**
@@ -2024,6 +2068,21 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	/**
+	 * 获取所有哈希表中的字段
+	 *
+	 * @param key
+	 * @return
+	 */
+	public Set<Object> hKeys(String key) {
+		try {
+			return getOperations().opsForHash().keys(key);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	/**
 	 * hash的大小
 	 *
 	 * @param key
@@ -2032,6 +2091,21 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	public Long hSize(String key) {
 		try {
 			return getOperations().opsForHash().size(key);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	/**
+	 * 获取哈希表中所有值
+	 *
+	 * @param key
+	 * @return
+	 */
+	public List<Object> hValues(String key) {
+		try {
+			return getOperations().opsForHash().values(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
@@ -2206,15 +2280,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 				expire(key, timeout);
 			}
 			return increment;
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
-	}
-
-	public Set<Object> hKeys(String key) {
-		try {
-			return getOperations().opsForHash().keys(key);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
