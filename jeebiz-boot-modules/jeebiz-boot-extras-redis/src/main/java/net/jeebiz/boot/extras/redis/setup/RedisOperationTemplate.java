@@ -386,6 +386,17 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	}
 
 	/**
+	 * 用 value 参数覆写给定 key 所储存的字符串值，从偏移量 offset 开始
+	 *
+	 * @param key
+	 * @param value
+	 * @param offset 从指定位置开始覆写
+	 */
+	public void setRange(String key, Object value, long offset) {
+		redisTemplate.opsForValue().set(key, value, offset);
+	}
+
+	/**
 	 * 普通缓存放入并设置时间
 	 *
 	 * @param key     键
@@ -557,6 +568,28 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			return mapper.apply(obj);
 		}
 		return null;
+	}
+
+	/**
+	 * 返回 key 中字符串值的子字符
+	 * @param key
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public String getRange(String key, long start, long end) {
+		return redisTemplate.opsForValue().get(key, start, end);
+	}
+
+	/**
+	 * 将给定 key 的值设为 value ，并返回 key 的旧值(old value)
+	 *
+	 * @param key
+	 * @param value
+	 * @return
+	 */
+	public Object getAndSet(String key, Object value) {
+		return redisTemplate.opsForValue().getAndSet(key, value);
 	}
 
 	/**
@@ -3341,6 +3374,14 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 
 	// ===============================BitMap=================================
 
+	/**
+	 * 设置ASCII码, 字符串'a'的ASCII码是97, 转为二进制是'01100001', 此方法是将二进制第offset位值变为value
+	 *
+	 * @param key
+	 * @param value
+	 *            值,true为1, false为0
+	 * @return
+	 */
 	public Boolean setBit(String key, long offset, boolean value) {
 		try {
 			return getOperations().opsForValue().setBit(key, offset, value);
@@ -3350,6 +3391,13 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
+	/**
+	 * 对 key 所储存的字符串值，获取指定偏移量上的位(bit)
+	 *
+	 * @param key
+	 * @param offset
+	 * @return
+	 */
 	public Boolean getBit(String key, long offset) {
 		try {
 			return getOperations().opsForValue().getBit(key, offset);
