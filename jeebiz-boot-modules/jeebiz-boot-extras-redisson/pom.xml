@@ -8,16 +8,21 @@
 		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>jeebiz-boot-extras-redisson</artifactId>
-	
+
 	<dependencies>
-		
+
 		<!-- For Jeebiz API -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>jeebiz-boot-extras-redis</artifactId>
+			<version>${jeebiz-boot.version}</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.gavaghan/geodesy -->
 		<dependency>
 		    <groupId>org.gavaghan</groupId>
@@ -32,7 +37,7 @@
 		    <groupId>io.reactivex.rxjava2</groupId>
 		    <artifactId>rxjava</artifactId>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 </project>

@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
  * All Rights Reserved. 
  */
-package net.jeebiz.boot.extras.redis.setup;
+package net.jeebiz.boot.extras.redisson.setup;
 
 import java.util.ArrayList;
 import java.util.List;
