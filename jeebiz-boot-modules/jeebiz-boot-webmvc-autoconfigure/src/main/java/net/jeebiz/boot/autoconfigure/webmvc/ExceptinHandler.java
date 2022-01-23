@@ -22,7 +22,6 @@ public abstract class ExceptinHandler {
 	public static final String STATUS_ERROR = "error";
 
 	protected static final Logger LOG = LoggerFactory.getLogger(DefaultExceptinHandler.class);
-	protected static final Marker bizExcpMarker = MarkerFactory.getMarker("Biz-Excp");
 	protected static final String XML_HTTP_REQUEST = "XMLHttpRequest";
 	protected static final String X_REQUESTED_WITH = "X-Requested-With";
 
@@ -33,15 +32,15 @@ public abstract class ExceptinHandler {
 	protected void logException(Exception ex) {
 		HttpServletRequest request = WebUtils.getHttpServletRequest();
 		if(Objects.nonNull(request)) {
-			LOG.error(bizExcpMarker, "URI : {} Request Fail. IP >> {} ", request.getRequestURI(), WebUtils.getRemoteAddr(request));
+			LOG.error("URI : {} Request Fail. IP >> {} ", request.getRequestURI(), WebUtils.getRemoteAddr(request));
 		}
-		LOG.error(bizExcpMarker, ex.getMessage(), ex);
+		LOG.error(ex.getMessage(), ex);
 	}
 
 	protected void logException(Exception ex, Map<String, Object> detailMap) {
 		HttpServletRequest request = WebUtils.getHttpServletRequest();
 		if(Objects.nonNull(request)) {
-			LOG.error(bizExcpMarker, "URI : {} Request Fail. IP >> {} ", request.getRequestURI(), WebUtils.getRemoteAddr(request));
+			LOG.error("URI : {} Request Fail. IP >> {} ", request.getRequestURI(), WebUtils.getRemoteAddr(request));
 		}
 		for (final Map.Entry<String, Object> entry : detailMap.entrySet()) {
 			Object val = entry.getValue();
@@ -49,21 +48,7 @@ public abstract class ExceptinHandler {
 				MDC.put(entry.getKey(), String.valueOf(entry.getValue()));
 			}
 		}
-
-		LOG.error(bizExcpMarker, ex.getMessage(), ex);
-	}
-
-	protected void logException(Exception ex, String code) {
-
-		MDC.put("clazz", ex.getClass().getName());
-		MDC.put("type", ex.getClass().getSimpleName());
-		MDC.put("code", code);
-		MDC.put("msg", ex.getClass().getSimpleName());
-
-		// 自身类.class.isAssignableFrom(自身类或子类.class)
-		// Exception.class.isAssignableFrom(ex.getClass())
-
-		LOG.error(bizExcpMarker, ex.getMessage(), ex);
+		LOG.error(ex.getMessage(), ex);
 	}
 
 }

@@ -3009,15 +3009,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	public Set<Object> zRange(String key, long start, long end) {
-		try {
-			return getOperations().opsForZSet().range(key, start, end);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw new RedisOperationException(e.getMessage());
-		}
-	}
-
 	public Set<String> zRangeString(String key, long start, long end) {
 		return zRangeFor(key, start, end, TO_STRING);
 	}
@@ -3054,6 +3045,44 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		return null;
 	}
 
+	public Set<Object> zRange(String key, long start, long end) {
+		try {
+			return getOperations().opsForZSet().range(key, start, end);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	public Set<String> zRangeStringByScore(String key, double min, double max) {
+		return zRangeByScoreFor(key, min, max, TO_STRING);
+	}
+
+	public Set<Double> zRangeDoubleByScore(String key, double min, double max) {
+		return zRangeByScoreFor(key, min, max, TO_DOUBLE);
+	}
+
+	public Set<Long> zRangeLongByScore(String key, double min, double max) {
+		return zRangeByScoreFor(key, min, max, TO_LONG);
+	}
+
+	public Set<Integer> zRangeIntegerByScore(String key, double min, double max) {
+		return zRangeByScoreFor(key, min, max, TO_INTEGER);
+	}
+
+	public <T> Set<T> zRangeByScoreFor(String key, double min, double max, Class<T> clazz) {
+		return zRangeByScoreFor(key, min, max, member -> clazz.cast(member));
+	}
+
+	public <T> Set<T> zRangeByScoreFor(String key, double min, double max, Function<Object, T> mapper) {
+		Set<Object> members = this.zRangeByScore(key, min, max);
+		if(Objects.nonNull(members)) {
+			return members.stream().map(mapper)
+					.collect(Collectors.toCollection(LinkedHashSet::new));
+		}
+		return null;
+	}
+
 	public Set<Object> zRangeByScore(String key, double min, double max) {
 		try {
 			return getOperations().opsForZSet().rangeByScore(key, min, max);
@@ -3061,35 +3090,6 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
 		}
-	}
-
-	public Set<String> zRangeStringByScore(String key, long  min, long max) {
-		return zRangeByScoreFor(key, min, max, TO_STRING);
-	}
-
-	public Set<Double> zRangeDoubleByScore(String key, long  min, long max) {
-		return zRangeByScoreFor(key, min, max, TO_DOUBLE);
-	}
-
-	public Set<Long> zRangeLongByScore(String key, long min, long max) {
-		return zRangeByScoreFor(key, min, max, TO_LONG);
-	}
-
-	public Set<Integer> zRangeIntegerByScore(String key, long min, long max) {
-		return zRangeByScoreFor(key, min, max, TO_INTEGER);
-	}
-
-	public <T> Set<T> zRangeByScoreFor(String key, long min, long max, Class<T> clazz) {
-		return zRangeByScoreFor(key, min, max, member -> clazz.cast(member));
-	}
-
-	public <T> Set<T> zRangeByScoreFor(String key, long min, long max, Function<Object, T> mapper) {
-		Set<Object> members = this.zRangeByScore(key, min, max);
-		if(Objects.nonNull(members)) {
-			return members.stream().map(mapper)
-					.collect(Collectors.toCollection(LinkedHashSet::new));
-		}
-		return null;
 	}
 
 	public Set<TypedTuple<Object>> zRangeWithScores(String key, long start, long end) {

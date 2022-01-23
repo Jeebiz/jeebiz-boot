@@ -169,7 +169,20 @@ public enum RedisKey {
 	 */
 	IP_LOCATION_PCONLINE_INFO("IP坐标缓存（太平洋网络）", (ip)->{
 		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IP_PCONLINE_LOCATION_KEY, ip);
-    })
+    }),
+	/**
+	 * 接口幂等缓存（Token模式）
+	 */
+	IDEMPOTENT_TOKEN_KEY("接口幂等缓存（Token模式）", (token)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IDEMPOTENT_TOKEN_KEY, token);
+	}),
+	/**
+	 * 接口幂等缓存（参数模式）
+	 */
+	IDEMPOTENT_ARGS_KEY("接口幂等缓存（参数模式）", (args)->{
+		return RedisKeyConstant.getKeyStr(RedisKeyConstant.IDEMPOTENT_ARGS_KEY, args);
+	})
+
 	;
 
 	private String desc;
