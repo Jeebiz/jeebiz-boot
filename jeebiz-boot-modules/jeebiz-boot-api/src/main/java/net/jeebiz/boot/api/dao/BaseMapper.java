@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.api.dao;
 
@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import net.jeebiz.boot.api.dao.entities.PaginationEntity;
@@ -21,7 +20,7 @@ import net.jeebiz.boot.api.dao.entities.PairModel;
  * @author <a href="https://github.com/wandl">wandl</a>
  * @param <T> 持有的实体对象
  */
-public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
+public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
 
 	/**
 	 * 查询单条数据
@@ -37,22 +36,22 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @return
 	 */
 	public int setStatus(@Param("id") String id, @Param("status") String status);
-	
+
 	/**
 	 * 分页查询
 	 * @param t
 	 * @return
 	 */
 	public List<T> getPagedList(Page<T> page, @Param("model") PaginationEntity<T> model);
-	
+
 	/**
 	 * 无分页查询
 	 * @param t
 	 * @return
 	 */
 	public List<T> getModelList(T t);
-	
-	
+
+
 	/**
 	 * 无分页查询
 	 * @param key
@@ -65,32 +64,32 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @param t
 	 * @return
 	 */
-	public int getCount(T t);
-	
+	public Long getCount(T t);
+
 	/**
 	 * 根据唯一ID编码获取记录数
-	 * @param name
+	 * @param uid
 	 * @return
 	 */
-	public int getCountByUid(@Param("uid") String uid);
-	
+	public Long getCountByUid(@Param("uid") String uid);
+
 	/**
 	 * 根据编码获取记录数
 	 * @param code
 	 * @param origin
 	 * @return
 	 */
-	public int getCountByCode(@Param("code") String code, @Param("origin") String origin);
-	
+	public Long getCountByCode(@Param("code") String code, @Param("origin") String origin);
+
 	/**
 	 * 根据名称获取记录数
 	 * @param name
 	 * @param origin
 	 * @return
 	 */
-	public int getCountByName(@Param("name") String name, @Param("origin") String origin);
-	
-	public int getCountByParent(@Param("parent") String parent);
+	public Long getCountByName(@Param("name") String name, @Param("origin") String origin);
+
+	public Long getCountByParent(@Param("parent") String parent);
 
 	/**
 	 * 通过指定key查询对应的唯一值
@@ -98,26 +97,26 @@ public interface BaseMapper<T extends Model<?>> extends com.baomidou.mybatisplus
 	 * @return
 	 */
 	public String getValue(@Param("key") String key);
-	
+
 	/**
 	 * 通过指定key查询多个值
 	 * @param key
 	 * @return
 	 */
 	public Map<String, String> getValues(@Param("key") String key);
-	
+
 	/**
 	 * 根据key查询该分组下的基础数据
 	 * @param key
 	 * @return
 	 */
 	public List<PairModel> getPairValues(@Param("key") String key);
-	
+
 	/**
 	 *  查询一组键值对数据
 	 * @param key
 	 * @return
 	 */
 	public List<PairModel> getPairList();
-	
+
 }

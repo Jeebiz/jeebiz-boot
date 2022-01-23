@@ -8,10 +8,14 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @SuppressWarnings("serial")
-public class PaginationEntity<T extends Model<?>> extends BaseEntity<T> {
+public class PaginationEntity<T> extends BaseEntity<T> {
 
 	protected static final int DEFAULT_LIMIT = 15;
 	
