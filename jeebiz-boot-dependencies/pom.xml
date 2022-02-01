@@ -172,7 +172,7 @@
 		<jsqlparser.version>4.2</jsqlparser.version>
 		<jsoup.version>1.14.3</jsoup.version>
 		<json.version>20210307</json.version>
-		<junrar.version>7.4.0</junrar.version>
+		<junrar.version>7.4.1</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.8.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>3.0.0</kafka-clients.version>
