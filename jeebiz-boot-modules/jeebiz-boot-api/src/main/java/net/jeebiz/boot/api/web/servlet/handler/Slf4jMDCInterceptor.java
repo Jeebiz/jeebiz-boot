@@ -17,15 +17,15 @@ import net.jeebiz.boot.api.sequence.Sequence;
 public class Slf4jMDCInterceptor implements HandlerInterceptor {
 
 	private final Sequence sequence;
-	
+
 	public Slf4jMDCInterceptor(Sequence sequence) {
 		this.sequence = sequence;
 	}
-	
+
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 
 			throws Exception {
-        
+
         MDC.put("requestId", StringUtils.defaultString(request.getHeader(XHeaders.X_REQUEST_ID), sequence.nextId().toString()));
 		MDC.put("requestURL", request.getRequestURL().toString());
 		MDC.put("requestURI", request.getRequestURI());
@@ -35,19 +35,7 @@ public class Slf4jMDCInterceptor implements HandlerInterceptor {
 		MDC.put("remotePort", String.valueOf(request.getRemotePort()));
 		MDC.put("localAddr", request.getLocalAddr());
 		MDC.put("localName", request.getLocalName());
-		
-		Enumeration<String> names = request.getHeaderNames();
-		while (names.hasMoreElements()) {
-			String key = names.nextElement();
-			MDC.put("header." + key, request.getHeader(key));
-		}
-		
-		Enumeration<String> params = request.getParameterNames();
-		while (params.hasMoreElements()) {
-			String key = params.nextElement();
-			MDC.put("param." + key, request.getParameter(key));
-		}
-		
+
 		return true;
 	}
 

@@ -1939,6 +1939,51 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 			throw new RedisOperationException(e.getMessage());
 		}
 	}
+	
+	public List<Object> hMultiGet(Collection<Object> keys, String hashKey) {
+		try {
+			List<Object> result = getOperations().executePipelined((RedisConnection connection) -> {
+				byte[] rawHashKey = rawHashKey(hashKey);
+				keys.stream().forEach(key -> {
+					byte[] rawKey = rawKey(String.valueOf(key));
+					connection.hGet(rawKey, rawHashKey);
+				});
+				return null;
+			}, this.valueSerializer());
+			return result.stream().collect(Collectors.toList());
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+	
+	public List<String> hMultiGetString(Collection<Object> keys, String hashKey) {
+		return hMultiGetFor(keys, hashKey, TO_STRING);
+	}
+
+	public List<Double> hMultiGetDouble(Collection<Object> keys, String hashKey) {
+		return hMultiGetFor(keys, hashKey, TO_DOUBLE);
+	}
+
+	public List<Long> hMultiGetLong(Collection<Object> keys, String hashKey) {
+		return hMultiGetFor(keys, hashKey, TO_LONG);
+	}
+
+	public List<Integer> hMultiGetInteger(Collection<Object> keys, String hashKey) {
+		return hMultiGetFor(keys, hashKey, TO_INTEGER);
+	}
+	
+	public <T> List<T> hMultiGetFor(Collection<Object> keys, String hashKey, Class<T> clazz) {
+		return hMultiGetFor(keys, hashKey, member -> clazz.cast(member));
+	}
+
+	public <T> List<T> hMultiGetFor(Collection<Object> keys, String hashKey, Function<Object, T> mapper) {
+		List<Object> members = this.hMultiGet(keys, hashKey);
+		if (Objects.nonNull(members)) {
+			return members.stream().map(mapper).collect(Collectors.toList());
+		}
+		return null;
+	}
 
 	public List<Map<String, Object>> hmMultiGetAll(Collection<Object> keys, String redisPrefix) {
 		try {
@@ -3208,20 +3253,20 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
-	public Set<String> zRevrangeStringByScore(String key, long  start, long end) {
-		return zRevrangeForByScore(key, start, end, TO_STRING);
+	public Set<String> zRevrangeStringByScore(String key, double min, double max) {
+		return zRevrangeForByScore(key, min, max, TO_STRING);
 	}
 
-	public Set<Double> zRevrangeDoubleByScore(String key, long  start, long end) {
-		return zRevrangeForByScore(key, start, end, TO_DOUBLE);
+	public Set<Double> zRevrangeDoubleByScore(String key, double min, double max) {
+		return zRevrangeForByScore(key, min, max, TO_DOUBLE);
 	}
 
-	public Set<Long> zRevrangeLongByScore(String key, long  start, long end) {
-		return zRevrangeForByScore(key, start, end, TO_LONG);
+	public Set<Long> zRevrangeLongByScore(String key, double min, double max) {
+		return zRevrangeForByScore(key, min, max, TO_LONG);
 	}
 
-	public Set<Integer> zRevrangeIntegerByScore(String key, long  start, long end) {
-		return zRevrangeForByScore(key, start, end, TO_INTEGER);
+	public Set<Integer> zRevrangeIntegerByScore(String key, double min, double max) {
+		return zRevrangeForByScore(key, min, max, TO_INTEGER);
 	}
 
 	public <T> Set<T> zRevrangeForByScore(String key, double min, double max, Class<T> clazz) {
