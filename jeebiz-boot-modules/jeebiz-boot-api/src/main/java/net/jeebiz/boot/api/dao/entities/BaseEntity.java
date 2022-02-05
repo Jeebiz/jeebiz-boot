@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.api.dao.entities;
 
@@ -44,13 +44,23 @@ public class BaseEntity<T> implements Cloneable, Serializable {
 	 */
 	@TableField(value = "modify_time", fill = FieldFill.UPDATE)
 	private LocalDateTime modifyTime;
-    /** 开始时间 */
+    /**
+	 * 开始时间
+	 */
     @JsonIgnore
 	@TableField(exist = false)
     private String beginTime;
-    /** 结束时间 */
+    /**
+	 * 结束时间
+	 */
     @JsonIgnore
 	@TableField(exist = false)
     private String endTime;
+	/**
+	 * 关键词搜索
+	 */
+	@JsonIgnore
+	@TableField(exist = false)
+	private String keywords;
 
 }
