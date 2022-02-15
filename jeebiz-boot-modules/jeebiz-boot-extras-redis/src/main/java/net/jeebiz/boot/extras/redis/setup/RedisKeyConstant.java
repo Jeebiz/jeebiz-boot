@@ -124,7 +124,14 @@ public abstract class RedisKeyConstant {
 	 * IP坐标缓存（太平洋网络）
 	 */
 	public final static String IP_PCONLINE_LOCATION_KEY = "pconline:ip:location";
-
+	/**
+	 * 接口幂等缓存（Token模式）
+	 */
+	public final static  String IDEMPOTENT_TOKEN_KEY = "idempotent:token";
+	/**
+	 * 接口幂等缓存（参数模式）
+	 */
+	public final static  String IDEMPOTENT_ARGS_KEY  = "idempotent:args";
 
 	public static String REDIS_PREFIX = "rds";
 

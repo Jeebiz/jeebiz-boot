@@ -115,7 +115,7 @@
 		<dubbo.version>3.0.4</dubbo.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
-		<fastjson.version>1.2.78</fastjson.version>
+		<fastjson.version>1.2.79</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
 		<feign.version>11.7</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
@@ -197,8 +197,8 @@
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.2.1</mybatis-dynamic-sql.version>
-		<mybatis-plus.version>3.4.2</mybatis-plus.version>
-		<mybatis-plus-generator.version>3.4.1</mybatis-plus-generator.version>
+		<mybatis-plus.version>3.5.0</mybatis-plus.version>
+		<mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
 		<mybatis-spring.version>2.0.6</mybatis-spring.version>
 		<mybatis-migrations.version>3.3.8</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
@@ -220,14 +220,13 @@
 		<netty-socketio.version>1.7.19</netty-socketio.version>
 		<nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.9</okhttp.version>
-		<oltu.version>1.0.2</oltu.version>
 		<ons-client.version>1.8.8.1.Final</ons-client.version>
 		<oshi.version>5.8.2</oshi.version>
-		<owasp-antisamy.version>1.6.4</owasp-antisamy.version>
-		<owasp-csrfguard.version>3.1.0.wso2v3</owasp-csrfguard.version>
-		<owasp-esapi.version>2.2.0.0-RC2</owasp-esapi.version>
-		<owasp-encoder.version>1.2.2</owasp-encoder.version>
-		<owasp-html-sanitizer.version>20190503.1</owasp-html-sanitizer.version>
+		<owasp-antisamy.version>1.6.5</owasp-antisamy.version>
+		<owasp-csrfguard.version>4.1.1</owasp-csrfguard.version>
+		<owasp-esapi.version>2.2.3.1</owasp-esapi.version>
+		<owasp-encoder.version>1.2.3</owasp-encoder.version>
+		<owasp-html-sanitizer.version>20211018.2</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.1</p6spy.version>
 		<pac4j.version>4.5.4</pac4j.version>
 		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
@@ -347,19 +346,19 @@
 		<zxing.version>3.4.1</zxing.version>
 
 		<!-- Maven Plugin versions -->
-		<maven-alibaba-plugin.version>1.1.6</maven-alibaba-plugin.version>
+		<maven-alibaba-plugin.version>1.1.8</maven-alibaba-plugin.version>
 		<maven-appassembler-plugin.version>2.1.0</maven-appassembler-plugin.version>
-		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
-		<maven-asciidoctor-plugin.version>1.6.0</maven-asciidoctor-plugin.version>
-		<maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+		<maven-asciidoctor-plugin.version>2.2.2</maven-asciidoctor-plugin.version>
+		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
 		<maven-clirr-plugin.version>2.8</maven-clirr-plugin.version>
 		<maven-codenarc-plugin.version>0.22-1</maven-codenarc-plugin.version>
 		<maven-cobertura-plugin.version>2.7</maven-cobertura-plugin.version>
 		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-		<maven-dependency-check-plugin.version>5.2.1</maven-dependency-check-plugin.version>
+		<maven-dependency-check-plugin.version>6.5.3</maven-dependency-check-plugin.version>
 		<maven-docker-plugin.version>1.2.0</maven-docker-plugin.version>
-		<maven-dockerfile-plugin.version>1.4.8</maven-dockerfile-plugin.version>
-		<maven-docker-fabric8-plugin.version>0.33.0</maven-docker-fabric8-plugin.version>
+		<maven-dockerfile-plugin.version>1.4.13</maven-dockerfile-plugin.version>
+		<maven-docker-fabric8-plugin.version>0.39.0</maven-docker-fabric8-plugin.version>
 		<maven-fabric8-plugin.version>4.1.0</maven-fabric8-plugin.version>
 		<maven-findbugs-plugin.version>3.0.5</maven-findbugs-plugin.version>
 		<maven-gwt-plugin.version>2.8.2</maven-gwt-plugin.version>
@@ -388,7 +387,7 @@
 		<spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
 		<spring-boot-starter-agora.version>1.0.0-SNAPSHOT</spring-boot-starter-agora.version>
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.9.1</spring-boot-starter-aliyun-schedulerx2.version>
-		<spring-boot-starter-aliyun-ons.version>1.1.0.RELEASE</spring-boot-starter-aliyun-ons.version>
+		<spring-boot-starter-aliyun-ons.version>1.1.1-SNAPSHOT</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-mps.version>1.0.1.RELEASE</spring-boot-starter-aliyun-mps.version>
 		<spring-boot-starter-arcface.version>1.0.2.RELEASE</spring-boot-starter-arcface.version>
@@ -3327,9 +3326,15 @@
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.wso2.orbit.org.owasp/csrfguard -->
 			<dependency>
-			    <groupId>org.wso2.orbit.org.owasp</groupId>
+				<groupId>org.owasp</groupId>
 			    <artifactId>csrfguard</artifactId>
 			    <version>${owasp-csrfguard.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.owasp/csrfguard-extension-session -->
+			<dependency>
+				<groupId>org.owasp</groupId>
+				<artifactId>csrfguard-extension-session</artifactId>
+				<version>${owasp-csrfguard.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.owasp.esapi/esapi -->
 			<dependency>
@@ -3349,41 +3354,11 @@
 			    <artifactId>encoder-esapi</artifactId>
 			    <version>${owasp-encoder.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.owasp.encoder/encoder-jsp -->
-			<dependency>
-			    <groupId>org.owasp.encoder</groupId>
-			    <artifactId>encoder-jsp</artifactId>
-			    <version>${owasp-encoder.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer -->
 			<dependency>
 			    <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
 			    <artifactId>owasp-java-html-sanitizer</artifactId>
 			    <version>${owasp-html-sanitizer.version}</version>
-			</dependency>
-
-			<!-- Oauth2 -->
-			<dependency>
-				<groupId>org.apache.oltu.oauth2</groupId>
-				<artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
-				<version>${oltu.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.oltu.oauth2</groupId>
-				<artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
-				<version>${oltu.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.oltu.oauth2/org.apache.oltu.oauth2.client -->
-			<dependency>
-			    <groupId>org.apache.oltu.oauth2</groupId>
-			    <artifactId>org.apache.oltu.oauth2.client</artifactId>
-			    <version>${oltu.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.oltu.oauth2/org.apache.oltu.oauth2.httpclient4 -->
-			<dependency>
-			    <groupId>org.apache.oltu.oauth2</groupId>
-			    <artifactId>org.apache.oltu.oauth2.httpclient4</artifactId>
-			    <version>${oltu.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/org.pac4j -->
@@ -4643,6 +4618,13 @@
 			    <groupId>org.isomorphism</groupId>
 			    <artifactId>token-bucket</artifactId>
 			    <version>${token-bucket.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/com.alibaba/transmittable-thread-local -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>transmittable-thread-local</artifactId>
+				<version>2.12.4</version>
 			</dependency>
 
 			<!-- 使用参考: https://blog.csdn.net/wuyuxing24/article/details/99692762-->
@@ -5968,18 +5950,6 @@
 				    <groupId>org.codehaus.mojo</groupId>
 				    <artifactId>license-maven-plugin</artifactId>
 				    <version>${maven-license-plugin.version}</version>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.liquibase/liquibase-maven-plugin -->
-				<plugin>
-				    <groupId>org.liquibase</groupId>
-				    <artifactId>liquibase-maven-plugin</artifactId>
-				    <version>${liquibase.version}</version>
-				</plugin>
-				<!-- http://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
-				<plugin>
-					<groupId>org.mybatis.generator</groupId>
-					<artifactId>mybatis-generator-maven-plugin</artifactId>
-					<version>${maven-mybatis-generator-plugin.version}</version>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/native2ascii-maven-plugin -->
 				<plugin>

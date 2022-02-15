@@ -1,4 +1,4 @@
-package net.jeebiz.boot.extras.redis.setup.config;
+package net.jeebiz.boot.extras.redisson.setup.config;
 
 import org.redisson.api.RedissonClient;
 import org.springframework.cache.annotation.EnableCaching;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
-import net.jeebiz.boot.extras.redis.setup.RedissonOperationTemplate;
+import net.jeebiz.boot.extras.redisson.setup.RedissonOperationTemplate;
 
 @Configuration
 @EnableCaching(proxyTargetClass = true)

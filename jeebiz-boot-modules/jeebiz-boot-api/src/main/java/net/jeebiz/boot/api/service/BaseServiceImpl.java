@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.api.service;
 
@@ -9,8 +9,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,26 +31,24 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.dozermapper.core.Mapper;
 
-import net.jeebiz.boot.api.dao.BaseDao;
-import net.jeebiz.boot.api.dao.entities.PaginationModel;
+import net.jeebiz.boot.api.dao.BaseMapper;
+import net.jeebiz.boot.api.dao.entities.PaginationEntity;
 import net.jeebiz.boot.api.dao.entities.PairModel;
 
 /**
  * 通用Service实现，daoBase自动注入，不能存在多个实例
- * 
+ *
  * @author <a href="https://github.com/wandl">wandl</a>
+ * @param <M> {@link BaseMapper} 实现
  * @param <T> {@link IBaseService} 持有的实体对象
- * @param <E> {@link BaseDao} 实现
  */
-public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBean,
-		ApplicationEventPublisherAware, ApplicationContextAware, EmbeddedValueResolverAware,
-		IBaseService<T> {
+public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> implements InitializingBean,
+		ApplicationEventPublisherAware, ApplicationContextAware, EmbeddedValueResolverAware, IBaseService<T> {
 
-	protected static Logger LOG = LoggerFactory.getLogger(BaseServiceImpl.class);
-
-	/** 核心缓存名称 */
+	/**核心缓存名称*/
 	protected static final String DEFAULT_CACHE = "defaultCache";
 	protected String cacheName = DEFAULT_CACHE;
 
@@ -61,13 +57,11 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	private ApplicationContext context;
 
 	@Autowired
-	private NestedMessageSource messageSource;
+	protected NestedMessageSource messageSource;
 	@Autowired(required = false)
 	protected CacheManager cacheManager;
 	@Autowired
-	protected Mapper beanMapper; 
-	@Autowired
-	protected E dao;
+	protected Mapper beanMapper;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -75,136 +69,43 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 
 	/**
 	 * 获取国际化信息
-	 * 
-	 * @param key  国际化Key
+	 * @param key 国际化Key
 	 * @param args 参数
 	 * @return 国际化字符串
 	 */
 	protected String getMessage(String key, Object... args) {
-		//	两个方法在没有使用JSF的项目中是没有区别的
+		//两个方法在没有使用JSF的项目中是没有区别的
 		RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
-		//	RequestContextHolder.getRequestAttributes();
-		HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
-		//	HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
+		//				                      RequestContextHolder.getRequestAttributes();
+		HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
+		//HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
-	}
-
-	/**
-	 * Dao实现注入
-	 * 
-	 * @param dao
-	 */
-	public void setDao(E dao) {
-		this.dao = dao;
-	}
-
-	/**
-	 * 增加记录
-	 * 
-	 * @param t 实体对象
-	 * @return 是否增加成功
-	 */
-	@Transactional(rollbackFor = Exception.class)
-	public int insert(T t) {
-		return dao.insert(t);
-	}
-
-	/**
-	 * 修改记录
-	 * 
-	 * @param t
-	 * @return
-	 */
-	@Transactional(rollbackFor = Exception.class)
-	public int update(T t) {
-		return dao.update(t);
-	}
-
-	@Transactional(rollbackFor = Exception.class)
-	public int delete(String id) {
-		return dao.delete(id);
-	}
-
-	@Transactional(rollbackFor = Exception.class)
-	public int delete(T t) {
-		return dao.delete(t);
-	}
-
-	/**
-	 * 查询单条数据
-	 * 
-	 * @param id
-	 * @return
-	 */
-	@Override
-	public T getModel(String id) {
-		return dao.getModel(id);
-	}
-
-	/**
-	 * 查询单条数据
-	 * 
-	 * @param t
-	 * @return
-	 */
-	@Override
-	public T getModel(T t) {
-		return dao.getModel(t);
-	}
-
-	/**
-	 * 批量删除
-	 * 
-	 * @param map
-	 * @return
-	 */
-	@Transactional(rollbackFor = Exception.class)
-	public int batchDelete(Map<String, Object> map) {
-		return dao.batchDelete(map);
-	}
-
-	/**
-	 * 批量删除
-	 * 
-	 * @param list
-	 * @return
-	 */
-	@Transactional(rollbackFor = Exception.class)
-	public int batchDelete(List<?> list) {
-		return dao.batchDelete(list);
-	}
-
-	/**
-	 * 批量删除
-	 * 
-	 * @param map
-	 * @return
-	 */
-	@Transactional(rollbackFor = Exception.class)
-	public int batchUpdate(Map<String, Object> map) {
-		return dao.batchUpdate(map);
-	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public int batchUpdate(List<T> list) {
-		return dao.batchUpdate(list);
 	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public int setStatus(String id, String status) {
-		return dao.setStatus(id, status);
+		return getBaseMapper().setStatus(id, status);
+	}
+	
+
+	/**
+	 * 查询单条数据
+	 * @param id
+	 * @return
+	 */
+	public T getModel(String id) {
+		return getBaseMapper().getModel(id);
 	}
 
 	/**
-	 *  分页查询
-	 * 
+	 * 分页查询
+	 *
 	 * @param t
 	 * @return
 	 */
 	@Override
-	public Page<T> getPagedList(PaginationModel<T> model) {
+	public Page<T> getPagedList(PaginationEntity<T> model) {
 
 		Page<T> page = new Page<T>(model.getPageNo(), model.getLimit());
 		if(!CollectionUtils.isEmpty(model.getOrders())) {
@@ -212,7 +113,7 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 				page.addOrder(orderBy);
 			}
 		}
-		List<T> records = dao.getPagedList(page, model);
+		List<T> records = getBaseMapper().getPagedList(page, model);
 		page.setRecords(records);
 
 		return page;
@@ -222,9 +123,9 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 	 * 分页查询
 	 */
 	@Override
-	public Page<T> getPagedList(Page<T> page, PaginationModel<T> model) {
+	public Page<T> getPagedList(Page<T> page, PaginationEntity<T> model) {
 
-		List<T> records = dao.getPagedList(page, model);
+		List<T> records = getBaseMapper().getPagedList(page, model);
 		page.setRecords(records);
 
 		return page;
@@ -232,92 +133,82 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 
 	/**
 	 * 无分页查询
-	 * 
+	 *
 	 * @param t
 	 * @return
 	 */
 	@Override
 	public List<T> getModelList(T t) {
-		return dao.getModelList(t);
+		return getBaseMapper().getModelList(t);
 	}
 
 	/**
 	 * 无分页查询
-	 * 
+	 *
 	 * @param key
 	 * @return
 	 */
 	@Override
 	public List<T> getModelList(String key) {
-		return dao.getModelList(key);
+		return getBaseMapper().getModelList(key);
 	}
 
 	/**
 	 * 统计记录数
-	 * 
+	 *
 	 * @param t
 	 * @return
 	 */
 	@Override
-	public int getCount(T t) {
-		return dao.getCount(t);
+	public Long getCount(T t) {
+		return getBaseMapper().getCount(t);
 	}
 
 	@Override
-	public int getCountByUid(String uid) {
-		return dao.getCountByUid(uid);
+	public Long getCountByUid(String uid) {
+		return getBaseMapper().getCountByUid(uid);
 	}
 
 	@Override
-	public int getCountByCode(String code, String origin) {
-		return dao.getCountByCode(code, origin);
+	public Long getCountByCode(String code, String origin) {
+		return getBaseMapper().getCountByCode(code, origin);
 	}
 
 	@Override
-	public int getCountByName(String name, String origin) {
-		return dao.getCountByName(name, origin);
+	public Long getCountByName(String name, String origin) {
+		return getBaseMapper().getCountByName(name, origin);
 	}
 
 	@Override
-	public int getCountByParent(String parent) {
-		return dao.getCountByParent(parent);
+	public Long getCountByParent(String parent) {
+		return getBaseMapper().getCountByParent(parent);
 	}
+
 
 	@Override
 	public String getValue(String key) {
-		return dao.getValue(key);
+		return getBaseMapper().getValue(key);
 	}
 
 	@Override
 	public Map<String, String> getValues(String key) {
-		return dao.getValues(key);
+		return getBaseMapper().getValues(key);
 	}
-
-	@Override
-	public List<PairModel> getPairValues(String key) {
-		return dao.getPairValues(key);
-	}
-
+	
 	@Override
 	public Map<String, List<PairModel>> getPairValues(String[] keyArr) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
+	public List<PairModel> getPairValues(String key) {
+		return getBaseMapper().getPairValues(key);
+	}
+
+	@Override
 	public List<PairModel> getPairList() {
-		return dao.getPairList();
-	}
-
-	public E getDao() {
-		return dao;
-	}
-	
-	public Mapper getBeanMapper() {
-		return beanMapper;
-	}
-
-	public void setBeanMapper(Mapper beanMapper) {
-		this.beanMapper = beanMapper;
+		return getBaseMapper().getPairList();
 	}
 
 	public StringValueResolver getValueResolver() {
@@ -366,6 +257,14 @@ public class BaseServiceImpl<T, E extends BaseDao<T>> implements InitializingBea
 
 	public Cache getCache() {
 		return getCacheManager().getCache(getCacheName());
+	}
+
+	public Mapper getBeanMapper() {
+		return beanMapper;
+	}
+
+	public void setBeanMapper(Mapper beanMapper) {
+		this.beanMapper = beanMapper;
 	}
 
 	@Override

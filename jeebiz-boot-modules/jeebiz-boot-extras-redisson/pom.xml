@@ -18,6 +18,12 @@
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>jeebiz-boot-extras-redis</artifactId>
+			<version>${jeebiz-boot.version}</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.gavaghan/geodesy -->
 		<dependency>
 		    <groupId>org.gavaghan</groupId>
