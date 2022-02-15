@@ -220,7 +220,6 @@
 		<netty-socketio.version>1.7.19</netty-socketio.version>
 		<nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
 		<okhttp.version>3.14.9</okhttp.version>
-		<oltu.version>1.0.2</oltu.version>
 		<ons-client.version>1.8.8.1.Final</ons-client.version>
 		<oshi.version>5.8.2</oshi.version>
 		<owasp-antisamy.version>1.6.5</owasp-antisamy.version>
@@ -347,19 +346,19 @@
 		<zxing.version>3.4.1</zxing.version>
 
 		<!-- Maven Plugin versions -->
-		<maven-alibaba-plugin.version>1.1.6</maven-alibaba-plugin.version>
+		<maven-alibaba-plugin.version>1.1.8</maven-alibaba-plugin.version>
 		<maven-appassembler-plugin.version>2.1.0</maven-appassembler-plugin.version>
-		<maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
-		<maven-asciidoctor-plugin.version>1.6.0</maven-asciidoctor-plugin.version>
-		<maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+		<maven-asciidoctor-plugin.version>2.2.2</maven-asciidoctor-plugin.version>
+		<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
 		<maven-clirr-plugin.version>2.8</maven-clirr-plugin.version>
 		<maven-codenarc-plugin.version>0.22-1</maven-codenarc-plugin.version>
 		<maven-cobertura-plugin.version>2.7</maven-cobertura-plugin.version>
 		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-		<maven-dependency-check-plugin.version>5.2.1</maven-dependency-check-plugin.version>
+		<maven-dependency-check-plugin.version>6.5.3</maven-dependency-check-plugin.version>
 		<maven-docker-plugin.version>1.2.0</maven-docker-plugin.version>
-		<maven-dockerfile-plugin.version>1.4.8</maven-dockerfile-plugin.version>
-		<maven-docker-fabric8-plugin.version>0.33.0</maven-docker-fabric8-plugin.version>
+		<maven-dockerfile-plugin.version>1.4.13</maven-dockerfile-plugin.version>
+		<maven-docker-fabric8-plugin.version>0.39.0</maven-docker-fabric8-plugin.version>
 		<maven-fabric8-plugin.version>4.1.0</maven-fabric8-plugin.version>
 		<maven-findbugs-plugin.version>3.0.5</maven-findbugs-plugin.version>
 		<maven-gwt-plugin.version>2.8.2</maven-gwt-plugin.version>
@@ -3362,30 +3361,6 @@
 			    <version>${owasp-html-sanitizer.version}</version>
 			</dependency>
 
-			<!-- Oauth2 -->
-			<dependency>
-				<groupId>org.apache.oltu.oauth2</groupId>
-				<artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
-				<version>${oltu.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.oltu.oauth2</groupId>
-				<artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
-				<version>${oltu.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.oltu.oauth2/org.apache.oltu.oauth2.client -->
-			<dependency>
-			    <groupId>org.apache.oltu.oauth2</groupId>
-			    <artifactId>org.apache.oltu.oauth2.client</artifactId>
-			    <version>${oltu.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.oltu.oauth2/org.apache.oltu.oauth2.httpclient4 -->
-			<dependency>
-			    <groupId>org.apache.oltu.oauth2</groupId>
-			    <artifactId>org.apache.oltu.oauth2.httpclient4</artifactId>
-			    <version>${oltu.version}</version>
-			</dependency>
-
 			<!-- https://mvnrepository.com/artifact/org.pac4j -->
 			<dependency>
 	            <groupId>org.pac4j</groupId>
@@ -5975,18 +5950,6 @@
 				    <groupId>org.codehaus.mojo</groupId>
 				    <artifactId>license-maven-plugin</artifactId>
 				    <version>${maven-license-plugin.version}</version>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.liquibase/liquibase-maven-plugin -->
-				<plugin>
-				    <groupId>org.liquibase</groupId>
-				    <artifactId>liquibase-maven-plugin</artifactId>
-				    <version>${liquibase.version}</version>
-				</plugin>
-				<!-- http://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-maven-plugin -->
-				<plugin>
-					<groupId>org.mybatis.generator</groupId>
-					<artifactId>mybatis-generator-maven-plugin</artifactId>
-					<version>${maven-mybatis-generator-plugin.version}</version>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/native2ascii-maven-plugin -->
 				<plugin>
