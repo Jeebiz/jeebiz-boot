@@ -186,9 +186,9 @@ public enum RedisKey {
 	;
 
 	private String desc;
-    private Function<String, String> function;
+    private Function<Object, String> function;
 
-    RedisKey(String desc, Function<String, String> function) {
+    RedisKey(String desc, Function<Object, String> function) {
         this.desc = desc;
         this.function = function;
     }
@@ -210,7 +210,7 @@ public enum RedisKey {
      * @param key
      * @return
      */
-    public String getKey(String key) {
+    public String getKey(Object key) {
         return this.function.apply(key);
     }
 
