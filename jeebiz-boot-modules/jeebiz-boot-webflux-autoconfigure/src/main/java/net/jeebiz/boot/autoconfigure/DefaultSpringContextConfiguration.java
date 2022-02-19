@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
 @MapperScan({"net.jeebiz.**.dao", "net.jeebiz.**repository"})
-@ComponentScan(basePackages = {"net.jeebiz.**.setup", "net.jeebiz.**.service", "net.jeebiz.**.aspect", "net.jeebiz.**.task", "net.jeebiz.**.strategy"})
+@ComponentScan(basePackages = {"net.jeebiz.**.setup", "net.jeebiz.**.service", "net.jeebiz.**.aspect", "net.jeebiz.**.task", "net.jeebiz.**.extras"})
 public class DefaultSpringContextConfiguration {
 
 	@Bean
