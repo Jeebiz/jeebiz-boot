@@ -323,6 +323,7 @@
 		<token-bucket.version>1.7</token-bucket.version>
 		<truelicense.version>1.33</truelicense.version>
 		<UserAgentUtils.version>1.21</UserAgentUtils.version>
+		<velocity.version>2.3</velocity.version>
 		<webcollector.version>2.73-alpha</webcollector.version>
 		<webjars-locator.version>0.40</webjars-locator.version>
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
@@ -4642,6 +4643,13 @@
 			    <version>${UserAgentUtils.version}</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core -->
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity-engine-core</artifactId>
+				<version>${velocity.version}</version>
+			</dependency>
+
 			<!-- https://mvnrepository.com/artifact/cn.edu.hfut.dmic.webcollector/WebCollector -->
 			<dependency>
 			    <groupId>cn.edu.hfut.dmic.webcollector</groupId>
@@ -4650,7 +4658,6 @@
 			</dependency>
 
 			<!-- http://mvnrepository.com/artifact/org.webjars/swagger-ui -->
-
 			<dependency>
 				<groupId>org.webjars</groupId>
 				<artifactId>swagger-ui</artifactId>

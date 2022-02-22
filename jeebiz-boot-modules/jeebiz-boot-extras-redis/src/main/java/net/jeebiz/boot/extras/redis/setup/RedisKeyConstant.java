@@ -1,6 +1,9 @@
 package net.jeebiz.boot.extras.redis.setup;
 
+import org.springframework.util.StringUtils;
+
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public abstract class RedisKeyConstant {
 	
@@ -135,15 +138,20 @@ public abstract class RedisKeyConstant {
 
 	public static String REDIS_PREFIX = "rds";
 
-	public static String getKeyStr(String... args) {
-		StringBuilder tempKey = new StringBuilder(REDIS_PREFIX);
-		for (String s : args) {
-			if (Objects.isNull(s) || s.length() <= 0) {
+	public static String getKeyStr(Object... args) {
+		StringJoiner tempKey = new StringJoiner(DELIMITER);
+		tempKey.add(REDIS_PREFIX);
+		for (Object s : args) {
+			if (Objects.isNull(s) || !StringUtils.hasText(s.toString())) {
 				continue;
 			}
-			tempKey.append(DELIMITER).append(s);
+			tempKey.add(s.toString());
 		}
 		return tempKey.toString();
+	}
+
+	public static void main(String[] args) {
+		System.out.println(getKeyStr(233,""));
 	}
 
 }
