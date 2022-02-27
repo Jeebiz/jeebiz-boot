@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.StringJoiner;
 
 public abstract class RedisKeyConstant {
-	
+
 	public final static String DELIMITER = ":";
 	public final static String YYYYMMDD = "yyyyMMdd";
 	public final static String YYYYMM = "yyyyMM";
@@ -141,6 +141,20 @@ public abstract class RedisKeyConstant {
 	public static String getKeyStr(Object... args) {
 		StringJoiner tempKey = new StringJoiner(DELIMITER);
 		tempKey.add(REDIS_PREFIX);
+		for (Object s : args) {
+			if (Objects.isNull(s) || !StringUtils.hasText(s.toString())) {
+				continue;
+			}
+			tempKey.add(s.toString());
+		}
+		return tempKey.toString();
+	}
+
+	public static String getThreadKeyStr(String prefix, String... args) {
+
+		StringJoiner tempKey = new StringJoiner(DELIMITER);
+		tempKey.add(prefix);
+		tempKey.add(String.valueOf(Thread.currentThread().getId()));
 		for (Object s : args) {
 			if (Objects.isNull(s) || !StringUtils.hasText(s.toString())) {
 				continue;
