@@ -19,6 +19,7 @@
 		<alipay-easysdk.version>2.2.1</alipay-easysdk.version>
 		<aliyun-sdk-oss.version>3.13.2</aliyun-sdk-oss.version>
 		<aliyun-sdk-mts.version>3.3.39</aliyun-sdk-mts.version>
+		<appium.version>8.0.0</appium.version>
 		<asciidoctorj.version>2.4.0</asciidoctorj.version>
 		<asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
 		<asmsupport.version>0.4.3</asmsupport.version>
@@ -269,6 +270,7 @@
 		<scribe-up.version>1.3.1</scribe-up.version>
 		<scribejava.version>7.1.1</scribejava.version>
 		<scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
+		<selenium-driver.version>4.1.2</selenium-driver.version>
 		<sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
 		<sharding-sphere.version>4.1.1</sharding-sphere.version>
@@ -530,6 +532,13 @@
 			    <version>${aliyun-sdk-mts.version}</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+			<dependency>
+				<groupId>io.appium</groupId>
+				<artifactId>java-client</artifactId>
+				<version>${appium.version}</version>
+			</dependency>
+
 			<!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->
 			<dependency>
 				<groupId>cn.wensiqun</groupId>
@@ -661,7 +670,7 @@
 				<artifactId>batik-ttf2svg</artifactId>
 				<version>${batik.version}</version>
 			</dependency>
-			
+
 			<!-- http://mvnrepository.com/artifact/org.bouncycastle -->
 
 			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
@@ -3907,6 +3916,85 @@
 			    <groupId>us.fatehi</groupId>
 			    <artifactId>sunposition</artifactId>
 			    <version>4.0</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-java</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-json -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-json</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-http -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-http</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-session-map-redis -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-session-map-redis</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-chrome-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chromium-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-chromium-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-firefox-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-opera-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-opera-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-ie-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-ie-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-safari-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-safari-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-edge-driver</artifactId>
+				<version>${selenium-driver.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-remote-driver</artifactId>
+				<version>${selenium-driver.version}</version>
 			</dependency>
 
 			<!-- JDBC Driver For SequoiaDB : https://mvnrepository.com/artifact/com.sequoiadb/sequoiadb-driver -->
