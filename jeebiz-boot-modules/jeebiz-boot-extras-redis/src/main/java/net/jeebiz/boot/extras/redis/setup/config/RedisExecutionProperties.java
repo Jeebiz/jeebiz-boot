@@ -7,36 +7,22 @@ import java.time.Duration;
 @ConfigurationProperties(prefix = "spring.redis.execution")
 public class RedisExecutionProperties {
 
-    private final Execution listener = new Execution();
+    /**
+     * listener pool configuration.
+     */
+    private final Pool listener = new Pool();
 
-    private final Execution subscription = new Execution();
+    /**
+     * subscription pool configuration.
+     */
+    private final Pool subscription = new Pool();
 
-    public Execution getListener() {
+    public Pool getListener() {
         return listener;
     }
 
-    public Execution getSubscription() {
+    public Pool getSubscription() {
         return subscription;
-    }
-
-    /**
-     * Execution properties.
-     */
-    public static class Execution {
-
-        /**
-         * Executor pool configuration.
-         */
-        private Pool pool;
-
-        public Pool getPool() {
-            return this.pool;
-        }
-
-        public void setPool(Pool pool) {
-            this.pool = pool;
-        }
-
     }
 
     /**
@@ -45,21 +31,21 @@ public class RedisExecutionProperties {
     public static class Pool {
 
         /**
-         * Set the ThreadPoolExecutor's maximum pool size. Default is the number of Processor.
-         */
-        private int maxIdle = Runtime.getRuntime().availableProcessors();
-
-        /**
          * Set the ThreadPoolExecutor's core pool size. Default is 1.
          * positive.
          */
-        private int minIdle = 1;
+        private int coreSize = 1;
+
+        /**
+         * Set the ThreadPoolExecutor's maximum pool size. Default is the number of Processor.
+         */
+        private int maxSize = Runtime.getRuntime().availableProcessors();
 
         /**
          * Set the capacity for the ThreadPoolExecutor's BlockingQueue. Default is Integer.MAX_VALUE.
          * Any positive value will lead to a LinkedBlockingQueue instance; any other value will lead to a SynchronousQueue instance.
          */
-        private int maxActive = Integer.MAX_VALUE;
+        private int queueCapacity = Integer.MAX_VALUE;
 
         /**
          * Set the ThreadPoolExecutor's keep-alive time. Default is 60 seconds.
@@ -74,29 +60,31 @@ public class RedisExecutionProperties {
          */
         private boolean allowCoreThreadTimeOut = false;
 
+        private String threadNamePrefix = "redis-execution-";
 
-        public int getMaxIdle() {
-            return this.maxIdle;
+
+        public void setCoreSize(int coreSize) {
+            this.coreSize = coreSize;
         }
 
-        public void setMaxIdle(int maxIdle) {
-            this.maxIdle = maxIdle;
+        public int getCoreSize() {
+            return coreSize;
         }
 
-        public int getMinIdle() {
-            return this.minIdle;
+        public void setMaxSize(int maxSize) {
+            this.maxSize = maxSize;
         }
 
-        public void setMinIdle(int minIdle) {
-            this.minIdle = minIdle;
+        public int getMaxSize() {
+            return maxSize;
         }
 
-        public int getMaxActive() {
-            return this.maxActive;
+        public void setQueueCapacity(int queueCapacity) {
+            this.queueCapacity = queueCapacity;
         }
 
-        public void setMaxActive(int maxActive) {
-            this.maxActive = maxActive;
+        public int getQueueCapacity() {
+            return queueCapacity;
         }
 
         public void setKeepAlive(Duration keepAlive) {
@@ -115,6 +103,12 @@ public class RedisExecutionProperties {
             return allowCoreThreadTimeOut;
         }
 
+        public void setThreadNamePrefix(String threadNamePrefix) {
+            this.threadNamePrefix = threadNamePrefix;
+        }
 
+        public String getThreadNamePrefix() {
+            return threadNamePrefix;
+        }
     }
 }

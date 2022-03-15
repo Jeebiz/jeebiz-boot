@@ -2,10 +2,14 @@ package net.jeebiz.boot.extras.redis.setup.config;
 
 import java.net.UnknownHostException;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.stream.Collectors;
 
+import net.jeebiz.boot.extras.redis.annotation.RedisChannelTopic;
+import net.jeebiz.boot.extras.redis.annotation.RedisPatternTopic;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.biz.utils.StringUtils;
+import org.springframework.biz.utils.AnnotationUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -13,7 +17,6 @@ import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
@@ -37,12 +40,13 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import hitool.core.collections.CollectionUtils;
 import net.jeebiz.boot.api.annotation.RedisTopic;
 import net.jeebiz.boot.extras.redis.setup.RedisKey;
 import net.jeebiz.boot.extras.redis.setup.RedisOperationTemplate;
 import net.jeebiz.boot.extras.redis.setup.geo.GeoTemplate;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 /**
  * Reids 相关bean的配置
@@ -133,28 +137,26 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 	 */
 	@Bean
 	public RedisMessageListenerContainer redisMessageListenerContainer(RedisConnectionFactory connectionFactory,
-			ObjectProvider<MessageListener> messageListenerProvider,
-			Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer,
-		   RedisExecutionProperties redisExecutionProperties) {
+																	   ObjectProvider<MessageListenerAdapter> messageListenerProvider,
+																	   RedisExecutionProperties redisExecutionProperties) {
 		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
 		// 订阅多个频道
-		List<MessageListener> messageListeners = messageListenerProvider.orderedStream().collect(Collectors.toList());
-		if (!CollectionUtils.isEmpty(messageListeners)) {
-			for (MessageListener messageListener : messageListeners) {
+		List<MessageListenerAdapter> messageListenerAdapters = messageListenerProvider.orderedStream().collect(Collectors.toList());
+		if (!CollectionUtils.isEmpty(messageListenerAdapters)) {
+			for (MessageListenerAdapter messageListener : messageListenerAdapters) {
 				// 查找注解
-				RedisTopic topic = AnnotationUtils.findAnnotation(messageListener.getClass(), RedisTopic.class);
-				if (topic != null) {
-					if (StringUtils.hasText(topic.channel())) {
-						container.addMessageListener(messageListener, new ChannelTopic(topic.channel()));
-					} else if (StringUtils.hasText(topic.pattern())) {
-						container.addMessageListener(messageListener, new PatternTopic(topic.pattern()));
-					}
+				RedisChannelTopic channel = org.springframework.biz.utils.AnnotationUtils.findAnnotation(messageListener.getClass(), RedisChannelTopic.class);
+				if (Objects.nonNull(channel) && org.springframework.util.StringUtils.hasText(channel.value())){
+					container.addMessageListener(messageListener, new ChannelTopic(channel.value()));
+					continue;
+				}
+				RedisPatternTopic pattern = AnnotationUtils.findAnnotation(messageListener.getClass(), RedisPatternTopic.class);
+				if (Objects.nonNull(pattern) && StringUtils.hasText(pattern.value())){
+					container.addMessageListener(messageListener, new PatternTopic(pattern.value()));
 				}
 			}
 		}
-		// 序列化对象（特别注意：发布的时候需要设置序列化；订阅方也需要设置序列化）
-		container.setTopicSerializer(RedisSerializer.string());
 		// 序列化对象（特别注意：发布的时候需要设置序列化；订阅方也需要设置序列化）
 		container.setTopicSerializer(RedisSerializer.string());
 		// 设置接收消息时用于运行消息侦听器的任务执行器
@@ -164,14 +166,29 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 		return container;
 	}
 
-	protected ThreadPoolTaskExecutor redisThreadPoolTaskExecutor(RedisExecutionProperties.Execution execution){
-		ThreadPoolTaskExecutor threadPool = new ThreadPoolTaskExecutor();
-		threadPool.setCorePoolSize(execution.getPool().getMinIdle());
-		threadPool.setMaxPoolSize(execution.getPool().getMaxIdle());
-		threadPool.setKeepAliveSeconds(Long.valueOf(execution.getPool().getKeepAlive().getSeconds()).intValue());
-		threadPool.setQueueCapacity(execution.getPool().getMaxActive());
-		threadPool.setThreadNamePrefix("redis-execution-");
-		return threadPool;
+	protected ThreadPoolTaskExecutor redisThreadPoolTaskExecutor(RedisExecutionProperties.Pool pool){
+		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		// 核心线程数
+		executor.setCorePoolSize(pool.getCoreSize());
+		// 最大线程数
+		executor.setMaxPoolSize(pool.getMaxSize());
+		// 任务队列的大小
+		executor.setQueueCapacity(pool.getQueueCapacity());
+		// 线程存活时间
+		executor.setKeepAliveSeconds(Long.valueOf(pool.getKeepAlive().getSeconds()).intValue());
+		// 线程前缀名
+		executor.setThreadNamePrefix(pool.getThreadNamePrefix());
+		/**
+		 * 拒绝处理策略
+		 * CallerRunsPolicy()：交由调用方线程运行，比如 main 线程。
+		 * AbortPolicy()：直接抛出异常。
+		 * DiscardPolicy()：直接丢弃。
+		 * DiscardOldestPolicy()：丢弃队列中最老的任务。
+		 */
+		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+		// 线程初始化
+		executor.initialize();
+		return executor;
 	}
 
 }
