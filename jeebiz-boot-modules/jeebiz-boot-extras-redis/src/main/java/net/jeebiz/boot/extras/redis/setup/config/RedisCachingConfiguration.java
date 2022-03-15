@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.biz.utils.StringUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +19,7 @@ import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
@@ -39,14 +42,18 @@ import net.jeebiz.boot.api.annotation.RedisTopic;
 import net.jeebiz.boot.extras.redis.setup.RedisKey;
 import net.jeebiz.boot.extras.redis.setup.RedisOperationTemplate;
 import net.jeebiz.boot.extras.redis.setup.geo.GeoTemplate;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
  * Reids 相关bean的配置
  * https://www.cnblogs.com/liuyp-ken/p/10538658.html
  * https://www.cnblogs.com/aoeiuv/p/6760798.html
  */
-@Configuration
+
+@Configuration(proxyBeanMethods = false)
+@ConditionalOnClass(RedisOperations.class)
 @EnableCaching(proxyTargetClass = true)
+@EnableConfigurationProperties(RedisExecutionProperties.class)
 public class RedisCachingConfiguration extends CachingConfigurerSupport {
 
 	public final static String MESSAGE_TOPIC = "message.topic";
@@ -127,7 +134,8 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 	@Bean
 	public RedisMessageListenerContainer redisMessageListenerContainer(RedisConnectionFactory connectionFactory,
 			ObjectProvider<MessageListener> messageListenerProvider,
-			Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer) {
+			Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer,
+		   RedisExecutionProperties redisExecutionProperties) {
 		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
 		// 订阅多个频道
@@ -147,7 +155,23 @@ public class RedisCachingConfiguration extends CachingConfigurerSupport {
 		}
 		// 序列化对象（特别注意：发布的时候需要设置序列化；订阅方也需要设置序列化）
 		container.setTopicSerializer(RedisSerializer.string());
-
+		// 序列化对象（特别注意：发布的时候需要设置序列化；订阅方也需要设置序列化）
+		container.setTopicSerializer(RedisSerializer.string());
+		// 设置接收消息时用于运行消息侦听器的任务执行器
+		container.setTaskExecutor(redisThreadPoolTaskExecutor(redisExecutionProperties.getListener()));
+		// 设置Redis频道订阅的任务执行器
+		container.setSubscriptionExecutor(redisThreadPoolTaskExecutor(redisExecutionProperties.getSubscription()));
 		return container;
 	}
+
+	protected ThreadPoolTaskExecutor redisThreadPoolTaskExecutor(RedisExecutionProperties.Execution execution){
+		ThreadPoolTaskExecutor threadPool = new ThreadPoolTaskExecutor();
+		threadPool.setCorePoolSize(execution.getPool().getMinIdle());
+		threadPool.setMaxPoolSize(execution.getPool().getMaxIdle());
+		threadPool.setKeepAliveSeconds(Long.valueOf(execution.getPool().getKeepAlive().getSeconds()).intValue());
+		threadPool.setQueueCapacity(execution.getPool().getMaxActive());
+		threadPool.setThreadNamePrefix("redis-execution-");
+		return threadPool;
+	}
+
 }
