@@ -6,18 +6,18 @@
 		<artifactId>jeebiz-boot-modules</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
-	
+
 	<dependencies>
-		
+
 		<!-- For Jeebiz API -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>net.jeebiz</groupId>
 			<artifactId>jeebiz-boot-api</artifactId>
-			<version>${project.version}</version>
+			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
+
 		<!-- For Webjars -->
 		<dependency>
 			<groupId>org.webjars</groupId>

@@ -13,12 +13,12 @@
 
 		<!-- For Jeebiz API -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>net.jeebiz</groupId>
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>net.jeebiz</groupId>
 			<artifactId>jeebiz-boot-extras-redis</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
