@@ -571,7 +571,36 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public String getRange(String key, long start, long end) {
-		return redisTemplate.opsForValue().get(key, start, end);
+		try {
+			return redisTemplate.opsForValue().get(key, start, end);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	public String getStringAndSet(String key, Object value) {
+		return getForAndSet(key, value, TO_STRING);
+	}
+
+	public Double getDoubleAndSet(String key, Object value) {
+		return getForAndSet(key, value, TO_DOUBLE);
+	}
+
+	public Long getLongAndSet(String key, Object value) {
+		return getForAndSet(key, value, TO_LONG);
+	}
+
+	public Integer getIntegerAndSet(String key, Object value) {
+		return getForAndSet(key, value, TO_INTEGER);
+	}
+
+	public <T> T getForAndSet(String key, Object value, Function<Object, T> mapper) {
+		Object obj = this.getAndSet(key, value);
+		if (Objects.nonNull(obj)) {
+			return mapper.apply(obj);
+		}
+		return null;
 	}
 
 	/**
@@ -582,7 +611,12 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 	 * @return
 	 */
 	public Object getAndSet(String key, Object value) {
-		return redisTemplate.opsForValue().getAndSet(key, value);
+		try {
+			return redisTemplate.opsForValue().getAndSet(key, value);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
 	}
 
 	/**
@@ -2854,9 +2888,61 @@ public class RedisOperationTemplate extends AbstractOperations<String, Object> {
 		}
 	}
 
+	public Boolean zAdd(String key, Object value, double score, long seconds) {
+		try {
+			Boolean result = getOperations().opsForZSet().add(key, value, score);
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return result;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	public Boolean zAdd(String key, Object value, double score, Duration timeout) {
+		try {
+			Boolean result = getOperations().opsForZSet().add(key, value, score);
+			if (!timeout.isNegative()) {
+				expire(key, timeout);
+			}
+			return result;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
 	public Long zAdd(String key, Set<TypedTuple<Object>> tuples) {
 		try {
 			return getOperations().opsForZSet().add(key, tuples);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	public Long zAdd(String key, Set<TypedTuple<Object>> tuples, long seconds) {
+		try {
+			Long result = getOperations().opsForZSet().add(key, tuples);
+			if (seconds > 0) {
+				expire(key, seconds);
+			}
+			return result;
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw new RedisOperationException(e.getMessage());
+		}
+	}
+
+	public Long zAdd(String key, Set<TypedTuple<Object>> tuples, Duration timeout) {
+		try {
+			Long result = getOperations().opsForZSet().add(key, tuples);
+			if (!timeout.isNegative()) {
+				expire(key, timeout);
+			}
+			return result;
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw new RedisOperationException(e.getMessage());
