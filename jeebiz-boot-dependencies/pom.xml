@@ -247,7 +247,7 @@
 		<png-encoder.version>1.5</png-encoder.version>
 		<reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-		<redisson.version>3.16.6</redisson.version>
+		<redisson.version>3.17.0</redisson.version>
 		<resilience4j.version>1.7.1</resilience4j.version>
 		<reflections.version>0.9.12</reflections.version>
 		<rocketmq-client.version>4.9.2</rocketmq-client.version>
