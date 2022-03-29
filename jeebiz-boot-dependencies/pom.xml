@@ -174,6 +174,7 @@
 		<jsoup.version>1.14.3</jsoup.version>
 		<json.version>20210307</json.version>
 		<json-path.version>2.7.0</json-path.version>
+		<json-smart.version>2.4.8</json-smart.version>
 		<junrar.version>7.4.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.8.RELEASE</jwt-issuer.version>
@@ -273,8 +274,7 @@
 		<selenium-driver.version>4.1.2</selenium-driver.version>
 		<sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
 		<sfntly.version>1.0.0</sfntly.version>
-		<sharding-sphere.version>4.1.1</sharding-sphere.version>
-		<sharding-proxy.version>4.1.0</sharding-proxy.version>
+		<shardingsphere.version>5.1.0</shardingsphere.version>
 		<shedlock.version>4.9.3</shedlock.version>
 		<shiro.version>1.8.0</shiro.version>
 		<shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
@@ -391,7 +391,7 @@
 		<spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
 		<spring-boot-starter-agora.version>1.0.0-SNAPSHOT</spring-boot-starter-agora.version>
 		<spring-boot-starter-aliyun-schedulerx2.version>1.2.9.1</spring-boot-starter-aliyun-schedulerx2.version>
-		<spring-boot-starter-aliyun-ons.version>1.1.1-SNAPSHOT</spring-boot-starter-aliyun-ons.version>
+		<spring-boot-starter-aliyun-ons.version>1.1.1.RELEASE</spring-boot-starter-aliyun-ons.version>
 		<spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
 		<spring-boot-starter-aliyun-mps.version>1.0.1.RELEASE</spring-boot-starter-aliyun-mps.version>
 		<spring-boot-starter-arcface.version>1.0.2.RELEASE</spring-boot-starter-arcface.version>
@@ -408,7 +408,7 @@
 		<spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
 		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
-		<spring-boot-starter-dingtalk.version>1.0.6.RELEASE</spring-boot-starter-dingtalk.version>
+		<spring-boot-starter-dingtalk.version>1.0.7.RELEASE</spring-boot-starter-dingtalk.version>
 		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
@@ -418,14 +418,14 @@
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
-		<spring-boot-starter-geoip.version>1.0.0-SNAPSHOT</spring-boot-starter-geoip.version>
+		<spring-boot-starter-geoip.version>1.0.0.RELEASE</spring-boot-starter-geoip.version>
 		<spring-boot-starter-grpc.version>4.5.9</spring-boot-starter-grpc.version>
 		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
 		<spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
 		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
-		<spring-boot-starter-ip2region.version>1.0.8-SNAPSHOT</spring-boot-starter-ip2region.version>
-		<spring-boot-starter-ishumei.version>1.0.5-SNAPSHOT</spring-boot-starter-ishumei.version>
+		<spring-boot-starter-ip2region.version>1.0.8.RELEASE</spring-boot-starter-ip2region.version>
+		<spring-boot-starter-ishumei.version>1.0.5.RELEASE</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
 		<spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
@@ -445,25 +445,25 @@
 		<spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
 		<spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
 		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
-		<spring-boot-starter-okhttp3.version>1.0.8-SNAPSHOT</spring-boot-starter-okhttp3.version>
+		<spring-boot-starter-okhttp3.version>1.0.8.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.2.RELEASE</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
-		<spring-boot-starter-qqwry.version>1.0.4-SNAPSHOT</spring-boot-starter-qqwry.version>
+		<spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
-		<spring-boot-starter-security-biz.version>1.0.9-SNAPSHOT</spring-boot-starter-security-biz.version>
-		<spring-boot-starter-security-cas.version>1.0.3-SNAPSHOT</spring-boot-starter-security-cas.version>
-		<spring-boot-starter-security-dingtalk.version>1.0.2-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
+		<spring-boot-starter-security-biz.version>1.0.9.RELEASE</spring-boot-starter-security-biz.version>
+		<spring-boot-starter-security-cas.version>1.0.3.RELEASE</spring-boot-starter-security-cas.version>
+		<spring-boot-starter-security-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-security-dingtalk.version>
 		<spring-boot-starter-security-facebook.version>1.0.0-SNAPSHOT</spring-boot-starter-security-facebook.version>
 		<spring-boot-starter-security-google.version>1.0.0-SNAPSHOT</spring-boot-starter-security-google.version>
-		<spring-boot-starter-security-jwt.version>1.0.8-SNAPSHOT</spring-boot-starter-security-jwt.version>
+		<spring-boot-starter-security-jwt.version>1.0.8.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-line.version>1.0.0-SNAPSHOT</spring-boot-starter-security-line.version>
 		<spring-boot-starter-security-pac4j.version>1.0.2-SNAPSHOT</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-qrcode.version>1.0.1-SNAPSHOT</spring-boot-starter-security-qrcode.version>
@@ -483,7 +483,7 @@
 		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-		<spring-boot-starter-tencentapi.version>1.0.9-SNAPSHOT</spring-boot-starter-tencentapi.version>
+		<spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
 		<spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
 		<spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
@@ -2910,6 +2910,13 @@
 				<version>${json-path.version}</version>
 			</dependency>
 
+			<!-- https://mvnrepository.com/artifact/net.minidev/json-smart -->
+			<dependency>
+				<groupId>net.minidev</groupId>
+				<artifactId>json-smart</artifactId>
+				<version>${json-smart.version}</version>
+			</dependency>
+
 			<!-- https://mvnrepository.com/artifact/com.github.junrar/junrar -->
 			<dependency>
 			    <groupId>com.github.junrar</groupId>
@@ -4067,82 +4074,37 @@
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere -->
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-jdbc-core -->
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>sharding-jdbc-core</artifactId>
-				<version>${sharding-sphere.version}</version>
+				<artifactId>shardingsphere-jdbc-core</artifactId>
+				<version>${shardingsphere.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
 				<artifactId>shardingsphere-sql-parser-oracle</artifactId>
-				<version>${sharding-sphere.version}</version>
+				<version>${shardingsphere.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
 				<artifactId>shardingsphere-sql-parser-mysql</artifactId>
-				<version>${sharding-sphere.version}</version>
+				<version>${shardingsphere.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
 				<artifactId>shardingsphere-sql-parser-postgresql</artifactId>
-				<version>${sharding-sphere.version}</version>
+				<version>${shardingsphere.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
 				<artifactId>shardingsphere-sql-parser-sqlserver</artifactId>
-				<version>${sharding-sphere.version}</version>
+				<version>${shardingsphere.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
 				<artifactId>shardingsphere-sql-parser-sql92</artifactId>
-				<version>${sharding-sphere.version}</version>
+				<version>${shardingsphere.version}</version>
 			</dependency>
-			<dependency>
-			    <groupId>org.apache.shardingsphere</groupId>
-			    <artifactId>sharding-orchestration-core</artifactId>
-			    <version>${sharding-sphere.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>org.apache.shardingsphere</groupId>
-			    <artifactId>sharding-orchestration-reg-nacos</artifactId>
-			    <version>${sharding-sphere.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>org.apache.shardingsphere</groupId>
-			    <artifactId>sharding-orchestration-reg-zookeeper-curator</artifactId>
-			    <version>${sharding-sphere.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>sharding-transaction-spring</artifactId>
-				<version>${sharding-transaction.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>sharding-transaction-base-seata-at</artifactId>
-				<version>${sharding-transaction.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>sharding-transaction-xa-narayana</artifactId>
-				<version>${sharding-transaction.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>sharding-transaction-xa-bitronix</artifactId>
-				<version>${sharding-transaction.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>sharding-transaction-xa-bitronix-manager</artifactId>
-				<version>${sharding-transaction.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shardingsphere</groupId>
-				<artifactId>sharding-transaction-xa-atomikos</artifactId>
-				<version>${sharding-transaction.version}</version>
-			</dependency>
-
 			<!-- https://github.com/lukas-krecan/ShedLock -->
 			<!-- https://mvnrepository.com/artifact/net.javacrumbs.shedlock -->
 			<dependency>
@@ -4753,6 +4715,7 @@
 			</dependency>
 
 			<!-- http://mvnrepository.com/artifact/org.webjars/swagger-ui -->
+
 			<dependency>
 				<groupId>org.webjars</groupId>
 				<artifactId>swagger-ui</artifactId>
@@ -5688,29 +5651,23 @@
 				<artifactId>security-weixin-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-security-weixin.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-jdbc-spring-boot-starter -->
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-jdbc-core-spring-boot-starter -->
 			<dependency>
-			    <groupId>org.apache.shardingsphere</groupId>
-			    <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-			    <version>${sharding-sphere.version}</version>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+				<version>${shardingsphere.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-jdbc-spring-boot-starter-infra -->
+			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-sharding-spring-boot-starter -->
 			<dependency>
-			    <groupId>org.apache.shardingsphere</groupId>
-			    <artifactId>shardingsphere-jdbc-spring-boot-starter-infra</artifactId>
-			    <version>${sharding-sphere.version}</version>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>shardingsphere-sharding-spring-boot-starter</artifactId>
+				<version>${shardingsphere.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-encrypt-spring-boot-starter -->
 			<dependency>
-			    <groupId>org.apache.shardingsphere</groupId>
-			    <artifactId>shardingsphere-encrypt-spring-boot-starter</artifactId>
-			    <version>${sharding-sphere.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-shadow-spring-boot-starter -->
-			<dependency>
-			    <groupId>org.apache.shardingsphere</groupId>
-			    <artifactId>shardingsphere-shadow-spring-boot-starter</artifactId>
-			    <version>${sharding-sphere.version}</version>
+				<groupId>org.apache.shardingsphere</groupId>
+				<artifactId>shardingsphere-encrypt-spring-boot-starter</artifactId>
+				<version>${shardingsphere.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring-boot-starter -->
 			<dependency>
