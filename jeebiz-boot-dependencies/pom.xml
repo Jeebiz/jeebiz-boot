@@ -453,8 +453,9 @@
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-		<spring-boot-starter-redistpl-plus.version>1.0.0-SNAPSHOT</spring-boot-starter-redistpl-plus.version>
+		<spring-boot-starter-redistpl-plus.version>1.0.0.RELEASE</spring-boot-starter-redistpl-plus.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
+		<spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
 		<spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
@@ -5555,6 +5556,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>redistpl-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-redistpl-plus.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/redisson-plus-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>redisson-plus-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-redisson-plus.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter -->
 			<dependency>
