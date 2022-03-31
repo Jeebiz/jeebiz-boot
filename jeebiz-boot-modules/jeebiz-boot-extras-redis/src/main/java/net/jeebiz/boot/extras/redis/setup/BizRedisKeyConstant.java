@@ -1,11 +1,6 @@
 package net.jeebiz.boot.extras.redis.setup;
 
-import org.springframework.util.StringUtils;
-
-import java.util.Objects;
-import java.util.StringJoiner;
-
-public abstract class RedisKeyConstant {
+public abstract class BizRedisKeyConstant {
 
 	public final static String DELIMITER = ":";
 	public final static String YYYYMMDD = "yyyyMMdd";
@@ -135,23 +130,5 @@ public abstract class RedisKeyConstant {
 	 * 接口幂等缓存（参数模式）
 	 */
 	public final static  String IDEMPOTENT_ARGS_KEY  = "idempotent:args";
-
-	public static String REDIS_PREFIX = "rds";
-
-	public static String getKeyStr(Object... args) {
-		StringJoiner tempKey = new StringJoiner(DELIMITER);
-		tempKey.add(REDIS_PREFIX);
-		for (Object s : args) {
-			if (Objects.isNull(s) || !StringUtils.hasText(s.toString())) {
-				continue;
-			}
-			tempKey.add(s.toString());
-		}
-		return tempKey.toString();
-	}
-
-	public static void main(String[] args) {
-		System.out.println(getKeyStr(233,""));
-	}
 
 }

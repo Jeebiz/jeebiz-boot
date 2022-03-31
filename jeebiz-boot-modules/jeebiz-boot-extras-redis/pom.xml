@@ -17,55 +17,10 @@
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.gavaghan/geodesy -->
+		<!-- For Spring Boot's Redis With Extension -->
 		<dependency>
-		    <groupId>org.gavaghan</groupId>
-		    <artifactId>geodesy</artifactId>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.github.hiwepy/httpconn -->
-		<dependency>
-		    <groupId>com.github.hiwepy</groupId>
-		    <artifactId>httpconn</artifactId>
-		</dependency>
-		<!-- For Spring Boot's Redis -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.netty</groupId>
-		    <artifactId>netty-tcnative-boringssl-static</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.netty</groupId>
-		    <artifactId>netty-transport-native-epoll</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.netty</groupId>
-		    <artifactId>netty-transport-native-kqueue</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-pool2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>redistpl-plus-spring-boot-starter</artifactId>
 		</dependency>
 
 	</dependencies>
