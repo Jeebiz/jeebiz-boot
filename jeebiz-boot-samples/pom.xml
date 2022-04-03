@@ -12,13 +12,13 @@
 	<artifactId>jeebiz-boot-samples</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<jeebiz-boot.version>1.0.2-SNAPSHOT</jeebiz-boot.version>
+		<jeebiz-boot.version>2.0.0-SNAPSHOT</jeebiz-boot.version>
 	</properties>
-	
+
 	<modules>
 		<module>jeebiz-boot-sample-druid</module>
 		<module>jeebiz-boot-sample-druid-activemq</module>
@@ -33,5 +33,5 @@
 		<module>jeebiz-boot-sample-hikaricp-war</module>
 		<module>jeebiz-boot-sample-hikaricp-webflux</module>
 	</modules>
-	
+
 </project>
