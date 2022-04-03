@@ -14,8 +14,6 @@
 	<modules>
 		<module>jeebiz-boot-api</module>
 		<module>jeebiz-boot-extras-external</module>
-		<module>jeebiz-boot-extras-redis</module>
-		<module>jeebiz-boot-extras-redisson</module>
 		<module>jeebiz-boot-plugin-api</module>
 		<module>jeebiz-boot-webflux-autoconfigure</module>
 		<module>jeebiz-boot-webmvc-autoconfigure</module>

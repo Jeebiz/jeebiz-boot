@@ -18,7 +18,7 @@
 
 	<name>jeebiz-boot</name>
 	<description>Jeebiz Projects For Spring Boot</description>
-	<url>http://boot.jeebiz.net</url>
+	<url>https://boot.jeebiz.net</url>
 
 	<scm>
 		<url>https://github.com/Jeebiz/jeebiz-boot</url>
@@ -55,7 +55,7 @@
 	<licenses>
         <license>
             <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -63,7 +63,7 @@
 	<!-- 组织信息 -->
 	<organization>
 		<name>Jeebiz</name>
-		<url>www.jeebiz.net</url>
+		<url>https://jeebiz.net</url>
 	</organization>
 
 	<!-- 开发者信息 -->
@@ -72,7 +72,7 @@
 			<name>wandl</name>
 			<email>hnxyhcwdl1003@163.com</email>
 			<organization>jeebiz</organization>
-      		<organizationUrl>http://www.jeebiz.net</organizationUrl>
+      		<organizationUrl>https://jeebiz.net</organizationUrl>
 			<roles>
 	            <role>developer</role>
 	        </roles>
