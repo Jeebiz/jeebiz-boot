@@ -490,6 +490,7 @@
 		<spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
+		<spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
 		<spring-boot-starter-xxljob.version>1.0.0.RELEASE</spring-boot-starter-xxljob.version>
 		<spring-boot-starter-zxing.version>1.0.2.RELEASE</spring-boot-starter-zxing.version>
 
@@ -5826,6 +5827,12 @@
 			    <groupId>com.github.binarywang</groupId>
 			    <artifactId>wx-java-mp-spring-boot-starter</artifactId>
 			    <version>${weixin-java.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/xmemcached-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>xmemcached-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-xmemcached.version}</version>
 			</dependency>
 			<!-- https://github.com/hiwepy/xxljob-spring-boot-starter -->
 			<dependency>
