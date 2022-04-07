@@ -6,7 +6,6 @@ package net.jeebiz.boot.demo.web.vo;
 
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.SafeHtml;
 import org.springframework.web.multipart.MultipartFile;
 
 import io.swagger.annotations.ApiModel;
@@ -19,11 +18,9 @@ public class DemoVo {
 	private String id;
 	@ApiModelProperty(value = "xx名称", required = true)
 	@NotBlank(message = "名称必填")
-	@SafeHtml(whitelistType = SafeHtml.WhiteListType.NONE)
 	private String name;
 	@ApiModelProperty(value = "xx描述", required = true)
 	@NotBlank(message = "描述必填")
-	@SafeHtml(whitelistType = SafeHtml.WhiteListType.NONE)
 	private String text;
 	@ApiModelProperty(value = "文件")
 	private MultipartFile file;
