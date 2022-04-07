@@ -232,8 +232,8 @@
 		<owasp-encoder.version>1.2.3</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20211018.2</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.1</p6spy.version>
-		<pac4j.version>5.3.1</pac4j.version>
-		<pac4j-oauth-ext.version>1.0.2.RELEASE</pac4j-oauth-ext.version>
+		<pac4j.version>4.5.5</pac4j.version>
+		<pac4j-oauth-ext.version>1.0.3.RELEASE</pac4j-oauth-ext.version>
 		<paho-mqttv3.version>1.2.5</paho-mqttv3.version>
         <paypal-checkout-sdk.version>1.0.3</paypal-checkout-sdk.version>
         <paypal-rest-api-sdk.version>1.14.0</paypal-rest-api-sdk.version>
@@ -277,7 +277,7 @@
 		<sfntly.version>1.0.0</sfntly.version>
 		<shardingsphere.version>5.1.0</shardingsphere.version>
 		<shedlock.version>4.9.3</shedlock.version>
-		<shiro.version>1.9.0</shiro.version>
+		<shiro.version>1.9.0</shiro.version>pa
 		<shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -448,7 +448,7 @@
 		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
 		<spring-boot-starter-okhttp3.version>1.0.8.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
-		<spring-boot-starter-pac4j.version>1.0.2.RELEASE</spring-boot-starter-pac4j.version>
+		<spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
 		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
