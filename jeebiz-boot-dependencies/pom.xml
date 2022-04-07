@@ -3989,12 +3989,6 @@
 				<artifactId>selenium-safari-driver</artifactId>
 				<version>${selenium-driver.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
-			<dependency>
-				<groupId>org.seleniumhq.selenium</groupId>
-				<artifactId>selenium-safari-driver</artifactId>
-				<version>${selenium-driver.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
 			<dependency>
 				<groupId>org.seleniumhq.selenium</groupId>
