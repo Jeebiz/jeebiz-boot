@@ -1,12 +1,12 @@
-/** 
+/**
  * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package net.jeebiz.boot.autoconfigure.webflux;
 
 import java.util.Map;
 
-import org.springframework.boot.autoconfigure.web.WebProperties.Resources;
+import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.reactive.error.ErrorAttributes;
@@ -24,12 +24,12 @@ import reactor.core.publisher.Mono;
 
 public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler {
 
-	public GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, Resources resources,
-			ApplicationContext applicationContext) {
-		super(errorAttributes, resources, applicationContext);
-	}
+    public GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, ResourceProperties resourceProperties,
+                                          ApplicationContext applicationContext) {
+        super(errorAttributes, resourceProperties, applicationContext);
+    }
 
-	// 构造函数
+    // 构造函数
     @Override
     protected RouterFunction<ServerResponse> getRoutingFunction(final ErrorAttributes errorAttributes) {
         return RouterFunctions.route(RequestPredicates.all(), this::renderErrorResponse);
@@ -43,5 +43,4 @@ public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHan
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(errorPropertiesMap));
     }
-    
 }
