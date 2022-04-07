@@ -8,9 +8,9 @@
 		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>jeebiz-boot-extras-external</artifactId>
-	
+
 	<dependencies>
-		
+
 		<!-- For Servlet Api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-		</dependency> 
+		</dependency>
 		<!-- For geodesy -->
 		<dependency>
 		    <groupId>org.gavaghan</groupId>
@@ -48,11 +48,10 @@
 		</dependency>
         <!-- For Redis -->
 		<dependency>
-			<groupId>net.jeebiz</groupId>
-			<artifactId>jeebiz-boot-extras-redis</artifactId>
-			<version>${jeebiz-boot.version}</version>
-		</dependency> 	
-						
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>redistpl-plus-spring-boot-starter</artifactId>
+		</dependency>
+
 	</dependencies>
-	
+
 </project>
