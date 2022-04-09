@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
-@ComponentScan(basePackages = {"net.jeebiz.**.setup", "net.jeebiz.**.service", "net.jeebiz.**.aspect", "net.jeebiz.**.task", "net.jeebiz.**.strategy", "net.jeebiz.**.extras"})
+@ComponentScan({"net.jeebiz.**.setup", "net.jeebiz.**.service", "net.jeebiz.**.aspect", "net.jeebiz.**.task", "net.jeebiz.**.strategy", "net.jeebiz.**.extras"})
 public class DefaultSpringContextConfiguration {
 
 	@Bean
