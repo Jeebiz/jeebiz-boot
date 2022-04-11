@@ -246,7 +246,13 @@
 		<pf4j-update.version>2.3.0</pf4j-update.version>
 		<pf4j-spring.version>0.7.0</pf4j-spring.version>
 		<png-encoder.version>1.5</png-encoder.version>
-		<reactor-bom.version>2020.0.14</reactor-bom.version>
+		<r2dbc-h2.version>0.9.1.RELEASE</r2dbc-h2.version>
+		<r2dbc-mariadb.version>1.1.1-rc</r2dbc-mariadb.version>
+		<r2dbc-mssql.version>0.9.0.RELEASE</r2dbc-mssql.version>
+		<r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
+		<r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
+		<r2dbc-oracle.version>0.4.0</r2dbc-oracle.version>
+		<reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
 		<rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
 		<redisson.version>3.17.0</redisson.version>
 		<resilience4j.version>1.7.1</resilience4j.version>
@@ -3574,6 +3580,43 @@
 				<groupId>com.belerweb</groupId>
 				<artifactId>pinyin4j</artifactId>
 				<version>${pinyin4j.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-h2 -->
+			<dependency>
+				<groupId>io.r2dbc</groupId>
+				<artifactId>r2dbc-h2</artifactId>
+				<version>${r2dbc-h2.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.mariadb/r2dbc-mariadb -->
+			<dependency>
+				<groupId>org.mariadb</groupId>
+				<artifactId>r2dbc-mariadb</artifactId>
+				<version>${r2dbc-mariadb.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-mssql -->
+			<dependency>
+				<groupId>io.r2dbc</groupId>
+				<artifactId>r2dbc-mssql</artifactId>
+				<version>${r2dbc-mssql.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/dev.miku/r2dbc-mysql -->
+			<dependency>
+				<groupId>dev.miku</groupId>
+				<artifactId>r2dbc-mysql</artifactId>
+				<version>${r2dbc-mysql.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-postgresql -->
+			<dependency>
+				<groupId>io.r2dbc</groupId>
+				<artifactId>r2dbc-postgresql</artifactId>
+				<version>${r2dbc-postgresql.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.oracle.database.r2dbc/oracle-r2dbc -->
+			<dependency>
+				<groupId>com.oracle.database.r2dbc</groupId>
+				<artifactId>oracle-r2dbc</artifactId>
+				<version>${r2dbc-oracle.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-bom -->
