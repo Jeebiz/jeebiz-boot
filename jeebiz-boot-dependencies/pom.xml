@@ -196,14 +196,15 @@
 		<mockito.version>4.1.0</mockito.version>
 		<mongo-java-driver.version>3.12.10</mongo-java-driver.version>
 		<mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
-		<mybatis.version>3.5.7</mybatis.version>
+		<mybatis.version>3.5.9</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
-		<mybatis-dynamic-sql.version>1.2.1</mybatis-dynamic-sql.version>
+		<mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
 		<mybatis-plus.version>3.5.0</mybatis-plus.version>
 		<mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
-		<mybatis-spring.version>2.0.6</mybatis-spring.version>
-		<mybatis-migrations.version>3.3.8</mybatis-migrations.version>
+		<mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
+		<mybatis-spring.version>2.0.7</mybatis-spring.version>
+		<mybatis-migrations.version>3.3.10</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
 		<mybatis-ehcache.version>1.2.1</mybatis-ehcache.version>
@@ -212,11 +213,11 @@
 		<mybatis-memcached.version>1.1.0</mybatis-memcached.version>
 		<mybatis-oscache.version>1.0.2</mybatis-oscache.version>
 		<mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
-		<mybatis-thymeleaf.version>1.0.2</mybatis-thymeleaf.version>
-		<mybatis-freemarker.version>1.2.2</mybatis-freemarker.version>
-		<mybatis-velocity.version>2.1.0</mybatis-velocity.version>
-		<mybatis-generator.version>1.4.0</mybatis-generator.version>
-		<mysql.version>8.0.27</mysql.version>
+		<mybatis-thymeleaf.version>1.0.3</mybatis-thymeleaf.version>
+		<mybatis-freemarker.version>1.2.3</mybatis-freemarker.version>
+		<mybatis-velocity.version>2.1.1</mybatis-velocity.version>
+		<mybatis-generator.version>1.4.1</mybatis-generator.version>
+		<mysql.version>8.0.28</mysql.version>
 		<myth.version>2.0.2-RELEASE</myth.version>
 		<nacos-client.version>2.0.3</nacos-client.version>
 		<neethi.version>3.1.1</neethi.version>
@@ -3218,6 +3219,12 @@
 				<artifactId>mybatis-generator</artifactId>
 				<version>${mybatis-generator.version}</version>
 				<type>pom</type>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/pro.chenggang/mybatis-r2dbc -->
+			<dependency>
+				<groupId>pro.chenggang</groupId>
+				<artifactId>mybatis-r2dbc</artifactId>
+				<version>${mybatis-r2dbc.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
 			<dependency>
