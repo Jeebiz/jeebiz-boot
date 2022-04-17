@@ -97,6 +97,7 @@
 		<cssparser.version>0.9.29</cssparser.version>
 		<cxf.version>3.4.5</cxf.version>
 		<cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
+		<db-meta.version>0.0.1-Release</db-meta.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
 		<derby.version>10.15.2.0</derby.version>
 		<derby-locale.version>${derby.version}</derby-locale.version>
@@ -1476,7 +1477,18 @@
 				<version>${cxf-rt-javassist.version}</version>
 			</dependency>
 
-
+			<!-- https://github.com/wukenaihe/db-meta-example -->
+			<dependency>
+				<groupId>org.clojars.xumh</groupId>
+				<artifactId>db-meta</artifactId>
+				<version>${db-meta.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>ch.qos.logback</groupId>
+						<artifactId>logback-classic</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
 			<!-- JDBC Driver For IBM DB2 -->
 			<dependency>
 			    <groupId>com.ibm.db2</groupId>
