@@ -38,8 +38,8 @@
 		</dependency>
 		<!-- For Jackson -->
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-annotations</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
 		</dependency>
 		<!-- For Guava -->
 		<dependency>

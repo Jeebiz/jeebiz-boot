@@ -151,8 +151,7 @@
 		<imageio.version>3.7.0</imageio.version>
 		<influxdb-java.version>2.21</influxdb-java.version>
 		<istio-client.version>1.6.14</istio-client.version>
-		<janino.version>3.1.3</janino.version>
-		<!-- <jackson-annotations.version>2.10.1</jackson-annotations.version> -->
+		<janino.version>3.1.6</janino.version>
 		<javassist.version>3.28.0-GA</javassist.version>
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>4.0.1</java-uuid-generator.version>
@@ -462,7 +461,7 @@
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-		<spring-boot-starter-redistpl-plus.version>1.0.1.RELEASE</spring-boot-starter-redistpl-plus.version>
+		<spring-boot-starter-redistpl-plus.version>1.0.2.RELEASE</spring-boot-starter-redistpl-plus.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
 		<spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
@@ -2695,13 +2694,6 @@
 			    <version>${istio-client.version}</version>
 			</dependency>
 
-			<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
-			<dependency>
-			    <groupId>com.fasterxml.jackson.core</groupId>
-			    <artifactId>jackson-annotations</artifactId>
-			    <version>${jackson-annotations.version}</version>
-			</dependency>-->
-
 			<!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
 			<dependency>
 			    <groupId>org.codehaus.janino</groupId>
@@ -4329,6 +4321,12 @@
 			    <groupId>com.github.streamone</groupId>
 			    <artifactId>shiro-redisson</artifactId>
 			    <version>${shiro-redisson.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.fasterxml.jackson.core</groupId>
+						<artifactId>jackson-core</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.theborakompanioni/thymeleaf-extras-shiro -->
 			<!-- 使用说明参考：https://github.com/theborakompanioni/thymeleaf-extras-shiro -->
@@ -5164,6 +5162,12 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>dingtalk-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-dingtalk.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.fasterxml.jackson.core</groupId>
+						<artifactId>jackson-databind</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
 			<dependency>

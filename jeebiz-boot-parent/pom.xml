@@ -75,6 +75,11 @@
 			<artifactId>javax.websocket-api</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-json -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-json</artifactId>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
 		<dependency>
 		    <groupId>io.micrometer</groupId>
