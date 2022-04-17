@@ -114,6 +114,7 @@
 		<disruptor.version>3.4.4</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>3.0.4</dubbo.version>
+		<easyexcel.version>3.0.5</easyexcel.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
 		<fastjson.version>1.2.79</fastjson.version>
@@ -460,7 +461,7 @@
 		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-		<spring-boot-starter-redistpl-plus.version>1.0.1.RELEASE</spring-boot-starter-redistpl-plus.version>
+		<spring-boot-starter-redistpl-plus.version>1.0.2.RELEASE</spring-boot-starter-redistpl-plus.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
 		<spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
 		<spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
@@ -1962,9 +1963,9 @@
 
 			<!-- https://mvnrepository.com/artifact/com.alibaba/easyexcel -->
 			<dependency>
-			    <groupId>com.alibaba</groupId>
-			    <artifactId>easyexcel</artifactId>
-			    <version>1.1.2-beat1</version>
+				<groupId>com.alibaba</groupId>
+				<artifactId>easyexcel</artifactId>
+				<version>${easyexcel.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/com.github.abel533/ECharts -->
