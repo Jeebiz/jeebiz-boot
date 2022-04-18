@@ -177,6 +177,7 @@
 		<json-path.version>2.7.0</json-path.version>
 		<json-smart.version>2.4.8</json-smart.version>
 		<junrar.version>7.4.0</junrar.version>
+		<just-auth.version>1.15.9</just-auth.version>
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.8.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>3.0.0</kafka-clients.version>
@@ -2933,6 +2934,13 @@
 			    <groupId>com.github.junrar</groupId>
 			    <artifactId>junrar</artifactId>
 			    <version>${junrar.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/me.zhyd.oauth/JustAuth -->
+			<dependency>
+				<groupId>me.zhyd.oauth</groupId>
+				<artifactId>JustAuth</artifactId>
+				<version>${just-auth.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
