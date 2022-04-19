@@ -5,9 +5,9 @@
 package net.jeebiz.boot.demo.service;
 
 import net.jeebiz.boot.api.service.IBaseService;
-import net.jeebiz.boot.demo.dao.entities.DemoModel;
+import net.jeebiz.boot.demo.dao.entities.DemoEntity;
 
-public interface IDemoService extends IBaseService<DemoModel>{
+public interface IDemoService extends IBaseService<DemoEntity>{
 
 	
 }

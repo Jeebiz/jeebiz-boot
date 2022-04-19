@@ -19,10 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import net.jeebiz.boot.api.ApiRestResponse;
 import net.jeebiz.boot.api.annotation.BusinessLog;
 import net.jeebiz.boot.api.annotation.BusinessType;
 import net.jeebiz.boot.api.web.BaseMapperController;
-import net.jeebiz.boot.demo.dao.entities.DemoModel;
+import net.jeebiz.boot.demo.dao.entities.DemoEntity;
 import net.jeebiz.boot.demo.service.IDemoService;
 import net.jeebiz.boot.demo.setup.data.LogConstant;
 import net.jeebiz.boot.demo.web.dto.DemoDTO;
@@ -31,10 +32,10 @@ import net.jeebiz.boot.demo.web.dto.DemoNewDTO;
 @RestController
 @RequestMapping("demo")
 public class DemoController extends BaseMapperController{
-	
+
 	@Autowired
 	private IDemoService demoService;
-    
+
 	/**
 	 * 增加逻辑实现
 	 */
@@ -43,24 +44,24 @@ public class DemoController extends BaseMapperController{
 	@BusinessLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.INSERT)
 	@PostMapping("new")
 	@ResponseBody
-	public Object newDemo(@Valid DemoNewDTO dto) {
+	public ApiRestResponse<String> newDemo(@Valid DemoNewDTO dto) {
 		try {
-			
-			DemoModel demoModel = new DemoModel();
-			
-			//如果自己较少，采用手动设置方式
-			demoModel.setName(dto.getName());
-			//如果自动较多，采用对象拷贝方式；该方式不支持文件对象拷贝
-			//PropertyUtils.copyProperties(demoModel, demoVo);
 
-			getDemoService().insert(demoModel);
+			DemoEntity entity = new DemoEntity();
+
+			//如果自己较少，采用手动设置方式
+			entity.setName(dto.getName());
+			//如果自动较多，采用对象拷贝方式；该方式不支持文件对象拷贝
+			//PropertyUtils.copyProperties(DemoEntity, demoVo);
+
+			getDemoService().save(entity);
 			return success("demo.new.success");
 		} catch (Exception e) {
 			logException(this, e);
 			return fail("demo.new.fail");
 		}
 	}
-	
+
 	/**
 	 * 修改逻辑实现
 	 */
@@ -69,17 +70,17 @@ public class DemoController extends BaseMapperController{
 	@BusinessLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.UPDATE)
 	@PostMapping("renew")
 	@ResponseBody
-	public Object renew(@Valid DemoDTO demoVo) throws Exception {
+	public ApiRestResponse<String> renew(@Valid DemoDTO demoVo) throws Exception {
 		try {
-			 
-			DemoModel demoModel = new DemoModel();
-			
+
+			DemoEntity entity = new DemoEntity();
+
 			//如果自己较少，采用手动设置方式
-			demoModel.setName(demoVo.getName());
+			entity.setName(demoVo.getName());
 			//如果自动较多，采用对象拷贝方式；该方式不支持文件对象拷贝
-			//PropertyUtils.copyProperties(demoModel, demoVo);
-			
-			getDemoService().update(demoModel);
+			//PropertyUtils.copyProperties(DemoEntity, demoVo);
+
+			getDemoService().updateById(entity);
 			return success("demo.renew.success");
 		} catch (Exception e) {
 			logException(this, e);
@@ -95,21 +96,21 @@ public class DemoController extends BaseMapperController{
 	@BusinessLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.DELETE)
 	@PostMapping("delete")
 	@ResponseBody
-	public Object delete(@RequestParam(value = "ids") String ids, HttpServletRequest request) throws Exception {
+	public ApiRestResponse<String> delete(@RequestParam(value = "ids") String ids, HttpServletRequest request) throws Exception {
 		try {
 			if (ObjectUtils.isEmpty(ids)) {
 				return fail("demo.delete.fail");
 			}
 			List<String> list = Arrays.asList(StringUtils.tokenizeToStringArray(ids));
 			// 批量删除数据库配置记录
-			getDemoService().batchDelete(list);
+			getDemoService().removeBatchByIds(list);
 			return success("demo.delete.success");
 		} catch (Exception e) {
 			logException(this, e);
 			return fail("demo.delete.fail");
 		}
 	}
-	 
+
 
 	public IDemoService getDemoService() {
 		return demoService;
@@ -118,5 +119,5 @@ public class DemoController extends BaseMapperController{
 	public void setDemoService(IDemoService demoService) {
 		this.demoService = demoService;
 	}
-	
+
 }

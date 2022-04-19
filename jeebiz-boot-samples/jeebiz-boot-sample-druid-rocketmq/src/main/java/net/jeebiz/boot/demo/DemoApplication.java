@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -17,10 +16,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import net.jeebiz.boot.api.sequence.Sequence;
+import net.jeebiz.boot.autoconfigure.EnableExtrasConfiguration;
 
-
-@EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
+@EnableExtrasConfiguration
 @EnableScheduling
 @EnableTransactionManagement
 @SpringBootApplication
@@ -30,18 +29,18 @@ public class DemoApplication implements CommandLineRunner {
     public PlatformTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
-    
+
     @Bean
     public MeterRegistryCustomizer<MeterRegistry> configurer(
             @Value("${spring.application.name}") String applicationName) {
         return (registry) -> registry.config().commonTags("application", applicationName);
     }
-	
+
     @Bean
 	public Sequence sequence() {
 		return new Sequence(0L);
 	}
-    
+
 	public static void main(String[] args) throws Exception {
 		 SpringApplication.run(DemoApplication.class, args);
 	}
@@ -50,5 +49,5 @@ public class DemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.err.println("Spring Boot Application（Jeebiz-Demo） Started !");
 	}
-	
+
 }
