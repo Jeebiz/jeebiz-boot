@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -18,9 +17,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import net.jeebiz.boot.api.sequence.Sequence;
+import net.jeebiz.boot.autoconfigure.EnableExtrasConfiguration;
 
-@EnableAutoConfiguration
 @EnableCaching(proxyTargetClass = true)
+@EnableExtrasConfiguration
 @EnableJms
 @EnableScheduling
 @EnableTransactionManagement

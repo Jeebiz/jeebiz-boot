@@ -17,25 +17,26 @@
 		<docker.build.repostory>http://192.168.31.108:2375</docker.build.repostory>
 		<!--push镜像到私有库项目的名称 -->
 		<docker.registry.name>jeebiz</docker.registry.name>
-		
+
 		<!-- 生成API离线文参数-->
 		<swagger.input>http://localhost:8080/v2/api-docs</swagger.input>
-		
+
 	</properties>
 
 	<dependencies>
 
 		<!-- For Jeebiz -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>net.jeebiz</groupId>
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
 		<dependency>
-	        <groupId>org.projectlombok</groupId>
-	        <artifactId>lombok</artifactId>
-	    </dependency>
-	    
+			<groupId>net.jeebiz</groupId>
+			<artifactId>jeebiz-boot-webflux-autoconfigure</artifactId>
+			<version>${jeebiz-boot.version}</version>
+		</dependency>
+
 		<!-- For WebFlux -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -100,7 +101,7 @@
 		    <groupId>com.github.dozermapper</groupId>
 		    <artifactId>dozer-spring-boot-starter</artifactId>
 		</dependency>
-	   
+
 		<!-- For Cache Support -->
 		<dependency>
 	        <groupId>org.springframework.boot</groupId>
@@ -170,7 +171,7 @@
 		    <scope>runtime</scope>
 		</dependency>
 		<dependency>
-	        <groupId>com.oracle.database.observability</groupId>
+	        <groupId>com.oracle.database.jdbc</groupId>
 	        <artifactId>ojdbc8dms</artifactId>
 	        <scope>runtime</scope>
 	    </dependency>
@@ -185,7 +186,7 @@
 		    <artifactId>sqlite-jdbc</artifactId>
 		    <scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- For Embed Tomcat -->
         <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -201,7 +202,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
-        
+
 	</dependencies>
 
 	<build>
@@ -224,19 +225,19 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
 			</plugin>
-			<!-- 第三步：通过docker-maven插件构造Docker镜像 
+			<!-- 第三步：通过docker-maven插件构造Docker镜像
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 			</plugin> -->
 			<!-- 第四步：生成离线文档-->
 			<!-- http://blog.didispace.com/swagger2markup-asciidoc/ -->
-			<!-- First, use the swagger2markup plugin to generate asciidoc 
+			<!-- First, use the swagger2markup plugin to generate asciidoc
 			<plugin>
 				<groupId>io.github.swagger2markup</groupId>
 				<artifactId>swagger2markup-maven-plugin</artifactId>
 			</plugin>-->
-			<!-- Run the generated asciidoc through Asciidoctor to generate other 
+			<!-- Run the generated asciidoc through Asciidoctor to generate other
 				documentation types, such as PDFs or HTML5
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
