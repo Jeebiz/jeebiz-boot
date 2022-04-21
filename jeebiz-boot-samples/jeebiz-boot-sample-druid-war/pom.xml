@@ -28,11 +28,16 @@
 
 		<!-- For Jeebiz -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>net.jeebiz</groupId>
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>net.jeebiz</groupId>
+			<artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
+			<version>${jeebiz-boot.version}</version>
+		</dependency>
+
 		<!-- For Embedded Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -165,7 +170,7 @@
 		    <scope>runtime</scope>
 		</dependency>
 		<dependency>
-	        <groupId>com.oracle.database.observability</groupId>
+	        <groupId>com.oracle.database.jdbc</groupId>
 	        <artifactId>ojdbc8dms</artifactId>
 	        <scope>runtime</scope>
 	    </dependency>
@@ -174,7 +179,7 @@
 		    <artifactId>orai18n</artifactId>
 		    <scope>runtime</scope>
 		</dependency>
-			
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -193,7 +198,7 @@
 			<optional>false</optional>
 		</dependency>
 		<!-- For Embed Jetty -->
-		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-jetty</artifactId> 
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-jetty</artifactId>
 			</dependency> -->
 		<!-- For Embed Undertow -->
 		<!-- <dependency>
@@ -213,17 +218,17 @@
 					<mainClass>net.jeebiz.boot.demo.DemoApplication</mainClass>
 				</configuration>
 			</plugin>
-			<!-- 第三步：通过docker-maven插件构造Docker镜像 <plugin> <groupId>com.spotify</groupId> 
+			<!-- 第三步：通过docker-maven插件构造Docker镜像 <plugin> <groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId> </plugin> -->
 			<!-- 第四步：生成离线文档 -->
 			<!-- http://blog.didispace.com/swagger2markup-asciidoc/ -->
-			<!-- First, use the swagger2markup plugin to generate asciidoc 
+			<!-- First, use the swagger2markup plugin to generate asciidoc
 			<plugin>
 				<groupId>io.github.swagger2markup</groupId>
 				<artifactId>swagger2markup-maven-plugin</artifactId>
 			</plugin>-->
-			<!-- Run the generated asciidoc through Asciidoctor to generate other 
-				documentation types, such as PDFs or HTML5 
+			<!-- Run the generated asciidoc through Asciidoctor to generate other
+				documentation types, such as PDFs or HTML5
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>

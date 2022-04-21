@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.jeebiz.boot.demo.dao.entities.DemoModel;
+import net.jeebiz.boot.demo.dao.entities.DemoEntity;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -19,19 +19,19 @@ import reactor.core.publisher.Mono;
 public class DemoController {
  
     @GetMapping("/{user}")
-    public Mono<DemoModel> getUser(@PathVariable Long user) {
+    public Mono<DemoEntity> getUser(@PathVariable Long user) {
         // ...
     	return null;
     }
     
     @GetMapping("/{user}/customers")
-    public Flux<DemoModel> getUserCustomers(@PathVariable Long user) {
+    public Flux<DemoEntity> getUserCustomers(@PathVariable Long user) {
         // ...
     	return null;
     }
  
     @DeleteMapping("/{user}")
-    public Mono<DemoModel> deleteUser(@PathVariable Long user) {
+    public Mono<DemoEntity> deleteUser(@PathVariable Long user) {
         // ...
     	return null;
     }

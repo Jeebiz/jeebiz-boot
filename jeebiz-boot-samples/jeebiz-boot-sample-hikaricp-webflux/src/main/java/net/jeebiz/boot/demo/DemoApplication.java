@@ -16,8 +16,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import net.jeebiz.boot.api.sequence.Sequence;
+import net.jeebiz.boot.autoconfigure.EnableExtrasConfiguration;
 import net.jeebiz.boot.demo.dao.entities.MyEvent;
 
+@EnableExtrasConfiguration
 @SpringBootApplication
 //@EnableSwagger2Doc
 @EnableTransactionManagement
