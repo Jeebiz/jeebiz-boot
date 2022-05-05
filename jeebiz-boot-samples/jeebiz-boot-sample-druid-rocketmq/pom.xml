@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>net.jeebiz</groupId>
+		<groupId>io.hiwepy</groupId>
 		<artifactId>jeebiz-boot-samples</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
@@ -14,12 +14,12 @@
 
 		<!-- For Jeebiz -->
 		<dependency>
-			<groupId>net.jeebiz</groupId>
+			<groupId>io.hiwepy</groupId>
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>net.jeebiz</groupId>
+			<groupId>io.hiwepy</groupId>
 			<artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
@@ -148,7 +148,7 @@
 		    <scope>runtime</scope>
 		</dependency>
 		<dependency>
-	        <groupId>com.oracle.database.jdbc</groupId>
+	        <groupId>com.oracle.database.observability</groupId>
 	        <artifactId>ojdbc8dms</artifactId>
 	        <scope>runtime</scope>
 	    </dependency>
@@ -193,7 +193,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<executable>true</executable>
-					<mainClass>net.jeebiz.boot.demo.DemoApplication</mainClass>
+					<mainClass>DemoApplication</mainClass>
 				</configuration>
 			</plugin>
 			<!-- 第一步：生成可执行的启动脚本 -->
