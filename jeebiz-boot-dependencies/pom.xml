@@ -228,7 +228,7 @@
 		<ons-client.version>1.8.8.1.Final</ons-client.version>
 		<oracle-database.version>21.5.0.0</oracle-database.version>
 		<oshi.version>5.8.2</oshi.version>
-		<owasp-antisamy.version>1.6.5</owasp-antisamy.version>
+		<owasp-antisamy.version>1.6.7</owasp-antisamy.version>
 		<owasp-csrfguard.version>4.1.1</owasp-csrfguard.version>
 		<owasp-esapi.version>2.2.3.1</owasp-esapi.version>
 		<owasp-encoder.version>1.2.3</owasp-encoder.version>
