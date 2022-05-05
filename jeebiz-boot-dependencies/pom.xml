@@ -230,7 +230,7 @@
 		<oshi.version>5.8.2</oshi.version>
 		<owasp-antisamy.version>1.6.7</owasp-antisamy.version>
 		<owasp-csrfguard.version>4.1.1</owasp-csrfguard.version>
-		<owasp-esapi.version>2.2.3.1</owasp-esapi.version>
+		<owasp-esapi.version>2.3.0.0</owasp-esapi.version>
 		<owasp-encoder.version>1.2.3</owasp-encoder.version>
 		<owasp-html-sanitizer.version>20211018.2</owasp-html-sanitizer.version>
 		<p6spy.version>3.9.1</p6spy.version>
