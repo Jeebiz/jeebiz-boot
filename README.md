@@ -8,7 +8,7 @@
 
 - 3、自定义项目默认的打包编译方式；快速的构建项目部署包
 
-- 4、定义服务开发基础API、公共对象（BaseController、BaseService、BaseDao、BaseMapper 等）、异常对象
+- 4、定义服务开发基础API、公共对象（BaseController、BaseService、BaseMapper、BaseMapper 等）、异常对象
 
 - 5、定义 Spring Boot 项目默认初始化逻辑和异常处理
 
@@ -21,7 +21,7 @@
 | 模块  | 说明  |
 | ------------ | ------------ |
 | jeebiz-boot-dependencies | pom类型模块，负责配置项目公共依赖，便于依赖组件版本控制  |
-| jeebiz-boot-modules  |  项目基础模块，封装基础API、公共对象（BaseController、BaseService、BaseDao、BaseMapper 等）、异常对象到jar中，以便复用 |
+| jeebiz-boot-modules  |  项目基础模块，封装基础API、公共对象（BaseController、BaseService、BaseMapper、BaseMapper 等）、异常对象到jar中，以便复用 |
 | jeebiz-boot-parent  | pom类型模块，默认配置Maven插件相关参数和打包方式 |
 | jeebiz-boot-samples  |  具体服务示例，该模块下的各服务模块，均要继承 `jeebiz-boot-parent` |
 
@@ -39,7 +39,7 @@
 |--jeebiz-boot
 |----jeebiz-boot-dependencies		#公共依赖，便于依赖组件版本控制
 |----jeebiz-boot-modules			#具体业务服务
-|------jeebiz-boot-api				#基础API、公共对象（BaseController、BaseService、BaseDao、BaseMapper 等）、异常对象
+|------jeebiz-boot-api				#基础API、公共对象（BaseController、BaseService、BaseMapper、BaseMapper 等）、异常对象
 |------jeebiz-boot-extras-external	#外部API集成
 |------jeebiz-boot-extras-redis		#Redis扩展
 |------jeebiz-boot-extras-redisson	#Redisson扩展

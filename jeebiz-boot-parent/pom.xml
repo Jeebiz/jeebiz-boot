@@ -61,24 +61,11 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
-		<!-- Java Servlet API -->
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<!-- Java Websocket API -->
-		<!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
-		<dependency>
-			<groupId>javax.websocket</groupId>
-			<artifactId>javax.websocket-api</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-json -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-json</artifactId>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
 		<dependency>
@@ -877,11 +864,17 @@
 									<!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
 									<mkdir dir="${appassembler-dir}/${project.artifactId}/conf" />
 
-									<copy file="${project.build.directory}/classes/application.properties"
-										todir="${appassembler-dir}/${project.artifactId}/conf" />
+									<copy file="${project.build.directory}/classes/application.yaml"
+										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application.yml"
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>
+									<copy file="${project.build.directory}/classes/application-dev.yaml"
+										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
+
+									<copy file="${project.build.directory}/classes/application-prod.yaml"
+										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
+
+									<copy file="${project.build.directory}/classes/application-test.yaml"
+										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
 
 									<!-- 步骤3、拷贝Java环境变量设置文件
 									<copy file="${basedir}/runenv/setenv" todir="${appassembler-dir}/${project.artifactId}/bin" />
@@ -942,11 +935,17 @@
 
 									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application.properties"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
+									<copy file="${project.build.directory}/classes/application.yaml"
+										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application.yml"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+									<copy file="${project.build.directory}/classes/application-dev.yaml"
+										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+
+									<copy file="${project.build.directory}/classes/application-prod.yaml"
+										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+
+									<copy file="${project.build.directory}/classes/application-test.yaml"
+										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
 
 									<!-- 步骤3、拷贝Java环境变量设置文件
