@@ -4,40 +4,40 @@
 	<parent>
 		<groupId>net.jeebiz</groupId>
 		<artifactId>jeebiz-boot-dependencies</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>2.0.0-SNAPSHOT</version>
 		<relativePath>../jeebiz-boot-dependencies</relativePath>
 	</parent>
-	
+
 	<artifactId>jeebiz-boot-parent</artifactId>
 	<packaging>pom</packaging>
 	<description>Jeebiz Projects Parent for Spring Boot</description>
-	
+
 	<properties>
-		
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.module>${project.artifactId}</project.module>
 		<java.version>1.8</java.version>
 		<maven.version>3.0</maven.version>
-	    
+
 	    <addClasspath>false</addClasspath>
 		<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
         <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 		<addExtensions>false</addExtensions>
 		<classpathPrefix>lib/</classpathPrefix>
-	    
+
 	    <!-- 生成部署脚本参数 -->
 		<appassembler-dir>${project.build.directory}/generated-resources/appassembler</appassembler-dir>
 		<appassembler-jsw-dir>${project.build.directory}/generated-resources/appassembler/jsw</appassembler-jsw-dir>
 		<appassembler-bin-fileName>jeebiz-boot</appassembler-bin-fileName>
-		
+
 		<!-- 生成Docker镜像参数: docker build、push地址-->
 	    <docker.workdir>/u01/boot/${project.artifactId}</docker.workdir>
 	    <docker.push.repostory>127.0.0.1</docker.push.repostory>
 	    <docker.build.repostory>http://127.0.0.1:2376</docker.build.repostory>
 	    <!--push镜像到私有库项目的名称-->
 	    <docker.registry.name>jeebiz</docker.registry.name>
-	    
+
 	    <!-- 生成API离线文参数-->
 		<swagger.input>http://localhost:8080/v2/api-docs</swagger.input>
 		<!-- <swagger.input>${project.basedir}/docs/swagger/swagger.json</swagger.input> -->
@@ -46,9 +46,9 @@
         <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
 		<asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
         <generated.asciidoc.directory>${project.build.directory}/asciidoc</generated.asciidoc.directory>
-		
+
 	</properties>
-	
+
 	<dependencies>
 		<!-- For Lombok -->
 		<dependency>
@@ -301,8 +301,8 @@
 						<!-- 跳过单元测试 -->
 						<skip>true</skip>
 						<skipTests>true</skipTests>
-						<!-- forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 pretest： 
-							每一个测试创建一个新进程，为每个测试创建新的JVM是单独测试的最彻底方式，但也是最慢的，不适合hudson上持续回归。 once：在一个进程中进行所有测试。once为默认设置，在Hudson上持续回归时建议使用默认设置。 
+						<!-- forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 pretest：
+							每一个测试创建一个新进程，为每个测试创建新的JVM是单独测试的最彻底方式，但也是最慢的，不适合hudson上持续回归。 once：在一个进程中进行所有测试。once为默认设置，在Hudson上持续回归时建议使用默认设置。
 							always：在一个进程中并行的运行脚本，Junit4.7以上版本才可以使用，surefire的版本要在2.6以上提供这个功能，其中 threadCount：执行时，指定可分配的线程数量。只和参数parallel配合使用有效。默认：5。 -->
 						<forkMode>once</forkMode>
 						<argLine>-Xmx1024M -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=256M</argLine>
@@ -334,9 +334,9 @@
 						</execution>
 					</executions>
 				</plugin>
-				
+
 				<!-- Spring Boot 代码质量检查 -->
-				
+
 				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
 				<plugin>
 					<!-- 代码格式检查  -->
@@ -410,7 +410,7 @@
 		                <includeTests>true</includeTests>
 		                <!--findbugs需要忽略的错误的配置文件-->
 		                <excludeFilterFile>findbugs/findbugs-exclude-filter.xml</excludeFilterFile>
-		            </configuration> 
+		            </configuration>
 		            <executions>
 		                <execution>
 		                    <id>run-findbugs</id>
@@ -428,9 +428,9 @@
 				    <groupId>org.apache.maven.plugins</groupId>
 				    <artifactId>maven-pmd-plugin</artifactId>
 				</plugin>
-				
+
 				<!-- Spring Boot 应用可实施应用构建：脚本模式、服务模式、Docker模式 -->
-				
+
 				<!-- http://www.mojohaus.org/appassembler/appassembler-maven-plugin -->
 				<plugin>
 					<!-- Java应用程序可执行脚本生成：http://blog.csdn.net/mn960mn/article/details/51554152 -->
@@ -468,7 +468,7 @@
 						<!-- The character encoding scheme to be applied when filtering the source configuration directory.
 							 Default value is: ${project.build.sourceEncoding}. -->
 						<encoding>${project.build.sourceEncoding}</encoding>
-						<!-- $BASEDIR/bin目录中的启动脚本执行前调用的脚本名称，用于设置环境变量，类似Tomcat的setenv。 注意：仅适用于jsw平台。如果这个可选的环境文件也设置了WRAPPER_CONF_OVERRIDES变量，它将被传递给JSW本机启动器的命令行参数， 
+						<!-- $BASEDIR/bin目录中的启动脚本执行前调用的脚本名称，用于设置环境变量，类似Tomcat的setenv。 注意：仅适用于jsw平台。如果这个可选的环境文件也设置了WRAPPER_CONF_OVERRIDES变量，它将被传递给JSW本机启动器的命令行参数，
 							以覆盖wrapper.conf的属性。有关详细信息，请参阅http://wrapper.tanukisoftware.com/doc/english/props-command-line.html。 -->
 						<environmentSetupFileName>setenv</environmentSetupFileName>
 						<!-- 此字符串前面的表达式将不会被更改。 如 \${foo}将被${foo}替换。 -->
@@ -485,9 +485,9 @@
 						<!-- <licenseHeaderFile>${basedir}/license-header.txt</licenseHeaderFile> -->
 						<!-- 将库复制到存储库时使用的文件名映射。如果没有设置文件映射（默认），则使用其标准名称复制文件。注意：如果使用此参数，则将 忽略useTimestampInSnapshotFileName参数。 -->
 						<!-- <outputFileNameMapping></outputFileNameMapping> -->
-						<!-- 如果存在，请将此目录的内容复制到配置的 assembleDirectory，并使用选项进行过滤。此配置可以替代copyConfigurationDirectory 
+						<!-- 如果存在，请将此目录的内容复制到配置的 assembleDirectory，并使用选项进行过滤。此配置可以替代copyConfigurationDirectory
 							<preAssembleDirectory></preAssembleDirectory> -->
-						<!-- 生成的Maven仓库的布局。支持的类型 - “默认”（Maven2）| “遗产”（Maven1）| “平”（flat lib 
+						<!-- 生成的Maven仓库的布局。支持的类型 - “默认”（Maven2）| “遗产”（Maven1）| “平”（flat lib
 							/ style）。 只有当您运行在Maven 2.2.1之前，才支持“legacy”样式。 说明： 如果拷贝Maven依赖jar;则对应的lib目录中jar的存放规则，默认是${groupId}/${artifactId}的目录格式，flat表示直接把jar放到lib目录 -->
 						<repositoryLayout>flat</repositoryLayout>
 						<!-- 打包的jar,以及maven依赖的jar存储的目录（相对于assembleDirectory） -->
@@ -498,10 +498,10 @@
 						<!-- <unixScriptTemplate></unixScriptTemplate> -->
 						<!-- For those snapshots downloaded from a remote repo, replace the timestamp part with "SNAPSHOT" instead. Default value is: true.。 -->
 						<useTimestampInSnapshotFileName>true</useTimestampInSnapshotFileName>
-						<!-- 有时候，有许多依赖关系意味着有一个非常长的类路径，并且变得太长（特别是在基于Windows的平台上）。这种选择可以帮助这种情况。 
+						<!-- 有时候，有许多依赖关系意味着有一个非常长的类路径，并且变得太长（特别是在基于Windows的平台上）。这种选择可以帮助这种情况。
 							  如果激活此选项，您的类路径只包含一个类路径通配符（REPO/*）。但请注意，这仅适用于Java 1.6及更高版本,且 repositoryLayout=flat的情况。 -->
 						<useWildcardClassPath>true</useWildcardClassPath>
-						<!-- 生成脚本的windows模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。 
+						<!-- 生成脚本的windows模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。
 							<windowsScriptTemplate></windowsScriptTemplate> -->
 
 						<!-- 命令模式 : http://www.mojohaus.org/appassembler/appassembler-maven-plugin/assemble-mojo.html -->
@@ -518,7 +518,7 @@
 						<!-- <extraJvmArguments>-Xms256M -Xmn512M -Xmx512M -Xss128k -XX:MetaspaceSize=64M -XX:MaxMetaspaceSize=512M</extraJvmArguments> -->
 						<!-- 如果configurationDirectory（默认情况下）应包含在生成的bin文件的类路径的开始。（注意：该配置指定外部配置文件路径，如不配置可能导致无法启动） -->
 						<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
-						
+
 						<!-- 将生成bin文件的一组程序配置（必填参数） -->
 						<programs>
 							<program>
@@ -545,9 +545,9 @@
 										<extraArgument>-server</extraArgument>
 										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
 											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
-											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 
+											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
 										-->
-										<extraArgument>-Xmn512M</extraArgument>	
+										<extraArgument>-Xmn512M</extraArgument>
 										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
 										<extraArgument>-Xms1024M</extraArgument>
 										<!-- 设置JVM最大可用内存为1024M -->
@@ -601,11 +601,11 @@
 										<extraArgument>-XX:+UseStringDeduplication</extraArgument>
 										<!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
 										<extraArgument>-XX:-UseGCOverheadLimit</extraArgument>
-										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用， 
-											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率， 
+										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用，
+											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率，
 											减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
 										<extraArgument>-XX:MaxTenuringThreshold=10</extraArgument>
-										<!-- 取消 内存整理，G1GC 天生优势 --> 
+										<!-- 取消 内存整理，G1GC 天生优势 -->
 										<extraArgument>-XX:-ResizePLAB</extraArgument>
 										<extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
 										<extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
@@ -618,7 +618,7 @@
 										<extraArgument>-XX:+PrintGCDateStamps</extraArgument>
 										<extraArgument>-XX:+PrintGCApplicationStoppedTime</extraArgument> <!-- 打印应用停留时间  -->
 										<!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
-										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument> 
+										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument>
 										<!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
 										<extraArgument>-Xloggc:logs/gc.log</extraArgument>
 										<extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
@@ -631,14 +631,14 @@
 								</jvmSettings>
 							</program>
 						</programs>
-						
+
 						<!-- 这可以用于将项目依赖、配置文件夹（等等）放置于类路径的第一个条目。默认行为是放在classpath的最后一个位置。 -->
 						<projectArtifactFirstInClassPath>false</projectArtifactFirstInClassPath>
 						<!-- 是否显示控制台 -->
 						<showConsoleWindow>true</showConsoleWindow>
 						<!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
 						<useAllProjectDependencies>false</useAllProjectDependencies>
-						
+
 						<!-- 后台服务模式 : http://www.mojohaus.org/appassembler/appassembler-maven-plugin/generate-daemons-mojo.html -->
 
 						<!-- 项目的基本目录,默认值为：${basedir}。 -->
@@ -717,9 +717,9 @@
 									<extraArguments>
 										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
 											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
-											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。 
+											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
 										-->
-										<extraArgument>-Xmn512M</extraArgument>	
+										<extraArgument>-Xmn512M</extraArgument>
 										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
 										<extraArgument>-Xms1024M</extraArgument>
 										<!-- 设置JVM最大可用内存为1024M -->
@@ -773,11 +773,11 @@
 										<extraArgument>-XX:+UseStringDeduplication</extraArgument>
 										<!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
 										<extraArgument>-XX:-UseGCOverheadLimit</extraArgument>
-										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用， 
-											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率， 
+										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用，
+											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率，
 											减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
 										<extraArgument>-XX:MaxTenuringThreshold=10</extraArgument>
-										<!-- 取消 内存整理，G1GC 天生优势 --> 
+										<!-- 取消 内存整理，G1GC 天生优势 -->
 										<extraArgument>-XX:-ResizePLAB</extraArgument>
 										<extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
 										<extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
@@ -790,7 +790,7 @@
 										<extraArgument>-XX:+PrintGCDateStamps</extraArgument>
 										<extraArgument>-XX:+PrintGCApplicationStoppedTime</extraArgument> <!-- 打印应用停留时间  -->
 										<!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
-										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument> 
+										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument>
 										<!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
 										<extraArgument>-Xloggc:logs/gc.log</extraArgument>
 										<extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
@@ -818,7 +818,7 @@
 						<!-- 生成的守护程序的目标目录。默认值为：${project.build.directory}/generated-resources/appassembler。 -->
 						<target>${project.build.directory}/generated-resources/appassembler</target>
 						<!-- 使用此选项覆盖当前内置的增量包二进制文件。您将需要将增量包版本解压缩到由此选项设置的已知位置。 <externalDeltaPackDirectory></externalDeltaPackDirectory> -->
-						<!-- 使用此选项将已知文件的内容预插入到生成的包装器配置文件中。例如：$ include ../conf/another-wrapper.conf 
+						<!-- 使用此选项将已知文件的内容预插入到生成的包装器配置文件中。例如：$ include ../conf/another-wrapper.conf
 							User属性是：preWrapperConf。 <preWrapperConf></preWrapperConf> -->
 						<!-- 启用时，名称包装器配置文件为wrapper - $ {daemon.id} .conf -->
 						<useDaemonIdAsWrapperConfName>false</useDaemonIdAsWrapperConfName>
@@ -842,9 +842,9 @@
 							<configuration>
 								<target>
 									<echo message="antrun copy resources" />
-	
+
 									<!-- 处理脚本模式依赖资源 -->
-								
+
 									<!-- 步骤1、拷贝应用程序Jar文件 -->
 									<copy file="${project.build.directory}/${project.build.finalName}.jar"
 										todir="${appassembler-dir}/${project.artifactId}/lib" />
@@ -852,19 +852,19 @@
 									<mkdir dir="${appassembler-dir}/${project.artifactId}/conf" />
 									<copy file="${project.build.directory}/classes/application.properties"
 										todir="${appassembler-dir}/${project.artifactId}/conf" />
-									<copy file="${project.build.directory}/classes/application-dev.yml" 
+									<copy file="${project.build.directory}/classes/application-dev.yml"
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-local.yml" 
+									<copy file="${project.build.directory}/classes/application-local.yml"
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-pre.yml" 
+									<copy file="${project.build.directory}/classes/application-pre.yml"
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-prod.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>	
-									<copy file="${project.build.directory}/classes/application-qa.yml" 
-										todir="${appassembler-dir}/${project.artifactId}/conf"/>									
-									<copy file="${project.build.directory}/classes/application-test.yml" 
+									<copy file="${project.build.directory}/classes/application-prod.yml"
 										todir="${appassembler-dir}/${project.artifactId}/conf"/>
-									<!-- 步骤3、拷贝Java环境变量设置文件 
+									<copy file="${project.build.directory}/classes/application-qa.yml"
+										todir="${appassembler-dir}/${project.artifactId}/conf"/>
+									<copy file="${project.build.directory}/classes/application-test.yml"
+										todir="${appassembler-dir}/${project.artifactId}/conf"/>
+									<!-- 步骤3、拷贝Java环境变量设置文件
 									<copy file="${basedir}/runenv/setenv" todir="${appassembler-dir}/${project.artifactId}/bin" />
 									<copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-dir}/${project.artifactId}/bin" />
 									-->
@@ -873,73 +873,73 @@
 										todir="${appassembler-dir}/${project.artifactId}" /> -->
 									<!-- 步骤5、构建应用安装脚本 -->
 									<delete file="${appassembler-dir}/${project.artifactId}/install.sh"></delete>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="#!/bin/sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="#解压独立jre运行包【如果希望工程使用独有的jdk、jre请将压缩包放置在项目根目录并修改下面的配置】${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="#rm -rf jre${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="#tar -zxvf jre-8u60-linux-x64.tar.gz${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="#File Authorized${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="chmod 755 jre/bin/*${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="chmod 755 bin/*${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="chmod 755 ${appassembler-bin-fileName}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="chmod 755 uninstall.sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="#启停脚本服务化软连接${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="cp ./${appassembler-bin-fileName} /etc/init.d/${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="chkconfig --add ${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
 										message="chkconfig --level 345 ${project.artifactId} on${line.separator}"></echo>
-									<!-- 步骤6、构建应用卸载脚本 -->    
+									<!-- 步骤6、构建应用卸载脚本 -->
 									<delete file="${appassembler-dir}/${project.artifactId}/uninstall.sh"></delete>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
 										message="#!/bin/sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
 										message="chkconfig ${appassembler-bin-fileName} off${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
 										message="chkconfig --del ${appassembler-bin-fileName}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
 										message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true" 
+									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
 										message="#rm -rf jre${line.separator}"></echo>
-									
+
 									<!-- 处理服务模式依赖资源 -->
-								
+
 									<!-- 步骤1、拷贝应用程序Jar文件 -->
 									<copy file="${project.build.directory}/${project.build.finalName}.jar"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/lib" />
 									<!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
-									
+
 									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									
+
 									<copy file="${project.build.directory}/classes/application.properties"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf" />
-									
-									<copy file="${project.build.directory}/classes/application-dev.yml" 
+
+									<copy file="${project.build.directory}/classes/application-dev.yml"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-local.yml" 
+									<copy file="${project.build.directory}/classes/application-local.yml"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-pre.yml" 
+									<copy file="${project.build.directory}/classes/application-pre.yml"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-prod.yml" 
+									<copy file="${project.build.directory}/classes/application-prod.yml"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-qa.yml" 
+									<copy file="${project.build.directory}/classes/application-qa.yml"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									<copy file="${project.build.directory}/classes/application-test.yml" 
+									<copy file="${project.build.directory}/classes/application-test.yml"
 										todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
-									
-									<!-- 步骤3、拷贝Java环境变量设置文件 
+
+									<!-- 步骤3、拷贝Java环境变量设置文件
 									<copy file="${basedir}/runenv/setenv" todir="${appassembler-jsw-dir}/${project.artifactId}/bin" />
 									<copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-jsw-dir}/${project.artifactId}/bin" />
 									-->
@@ -987,7 +987,7 @@
 					</executions>
 					<configuration>
 						<!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
-						<!-- 详见：https://github.com/spotify/docker-maven-plugin Invalid repository 
+						<!-- 详见：https://github.com/spotify/docker-maven-plugin Invalid repository
 							name ... only [a-z0-9-_.] are allowed -->
 						<!-- 如果要将docker镜像push到DockerHub上去的话，这边的路径要和repo路径一致 -->
 						<imageName>${project.artifactId}:${project.version}</imageName>
@@ -1020,7 +1020,7 @@
 						</buildArgs>
 					</configuration>
 				</plugin>
-				<!-- 
+				<!--
 					https://mp.weixin.qq.com/s?__biz=MzAxODcyNjEzNQ==&mid=2247484764&idx=1&sn=10e4fcae5333687368960a2e64b2b70c&chksm=9bd0a8c4aca721d264e40f5f543b9f557eedf033719a97a38257835c5162ffa010c025580a65&scene=21#wechat_redirect
 					https://github.com/tianqing2117/swagger-doc-demo/blob/master/pom.xml
 					https://github.com/Swagger2Markup/swagger2markup-maven-project-template/blob/master/pom.xml
@@ -1167,13 +1167,13 @@
 		                     <licenseMerge>CC0|CC0 1.0 Universal|Public Domain, per Creative Commons CC0</licenseMerge>
 		                     <licenseMerge>Unknown License|Unknown license</licenseMerge>
 		                 </licenseMerges>
-		
+
 		                 <!-- config for license:aggregate-download-licenses -->
 		                 <aggregateDownloadLicenses.executeOnlyOnRootModule>true</aggregateDownloadLicenses.executeOnlyOnRootModule>
 		                 <!--<licensesConfigFile>${main.basedir}/lic/config/licenses.xml</licensesConfigFile>-->
 		                 <licensesOutputFile>${main.basedir}/lic/licenses.xml</licensesOutputFile>
 		                 <licensesOutputDirectory>${main.basedir}/lic/licenses/</licensesOutputDirectory>
-		
+
 		                 <!-- config for license:update-file-header -->
 		                 <licenseName>apache_v2</licenseName>
 		                 <inceptionYear>2019</inceptionYear>
@@ -1181,7 +1181,7 @@
 		                 <projectName>task</projectName>
 		                 <roots>
 		                     <root>src/main/java</root>
-		                     <root>src/test/java</root>                   
+		                     <root>src/test/java</root>
 		                 </roots>
 		                 <includes>
 		                     <include>**/*.java</include>
@@ -1203,7 +1203,7 @@
 		                 <processStartTag>&lt;&lt;</processStartTag>
 		                 <processEndTag>&gt;&gt;</processEndTag>
 		                 <sectionDelimiter>==</sectionDelimiter>
-		
+
 		                 <!-- config for mvn license:update-project-license -->
 		                 <licenseFile>${main.basedir}/LICENSE</licenseFile>
 		             </configuration>
@@ -1219,13 +1219,13 @@
 		                 </licenseMapping>
 		             </configuration>
 				</plugin>
-				<plugin>  
-		            <groupId>org.apache.maven.plugins</groupId>  
-		            <artifactId>maven-war-plugin</artifactId>  
-		            <configuration>  
-		                <failOnMissingWebXml>false</failOnMissingWebXml>  
-		            </configuration>  
-		        </plugin>  
+				<plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-war-plugin</artifactId>
+		            <configuration>
+		                <failOnMissingWebXml>false</failOnMissingWebXml>
+		            </configuration>
+		        </plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -1254,7 +1254,7 @@
 	            <groupId>org.codehaus.mojo</groupId>
 	            <artifactId>findbugs-maven-plugin</artifactId>
             </plugin> -->
-            <!-- dependency-check 插件 ：依赖检查 
+            <!-- dependency-check 插件 ：依赖检查
             <plugin>
 			    <groupId>org.owasp</groupId>
 			    <artifactId>dependency-check-maven</artifactId>
@@ -1281,7 +1281,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<profiles>
         <profile>
             <id>dev</id>
@@ -1305,7 +1305,7 @@
             </properties>
         </profile>
     </profiles>
-    
+
 	<reporting>
 		<plugins>
 			<plugin>
@@ -1328,6 +1328,6 @@
 			</plugin>
 		</plugins>
 	</reporting>
-	
-	
+
+
 </project>
