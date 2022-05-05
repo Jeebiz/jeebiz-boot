@@ -196,7 +196,7 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <mariadb.version>2.7.4</mariadb.version>
         <maven.version>3.6.3</maven.version>
-        <metadata-extractor.version>2.17.0</metadata-extractor.version>
+        <metadata-extractor.version>2.18.0</metadata-extractor.version>
         <mockito.version>4.1.0</mockito.version>
         <mongo-java-driver.version>3.12.10</mongo-java-driver.version>
         <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
