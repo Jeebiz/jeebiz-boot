@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>net.jeebiz</groupId>
+		<groupId>io.hiwepy</groupId>
 		<artifactId>jeebiz-boot-dependencies</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
 		<relativePath/>
@@ -380,7 +380,7 @@
 							<packageBranchRate>85</packageBranchRate>
 							<regexes>
 								<regex>
-									<pattern>net.jeebiz.*</pattern>
+									<pattern>io.hiwepy.*</pattern>
 									<branchRate>90</branchRate>
 									<lineRate>80</lineRate>
 								</regex>
