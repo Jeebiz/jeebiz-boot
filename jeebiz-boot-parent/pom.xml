@@ -5,7 +5,7 @@
 		<groupId>io.hiwepy</groupId>
 		<artifactId>jeebiz-boot-dependencies</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
-		<relativePath/>
+		<relativePath>../jeebiz-boot-dependencies</relativePath>
 	</parent>
 
 	<artifactId>jeebiz-boot-parent</artifactId>
