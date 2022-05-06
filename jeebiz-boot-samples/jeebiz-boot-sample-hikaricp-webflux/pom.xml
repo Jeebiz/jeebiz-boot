@@ -98,10 +98,13 @@
 		</dependency>
 		<!-- For Dozer -->
 		<dependency>
-		    <groupId>com.github.dozermapper</groupId>
-		    <artifactId>dozer-spring-boot-starter</artifactId>
+			<groupId>com.github.dozermapper</groupId>
+			<artifactId>dozer-spring-boot-starter</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>dozer-extra-converters</artifactId>
+		</dependency>
 		<!-- For Cache Support -->
 		<dependency>
 	        <groupId>org.springframework.boot</groupId>
