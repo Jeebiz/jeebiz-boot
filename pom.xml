@@ -80,21 +80,7 @@
 		</developer>
 	</developers>
 
-	<!-- 配置部署的远程仓库:让Maven知道当我要发布release版本或者snapshot版本是需要发布到哪个地址 -->
 	<!-- <distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<name>Maven Snapshots Repository</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<name>Maven Central Staging Repository</name>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement> -->
-
-	<distributionManagement>
         <repository>
             <id>nexus-releases</id>
             <name>Nexus Release Repository</name>
@@ -106,6 +92,16 @@
             <url>https://nexus.hiwepy.com/repository/maven-snapshots/</url>
 			<uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
+    </distributionManagement> -->
+    
+    <!-- omitted xml -->
+    <distributionManagement>
+        <repository>
+            <!--必须与 settings.xml 的 id 一致-->
+            <id>jeebiz-platform-maven</id>
+            <name>maven</name>
+            <url>https://jeebiz-maven.pkg.coding.net/repository/platform/maven/</url>
+        </repository>
     </distributionManagement>
 
 	<repositories>
