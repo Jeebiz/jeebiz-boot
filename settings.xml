@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!--本地仓库。该值表示构建系统本地仓库的路径。其默认值为~/.m2/repository。 -->
+    <!--    <localRepository>/root/.m2/repository</localRepository>-->
+
+    <servers>
+        <server>
+            <id>jeebiz-platform-maven</id>
+            <username>${env.CODING_ARTIFACTS_USERNAME}</username>
+            <password>${env.CODING_ARTIFACTS_PASSWORD}</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>nexus-tencentyun</id>
+            <!-- 此配置避免了本仓库制品的拉取流量被切换到腾讯云镜像源，保证您在使用镜像加速的同时可以从本仓库拉取制品 -->
+            <mirrorOf>!jeebiz-platform-maven</mirrorOf>
+            <name>Nexus tencentyun</name>
+            <url>https://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>Repository Proxy</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>jeebiz-platform-maven</id>
+                    <name>maven</name>
+                    <url>https://jeebiz-maven.pkg.coding.net/repository/platform/maven/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>Repository Proxy</activeProfile>
+    </activeProfiles>
+
+</settings>
