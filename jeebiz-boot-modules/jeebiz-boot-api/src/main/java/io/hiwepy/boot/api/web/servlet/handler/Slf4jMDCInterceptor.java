@@ -20,6 +20,7 @@ public class Slf4jMDCInterceptor implements HandlerInterceptor {
 		this.sequence = sequence;
 	}
 
+	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 
 			throws Exception {
@@ -37,13 +38,15 @@ public class Slf4jMDCInterceptor implements HandlerInterceptor {
 		return true;
 	}
 
+	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
+						   ModelAndView modelAndView) throws Exception {
 	}
 
+	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
-			Exception exception) throws Exception {
-		//MDC.remove(SESSION_KEY);
+								Exception exception) throws Exception {
+		MDC.clear();
 	}
 
 }
