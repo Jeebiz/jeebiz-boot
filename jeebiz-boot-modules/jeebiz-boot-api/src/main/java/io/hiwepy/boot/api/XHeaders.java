@@ -5,7 +5,7 @@ public class XHeaders {
 	/**
 	 * 客户端唯一请求ID
 	 */
-	public static final String X_REQUEST_ID = "X-Request-ID";
+	public static final String X_REQUEST_ID = "X-Request-Id";
 
 	/**
 	 * JWT Token
