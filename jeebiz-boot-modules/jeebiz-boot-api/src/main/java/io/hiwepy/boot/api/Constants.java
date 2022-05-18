@@ -9,8 +9,9 @@ import org.slf4j.MarkerFactory;
 
 public class Constants {
 
-	public static Marker authzMarker = MarkerFactory.getMarker("Authz-Log");
-	public static Marker bizMarker = MarkerFactory.getMarker("Biz-Log");
+	public static Marker accessMarker = MarkerFactory.getMarker("io.hiwepy.access");
+	public static Marker authzMarker = MarkerFactory.getMarker("io.hiwepy.authz");
+	public static Marker bizMarker = MarkerFactory.getMarker("io.hiwepy.biz");
 
 	public static final String RT_SUCCESS = "success";
 	public static final String RT_FAIL = "fail";
