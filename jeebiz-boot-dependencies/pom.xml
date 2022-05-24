@@ -468,7 +468,7 @@
 		<spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
 		<spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
-		<spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
+		<spring-boot-starter-seata.version>1.5.1</spring-boot-starter-seata.version>
 		<spring-boot-starter-security-biz.version>1.0.9.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>1.0.3.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-security-dingtalk.version>
