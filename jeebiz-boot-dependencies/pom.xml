@@ -34,7 +34,7 @@
         <batik.version>1.14</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
-        <bcprov.version>1.70</bcprov.version>
+        <bcprov.version>1.71</bcprov.version>
         <bcpkix.version>${bcprov.version}</bcpkix.version>
         <bcmail.version>${bcprov.version}</bcmail.version>
         <bcpg.version>${bcprov.version}</bcpg.version>
@@ -118,7 +118,7 @@
         <easyexcel.version>3.0.5</easyexcel.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
-        <fastjson.version>1.2.79</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>11.7</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
@@ -147,6 +147,7 @@
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
         <hitool.version>1.0.2.RELEASE</hitool.version>
         <hive.version>3.1.2</hive.version>
+        <hutool.version>5.8.2</hutool.version>
         <ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
         <i4jruntime.version>5.0.6</i4jruntime.version>
         <icu4j.version>68.2</icu4j.version>
@@ -689,33 +690,20 @@
 
             <!-- http://mvnrepository.com/artifact/org.bouncycastle -->
 
-            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-            <!-- The Bouncy Castle Crypto package is a Java implementation of cryptographic
-				algorithms. This jar contains JCE provider and lightweight API for the Bouncy
-				Castle Cryptography APIs for JDK 1.5 to JDK 1.8. -->
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15to18 -->
+            <!-- The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms.
+            This jar contains JCE provider and lightweight API for the Bouncy Castle Cryptography APIs for JDK 1.5 to JDK 1.8.  -->
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
+                <artifactId>bcprov-jdk15to18</artifactId>
                 <version>${bcprov.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-ext-jdk15on -->
-            <!-- The Bouncy Castle Crypto package is a Java implementation of cryptographic
-				algorithms. This jar contains JCE provider and lightweight API for the Bouncy
-				Castle Cryptography APIs for JDK 1.5 to JDK 1.8. Note: this package includes
-				the NTRU encryption algorithms. -->
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15to18 -->
+            <!-- The Bouncy Castle Java APIs for CMS, PKCS, EAC, TSP, CMP, CRMF, OCSP, and certificate generation.
+                 This jar contains APIs for JDK 1.5 to JDK 1.8. The APIs can be used in conjunction with a JCE/JCA provider such as the one provided with the Bouncy Castle Cryptography APIs. -->
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-ext-jdk15on</artifactId>
-                <version>${bcprov.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
-            <!-- The Bouncy Castle Java APIs for CMS, PKCS, EAC, TSP, CMP, CRMF, OCSP,
-				and certificate generation. This jar contains APIs for JDK 1.5 to JDK 1.8.
-				The APIs can be used in conjunction with a JCE/JCA provider such as the one
-				provided with the Bouncy Castle Cryptography APIs. -->
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcpkix-jdk15on</artifactId>
+                <artifactId>bcpkix-jdk15to18</artifactId>
                 <version>${bcpkix.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk15on -->
@@ -726,25 +714,24 @@
 				framework will also be needed. -->
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bcmail-jdk15on</artifactId>
+                <artifactId>bcmail-jdk15to18</artifactId>
                 <version>${bcmail.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpg-jdk15on -->
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpg-jdk15to18 -->
             <!-- The Bouncy Castle Java API for handling the OpenPGP protocol. This
 				jar contains the OpenPGP API for JDK 1.5 to JDK 1.8. The APIs can be used
 				in conjunction with a JCE/JCA provider such as the one provided with the
 				Bouncy Castle Cryptography APIs. -->
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bcpg-jdk15on</artifactId>
+                <artifactId>bcpg-jdk15to18</artifactId>
                 <version>${bcpg.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk15on -->
-            <!-- The Bouncy Castle Java APIs for TLS and DTLS, including a provider
-				for the JSSE. -->
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk15to18 -->
+            <!-- The Bouncy Castle Java APIs for TLS and DTLS, including a provider for the JSSE.  -->
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bctls-jdk15on</artifactId>
+                <artifactId>bctls-jdk15to18</artifactId>
                 <version>${bctls.version}</version>
             </dependency>
 
@@ -2533,6 +2520,52 @@
                 <groupId>org.apache.hive</groupId>
                 <artifactId>hive-jdbc</artifactId>
                 <version>${hive.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-aop</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bloomFilter</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-cache</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-crypto</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-db</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-dfa</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-system</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-cron</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.cloudera/ImpalaJDBC41 -->
