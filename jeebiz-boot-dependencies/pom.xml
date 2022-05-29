@@ -485,7 +485,7 @@
 		<spring-boot-starter-shiro-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-shiro-dingtalk.version>
 		<spring-boot-starter-shiro-jwt.version>2.0.0.RELEASE</spring-boot-starter-shiro-jwt.version>
 		<spring-boot-starter-shiro-kisso.version>2.0.0.RELEASE</spring-boot-starter-shiro-kisso.version>
-		<spring-boot-starter-shiro-pac4j.version>1.0.3.RELEASE</spring-boot-starter-shiro-pac4j.version>
+		<spring-boot-starter-shiro-pac4j.version>2.0.0.RELEASE</spring-boot-starter-shiro-pac4j.version>
 		<spring-boot-starter-shiro-weixin.version>2.0.0.RELEASE</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
