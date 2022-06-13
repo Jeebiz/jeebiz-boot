@@ -95,7 +95,7 @@
 		<curator.version>5.2.0</curator.version>
 		<cronet.version>95.4638.50</cronet.version>
 		<cssparser.version>0.9.29</cssparser.version>
-		<cxf.version>3.4.5</cxf.version>
+		<cxf.version>3.5.2</cxf.version>
 		<cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
 		<db-meta.version>0.0.1-Release</db-meta.version>
 		<db2jcc.version>1.4.2</db2jcc.version>
@@ -106,11 +106,11 @@
 		<docker-java.version>3.2.1</docker-java.version>
 		<dom4j2.version>2.1.3</dom4j2.version>
 		<dozer.version>5.5.1</dozer.version>
-		<dozer-core.version>6.5.0</dozer-core.version>
+		<dozer-core.version>6.5.2</dozer-core.version>
 		<dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
 		<dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
 		<dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
-		<druid.version>1.2.8</druid.version>
+		<druid.version>1.2.9</druid.version>
 		<dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
 		<disruptor.version>3.4.4</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
@@ -410,19 +410,16 @@
 		<spring-boot-starter-baiduapi.version>2.0.0.RELEASE</spring-boot-starter-baiduapi.version>
 		<spring-boot-starter-beetl.version>1.2.40.Beetl.RELEASE</spring-boot-starter-beetl.version>
 		<spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
-		<spring-boot-starter-casclient.version>1.0.3.RELEASE</spring-boot-starter-casclient.version>
+		<spring-boot-starter-casclient.version>2.0.0.RELEASE</spring-boot-starter-casclient.version>
 		<spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
-		<spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
+		<spring-boot-starter-disruptor.version>2.0.0.RELEASE</spring-boot-starter-disruptor.version>
 		<spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
-		<spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
 		<spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
 		<spring-boot-starter-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-dingtalk.version>
-		<spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
 		<spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
 		<spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
-		<spring-boot-starter-druid-plus.version>1.1.1.RELEASE</spring-boot-starter-druid-plus.version>
-		<spring-boot-starter-dynamic-datasource.version>3.3.2</spring-boot-starter-dynamic-datasource.version>
-		<spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
+		<spring-boot-starter-druid-plus.version>2.0.0.RELEASE</spring-boot-starter-druid-plus.version>
+		<spring-boot-starter-elasticjob.version>3.0.1</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
 		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
 		<spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
@@ -5157,24 +5154,6 @@
 				<artifactId>disruptor-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-disruptor.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/docx4j-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>docx4j-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-docx4j.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/dozer-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>dozer-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-dozer.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.dozermapper</groupId>
-				<artifactId>dozer-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-dozermapper.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/dingtalk-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
@@ -5187,11 +5166,17 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/docx4j-spring-boot-starter -->
 			<dependency>
-				<groupId>com.github.xjzrc.spring.boot</groupId>
-				<artifactId>disconf-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-disconf.version}</version>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>docx4j-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-docx4j.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.dozermapper/dozer-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.dozermapper</groupId>
+				<artifactId>dozer-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-dozermapper.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.alibaba/spring-boot-starter-dropwizard-metrics -->
 			<dependency>
@@ -5221,12 +5206,6 @@
 				<groupId>org.apache.dubbo</groupId>
 				<artifactId>dubbo-spring-boot-actuator</artifactId>
 				<version>${dubbo.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
-			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-dynamic-datasource.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.shardingsphere.elasticjob/elasticjob-lite-spring-boot-starter -->
 			<dependency>
