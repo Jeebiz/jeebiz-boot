@@ -137,7 +137,7 @@
 		<guava.version>31.0.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.35.0</grpc.version>
-		<hadoop.version>3.2.1</hadoop.version>
+		<hadoop.version>3.3.3</hadoop.version>
 		<hbase.version>2.2.4</hbase.version>
 		<h2.version>2.0.206</h2.version>
 		<htmlparser.version>2.1</htmlparser.version>
@@ -157,7 +157,7 @@
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
 		<java-uuid-generator.version>4.0.1</java-uuid-generator.version>
 		<java-jwt.version>3.8.1</java-jwt.version>
-		<javamelody.version>1.90.0</javamelody.version>
+		<javamelody.version>1.91.0</javamelody.version>
 		<jai-imageio.version>1.4.0</jai-imageio.version>
 		<jcaptcha.version>2.0-alpha-1</jcaptcha.version>
 		<jcifs.version>2.1.13</jcifs.version>
@@ -421,23 +421,19 @@
 		<spring-boot-starter-druid-plus.version>2.0.0.RELEASE</spring-boot-starter-druid-plus.version>
 		<spring-boot-starter-elasticjob.version>3.0.1</spring-boot-starter-elasticjob.version>
 		<spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
-		<spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
-		<spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
-		<spring-boot-starter-geoip.version>1.0.0.RELEASE</spring-boot-starter-geoip.version>
-		<spring-boot-starter-grpc.version>4.5.9</spring-boot-starter-grpc.version>
-		<spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
-		<spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
-		<spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
-		<spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
+		<spring-boot-starter-fastdfs.version>2.0.0.RELEASE</spring-boot-starter-fastdfs.version>
+		<spring-boot-starter-flyway-plus.version>2.0.0.RELEASE</spring-boot-starter-flyway-plus.version>
+		<spring-boot-starter-geoip.version>2.0.0.RELEASE</spring-boot-starter-geoip.version>
+		<spring-boot-starter-grpc.version>4.7.0</spring-boot-starter-grpc.version>
+		<spring-boot-starter-hikaricp-plus.version>2.0.0.RELEASE</spring-boot-starter-hikaricp-plus.version>
+		<spring-boot-starter-httl.version>2.0.0.RELEASE</spring-boot-starter-httl.version>
 		<spring-boot-starter-ip2region.version>2.0.0.RELEASE</spring-boot-starter-ip2region.version>
 		<spring-boot-starter-ishumei.version>2.0.0.RELEASE</spring-boot-starter-ishumei.version>
-		<spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
-		<spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
+		<spring-boot-starter-jasypt.version>3.0.4</spring-boot-starter-jasypt.version>
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
-		<spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
 		<spring-boot-starter-jcaptcha.version>2.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
-		<spring-boot-starter-jpush.version>1.0.1.RELEASE</spring-boot-starter-jpush.version>
-		<spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
+		<spring-boot-starter-jpush.version>2.0.0.RELEASE</spring-boot-starter-jpush.version>
+		<spring-boot-starter-kaptcha.version>2.0.0.RELEASE</spring-boot-starter-kaptcha.version>
 		<spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
 		<spring-boot-starter-maven-client.version>1.0.1.RELEASE</spring-boot-starter-maven-client.version>
 		<spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
@@ -5391,47 +5387,19 @@
 				<artifactId>grpc-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-grpc.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.spring4all/spring-boot-starter-hbase -->
-			<dependency>
-				<groupId>com.spring4all</groupId>
-				<artifactId>spring-boot-starter-hbase</artifactId>
-				<version>${spring-boot-starter-hbase.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-hikaricp-plus -->
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/hikaricp-plus-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>hikaricp-plus-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-hikaricp-plus.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-springcloud -->
-			<dependency>
-				<groupId>org.dromara</groupId>
-				<artifactId>hmily-spring-boot-starter-springcloud</artifactId>
-				<version>${spring-boot-starter-hmily.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-dubbo -->
-			<dependency>
-				<groupId>org.dromara</groupId>
-				<artifactId>hmily-spring-boot-starter-dubbo</artifactId>
-				<version>${spring-boot-starter-hmily.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-apache-dubbo -->
-			<dependency>
-				<groupId>org.dromara</groupId>
-				<artifactId>hmily-spring-boot-starter-apache-dubbo</artifactId>
-				<version>${spring-boot-starter-hmily.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-motan -->
-			<dependency>
-				<groupId>org.dromara</groupId>
-				<artifactId>hmily-spring-boot-starter-motan</artifactId>
-				<version>${spring-boot-starter-hmily.version}</version>
-			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/httl-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>httl-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-httl.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/ip2region-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>ip2region-spring-boot-starter</artifactId>
@@ -5448,18 +5416,6 @@
 				<groupId>net.bull.javamelody</groupId>
 				<artifactId>javamelody-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-javamelody.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.bull.javamelody/spring-boot-admin-server-ui-javamelody -->
-			<dependency>
-				<groupId>net.bull.javamelody</groupId>
-				<artifactId>spring-boot-admin-server-ui-javamelody</artifactId>
-				<version>${spring-boot-starter-javamelody-ui.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/net.oschina.j2cache/j2cache-spring-boot-starter -->
-			<dependency>
-				<groupId>net.oschina.j2cache</groupId>
-				<artifactId>j2cache-spring-boot2-starter</artifactId>
-				<version>${spring-boot-starter-j2cache.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/jcaptcha-spring-boot-starter -->
 			<dependency>
