@@ -15,7 +15,7 @@ public abstract class AbstractOrderedPaginationDTO extends AbstractPaginationDTO
 	/**
 	 * 排序信息
 	 */
-	@ApiModelProperty(value = "orders", dataType = "java.util.List<OrderItem>", notes = "排序信息")
+	@ApiModelProperty(notes = "排序信息")
 	private List<OrderItem> orders;
 
 	public List<OrderItem> getOrders() {
