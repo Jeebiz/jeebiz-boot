@@ -201,10 +201,11 @@
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
-		<mybatis-plus.version>3.5.0</mybatis-plus.version>
+		<mybatis-plus.version>3.5.2</mybatis-plus.version>
 		<mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
 		<mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
 		<mybatis-spring.version>2.0.7</mybatis-spring.version>
+		<mybatis-mate.version>1.2.4</mybatis-mate.version>
 		<mybatis-migrations.version>3.3.10</mybatis-migrations.version>
 		<mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
 		<mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
@@ -3268,6 +3269,18 @@
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-annotation</artifactId>
 				<version>${mybatis-plus.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-mate-starter -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-mate-starter</artifactId>
+				<version>${mybatis-mate.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-mate-annotation -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-mate-annotation</artifactId>
+				<version>${mybatis-mate.version}</version>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
