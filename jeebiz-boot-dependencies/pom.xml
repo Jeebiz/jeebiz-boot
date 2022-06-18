@@ -197,7 +197,7 @@
 		<mockito.version>4.1.0</mockito.version>
 		<mongo-java-driver.version>3.12.10</mongo-java-driver.version>
 		<mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
-		<mybatis.version>3.5.9</mybatis.version>
+		<mybatis.version>3.5.10</mybatis.version>
 		<mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
 		<mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
 		<mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
@@ -435,19 +435,18 @@
 		<spring-boot-starter-jcaptcha.version>2.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
 		<spring-boot-starter-jpush.version>2.0.0.RELEASE</spring-boot-starter-jpush.version>
 		<spring-boot-starter-kaptcha.version>2.0.0.RELEASE</spring-boot-starter-kaptcha.version>
-		<spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
-		<spring-boot-starter-maven-client.version>1.0.1.RELEASE</spring-boot-starter-maven-client.version>
-		<spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
-		<spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version>
-		<spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
+		<spring-boot-starter-log4j2-plus.version>2.0.0.RELEASE</spring-boot-starter-log4j2-plus.version>
+		<spring-boot-starter-maven-client.version>2.0.0.RELEASE</spring-boot-starter-maven-client.version>
+		<spring-boot-starter-maven-embedder.version>2.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
+		<spring-boot-starter-maven-invoker.version>2.0.0.RELEASE</spring-boot-starter-maven-invoker.version>
+		<spring-boot-starter-mybatis.version>2.2.2</spring-boot-starter-mybatis.version>
 		<spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
-		<spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
-		<spring-boot-starter-minio.version>1.0.1.RELEASE</spring-boot-starter-minio.version>
-		<spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
-		<spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
-		<spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
-		<spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
-		<spring-boot-starter-okhttp3.version>1.0.8.RELEASE</spring-boot-starter-okhttp3.version>
+		<spring-boot-starter-mybatis-dbperms.version>2.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
+		<spring-boot-starter-minio.version>2.0.0.RELEASE</spring-boot-starter-minio.version>
+		<spring-boot-starter-nacos-config.version>0.2.10</spring-boot-starter-nacos-config.version>
+		<spring-boot-starter-nacos-discovery.version>0.2.10</spring-boot-starter-nacos-discovery.version>
+		<spring-boot-starter-opentracing.version>3.3.1</spring-boot-starter-opentracing.version>
+		<spring-boot-starter-okhttp3.version>2.0.0.RELEASE</spring-boot-starter-okhttp3.version>
 		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
 		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
@@ -5418,6 +5417,12 @@
 				<artifactId>ip2region-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-ip2region.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/ishumei-spring-boot-starter -->
+			<dependency>
+				<groupId>com.github.hiwepy</groupId>
+				<artifactId>ishumei-spring-boot-starter</artifactId>
+				<version>${spring-boot-starter-ishumei.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter -->
 			<dependency>
 				<groupId>com.github.ulisesbocchio</groupId>
@@ -5502,12 +5507,6 @@
 				<artifactId>minio-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-minio.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.spring4all/mongodb-plus-spring-boot-starter -->
-			<dependency>
-				<groupId>com.spring4all</groupId>
-				<artifactId>mongodb-plus-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-mongodb-plus.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.alibaba.boot/nacos-config-spring-boot-starter -->
 			<dependency>
 				<groupId>com.alibaba.boot</groupId>
@@ -5531,12 +5530,6 @@
 				<groupId>io.opentracing.contrib</groupId>
 				<artifactId>opentracing-spring-jaeger-starter</artifactId>
 				<version>${spring-boot-starter-opentracing.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/ishumei-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>ishumei-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-ishumei.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp3-spring-boot-starter -->
 			<dependency>
