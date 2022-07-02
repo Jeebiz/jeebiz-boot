@@ -443,15 +443,14 @@
 		<spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
 		<spring-boot-starter-mybatis-dbperms.version>2.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
 		<spring-boot-starter-minio.version>2.0.0.RELEASE</spring-boot-starter-minio.version>
-		<spring-boot-starter-nacos-config.version>0.2.10</spring-boot-starter-nacos-config.version>
-		<spring-boot-starter-nacos-discovery.version>0.2.10</spring-boot-starter-nacos-discovery.version>
+		<spring-boot-starter-nacos-config.version>0.2.11</spring-boot-starter-nacos-config.version>
+		<spring-boot-starter-nacos-discovery.version>0.2.11</spring-boot-starter-nacos-discovery.version>
 		<spring-boot-starter-opentracing.version>3.3.1</spring-boot-starter-opentracing.version>
 		<spring-boot-starter-okhttp3.version>2.0.0.RELEASE</spring-boot-starter-okhttp3.version>
-		<spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
 		<spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
-		<spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
-		<spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
-		<spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
+		<spring-boot-starter-pf4j.version>2.0.0.RELEASE</spring-boot-starter-pf4j.version>
+		<spring-boot-starter-pf4j2.version>2.0.0.RELEASE</spring-boot-starter-pf4j2.version>
+		<spring-boot-starter-pf4j3.version>2.0.0.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
 		<spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-redistpl-plus.version>1.0.2.RELEASE</spring-boot-starter-redistpl-plus.version>
