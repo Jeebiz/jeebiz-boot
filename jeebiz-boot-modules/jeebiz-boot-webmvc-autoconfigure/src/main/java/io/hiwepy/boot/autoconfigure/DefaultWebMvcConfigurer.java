@@ -6,11 +6,14 @@ package io.hiwepy.boot.autoconfigure;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
 import com.fasterxml.jackson.databind.MapperFeature;
+import io.hiwepy.boot.api.MediaTypes;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.*;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -84,7 +87,9 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 
 		//SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
 		//serializerProvider.setNullValueSerializer(NullObjectJsonSerializer.INSTANCE);
-		converters.add(new MappingJackson2HttpMessageConverter(objectMapper));
+		MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter(objectMapper);
+		jackson2HttpMessageConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON, MediaTypes.APPLICATION_ACTUATOR2_JSON, MediaTypes.APPLICATION_ACTUATOR3_JSON));
+		converters.add(jackson2HttpMessageConverter);
 		converters.add(new ByteArrayHttpMessageConverter());
 		converters.add(new StringHttpMessageConverter(StandardCharsets.UTF_8));
 		converters.add(new ResourceHttpMessageConverter());

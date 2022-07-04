@@ -13,7 +13,9 @@
 
 	<modules>
 		<module>jeebiz-boot-api</module>
-		<module>jeebiz-boot-extras-external</module>
+		<module>jeebiz-boot-external-autoconfigure</module>
+		<module>jeebiz-boot-jackson-autoconfigure</module>
+		<module>jeebiz-boot-license-autoconfigure</module>
 		<module>jeebiz-boot-plugin-api</module>
 		<module>jeebiz-boot-webflux-autoconfigure</module>
 		<module>jeebiz-boot-webmvc-autoconfigure</module>
