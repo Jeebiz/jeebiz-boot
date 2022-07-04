@@ -20,7 +20,7 @@ public class JSONArrayTypeHandler extends BaseTypeHandler<JSONArray> {
 	@Override
 	public void setNonNullParameter(PreparedStatement ps, int i, JSONArray parameter, JdbcType jdbcType)
 			throws SQLException {
-		ps.setString(i, parameter.toJSONString());
+		ps.setString(i, parameter.toString());
 	}
 
 	@Override
