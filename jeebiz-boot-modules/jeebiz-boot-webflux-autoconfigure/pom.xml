@@ -17,6 +17,11 @@
 			<artifactId>jeebiz-boot-api</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.hiwepy</groupId>
+			<artifactId>jeebiz-boot-jackson-autoconfigure</artifactId>
+			<version>${jeebiz-boot.version}</version>
+		</dependency>
 
 		<!-- For Webjars -->
 		<dependency>
