@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import io.hiwepy.boot.api.MediaTypes;
+import io.hiwepy.boot.autoconfigure.ser.MyBeanSerializerModifier;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.*;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
