@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.autoconfigure.weather;
 
@@ -24,16 +24,18 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-@Component
 @Slf4j
 public class WeatherTemplate {
 
 	//请求连接地址
 	private final static String SOJSON_WEATHER_URL = "http://t.weather.sojson.com/api/weather/city";
 
-	@Autowired
 	private OkHttpClient okhttp3Client;
-	
+
+	public WeatherTemplate(OkHttpClient okhttp3Client) {
+		this.okhttp3Client = okhttp3Client;
+	}
+
 	private final LoadingCache<String, Optional<JSONObject>> WEATHER_DATA_CACHES = CacheBuilder.newBuilder()
 			// 设置并发级别为8，并发级别是指可以同时写缓存的线程数
 			.concurrencyLevel(8)
@@ -73,10 +75,10 @@ public class WeatherTemplate {
 					return Optional.empty();
 				}
 			});
-	
+
 	public JSONObject getWeather(String city_code) throws ExecutionException {
 		Optional<JSONObject> opt = WEATHER_DATA_CACHES.get(city_code);
 		return opt.isPresent() ? opt.get() : null;
 	}
-	
+
 }
