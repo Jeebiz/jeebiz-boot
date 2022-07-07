@@ -34,7 +34,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hitool.core.lang3.time.DateFormats;
 import io.hiwepy.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
 import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
-import io.hiwepy.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 
