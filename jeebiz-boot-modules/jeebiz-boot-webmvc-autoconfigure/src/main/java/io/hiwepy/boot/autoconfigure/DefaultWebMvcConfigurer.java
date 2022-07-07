@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import io.hiwepy.boot.api.MediaTypes;
+import io.hiwepy.boot.autoconfigure.ser.MyBeanSerializerModifier;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.*;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
@@ -34,7 +35,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hitool.core.lang3.time.DateFormats;
 import io.hiwepy.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
 import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
-import io.hiwepy.boot.autoconfigure.jackson.MyBeanSerializerModifier;
 
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 
