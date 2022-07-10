@@ -481,7 +481,6 @@
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
 		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
 		<spring-boot-starter-shanyan.version>1.0.2.RELEASE</spring-boot-starter-shanyan.version>
-		<spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
 		<spring-boot-starter-simplecaptcha.version>2.0.0.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>2.0.0.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
@@ -489,9 +488,9 @@
 		<spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
-		<spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
+		<spring-boot-starter-xmemcached.version>2.0.0.RELEASE</spring-boot-starter-xmemcached.version>
 		<spring-boot-starter-xxljob.version>1.0.0.RELEASE</spring-boot-starter-xxljob.version>
-		<spring-boot-starter-zxing.version>1.0.2.RELEASE</spring-boot-starter-zxing.version>
+		<spring-boot-starter-zxing.version>2.0.0.RELEASE</spring-boot-starter-zxing.version>
 
 	</properties>
 
@@ -5775,12 +5774,6 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>shanyan-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-shanyan.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/sitemesh3-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>sitemesh3-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-sitemesh3.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/simplecaptcha-spring-boot-starter -->
 			<dependency>
