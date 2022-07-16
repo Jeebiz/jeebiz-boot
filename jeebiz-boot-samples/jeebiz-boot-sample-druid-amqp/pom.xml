@@ -125,11 +125,6 @@
 		<dependency>
 		    <groupId>com.baomidou</groupId>
 		    <artifactId>mybatis-plus-boot-starter</artifactId>
-		</dependency>
-		<!-- For Mybatis -->
-		<dependency>
-		    <groupId>com.baomidou</groupId>
-		    <artifactId>mybatis-plus-boot-starter</artifactId>
 		    <exclusions>
 		    	<exclusion>
 		    		<groupId>org.freemarker</groupId>

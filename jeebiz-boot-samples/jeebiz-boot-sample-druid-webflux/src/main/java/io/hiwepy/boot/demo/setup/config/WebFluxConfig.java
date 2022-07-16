@@ -1,6 +1,6 @@
-/**
- * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
- * All Rights Reserved.
+/** 
+ * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
+ * All Rights Reserved. 
  */
 package io.hiwepy.boot.demo.setup.config;
 import org.springframework.beans.BeansException;
@@ -57,7 +57,7 @@ public class WebFluxConfig implements WebFluxConfigurer, ApplicationContextAware
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		registry.viewResolver(viewResolver());
 	}
-
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
@@ -66,7 +66,7 @@ public class WebFluxConfig implements WebFluxConfigurer, ApplicationContextAware
 				.resourceChain(false).addResolver(new WebJarsResourceResolver())
 				.addResolver(new PathResourceResolver());
 	}
-
+	
 	/*
 	 * @Bean public WebHandler webHandler(ApplicationContext applicationContext) {
 	 * DispatcherHandler dispatcherHandler = new

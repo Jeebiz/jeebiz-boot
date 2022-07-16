@@ -225,7 +225,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<executable>true</executable>
-					<mainClass>DemoApplication</mainClass>
+					<mainClass>net.jeebiz.boot.demo.DemoApplication</mainClass>
 				</configuration>
 			</plugin>
 			<!-- 第一步：生成可执行的启动脚本 -->
