@@ -249,7 +249,7 @@ public enum ApiCode {
 	private final String status;
 	private final String reason;
 
-	private ApiCode(int code, String status, String reason) {
+	ApiCode(int code, String status, String reason) {
 		this.code = code;
 		this.status = status;
 		this.reason = reason;
