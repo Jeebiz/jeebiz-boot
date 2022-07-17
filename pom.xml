@@ -94,15 +94,28 @@
         </snapshotRepository>
     </distributionManagement> -->
 
-    <!-- omitted xml -->
+    <!-- omitted xml
     <distributionManagement>
         <repository>
-            <!--必须与 settings.xml 的 id 一致-->
             <id>jeebiz-platform-maven</id>
             <name>maven</name>
             <url>https://jeebiz-maven.pkg.coding.net/repository/platform/maven/</url>
         </repository>
-    </distributionManagement>
+    </distributionManagement> -->
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Nexus Release Repository</name>
+			<url>https://nexus.hiwepy.com/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>https://nexus.hiwepy.com/repository/maven-snapshots/</url>
+			<uniqueVersion>true</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<repositories>
 		<repository>
