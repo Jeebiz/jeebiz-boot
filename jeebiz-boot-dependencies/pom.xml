@@ -452,10 +452,10 @@
 		<spring-boot-starter-pf4j2.version>2.0.0.RELEASE</spring-boot-starter-pf4j2.version>
 		<spring-boot-starter-pf4j3.version>2.0.0.RELEASE</spring-boot-starter-pf4j3.version>
 		<spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
-		<spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-		<spring-boot-starter-redistpl-plus.version>1.0.2.RELEASE</spring-boot-starter-redistpl-plus.version>
+		<spring-boot-starter-qqwry.version>2.0.0.RELEASE</spring-boot-starter-qqwry.version>
 		<spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
-		<spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
+		<spring-boot-starter-redisson-plus.version>2.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
+		<spring-boot-starter-redistpl-plus.version>2.0.0.RELEASE</spring-boot-starter-redistpl-plus.version>
 		<spring-boot-starter-rocketmq.version>2.2.2</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-seata.version>1.5.1.1</spring-boot-starter-seata.version>
