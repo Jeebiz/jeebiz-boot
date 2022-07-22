@@ -428,7 +428,7 @@
 		<spring-boot-starter-grpc.version>4.7.0</spring-boot-starter-grpc.version>
 		<spring-boot-starter-hikaricp-plus.version>2.0.0.RELEASE</spring-boot-starter-hikaricp-plus.version>
 		<spring-boot-starter-httl.version>2.0.0.RELEASE</spring-boot-starter-httl.version>
-		<spring-boot-starter-ip2region.version>2.0.0.RELEASE</spring-boot-starter-ip2region.version>
+		<spring-boot-starter-ip2region.version>2.0.1.RELEASE</spring-boot-starter-ip2region.version>
 		<spring-boot-starter-ishumei.version>2.0.0.RELEASE</spring-boot-starter-ishumei.version>
 		<spring-boot-starter-jasypt.version>3.0.4</spring-boot-starter-jasypt.version>
 		<spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
@@ -457,8 +457,8 @@
 		<spring-boot-starter-redisson-plus.version>2.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
 		<spring-boot-starter-redistpl-plus.version>2.0.0.RELEASE</spring-boot-starter-redistpl-plus.version>
 		<spring-boot-starter-rocketmq.version>2.2.2</spring-boot-starter-rocketmq.version>
-		<spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
-		<spring-boot-starter-seata.version>1.5.1.1</spring-boot-starter-seata.version>
+		<spring-boot-starter-schemacrawler.version>2.0.0.RELEASE</spring-boot-starter-schemacrawler.version>
+		<spring-boot-starter-seata.version>1.5.2</spring-boot-starter-seata.version>
 		<spring-boot-starter-security-biz.version>1.0.9.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>1.0.3.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>1.0.2.RELEASE</spring-boot-starter-security-dingtalk.version>
@@ -479,8 +479,8 @@
 		<spring-boot-starter-shiro-pac4j.version>2.0.0.RELEASE</spring-boot-starter-shiro-pac4j.version>
 		<spring-boot-starter-shiro-weixin.version>2.0.0.RELEASE</spring-boot-starter-shiro-weixin.version>
 		<spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
-		<spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
-		<spring-boot-starter-shanyan.version>1.0.2.RELEASE</spring-boot-starter-shanyan.version>
+		<spring-boot-starter-socketio.version>2.0.0.RELEASE</spring-boot-starter-socketio.version>
+		<spring-boot-starter-shanyan.version>2.0.0.RELEASE</spring-boot-starter-shanyan.version>
 		<spring-boot-starter-simplecaptcha.version>2.0.0.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>2.0.0.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
