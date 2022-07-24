@@ -94,16 +94,16 @@
         </snapshotRepository>
     </distributionManagement> -->
 
-    <!-- omitted xml -->
+    <!-- omitted xml
     <distributionManagement>
         <repository>
             <id>jeebiz-platform-maven</id>
             <name>maven</name>
             <url>https://jeebiz-maven.pkg.coding.net/repository/platform/maven/</url>
         </repository>
-    </distributionManagement>
+    </distributionManagement> -->
 
-	<!--<distributionManagement>
+	<distributionManagement>
 		<repository>
 			<id>nexus-releases</id>
 			<name>Nexus Release Repository</name>
@@ -115,7 +115,7 @@
 			<url>https://nexus.hiwepy.com/repository/maven-snapshots/</url>
 			<uniqueVersion>true</uniqueVersion>
 		</snapshotRepository>
-	</distributionManagement>-->
+	</distributionManagement>
 
 	<repositories>
 		<repository>
