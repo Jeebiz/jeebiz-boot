@@ -462,7 +462,7 @@
 		<spring-boot-starter-security-biz.version>2.0.1.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>2.0.0.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-security-dingtalk.version>
-		<spring-boot-starter-security-facebook.version>1.0.0.RELEASE</spring-boot-starter-security-facebook.version>
+		<spring-boot-starter-security-facebook.version>2.0.0.RELEASE</spring-boot-starter-security-facebook.version>
 		<spring-boot-starter-security-google.version>1.0.0.RELEASE</spring-boot-starter-security-google.version>
 		<spring-boot-starter-security-jwt.version>1.0.8.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-line.version>1.0.0.RELEASE</spring-boot-starter-security-line.version>
