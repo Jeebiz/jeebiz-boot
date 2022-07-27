@@ -55,7 +55,7 @@
 		<commons-compiler.version>3.1.2</commons-compiler.version>
 		<commons-compress.version>1.21</commons-compress.version>
 		<commons-configuration.version>1.10</commons-configuration.version>
-		<commons-configuration2.version>2.7</commons-configuration2.version>
+		<commons-configuration2.version>2.8</commons-configuration2.version>
 		<commons-crypto.version>1.1.0</commons-crypto.version>
 		<commons-csv.version>1.9.0</commons-csv.version>
 		<commons-daemon.version>1.2.3</commons-daemon.version>
@@ -118,7 +118,7 @@
 		<easyexcel.version>3.0.5</easyexcel.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
-		<fastjson.version>2.0.4</fastjson.version>
+		<fastjson.version>2.0.10</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
 		<feign.version>11.7</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
@@ -163,7 +163,7 @@
 		<jcifs.version>2.1.13</jcifs.version>
 		<jetty-websocket.version>${jetty.version}</jetty-websocket.version>
 		<jep.version>2.4.2</jep.version>
-		<jjwt.version>0.11.2</jjwt.version>
+		<jjwt.version>0.11.5</jjwt.version>
 		<jakarta-websocket.version>2.0.0</jakarta-websocket.version>
 		<jgoodies.version>2.7.0</jgoodies.version>
 		<jgroups.version>5.1.6.Final</jgroups.version>
@@ -178,7 +178,7 @@
 		<json-smart.version>2.4.8</json-smart.version>
 		<junrar.version>7.4.0</junrar.version>
 		<jxl.version>2.6.12</jxl.version>
-		<jwt-issuer.version>1.0.8.RELEASE</jwt-issuer.version>
+		<jwt-issuer.version>1.0.9.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>3.0.0</kafka-clients.version>
 		<knife4j.version>3.0.3</knife4j.version>
 		<kisso.version>3.8.1</kisso.version>
@@ -286,7 +286,7 @@
 		<sfntly.version>1.0.0</sfntly.version>
 		<shardingsphere.version>5.1.0</shardingsphere.version>
 		<shedlock.version>4.9.3</shedlock.version>
-		<shiro.version>1.9.0</shiro.version>
+		<shiro.version>1.9.1</shiro.version>
 		<shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
 		<shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
 		<shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -459,7 +459,7 @@
 		<spring-boot-starter-rocketmq.version>2.2.2</spring-boot-starter-rocketmq.version>
 		<spring-boot-starter-schemacrawler.version>2.0.0.RELEASE</spring-boot-starter-schemacrawler.version>
 		<spring-boot-starter-seata.version>1.5.2</spring-boot-starter-seata.version>
-		<spring-boot-starter-security-biz.version>2.0.1.RELEASE</spring-boot-starter-security-biz.version>
+		<spring-boot-starter-security-biz.version>2.0.2.RELEASE</spring-boot-starter-security-biz.version>
 		<spring-boot-starter-security-cas.version>2.0.0.RELEASE</spring-boot-starter-security-cas.version>
 		<spring-boot-starter-security-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-security-dingtalk.version>
 		<spring-boot-starter-security-facebook.version>2.0.0.RELEASE</spring-boot-starter-security-facebook.version>
@@ -467,9 +467,7 @@
 		<spring-boot-starter-security-jwt.version>1.0.8.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-line.version>2.0.0.RELEASE</spring-boot-starter-security-line.version>
 		<spring-boot-starter-security-pac4j.version>1.0.2.RELEASE</spring-boot-starter-security-pac4j.version>
-		<spring-boot-starter-security-qrcode.version>1.0.1.RELEASE</spring-boot-starter-security-qrcode.version>
-		<spring-boot-starter-security-unionid.version>1.0.1.RELEASE</spring-boot-starter-security-unionid.version>
-		<spring-boot-starter-security-weixin.version>1.0.1.RELEASE</spring-boot-starter-security-weixin.version>
+		<spring-boot-starter-security-weixin.version>2.0.0.RELEASE</spring-boot-starter-security-weixin.version>
 		<spring-boot-starter-shiro-biz.version>2.0.0.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>2.0.0.RELEASE</spring-boot-starter-shiro-cas.version>
 		<spring-boot-starter-shiro-csrfguard.version>2.0.0.RELEASE</spring-boot-starter-shiro-csrfguard.version>
@@ -5661,18 +5659,6 @@
 				<groupId>com.github.hiwepy</groupId>
 				<artifactId>security-pac4j-spring-boot-starter</artifactId>
 				<version>${spring-boot-starter-security-pac4j.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-qrcode-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-qrcode-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-qrcode.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-unionid-spring-boot-starter -->
-			<dependency>
-				<groupId>com.github.hiwepy</groupId>
-				<artifactId>security-unionid-spring-boot-starter</artifactId>
-				<version>${spring-boot-starter-security-unionid.version}</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-weixin-spring-boot-starter -->
 			<dependency>
