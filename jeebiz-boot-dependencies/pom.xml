@@ -115,12 +115,12 @@
         <disruptor.version>3.4.4</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
         <dubbo.version>3.0.4</dubbo.version>
-        <easyexcel.version>3.0.5</easyexcel.version>
+        <easyexcel.version>3.1.1</easyexcel.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
-        <fastjson.version>1.2.83</fastjson.version>
+        <fastjson.version>2.0.10</fastjson.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-        <feign.version>11.7</feign.version>
+        <feign.version>11.9.1</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -289,7 +289,7 @@
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.9.0</shiro.version>
+        <shiro.version>1.9.1</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -475,16 +475,15 @@
         <spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>1.1.3.RELEASE</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-security-biz.version>1.1.4.RELEASE</spring-boot-starter-security-biz.version>
         <spring-boot-starter-security-cas.version>1.0.4.RELEASE</spring-boot-starter-security-cas.version>
         <spring-boot-starter-security-dingtalk.version>1.0.5.RELEASE</spring-boot-starter-security-dingtalk.version>
         <spring-boot-starter-security-facebook.version>1.0.1.RELEASE</spring-boot-starter-security-facebook.version>
         <spring-boot-starter-security-google.version>1.0.2.RELEASE</spring-boot-starter-security-google.version>
         <spring-boot-starter-security-jwt.version>1.0.8.RELEASE</spring-boot-starter-security-jwt.version>
         <spring-boot-starter-security-line.version>1.0.2.RELEASE</spring-boot-starter-security-line.version>
-        <spring-boot-starter-security-pac4j.version>1.0.2.RELEASE</spring-boot-starter-security-pac4j.version>
+        <spring-boot-starter-security-pac4j.version>1.0.3.RELEASE</spring-boot-starter-security-pac4j.version>
         <spring-boot-starter-security-qrcode.version>1.0.1.RELEASE</spring-boot-starter-security-qrcode.version>
-        <spring-boot-starter-security-unionid.version>1.0.1.RELEASE</spring-boot-starter-security-unionid.version>
         <spring-boot-starter-security-weixin.version>1.0.4.RELEASE</spring-boot-starter-security-weixin.version>
         <spring-boot-starter-shiro-biz.version>1.1.3.RELEASE</spring-boot-starter-shiro-biz.version>
         <spring-boot-starter-shiro-cas.version>1.0.5.RELEASE</spring-boot-starter-shiro-cas.version>
@@ -5771,12 +5770,6 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>security-qrcode-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-security-qrcode.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-unionid-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>security-unionid-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-security-unionid.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/security-weixin-spring-boot-starter -->
             <dependency>
