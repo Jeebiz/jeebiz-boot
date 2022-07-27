@@ -466,7 +466,7 @@
 		<spring-boot-starter-security-google.version>2.0.0.RELEASE</spring-boot-starter-security-google.version>
 		<spring-boot-starter-security-jwt.version>1.0.8.RELEASE</spring-boot-starter-security-jwt.version>
 		<spring-boot-starter-security-line.version>2.0.0.RELEASE</spring-boot-starter-security-line.version>
-		<spring-boot-starter-security-pac4j.version>1.0.2.RELEASE</spring-boot-starter-security-pac4j.version>
+		<spring-boot-starter-security-pac4j.version>2.0.0.RELEASE</spring-boot-starter-security-pac4j.version>
 		<spring-boot-starter-security-weixin.version>2.0.0.RELEASE</spring-boot-starter-security-weixin.version>
 		<spring-boot-starter-shiro-biz.version>2.0.0.RELEASE</spring-boot-starter-shiro-biz.version>
 		<spring-boot-starter-shiro-cas.version>2.0.0.RELEASE</spring-boot-starter-shiro-cas.version>
