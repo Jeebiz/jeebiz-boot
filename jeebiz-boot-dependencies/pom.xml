@@ -33,8 +33,8 @@
 		<beetl.version>3.9.0.RELEASE</beetl.version>
 		<batik.version>1.14</batik.version>
 		<berkeley-je.version>18.3.12</berkeley-je.version>
-		<buji-pac4j.version>6.1.0</buji-pac4j.version>
-		<bcprov.version>1.70</bcprov.version>
+		<buji-pac4j.version>5.0.1</buji-pac4j.version>
+		<bcprov.version>1.71</bcprov.version>
 		<bcpkix.version>${bcprov.version}</bcpkix.version>
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
@@ -115,12 +115,12 @@
 		<disruptor.version>3.4.4</disruptor.version>
 		<disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
 		<dubbo.version>3.0.7</dubbo.version>
-		<easyexcel.version>3.0.5</easyexcel.version>
+		<easyexcel.version>3.1.1</easyexcel.version>
 		<echarts.version>3.0.0.6</echarts.version>
 		<fastdfs.version>1.27.2</fastdfs.version>
 		<fastjson.version>2.0.10</fastjson.version>
 		<fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-		<feign.version>11.7</feign.version>
+		<feign.version>11.9.1</feign.version>
 		<feign-form.version>3.8.0</feign-form.version>
 		<findbugs-annotations.version>3.0.1</findbugs-annotations.version>
 		<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -137,6 +137,7 @@
 		<guava.version>31.0.1-jre</guava.version>
 		<grizzly.version>2.4.4</grizzly.version>
 		<grpc.version>1.35.0</grpc.version>
+		<gson.version>2.9.0</gson.version>
 		<hadoop.version>3.3.3</hadoop.version>
 		<hbase.version>2.2.4</hbase.version>
 		<h2.version>2.0.206</h2.version>
@@ -146,6 +147,7 @@
 		<hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
 		<hitool.version>1.0.2.RELEASE</hitool.version>
 		<hive.version>3.1.2</hive.version>
+		<hutool.version>5.8.2</hutool.version>
 		<ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
 		<i4jruntime.version>5.0.6</i4jruntime.version>
 		<icu4j.version>68.2</icu4j.version>
@@ -177,6 +179,7 @@
 		<json-path.version>2.7.0</json-path.version>
 		<json-smart.version>2.4.8</json-smart.version>
 		<junrar.version>7.4.0</junrar.version>
+        <just-auth.version>1.15.9</just-auth.version>
 		<jxl.version>2.6.12</jxl.version>
 		<jwt-issuer.version>1.0.9.RELEASE</jwt-issuer.version>
 		<kafka-clients.version>3.0.0</kafka-clients.version>
@@ -191,9 +194,10 @@
 		<liquibase.version>4.6.2</liquibase.version>
 		<log4j2.version>2.17.0</log4j2.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
+        <markdown.version>1.11.1</markdown.version>
 		<mariadb.version>2.7.4</mariadb.version>
 		<maven.version>3.6.3</maven.version>
-		<metadata-extractor.version>2.17.0</metadata-extractor.version>
+        <metadata-extractor.version>2.18.0</metadata-extractor.version>
 		<mockito.version>4.1.0</mockito.version>
 		<mongo-java-driver.version>3.12.10</mongo-java-driver.version>
 		<mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
@@ -342,7 +346,9 @@
 		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-		<weixin-java.version>4.0.3.B</weixin-java.version>
+        <weixin-java.version>4.3.2.B</weixin-java.version>
+	    <weixin-qrcode.version>1.2</weixin-qrcode.version>
+	    <weixin-emoji.version>1.0.2</weixin-emoji.version>
 		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
@@ -2352,6 +2358,11 @@
 				<version>${grizzly.version}</version>
 			</dependency>
 
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
 			<!-- http://mvnrepository.com/artifact/org.apache.httpcomponents -->
 
 			<!-- httpasyncclient -->
@@ -2530,6 +2541,51 @@
 				<version>${hive.version}</version>
 			</dependency>
 
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-aop</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bloomFilter</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-cache</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-crypto</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-db</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-dfa</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-system</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-cron</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
 			<!-- https://mvnrepository.com/artifact/com.cloudera/ImpalaJDBC41 -->
 			<dependency>
 				<groupId>com.cloudera</groupId>
@@ -2948,6 +3004,11 @@
 				<version>${junrar.version}</version>
 			</dependency>
 
+            <dependency>
+                <groupId>me.zhyd.oauth</groupId>
+                <artifactId>JustAuth</artifactId>
+                <version>${just-auth.version}</version>
+            </dependency>
 			<!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
 			<dependency>
 				<groupId>net.sourceforge.jexcelapi</groupId>
@@ -3092,6 +3153,11 @@
 				<version>${mariadb.version}</version>
 			</dependency>
 
+            <dependency>
+                <groupId>markdown-clj</groupId>
+                <artifactId>markdown-clj</artifactId>
+                <version>${markdown.version}</version>
+            </dependency>
 			<!-- https://mvnrepository.com/artifact/com.drewnoakes/metadata-extractor -->
 			<dependency>
 				<groupId>com.drewnoakes</groupId>
