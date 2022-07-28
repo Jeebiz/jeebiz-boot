@@ -128,12 +128,12 @@
         <formio.version>1.6.4</formio.version>
         <geodesy.version>1.1.3</geodesy.version>
         <goeasy.version>0.3.16</goeasy.version>
-        <google-api-client.version>1.32.1</google-api-client.version>
+        <google-api-client.version>2.0.0</google-api-client.version>
         <google-api-services-androidpublisher.version>v3-rev142-1.25.0</google-api-services-androidpublisher.version>
-        <google-oauth-client.version>1.32.1</google-oauth-client.version>
-        <google-auth-library.version>0.26.0</google-auth-library.version>
-        <google-http-client.version>1.39.2</google-http-client.version>
-        <google-cloud-translate.version>1.98.5</google-cloud-translate.version>
+        <google-oauth-client.version>1.34.1</google-oauth-client.version>
+        <google-auth-library.version>1.8.1</google-auth-library.version>
+        <google-http-client.version>1.42.2</google-http-client.version>
+        <google-cloud-translate.version>2.3.2</google-cloud-translate.version>
         <guava.version>31.0.1-jre</guava.version>
         <grizzly.version>2.4.4</grizzly.version>
         <grpc.version>1.35.0</grpc.version>
