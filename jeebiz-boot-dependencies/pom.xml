@@ -216,6 +216,7 @@
         <mybatis-ehcache.version>1.2.1</mybatis-ehcache.version>
         <mybatis-hazelcast.version>1.1.2</mybatis-hazelcast.version>
         <mybatis-ignite.version>1.1.0</mybatis-ignite.version>
+        <mybatis-mate.version>1.2.4</mybatis-mate.version>
         <mybatis-memcached.version>1.1.0</mybatis-memcached.version>
         <mybatis-oscache.version>1.0.2</mybatis-oscache.version>
         <mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
@@ -423,7 +424,7 @@
         <spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
         <spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
-        <spring-boot-starter-dingtalk.version>1.0.9.RELEASE</spring-boot-starter-dingtalk.version>
+        <spring-boot-starter-dingtalk.version>1.1.0.RELEASE</spring-boot-starter-dingtalk.version>
         <spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
         <spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
@@ -455,7 +456,7 @@
         <spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
         <spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
-        <spring-boot-starter-minio.version>1.0.2.RELEASE</spring-boot-starter-minio.version>
+        <spring-boot-starter-minio.version>1.0.3.RELEASE</spring-boot-starter-minio.version>
         <spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
         <spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
         <spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
