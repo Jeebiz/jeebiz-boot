@@ -321,16 +321,9 @@
 		<sshd-sftp.version>${sshd.version}</sshd-sftp.version>
 		<sshd-pam.version>0.11.0</sshd-pam.version>
 		<svnkit.version>1.10.3</svnkit.version>
-		<swagger.version>1.6.2</swagger.version>
+		<swagger.version>1.6.6</swagger.version>
+		<swagger2.version>2.2.1</swagger2.version>
 		<swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
-		<swagger-butler.version>1.2.0</swagger-butler.version>
-		<swagger-codegen.version>2.4.19</swagger-codegen.version>
-		<swagger-generator.version>${swagger-codegen.version}</swagger-generator.version>
-		<swagger-parser.version>1.0.51</swagger-parser.version>
-		<swagger-inflector.version>2.0.5</swagger-inflector.version>
-		<swagger-validator.version>1.0.7</swagger-validator.version>
-		<swagger2markup.version>1.3.3</swagger2markup.version>
-		<swagger3.version>2.1.4</swagger3.version>
 		<tablesaw.version>0.40.0</tablesaw.version>
 		<tencentcloud-sdk-java.version>3.1.301</tencentcloud-sdk-java.version>
 		<tencentcloud-tls-sig-api-v2.version>2.0</tencentcloud-tls-sig-api-v2.version>
@@ -342,13 +335,13 @@
 		<UserAgentUtils.version>1.21</UserAgentUtils.version>
 		<velocity.version>2.3</velocity.version>
 		<webcollector.version>2.73-alpha</webcollector.version>
-		<webjars-locator.version>0.40</webjars-locator.version>
-		<webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
+		<webjars-locator.version>0.45</webjars-locator.version>
+		<webjars-locator-core.version>0.52</webjars-locator-core.version>
 		<webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
 		<webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
-        <weixin-java.version>4.3.2.B</weixin-java.version>
-	    <weixin-qrcode.version>1.2</weixin-qrcode.version>
-	    <weixin-emoji.version>1.0.2</weixin-emoji.version>
+		<weixin-java.version>4.3.2.B</weixin-java.version>
+		<weixin-qrcode.version>1.2</weixin-qrcode.version>
+		<weixin-emoji.version>1.0.2</weixin-emoji.version>
 		<woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
 		<woodstox-asl.version>4.4.1</woodstox-asl.version>
 		<wsdl4j.version>1.6.3</wsdl4j.version>
@@ -397,9 +390,6 @@
 		<maven-properties-plugin.version>1.0.0</maven-properties-plugin.version>
 		<maven-rpm-plugin.version>2.2.0</maven-rpm-plugin.version>
 		<maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
-		<maven-swagger-codegen-plugin.version>${swagger-codegen.version}</maven-swagger-codegen-plugin.version>
-		<maven-swagger3-plugin.version>${swagger3.version}</maven-swagger3-plugin.version>
-		<maven-swagger2markup-plugin.version>1.3.7</maven-swagger2markup-plugin.version>
 		<maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 
 		<!-- Third Party Spring Boot Starter Dependency versions -->
@@ -489,8 +479,8 @@
 		<spring-boot-starter-simplecaptcha.version>2.0.0.RELEASE</spring-boot-starter-simplecaptcha.version>
 		<spring-boot-starter-smartcaptcha.version>2.0.0.RELEASE</spring-boot-starter-smartcaptcha.version>
 		<spring-boot-starter-tencentapi.version>2.0.0.RELEASE</spring-boot-starter-tencentapi.version>
-		<spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
-		<spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
+		<spring-boot-starter-webflux-swagger2.version>2.0.0.RELEASE</spring-boot-starter-webflux-swagger2.version>
+		<spring-boot-starter-webmvc-swagger2.version>2.0.0.RELEASE</spring-boot-starter-webmvc-swagger2.version>
 		<spring-boot-starter-validation-mimetypes.version>2.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
 		<spring-boot-starter-websocket.version>2.0.0.RELEASE</spring-boot-starter-websocket.version>
 		<spring-boot-starter-xmemcached.version>2.0.0.RELEASE</spring-boot-starter-xmemcached.version>
@@ -677,64 +667,79 @@
 				<version>${batik.version}</version>
 			</dependency>
 
-			<!-- http://mvnrepository.com/artifact/org.bouncycastle -->
+            <!-- http://mvnrepository.com/artifact/org.bouncycastle -->
 
-			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-			<!-- The Bouncy Castle Crypto package is a Java implementation of cryptographic
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+            <!-- The Bouncy Castle Crypto package is a Java implementation of cryptographic
 				algorithms. This jar contains JCE provider and lightweight API for the Bouncy
 				Castle Cryptography APIs for JDK 1.5 to JDK 1.8. -->
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcprov-jdk15on</artifactId>
+				<artifactId>bcprov-jdk15to18</artifactId>
 				<version>${bcprov.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-ext-jdk15on -->
-			<!-- The Bouncy Castle Crypto package is a Java implementation of cryptographic
-				algorithms. This jar contains JCE provider and lightweight API for the Bouncy
-				Castle Cryptography APIs for JDK 1.5 to JDK 1.8. Note: this package includes
-				the NTRU encryption algorithms. -->
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcprov-ext-jdk15on</artifactId>
+				<artifactId>bcprov-jdk18on</artifactId>
 				<version>${bcprov.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
-			<!-- The Bouncy Castle Java APIs for CMS, PKCS, EAC, TSP, CMP, CRMF, OCSP,
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
+            <!-- The Bouncy Castle Java APIs for CMS, PKCS, EAC, TSP, CMP, CRMF, OCSP,
 				and certificate generation. This jar contains APIs for JDK 1.5 to JDK 1.8.
 				The APIs can be used in conjunction with a JCE/JCA provider such as the one
 				provided with the Bouncy Castle Cryptography APIs. -->
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcpkix-jdk15on</artifactId>
+				<artifactId>bcpkix-jdk15to18</artifactId>
 				<version>${bcpkix.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk15on -->
-			<!-- The Bouncy Castle Java S/MIME APIs for handling S/MIME protocols.
+			<dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk18on</artifactId>
+                <version>${bcpkix.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk15on -->
+            <!-- The Bouncy Castle Java S/MIME APIs for handling S/MIME protocols.
 				This jar contains S/MIME APIs for JDK 1.5 to JDK 1.8. The APIs can be used
 				in conjunction with a JCE/JCA provider such as the one provided with the
 				Bouncy Castle Cryptography APIs. The JavaMail API and the Java activation
 				framework will also be needed. -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcmail-jdk15to18</artifactId>
+                <version>${bcmail.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcmail-jdk15on</artifactId>
+				<artifactId>bcmail-jdk18on</artifactId>
 				<version>${bcmail.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpg-jdk15on -->
-			<!-- The Bouncy Castle Java API for handling the OpenPGP protocol. This
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpg-jdk15on -->
+            <!-- The Bouncy Castle Java API for handling the OpenPGP protocol. This
 				jar contains the OpenPGP API for JDK 1.5 to JDK 1.8. The APIs can be used
 				in conjunction with a JCE/JCA provider such as the one provided with the
 				Bouncy Castle Cryptography APIs. -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpg-jdk15to18</artifactId>
+                <version>${bcpg.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcpg-jdk15on</artifactId>
+				<artifactId>bcpg-jdk18on</artifactId>
 				<version>${bcpg.version}</version>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk15on -->
-			<!-- The Bouncy Castle Java APIs for TLS and DTLS, including a provider
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk15on -->
+            <!-- The Bouncy Castle Java APIs for TLS and DTLS, including a provider
 				for the JSSE. -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bctls-jdk15to18</artifactId>
+                <version>${bctls.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bctls-jdk15on</artifactId>
+				<artifactId>bctls-jdk18on</artifactId>
 				<version>${bctls.version}</version>
 			</dependency>
 
@@ -4641,122 +4646,28 @@
 				<artifactId>swagger-models</artifactId>
 				<version>${swagger.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-jaxrs</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-servlet</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-jersey-jaxrs</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-jersey2-jaxrs</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-hibernate-validations</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/io.swagger/swagger-codegen -->
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-codegen</artifactId>
-				<version>${swagger-codegen.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.swagger/swagger-codegen-cli -->
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-codegen-cli</artifactId>
-				<version>${swagger-codegen.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/io.swagger/swagger-generator -->
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-generator</artifactId>
-				<version>${swagger-generator.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-parser</artifactId>
-				<version>${swagger-parser.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-compat-spec-parser</artifactId>
-				<version>${swagger-parser.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-inflector</artifactId>
-				<version>${swagger-inflector.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger</groupId>
-				<artifactId>swagger-validator</artifactId>
-				<version>${swagger-validator.version}</version>
-			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/io.swagger.core.v3 -->
+			<!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
 			<dependency>
 				<groupId>io.swagger.core.v3</groupId>
 				<artifactId>swagger-annotations</artifactId>
-				<version>${swagger3.version}</version>
+				<version>${swagger2.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.swagger.core.v3</groupId>
 				<artifactId>swagger-core</artifactId>
-				<version>${swagger3.version}</version>
+				<version>${swagger2.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>io.swagger.core.v3</groupId>
 				<artifactId>swagger-models</artifactId>
-				<version>${swagger3.version}</version>
+				<version>${swagger2.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>io.swagger.core.v3</groupId>
-				<artifactId>swagger-integration</artifactId>
-				<version>${swagger3.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger.core.v3</groupId>
-				<artifactId>swagger-jaxrs2</artifactId>
-				<version>${swagger3.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.swagger.core.v3</groupId>
-				<artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
-				<version>${swagger3.version}</version>
-			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/io.github.swagger2markup/swagger2markup -->
-			<dependency>
-				<groupId>io.github.swagger2markup</groupId>
-				<artifactId>swagger2markup</artifactId>
-				<version>${swagger2markup.version}</version>
-			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/com.github.xiaoymin/swagger-bootstrap-ui -->
-			<dependency>
-				<groupId>com.github.xiaoymin</groupId>
-				<artifactId>swagger-bootstrap-ui</artifactId>
-				<version>${swagger-bootstrap-ui.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.didispace/swagger-butler-core -->
-			<dependency>
-				<groupId>com.didispace</groupId>
-				<artifactId>swagger-butler-core</artifactId>
-				<version>${swagger-butler.version}</version>
-			</dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/swagger-bootstrap-ui -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger-bootstrap-ui.version}</version>
+            </dependency>
 
 			<!-- http://mvnrepository.com/artifact/org.sitemesh/sitemesh -->
 
@@ -4859,25 +4770,18 @@
 				<version>${webcollector.version}</version>
 			</dependency>
 
-			<!-- http://mvnrepository.com/artifact/org.webjars/swagger-ui -->
-
-			<dependency>
-				<groupId>org.webjars</groupId>
-				<artifactId>swagger-ui</artifactId>
-				<version>${webjars.swagger-ui.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.webjars.bower/stomp-websocket -->
-			<dependency>
-				<groupId>org.webjars.bower</groupId>
-				<artifactId>stomp-websocket</artifactId>
-				<version>${webjars.stomp-websocket.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.webjars.bower/sockjs-client -->
-			<dependency>
-				<groupId>org.webjars.bower</groupId>
-				<artifactId>sockjs-client</artifactId>
-				<version>${webjars.sockjs-client.version}</version>
-			</dependency>
+            <!-- https://mvnrepository.com/artifact/org.webjars.bower/stomp-websocket -->
+            <dependency>
+                <groupId>org.webjars.bower</groupId>
+                <artifactId>stomp-websocket</artifactId>
+                <version>${webjars.stomp-websocket.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.webjars.bower/sockjs-client -->
+            <dependency>
+                <groupId>org.webjars.bower</groupId>
+                <artifactId>sockjs-client</artifactId>
+                <version>${webjars.sockjs-client.version}</version>
+            </dependency>
 
 			<!-- https://mvnrepository.com/artifact/org.webjars/webjars-locator -->
 			<dependency>
@@ -6150,24 +6054,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>${maven-shade-plugin.version}</version>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-maven-plugin -->
-				<plugin>
-					<groupId>io.swagger.core.v3</groupId>
-					<artifactId>swagger-maven-plugin</artifactId>
-					<version>${maven-swagger3-plugin.version}</version>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/io.swagger/swagger-codegen-maven-plugin -->
-				<plugin>
-					<groupId>io.swagger</groupId>
-					<artifactId>swagger-codegen-maven-plugin</artifactId>
-					<version>${maven-swagger-codegen-plugin.version}</version>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/io.github.swagger2markup/swagger2markup-maven-plugin -->
-				<plugin>
-					<groupId>io.github.swagger2markup</groupId>
-					<artifactId>swagger2markup-maven-plugin</artifactId>
-					<version>${maven-swagger2markup-plugin.version}</version>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
 				<plugin>
