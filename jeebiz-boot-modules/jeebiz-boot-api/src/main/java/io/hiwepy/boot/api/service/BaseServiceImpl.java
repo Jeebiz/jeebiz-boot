@@ -10,6 +10,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,11 +86,9 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int setStatus(Serializable id, String status) {
-		return getBaseMapper().setStatus(id, status);
+	public boolean setStatus(Serializable id, String status) {
+		return SqlHelper.retBool(getBaseMapper().setStatus(id, status));
 	}
-
-
 
 	/**
 	 * 分页查询
