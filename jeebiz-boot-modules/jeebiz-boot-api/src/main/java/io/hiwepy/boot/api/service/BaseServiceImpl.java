@@ -4,6 +4,7 @@
  */
 package io.hiwepy.boot.api.service;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -84,24 +85,16 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int setStatus(String id, String status) {
+	public int setStatus(Serializable id, String status) {
 		return getBaseMapper().setStatus(id, status);
 	}
-	
 
-	/**
-	 * 查询单条数据
-	 * @param id
-	 * @return
-	 */
-	public T getModel(String id) {
-		return getBaseMapper().getModel(id);
-	}
+
 
 	/**
 	 * 分页查询
 	 *
-	 * @param t
+	 * @param model
 	 * @return
 	 */
 	@Override
@@ -138,19 +131,8 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 	 * @return
 	 */
 	@Override
-	public List<T> getModelList(T t) {
-		return getBaseMapper().getModelList(t);
-	}
-
-	/**
-	 * 无分页查询
-	 *
-	 * @param key
-	 * @return
-	 */
-	@Override
-	public List<T> getModelList(String key) {
-		return getBaseMapper().getModelList(key);
+	public List<T> getEntityList(T t) {
+		return getBaseMapper().getEntityList(t);
 	}
 
 	/**
@@ -165,7 +147,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 	}
 
 	@Override
-	public Long getCountByUid(String uid) {
+	public Long getCountByUid(Serializable uid) {
 		return getBaseMapper().getCountByUid(uid);
 	}
 
@@ -194,7 +176,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 	public Map<String, String> getValues(String key) {
 		return getBaseMapper().getValues(key);
 	}
-	
+
 	@Override
 	public Map<String, List<PairModel>> getPairValues(String[] keyArr) {
 		// TODO Auto-generated method stub
