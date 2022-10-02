@@ -86,7 +86,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public boolean setStatus(Serializable id, String status) {
+	public boolean setStatus(Serializable id, Serializable status) {
 		return SqlHelper.retBool(getBaseMapper().setStatus(id, status));
 	}
 

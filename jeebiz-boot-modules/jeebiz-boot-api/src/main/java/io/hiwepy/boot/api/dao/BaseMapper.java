@@ -29,7 +29,7 @@ public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.Base
 	 * @param status
 	 * @return
 	 */
-	int setStatus(@Param("id") Serializable id, @Param("status") String status);
+	int setStatus(@Param("id") Serializable id, @Param("status") Serializable status);
 
 	/**
 	 * 分页查询

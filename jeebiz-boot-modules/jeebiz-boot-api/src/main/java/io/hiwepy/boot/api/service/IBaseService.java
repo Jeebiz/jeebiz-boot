@@ -34,7 +34,7 @@ public interface IBaseService<T> extends IService<T> {
 	 * @param status
 	 * @return
 	 */
-	boolean setStatus(Serializable id, String status);
+	boolean setStatus(Serializable id, Serializable status);
 
 	/**
 	 * 分页查询
