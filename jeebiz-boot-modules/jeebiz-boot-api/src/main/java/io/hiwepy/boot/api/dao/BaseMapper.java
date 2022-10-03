@@ -24,14 +24,6 @@ import io.hiwepy.boot.api.dao.entities.PairModel;
 public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
 
 	/**
-	 * 更新数据状态
-	 * @param id
-	 * @param status
-	 * @return
-	 */
-	int setStatus(@Param("id") Serializable id, @Param("status") Serializable status);
-
-	/**
 	 * 分页查询
 	 * @param model
 	 * @return

@@ -28,15 +28,6 @@ import io.hiwepy.boot.api.dao.entities.PairModel;
 public interface IBaseService<T> extends IService<T> {
 
 	/**
-	 * 更新数据状态
-	 *
-	 * @param id
-	 * @param status
-	 * @return
-	 */
-	boolean setStatus(Serializable id, Serializable status);
-
-	/**
 	 * 分页查询
 	 *
 	 * @param model
@@ -119,7 +110,6 @@ public interface IBaseService<T> extends IService<T> {
 	/**
 	 * 查询一组键值对数据
 	 *
-	 * @param key
 	 * @return
 	 */
 	List<PairModel> getPairList();

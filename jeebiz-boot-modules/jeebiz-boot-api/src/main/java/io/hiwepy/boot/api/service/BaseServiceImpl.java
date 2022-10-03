@@ -84,12 +84,6 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
 	}
 
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean setStatus(Serializable id, Serializable status) {
-		return SqlHelper.retBool(getBaseMapper().setStatus(id, status));
-	}
-
 	/**
 	 * 分页查询
 	 *
