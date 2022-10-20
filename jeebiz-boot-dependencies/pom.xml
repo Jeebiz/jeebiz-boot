@@ -154,7 +154,7 @@
 		<imageio.version>3.8.2</imageio.version>
 		<influxdb-java.version>2.21</influxdb-java.version>
 		<istio-client.version>1.6.14</istio-client.version>
-		<jackson-bom.version>2.13.4.2</jackson-bom.version>
+		<jackson-bom.version>2.13.4.20221013</jackson-bom.version>
 		<janino.version>3.1.6</janino.version>
 		<javassist.version>3.28.0-GA</javassist.version>
 		<javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
