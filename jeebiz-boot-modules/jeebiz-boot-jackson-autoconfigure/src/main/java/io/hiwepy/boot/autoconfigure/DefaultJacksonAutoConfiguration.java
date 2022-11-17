@@ -45,7 +45,7 @@ public class DefaultJacksonAutoConfiguration {
 	@Bean
 	@Primary
 	public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
-		Map<Class<?>, JsonSerializer<?>> map = new HashMap<>();
+		Map<Class<?>, JsonSerializer<?>> map = new HashMap<>(2);
 		if(StringUtils.hasText(pattern)){
 			map.put(LocalDateTime.class, localDateTimeSerializer());
 		}

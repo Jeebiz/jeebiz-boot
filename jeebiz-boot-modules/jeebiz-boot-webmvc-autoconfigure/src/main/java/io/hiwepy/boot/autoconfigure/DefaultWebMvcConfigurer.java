@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.MapperFeature;
 import io.hiwepy.boot.api.MediaTypes;
 import io.hiwepy.boot.autoconfigure.ser.MyBeanSerializerModifier;
@@ -78,6 +79,7 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 		// 单独初始化ObjectMapper，不使用全局对象，因为下面要指定特殊的输出处理，会影响内部业务逻辑
 		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json()
 				.simpleDateFormat(DateFormats.DATE_LONGFORMAT)
+				.serializationInclusion(JsonInclude.Include.NON_NULL)
 				.failOnEmptyBeans(false)
 				.failOnUnknownProperties(false)
 				.featuresToEnable(MapperFeature.USE_GETTERS_AS_SETTERS, MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS).build();
