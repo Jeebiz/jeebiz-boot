@@ -86,7 +86,7 @@
         <commons-proxy.version>1.0</commons-proxy.version>
         <commons-rdf.version>0.5.0</commons-rdf.version>
         <commons-ssl.version>0.3.9</commons-ssl.version>
-        <commons-text.version>1.9</commons-text.version>
+        <commons-text.version>1.10.0</commons-text.version>
         <commons-validator.version>1.6</commons-validator.version>
         <commons-vfs.version>2.0-21092010</commons-vfs.version>
         <commons-vfs2.version>2.9.0</commons-vfs2.version>
@@ -207,7 +207,7 @@
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
-        <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
+        <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
         <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.0.7</mybatis-spring.version>
 	    <mybatis-mate.version>1.2.4</mybatis-mate.version>
@@ -290,7 +290,7 @@
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.9.1</shiro.version>
+        <shiro.version>1.10.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -304,8 +304,8 @@
         <shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
         <shiro-uaa.version>1.0.3</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
-        <smallsql.version>0.21</smallsql.version>
         <smslib.version>3.5.4</smslib.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -4062,7 +4062,6 @@
                 <artifactId>sunposition</artifactId>
                 <version>4.0</version>
             </dependency>
-
             <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
@@ -4421,13 +4420,12 @@
                 <version>${shiro-uaa.version}</version>
             </dependency>
 
-            <!-- JDBC Driver For SmallSQL -->
+            <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
             <dependency>
-                <groupId>craky</groupId>
-                <artifactId>smallsql</artifactId>
-                <version>${smallsql.version}</version>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
             </dependency>
-
             <!--
 				SNMP4J是一个用Java来实现SNMP(简单网络管理协议)协议的开源项目.它支持以命令行的形式进行管理与响应。SNMP4J是纯面向对象设计与SNMP++(用C++实现SNMPv1/v2c/v3)相类似。
 			　　	SNMP4J API 提供以下下特性：
