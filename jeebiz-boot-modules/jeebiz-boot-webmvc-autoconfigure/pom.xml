@@ -27,6 +27,12 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- For Spring Web Starter -->
 		<dependency>
