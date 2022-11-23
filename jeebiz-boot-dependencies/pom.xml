@@ -39,6 +39,7 @@
 		<bcmail.version>${bcprov.version}</bcmail.version>
 		<bcpg.version>${bcprov.version}</bcpg.version>
 		<bctls.version>${bcprov.version}</bctls.version>
+		<caffeine.version>3.1.1</caffeine.version>
 		<canal.client.version>1.1.5</canal.client.version>
 		<cas-client.version>3.6.4</cas-client.version>
 		<camel.version>3.17.0</camel.version>
