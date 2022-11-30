@@ -179,7 +179,7 @@
         <json.version>20210307</json.version>
         <json-path.version>2.7.0</json-path.version>
         <json-smart.version>2.4.8</json-smart.version>
-        <junrar.version>7.4.0</junrar.version>
+        <junrar.version>7.5.4</junrar.version>
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
         <jwt-issuer.version>1.1.1.RELEASE</jwt-issuer.version>
@@ -288,6 +288,7 @@
         <scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
         <selenium-driver.version>4.1.2</selenium-driver.version>
         <sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
+        <sevenzipjbinding.version>16.02-2.01</sevenzipjbinding.version>
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
@@ -4197,6 +4198,19 @@
                 <groupId>com.github.scribejava</groupId>
                 <artifactId>scribejava-httpclient-okhttp</artifactId>
                 <version>${scribejava.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/net.sf.sevenzipjbinding -->
+
+            <dependency>
+                <groupId>net.sf.sevenzipjbinding</groupId>
+                <artifactId>sevenzipjbinding</artifactId>
+                <version>${sevenzipjbinding.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.sevenzipjbinding</groupId>
+                <artifactId>sevenzipjbinding-all-platforms</artifactId>
+                <version>${sevenzipjbinding.version}</version>
             </dependency>
 
             <!-- sfntly 是一个字体工具包，可用于使用、编辑和创建基于 SFNT (http://en.wikipedia.org/wiki/Sfnt) 的字体。 -->
