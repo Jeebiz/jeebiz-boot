@@ -1,39 +1,39 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>io.hiwepy</groupId>
-		<artifactId>jeebiz-boot-modules</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
-	</parent>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.hiwepy</groupId>
+        <artifactId>jeebiz-boot-modules</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>jeebiz-boot-webflux-autoconfigure</artifactId>
+    <artifactId>jeebiz-boot-webflux-autoconfigure</artifactId>
 
-	<dependencies>
+    <dependencies>
 
-		<!-- For Jeebiz API -->
-		<dependency>
-			<groupId>io.hiwepy</groupId>
-			<artifactId>jeebiz-boot-api</artifactId>
-			<version>${jeebiz-boot.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.hiwepy</groupId>
-			<artifactId>jeebiz-boot-jackson-autoconfigure</artifactId>
-			<version>${jeebiz-boot.version}</version>
-		</dependency>
+        <!-- For Jeebiz API -->
+        <dependency>
+            <groupId>io.hiwepy</groupId>
+            <artifactId>jeebiz-boot-api</artifactId>
+            <version>${jeebiz-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.hiwepy</groupId>
+            <artifactId>jeebiz-boot-jackson-autoconfigure</artifactId>
+            <version>${jeebiz-boot.version}</version>
+        </dependency>
 
-		<!-- For Webjars -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator</artifactId>
-		</dependency>
-		<!-- For WebFlux -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
+        <!-- For Webjars -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+        </dependency>
+        <!-- For WebFlux -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 </project>

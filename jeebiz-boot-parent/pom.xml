@@ -1,1305 +1,1344 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>io.hiwepy</groupId>
-		<artifactId>jeebiz-boot-dependencies</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
-		<relativePath>../jeebiz-boot-dependencies</relativePath>
-	</parent>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.hiwepy</groupId>
+        <artifactId>jeebiz-boot-dependencies</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
+        <relativePath>../jeebiz-boot-dependencies</relativePath>
+    </parent>
 
-	<artifactId>jeebiz-boot-parent</artifactId>
-	<packaging>pom</packaging>
-	<description>Jeebiz Projects Parent for Spring Boot</description>
+    <artifactId>jeebiz-boot-parent</artifactId>
+    <packaging>pom</packaging>
+    <description>Jeebiz Projects Parent for Spring Boot</description>
 
-	<properties>
+    <properties>
 
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<project.module>${project.artifactId}</project.module>
-		<java.version>1.8</java.version>
-		<maven.version>3.0</maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.module>${project.artifactId}</project.module>
+        <java.version>1.8</java.version>
+        <maven.version>3.0</maven.version>
 
-	    <addClasspath>false</addClasspath>
-		<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+        <addClasspath>false</addClasspath>
+        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
         <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-		<addExtensions>false</addExtensions>
-		<classpathPrefix>lib/</classpathPrefix>
+        <addExtensions>false</addExtensions>
+        <classpathPrefix>lib/</classpathPrefix>
 
-	    <!-- 生成部署脚本参数 -->
-		<appassembler-dir>${project.build.directory}/generated-resources/appassembler</appassembler-dir>
-		<appassembler-jsw-dir>${project.build.directory}/generated-resources/appassembler/jsw</appassembler-jsw-dir>
-		<appassembler-bin-fileName>jeebiz-boot</appassembler-bin-fileName>
+        <!-- 生成部署脚本参数 -->
+        <appassembler-dir>${project.build.directory}/generated-resources/appassembler</appassembler-dir>
+        <appassembler-jsw-dir>${project.build.directory}/generated-resources/appassembler/jsw</appassembler-jsw-dir>
+        <appassembler-bin-fileName>jeebiz-boot</appassembler-bin-fileName>
 
-		<!-- 生成Docker镜像参数: docker build、push地址-->
-	    <docker.workdir>/u01/boot/${project.artifactId}</docker.workdir>
-	    <docker.push.repostory>127.0.0.1</docker.push.repostory>
-	    <docker.build.repostory>http://127.0.0.1:2376</docker.build.repostory>
-	    <!--push镜像到私有库项目的名称-->
-	    <docker.registry.name>jeebiz</docker.registry.name>
+        <!-- 生成Docker镜像参数: docker build、push地址-->
+        <docker.workdir>/u01/boot/${project.artifactId}</docker.workdir>
+        <docker.push.repostory>127.0.0.1</docker.push.repostory>
+        <docker.build.repostory>http://127.0.0.1:2376</docker.build.repostory>
+        <!--push镜像到私有库项目的名称-->
+        <docker.registry.name>jeebiz</docker.registry.name>
 
-	    <!-- 生成API离线文参数-->
-		<swagger.input>http://localhost:8080/v2/api-docs</swagger.input>
-		<!-- <swagger.input>${project.basedir}/docs/swagger/swagger.json</swagger.input> -->
+        <!-- 生成API离线文参数-->
+        <swagger.input>http://localhost:8080/v2/api-docs</swagger.input>
+        <!-- <swagger.input>${project.basedir}/docs/swagger/swagger.json</swagger.input> -->
         <!-- <swagger.input>${project.basedir}/src/docs/swagger/swagger_petstore.yaml</swagger.input> -->
         <asciidoctor.input.directory>${generated.asciidoc.directory}</asciidoctor.input.directory>
         <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
-		<asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
+        <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
         <generated.asciidoc.directory>${project.build.directory}/asciidoc</generated.asciidoc.directory>
 
-	</properties>
+    </properties>
 
-	<dependencies>
-		<!-- For Lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
+    <dependencies>
+        <!-- For Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
 
-		<!-- Java Servlet API -->
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- Java Websocket API -->
-		<!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
-		<dependency>
-			<groupId>javax.websocket</groupId>
-			<artifactId>javax.websocket-api</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
-		<dependency>
-		    <groupId>io.micrometer</groupId>
-		    <artifactId>micrometer-registry-prometheus</artifactId>
-		</dependency>
-		<!-- For Spring Boot's Actuator  -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- For Spring Boot Test-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-core</artifactId>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.databene</groupId>
-			<artifactId>contiperf</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-junit-jupiter</artifactId>
-		    <scope>test</scope>
-		</dependency>
+        <!-- Java Servlet API -->
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- Java Websocket API -->
+        <!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+        <!-- For Spring Boot's Actuator  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- For Spring Boot Test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.databene</groupId>
+            <artifactId>contiperf</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<configuration>
-						<!-- get all project dependencies -->
-						<descriptorRefs>
-							<descriptorRef>jar-with-dependencies</descriptorRef>
-						</descriptorRefs>
-					</configuration>
-					<executions>
-						<execution>
-							<id>make-assembly</id>
-							<!-- bind to the packaging phase -->
-							<phase>package</phase>
-							<goals>
-								<goal>single</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
-				<plugin>
-					<!-- 编译插件：编译主代码至主输出目录 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<!-- 设置源文件编码方式 -->
-					<configuration>
-						<!-- 源代码编译版本 -->
-						<source>${java.version}</source>
-						<!-- 目标平台编译版本 -->
-						<target>${java.version}</target>
-						<!-- 字符集编码 -->
-						<encoding>${project.build.sourceEncoding}</encoding>
-						<!-- -->
-						<maxmem>512M</maxmem>
-					</configuration>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
-				<plugin>
-					<!-- 发布插件 ：将项目输出构件部署到远程仓库 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-deploy-plugin</artifactId>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
-				<plugin>
-					<!-- 环境检查插件：代码编译前的环境监察-->
-					<groupId>org.apache.maven.plugins</groupId>
-	                <artifactId>maven-enforcer-plugin</artifactId>
-	                <executions>
-	                    <execution>
-	                        <id>default-cli</id>
-	                        <goals>
-	                            <goal>enforce</goal>
-	                        </goals>
-	                        <phase>validate</phase>
-	                        <configuration>
-	                            <rules>
-	                            	<requireMavenVersion>
-	                            		<message>
-	                                        <![CDATA[You are running an older version of Maven. This application requires at least Maven ${maven.version}.]]>
-	                                    </message>
-										<version>[${maven.version}.0,)</version>
-									</requireMavenVersion>
-	                                <requireJavaVersion>
-	                                    <message>
-	                                        <![CDATA[You are running an older version of Java. This application requires at least JDK ${java.version}.]]>
-	                                    </message>
-	                                    <version>[${java.version}.0,)</version>
-	                                </requireJavaVersion>
-	                            </rules>
-	                        </configuration>
-	                    </execution>
-	                </executions>
-	            </plugin>
-	            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
-				<plugin>
-		            <!-- 安装插件：将项目输出构件安装到本地仓库 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-install-plugin</artifactId>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
-				<plugin>
-		            <!-- jar包生成插件 ：创建项目jar包 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
-					<configuration>
-						<archive>
-							<manifest>
-								<addClasspath>${addClasspath}</addClasspath>
-								<addDefaultImplementationEntries>${addDefaultImplementationEntries}</addDefaultImplementationEntries>
-					            <addDefaultSpecificationEntries>${addDefaultSpecificationEntries}</addDefaultSpecificationEntries>
-								<addExtensions>${addExtensions}</addExtensions>
-								<classpathPrefix>${classpathPrefix}</classpathPrefix>
-							</manifest>
-							<manifestEntries>
-								 <Implementation-Module>${project.module}</Implementation-Module>
-							</manifestEntries>
-						</archive>
-					</configuration>
-					<executions>
-						<execution>
-							<phase>package</phase>
-						</execution>
-					</executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
-				<plugin>
-					<!-- 文档插件:发布时自动生成文档 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<configuration>
-						<charset>${project.build.sourceEncoding}</charset>
-						<encoding>${project.build.sourceEncoding}</encoding>
-						<docencoding>${project.build.sourceEncoding}</docencoding>
-					</configuration>
-					<executions>
-						<execution>
-							<id>attach-javadocs</id>
-							<phase>package</phase>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
-				<plugin>
-					<!-- 资源插件：复制主资源文件至主输出目录 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<!-- 解决资源文件的编码问题 -->
-					<configuration>
-						<!-- 字符集编码 -->
-						<encoding>${project.build.sourceEncoding}</encoding>
-						<nonFilteredFileExtensions>
-							 <nonFilteredFileExtension>publicKeys.store</nonFilteredFileExtension>
-							 <nonFilteredFileExtension>sql</nonFilteredFileExtension>
-						</nonFilteredFileExtensions>
-					</configuration>
-					<!-- 配置文件变量替换 -->
-					<executions>
-	                    <execution>
-	                        <id>default-resources</id>
-	                        <phase>validate</phase>
-	                        <goals>
-	                            <goal>copy-resources</goal>
-	                        </goals>
-	                        <configuration>
-	                            <outputDirectory>target/classes</outputDirectory>
-	                            <resources>
-	                                <resource>
-	                                    <directory>src/main/java</directory>
-	                                    <includes>
-	                                        <include>**/*.xml</include>
-	                                        <include>**/*.properties</include>
-	                                    </includes>
-	                                    <filtering>true</filtering>
-	                                </resource>
-	                                <resource>
-	                                    <directory>src/main/resources/</directory>
-	                                    <filtering>true</filtering>
-	                                </resource>
-	                            </resources>
-	                        </configuration>
-	                    </execution>
-	                </executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
-				<plugin>
-					<!-- 源码插件:发布时自动将源码同时发布 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>attach-sources</id>
-							<phase>package</phase>
-							<goals>
-								<goal>jar-no-fork</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-				<plugin>
-					<!-- 单元测试插件 ：执行测试用例 -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<configuration>
-						<!-- 跳过单元测试 -->
-						<skip>true</skip>
-						<skipTests>true</skipTests>
-						<!-- forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 pretest：
-							每一个测试创建一个新进程，为每个测试创建新的JVM是单独测试的最彻底方式，但也是最慢的，不适合hudson上持续回归。 once：在一个进程中进行所有测试。once为默认设置，在Hudson上持续回归时建议使用默认设置。
-							always：在一个进程中并行的运行脚本，Junit4.7以上版本才可以使用，surefire的版本要在2.6以上提供这个功能，其中 threadCount：执行时，指定可分配的线程数量。只和参数parallel配合使用有效。默认：5。 -->
-						<forkMode>once</forkMode>
-						<argLine>-Xmx1024M -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=256M</argLine>
-						<additionalClasspathElements>
-							<additionalClasspathElement>
-								${basedir}/target/test-classes
-							</additionalClasspathElement>
-						</additionalClasspathElements>
-						<includes>
-							<include>**/*Test.java</include>
-						</includes>
-						<excludes>
-							<exclude>**/TestBean.java</exclude>
-						</excludes>
-					</configuration>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
-				<plugin>
-					<!-- Gpg Signature -->
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-gpg-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>sign-artifacts</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>sign</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <!-- get all project dependencies -->
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id>
+                            <!-- bind to the packaging phase -->
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+                <plugin>
+                    <!-- 编译插件：编译主代码至主输出目录 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <!-- 设置源文件编码方式 -->
+                    <configuration>
+                        <!-- 源代码编译版本 -->
+                        <source>${java.version}</source>
+                        <!-- 目标平台编译版本 -->
+                        <target>${java.version}</target>
+                        <!-- 字符集编码 -->
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <!-- -->
+                        <maxmem>512M</maxmem>
+                    </configuration>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
+                <plugin>
+                    <!-- 发布插件 ：将项目输出构件部署到远程仓库 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+                <plugin>
+                    <!-- 环境检查插件：代码编译前的环境监察-->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>default-cli</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <phase>validate</phase>
+                            <configuration>
+                                <rules>
+                                    <requireMavenVersion>
+                                        <message>
+                                            <![CDATA[You are running an older version of Maven. This application requires at least Maven ${maven.version}.]]>
+                                        </message>
+                                        <version>[${maven.version}.0,)</version>
+                                    </requireMavenVersion>
+                                    <requireJavaVersion>
+                                        <message>
+                                            <![CDATA[You are running an older version of Java. This application requires at least JDK ${java.version}.]]>
+                                        </message>
+                                        <version>[${java.version}.0,)</version>
+                                    </requireJavaVersion>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+                <plugin>
+                    <!-- 安装插件：将项目输出构件安装到本地仓库 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+                <plugin>
+                    <!-- jar包生成插件 ：创建项目jar包 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <!-- 打包jar文件时，配置manifest文件，加入lib包的jar依赖 -->
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>${addClasspath}</addClasspath>
+                                <addDefaultImplementationEntries>${addDefaultImplementationEntries}
+                                </addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>${addDefaultSpecificationEntries}
+                                </addDefaultSpecificationEntries>
+                                <addExtensions>${addExtensions}</addExtensions>
+                                <classpathPrefix>${classpathPrefix}</classpathPrefix>
+                            </manifest>
+                            <manifestEntries>
+                                <Implementation-Module>${project.module}</Implementation-Module>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+                <plugin>
+                    <!-- 文档插件:发布时自动生成文档 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <configuration>
+                        <charset>${project.build.sourceEncoding}</charset>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <docencoding>${project.build.sourceEncoding}</docencoding>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+                <plugin>
+                    <!-- 资源插件：复制主资源文件至主输出目录 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <!-- 解决资源文件的编码问题 -->
+                    <configuration>
+                        <!-- 字符集编码 -->
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <nonFilteredFileExtensions>
+                            <nonFilteredFileExtension>publicKeys.store</nonFilteredFileExtension>
+                            <nonFilteredFileExtension>sql</nonFilteredFileExtension>
+                        </nonFilteredFileExtensions>
+                    </configuration>
+                    <!-- 配置文件变量替换 -->
+                    <executions>
+                        <execution>
+                            <id>default-resources</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>copy-resources</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>target/classes</outputDirectory>
+                                <resources>
+                                    <resource>
+                                        <directory>src/main/java</directory>
+                                        <includes>
+                                            <include>**/*.xml</include>
+                                            <include>**/*.properties</include>
+                                        </includes>
+                                        <filtering>true</filtering>
+                                    </resource>
+                                    <resource>
+                                        <directory>src/main/resources/</directory>
+                                        <filtering>true</filtering>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+                <plugin>
+                    <!-- 源码插件:发布时自动将源码同时发布 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <plugin>
+                    <!-- 单元测试插件 ：执行测试用例 -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <!-- 跳过单元测试 -->
+                        <skip>true</skip>
+                        <skipTests>true</skipTests>
+                        <!-- forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 pretest：
+                            每一个测试创建一个新进程，为每个测试创建新的JVM是单独测试的最彻底方式，但也是最慢的，不适合hudson上持续回归。 once：在一个进程中进行所有测试。once为默认设置，在Hudson上持续回归时建议使用默认设置。
+                            always：在一个进程中并行的运行脚本，Junit4.7以上版本才可以使用，surefire的版本要在2.6以上提供这个功能，其中 threadCount：执行时，指定可分配的线程数量。只和参数parallel配合使用有效。默认：5。 -->
+                        <forkMode>once</forkMode>
+                        <argLine>-Xmx1024M -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=256M</argLine>
+                        <additionalClasspathElements>
+                            <additionalClasspathElement>
+                                ${basedir}/target/test-classes
+                            </additionalClasspathElement>
+                        </additionalClasspathElements>
+                        <includes>
+                            <include>**/*Test.java</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/TestBean.java</exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
+                <plugin>
+                    <!-- Gpg Signature -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
 
-				<!-- Spring Boot 代码质量检查 -->
+                <!-- Spring Boot 代码质量检查 -->
 
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
-				<plugin>
-					<!-- 代码格式检查  -->
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-checkstyle-plugin</artifactId>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/cobertura-maven-plugin -->
-				<plugin>
-					<!-- 代码覆盖率 -->
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>cobertura-maven-plugin</artifactId>
-					<configuration>
-						<formats>
-							<format>html</format>
-							<format>xml</format>
-						</formats>
-						<check>
-							<branchRate>85</branchRate>
-							<lineRate>85</lineRate>
-							<haltOnFailure>true</haltOnFailure>
-							<totalBranchRate>85</totalBranchRate>
-							<totalLineRate>85</totalLineRate>
-							<packageLineRate>85</packageLineRate>
-							<packageBranchRate>85</packageBranchRate>
-							<regexes>
-								<regex>
-									<pattern>io.hiwepy.*</pattern>
-									<branchRate>90</branchRate>
-									<lineRate>80</lineRate>
-								</regex>
-							</regexes>
-						</check>
-					</configuration>
-					<executions>
-						<execution>
-							<goals>
-								<goal>clean</goal>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.owasp/dependency-check-maven -->
-	            <plugin>
-					<!-- 依赖检查：检查是否有依赖有漏洞的第三方包 -->
-				    <groupId>org.owasp</groupId>
-				    <artifactId>dependency-check-maven</artifactId>
-				    <configuration>
-                      	<format>HTML</format>
-				    	<outputDirectory>${project.build.directory}/dependency-check</outputDirectory>
-			 		</configuration>
-				    <executions>
-				        <execution>
-				            <goals>
-				                <goal>check</goal>
-				            </goals>
-				        </execution>
-				    </executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/findbugs-maven-plugin -->
-		        <plugin>
-					<!-- 代码检查：检查类或者 JAR 文件 -->
-		            <groupId>org.codehaus.mojo</groupId>
-		            <artifactId>findbugs-maven-plugin</artifactId>
-		            <configuration>
-		                <!-- 设置分析工作的等级，可以为Min、Default和Max -->
-		                <effort>Low</effort>
-		                <!-- Low、Medium和High (Low最严格) -->
-		                <threshold>Medium</threshold>
-		                <failOnError>true</failOnError>
-		                <includeTests>true</includeTests>
-		                <!--findbugs需要忽略的错误的配置文件-->
-		                <excludeFilterFile>findbugs/findbugs-exclude-filter.xml</excludeFilterFile>
-		            </configuration>
-		            <executions>
-		                <execution>
-		                    <id>run-findbugs</id>
-		                    <!-- 在package 阶段触发执行findbugs检查，比如执行 mvn clean package -->
-		                    <phase>package</phase>
-		                    <goals>
-		                        <goal>check</goal>
-		                    </goals>
-		                </execution>
-		            </executions>
-		        </plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-pmd-plugin -->
-				<plugin>
-					<!-- 源码分析  -->
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-pmd-plugin</artifactId>
-				</plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
+                <plugin>
+                    <!-- 代码格式检查  -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/cobertura-maven-plugin -->
+                <plugin>
+                    <!-- 代码覆盖率 -->
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <configuration>
+                        <formats>
+                            <format>html</format>
+                            <format>xml</format>
+                        </formats>
+                        <check>
+                            <branchRate>85</branchRate>
+                            <lineRate>85</lineRate>
+                            <haltOnFailure>true</haltOnFailure>
+                            <totalBranchRate>85</totalBranchRate>
+                            <totalLineRate>85</totalLineRate>
+                            <packageLineRate>85</packageLineRate>
+                            <packageBranchRate>85</packageBranchRate>
+                            <regexes>
+                                <regex>
+                                    <pattern>io.hiwepy.*</pattern>
+                                    <branchRate>90</branchRate>
+                                    <lineRate>80</lineRate>
+                                </regex>
+                            </regexes>
+                        </check>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>clean</goal>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.owasp/dependency-check-maven -->
+                <plugin>
+                    <!-- 依赖检查：检查是否有依赖有漏洞的第三方包 -->
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <configuration>
+                        <format>HTML</format>
+                        <outputDirectory>${project.build.directory}/dependency-check</outputDirectory>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/findbugs-maven-plugin -->
+                <plugin>
+                    <!-- 代码检查：检查类或者 JAR 文件 -->
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <configuration>
+                        <!-- 设置分析工作的等级，可以为Min、Default和Max -->
+                        <effort>Low</effort>
+                        <!-- Low、Medium和High (Low最严格) -->
+                        <threshold>Medium</threshold>
+                        <failOnError>true</failOnError>
+                        <includeTests>true</includeTests>
+                        <!--findbugs需要忽略的错误的配置文件-->
+                        <excludeFilterFile>findbugs/findbugs-exclude-filter.xml</excludeFilterFile>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>run-findbugs</id>
+                            <!-- 在package 阶段触发执行findbugs检查，比如执行 mvn clean package -->
+                            <phase>package</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-pmd-plugin -->
+                <plugin>
+                    <!-- 源码分析  -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                </plugin>
 
-				<!-- Spring Boot 应用可实施应用构建：脚本模式、服务模式、Docker模式 -->
+                <!-- Spring Boot 应用可实施应用构建：脚本模式、服务模式、Docker模式 -->
 
-				<!-- http://www.mojohaus.org/appassembler/appassembler-maven-plugin -->
-				<plugin>
-					<!-- Java应用程序可执行脚本生成：http://blog.csdn.net/mn960mn/article/details/51554152 -->
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>appassembler-maven-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>make-assembly</id>
-							<phase>package</phase>
-							<goals>
-								<goal>assemble</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>make-daemons</id>
-							<phase>package</phase>
-							<goals>
-								<goal>generate-daemons</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
+                <!-- http://www.mojohaus.org/appassembler/appassembler-maven-plugin -->
+                <plugin>
+                    <!-- Java应用程序可执行脚本生成：http://blog.csdn.net/mn960mn/article/details/51554152 -->
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>appassembler-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>assemble</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>make-daemons</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>generate-daemons</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
 
-						<!-- 脚本模式、进程模式 通用参数 -->
+                        <!-- 脚本模式、进程模式 通用参数 -->
 
-						<!-- The name of the target directory for configuration files. Prior to version 1.7 this value defaults to 'conf' for assemble goal and 'etc' for generate-daemons Default value is: etc. -->
-						<configurationDirectory>conf</configurationDirectory>
-						<!-- The source directory for configuration files. Default value is: src/main/config. -->
-			          	<!-- 从哪里拷贝配置文件 (默认src/main/config) -->
-						<configurationSourceDirectory>src/main/resources</configurationSourceDirectory>
-						<!-- If the source configuration directory should be copied to the configured configurationDirectory.Default value is: false. -->
-						<!-- 是否拷贝配置文件到上面的目录中;因为Spring-Boot资源不需要全部拷贝，这里交由antrun插件帮我们部分进行拷贝 -->
-						<copyConfigurationDirectory>false</copyConfigurationDirectory>
+                        <!-- The name of the target directory for configuration files. Prior to version 1.7 this value defaults to 'conf' for assemble goal and 'etc' for generate-daemons Default value is: etc. -->
+                        <configurationDirectory>conf</configurationDirectory>
+                        <!-- The source directory for configuration files. Default value is: src/main/config. -->
+                        <!-- 从哪里拷贝配置文件 (默认src/main/config) -->
+                        <configurationSourceDirectory>src/main/resources</configurationSourceDirectory>
+                        <!-- If the source configuration directory should be copied to the configured configurationDirectory.Default value is: false. -->
+                        <!-- 是否拷贝配置文件到上面的目录中;因为Spring-Boot资源不需要全部拷贝，这里交由antrun插件帮我们部分进行拷贝 -->
+                        <copyConfigurationDirectory>false</copyConfigurationDirectory>
 
-						<!-- The character encoding scheme to be applied when filtering the source configuration directory.
-							 Default value is: ${project.build.sourceEncoding}. -->
-						<encoding>${project.build.sourceEncoding}</encoding>
-						<!-- $BASEDIR/bin目录中的启动脚本执行前调用的脚本名称，用于设置环境变量，类似Tomcat的setenv。 注意：仅适用于jsw平台。如果这个可选的环境文件也设置了WRAPPER_CONF_OVERRIDES变量，它将被传递给JSW本机启动器的命令行参数，
-							以覆盖wrapper.conf的属性。有关详细信息，请参阅http://wrapper.tanukisoftware.com/doc/english/props-command-line.html。 -->
-						<environmentSetupFileName>setenv</environmentSetupFileName>
-						<!-- 此字符串前面的表达式将不会被更改。 如 \${foo}将被${foo}替换。 -->
-						<escapeString>#</escapeString>
-						<!-- 是否源配置目录应该被复制到配置的配置目录中。此配置可以由更通用的preAssembleDirectory选项替换 -->
-						<filterConfigurationDirectory>true</filterConfigurationDirectory>
-						<!-- 是否源预装配时复制到配置的目录应过滤assembleDirectory。 -->
-						<filterPreAssembleDirectory>true</filterPreAssembleDirectory>
-						<!-- 是否拷贝Maven依赖jar;因为Spring-Boot已经将依赖的jar打包到最终工程，这里指定不需要拷贝 -->
-						<generateRepository>false</generateRepository>
-						<!-- 您可以定义一个许可证头文件，该文件将替代生成的脚本中的默认头文件。 <licenseHeaderFile></licenseHeaderFile> -->
-						<!-- 项目的日志目录。如果为此参数指定一个值，将创建一个名为给定的空目录 -->
-						<logsDirectory>logs</logsDirectory>
-						<!-- <licenseHeaderFile>${basedir}/license-header.txt</licenseHeaderFile> -->
-						<!-- 将库复制到存储库时使用的文件名映射。如果没有设置文件映射（默认），则使用其标准名称复制文件。注意：如果使用此参数，则将 忽略useTimestampInSnapshotFileName参数。 -->
-						<!-- <outputFileNameMapping></outputFileNameMapping> -->
-						<!-- 如果存在，请将此目录的内容复制到配置的 assembleDirectory，并使用选项进行过滤。此配置可以替代copyConfigurationDirectory
-							<preAssembleDirectory></preAssembleDirectory> -->
-						<!-- 生成的Maven仓库的布局。支持的类型 - “默认”（Maven2）| “遗产”（Maven1）| “平”（flat lib
-							/ style）。 只有当您运行在Maven 2.2.1之前，才支持“legacy”样式。 说明： 如果拷贝Maven依赖jar;则对应的lib目录中jar的存放规则，默认是${groupId}/${artifactId}的目录格式，flat表示直接把jar放到lib目录 -->
-						<repositoryLayout>flat</repositoryLayout>
-						<!-- 打包的jar,以及maven依赖的jar存储的目录（相对于assembleDirectory） -->
-						<repositoryName>lib</repositoryName>
-						<!-- 项目的临时目录。如果为此参数指定一个值，将创建一个名为给定的空目录。 -->
-						<tempDirectory>tmp</tempDirectory>
-						<!-- 生成的脚本的unix模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。 -->
-						<!-- <unixScriptTemplate></unixScriptTemplate> -->
-						<!-- For those snapshots downloaded from a remote repo, replace the timestamp part with "SNAPSHOT" instead. Default value is: true.。 -->
-						<useTimestampInSnapshotFileName>true</useTimestampInSnapshotFileName>
-						<!-- 有时候，有许多依赖关系意味着有一个非常长的类路径，并且变得太长（特别是在基于Windows的平台上）。这种选择可以帮助这种情况。
-							  如果激活此选项，您的类路径只包含一个类路径通配符（REPO/*）。但请注意，这仅适用于Java 1.6及更高版本,且 repositoryLayout=flat的情况。 -->
-						<useWildcardClassPath>true</useWildcardClassPath>
-						<!-- 生成脚本的windows模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。
-							<windowsScriptTemplate></windowsScriptTemplate> -->
+                        <!-- The character encoding scheme to be applied when filtering the source configuration directory.
+                             Default value is: ${project.build.sourceEncoding}. -->
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <!-- $BASEDIR/bin目录中的启动脚本执行前调用的脚本名称，用于设置环境变量，类似Tomcat的setenv。 注意：仅适用于jsw平台。如果这个可选的环境文件也设置了WRAPPER_CONF_OVERRIDES变量，它将被传递给JSW本机启动器的命令行参数，
+                            以覆盖wrapper.conf的属性。有关详细信息，请参阅http://wrapper.tanukisoftware.com/doc/english/props-command-line.html。 -->
+                        <environmentSetupFileName>setenv</environmentSetupFileName>
+                        <!-- 此字符串前面的表达式将不会被更改。 如 \${foo}将被${foo}替换。 -->
+                        <escapeString>#</escapeString>
+                        <!-- 是否源配置目录应该被复制到配置的配置目录中。此配置可以由更通用的preAssembleDirectory选项替换 -->
+                        <filterConfigurationDirectory>true</filterConfigurationDirectory>
+                        <!-- 是否源预装配时复制到配置的目录应过滤assembleDirectory。 -->
+                        <filterPreAssembleDirectory>true</filterPreAssembleDirectory>
+                        <!-- 是否拷贝Maven依赖jar;因为Spring-Boot已经将依赖的jar打包到最终工程，这里指定不需要拷贝 -->
+                        <generateRepository>false</generateRepository>
+                        <!-- 您可以定义一个许可证头文件，该文件将替代生成的脚本中的默认头文件。 <licenseHeaderFile></licenseHeaderFile> -->
+                        <!-- 项目的日志目录。如果为此参数指定一个值，将创建一个名为给定的空目录 -->
+                        <logsDirectory>logs</logsDirectory>
+                        <!-- <licenseHeaderFile>${basedir}/license-header.txt</licenseHeaderFile> -->
+                        <!-- 将库复制到存储库时使用的文件名映射。如果没有设置文件映射（默认），则使用其标准名称复制文件。注意：如果使用此参数，则将 忽略useTimestampInSnapshotFileName参数。 -->
+                        <!-- <outputFileNameMapping></outputFileNameMapping> -->
+                        <!-- 如果存在，请将此目录的内容复制到配置的 assembleDirectory，并使用选项进行过滤。此配置可以替代copyConfigurationDirectory
+                            <preAssembleDirectory></preAssembleDirectory> -->
+                        <!-- 生成的Maven仓库的布局。支持的类型 - “默认”（Maven2）| “遗产”（Maven1）| “平”（flat lib
+                            / style）。 只有当您运行在Maven 2.2.1之前，才支持“legacy”样式。 说明： 如果拷贝Maven依赖jar;则对应的lib目录中jar的存放规则，默认是${groupId}/${artifactId}的目录格式，flat表示直接把jar放到lib目录 -->
+                        <repositoryLayout>flat</repositoryLayout>
+                        <!-- 打包的jar,以及maven依赖的jar存储的目录（相对于assembleDirectory） -->
+                        <repositoryName>lib</repositoryName>
+                        <!-- 项目的临时目录。如果为此参数指定一个值，将创建一个名为给定的空目录。 -->
+                        <tempDirectory>tmp</tempDirectory>
+                        <!-- 生成的脚本的unix模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。 -->
+                        <!-- <unixScriptTemplate></unixScriptTemplate> -->
+                        <!-- For those snapshots downloaded from a remote repo, replace the timestamp part with "SNAPSHOT" instead. Default value is: true.。 -->
+                        <useTimestampInSnapshotFileName>true</useTimestampInSnapshotFileName>
+                        <!-- 有时候，有许多依赖关系意味着有一个非常长的类路径，并且变得太长（特别是在基于Windows的平台上）。这种选择可以帮助这种情况。
+                              如果激活此选项，您的类路径只包含一个类路径通配符（REPO/*）。但请注意，这仅适用于Java 1.6及更高版本,且 repositoryLayout=flat的情况。 -->
+                        <useWildcardClassPath>true</useWildcardClassPath>
+                        <!-- 生成脚本的windows模板。它可以是文件或资源路径。如果没有给出，使用内部的。小心使用，因为它不能保证与新的插件版本兼容。
+                            <windowsScriptTemplate></windowsScriptTemplate> -->
 
-						<!-- 命令模式 : http://www.mojohaus.org/appassembler/appassembler-maven-plugin/assemble-mojo.html -->
+                        <!-- 命令模式 : http://www.mojohaus.org/appassembler/appassembler-maven-plugin/assemble-mojo.html -->
 
-						<!-- 生成的执行脚本存放目录；默认${project.build.directory}/appassembler.（必填参数） -->
-						<assembleDirectory>${project.build.directory}/generated-resources/appassembler/${project.artifactId}</assembleDirectory>
-						<!-- 用于bin文件的文件扩展名。文件扩展名存储在使用平台名称作为键的地图中。要将Unix bin文件的文件扩展名更改为“.sh”，请使用此配置： -->
-						<binFileExtensions>
-							<unix>.sh</unix>
-						</binFileExtensions>
-						<!-- Define the name of binary folder. Default value is: bin. -->
-						<binFolder>bin</binFolder>
-						<!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
-						<!-- <extraJvmArguments>-Xms256M -Xmn512M -Xmx512M -Xss128k -XX:MetaspaceSize=64M -XX:MaxMetaspaceSize=512M</extraJvmArguments> -->
-						<!-- 如果configurationDirectory（默认情况下）应包含在生成的bin文件的类路径的开始。（注意：该配置指定外部配置文件路径，如不配置可能导致无法启动） -->
-						<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+                        <!-- 生成的执行脚本存放目录；默认${project.build.directory}/appassembler.（必填参数） -->
+                        <assembleDirectory>
+                            ${project.build.directory}/generated-resources/appassembler/${project.artifactId}
+                        </assembleDirectory>
+                        <!-- 用于bin文件的文件扩展名。文件扩展名存储在使用平台名称作为键的地图中。要将Unix bin文件的文件扩展名更改为“.sh”，请使用此配置： -->
+                        <binFileExtensions>
+                            <unix>.sh</unix>
+                        </binFileExtensions>
+                        <!-- Define the name of binary folder. Default value is: bin. -->
+                        <binFolder>bin</binFolder>
+                        <!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
+                        <!-- <extraJvmArguments>-Xms256M -Xmn512M -Xmx512M -Xss128k -XX:MetaspaceSize=64M -XX:MaxMetaspaceSize=512M</extraJvmArguments> -->
+                        <!-- 如果configurationDirectory（默认情况下）应包含在生成的bin文件的类路径的开始。（注意：该配置指定外部配置文件路径，如不配置可能导致无法启动） -->
+                        <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
 
-						<!-- 将生成bin文件的一组程序配置（必填参数） -->
-						<programs>
-							<program>
-								<id>${appassembler-bin-fileName}</id>
-								<!-- 生成的脚本文件的名称，比如start.sh,你也可以根据你的需要命名成其他名字 -->
-								<!-- <licenseHeaderFile></licenseHeaderFile> -->
-								<!--指定主类，脚本名。会生成shell/bat两种类型,也可用platforms指定运行平台 -->
-								<mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
-								<!-- 插件将会为其生成bin文件的默认平台。使用字符串值进行配置 - “全部”（默认/空）| “windows”| “UNIX”。 -->
-								<platforms>
-									<platform>windows</platform>
-									<platform>unix</platform>
-								</platforms>
-								<jvmSettings>
-									<!-- <systemProperties>
-										<systemProperty></systemProperty>
-										<systemProperty></systemProperty>
-									</systemProperties> -->
-									<!-- http://www.cnblogs.com/paddix/p/5309550.html -->
-									<!-- http://unixboy.iteye.com/blog/174173/ -->
-									<!-- https://www.cnblogs.com/wgslucky/p/11764769.html -->
-									<extraArguments>
-										<!-- 后台服务运行 -->
-										<extraArgument>-server</extraArgument>
-										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
-											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
-											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
-										-->
-										<extraArgument>-Xmn512M</extraArgument>
-										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
-										<extraArgument>-Xms1024M</extraArgument>
-										<!-- 设置JVM最大可用内存为1024M -->
-										<extraArgument>-Xmx1024M</extraArgument>
-										<!-- 初始元空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=512M</extraArgument>
-										<!-- 最大空间，默认是没有限制的 -->
-										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
-										<!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
-										<!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
-										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
-										<!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
-										<!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
-										<!-- <extraArgument>-XX:SurvivorRatio=4</extraArgument> -->
-										<!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
-										<!-- <extraArgument>-XX:NewRatio=4</extraArgument> -->
-										<!-- 设置让大于此阈值的对象直接分配在老年代（只对Serial、ParNew收集器有效），单位为字节 -->
-										<!-- <extraArgument>-XX:PretenureSizeThreadshold=1024</extraArgument> -->
-										<!-- 指定使用G1圾收集器 -->
-										<!-- <extraArgument>-XX:+UseG1GC</extraArgument> -->
-										<!-- 解锁实验性虚拟机标志 -->
-										<!-- <extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument> -->
-										<!-- <extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument> -->
-										<!-- 设置的 G1 区域的大小.值是 2 的幂,范围是 1 MB 到 32 MB 之间.目标是根据最小的 Java 堆大小划分出约 2048 个区域. -->
-										<!-- <extraArgument>-XX:G1HeapRegionSize=8</extraArgument> -->
-										<!-- 为所需的最长暂停时间, 设置目标值.默认值是 200 毫秒.如果MaxGCPauseMillis设置的过小,GC就会频繁,吞吐量就会下降.如果MaxGCPauseMillis设置的过大,应用程序暂停时间就会变长.G1的默认暂停时间是200毫秒. -->
-										<!-- <extraArgument>-XX:MaxGCPauseMillis=200</extraArgument> -->
-										<!-- 设置要用作年轻代大小最小值的堆百分比.默认值是 Java 堆的 5%.这是一个实验性的标志.有关示例,请参见“如何解锁实验性虚拟机标志”.此设置取代了 -XX:DefaultMinNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1NewSizePercent=5</extraArgument> -->
-										<!-- # 设置要用作年轻代大小最大值的堆大小百分比.默认值是 Java 堆的 60%.这是一个实验性的标志.此设置取代了 -XX:DefaultMaxNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument> -->
-										<!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
-										<!-- 设置 STW 工作线程数的值.将 n 的值设置为逻辑处理器的数量 .n 的值与逻辑处理器的数量相同,最多为 8. -->
-										<!-- 如果逻辑处理器不止八个,则将 n 的值设置为逻辑处理器数的 5/8 左右.这适用于大多数情况, 除非是较大的 SPARC 系统,其中 n 的值可以是逻辑处理器数的 5/16 左右. -->
-										<!-- <extraArgument>-XX:ParallelGCThreads=8</extraArgument> -->
-										<!-- 设置并行标记的线程数.将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右. -->
-										<!-- <extraArgument>-XX:ConcGCThreads=2</extraArgument> -->
-										<!-- 设置触发标记周期的 Java 堆占用率阈值.默认占用率是整个 Java 堆的 45%. -->
-										<!-- <extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument> -->
-										<!-- 为混合垃圾回收周期中要包括的旧区域设置占用率阈值.默认占用率为 65%.这是一个实验性的标志.此设置取代了 -XX:G1OldCSetRegionLiveThresholdPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument> -->
-										<!-- 设置您愿意浪费的堆百分比.如果可回收百分比小于堆废物百分比,Java HotSpot VM 不会启动混合垃圾回收周期.默认值是 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1HeapWastePercent=10</extraArgument> -->
-										<!-- 设置标记周期完成后,对存活数据上限为 G1MixedGCLIveThresholdPercent 的旧区域执行混合垃圾回收的目标次数.默认值是 8 次混合垃圾回收.混合回收的目标是要控制在此目标次数以内.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument> -->
-										<!-- 设置混合垃圾回收期间要回收的最大旧区域数.默认值是 Java 堆的 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument> -->
-										<!-- 设置作为空闲空间的预留内存百分比,以降低目标空间溢出的风险.默认值是 10%.增加或减少百分比时,请确保对总的 Java 堆调整相同的量.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1ReservePercent=10</extraArgument> -->
-										<!-- 手动开启Java String对象的分割工作,这个是JDK8u20之后新增的参数,主要用于相同String避免重复申请内存,节约Region的使用； -->
-										<!-- <extraArgument>-XX:+UseStringDeduplication</extraArgument> -->
-										<!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
-										<!-- <extraArgument>-XX:-UseGCOverheadLimit</extraArgument> -->
-										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用，
-											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率，
-											减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
-										<!-- <extraArgument>-XX:MaxTenuringThreshold=10</extraArgument> -->
-										<!-- 取消 内存整理，G1GC 天生优势 -->
-										<!-- <extraArgument>-XX:-ResizePLAB</extraArgument>
-										<extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
-										<extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
-										<extraArgument>-XX:+G1SummarizeConcMark</extraArgument> -->
-										<!-- 开启GC日志，等同于-verbose:gc 表示打开简化的GC日志 -->
-										<extraArgument>-XX:+PrintGC</extraArgument>
-										<!-- 在发生垃圾回收时打印内存回收日志，并在进程退出时输出当前内存各区域分配情况 -->
-										<extraArgument>-XX:+PrintGCDetails</extraArgument>
-										<!-- 打印出GC发生的具体时间 -->
-										<extraArgument>-XX:+PrintGCDateStamps</extraArgument>
-										<extraArgument>-XX:+PrintGCApplicationStoppedTime</extraArgument> <!-- 打印应用停留时间  -->
-										<!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
-										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument>
-										<!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
-										<extraArgument>-Xloggc:logs/gc.log</extraArgument>
-										<extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
-										<extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
-										<extraArgument>-XX:GCLogFileSize=20M</extraArgument>
-										<!--  当堆内存空间溢出时输出堆的内存快照 -->
-										<extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
-										<extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
-										<!-- 设置JVM时区-->
-										<extraArgument>-Duser.timezone=GMT+8</extraArgument>
-									</extraArguments>
-								</jvmSettings>
-							</program>
-						</programs>
+                        <!-- 将生成bin文件的一组程序配置（必填参数） -->
+                        <programs>
+                            <program>
+                                <id>${appassembler-bin-fileName}</id>
+                                <!-- 生成的脚本文件的名称，比如start.sh,你也可以根据你的需要命名成其他名字 -->
+                                <!-- <licenseHeaderFile></licenseHeaderFile> -->
+                                <!--指定主类，脚本名。会生成shell/bat两种类型,也可用platforms指定运行平台 -->
+                                <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
+                                <!-- 插件将会为其生成bin文件的默认平台。使用字符串值进行配置 - “全部”（默认/空）| “windows”| “UNIX”。 -->
+                                <platforms>
+                                    <platform>windows</platform>
+                                    <platform>unix</platform>
+                                </platforms>
+                                <jvmSettings>
+                                    <!-- <systemProperties>
+                                        <systemProperty></systemProperty>
+                                        <systemProperty></systemProperty>
+                                    </systemProperties> -->
+                                    <!-- http://www.cnblogs.com/paddix/p/5309550.html -->
+                                    <!-- http://unixboy.iteye.com/blog/174173/ -->
+                                    <!-- https://www.cnblogs.com/wgslucky/p/11764769.html -->
+                                    <extraArguments>
+                                        <!-- 后台服务运行 -->
+                                        <extraArgument>-server</extraArgument>
+                                        <!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
+                                               持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
+                                               此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
+                                        -->
+                                        <extraArgument>-Xmn512M</extraArgument>
+                                        <!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
+                                        <extraArgument>-Xms1024M</extraArgument>
+                                        <!-- 设置JVM最大可用内存为1024M -->
+                                        <extraArgument>-Xmx1024M</extraArgument>
+                                        <!-- 初始元空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
+                                        <extraArgument>-XX:MetaspaceSize=512M</extraArgument>
+                                        <!-- 最大空间，默认是没有限制的 -->
+                                        <extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
+                                        <!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
+                                        <!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
+                                        <!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
+                                        <!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
+                                        <!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
+                                        <!-- <extraArgument>-XX:SurvivorRatio=4</extraArgument> -->
+                                        <!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
+                                        <!-- <extraArgument>-XX:NewRatio=4</extraArgument> -->
+                                        <!-- 设置让大于此阈值的对象直接分配在老年代（只对Serial、ParNew收集器有效），单位为字节 -->
+                                        <!-- <extraArgument>-XX:PretenureSizeThreadshold=1024</extraArgument> -->
+                                        <!-- 指定使用G1圾收集器 -->
+                                        <!-- <extraArgument>-XX:+UseG1GC</extraArgument> -->
+                                        <!-- 解锁实验性虚拟机标志 -->
+                                        <!-- <extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument> -->
+                                        <!-- <extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument> -->
+                                        <!-- 设置的 G1 区域的大小.值是 2 的幂,范围是 1 MB 到 32 MB 之间.目标是根据最小的 Java 堆大小划分出约 2048 个区域. -->
+                                        <!-- <extraArgument>-XX:G1HeapRegionSize=8</extraArgument> -->
+                                        <!-- 为所需的最长暂停时间, 设置目标值.默认值是 200 毫秒.如果MaxGCPauseMillis设置的过小,GC就会频繁,吞吐量就会下降.如果MaxGCPauseMillis设置的过大,应用程序暂停时间就会变长.G1的默认暂停时间是200毫秒. -->
+                                        <!-- <extraArgument>-XX:MaxGCPauseMillis=200</extraArgument> -->
+                                        <!-- 设置要用作年轻代大小最小值的堆百分比.默认值是 Java 堆的 5%.这是一个实验性的标志.有关示例,请参见“如何解锁实验性虚拟机标志”.此设置取代了 -XX:DefaultMinNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1NewSizePercent=5</extraArgument> -->
+                                        <!-- # 设置要用作年轻代大小最大值的堆大小百分比.默认值是 Java 堆的 60%.这是一个实验性的标志.此设置取代了 -XX:DefaultMaxNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument> -->
+                                        <!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
+                                        <!-- 设置 STW 工作线程数的值.将 n 的值设置为逻辑处理器的数量 .n 的值与逻辑处理器的数量相同,最多为 8. -->
+                                        <!-- 如果逻辑处理器不止八个,则将 n 的值设置为逻辑处理器数的 5/8 左右.这适用于大多数情况, 除非是较大的 SPARC 系统,其中 n 的值可以是逻辑处理器数的 5/16 左右. -->
+                                        <!-- <extraArgument>-XX:ParallelGCThreads=8</extraArgument> -->
+                                        <!-- 设置并行标记的线程数.将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右. -->
+                                        <!-- <extraArgument>-XX:ConcGCThreads=2</extraArgument> -->
+                                        <!-- 设置触发标记周期的 Java 堆占用率阈值.默认占用率是整个 Java 堆的 45%. -->
+                                        <!-- <extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument> -->
+                                        <!-- 为混合垃圾回收周期中要包括的旧区域设置占用率阈值.默认占用率为 65%.这是一个实验性的标志.此设置取代了 -XX:G1OldCSetRegionLiveThresholdPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument> -->
+                                        <!-- 设置您愿意浪费的堆百分比.如果可回收百分比小于堆废物百分比,Java HotSpot VM 不会启动混合垃圾回收周期.默认值是 10%.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1HeapWastePercent=10</extraArgument> -->
+                                        <!-- 设置标记周期完成后,对存活数据上限为 G1MixedGCLIveThresholdPercent 的旧区域执行混合垃圾回收的目标次数.默认值是 8 次混合垃圾回收.混合回收的目标是要控制在此目标次数以内.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument> -->
+                                        <!-- 设置混合垃圾回收期间要回收的最大旧区域数.默认值是 Java 堆的 10%.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument> -->
+                                        <!-- 设置作为空闲空间的预留内存百分比,以降低目标空间溢出的风险.默认值是 10%.增加或减少百分比时,请确保对总的 Java 堆调整相同的量.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1ReservePercent=10</extraArgument> -->
+                                        <!-- 手动开启Java String对象的分割工作,这个是JDK8u20之后新增的参数,主要用于相同String避免重复申请内存,节约Region的使用； -->
+                                        <!-- <extraArgument>-XX:+UseStringDeduplication</extraArgument> -->
+                                        <!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
+                                        <!-- <extraArgument>-XX:-UseGCOverheadLimit</extraArgument> -->
+                                        <!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用，
+                                            这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率，
+                                            减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
+                                        <!-- <extraArgument>-XX:MaxTenuringThreshold=10</extraArgument> -->
+                                        <!-- 取消 内存整理，G1GC 天生优势 -->
+                                        <!-- <extraArgument>-XX:-ResizePLAB</extraArgument>
+                                        <extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
+                                        <extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
+                                        <extraArgument>-XX:+G1SummarizeConcMark</extraArgument> -->
+                                        <!-- 开启GC日志，等同于-verbose:gc 表示打开简化的GC日志 -->
+                                        <extraArgument>-XX:+PrintGC</extraArgument>
+                                        <!-- 在发生垃圾回收时打印内存回收日志，并在进程退出时输出当前内存各区域分配情况 -->
+                                        <extraArgument>-XX:+PrintGCDetails</extraArgument>
+                                        <!-- 打印出GC发生的具体时间 -->
+                                        <extraArgument>-XX:+PrintGCDateStamps</extraArgument>
+                                        <extraArgument>-XX:+PrintGCApplicationStoppedTime
+                                        </extraArgument> <!-- 打印应用停留时间  -->
+                                        <!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
+                                        <extraArgument>-XX:+PrintTenuringDistribution</extraArgument>
+                                        <!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
+                                        <extraArgument>-Xloggc:logs/gc.log</extraArgument>
+                                        <extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
+                                        <extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
+                                        <extraArgument>-XX:GCLogFileSize=20M</extraArgument>
+                                        <!--  当堆内存空间溢出时输出堆的内存快照 -->
+                                        <extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
+                                        <extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
+                                        <!-- 设置JVM时区-->
+                                        <extraArgument>-Duser.timezone=GMT+8</extraArgument>
+                                    </extraArguments>
+                                </jvmSettings>
+                            </program>
+                        </programs>
 
-						<!-- 这可以用于将项目依赖、配置文件夹（等等）放置于类路径的第一个条目。默认行为是放在classpath的最后一个位置。 -->
-						<projectArtifactFirstInClassPath>false</projectArtifactFirstInClassPath>
-						<!-- 是否显示控制台 -->
-						<showConsoleWindow>true</showConsoleWindow>
-						<!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
-						<useAllProjectDependencies>false</useAllProjectDependencies>
+                        <!-- 这可以用于将项目依赖、配置文件夹（等等）放置于类路径的第一个条目。默认行为是放在classpath的最后一个位置。 -->
+                        <projectArtifactFirstInClassPath>false</projectArtifactFirstInClassPath>
+                        <!-- 是否显示控制台 -->
+                        <showConsoleWindow>true</showConsoleWindow>
+                        <!-- 以下可用于使用所有项目依赖关系，而不是 仅代表运行时依赖关系的默认行为。 -->
+                        <useAllProjectDependencies>false</useAllProjectDependencies>
 
-						<!-- 后台服务模式 : http://www.mojohaus.org/appassembler/appassembler-maven-plugin/generate-daemons-mojo.html -->
+                        <!-- 后台服务模式 : http://www.mojohaus.org/appassembler/appassembler-maven-plugin/generate-daemons-mojo.html -->
 
-						<!-- 项目的基本目录,默认值为：${basedir}。 -->
-						<basedir>${project.artifactId}</basedir>
-						<!-- 可执行脚本的名称 -->
-						<binFileName>${appassembler-bin-fileName}</binFileName>
-						<!-- 一套守护进程生成配置（必填参数） -->
-						<daemons>
-							<daemon>
-								<!-- 唯一ID，会影响生成的目录名 -->
-								<id>${project.artifactId}</id>
-								<environmentSetupFileName>setenv</environmentSetupFileName>
-								<mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
-								<platforms>
-									<platform>jsw</platform>
-								</platforms>
-								<generatorConfigurations>
-									<generatorConfiguration>
-										<generator>jsw</generator>
-										<includes>
-											<!-- <include>aix-ppc-32</include>
-											<include>aix-ppc-64</include>
-											<include>hpux-parisc-64</include> -->
-											<include>linux-x86-32</include>
-											<include>linux-x86-64</include>
-											<!-- <include>linux-ppc-64</include>
-											<include>macosx-ppc-32</include>
-											<include>macosx-x86-universal-32</include>
-											<include>macosx-universal-32</include>
-											<include>macosx-universal-64</include>
-											<include>solaris-sparc-32</include>
-											<include>solaris-sparc-64</include>
-											<include>solaris-x86-32</include> -->
-											<include>windows-x86-32</include>
-											<include>windows-x86-64</include>
-										</includes>
-										<configuration>
-											<property>
-												<name>configuration.directory.in.classpath.first</name>
-												<value>conf</value>
-											</property>
-											<property>
-												<name>wrapper.ping.timeout</name>
-												<value>120</value>
-											</property>
-											<property>
-												<name>set.default.REPO_DIR</name>
-												<value>lib</value>
-											</property>
-											<property>
-												<name>wrapper.console.loglevel</name>
-												<value>INFO</value>
-											</property>
-											<property>
-												<name>wrapper.logfile</name>
-												<value>logs/wrapper.log</value>
-											</property>
-											<property>
-												<name>wrapper.logfile.loglevel</name>
-												<value>ERROR</value>
-											</property>
-											<property>
-												<name>wrapper.logfile.maxsize</name>
-												<value>20m</value>
-											</property>
-											<property>
-												<name>wrapper.logfile.maxfiles</name>
-												<value>10</value>
-											</property>
-										</configuration>
-									</generatorConfiguration>
-								</generatorConfigurations>
-								<jvmSettings>
-									<!-- http://www.cnblogs.com/paddix/p/5309550.html -->
-									<!-- http://unixboy.iteye.com/blog/174173/ -->
-									<extraArguments>
-										<!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
-											   持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
-											   此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
-										-->
-										<extraArgument>-Xmn512M</extraArgument>
-										<!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
-										<extraArgument>-Xms1024M</extraArgument>
-										<!-- 设置JVM最大可用内存为1024M -->
-										<extraArgument>-Xmx1024M</extraArgument>
-										<!-- 初始元空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
-										<extraArgument>-XX:MetaspaceSize=512M</extraArgument>
-										<!-- 最大空间，默认是没有限制的 -->
-										<extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
-										<!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
-										<!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
-										<!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
-										<!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
-										<!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
-										<!-- <extraArgument>-XX:SurvivorRatio=4</extraArgument> -->
-										<!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
-										<!-- <extraArgument>-XX:NewRatio=4</extraArgument> -->
-										<!-- 设置让大于此阈值的对象直接分配在老年代（只对Serial、ParNew收集器有效），单位为字节 -->
-										<!-- <extraArgument>-XX:PretenureSizeThreadshold=1024</extraArgument> -->
-										<!-- 指定使用G1圾收集器 -->
-										<!-- <extraArgument>-XX:+UseG1GC</extraArgument> -->
-										<!-- 解锁实验性虚拟机标志 -->
-										<!-- <extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument> -->
-										<!-- <extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument> -->
-										<!-- 设置的 G1 区域的大小.值是 2 的幂,范围是 1 MB 到 32 MB 之间.目标是根据最小的 Java 堆大小划分出约 2048 个区域. -->
-										<!-- <extraArgument>-XX:G1HeapRegionSize=8</extraArgument> -->
-										<!-- 为所需的最长暂停时间, 设置目标值.默认值是 200 毫秒.如果MaxGCPauseMillis设置的过小,GC就会频繁,吞吐量就会下降.如果MaxGCPauseMillis设置的过大,应用程序暂停时间就会变长.G1的默认暂停时间是200毫秒. -->
-										<!-- <extraArgument>-XX:MaxGCPauseMillis=200</extraArgument> -->
-										<!-- 设置要用作年轻代大小最小值的堆百分比.默认值是 Java 堆的 5%.这是一个实验性的标志.有关示例,请参见“如何解锁实验性虚拟机标志”.此设置取代了 -XX:DefaultMinNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1NewSizePercent=5</extraArgument> -->
-										<!-- # 设置要用作年轻代大小最大值的堆大小百分比.默认值是 Java 堆的 60%.这是一个实验性的标志.此设置取代了 -XX:DefaultMaxNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument> -->
-										<!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
-										<!-- 设置 STW 工作线程数的值.将 n 的值设置为逻辑处理器的数量 .n 的值与逻辑处理器的数量相同,最多为 8. -->
-										<!-- 如果逻辑处理器不止八个,则将 n 的值设置为逻辑处理器数的 5/8 左右.这适用于大多数情况, 除非是较大的 SPARC 系统,其中 n 的值可以是逻辑处理器数的 5/16 左右. -->
-										<!-- <extraArgument>-XX:ParallelGCThreads=10</extraArgument> -->
-										<!-- 设置并行标记的线程数.将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右. -->
-										<!-- <extraArgument>-XX:ConcGCThreads=8</extraArgument> -->
-										<!-- 设置触发标记周期的 Java 堆占用率阈值.默认占用率是整个 Java 堆的 45%. -->
-										<!-- <extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument> -->
-										<!-- 为混合垃圾回收周期中要包括的旧区域设置占用率阈值.默认占用率为 65%.这是一个实验性的标志.此设置取代了 -XX:G1OldCSetRegionLiveThresholdPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument> -->
-										<!-- 设置您愿意浪费的堆百分比.如果可回收百分比小于堆废物百分比,Java HotSpot VM 不会启动混合垃圾回收周期.默认值是 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1HeapWastePercent=10</extraArgument> -->
-										<!-- 设置标记周期完成后,对存活数据上限为 G1MixedGCLIveThresholdPercent 的旧区域执行混合垃圾回收的目标次数.默认值是 8 次混合垃圾回收.混合回收的目标是要控制在此目标次数以内.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument> -->
-										<!-- 设置混合垃圾回收期间要回收的最大旧区域数.默认值是 Java 堆的 10%.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument> -->
-										<!-- 设置作为空闲空间的预留内存百分比,以降低目标空间溢出的风险.默认值是 10%.增加或减少百分比时,请确保对总的 Java 堆调整相同的量.Java HotSpot VM build 23 中没有此设置. -->
-										<!-- <extraArgument>-XX:G1ReservePercent=10</extraArgument> -->
-										<!-- 手动开启Java String对象的分割工作,这个是JDK8u20之后新增的参数,主要用于相同String避免重复申请内存,节约Region的使用； -->
-										<!-- <extraArgument>-XX:+UseStringDeduplication</extraArgument> -->
-										<!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
-										<!-- <extraArgument>-XX:-UseGCOverheadLimit</extraArgument> -->
-										<!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用，
-											这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率，
-											减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
-										<!-- <extraArgument>-XX:MaxTenuringThreshold=10</extraArgument> -->
-										<!-- 取消 内存整理，G1GC 天生优势 -->
-										<!-- <extraArgument>-XX:-ResizePLAB</extraArgument>
-										<extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
-										<extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
-										<extraArgument>-XX:+G1SummarizeConcMark</extraArgument> -->
-										<!-- 开启GC日志，等同于-verbose:gc 表示打开简化的GC日志 -->
-										<extraArgument>-XX:+PrintGC</extraArgument>
-										<!-- 在发生垃圾回收时打印内存回收日志，并在进程退出时输出当前内存各区域分配情况 -->
-										<extraArgument>-XX:+PrintGCDetails</extraArgument>
-										<!-- 打印出GC发生的具体时间 -->
-										<extraArgument>-XX:+PrintGCDateStamps</extraArgument>
-										<extraArgument>-XX:+PrintGCApplicationStoppedTime</extraArgument> <!-- 打印应用停留时间  -->
-										<!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
-										<extraArgument>-XX:+PrintTenuringDistribution</extraArgument>
-										<!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
-										<extraArgument>-Xloggc:logs/gc.log</extraArgument>
-										<extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
-										<extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
-										<extraArgument>-XX:GCLogFileSize=20M</extraArgument>
-										<!--  当堆内存空间溢出时输出堆的内存快照 -->
-										<extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
-										<extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
-										<!-- 设置JVM时区-->
-										<extraArgument>-Duser.timezone=GMT+8</extraArgument>
-									</extraArguments>
-									<systemProperties>
-										<systemProperty>java.security.policy=conf/policy.all</systemProperty>
-										<!-- <systemProperty>com.sun.management.jmxremote</systemProperty>
-										<systemProperty>com.sun.management.jmxremote.port=1984</systemProperty>
-										<systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
-										<systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty> -->
-									</systemProperties>
-								</jvmSettings>
-							</daemon>
-						</daemons>
-						<!-- JvmSettings describing min/max memory and stack size, system properties and extra arguments. -->
-						<defaultJvmSettings>
-							<initialMemorySize>256M</initialMemorySize>
-							<maxMemorySize>1024M</maxMemorySize>
-						</defaultJvmSettings>
-						<!-- 生成的守护程序的目标目录。默认值为：${project.build.directory}/generated-resources/appassembler。 -->
-						<target>${project.build.directory}/generated-resources/appassembler</target>
-						<!-- 使用此选项覆盖当前内置的增量包二进制文件。您将需要将增量包版本解压缩到由此选项设置的已知位置。 <externalDeltaPackDirectory></externalDeltaPackDirectory> -->
-						<!-- 使用此选项将已知文件的内容预插入到生成的包装器配置文件中。例如：$ include ../conf/another-wrapper.conf
-							User属性是：preWrapperConf。 <preWrapperConf></preWrapperConf> -->
-						<!-- 启用时，名称包装器配置文件为wrapper - $ {daemon.id} .conf -->
-						<useDaemonIdAsWrapperConfName>false</useDaemonIdAsWrapperConfName>
-						<!-- 启用时，将包装器可执行文件前缀为${daemon.id}。否则，使用原始名称（即包装） -->
-						<useDaemonIdAsWrapperExePrefixName>false</useDaemonIdAsWrapperExePrefixName>
+                        <!-- 项目的基本目录,默认值为：${basedir}。 -->
+                        <basedir>${project.artifactId}</basedir>
+                        <!-- 可执行脚本的名称 -->
+                        <binFileName>${appassembler-bin-fileName}</binFileName>
+                        <!-- 一套守护进程生成配置（必填参数） -->
+                        <daemons>
+                            <daemon>
+                                <!-- 唯一ID，会影响生成的目录名 -->
+                                <id>${project.artifactId}</id>
+                                <environmentSetupFileName>setenv</environmentSetupFileName>
+                                <mainClass>org.springframework.boot.loader.JarLauncher</mainClass>
+                                <platforms>
+                                    <platform>jsw</platform>
+                                </platforms>
+                                <generatorConfigurations>
+                                    <generatorConfiguration>
+                                        <generator>jsw</generator>
+                                        <includes>
+                                            <!-- <include>aix-ppc-32</include>
+                                            <include>aix-ppc-64</include>
+                                            <include>hpux-parisc-64</include> -->
+                                            <include>linux-x86-32</include>
+                                            <include>linux-x86-64</include>
+                                            <!-- <include>linux-ppc-64</include>
+                                            <include>macosx-ppc-32</include>
+                                            <include>macosx-x86-universal-32</include>
+                                            <include>macosx-universal-32</include>
+                                            <include>macosx-universal-64</include>
+                                            <include>solaris-sparc-32</include>
+                                            <include>solaris-sparc-64</include>
+                                            <include>solaris-x86-32</include> -->
+                                            <include>windows-x86-32</include>
+                                            <include>windows-x86-64</include>
+                                        </includes>
+                                        <configuration>
+                                            <property>
+                                                <name>configuration.directory.in.classpath.first</name>
+                                                <value>conf</value>
+                                            </property>
+                                            <property>
+                                                <name>wrapper.ping.timeout</name>
+                                                <value>120</value>
+                                            </property>
+                                            <property>
+                                                <name>set.default.REPO_DIR</name>
+                                                <value>lib</value>
+                                            </property>
+                                            <property>
+                                                <name>wrapper.console.loglevel</name>
+                                                <value>INFO</value>
+                                            </property>
+                                            <property>
+                                                <name>wrapper.logfile</name>
+                                                <value>logs/wrapper.log</value>
+                                            </property>
+                                            <property>
+                                                <name>wrapper.logfile.loglevel</name>
+                                                <value>ERROR</value>
+                                            </property>
+                                            <property>
+                                                <name>wrapper.logfile.maxsize</name>
+                                                <value>20m</value>
+                                            </property>
+                                            <property>
+                                                <name>wrapper.logfile.maxfiles</name>
+                                                <value>10</value>
+                                            </property>
+                                        </configuration>
+                                    </generatorConfiguration>
+                                </generatorConfigurations>
+                                <jvmSettings>
+                                    <!-- http://www.cnblogs.com/paddix/p/5309550.html -->
+                                    <!-- http://unixboy.iteye.com/blog/174173/ -->
+                                    <extraArguments>
+                                        <!-- 设置年轻代大小为512M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。
+                                               持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。
+                                               此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。
+                                        -->
+                                        <extraArgument>-Xmn512M</extraArgument>
+                                        <!-- 设置JVM促使内存为1024m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  -->
+                                        <extraArgument>-Xms1024M</extraArgument>
+                                        <!-- 设置JVM最大可用内存为1024M -->
+                                        <extraArgument>-Xmx1024M</extraArgument>
+                                        <!-- 初始元空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。 -->
+                                        <extraArgument>-XX:MetaspaceSize=512M</extraArgument>
+                                        <!-- 最大空间，默认是没有限制的 -->
+                                        <extraArgument>-XX:MaxMetaspaceSize=512M</extraArgument>
+                                        <!-- 设置年轻代初始值为256M，表示新生代初始内存的大小，应该小于-Xms的值； -->
+                                        <!-- <extraArgument>-XX:NewSize=256M</extraArgument> -->
+                                        <!-- 设置年轻代最大值为512M，表示新生代可被分配的内存的最大上限；当然这个值应该小于-Xmx的值； -->
+                                        <!-- <extraArgument>-XX:MaxNewSize=512M</extraArgument> -->
+                                        <!-- 设置年轻代中Eden区与一个Survivor区的比值。表示Edgen为一个Survivor的4倍，即1个Survivor区占整个年轻代大小的1/6 -->
+                                        <!-- <extraArgument>-XX:SurvivorRatio=4</extraArgument> -->
+                                        <!-- 设置老年代与年轻代（包括1个Eden和2个Survivor区）的比值。表示老年代是年轻代的4倍 -->
+                                        <!-- <extraArgument>-XX:NewRatio=4</extraArgument> -->
+                                        <!-- 设置让大于此阈值的对象直接分配在老年代（只对Serial、ParNew收集器有效），单位为字节 -->
+                                        <!-- <extraArgument>-XX:PretenureSizeThreadshold=1024</extraArgument> -->
+                                        <!-- 指定使用G1圾收集器 -->
+                                        <!-- <extraArgument>-XX:+UseG1GC</extraArgument> -->
+                                        <!-- 解锁实验性虚拟机标志 -->
+                                        <!-- <extraArgument>-XX:+UnlockExperimentalVMOptions</extraArgument> -->
+                                        <!-- <extraArgument>-XX:+UnlockDiagnosticVMOptions</extraArgument> -->
+                                        <!-- 设置的 G1 区域的大小.值是 2 的幂,范围是 1 MB 到 32 MB 之间.目标是根据最小的 Java 堆大小划分出约 2048 个区域. -->
+                                        <!-- <extraArgument>-XX:G1HeapRegionSize=8</extraArgument> -->
+                                        <!-- 为所需的最长暂停时间, 设置目标值.默认值是 200 毫秒.如果MaxGCPauseMillis设置的过小,GC就会频繁,吞吐量就会下降.如果MaxGCPauseMillis设置的过大,应用程序暂停时间就会变长.G1的默认暂停时间是200毫秒. -->
+                                        <!-- <extraArgument>-XX:MaxGCPauseMillis=200</extraArgument> -->
+                                        <!-- 设置要用作年轻代大小最小值的堆百分比.默认值是 Java 堆的 5%.这是一个实验性的标志.有关示例,请参见“如何解锁实验性虚拟机标志”.此设置取代了 -XX:DefaultMinNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1NewSizePercent=5</extraArgument> -->
+                                        <!-- # 设置要用作年轻代大小最大值的堆大小百分比.默认值是 Java 堆的 60%.这是一个实验性的标志.此设置取代了 -XX:DefaultMaxNewGenPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1MaxNewSizePercent=60</extraArgument> -->
+                                        <!-- 配置并行收集器的线程数，即：同时多少个线程一起进行垃圾回收。此值最好配置与处理器数目相等。 -->
+                                        <!-- 设置 STW 工作线程数的值.将 n 的值设置为逻辑处理器的数量 .n 的值与逻辑处理器的数量相同,最多为 8. -->
+                                        <!-- 如果逻辑处理器不止八个,则将 n 的值设置为逻辑处理器数的 5/8 左右.这适用于大多数情况, 除非是较大的 SPARC 系统,其中 n 的值可以是逻辑处理器数的 5/16 左右. -->
+                                        <!-- <extraArgument>-XX:ParallelGCThreads=10</extraArgument> -->
+                                        <!-- 设置并行标记的线程数.将 n 设置为并行垃圾回收线程数 (ParallelGCThreads) 的 1/4 左右. -->
+                                        <!-- <extraArgument>-XX:ConcGCThreads=8</extraArgument> -->
+                                        <!-- 设置触发标记周期的 Java 堆占用率阈值.默认占用率是整个 Java 堆的 45%. -->
+                                        <!-- <extraArgument>-XX:InitiatingHeapOccupancyPercent=45</extraArgument> -->
+                                        <!-- 为混合垃圾回收周期中要包括的旧区域设置占用率阈值.默认占用率为 65%.这是一个实验性的标志.此设置取代了 -XX:G1OldCSetRegionLiveThresholdPercent 设置.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1MixedGCLiveThresholdPercent=65</extraArgument> -->
+                                        <!-- 设置您愿意浪费的堆百分比.如果可回收百分比小于堆废物百分比,Java HotSpot VM 不会启动混合垃圾回收周期.默认值是 10%.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1HeapWastePercent=10</extraArgument> -->
+                                        <!-- 设置标记周期完成后,对存活数据上限为 G1MixedGCLIveThresholdPercent 的旧区域执行混合垃圾回收的目标次数.默认值是 8 次混合垃圾回收.混合回收的目标是要控制在此目标次数以内.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1MixedGCCountTarget=8</extraArgument> -->
+                                        <!-- 设置混合垃圾回收期间要回收的最大旧区域数.默认值是 Java 堆的 10%.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1OldCSetRegionThresholdPercent=10</extraArgument> -->
+                                        <!-- 设置作为空闲空间的预留内存百分比,以降低目标空间溢出的风险.默认值是 10%.增加或减少百分比时,请确保对总的 Java 堆调整相同的量.Java HotSpot VM build 23 中没有此设置. -->
+                                        <!-- <extraArgument>-XX:G1ReservePercent=10</extraArgument> -->
+                                        <!-- 手动开启Java String对象的分割工作,这个是JDK8u20之后新增的参数,主要用于相同String避免重复申请内存,节约Region的使用； -->
+                                        <!-- <extraArgument>-XX:+UseStringDeduplication</extraArgument> -->
+                                        <!-- 关闭GC时间过长系统自动检测OOM(OutOfMemory)提示GC overhead limit exceeded,目的是显示内存溢出异常,方便Wrapper Service检测到并重启 -->
+                                        <!-- <extraArgument>-XX:-UseGCOverheadLimit</extraArgument> -->
+                                        <!-- 表示一个对象如果在Survivor区移动了7次那下次MinorGC时就进入老年代。如果设置为0的话，则年轻代对象不经过Survivor区，直接进入年老代，对于需要大量常驻内存的应用，
+                                            这样做可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象在年轻代存活时间，增加对象在年轻代被垃圾回收的概率，
+                                            减少Full GC的频率，可以在某种程度上提高服务稳定性。默认值:15 -->
+                                        <!-- <extraArgument>-XX:MaxTenuringThreshold=10</extraArgument> -->
+                                        <!-- 取消 内存整理，G1GC 天生优势 -->
+                                        <!-- <extraArgument>-XX:-ResizePLAB</extraArgument>
+                                        <extraArgument>-XX:+PrintAdaptiveSizePolicy</extraArgument>
+                                        <extraArgument>-XX:+ParallelRefProcEnabled</extraArgument>
+                                        <extraArgument>-XX:+G1SummarizeConcMark</extraArgument> -->
+                                        <!-- 开启GC日志，等同于-verbose:gc 表示打开简化的GC日志 -->
+                                        <extraArgument>-XX:+PrintGC</extraArgument>
+                                        <!-- 在发生垃圾回收时打印内存回收日志，并在进程退出时输出当前内存各区域分配情况 -->
+                                        <extraArgument>-XX:+PrintGCDetails</extraArgument>
+                                        <!-- 打印出GC发生的具体时间 -->
+                                        <extraArgument>-XX:+PrintGCDateStamps</extraArgument>
+                                        <extraArgument>-XX:+PrintGCApplicationStoppedTime
+                                        </extraArgument> <!-- 打印应用停留时间  -->
+                                        <!-- 让JVM在每次MinorGC后打印出当前使用的Survivor中对象的年龄分布  -->
+                                        <extraArgument>-XX:+PrintTenuringDistribution</extraArgument>
+                                        <!-- -Xloggc:<file> 表示把GC日志写入到一个文件中去，而不是打印到标准输出中 -->
+                                        <extraArgument>-Xloggc:logs/gc.log</extraArgument>
+                                        <extraArgument>-XX:+UseGCLogFileRotation</extraArgument>
+                                        <extraArgument>-XX:NumberOfGCLogFiles=10</extraArgument>
+                                        <extraArgument>-XX:GCLogFileSize=20M</extraArgument>
+                                        <!--  当堆内存空间溢出时输出堆的内存快照 -->
+                                        <extraArgument>-XX:+HeapDumpOnOutOfMemoryError</extraArgument>
+                                        <extraArgument>-XX:HeapDumpPath=logs/heap.log</extraArgument>
+                                        <!-- 设置JVM时区-->
+                                        <extraArgument>-Duser.timezone=GMT+8</extraArgument>
+                                    </extraArguments>
+                                    <systemProperties>
+                                        <systemProperty>java.security.policy=conf/policy.all</systemProperty>
+                                        <!-- <systemProperty>com.sun.management.jmxremote</systemProperty>
+                                        <systemProperty>com.sun.management.jmxremote.port=1984</systemProperty>
+                                        <systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
+                                        <systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty> -->
+                                    </systemProperties>
+                                </jvmSettings>
+                            </daemon>
+                        </daemons>
+                        <!-- JvmSettings describing min/max memory and stack size, system properties and extra arguments. -->
+                        <defaultJvmSettings>
+                            <initialMemorySize>256M</initialMemorySize>
+                            <maxMemorySize>1024M</maxMemorySize>
+                        </defaultJvmSettings>
+                        <!-- 生成的守护程序的目标目录。默认值为：${project.build.directory}/generated-resources/appassembler。 -->
+                        <target>${project.build.directory}/generated-resources/appassembler</target>
+                        <!-- 使用此选项覆盖当前内置的增量包二进制文件。您将需要将增量包版本解压缩到由此选项设置的已知位置。 <externalDeltaPackDirectory></externalDeltaPackDirectory> -->
+                        <!-- 使用此选项将已知文件的内容预插入到生成的包装器配置文件中。例如：$ include ../conf/another-wrapper.conf
+                            User属性是：preWrapperConf。 <preWrapperConf></preWrapperConf> -->
+                        <!-- 启用时，名称包装器配置文件为wrapper - $ {daemon.id} .conf -->
+                        <useDaemonIdAsWrapperConfName>false</useDaemonIdAsWrapperConfName>
+                        <!-- 启用时，将包装器可执行文件前缀为${daemon.id}。否则，使用原始名称（即包装） -->
+                        <useDaemonIdAsWrapperExePrefixName>false</useDaemonIdAsWrapperExePrefixName>
 
-					</configuration>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-antrun-plugin -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<executions>
-						<!-- 在Maven预打包阶段进行初步的脚本处理：拷贝配置文件、生成相关启停脚本 -->
-						<execution>
-							<id>prepare-resources</id>
-							<phase>package</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<echo message="antrun copy resources" />
+                    </configuration>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-antrun-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <executions>
+                        <!-- 在Maven预打包阶段进行初步的脚本处理：拷贝配置文件、生成相关启停脚本 -->
+                        <execution>
+                            <id>prepare-resources</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                            <configuration>
+                                <target>
+                                    <echo message="antrun copy resources"/>
 
-									<!-- 处理脚本模式依赖资源 -->
+                                    <!-- 处理脚本模式依赖资源 -->
 
-									<!-- 步骤1、拷贝应用程序Jar文件 -->
-									<copy file="${project.build.directory}/${project.build.finalName}.jar"
-										todir="${appassembler-dir}/${project.artifactId}/lib" />
+                                    <!-- 步骤1、拷贝应用程序Jar文件 -->
+                                    <copy file="${project.build.directory}/${project.build.finalName}.jar"
+                                          todir="${appassembler-dir}/${project.artifactId}/lib"/>
 
-									<!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
-									<mkdir dir="${appassembler-dir}/${project.artifactId}/conf" />
+                                    <!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
+                                    <mkdir dir="${appassembler-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application.yaml"
-										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application.yaml"
+                                          todir="${appassembler-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application-dev.yaml"
-										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application-dev.yaml"
+                                          todir="${appassembler-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application-prod.yaml"
-										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application-prod.yaml"
+                                          todir="${appassembler-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application-test.yaml"
-										  todir="${appassembler-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application-test.yaml"
+                                          todir="${appassembler-dir}/${project.artifactId}/conf"/>
 
-									<!-- 步骤3、拷贝Java环境变量设置文件
-									<copy file="${basedir}/runenv/setenv" todir="${appassembler-dir}/${project.artifactId}/bin" />
-									<copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-dir}/${project.artifactId}/bin" />
-									-->
-									<!-- 步骤4、拷贝Java运行环境文件
-									<copy file="${basedir}/runenv/jre-8u60-linux-x64.tar.gz"
-										todir="${appassembler-dir}/${project.artifactId}" /> -->
-									<!-- 步骤5、构建应用安装脚本 -->
-									<delete file="${appassembler-dir}/${project.artifactId}/install.sh"></delete>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="#!/bin/sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="#解压独立jre运行包【如果希望工程使用独有的jdk、jre请将压缩包放置在项目根目录并修改下面的配置】${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="#rm -rf jre${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="#tar -zxvf jre-8u60-linux-x64.tar.gz${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="#File Authorized${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="chmod 755 jre/bin/*${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="chmod 755 bin/*${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="chmod 755 ${appassembler-bin-fileName}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="chmod 755 uninstall.sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="#启停脚本服务化软连接${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="cp ./${appassembler-bin-fileName} /etc/init.d/${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="chkconfig --add ${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
-										message="chkconfig --level 345 ${project.artifactId} on${line.separator}"></echo>
-									<!-- 步骤6、构建应用卸载脚本 -->
-									<delete file="${appassembler-dir}/${project.artifactId}/uninstall.sh"></delete>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
-										message="#!/bin/sh${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
-										message="chkconfig ${appassembler-bin-fileName} off${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
-										message="chkconfig --del ${appassembler-bin-fileName}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
-										message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
-									<echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
-										message="#rm -rf jre${line.separator}"></echo>
+                                    <!-- 步骤3、拷贝Java环境变量设置文件
+                                    <copy file="${basedir}/runenv/setenv" todir="${appassembler-dir}/${project.artifactId}/bin" />
+                                    <copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-dir}/${project.artifactId}/bin" />
+                                    -->
+                                    <!-- 步骤4、拷贝Java运行环境文件
+                                    <copy file="${basedir}/runenv/jre-8u60-linux-x64.tar.gz"
+                                        todir="${appassembler-dir}/${project.artifactId}" /> -->
+                                    <!-- 步骤5、构建应用安装脚本 -->
+                                    <delete file="${appassembler-dir}/${project.artifactId}/install.sh"></delete>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="#!/bin/sh${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="#解压独立jre运行包【如果希望工程使用独有的jdk、jre请将压缩包放置在项目根目录并修改下面的配置】${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="#rm -rf jre${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="#tar -zxvf jre-8u60-linux-x64.tar.gz${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="#File Authorized${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="chmod 755 jre/bin/*${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="chmod 755 bin/*${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="chmod 755 ${appassembler-bin-fileName}${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="chmod 755 uninstall.sh${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="#启停脚本服务化软连接${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="cp ./${appassembler-bin-fileName} /etc/init.d/${project.artifactId}${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="chkconfig --add ${project.artifactId}${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/install.sh" append="true"
+                                          message="chkconfig --level 345 ${project.artifactId} on${line.separator}"></echo>
+                                    <!-- 步骤6、构建应用卸载脚本 -->
+                                    <delete file="${appassembler-dir}/${project.artifactId}/uninstall.sh"></delete>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
+                                          message="#!/bin/sh${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
+                                          message="chkconfig ${appassembler-bin-fileName} off${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
+                                          message="chkconfig --del ${appassembler-bin-fileName}${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
+                                          message="rm -rf /etc/init.d/${project.artifactId}${line.separator}"></echo>
+                                    <echo file="${appassembler-dir}/${project.artifactId}/uninstall.sh" append="true"
+                                          message="#rm -rf jre${line.separator}"></echo>
 
-									<!-- 处理服务模式依赖资源 -->
+                                    <!-- 处理服务模式依赖资源 -->
 
-									<!-- 步骤1、拷贝应用程序Jar文件 -->
-									<copy file="${project.build.directory}/${project.build.finalName}.jar"
-										todir="${appassembler-jsw-dir}/${project.artifactId}/lib" />
-									<!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
+                                    <!-- 步骤1、拷贝应用程序Jar文件 -->
+                                    <copy file="${project.build.directory}/${project.build.finalName}.jar"
+                                          todir="${appassembler-jsw-dir}/${project.artifactId}/lib"/>
+                                    <!-- 步骤2、创建生产环境配置文件夹：拷贝配置文件以便覆盖默认配置 -->
 
-									<mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+                                    <mkdir dir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application.yaml"
-										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application.yaml"
+                                          todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application-dev.yaml"
-										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application-dev.yaml"
+                                          todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application-prod.yaml"
-										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application-prod.yaml"
+                                          todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
-									<copy file="${project.build.directory}/classes/application-test.yaml"
-										  todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
+                                    <copy file="${project.build.directory}/classes/application-test.yaml"
+                                          todir="${appassembler-jsw-dir}/${project.artifactId}/conf"/>
 
-									<!-- 步骤3、拷贝Java环境变量设置文件
-									<copy file="${basedir}/runenv/setenv" todir="${appassembler-jsw-dir}/${project.artifactId}/bin" />
-									<copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-jsw-dir}/${project.artifactId}/bin" />
-									-->
-								</target>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/com.spotify/docker-maven-plugin -->
-				<!-- https://github.com/spotify/docker-maven-plugin -->
-				<!-- http://blog.csdn.net/qq_22841811/article/details/67369530 -->
-				<plugin>
-					<!-- docker 镜像构建: https://blog.csdn.net/aixiaoyang168/article/details/77453974 -->
-					<groupId>com.spotify</groupId>
-					<artifactId>docker-maven-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>build-image</id>
-							<phase>package</phase>
-							<goals>
-								<goal>build</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>tag-image</id>
-							<phase>package</phase>
-							<goals>
-								<goal>tag</goal>
-							</goals>
-							<configuration>
-								<image>${project.artifactId}:${project.version}</image>
-								<newName>${docker.push.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</newName>
-							</configuration>
-						</execution>
-						<execution>
-							<id>push-image</id>
-							<phase>deploy</phase>
-							<goals>
-								<goal>push</goal>
-							</goals>
-							<configuration>
-								<imageName>${docker.push.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
-							</configuration>
-						</execution>
-					</executions>
-					<configuration>
-						<!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
-						<!-- 详见：https://github.com/spotify/docker-maven-plugin Invalid repository
-							name ... only [a-z0-9-_.] are allowed -->
-						<!-- 如果要将docker镜像push到DockerHub上去的话，这边的路径要和repo路径一致 -->
-						<imageName>${project.artifactId}:${project.version}</imageName>
-						<!-- 指定Dockerfile所在的路径 -->
-						<!-- <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory> -->
-						<baseImage>${docker.push.repostory}/${docker.registry.name}/openjdk:1.8</baseImage>
-						<volumes>/tmp</volumes>
-						<workdir>${docker.workdir}</workdir>
-						<entryPoint>["sh","./bin/${appassembler-bin-fileName}.sh"]</entryPoint>
-						<dockerHost>${docker.build.repostory}</dockerHost>
-						<resources>
-							<resource>
-								<targetPath>${docker.workdir}</targetPath>
-								<directory>${project.build.directory}/generated-resources/appassembler/${project.artifactId}</directory>
-							</resource>
-						</resources>
-						<!-- 以下两行是为了docker push到DockerHub使用的。 -->
-						<!-- <serverId>docker-hub</serverId> -->
-						<!-- <registryUrl>http://10.71.33.155/</registryUrl> -->
-					</configuration>
-				</plugin>
-				<!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
-				<plugin>
-					<groupId>com.spotify</groupId>
-					<artifactId>dockerfile-maven-plugin</artifactId>
-					<configuration>
-						<repository>${docker.registry.name}/${project.artifactId}</repository>
-						<buildArgs>
-							<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-						</buildArgs>
-					</configuration>
-				</plugin>
-				<!--
-					https://mp.weixin.qq.com/s?__biz=MzAxODcyNjEzNQ==&mid=2247484764&idx=1&sn=10e4fcae5333687368960a2e64b2b70c&chksm=9bd0a8c4aca721d264e40f5f543b9f557eedf033719a97a38257835c5162ffa010c025580a65&scene=21#wechat_redirect
-					https://github.com/tianqing2117/swagger-doc-demo/blob/master/pom.xml
-					https://github.com/Swagger2Markup/swagger2markup-maven-project-template/blob/master/pom.xml
-				 -->
-				<!-- First, use the swagger2markup plugin to generate asciidoc -->
-			    <plugin>
-			        <groupId>io.github.swagger2markup</groupId>
-			        <artifactId>swagger2markup-maven-plugin</artifactId>
-			        <dependencies>
-			        	<dependency>
-						    <groupId>io.github.swagger2markup</groupId>
-						    <artifactId>swagger2markup</artifactId>
-						    <version>${swagger2markup.version}</version>
-						</dependency>
-						<dependency>
-						    <groupId>io.github.swagger2markup</groupId>
-						    <artifactId>swagger2markup-import-schemas-ext</artifactId>
-						    <version>${swagger2markup.extension.version}</version>
-						</dependency>
-						<dependency>
-						    <groupId>io.github.swagger2markup</groupId>
-						    <artifactId>swagger2markup-import-files-ext</artifactId>
-						    <version>${swagger2markup.extension.version}</version>
-						</dependency>
-	                    <dependency>
-						    <groupId>io.github.swagger2markup</groupId>
-						    <artifactId>swagger2markup-spring-restdocs-ext</artifactId>
-						    <version>${swagger2markup.extension.version}</version>
-						</dependency>
-					</dependencies>
-			        <configuration>
-			            <swaggerInput>${swagger.input}</swaggerInput>
-			            <outputDir>${generated.asciidoc.directory}</outputDir>
-			            <config>
-	                        <swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>
-	                        <swagger2markup.pathsGroupedBy>TAGS</swagger2markup.pathsGroupedBy>
-	                        <swagger2markup.extensions.dynamicOverview.contentPath>${project.basedir}/src/docs/asciidoc/extensions/overview</swagger2markup.extensions.dynamicOverview.contentPath>
-	                        <swagger2markup.extensions.dynamicDefinitions.contentPath>${project.basedir}/src/docs/asciidoc/extensions/definitions</swagger2markup.extensions.dynamicDefinitions.contentPath>
-	                        <swagger2markup.extensions.dynamicPaths.contentPath>${project.basedir}/src/docs/asciidoc/extensions/paths</swagger2markup.extensions.dynamicPaths.contentPath>
-	                        <swagger2markup.extensions.dynamicSecurity.contentPath>${project.basedir}src/docs/asciidoc/extensions/security</swagger2markup.extensions.dynamicSecurity.contentPath>
-							<swagger2markup.extensions.springRestDocs.snippetBaseUri>${swagger.snippetOutput.dir}</swagger2markup.extensions.springRestDocs.snippetBaseUri>
-							<swagger2markup.extensions.springRestDocs.defaultSnippets>true</swagger2markup.extensions.springRestDocs.defaultSnippets>
-						</config>
-			        </configuration>
-			        <executions>
-	                    <execution>
-	                        <phase>package</phase>
-	                        <goals>
-	                            <goal>convertSwagger2markup</goal>
-	                        </goals>
-	                    </execution>
-					</executions>
-			    </plugin>
-			    <!-- Run the generated asciidoc through Asciidoctor to generate
-	                 other documentation types, such as PDFs or HTML5 -->
-		        <plugin>
-		        	<groupId>org.asciidoctor</groupId>
-		        	<artifactId>asciidoctor-maven-plugin</artifactId>
-		        	<!-- Include Asciidoctor PDF for pdf generation -->
-		        	<dependencies>
-	                    <dependency>
-	                        <groupId>org.asciidoctor</groupId>
-	                        <artifactId>asciidoctorj-pdf</artifactId>
-	                        <version>${asciidoctorj.pdf.version}</version>
-	                    </dependency>
-	                    <!-- Comment this section to use the default jruby artifact provided by the plugin -->
-	                    <dependency>
-	                        <groupId>org.jruby</groupId>
-	                        <artifactId>jruby-complete</artifactId>
-	                        <version>${jruby.version}</version>
-	                    </dependency>
-	                    <!-- Comment this section to use the default AsciidoctorJ artifact provided by the plugin -->
-	                    <dependency>
-	                        <groupId>org.asciidoctor</groupId>
-	                        <artifactId>asciidoctorj</artifactId>
-	                        <version>${asciidoctorj.version}</version>
-	                    </dependency>
-					</dependencies>
-					<!-- Configure generic document generation settings -->
-	          		<configuration>
-	                    <sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
-	                    <!-- <sourceDocumentName>index.adoc</sourceDocumentName> -->
-	                    <attributes>
-	                        <doctype>book</doctype>
-	                        <toc>left</toc>
-	                        <toclevels>3</toclevels>
-	                        <numbered></numbered>
-	                        <hardbreaks></hardbreaks>
-	                        <sectlinks></sectlinks>
-	                        <sectanchors></sectanchors>
-	                        <generated>${generated.asciidoc.directory}</generated>
-	                    </attributes>
-					</configuration>
-					<!-- Since each execution can only handle one backend, run
-	                     separate executions for each desired output type -->
-	          		<executions>
-	                    <execution>
-	                        <id>output-html</id>
-	                        <phase>package</phase><!-- generate-resources -->
-	                        <goals>
-	                            <goal>process-asciidoc</goal>
-	                        </goals>
-	                        <configuration>
-	                            <backend>html5</backend>
-	                            <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
-	                        </configuration>
-	                    </execution>
-	                    <!-- <execution>
-	                        <id>output-pdf</id>
-	                        <phase>package</phase>
-	                        <goals>
-	                            <goal>process-asciidoc</goal>
-	                        </goals>
-	                        <configuration>
-	                            <backend>pdf</backend>
-	                            <outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
-	                        </configuration>
-	                    </execution> -->
-					</executions>
-	    		</plugin>
-	    		<!-- https://my.oschina.net/u/4007037/blog/3101178 -->
-	    		<plugin>
-		             <groupId>org.codehaus.mojo</groupId>
-		             <artifactId>license-maven-plugin</artifactId>
-		             <configuration>
-		                 <!-- config for license:aggregate-add-third-party -->
-		                 <outputDirectory>${main.basedir}</outputDirectory>
-		                 <thirdPartyFilename>LICENSE-3RD-PARTY</thirdPartyFilename>
-		                 <fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
-		                 <useMissingFile>true</useMissingFile>
-		                 <missingFile>${main.basedir}/LICENSE-3RD-PARTY.properties</missingFile>
-		                 <aggregateMissingLicensesFile>${main.basedir}/LICENSE-3RD-PARTY.properties</aggregateMissingLicensesFile>
-		                 <licenseMerges>
-		                     <licenseMerge>Apache 2.0|ASL, version 2|http://www.apache.org/licenses/LICENSE-2.0.txt|http://asm.ow2.org/license.html|The Apache License, Version 2.0|Apache License|Apache License Version 2|Apache License Version 2.0|Apache Software License - Version 2.0|Apache 2.0 License|Apache License 2.0|ASL|Apache 2|Apache-2.0|the Apache License, ASL Version 2.0|The Apache Software License, Version 2.0|Apache License, Version 2.0|Apache Public License 2.0</licenseMerge>
-		                     <licenseMerge>BSD|The BSD 3-Clause License|The BSD License|Modified BSD License|New BSD License|New BSD license|Two-clause BSD-style license|BSD licence|BSD New|The New BSD License|BSD 3-Clause|BSD 3-clause</licenseMerge>
-		                     <licenseMerge>MIT|MIT License|The MIT License</licenseMerge>
-		                     <licenseMerge>LGPL|LGPL, version 2.1|GNU Library or Lesser General Public License (LGPL) V2.1|GNU Lesser General Public License (LGPL), Version 2.1|GNU Lesser General Public License, Version 2.1|LGPL 2.1</licenseMerge>
-		                     <licenseMerge>CDDL|CDDL+GPL|CDDL+GPL License|CDDL + GPLv2 with classpath exception|CDDL License|CDDL 1.0|CDDL 1.1|COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0|Common Development and Distribution License (CDDL) v1.0</licenseMerge>
-		                     <licenseMerge>EPL|Eclipse Public License - Version 1.0</licenseMerge>
-		                     <licenseMerge>GPL|GPL2 w/ CPE|GPLv2+CE|GNU General Public Library</licenseMerge>
-		                     <licenseMerge>MPL|MPL 1.1</licenseMerge>
-		                     <licenseMerge>Public Domain</licenseMerge>
-		                     <licenseMerge>Common Public License|Common Public License Version 1.0</licenseMerge>
-		                     <licenseMerge>CC0|CC0 1.0 Universal|Public Domain, per Creative Commons CC0</licenseMerge>
-		                     <licenseMerge>Unknown License|Unknown license</licenseMerge>
-		                 </licenseMerges>
+                                    <!-- 步骤3、拷贝Java环境变量设置文件
+                                    <copy file="${basedir}/runenv/setenv" todir="${appassembler-jsw-dir}/${project.artifactId}/bin" />
+                                    <copy file="${basedir}/runenv/setenv.bat" todir="${appassembler-jsw-dir}/${project.artifactId}/bin" />
+                                    -->
+                                </target>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/com.spotify/docker-maven-plugin -->
+                <!-- https://github.com/spotify/docker-maven-plugin -->
+                <!-- http://blog.csdn.net/qq_22841811/article/details/67369530 -->
+                <plugin>
+                    <!-- docker 镜像构建: https://blog.csdn.net/aixiaoyang168/article/details/77453974 -->
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>build-image</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>tag-image</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>tag</goal>
+                            </goals>
+                            <configuration>
+                                <image>${project.artifactId}:${project.version}</image>
+                                <newName>
+                                    ${docker.push.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                                </newName>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>push-image</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>push</goal>
+                            </goals>
+                            <configuration>
+                                <imageName>
+                                    ${docker.push.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                                </imageName>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
+                        <!-- 详见：https://github.com/spotify/docker-maven-plugin Invalid repository
+                            name ... only [a-z0-9-_.] are allowed -->
+                        <!-- 如果要将docker镜像push到DockerHub上去的话，这边的路径要和repo路径一致 -->
+                        <imageName>${project.artifactId}:${project.version}</imageName>
+                        <!-- 指定Dockerfile所在的路径 -->
+                        <!-- <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory> -->
+                        <baseImage>${docker.push.repostory}/${docker.registry.name}/openjdk:1.8</baseImage>
+                        <volumes>/tmp</volumes>
+                        <workdir>${docker.workdir}</workdir>
+                        <entryPoint>["sh","./bin/${appassembler-bin-fileName}.sh"]</entryPoint>
+                        <dockerHost>${docker.build.repostory}</dockerHost>
+                        <resources>
+                            <resource>
+                                <targetPath>${docker.workdir}</targetPath>
+                                <directory>
+                                    ${project.build.directory}/generated-resources/appassembler/${project.artifactId}
+                                </directory>
+                            </resource>
+                        </resources>
+                        <!-- 以下两行是为了docker push到DockerHub使用的。 -->
+                        <!-- <serverId>docker-hub</serverId> -->
+                        <!-- <registryUrl>http://10.71.33.155/</registryUrl> -->
+                    </configuration>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <configuration>
+                        <repository>${docker.registry.name}/${project.artifactId}</repository>
+                        <buildArgs>
+                            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                        </buildArgs>
+                    </configuration>
+                </plugin>
+                <!--
+                    https://mp.weixin.qq.com/s?__biz=MzAxODcyNjEzNQ==&mid=2247484764&idx=1&sn=10e4fcae5333687368960a2e64b2b70c&chksm=9bd0a8c4aca721d264e40f5f543b9f557eedf033719a97a38257835c5162ffa010c025580a65&scene=21#wechat_redirect
+                    https://github.com/tianqing2117/swagger-doc-demo/blob/master/pom.xml
+                    https://github.com/Swagger2Markup/swagger2markup-maven-project-template/blob/master/pom.xml
+                 -->
+                <!-- First, use the swagger2markup plugin to generate asciidoc -->
+                <plugin>
+                    <groupId>io.github.swagger2markup</groupId>
+                    <artifactId>swagger2markup-maven-plugin</artifactId>
+                    <dependencies>
+                        <dependency>
+                            <groupId>io.github.swagger2markup</groupId>
+                            <artifactId>swagger2markup</artifactId>
+                            <version>${swagger2markup.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>io.github.swagger2markup</groupId>
+                            <artifactId>swagger2markup-import-schemas-ext</artifactId>
+                            <version>${swagger2markup.extension.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>io.github.swagger2markup</groupId>
+                            <artifactId>swagger2markup-import-files-ext</artifactId>
+                            <version>${swagger2markup.extension.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>io.github.swagger2markup</groupId>
+                            <artifactId>swagger2markup-spring-restdocs-ext</artifactId>
+                            <version>${swagger2markup.extension.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <swaggerInput>${swagger.input}</swaggerInput>
+                        <outputDir>${generated.asciidoc.directory}</outputDir>
+                        <config>
+                            <swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>
+                            <swagger2markup.pathsGroupedBy>TAGS</swagger2markup.pathsGroupedBy>
+                            <swagger2markup.extensions.dynamicOverview.contentPath>
+                                ${project.basedir}/src/docs/asciidoc/extensions/overview
+                            </swagger2markup.extensions.dynamicOverview.contentPath>
+                            <swagger2markup.extensions.dynamicDefinitions.contentPath>
+                                ${project.basedir}/src/docs/asciidoc/extensions/definitions
+                            </swagger2markup.extensions.dynamicDefinitions.contentPath>
+                            <swagger2markup.extensions.dynamicPaths.contentPath>
+                                ${project.basedir}/src/docs/asciidoc/extensions/paths
+                            </swagger2markup.extensions.dynamicPaths.contentPath>
+                            <swagger2markup.extensions.dynamicSecurity.contentPath>
+                                ${project.basedir}src/docs/asciidoc/extensions/security
+                            </swagger2markup.extensions.dynamicSecurity.contentPath>
+                            <swagger2markup.extensions.springRestDocs.snippetBaseUri>${swagger.snippetOutput.dir}
+                            </swagger2markup.extensions.springRestDocs.snippetBaseUri>
+                            <swagger2markup.extensions.springRestDocs.defaultSnippets>true
+                            </swagger2markup.extensions.springRestDocs.defaultSnippets>
+                        </config>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>convertSwagger2markup</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- Run the generated asciidoc through Asciidoctor to generate
+                     other documentation types, such as PDFs or HTML5 -->
+                <plugin>
+                    <groupId>org.asciidoctor</groupId>
+                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                    <!-- Include Asciidoctor PDF for pdf generation -->
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.asciidoctor</groupId>
+                            <artifactId>asciidoctorj-pdf</artifactId>
+                            <version>${asciidoctorj.pdf.version}</version>
+                        </dependency>
+                        <!-- Comment this section to use the default jruby artifact provided by the plugin -->
+                        <dependency>
+                            <groupId>org.jruby</groupId>
+                            <artifactId>jruby-complete</artifactId>
+                            <version>${jruby.version}</version>
+                        </dependency>
+                        <!-- Comment this section to use the default AsciidoctorJ artifact provided by the plugin -->
+                        <dependency>
+                            <groupId>org.asciidoctor</groupId>
+                            <artifactId>asciidoctorj</artifactId>
+                            <version>${asciidoctorj.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <!-- Configure generic document generation settings -->
+                    <configuration>
+                        <sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
+                        <!-- <sourceDocumentName>index.adoc</sourceDocumentName> -->
+                        <attributes>
+                            <doctype>book</doctype>
+                            <toc>left</toc>
+                            <toclevels>3</toclevels>
+                            <numbered></numbered>
+                            <hardbreaks></hardbreaks>
+                            <sectlinks></sectlinks>
+                            <sectanchors></sectanchors>
+                            <generated>${generated.asciidoc.directory}</generated>
+                        </attributes>
+                    </configuration>
+                    <!-- Since each execution can only handle one backend, run
+                         separate executions for each desired output type -->
+                    <executions>
+                        <execution>
+                            <id>output-html</id>
+                            <phase>package</phase><!-- generate-resources -->
+                            <goals>
+                                <goal>process-asciidoc</goal>
+                            </goals>
+                            <configuration>
+                                <backend>html5</backend>
+                                <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
+                            </configuration>
+                        </execution>
+                        <!-- <execution>
+                            <id>output-pdf</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>process-asciidoc</goal>
+                            </goals>
+                            <configuration>
+                                <backend>pdf</backend>
+                                <outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
+                            </configuration>
+                        </execution> -->
+                    </executions>
+                </plugin>
+                <!-- https://my.oschina.net/u/4007037/blog/3101178 -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <configuration>
+                        <!-- config for license:aggregate-add-third-party -->
+                        <outputDirectory>${main.basedir}</outputDirectory>
+                        <thirdPartyFilename>LICENSE-3RD-PARTY</thirdPartyFilename>
+                        <fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
+                        <useMissingFile>true</useMissingFile>
+                        <missingFile>${main.basedir}/LICENSE-3RD-PARTY.properties</missingFile>
+                        <aggregateMissingLicensesFile>${main.basedir}/LICENSE-3RD-PARTY.properties
+                        </aggregateMissingLicensesFile>
+                        <licenseMerges>
+                            <licenseMerge>Apache 2.0|ASL, version
+                                2|http://www.apache.org/licenses/LICENSE-2.0.txt|http://asm.ow2.org/license.html|The
+                                Apache License, Version 2.0|Apache License|Apache License Version 2|Apache License
+                                Version 2.0|Apache Software License - Version 2.0|Apache 2.0 License|Apache License
+                                2.0|ASL|Apache 2|Apache-2.0|the Apache License, ASL Version 2.0|The Apache Software
+                                License, Version 2.0|Apache License, Version 2.0|Apache Public License 2.0
+                            </licenseMerge>
+                            <licenseMerge>BSD|The BSD 3-Clause License|The BSD License|Modified BSD License|New BSD
+                                License|New BSD license|Two-clause BSD-style license|BSD licence|BSD New|The New BSD
+                                License|BSD 3-Clause|BSD 3-clause
+                            </licenseMerge>
+                            <licenseMerge>MIT|MIT License|The MIT License</licenseMerge>
+                            <licenseMerge>LGPL|LGPL, version 2.1|GNU Library or Lesser General Public License (LGPL)
+                                V2.1|GNU Lesser General Public License (LGPL), Version 2.1|GNU Lesser General Public
+                                License, Version 2.1|LGPL 2.1
+                            </licenseMerge>
+                            <licenseMerge>CDDL|CDDL+GPL|CDDL+GPL License|CDDL + GPLv2 with classpath exception|CDDL
+                                License|CDDL 1.0|CDDL 1.1|COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version
+                                1.0|Common Development and Distribution License (CDDL) v1.0
+                            </licenseMerge>
+                            <licenseMerge>EPL|Eclipse Public License - Version 1.0</licenseMerge>
+                            <licenseMerge>GPL|GPL2 w/ CPE|GPLv2+CE|GNU General Public Library</licenseMerge>
+                            <licenseMerge>MPL|MPL 1.1</licenseMerge>
+                            <licenseMerge>Public Domain</licenseMerge>
+                            <licenseMerge>Common Public License|Common Public License Version 1.0</licenseMerge>
+                            <licenseMerge>CC0|CC0 1.0 Universal|Public Domain, per Creative Commons CC0</licenseMerge>
+                            <licenseMerge>Unknown License|Unknown license</licenseMerge>
+                        </licenseMerges>
 
-		                 <!-- config for license:aggregate-download-licenses -->
-		                 <aggregateDownloadLicenses.executeOnlyOnRootModule>true</aggregateDownloadLicenses.executeOnlyOnRootModule>
-		                 <!--<licensesConfigFile>${main.basedir}/lic/config/licenses.xml</licensesConfigFile>-->
-		                 <licensesOutputFile>${main.basedir}/lic/licenses.xml</licensesOutputFile>
-		                 <licensesOutputDirectory>${main.basedir}/lic/licenses/</licensesOutputDirectory>
+                        <!-- config for license:aggregate-download-licenses -->
+                        <aggregateDownloadLicenses.executeOnlyOnRootModule>true
+                        </aggregateDownloadLicenses.executeOnlyOnRootModule>
+                        <!--<licensesConfigFile>${main.basedir}/lic/config/licenses.xml</licensesConfigFile>-->
+                        <licensesOutputFile>${main.basedir}/lic/licenses.xml</licensesOutputFile>
+                        <licensesOutputDirectory>${main.basedir}/lic/licenses/</licensesOutputDirectory>
 
-		                 <!-- config for license:update-file-header -->
-		                 <licenseName>apache_v2</licenseName>
-		                 <inceptionYear>2019</inceptionYear>
-		                 <organizationName>sia</organizationName>
-		                 <projectName>task</projectName>
-		                 <roots>
-		                     <root>src/main/java</root>
-		                     <root>src/test/java</root>
-		                 </roots>
-		                 <includes>
-		                     <include>**/*.java</include>
-		                     <include>**/*.xml</include>
-		                     <include>**/*.sh</include>
-		                     <include>**/*.py</include>
-		                     <include>**/*.properties</include>
-		                     <include>**/*.sql</include>
-		                     <include>**/*.html</include>
-		                     <include>**/*.less</include>
-		                     <include>**/*.css</include>
-		                     <include>**/*.js</include>
-		                     <include>**/*.json</include>
-		                 </includes>
-		                 <canUpdateCopyright>true</canUpdateCopyright>
-		                 <canUpdateDescription>true</canUpdateDescription>
-		                 <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
-		                 <emptyLineAfterHeader>true</emptyLineAfterHeader>
-		                 <processStartTag>&lt;&lt;</processStartTag>
-		                 <processEndTag>&gt;&gt;</processEndTag>
-		                 <sectionDelimiter>==</sectionDelimiter>
+                        <!-- config for license:update-file-header -->
+                        <licenseName>apache_v2</licenseName>
+                        <inceptionYear>2019</inceptionYear>
+                        <organizationName>sia</organizationName>
+                        <projectName>task</projectName>
+                        <roots>
+                            <root>src/main/java</root>
+                            <root>src/test/java</root>
+                        </roots>
+                        <includes>
+                            <include>**/*.java</include>
+                            <include>**/*.xml</include>
+                            <include>**/*.sh</include>
+                            <include>**/*.py</include>
+                            <include>**/*.properties</include>
+                            <include>**/*.sql</include>
+                            <include>**/*.html</include>
+                            <include>**/*.less</include>
+                            <include>**/*.css</include>
+                            <include>**/*.js</include>
+                            <include>**/*.json</include>
+                        </includes>
+                        <canUpdateCopyright>true</canUpdateCopyright>
+                        <canUpdateDescription>true</canUpdateDescription>
+                        <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+                        <emptyLineAfterHeader>true</emptyLineAfterHeader>
+                        <processStartTag>&lt;&lt;</processStartTag>
+                        <processEndTag>&gt;&gt;</processEndTag>
+                        <sectionDelimiter>==</sectionDelimiter>
 
-		                 <!-- config for mvn license:update-project-license -->
-		                 <licenseFile>${main.basedir}/LICENSE</licenseFile>
-		             </configuration>
-		         </plugin>
-				<plugin>
-					<groupId>org.jasig.maven</groupId>
-					<artifactId>maven-notice-plugin</artifactId>
-					<configuration>
-		                 <generateChildNotices>false</generateChildNotices>
-		                 <noticeTemplate>https://source.jasig.org/licenses/NOTICE.template</noticeTemplate>
-		                 <licenseMapping>
-		                     <param>https://source.jasig.org/licenses/license-mappings.xml</param>
-		                 </licenseMapping>
-		             </configuration>
-				</plugin>
-				<plugin>
-		            <groupId>org.apache.maven.plugins</groupId>
-		            <artifactId>maven-war-plugin</artifactId>
-		            <configuration>
-		                <failOnMissingWebXml>false</failOnMissingWebXml>
-		            </configuration>
-		        </plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<!--环境监察插件：代码编译前的环境监察-->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+                        <!-- config for mvn license:update-project-license -->
+                        <licenseFile>${main.basedir}/LICENSE</licenseFile>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jasig.maven</groupId>
+                    <artifactId>maven-notice-plugin</artifactId>
+                    <configuration>
+                        <generateChildNotices>false</generateChildNotices>
+                        <noticeTemplate>https://source.jasig.org/licenses/NOTICE.template</noticeTemplate>
+                        <licenseMapping>
+                            <param>https://source.jasig.org/licenses/license-mappings.xml</param>
+                        </licenseMapping>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!--环境监察插件：代码编译前的环境监察-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-			</plugin>
-			<!-- 编译插件：编译主代码至主输出目录 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-			<!-- 资源插件：复制主资源文件至主输出目录 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
-			<!-- 单元测试插件 ：执行测试用例 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-			</plugin>
-			<!-- findbugs插件 ：代码检查
-	        <plugin>
-	            <groupId>org.codehaus.mojo</groupId>
-	            <artifactId>findbugs-maven-plugin</artifactId>
+            </plugin>
+            <!-- 编译插件：编译主代码至主输出目录 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <!-- 资源插件：复制主资源文件至主输出目录 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <!-- 单元测试插件 ：执行测试用例 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <!-- findbugs插件 ：代码检查
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
             </plugin> -->
             <!-- dependency-check 插件 ：依赖检查
             <plugin>
 			    <groupId>org.owasp</groupId>
 			    <artifactId>dependency-check-maven</artifactId>
 		    </plugin>-->
-			<!-- jar包生成插件 ：创建项目jar包 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
-			<!-- 源码插件:发布时自动将源码同时发布 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
-			<!-- 安装插件：将项目输出构件安装到本地仓库 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-			</plugin>
-			<!-- 发布插件 ：将项目输出构件部署到远程仓库 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+            <!-- jar包生成插件 ：创建项目jar包 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <!-- 源码插件:发布时自动将源码同时发布 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <!-- 安装插件：将项目输出构件安装到本地仓库 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+            </plugin>
+            <!-- 发布插件 ：将项目输出构件部署到远程仓库 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
-	<profiles>
+    <profiles>
         <profile>
             <id>dev</id>
             <properties>
@@ -1335,28 +1374,28 @@
         </profile>
     </profiles>
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.0.1</version>
-				<reportSets>
-					<reportSet>
-						<id>sunlink</id>
-						<reports>
-							<report>javadoc</report>
-						</reports>
-						<inherited>true</inherited>
-						<configuration>
-							<links>
-								<link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
-							</links>
-						</configuration>
-					</reportSet>
-				</reportSets>
-			</plugin>
-		</plugins>
-	</reporting>
+    <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.0.1</version>
+                <reportSets>
+                    <reportSet>
+                        <id>sunlink</id>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <links>
+                                <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+                            </links>
+                        </configuration>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
 
 
 </project>
