@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import io.hiwepy.boot.api.Constants;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.web.servlet.i18n.XHeaderLocaleResolver;
@@ -58,7 +59,7 @@ public class DefaultWebMvcConfiguration  {
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
     	LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-    	localeChangeInterceptor.setParamName("lang");
+    	localeChangeInterceptor.setParamName(Constants.LANG_PARAM_NAME);
     	return localeChangeInterceptor;
     }
 
@@ -86,14 +87,14 @@ public class DefaultWebMvcConfiguration  {
     @Bean
     public ThemeChangeInterceptor themeChangeInterceptor() {
     	ThemeChangeInterceptor themeChangeInterceptor = new ThemeChangeInterceptor();
-    	themeChangeInterceptor.setParamName("theme");
+    	themeChangeInterceptor.setParamName(Constants.THEME_PARAM_NAME);
     	return themeChangeInterceptor;
     }
 
     @Bean
     public ResourceBundleThemeSource themeSource() {
     	ResourceBundleThemeSource themeSource = new ResourceBundleThemeSource();
-    	themeSource.setBasenamePrefix("classpath:/static/assets/css/themes/");
+    	themeSource.setBasenamePrefix(Constants.THEME_SOURCE_CLASSPATH);
     	return themeSource;
     }
 
@@ -101,19 +102,19 @@ public class DefaultWebMvcConfiguration  {
     public ThemeResolver themeResolver() {
 
     	NestedThemeResolver nestedThemeResolver = new NestedThemeResolver();
-    	nestedThemeResolver.setDefaultThemeName("default");
+    	nestedThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
 
     	List<ThemeResolver> resolvers = new LinkedList<ThemeResolver>();
 
     	//基于Session的主题解析
     	SessionThemeResolver sessionThemeResolver = new SessionThemeResolver();
-    	sessionThemeResolver.setDefaultThemeName("default");
+    	sessionThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
         resolvers.add(sessionThemeResolver);
 
         //基于Cokie的主题解析
     	CookieThemeResolver cookieThemeResolver = new CookieThemeResolver();
-    	cookieThemeResolver.setCookieName("theme");
-    	cookieThemeResolver.setDefaultThemeName("default");
+    	cookieThemeResolver.setCookieName(Constants.THEME_PARAM_NAME);
+    	cookieThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
     	resolvers.add(cookieThemeResolver);
 
     	return nestedThemeResolver;

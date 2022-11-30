@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>jeebiz-boot-api</module>
+		<module>jeebiz-boot-crypto-autoconfigure</module>
 		<module>jeebiz-boot-external-autoconfigure</module>
 		<module>jeebiz-boot-jackson-autoconfigure</module>
 		<module>jeebiz-boot-license-autoconfigure</module>

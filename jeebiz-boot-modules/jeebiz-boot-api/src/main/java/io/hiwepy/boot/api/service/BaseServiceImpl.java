@@ -4,11 +4,13 @@
  */
 package io.hiwepy.boot.api.service;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,24 +86,14 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int setStatus(String id, String status) {
-		return getBaseMapper().setStatus(id, status);
-	}
-
-
-	/**
-	 * 查询单条数据
-	 * @param id
-	 * @return
-	 */
-	public T getModel(String id) {
-		return getBaseMapper().getModel(id);
+	public boolean setStatus(Serializable id, Serializable status) {
+		return SqlHelper.retBool(getBaseMapper().setStatus(id, status));
 	}
 
 	/**
 	 * 分页查询
 	 *
-	 * @param t
+	 * @param model
 	 * @return
 	 */
 	@Override
@@ -138,19 +130,8 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 	 * @return
 	 */
 	@Override
-	public List<T> getModelList(T t) {
-		return getBaseMapper().getModelList(t);
-	}
-
-	/**
-	 * 无分页查询
-	 *
-	 * @param key
-	 * @return
-	 */
-	@Override
-	public List<T> getModelList(String key) {
-		return getBaseMapper().getModelList(key);
+	public List<T> getEntityList(T t) {
+		return getBaseMapper().getEntityList(t);
 	}
 
 	/**
@@ -165,7 +146,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 	}
 
 	@Override
-	public Long getCountByUid(String uid) {
+	public Long getCountByUid(Serializable uid) {
 		return getBaseMapper().getCountByUid(uid);
 	}
 
