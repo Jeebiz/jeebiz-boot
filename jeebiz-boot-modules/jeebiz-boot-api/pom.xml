@@ -1,143 +1,143 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>io.hiwepy</groupId>
-		<artifactId>jeebiz-boot-modules</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
-	</parent>
-	<artifactId>jeebiz-boot-api</artifactId>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.hiwepy</groupId>
+        <artifactId>jeebiz-boot-modules</artifactId>
+        <version>1.0.2-SNAPSHOT</version>
+    </parent>
+    <artifactId>jeebiz-boot-api</artifactId>
 
-	<dependencies>
+    <dependencies>
 
-		<!-- For Servlet Api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-		</dependency>
-		<!-- For Lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-		<!-- For Commons -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<!-- For Transmittable -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>transmittable-thread-local</artifactId>
-		</dependency>
-		<!-- For Fastjson -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-		</dependency>
-		<!-- For Jackson -->
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-annotations</artifactId>
-		</dependency>
-		<!-- For Guava -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-		</dependency>
-		<!-- For Swagger -->
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.github.xiaoymin</groupId>
-		    <artifactId>knife4j-annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-core</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>*</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- For Dozer -->
-		<!-- <dependency>
-		    <groupId>net.sf.dozer</groupId>
-		    <artifactId>dozer</artifactId>
-		</dependency> -->
-		<dependency>
-		    <groupId>com.github.dozermapper</groupId>
-		    <artifactId>dozer-core</artifactId>
-		</dependency>
-		<!-- For Mybatis Plus -->
-		<dependency>
-		    <groupId>com.baomidou</groupId>
-		    <artifactId>mybatis-plus</artifactId>
-		</dependency>
-		<!-- For Hitool -->
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>hitool-core</artifactId>
-		</dependency>
-		<!-- For Spring Biz -->
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>spring-biz</artifactId>
-		</dependency>
-		<!-- For Spring Web -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-web</artifactId>
-		</dependency>
-		<!-- For Spring Context -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-context</artifactId>
-		</dependency>
-		<!-- For Spring Webmvc -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <scope>provided</scope>
-		</dependency>
-		<!-- For Spring WebFlux -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webflux</artifactId>
-		    <scope>provided</scope>
-		</dependency>
-		<!-- For Spring Aop -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-aop</artifactId>
-		    <scope>provided</scope>
-		</dependency>
-		<!-- For Spring Tx -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-tx</artifactId>
-		</dependency>
-		<!-- For Libphonenumber -->
-	    <dependency>
-        	<groupId>com.googlecode.libphonenumber</groupId>
-  			<artifactId>libphonenumber</artifactId>
+        <!-- For Servlet Api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
         </dependency>
-		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
-		<dependency>
-		    <groupId>org.aspectj</groupId>
-		    <artifactId>aspectjrt</artifactId>
-		</dependency>
-		<!-- For TrueLicense -->
+        <!-- For Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- For Commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- For Transmittable -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+        </dependency>
+        <!-- For Fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!-- For Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <!-- For Guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <!-- For Swagger -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- For Dozer -->
+        <!-- <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+        </dependency> -->
+        <dependency>
+            <groupId>com.github.dozermapper</groupId>
+            <artifactId>dozer-core</artifactId>
+        </dependency>
+        <!-- For Mybatis Plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+        </dependency>
+        <!-- For Hitool -->
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>hitool-core</artifactId>
+        </dependency>
+        <!-- For Spring Biz -->
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>spring-biz</artifactId>
+        </dependency>
+        <!-- For Spring Web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <!-- For Spring Context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <!-- For Spring Webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- For Spring WebFlux -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- For Spring Aop -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- For Spring Tx -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <!-- For Libphonenumber -->
+        <dependency>
+            <groupId>com.googlecode.libphonenumber</groupId>
+            <artifactId>libphonenumber</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <!-- For TrueLicense -->
         <dependency>
             <groupId>de.schlichtherle.truelicense</groupId>
             <artifactId>truelicense-core</artifactId>
         </dependency>
 
-	</dependencies>
+    </dependencies>
 
 </project>

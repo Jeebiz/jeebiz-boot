@@ -1,17 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.hiwepy</groupId>
         <artifactId>jeebiz-boot-modules</artifactId>
         <version>1.0.2-SNAPSHOT</version>
     </parent>
-
-    <artifactId>jeebiz-boot-webflux-autoconfigure</artifactId>
+    <artifactId>jeebiz-boot-crypto-autoconfigure</artifactId>
 
     <dependencies>
 
-        <!-- For Jeebiz API -->
+        <!-- For Tianyin API -->
         <dependency>
             <groupId>io.hiwepy</groupId>
             <artifactId>jeebiz-boot-api</artifactId>
@@ -22,16 +22,19 @@
             <artifactId>jeebiz-boot-jackson-autoconfigure</artifactId>
             <version>${jeebiz-boot.version}</version>
         </dependency>
-
-        <!-- For Webjars -->
+        <!-- For Spring Webmvc -->
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator</artifactId>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
         </dependency>
-        <!-- For WebFlux -->
+        <!-- For Crypto -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-crypto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15to18</artifactId>
         </dependency>
 
     </dependencies>

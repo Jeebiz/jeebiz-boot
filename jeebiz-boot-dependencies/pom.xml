@@ -41,7 +41,7 @@
         <bctls.version>${bcprov.version}</bctls.version>
         <canal.client.version>1.1.5</canal.client.version>
         <cas-client.version>3.6.4</cas-client.version>
-        <camel.version>3.14.2</camel.version>
+        <camel.version>3.17.0</camel.version>
         <cglib.version>3.3.0</cglib.version>
         <commons-attributes.version>2.1</commons-attributes.version>
         <commons-attributes-api.version>2.2</commons-attributes-api.version>
@@ -55,7 +55,7 @@
         <commons-compiler.version>3.1.2</commons-compiler.version>
         <commons-compress.version>1.21</commons-compress.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-configuration2.version>2.7</commons-configuration2.version>
+        <commons-configuration2.version>2.8</commons-configuration2.version>
         <commons-crypto.version>1.1.0</commons-crypto.version>
         <commons-csv.version>1.9.0</commons-csv.version>
         <commons-daemon.version>1.2.3</commons-daemon.version>
@@ -86,7 +86,7 @@
         <commons-proxy.version>1.0</commons-proxy.version>
         <commons-rdf.version>0.5.0</commons-rdf.version>
         <commons-ssl.version>0.3.9</commons-ssl.version>
-        <commons-text.version>1.9</commons-text.version>
+        <commons-text.version>1.10.0</commons-text.version>
         <commons-validator.version>1.6</commons-validator.version>
         <commons-vfs.version>2.0-21092010</commons-vfs.version>
         <commons-vfs2.version>2.9.0</commons-vfs2.version>
@@ -95,7 +95,7 @@
         <curator.version>5.2.0</curator.version>
         <cronet.version>95.4638.50</cronet.version>
         <cssparser.version>0.9.29</cssparser.version>
-        <cxf.version>3.4.5</cxf.version>
+        <cxf.version>3.5.2</cxf.version>
         <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
         <db-meta.version>0.0.1-Release</db-meta.version>
@@ -106,19 +106,19 @@
         <docker-java.version>3.2.1</docker-java.version>
         <dom4j2.version>2.1.3</dom4j2.version>
         <dozer.version>5.5.1</dozer.version>
-        <dozer-core.version>6.5.0</dozer-core.version>
+        <dozer-core.version>6.5.2</dozer-core.version>
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
         <dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
-        <druid.version>1.2.8</druid.version>
+        <druid.version>1.2.9</druid.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <disruptor.version>3.4.4</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
-        <dubbo.version>3.0.4</dubbo.version>
+        <dubbo.version>3.0.7</dubbo.version>
         <easyexcel.version>3.1.1</easyexcel.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
-        <fastjson.version>2.0.10</fastjson.version>
+        <fastjson.version>2.0.19</fastjson.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>11.9.1</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
@@ -138,9 +138,9 @@
         <grizzly.version>2.4.4</grizzly.version>
         <grpc.version>1.35.0</grpc.version>
         <gson.version>2.9.0</gson.version>
-        <hadoop.version>3.2.1</hadoop.version>
+        <hadoop.version>3.3.3</hadoop.version>
         <hbase.version>2.2.4</hbase.version>
-        <h2.version>2.0.206</h2.version>
+        <h2.version>2.1.214</h2.version>
         <htmlparser.version>2.1</htmlparser.version>
         <httpconn.version>1.0.1.RELEASE</httpconn.version>
         <httputils.version>1.0.0.RELEASE</httputils.version>
@@ -151,22 +151,22 @@
         <ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
         <i4jruntime.version>5.0.6</i4jruntime.version>
         <icu4j.version>68.2</icu4j.version>
-        <imageio.version>3.7.0</imageio.version>
+        <imageio.version>3.8.2</imageio.version>
         <influxdb-java.version>2.21</influxdb-java.version>
         <istio-client.version>1.6.14</istio-client.version>
-        <janino.version>3.1.3</janino.version>
+        <janino.version>3.1.6</janino.version>
         <!-- <jackson-annotations.version>2.10.1</jackson-annotations.version> -->
         <javassist.version>3.28.0-GA</javassist.version>
         <javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
         <java-uuid-generator.version>4.0.1</java-uuid-generator.version>
         <java-jwt.version>3.8.1</java-jwt.version>
-        <javamelody.version>1.90.0</javamelody.version>
+        <javamelody.version>1.91.0</javamelody.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
         <jcifs.version>2.1.13</jcifs.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
         <jep.version>2.4.2</jep.version>
-        <jjwt.version>0.11.2</jjwt.version>
+        <jjwt.version>0.11.5</jjwt.version>
         <jakarta-websocket.version>2.0.0</jakarta-websocket.version>
         <jgoodies.version>2.7.0</jgoodies.version>
         <jgroups.version>5.1.6.Final</jgroups.version>
@@ -175,14 +175,14 @@
         <jruby.version>9.2.13.0</jruby.version>
         <jsch.version>0.1.55</jsch.version>
         <jsqlparser.version>4.2</jsqlparser.version>
-        <jsoup.version>1.14.3</jsoup.version>
+        <jsoup.version>1.15.3</jsoup.version>
         <json.version>20210307</json.version>
         <json-path.version>2.7.0</json-path.version>
         <json-smart.version>2.4.8</json-smart.version>
-        <junrar.version>7.4.0</junrar.version>
+        <junrar.version>7.5.4</junrar.version>
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
-        <jwt-issuer.version>1.1.0.RELEASE</jwt-issuer.version>
+        <jwt-issuer.version>1.1.1.RELEASE</jwt-issuer.version>
         <kafka-clients.version>3.0.0</kafka-clients.version>
         <knife4j.version>3.0.3</knife4j.version>
         <kisso.version>3.8.1</kisso.version>
@@ -202,21 +202,21 @@
         <mockito.version>4.1.0</mockito.version>
         <mongo-java-driver.version>3.12.10</mongo-java-driver.version>
         <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
-        <mybatis.version>3.5.9</mybatis.version>
+        <mybatis.version>3.5.10</mybatis.version>
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
-        <mybatis-plus.version>3.5.0</mybatis-plus.version>
-        <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
         <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.0.7</mybatis-spring.version>
+        <mybatis-mate.version>1.2.4</mybatis-mate.version>
         <mybatis-migrations.version>3.3.10</mybatis-migrations.version>
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
         <mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
         <mybatis-ehcache.version>1.2.1</mybatis-ehcache.version>
         <mybatis-hazelcast.version>1.1.2</mybatis-hazelcast.version>
         <mybatis-ignite.version>1.1.0</mybatis-ignite.version>
-        <mybatis-mate.version>1.2.4</mybatis-mate.version>
         <mybatis-memcached.version>1.1.0</mybatis-memcached.version>
         <mybatis-oscache.version>1.0.2</mybatis-oscache.version>
         <mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
@@ -233,9 +233,9 @@
         <okhttp.version>3.14.9</okhttp.version>
         <ons-client.version>1.8.8.1.Final</ons-client.version>
         <oshi.version>5.8.2</oshi.version>
-        <owasp-antisamy.version>1.6.5</owasp-antisamy.version>
+        <owasp-antisamy.version>1.6.7</owasp-antisamy.version>
         <owasp-csrfguard.version>4.1.1</owasp-csrfguard.version>
-        <owasp-esapi.version>2.2.3.1</owasp-esapi.version>
+        <owasp-esapi.version>2.3.0.0</owasp-esapi.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
         <owasp-html-sanitizer.version>20211018.2</owasp-html-sanitizer.version>
         <p6spy.version>3.9.1</p6spy.version>
@@ -247,7 +247,7 @@
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
         <perf4j.version>0.9.16</perf4j.version>
         <prometheus.version>0.10.0</prometheus.version>
-        <protobuf.version>3.19.2</protobuf.version>
+        <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
         <pf4j.version>3.6.0</pf4j.version>
@@ -262,9 +262,9 @@
         <r2dbc-oracle.version>0.4.0</r2dbc-oracle.version>
         <reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-        <redisson.version>3.17.0</redisson.version>
+        <redisson.version>3.17.4</redisson.version>
         <resilience4j.version>1.7.1</resilience4j.version>
-        <reflections.version>0.9.11</reflections.version>
+        <reflections.version>0.9.12</reflections.version>
         <rocketmq-client.version>4.9.2</rocketmq-client.version>
         <rsocket.version>1.1.1</rsocket.version>
         <rxjava2.version>2.2.21</rxjava2.version>
@@ -275,7 +275,8 @@
         <schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
         <schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
         <schemacrawler-hsqldb.version>${schemacrawler.version}</schemacrawler-hsqldb.version>
-        <schemacrawler-oracle.version>${schemacrawler.version}</schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
+        <schemacrawler-oracle.version>${schemacrawler.version}
+        </schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
         <schemacrawler-postgresql.version>${schemacrawler.version}</schemacrawler-postgresql.version>
         <schemacrawler-sqlserver.version>${schemacrawler.version}</schemacrawler-sqlserver.version>
         <schemacrawler-sqlite.version>${schemacrawler.version}</schemacrawler-sqlite.version>
@@ -287,10 +288,11 @@
         <scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
         <selenium-driver.version>4.1.2</selenium-driver.version>
         <sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
+        <sevenzipjbinding.version>16.02-2.01</sevenzipjbinding.version>
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.9.1</shiro.version>
+        <shiro.version>1.10.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -304,8 +306,8 @@
         <shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
         <shiro-uaa.version>1.0.3</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
-        <smallsql.version>0.21</smallsql.version>
         <smslib.version>3.5.4</smslib.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -342,13 +344,13 @@
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <velocity.version>2.3</velocity.version>
         <webcollector.version>2.73-alpha</webcollector.version>
-        <webjars-locator.version>0.40</webjars-locator.version>
+        <webjars-locator.version>0.45</webjars-locator.version>
         <webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
         <webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
         <webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
         <weixin-java.version>4.3.2.B</weixin-java.version>
-	    <weixin-qrcode.version>1.2</weixin-qrcode.version>
-	    <weixin-emoji.version>1.0.2</weixin-emoji.version>
+        <weixin-qrcode.version>1.2</weixin-qrcode.version>
+        <weixin-emoji.version>1.0.2</weixin-emoji.version>
         <woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
         <woodstox-asl.version>4.4.1</woodstox-asl.version>
         <wsdl4j.version>1.6.3</wsdl4j.version>
@@ -361,7 +363,7 @@
         <xxl-job.version>2.3.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
         <zookeeper.version>3.6.1</zookeeper.version>
-        <zip4j.version>2.9.1</zip4j.version>
+        <zip4j.version>2.10.0</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
 
@@ -503,7 +505,8 @@
         <spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
         <spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>1.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE
+        </spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
         <spring-boot-starter-xxljob.version>1.0.0.RELEASE</spring-boot-starter-xxljob.version>
@@ -2422,6 +2425,7 @@
                 <artifactId>hadoop-mapreduce-client</artifactId>
                 <version>${hadoop.version}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-hdfs-native-client -->
             <dependency>
@@ -3326,6 +3330,16 @@
                 <artifactId>mybatis-plus-annotation</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-mate-starter</artifactId>
+                <version>${mybatis-mate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-mate-annotation</artifactId>
+                <version>${mybatis-mate.version}</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
             <dependency>
@@ -4051,7 +4065,6 @@
                 <artifactId>sunposition</artifactId>
                 <version>4.0</version>
             </dependency>
-
             <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
@@ -4185,6 +4198,19 @@
                 <groupId>com.github.scribejava</groupId>
                 <artifactId>scribejava-httpclient-okhttp</artifactId>
                 <version>${scribejava.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/net.sf.sevenzipjbinding -->
+
+            <dependency>
+                <groupId>net.sf.sevenzipjbinding</groupId>
+                <artifactId>sevenzipjbinding</artifactId>
+                <version>${sevenzipjbinding.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.sevenzipjbinding</groupId>
+                <artifactId>sevenzipjbinding-all-platforms</artifactId>
+                <version>${sevenzipjbinding.version}</version>
             </dependency>
 
             <!-- sfntly 是一个字体工具包，可用于使用、编辑和创建基于 SFNT (http://en.wikipedia.org/wiki/Sfnt) 的字体。 -->
@@ -4410,13 +4436,12 @@
                 <version>${shiro-uaa.version}</version>
             </dependency>
 
-            <!-- JDBC Driver For SmallSQL -->
+            <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
             <dependency>
-                <groupId>craky</groupId>
-                <artifactId>smallsql</artifactId>
-                <version>${smallsql.version}</version>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
             </dependency>
-
             <!--
 				SNMP4J是一个用Java来实现SNMP(简单网络管理协议)协议的开源项目.它支持以命令行的形式进行管理与响应。SNMP4J是纯面向对象设计与SNMP++(用C++实现SNMPv1/v2c/v3)相类似。
 			　　	SNMP4J API 提供以下下特性：
@@ -5959,8 +5984,8 @@
                 <version>${spring-boot-starter-zxing.version}</version>
             </dependency>
 
-		</dependencies>
-	</dependencyManagement>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
