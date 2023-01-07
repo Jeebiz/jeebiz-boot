@@ -1,8 +1,8 @@
-package io.hiwepy.boot.autoconfigure.annotation;
+package io.hiwepy.boot.autoconfigure.jackson.annotation;
 
 import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import io.hiwepy.boot.autoconfigure.ser.SensitiveJsonSerializer;
+import io.hiwepy.boot.autoconfigure.jackson.ser.SensitiveJsonSerializer;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

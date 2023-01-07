@@ -1,12 +1,20 @@
-package io.hiwepy.boot.autoconfigure.ser;
+package io.hiwepy.boot.autoconfigure.jackson.ser;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.databind.BeanDescription;
 import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
 import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
-
-import java.util.Collection;
-import java.util.List;
+import hitool.core.beanutils.reflection.ClassUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.cglib.core.ReflectUtils;
 
 /**
  * <pre>
@@ -31,20 +39,27 @@ public class MyBeanSerializerModifier extends BeanSerializerModifier {
             if (this.isArrayType(rawClass)) {
                 writer.assignNullSerializer(NullArrayJsonSerializer.INSTANCE);
             } else if (this.isNumberType(rawClass)) {
-                writer.assignNullSerializer(NullNumberJsonSerializer.INSTANCE);
+//                writer.assignNullSerializer(NullNumberJsonSerializer.INSTANCE);
             } else if (this.isBooleanType(rawClass)) {
                 writer.assignNullSerializer(NullBooleanJsonSerializer.INSTANCE);
             } else if (this.isStringType(rawClass)) {
                 writer.assignNullSerializer(NullStringJsonSerializer.INSTANCE);
-            } else {
+            } else if (this.isDateType(rawClass)) {
+                writer.assignNullSerializer(NullDateJsonSerializer.INSTANCE);
+            } else if (this.isObjectType(rawClass)) {
                 writer.assignNullSerializer(NullObjectJsonSerializer.INSTANCE);
             }
         }
         return beanProperties;
     }
 
+    // 判断是否是对象类型
+    private boolean isObjectType(Class<?> clazz) {
+        return !clazz.isPrimitive() && clazz.isAssignableFrom(Object.class) && ClassUtils.isCustomClass(clazz);
+    }
+
     /**
-     * 1、是否是数组
+     * 1、是否是集合
      */
     protected boolean isArrayType(Class<?> clazz) {
         return clazz.isArray() || Collection.class.isAssignableFrom(clazz);
@@ -58,14 +73,24 @@ public class MyBeanSerializerModifier extends BeanSerializerModifier {
     }
 
     /**
-     * 3、是否是数值类型
+     * 3、是否是Date
+     */
+    protected boolean isDateType(Class<?> clazz) {
+        return Date.class.isAssignableFrom(clazz) || java.sql.Date.class.isAssignableFrom(clazz)
+                || LocalDate.class.isAssignableFrom(clazz)
+                || LocalDateTime.class.isAssignableFrom(clazz)
+                || LocalTime.class.isAssignableFrom(clazz);
+    }
+
+    /**
+     * 4、是否是数值类型
      */
     protected boolean isNumberType(Class<?> clazz) {
         return Number.class.isAssignableFrom(clazz);
     }
 
     /**
-     * 4、是否是boolean
+     * 5、是否是boolean
      */
 	protected boolean isBooleanType(Class<?> clazz) {
         return clazz.equals(Boolean.class);

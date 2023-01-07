@@ -1,10 +1,12 @@
-package io.hiwepy.boot.autoconfigure.ser;
+package io.hiwepy.boot.autoconfigure.jackson.ser;
+
+import java.io.IOException;
+import java.util.Objects;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-
-import java.io.IOException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 处理字符串类型的null值
@@ -16,7 +18,9 @@ public class NullStringJsonSerializer extends JsonSerializer<Object> {
 	@Override
 	public void serialize(Object value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
 			throws IOException {
-		jsonGenerator.writeString("");
+		if (Objects.isNull(value)) {
+			jsonGenerator.writeString(StringUtils.EMPTY);
+		}
 	}
 	
 }

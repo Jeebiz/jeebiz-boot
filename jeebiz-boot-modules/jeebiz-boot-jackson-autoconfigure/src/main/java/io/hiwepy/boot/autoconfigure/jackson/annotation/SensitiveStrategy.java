@@ -1,4 +1,4 @@
-package io.hiwepy.boot.autoconfigure.annotation;
+package io.hiwepy.boot.autoconfigure.jackson.annotation;
 
 import java.util.function.Function;
 

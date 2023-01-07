@@ -1,4 +1,4 @@
-package io.hiwepy.boot.autoconfigure.ser;
+package io.hiwepy.boot.autoconfigure.jackson.ser;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

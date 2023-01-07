@@ -159,6 +159,7 @@
         <javassist.version>3.28.0-GA</javassist.version>
         <javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
         <java-uuid-generator.version>4.0.1</java-uuid-generator.version>
+        <java-unrar.version>1.7.0-8</java-unrar.version>
         <java-jwt.version>3.8.1</java-jwt.version>
         <javamelody.version>1.91.0</javamelody.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
@@ -180,6 +181,7 @@
         <json-path.version>2.7.0</json-path.version>
         <json-smart.version>2.4.8</json-smart.version>
         <junrar.version>7.5.4</junrar.version>
+        <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
         <jwt-issuer.version>1.1.1.RELEASE</jwt-issuer.version>
@@ -306,6 +308,7 @@
         <shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
         <shiro-uaa.version>1.0.3</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
+        <skywalking.version>8.13.0</skywalking.version>
         <smslib.version>3.5.4</smslib.version>
         <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
@@ -478,7 +481,7 @@
         <spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>1.1.5.RELEASE</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-security-biz.version>1.1.6.RELEASE</spring-boot-starter-security-biz.version>
         <spring-boot-starter-security-cas.version>1.0.4.RELEASE</spring-boot-starter-security-cas.version>
         <spring-boot-starter-security-dingtalk.version>1.0.5.RELEASE</spring-boot-starter-security-dingtalk.version>
         <spring-boot-starter-security-facebook.version>1.0.1.RELEASE</spring-boot-starter-security-facebook.version>
@@ -2779,6 +2782,13 @@
                 <version>${java-uuid-generator.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.github.axet/java-unrar -->
+            <dependency>
+                <groupId>com.github.axet</groupId>
+                <artifactId>java-unrar</artifactId>
+                <version>${java-unrar.version}</version>
+            </dependency>
+
             <!-- http://mvnrepository.com/artifact/com.auth0/java-jwt -->
             <dependency>
                 <groupId>com.auth0</groupId>
@@ -2996,6 +3006,13 @@
                 <groupId>com.github.junrar</groupId>
                 <artifactId>junrar</artifactId>
                 <version>${junrar.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.github.albfernandez/juniversalchardet -->
+            <dependency>
+                <groupId>com.github.albfernandez</groupId>
+                <artifactId>juniversalchardet</artifactId>
+                <version>${juniversalchardet.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/me.zhyd.oauth/JustAuth -->
@@ -4765,6 +4782,25 @@
                 <groupId>org.sitemesh</groupId>
                 <artifactId>sitemesh</artifactId>
                 <version>${sitemesh3.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-toolkit-trace -->
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-trace</artifactId>
+                <version>${skywalking.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-toolkit-log4j-2.x -->
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-log4j-2.x</artifactId>
+                <version>${skywalking.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-toolkit-opentracing -->
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-opentracing</artifactId>
+                <version>${skywalking.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/tech.tablesaw/tablesaw-core -->
