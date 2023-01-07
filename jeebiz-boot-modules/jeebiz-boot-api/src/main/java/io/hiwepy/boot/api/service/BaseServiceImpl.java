@@ -19,6 +19,7 @@ import org.springframework.biz.web.servlet.support.RequestContextUtils;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.*;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.request.RequestAttributes;
@@ -72,6 +73,12 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 		HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
 		//HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int setStatus(Serializable id, Serializable status) {
+		return getBaseMapper().setStatus(id, status);
 	}
 
 	/**
