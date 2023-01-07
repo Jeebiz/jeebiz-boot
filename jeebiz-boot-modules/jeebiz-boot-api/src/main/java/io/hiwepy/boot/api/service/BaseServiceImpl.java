@@ -7,6 +7,7 @@ package io.hiwepy.boot.api.service;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import com.github.dozermapper.core.Mapper;
 import io.hiwepy.boot.api.dao.BaseMapper;
 import io.hiwepy.boot.api.dao.entities.PaginationEntity;
@@ -77,8 +78,8 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
-	public int setStatus(Serializable id, Serializable status) {
-		return getBaseMapper().setStatus(id, status);
+	public boolean setStatus(Serializable id, Serializable status) {
+		return SqlHelper.retBool(getBaseMapper().setStatus(id, status));
 	}
 
 	/**
