@@ -4230,6 +4230,19 @@
                 <version>${scribejava.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/net.sf.sevenzipjbinding -->
+
+            <dependency>
+                <groupId>net.sf.sevenzipjbinding</groupId>
+                <artifactId>sevenzipjbinding</artifactId>
+                <version>${sevenzipjbinding.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.sevenzipjbinding</groupId>
+                <artifactId>sevenzipjbinding-all-platforms</artifactId>
+                <version>${sevenzipjbinding.version}</version>
+            </dependency>
+
             <!-- sfntly 是一个字体工具包，可用于使用、编辑和创建基于 SFNT (http://en.wikipedia.org/wiki/Sfnt) 的字体。 -->
             <dependency>
                 <groupId>fr.opensagres.xdocreport.sfntly</groupId>
