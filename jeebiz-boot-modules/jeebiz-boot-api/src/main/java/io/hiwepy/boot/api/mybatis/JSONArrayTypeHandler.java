@@ -4,16 +4,15 @@
  */
 package io.hiwepy.boot.api.mybatis;
 
-import java.sql.CallableStatement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import com.alibaba.fastjson.JSONArray;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.util.StringUtils;
 
-import com.alibaba.fastjson.JSONArray;
+import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class JSONArrayTypeHandler extends BaseTypeHandler<JSONArray> {
 

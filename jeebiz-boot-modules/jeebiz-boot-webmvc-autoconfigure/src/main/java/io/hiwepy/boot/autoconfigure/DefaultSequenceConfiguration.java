@@ -4,16 +4,15 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
-import java.util.Objects;
-
+import io.hiwepy.boot.api.sequence.Sequence;
+import io.hiwepy.boot.autoconfigure.config.SequenceProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import io.hiwepy.boot.api.sequence.Sequence;
-import io.hiwepy.boot.autoconfigure.config.SequenceProperties;
+import java.util.Objects;
 
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass(Sequence.class)

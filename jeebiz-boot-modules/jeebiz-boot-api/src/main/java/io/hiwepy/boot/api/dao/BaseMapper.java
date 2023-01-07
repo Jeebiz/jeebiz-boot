@@ -5,16 +5,14 @@
 package io.hiwepy.boot.api.dao;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.hiwepy.boot.api.dao.entities.PaginationEntity;
+import io.hiwepy.boot.api.dao.entities.PairModel;
+import org.apache.ibatis.annotations.Param;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
-
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
-import io.hiwepy.boot.api.dao.entities.PaginationEntity;
-import io.hiwepy.boot.api.dao.entities.PairModel;
 
 /**
  * 通用Dao接口

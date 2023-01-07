@@ -1,20 +1,17 @@
 package io.hiwepy.boot.autoconfigure.jackson.ser;
 
+import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.SerializationConfig;
+import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
+import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
+import hitool.core.beanutils.reflection.ClassUtils;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
-
-import com.fasterxml.jackson.databind.BeanDescription;
-import com.fasterxml.jackson.databind.SerializationConfig;
-import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
-import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
-import hitool.core.beanutils.reflection.ClassUtils;
-import org.springframework.beans.BeanUtils;
-import org.springframework.cglib.core.ReflectUtils;
 
 /**
  * <pre>

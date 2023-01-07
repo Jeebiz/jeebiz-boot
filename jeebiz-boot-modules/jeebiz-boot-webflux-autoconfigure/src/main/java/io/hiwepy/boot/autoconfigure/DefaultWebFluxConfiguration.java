@@ -4,9 +4,8 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
-import java.util.Locale;
-import java.util.TimeZone;
-
+import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
+import io.hiwepy.boot.autoconfigure.webflux.DefaultExceptinHandler;
 import org.springframework.biz.web.server.ReactiveRequestContextFilter;
 import org.springframework.biz.web.server.i18n.XHeaderLocaleContextResolver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -17,8 +16,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.server.i18n.LocaleContextResolver;
 
-import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
-import io.hiwepy.boot.autoconfigure.webflux.DefaultExceptinHandler;
+import java.util.Locale;
+import java.util.TimeZone;
 
 @Configuration(proxyBeanMethods = false)
 @ComponentScan(basePackages = { "io.hiwepy.**.flux", "io.hiwepy.**.web", "io.hiwepy.**.route" })

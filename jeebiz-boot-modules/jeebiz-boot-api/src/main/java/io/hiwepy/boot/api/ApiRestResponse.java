@@ -4,16 +4,15 @@
  */
 package io.hiwepy.boot.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.ToString;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * model for interacting with client.

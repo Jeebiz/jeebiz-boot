@@ -1,12 +1,12 @@
 package io.hiwepy.boot.autoconfigure.jackson.ser;
 
-import java.io.IOException;
-import java.util.Objects;
-
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.IOException;
+import java.util.Objects;
 
 /**
  * 处理字符串类型的null值

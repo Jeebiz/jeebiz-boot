@@ -1,14 +1,12 @@
 package io.hiwepy.boot.api.validation;
 
-import java.util.Arrays;
-import java.util.List;
+import io.hiwepy.boot.api.annotation.AllowableValues;
+import org.springframework.util.StringUtils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
-import org.springframework.util.StringUtils;
-
-import io.hiwepy.boot.api.annotation.AllowableValues;
+import java.util.Arrays;
+import java.util.List;
 
 public class AllowedValuesValidator implements ConstraintValidator<AllowableValues, String> {
 

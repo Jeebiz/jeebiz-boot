@@ -4,23 +4,17 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
-
 import io.hiwepy.boot.api.Constants;
+import io.hiwepy.boot.api.sequence.Sequence;
+import io.hiwepy.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
+import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.web.servlet.i18n.XHeaderLocaleResolver;
 import org.springframework.biz.web.servlet.theme.NestedThemeResolver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Role;
+import org.springframework.context.annotation.*;
 import org.springframework.ui.context.support.ResourceBundleThemeSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.filter.RequestContextFilter;
@@ -32,9 +26,10 @@ import org.springframework.web.servlet.theme.CookieThemeResolver;
 import org.springframework.web.servlet.theme.SessionThemeResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
-import io.hiwepy.boot.api.sequence.Sequence;
-import io.hiwepy.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
-import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 @Configuration(proxyBeanMethods = false)
 @ComponentScan({ "io.hiwepy.**.webmvc", "io.hiwepy.**.web", "io.hiwepy.**.controller" })

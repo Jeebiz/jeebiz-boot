@@ -4,15 +4,14 @@
  */
 package io.hiwepy.boot.api.web;
 
-import java.util.Collections;
-import java.util.List;
-
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
+import io.hiwepy.boot.api.ApiCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import io.hiwepy.boot.api.ApiCode;
+
+import java.util.Collections;
+import java.util.List;
 
 
 @ApiModel(value = "Result", description = "分页查询结果对象")

@@ -9,11 +9,10 @@ import io.hiwepy.boot.autoconfigure.region.BaiduRegionTemplate;
 import io.hiwepy.boot.autoconfigure.region.NestedRegionTemplate;
 import io.hiwepy.boot.autoconfigure.region.PconlineRegionTemplate;
 import io.hiwepy.boot.autoconfigure.weather.WeatherTemplate;
+import okhttp3.OkHttpClient;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import okhttp3.OkHttpClient;
 import org.springframework.data.redis.core.RedisOperationTemplate;
 
 /**

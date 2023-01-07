@@ -1,11 +1,10 @@
 package io.hiwepy.boot.plugin.api.point.web;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.pf4j.ExtensionPoint;
 import org.springframework.http.ResponseEntity;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 public interface ServletResponseExtensionPoint extends ExtensionPoint  {
 	

@@ -1,13 +1,11 @@
 package io.hiwepy.boot.autoconfigure.license;
 
-import java.util.Calendar;
-
-
+import io.hiwepy.boot.autoconfigure.license.creator.LicenseCreator;
+import io.hiwepy.boot.autoconfigure.license.creator.LicenseCreatorParam;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import io.hiwepy.boot.autoconfigure.license.creator.LicenseCreator;
-import io.hiwepy.boot.autoconfigure.license.creator.LicenseCreatorParam;
+import java.util.Calendar;
 
 public class License_Test {
 

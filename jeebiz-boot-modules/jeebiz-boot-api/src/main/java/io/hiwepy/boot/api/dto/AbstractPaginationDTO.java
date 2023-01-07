@@ -4,9 +4,9 @@
  */
 package io.hiwepy.boot.api.dto;
 
-import javax.validation.constraints.Min;
-
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.Min;
 
 public abstract class AbstractPaginationDTO {
 

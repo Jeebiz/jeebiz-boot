@@ -1,8 +1,7 @@
 package io.hiwepy.boot.api.exception;
 
-import org.springframework.core.NestedRuntimeException;
-
 import io.hiwepy.boot.api.ApiCode;
+import org.springframework.core.NestedRuntimeException;
 
 @SuppressWarnings("serial")
 public class IdempotentException extends NestedRuntimeException {
