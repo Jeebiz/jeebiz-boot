@@ -4,9 +4,9 @@
  */
 package io.hiwepy.boot.api.provider;
 
-import java.util.Map;
-
 import io.hiwepy.boot.api.dao.entities.BaseMap;
+
+import java.util.Map;
 
 public interface AccountProvider {
 

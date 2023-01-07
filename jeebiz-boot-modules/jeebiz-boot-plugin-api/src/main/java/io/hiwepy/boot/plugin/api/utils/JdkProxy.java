@@ -1,10 +1,10 @@
 package io.hiwepy.boot.plugin.api.utils;
 
+import org.springframework.beans.BeanUtils;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-
-import org.springframework.beans.BeanUtils;
 
 //JDK动态代理实现InvocationHandler接口
 public class JdkProxy implements InvocationHandler {

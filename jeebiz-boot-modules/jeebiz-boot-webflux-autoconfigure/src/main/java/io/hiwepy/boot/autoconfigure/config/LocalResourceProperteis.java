@@ -4,11 +4,10 @@
  */
 package io.hiwepy.boot.autoconfigure.config;
 
-import java.util.Map;
-
+import com.google.common.collect.Maps;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import com.google.common.collect.Maps;
+import java.util.Map;
 
 @ConfigurationProperties(prefix = "spring.storage")
 public class LocalResourceProperteis {

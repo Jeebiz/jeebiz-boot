@@ -4,12 +4,12 @@
  */
 package io.hiwepy.boot.autoconfigure.webmvc;
 
-import java.io.IOException;
-import java.net.URL;
-
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.biz.context.support.ResourceBasenameHandler;
 import org.springframework.core.io.Resource;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class I18nResourceBasenameHandler implements ResourceBasenameHandler {
 

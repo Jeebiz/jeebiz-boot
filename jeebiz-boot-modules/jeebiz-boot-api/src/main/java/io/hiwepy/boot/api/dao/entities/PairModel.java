@@ -4,10 +4,10 @@
  */
 package io.hiwepy.boot.api.dao.entities;
 
-import java.io.Serializable;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
 
 /**
  * 	键值对模型对象

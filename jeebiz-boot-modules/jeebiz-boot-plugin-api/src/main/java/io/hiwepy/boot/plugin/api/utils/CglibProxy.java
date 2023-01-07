@@ -1,11 +1,11 @@
 package io.hiwepy.boot.plugin.api.utils;
 
-import java.lang.reflect.Method;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
+
+import java.lang.reflect.Method;
 
 //Cglib动态代理，实现MethodInterceptor接口
 public class CglibProxy implements MethodInterceptor {

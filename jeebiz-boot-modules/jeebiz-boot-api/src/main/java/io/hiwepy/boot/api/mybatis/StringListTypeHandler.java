@@ -4,16 +4,16 @@
  */
 package io.hiwepy.boot.api.mybatis;
 
+import org.apache.ibatis.type.BaseTypeHandler;
+import org.apache.ibatis.type.JdbcType;
+import org.springframework.util.StringUtils;
+
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
-
-import org.apache.ibatis.type.BaseTypeHandler;
-import org.apache.ibatis.type.JdbcType;
-import org.springframework.util.StringUtils;
 
 public class StringListTypeHandler extends BaseTypeHandler<List<String>> {
 

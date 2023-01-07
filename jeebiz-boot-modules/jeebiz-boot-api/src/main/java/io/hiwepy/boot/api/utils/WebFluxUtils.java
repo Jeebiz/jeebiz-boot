@@ -1,11 +1,7 @@
 package io.hiwepy.boot.api.utils;
 
-import java.nio.CharBuffer;
-import java.nio.charset.StandardCharsets;
-import java.util.concurrent.atomic.AtomicReference;
-
-import javax.servlet.http.HttpServletRequest;
-
+import io.hiwepy.boot.api.XHeaders;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.biz.utils.StringUtils;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
@@ -13,10 +9,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-
-import lombok.extern.slf4j.Slf4j;
-import io.hiwepy.boot.api.XHeaders;
 import reactor.core.publisher.Flux;
+
+import javax.servlet.http.HttpServletRequest;
+import java.nio.CharBuffer;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Slf4j
 public class WebFluxUtils {

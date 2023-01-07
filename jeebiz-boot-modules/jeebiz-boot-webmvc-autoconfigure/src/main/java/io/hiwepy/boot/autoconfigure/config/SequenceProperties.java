@@ -4,9 +4,8 @@
  */
 package io.hiwepy.boot.autoconfigure.config;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(SequenceProperties.PREFIX)
 @Data

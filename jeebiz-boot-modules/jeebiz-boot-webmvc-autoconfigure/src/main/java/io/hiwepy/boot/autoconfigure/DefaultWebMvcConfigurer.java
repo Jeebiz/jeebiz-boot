@@ -4,17 +4,14 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
-import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map.Entry;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import hitool.core.lang3.time.DateFormats;
 import io.hiwepy.boot.api.MediaTypes;
-import io.hiwepy.boot.autoconfigure.ser.MyBeanSerializerModifier;
+import io.hiwepy.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
+import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
+import io.hiwepy.boot.autoconfigure.jackson.ser.MyBeanSerializerModifier;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.*;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
@@ -31,11 +28,12 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import hitool.core.lang3.time.DateFormats;
-import io.hiwepy.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
-import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map.Entry;
 
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 

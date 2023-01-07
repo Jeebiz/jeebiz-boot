@@ -4,18 +4,14 @@
  */
 package io.hiwepy.boot.autoconfigure.region;
 
-import hitool.core.lang3.network.InetAddressUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisKey;
-import org.springframework.data.redis.core.RedisOperationTemplate;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-
 import com.github.hiwepy.ip2region.spring.boot.IP2regionTemplate;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionAddress;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionEnum;
-
+import hitool.core.lang3.network.InetAddressUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.RedisKey;
+import org.springframework.data.redis.core.RedisOperationTemplate;
+import org.springframework.util.StringUtils;
 
 import java.time.Duration;
 

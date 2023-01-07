@@ -4,15 +4,14 @@
  */
 package io.hiwepy.boot.api.dao.entities;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter

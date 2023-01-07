@@ -1,10 +1,10 @@
 package io.hiwepy.boot.api.dao.entities;
 
 
-import java.util.Date;
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class BaseDo extends BaseBean {

@@ -2,10 +2,9 @@ package io.hiwepy.boot.api.subject;
 
 
 import com.alibaba.ttl.TransmittableThreadLocal;
+import io.hiwepy.boot.api.utils.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.hiwepy.boot.api.utils.CollectionUtils;
 
 import java.util.Collections;
 import java.util.HashMap;

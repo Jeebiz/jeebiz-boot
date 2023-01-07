@@ -4,9 +4,8 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(ExternalProperties.PREFIX)
 @Data

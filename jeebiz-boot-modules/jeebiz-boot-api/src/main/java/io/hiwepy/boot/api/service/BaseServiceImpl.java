@@ -4,13 +4,13 @@
  */
 package io.hiwepy.boot.api.service;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.dozermapper.core.Mapper;
+import io.hiwepy.boot.api.dao.BaseMapper;
+import io.hiwepy.boot.api.dao.entities.PaginationEntity;
+import io.hiwepy.boot.api.dao.entities.PairModel;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +18,17 @@ import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.web.servlet.support.RequestContextUtils;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.ApplicationEventPublisherAware;
-import org.springframework.context.EmbeddedValueResolverAware;
-import org.springframework.context.MessageSource;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.context.*;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.baomidou.mybatisplus.core.metadata.OrderItem;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.dozermapper.core.Mapper;
-
-import io.hiwepy.boot.api.dao.BaseMapper;
-import io.hiwepy.boot.api.dao.entities.PaginationEntity;
-import io.hiwepy.boot.api.dao.entities.PairModel;
+import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 通用Service实现，daoBase自动注入，不能存在多个实例
@@ -82,12 +72,6 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 		HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
 		//HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
-	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean setStatus(Serializable id, Serializable status) {
-		return SqlHelper.retBool(getBaseMapper().setStatus(id, status));
 	}
 
 	/**

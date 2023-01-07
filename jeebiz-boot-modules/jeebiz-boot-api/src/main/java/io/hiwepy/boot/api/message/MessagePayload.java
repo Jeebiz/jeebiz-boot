@@ -1,13 +1,12 @@
 package io.hiwepy.boot.api.message;
 
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotBlank;
 import java.awt.TrayIcon.MessageType;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.validation.constraints.NotBlank;
-
-import io.swagger.annotations.ApiModelProperty;
 
 @SuppressWarnings("serial")
 public class MessagePayload implements Serializable  {

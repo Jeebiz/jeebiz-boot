@@ -4,10 +4,9 @@
  */
 package io.hiwepy.boot.api.exception;
 
+import io.hiwepy.boot.api.ApiCode;
 import io.hiwepy.boot.api.CustomApiCode;
 import org.springframework.core.NestedCheckedException;
-
-import io.hiwepy.boot.api.ApiCode;
 
 @SuppressWarnings("serial")
 public class BizCheckedException extends NestedCheckedException {

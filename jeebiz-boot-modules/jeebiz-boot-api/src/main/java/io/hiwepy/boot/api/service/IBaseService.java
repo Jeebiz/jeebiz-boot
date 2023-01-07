@@ -4,15 +4,14 @@
  */
 package io.hiwepy.boot.api.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
+import io.hiwepy.boot.api.dao.entities.PaginationEntity;
+import io.hiwepy.boot.api.dao.entities.PairModel;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.IService;
-
-import io.hiwepy.boot.api.dao.entities.PaginationEntity;
-import io.hiwepy.boot.api.dao.entities.PairModel;
 
 /**
  * 通用Service接口
@@ -26,15 +25,6 @@ import io.hiwepy.boot.api.dao.entities.PairModel;
  * @param <T> 持有的实体对象
  */
 public interface IBaseService<T> extends IService<T> {
-
-	/**
-	 * 更新数据状态
-	 *
-	 * @param id
-	 * @param status
-	 * @return
-	 */
-	boolean setStatus(Serializable id, Serializable status);
 
 	/**
 	 * 分页查询
@@ -119,7 +109,6 @@ public interface IBaseService<T> extends IService<T> {
 	/**
 	 * 查询一组键值对数据
 	 *
-	 * @param key
 	 * @return
 	 */
 	List<PairModel> getPairList();

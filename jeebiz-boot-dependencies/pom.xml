@@ -181,7 +181,8 @@
         <json.version>20210307</json.version>
         <json-path.version>2.7.0</json-path.version>
         <json-smart.version>2.4.8</json-smart.version>
-        <junrar.version>7.4.0</junrar.version>
+        <junrar.version>7.5.4</junrar.version>
+        <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
         <jwt-issuer.version>1.1.1.RELEASE</jwt-issuer.version>
@@ -290,10 +291,11 @@
         <scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
         <selenium-driver.version>4.1.2</selenium-driver.version>
         <sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
+        <sevenzipjbinding.version>16.02-2.01</sevenzipjbinding.version>
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.9.1</shiro.version>
+        <shiro.version>1.10.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -307,8 +309,9 @@
         <shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
         <shiro-uaa.version>1.0.3</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
-        <snakeyaml.version>1.33</snakeyaml.version>
+        <skywalking.version>8.13.0</skywalking.version>
         <smslib.version>3.5.4</smslib.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -484,8 +487,7 @@
         <spring-boot-starter-tencentapi.version>2.0.0.RELEASE</spring-boot-starter-tencentapi.version>
         <spring-boot-starter-webflux-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>2.0.0.RELEASE
-        </spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-validation-mimetypes.version>2.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>2.0.0.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>2.0.0.RELEASE</spring-boot-starter-xmemcached.version>
         <spring-boot-starter-xxljob.version>2.0.0.RELEASE</spring-boot-starter-xxljob.version>

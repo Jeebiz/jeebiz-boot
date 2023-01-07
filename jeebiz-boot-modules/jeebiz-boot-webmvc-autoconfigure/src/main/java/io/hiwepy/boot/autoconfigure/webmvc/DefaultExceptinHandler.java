@@ -4,29 +4,16 @@
  */
 package io.hiwepy.boot.autoconfigure.webmvc;
 
-import java.io.IOException;
-import java.sql.BatchUpdateException;
-import java.sql.SQLClientInfoException;
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.sql.SQLSyntaxErrorException;
-import java.sql.SQLTimeoutException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintDeclarationException;
-import javax.validation.ConstraintDefinitionException;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.GroupDefinitionException;
-import javax.validation.UnexpectedTypeException;
-import javax.validation.ValidationException;
-
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import io.hiwepy.boot.api.ApiCode;
+import io.hiwepy.boot.api.ApiRestResponse;
+import io.hiwepy.boot.api.exception.BizCheckedException;
+import io.hiwepy.boot.api.exception.BizIOException;
+import io.hiwepy.boot.api.exception.BizRuntimeException;
+import io.hiwepy.boot.api.exception.IdempotentException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.cache.CacheException;
@@ -55,14 +42,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.MissingMatrixVariableException;
-import org.springframework.web.bind.MissingPathVariableException;
-import org.springframework.web.bind.MissingRequestCookieException;
-import org.springframework.web.bind.MissingRequestHeaderException;
-import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.ServletRequestBindingException;
-import org.springframework.web.bind.UnsatisfiedServletRequestParameterException;
+import org.springframework.web.bind.*;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -75,17 +55,11 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-
-import io.hiwepy.boot.api.ApiCode;
-import io.hiwepy.boot.api.ApiRestResponse;
-import io.hiwepy.boot.api.exception.BizCheckedException;
-import io.hiwepy.boot.api.exception.BizIOException;
-import io.hiwepy.boot.api.exception.BizRuntimeException;
-import io.hiwepy.boot.api.exception.IdempotentException;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.*;
+import java.io.IOException;
+import java.sql.*;
+import java.util.*;
 
 /**
  * 异常增强，以JSON的形式返回给客服端

@@ -4,19 +4,17 @@
  */
 package io.hiwepy.boot.api.mybatis;
 
+import com.alibaba.fastjson.JSONObject;
+import io.hiwepy.boot.api.dao.entities.PairModel;
+import org.apache.ibatis.type.BaseTypeHandler;
+import org.apache.ibatis.type.JdbcType;
+import org.springframework.util.StringUtils;
+
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import org.apache.ibatis.type.BaseTypeHandler;
-import org.apache.ibatis.type.JdbcType;
-import org.springframework.util.StringUtils;
-
-import com.alibaba.fastjson.JSONObject;
-
-import io.hiwepy.boot.api.dao.entities.PairModel;
 
 
 public class PairValueListTypeHandler extends BaseTypeHandler<List<PairModel>> {

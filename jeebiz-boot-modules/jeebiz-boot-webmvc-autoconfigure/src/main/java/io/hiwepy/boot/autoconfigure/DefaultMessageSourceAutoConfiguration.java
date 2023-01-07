@@ -4,9 +4,7 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
-import java.time.Duration;
-import java.util.List;
-
+import io.hiwepy.boot.autoconfigure.webmvc.I18nResourceBasenameHandler;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.biz.context.NestedMessageSource;
 import org.springframework.biz.context.support.MultiResourceBundleMessageSource;
@@ -32,7 +30,8 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.StringUtils;
 
-import io.hiwepy.boot.autoconfigure.webmvc.I18nResourceBasenameHandler;
+import java.time.Duration;
+import java.util.List;
 
 @Configuration(proxyBeanMethods = false)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)

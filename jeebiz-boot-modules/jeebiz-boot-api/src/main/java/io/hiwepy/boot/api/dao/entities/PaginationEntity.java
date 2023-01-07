@@ -4,13 +4,12 @@
  */
 package io.hiwepy.boot.api.dao.entities;
 
-import java.util.List;
-
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter

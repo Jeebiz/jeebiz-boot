@@ -1,13 +1,12 @@
 package io.hiwepy.boot.api.validation;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
-
 import io.hiwepy.boot.api.annotation.Phone;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 /**
  * 数据校验注解实现类

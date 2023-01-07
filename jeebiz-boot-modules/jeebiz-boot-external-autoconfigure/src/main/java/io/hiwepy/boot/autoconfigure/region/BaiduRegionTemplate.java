@@ -4,27 +4,25 @@
  */
 package io.hiwepy.boot.autoconfigure.region;
 
-import java.io.IOException;
-import java.util.Objects;
-import java.util.Optional;
-
-import hitool.core.lang3.time.CalendarUtils;
-import org.nutz.plugins.ip2region.Util;
-import org.springframework.data.redis.core.RedisKey;
-import org.springframework.data.redis.core.RedisOperationTemplate;
-import org.springframework.util.StringUtils;
-
 import com.alibaba.fastjson.JSONObject;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionAddress;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionEnum;
 import com.github.hiwepy.ip2region.spring.boot.util.IpUtils;
-
+import hitool.core.lang3.time.CalendarUtils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.nutz.plugins.ip2region.Util;
+import org.springframework.data.redis.core.RedisKey;
+import org.springframework.data.redis.core.RedisOperationTemplate;
+import org.springframework.util.StringUtils;
+
+import java.io.IOException;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  *  IP获取经纬度：   http://lbsyun.baidu.com/index.php?title=webapi/ip-api

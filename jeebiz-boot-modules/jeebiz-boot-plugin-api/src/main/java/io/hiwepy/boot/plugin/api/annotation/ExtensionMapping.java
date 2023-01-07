@@ -1,11 +1,6 @@
 package io.hiwepy.boot.plugin.api.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * 扩展点注解：用于标注某个功能扩展点的信息

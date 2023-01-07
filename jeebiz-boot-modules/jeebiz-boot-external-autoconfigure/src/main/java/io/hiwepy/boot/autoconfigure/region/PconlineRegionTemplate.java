@@ -4,32 +4,25 @@
  */
 package io.hiwepy.boot.autoconfigure.region;
 
-import java.io.IOException;
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import org.springframework.data.redis.core.RedisKey;
-import org.springframework.data.redis.core.RedisOperationTemplate;
-import org.springframework.util.StringUtils;
-
 import com.alibaba.fastjson.JSONObject;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionAddress;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionEnum;
 import com.github.hiwepy.ip2region.spring.boot.util.IpUtils;
-
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.springframework.data.redis.core.RedisKey;
+import org.springframework.data.redis.core.RedisOperationTemplate;
+import org.springframework.util.StringUtils;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * IP地址解析

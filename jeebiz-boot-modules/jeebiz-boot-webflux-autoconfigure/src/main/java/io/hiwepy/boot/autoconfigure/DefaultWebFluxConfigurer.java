@@ -4,17 +4,16 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
-import java.io.File;
-import java.util.Iterator;
-import java.util.Map.Entry;
-
+import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.reactive.config.ResourceHandlerRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.resource.WebJarsResourceResolver;
 
-import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
+import java.io.File;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class DefaultWebFluxConfigurer implements WebFluxConfigurer  {
 

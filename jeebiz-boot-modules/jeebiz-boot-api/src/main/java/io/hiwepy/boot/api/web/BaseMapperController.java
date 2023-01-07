@@ -4,9 +4,8 @@
  */
 package io.hiwepy.boot.api.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.github.dozermapper.core.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseMapperController extends BaseController {
 

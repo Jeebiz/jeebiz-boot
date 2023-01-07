@@ -4,11 +4,10 @@
  */
 package io.hiwepy.boot.api.dto;
 
-import java.util.List;
-
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
-
 import io.swagger.annotations.ApiModelProperty;
+
+import java.util.List;
 
 public abstract class AbstractOrderedPaginationDTO extends AbstractPaginationDTO {
 
