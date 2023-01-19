@@ -208,7 +208,7 @@
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
-        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
         <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.0.7</mybatis-spring.version>
@@ -460,6 +460,7 @@
         <spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version>
         <spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
+        <spring-boot-starter-dynamic-datasource.version>3.6.1</spring-boot-starter-dynamic-datasource.version>
         <spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
         <spring-boot-starter-minio.version>1.0.3.RELEASE</spring-boot-starter-minio.version>
         <spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
@@ -5640,6 +5641,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${spring-boot-starter-mybatis-plus.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-dynamic-datasource.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/mybatis-dbperms-spring-boot-starter -->
             <dependency>
