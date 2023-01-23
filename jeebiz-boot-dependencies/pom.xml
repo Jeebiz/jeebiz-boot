@@ -185,7 +185,7 @@
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
         <jwt-issuer.version>1.1.1.RELEASE</jwt-issuer.version>
-        <kafka-clients.version>3.0.0</kafka-clients.version>
+        <kafka-clients.version>3.3.2</kafka-clients.version>
         <knife4j.version>3.0.3</knife4j.version>
         <kisso.version>3.8.1</kisso.version>
         <kubernetes-client.version>4.10.1</kubernetes-client.version>
