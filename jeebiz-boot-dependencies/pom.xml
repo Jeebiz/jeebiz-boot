@@ -110,7 +110,7 @@
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
         <dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
-        <druid.version>1.2.15</druid.version>
+        <druid.version>1.2.16</druid.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <disruptor.version>3.4.4</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
@@ -176,7 +176,7 @@
         <jruby.version>9.2.13.0</jruby.version>
         <jsch.version>0.1.55</jsch.version>
         <jsqlparser.version>4.2</jsqlparser.version>
-        <jsoup.version>1.15.3</jsoup.version>
+        <jsoup.version>1.15.4</jsoup.version>
         <json.version>20210307</json.version>
         <json-path.version>2.7.0</json-path.version>
         <json-smart.version>2.4.8</json-smart.version>
@@ -185,7 +185,11 @@
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
         <jwt-issuer.version>1.1.1.RELEASE</jwt-issuer.version>
-        <kafka-clients.version>3.3.2</kafka-clients.version>
+
+
+
+
+        <kafka-clients.version>3.0.0</kafka-clients.version>
         <knife4j.version>3.0.3</knife4j.version>
         <kisso.version>3.8.1</kisso.version>
         <kubernetes-client.version>4.10.1</kubernetes-client.version>
@@ -208,7 +212,7 @@
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
-        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
         <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.0.7</mybatis-spring.version>
@@ -230,7 +234,7 @@
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.1.0</nacos-client.version>
         <neethi.version>3.1.1</neethi.version>
-        <netty-socketio.version>1.7.23</netty-socketio.version>
+        <netty-socketio.version>1.7.19</netty-socketio.version>
         <nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
         <okhttp.version>3.14.9</okhttp.version>
         <ons-client.version>1.8.8.1.Final</ons-client.version>
@@ -264,7 +268,7 @@
         <r2dbc-oracle.version>0.4.0</r2dbc-oracle.version>
         <reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-        <redisson.version>3.17.7</redisson.version>
+        <redisson.version>3.17.4</redisson.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <reflections.version>0.9.12</reflections.version>
         <rocketmq-client.version>4.9.2</rocketmq-client.version>
@@ -460,7 +464,6 @@
         <spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version>
         <spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
-        <spring-boot-starter-dynamic-datasource.version>3.6.1</spring-boot-starter-dynamic-datasource.version>
         <spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
         <spring-boot-starter-minio.version>1.0.3.RELEASE</spring-boot-starter-minio.version>
         <spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
@@ -482,7 +485,7 @@
         <spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>1.1.6.RELEASE</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-security-biz.version>1.1.5.RELEASE</spring-boot-starter-security-biz.version>
         <spring-boot-starter-security-cas.version>1.0.4.RELEASE</spring-boot-starter-security-cas.version>
         <spring-boot-starter-security-dingtalk.version>1.0.5.RELEASE</spring-boot-starter-security-dingtalk.version>
         <spring-boot-starter-security-facebook.version>1.0.1.RELEASE</spring-boot-starter-security-facebook.version>
@@ -501,7 +504,7 @@
         <spring-boot-starter-shiro-pac4j.version>1.0.3.RELEASE</spring-boot-starter-shiro-pac4j.version>
         <spring-boot-starter-shiro-weixin.version>1.0.3.RELEASE</spring-boot-starter-shiro-weixin.version>
         <spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
-        <spring-boot-starter-socketio.version>1.0.6.RELEASE</spring-boot-starter-socketio.version>
+        <spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
         <spring-boot-starter-shanyan.version>1.0.2.RELEASE</spring-boot-starter-shanyan.version>
         <spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
         <spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
@@ -5641,12 +5644,6 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${spring-boot-starter-mybatis-plus.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-dynamic-datasource.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/mybatis-dbperms-spring-boot-starter -->
             <dependency>
