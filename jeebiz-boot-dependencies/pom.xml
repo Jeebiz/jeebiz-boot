@@ -141,6 +141,7 @@
         <gson.version>2.9.0</gson.version>
         <hadoop.version>3.3.3</hadoop.version>
         <hanlp.version>portable-1.8.4</hanlp.version>
+        <hanlp-restful.version>0.0.14</hanlp-restful.version>
         <hbase.version>2.2.4</hbase.version>
         <h2.version>2.1.214</h2.version>
         <htmlparser.version>2.1</htmlparser.version>
@@ -2451,6 +2452,12 @@
                 <groupId>com.hankcs</groupId>
                 <artifactId>hanlp</artifactId>
                 <version>${hanlp.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.hankcs.hanlp.restful/hanlp-restful -->
+            <dependency>
+                <groupId>com.hankcs.hanlp.restful</groupId>
+                <artifactId>hanlp-restful</artifactId>
+                <version>${hanlp-restful.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-client -->
