@@ -126,6 +126,7 @@
         <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
         <flowable.version>6.7.2</flowable.version>
         <formio.version>1.6.4</formio.version>
+        <forest.version>1.5.28</forest.version>
         <geodesy.version>1.1.3</geodesy.version>
         <goeasy.version>0.3.16</goeasy.version>
         <google-api-client.version>2.0.0</google-api-client.version>
@@ -271,14 +272,13 @@
         <rsocket.version>1.1.1</rsocket.version>
         <rxjava2.version>2.2.21</rxjava2.version>
         <rxjava3.version>3.1.2</rxjava3.version>
-        <slf4j.version>1.7.30</slf4j.version>
+        <seata.version>1.6.1</seata.version>
         <schemacrawler.version>16.15.8</schemacrawler.version>
         <schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
         <schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
         <schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
         <schemacrawler-hsqldb.version>${schemacrawler.version}</schemacrawler-hsqldb.version>
-        <schemacrawler-oracle.version>${schemacrawler.version}
-        </schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
+        <schemacrawler-oracle.version>${schemacrawler.version}</schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
         <schemacrawler-postgresql.version>${schemacrawler.version}</schemacrawler-postgresql.version>
         <schemacrawler-sqlserver.version>${schemacrawler.version}</schemacrawler-sqlserver.version>
         <schemacrawler-sqlite.version>${schemacrawler.version}</schemacrawler-sqlite.version>
@@ -309,6 +309,7 @@
         <shiro-uaa.version>1.0.3</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
         <skywalking.version>8.13.0</skywalking.version>
+        <slf4j.version>1.7.30</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
         <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
@@ -365,7 +366,7 @@
         <xstream.version>1.4.16</xstream.version>
         <xxl-job.version>2.3.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
-        <zookeeper.version>3.6.1</zookeeper.version>
+        <zookeeper.version>3.8.1</zookeeper.version>
         <zip4j.version>2.10.0</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
@@ -466,7 +467,7 @@
         <spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
         <spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
         <spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
-        <spring-boot-starter-okhttp3.version>1.0.8.RELEASE</spring-boot-starter-okhttp3.version>
+        <spring-boot-starter-okhttp3.version>1.0.9.RELEASE</spring-boot-starter-okhttp3.version>
         <spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
         <spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
         <spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
@@ -480,8 +481,8 @@
         <spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
         <spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
-        <spring-boot-starter-seata.version>1.3.0</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>1.1.5.RELEASE</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
+        <spring-boot-starter-security-biz.version>1.1.6.RELEASE</spring-boot-starter-security-biz.version>
         <spring-boot-starter-security-cas.version>1.0.4.RELEASE</spring-boot-starter-security-cas.version>
         <spring-boot-starter-security-dingtalk.version>1.0.5.RELEASE</spring-boot-starter-security-dingtalk.version>
         <spring-boot-starter-security-facebook.version>1.0.1.RELEASE</spring-boot-starter-security-facebook.version>
@@ -2142,6 +2143,13 @@
                 <groupId>net.formio</groupId>
                 <artifactId>formio</artifactId>
                 <version>${formio.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.dtflys.forest/forest-spring-boot-starter -->
+            <dependency>
+                <groupId>com.dtflys.forest</groupId>
+                <artifactId>forest-spring-boot-starter</artifactId>
+                <version>${forest.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client -->
@@ -3943,6 +3951,17 @@
                 <artifactId>sampleclient</artifactId>
                 <version>${prometheus.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/io.seata/seata-metrics-exporter-prometheus -->
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-metrics-exporter-prometheus</artifactId>
+                <version>${seata.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>undertow-metrics-prometheus</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/us.fatehi/schemacrawler -->
             <!-- SchemaCrawler提供一组用于增强标准JDBC Metadata的API.SchemaCrawler还包含一个命令行工具能够将数据库结构和数据以一种易读的形式输出. -->
@@ -5059,6 +5078,12 @@
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper-prometheus-metrics -->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper-prometheus-metrics</artifactId>
                 <version>${zookeeper.version}</version>
             </dependency>
 
