@@ -112,15 +112,17 @@
         <dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
         <druid.version>1.2.16</druid.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
+        <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
         <disruptor.version>3.4.4</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
         <dubbo.version>3.0.7</dubbo.version>
-        <easyexcel.version>3.1.1</easyexcel.version>
+        <easyexcel.version>3.2.1</easyexcel.version>
+        <easypoi.version>4.4.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.19</fastjson.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-        <feign.version>11.9.1</feign.version>
+        <feign.version>12.1</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -151,6 +153,7 @@
         <hitool.version>1.0.2.RELEASE</hitool.version>
         <hive.version>3.1.2</hive.version>
         <hutool.version>5.8.2</hutool.version>
+        <hystrix.version>1.5.18</hystrix.version>
         <ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
         <i4jruntime.version>5.0.6</i4jruntime.version>
         <icu4j.version>68.2</icu4j.version>
@@ -165,16 +168,21 @@
         <java-unrar.version>1.7.0-8</java-unrar.version>
         <java-jwt.version>3.8.1</java-jwt.version>
         <javamelody.version>1.91.0</javamelody.version>
+        <jave.version>3.3.1</jave.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
         <jcifs.version>2.1.13</jcifs.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
         <jep.version>2.4.2</jep.version>
+        <jedis.version>3.9.0</jedis.version>
         <jjwt.version>0.11.5</jjwt.version>
         <jakarta-websocket.version>2.0.0</jakarta-websocket.version>
         <jgoodies.version>2.7.0</jgoodies.version>
         <jgroups.version>5.1.6.Final</jgroups.version>
         <jgit.version>5.10.0.202012080955-r</jgit.version>
+        <jodd.version>5.3.0</jodd.version>
+        <jodd-bean.version>5.1.6</jodd-bean.version>
+        <joda-time.version>2.12.2</joda-time.version>
         <jpush-client.version>3.4.7</jpush-client.version>
         <jruby.version>9.2.13.0</jruby.version>
         <jsch.version>0.1.55</jsch.version>
@@ -211,8 +219,8 @@
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
-        <mybatis-plus.version>3.5.2</mybatis-plus.version>
-        <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
         <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.0.7</mybatis-spring.version>
         <mybatis-mate.version>1.2.4</mybatis-mate.version>
@@ -229,6 +237,7 @@
         <mybatis-freemarker.version>1.2.3</mybatis-freemarker.version>
         <mybatis-velocity.version>2.1.1</mybatis-velocity.version>
         <mybatis-generator.version>1.4.1</mybatis-generator.version>
+        <mybatis-tk.version>2.1.5</mybatis-tk.version>
         <mysql.version>8.0.28</mysql.version>
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.1.0</nacos-client.version>
@@ -246,11 +255,13 @@
         <p6spy.version>3.9.1</p6spy.version>
         <pac4j.version>4.5.5</pac4j.version>
         <pac4j-oauth-ext.version>1.0.3.RELEASE</pac4j-oauth-ext.version>
+        <pagehelper.version>5.3.2</pagehelper.version>
         <paho-mqttv3.version>1.2.5</paho-mqttv3.version>
         <paypal-checkout-sdk.version>1.0.3</paypal-checkout-sdk.version>
         <paypal-rest-api-sdk.version>1.14.0</paypal-rest-api-sdk.version>
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
         <perf4j.version>0.9.16</perf4j.version>
+        <poi.version>4.1.2</poi.version>
         <prometheus.version>0.10.0</prometheus.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
@@ -310,7 +321,7 @@
         <shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
         <shiro-uaa.version>1.0.3</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
-        <skywalking.version>8.13.0</skywalking.version>
+        <skywalking.version>8.14.0</skywalking.version>
         <slf4j.version>1.7.30</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
         <snakeyaml.version>1.33</snakeyaml.version>
@@ -472,12 +483,13 @@
         <spring-boot-starter-okhttp3.version>1.0.9.RELEASE</spring-boot-starter-okhttp3.version>
         <spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
         <spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
+        <spring-boot-starter-pagehelper.version>1.4.6</spring-boot-starter-pagehelper.version>
         <spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
         <spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
         <spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
         <spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
         <spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-        <spring-boot-starter-redistpl-plus.version>1.0.2.RELEASE</spring-boot-starter-redistpl-plus.version>
+        <spring-boot-starter-redistpl-plus.version>1.0.4.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
         <spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
         <spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
@@ -1622,6 +1634,13 @@
                 <version>${druid.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.aliyun/alibaba-dingtalk-service-sdk -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>alibaba-dingtalk-service-sdk</artifactId>
+                <version>${dingtalk-service-sdk.version}</version>
+            </dependency>
+
             <!-- http://mvnrepository.com/artifact/com.lmax/disruptor -->
             <dependency>
                 <groupId>com.lmax</groupId>
@@ -1983,6 +2002,19 @@
                 <version>${easyexcel.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/cn.afterturn/easypoi-annotation -->
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-annotation</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/cn.afterturn/easypoi-base -->
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-base</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/com.github.abel533/ECharts -->
             <dependency>
                 <groupId>com.github.abel533</groupId>
@@ -2070,6 +2102,18 @@
                 <version>${fastxls.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-core -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/io.github.openfeign.form/feign-form -->
             <dependency>
                 <groupId>io.github.openfeign.form</groupId>
@@ -2598,6 +2642,24 @@
                 <artifactId>hutool-cron</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-core -->
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-core</artifactId>
+                <version>${hystrix.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-metrics-event-stream -->
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-metrics-event-stream</artifactId>
+                <version>${hystrix.version}</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.cloudera/ImpalaJDBC41 -->
             <dependency>
@@ -2838,6 +2900,68 @@
                 <version>1.0</version>
             </dependency>
 
+            <!--The JAVE (Java Audio Video Encoder) library is Java wrapper on the ffmpeg project.-->
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-core -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-core</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-all-deps -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-all-deps</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-linux64 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-linux64</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-linux32 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-linux32</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-linux-arm64 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-linux-arm64</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-linux-arm32 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-linux-arm32</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-win64 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-win64</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-win32 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-win32</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-osx64 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-osx64</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ws.schild/jave-nativebin-osxm1 -->
+            <dependency>
+                <groupId>ws.schild</groupId>
+                <artifactId>jave-nativebin-osxm1</artifactId>
+                <version>${jave.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/com.github.jai-imageio/jai-imageio-core -->
             <dependency>
                 <groupId>com.github.jai-imageio</groupId>
@@ -2904,6 +3028,26 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-orgjson</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.jodd/jodd-core -->
+            <dependency>
+                <groupId>org.jodd</groupId>
+                <artifactId>jodd-core</artifactId>
+                <version>${jodd.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.jodd/jodd-bean -->
+            <dependency>
+                <groupId>org.jodd</groupId>
+                <artifactId>jodd-bean</artifactId>
+                <version>${jodd-bean.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/cn.jpush.api/jpush-client -->
@@ -3380,6 +3524,12 @@
                 <artifactId>mybatis-mate-annotation</artifactId>
                 <version>${mybatis-mate.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>4.1.5</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
             <dependency>
@@ -3623,6 +3773,13 @@
                 <groupId>org.pac4j</groupId>
                 <artifactId>pac4j-sql</artifactId>
                 <version>${pac4j.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
@@ -3958,6 +4115,43 @@
                 <groupId>org.perf4j</groupId>
                 <artifactId>perf4j</artifactId>
                 <version>${perf4j.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-excelant -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-excelant</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/ooxml-schemas -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>ooxml-schemas</artifactId>
+                <version>1.4</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.prometheus/sampleclient -->
@@ -5367,6 +5561,12 @@
                 <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-dynamic-datasource.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/cn.afterturn/easypoi-spring-boot-starter -->
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-spring-boot-starter</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.shardingsphere.elasticjob/elasticjob-lite-spring-boot-starter -->
             <dependency>
                 <groupId>org.apache.shardingsphere.elasticjob</groupId>
@@ -5681,6 +5881,18 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${spring-boot-starter-mybatis-plus.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper-spring-boot-starter -->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mybatis-tk.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                        <groupId>org.springframework.boot</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/mybatis-dbperms-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
@@ -5740,6 +5952,12 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>pac4j-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-pac4j.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-pagehelper.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/pf4j-spring-boot-starter -->
             <dependency>
@@ -6010,6 +6228,18 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-webmvc-swagger2.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.spring4all/swagger-spring-boot-starter -->
+            <dependency>
+                <groupId>com.spring4all</groupId>
+                <artifactId>swagger-spring-boot-starter</artifactId>
+                <version>2.0.2.RELEASE</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.battcn/swagger-spring-boot-starter -->
+            <dependency>
+                <groupId>com.battcn</groupId>
+                <artifactId>swagger-spring-boot-starter</artifactId>
+                <version>1.4.5-RELEASE</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/validation-mimetypes-spring-boot-starter -->
             <dependency>
