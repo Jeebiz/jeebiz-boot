@@ -87,7 +87,8 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 	 */
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-// 指定BigDecimal类型字段使用自定义的CustomDoubleSerialize序列化器
+
+		// 指定BigDecimal类型字段使用自定义的CustomDoubleSerialize序列化器
 		SimpleModule simpleModule = new SimpleModule();
 		simpleModule.addSerializer(Long.class, ToStringSerializer.instance);
 		simpleModule.addSerializer(Long.TYPE, ToStringSerializer.instance);
