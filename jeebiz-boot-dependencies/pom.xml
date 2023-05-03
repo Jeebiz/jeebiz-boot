@@ -17,8 +17,9 @@
         <activation.version>1.1.1</activation.version>
         <alipay-sdk.version>4.20.13.ALL</alipay-sdk.version>
         <alipay-easysdk.version>2.2.1</alipay-easysdk.version>
-        <aliyun-sdk-oss.version>3.13.2</aliyun-sdk-oss.version>
-        <aliyun-sdk-mts.version>3.3.39</aliyun-sdk-mts.version>
+        <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
+        <aliyun-sdk-oss.version>3.16.1</aliyun-sdk-oss.version>
+        <aliyun-sdk-mts.version>3.3.56</aliyun-sdk-mts.version>
         <appium.version>8.0.0</appium.version>
         <asciidoctorj.version>2.4.0</asciidoctorj.version>
         <asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
@@ -34,10 +35,10 @@
         <batik.version>1.14</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
-        <bcprov.version>1.71</bcprov.version>
+        <bcprov.version>1.72</bcprov.version>
         <bcpkix.version>${bcprov.version}</bcpkix.version>
         <bcmail.version>${bcprov.version}</bcmail.version>
-        <bcpg.version>${bcprov.version}</bcpg.version>
+        <bcpg.version>1.72.2</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
         <canal.client.version>1.1.5</canal.client.version>
         <cas-client.version>3.6.4</cas-client.version>
@@ -143,7 +144,7 @@
         <gson.version>2.9.0</gson.version>
         <hadoop.version>3.3.3</hadoop.version>
         <hanlp.version>portable-1.8.4</hanlp.version>
-        <hanlp-restful.version>0.0.14</hanlp-restful.version>
+        <hanlp-restful.version>0.0.15</hanlp-restful.version>
         <hbase.version>2.2.4</hbase.version>
         <h2.version>2.1.214</h2.version>
         <htmlparser.version>2.1</htmlparser.version>
@@ -201,11 +202,12 @@
         <kisso.version>3.8.1</kisso.version>
         <kubernetes-client.version>4.10.1</kubernetes-client.version>
         <kylin-jdbc.version>4.0.0</kylin-jdbc.version>
-        <libphonenumber.version>8.12.39</libphonenumber.version>
-        <libphonenumber-carrier.version>1.165</libphonenumber-carrier.version>
-        <libphonenumber-prefixmapper.version>2.175</libphonenumber-prefixmapper.version>
-        <libphonenumber-geocoder.version>2.175</libphonenumber-geocoder.version>
+        <libphonenumber.version>8.13.9</libphonenumber.version>
+        <libphonenumber-carrier.version>1.193</libphonenumber-carrier.version>
+        <libphonenumber-prefixmapper.version>2.203</libphonenumber-prefixmapper.version>
+        <libphonenumber-geocoder.version>2.203</libphonenumber-geocoder.version>
         <liquibase.version>4.6.2</liquibase.version>
+        <lock4j.version>2.2.0</lock4j.version>
         <log4j2.version>2.17.0</log4j2.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <markdown.version>1.11.1</markdown.version>
@@ -215,15 +217,16 @@
         <mockito.version>4.1.0</mockito.version>
         <mongo-java-driver.version>3.12.10</mongo-java-driver.version>
         <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
-        <mybatis.version>3.5.10</mybatis.version>
+        <mybatis.version>3.5.13</mybatis.version>
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
+        <mybatis-plus-ext.version>1.7.4-RELEASE</mybatis-plus-ext.version>
         <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.0.7</mybatis-spring.version>
-        <mybatis-mate.version>1.2.4</mybatis-mate.version>
+        <mybatis-mate.version>1.2.9-sp2</mybatis-mate.version>
         <mybatis-migrations.version>3.3.10</mybatis-migrations.version>
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
         <mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
@@ -237,7 +240,7 @@
         <mybatis-freemarker.version>1.2.3</mybatis-freemarker.version>
         <mybatis-velocity.version>2.1.1</mybatis-velocity.version>
         <mybatis-generator.version>1.4.1</mybatis-generator.version>
-        <mybatis-tk.version>2.1.5</mybatis-tk.version>
+        <mybatis-tk.version>1.2.4</mybatis-tk.version>
         <mysql.version>8.0.28</mysql.version>
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.1.0</nacos-client.version>
@@ -377,7 +380,7 @@
         <xnio.version>3.8.4.Final</xnio.version>
         <xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
         <xstream.version>1.4.16</xstream.version>
-        <xxl-job.version>2.3.0</xxl-job.version>
+        <xxl-job.version>2.4.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
         <zookeeper.version>3.8.1</zookeeper.version>
         <zip4j.version>2.10.0</zip4j.version>
@@ -448,7 +451,7 @@
         <spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
         <spring-boot-starter-druid-plus.version>1.1.1.RELEASE</spring-boot-starter-druid-plus.version>
-        <spring-boot-starter-dynamic-datasource.version>3.3.2</spring-boot-starter-dynamic-datasource.version>
+        <spring-boot-starter-dynamic-datasource.version>3.6.1</spring-boot-starter-dynamic-datasource.version>
         <spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
         <spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
         <spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
@@ -480,16 +483,16 @@
         <spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
         <spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
         <spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
-        <spring-boot-starter-okhttp3.version>1.0.9.RELEASE</spring-boot-starter-okhttp3.version>
+        <spring-boot-starter-okhttp3.version>1.1.0-SNAPSHOT</spring-boot-starter-okhttp3.version>
         <spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
         <spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
-        <spring-boot-starter-pagehelper.version>1.4.6</spring-boot-starter-pagehelper.version>
+        <spring-boot-starter-pagehelper.version>1.3.0</spring-boot-starter-pagehelper.version>
         <spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
         <spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
         <spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
         <spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
         <spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-        <spring-boot-starter-redistpl-plus.version>1.0.4.RELEASE</spring-boot-starter-redistpl-plus.version>
+        <spring-boot-starter-redistpl-plus.version>1.0.5.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
         <spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
         <spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
@@ -523,11 +526,10 @@
         <spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
         <spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE
-        </spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
-        <spring-boot-starter-xxljob.version>1.0.0.RELEASE</spring-boot-starter-xxljob.version>
+        <spring-boot-starter-xxljob.version>1.0.1-SNAPSHOT</spring-boot-starter-xxljob.version>
         <spring-boot-starter-zxing.version>1.0.2.RELEASE</spring-boot-starter-zxing.version>
 
     </properties>
@@ -556,6 +558,13 @@
                 <groupId>com.alipay.sdk</groupId>
                 <artifactId>alipay-easysdk</artifactId>
                 <version>${alipay-easysdk.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun-java-sdk-core.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
@@ -720,12 +729,24 @@
                 <artifactId>bcprov-jdk15to18</artifactId>
                 <version>${bcprov.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk18on</artifactId>
+                <version>${bcprov.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15to18 -->
             <!-- The Bouncy Castle Java APIs for CMS, PKCS, EAC, TSP, CMP, CRMF, OCSP, and certificate generation.
                  This jar contains APIs for JDK 1.5 to JDK 1.8. The APIs can be used in conjunction with a JCE/JCA provider such as the one provided with the Bouncy Castle Cryptography APIs. -->
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcpkix-jdk15to18</artifactId>
+                <version>${bcpkix.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk18on -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk18on</artifactId>
                 <version>${bcpkix.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk15on -->
@@ -739,6 +760,12 @@
                 <artifactId>bcmail-jdk15to18</artifactId>
                 <version>${bcmail.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcjmail-jdk18on -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcjmail-jdk18on</artifactId>
+                <version>${bcmail.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpg-jdk15to18 -->
             <!-- The Bouncy Castle Java API for handling the OpenPGP protocol. This
 				jar contains the OpenPGP API for JDK 1.5 to JDK 1.8. The APIs can be used
@@ -749,11 +776,23 @@
                 <artifactId>bcpg-jdk15to18</artifactId>
                 <version>${bcpg.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpg-jdk18on -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpg-jdk18on</artifactId>
+                <version>${bcpg.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk15to18 -->
             <!-- The Bouncy Castle Java APIs for TLS and DTLS, including a provider for the JSSE.  -->
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bctls-jdk15to18</artifactId>
+                <version>${bctls.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk18on -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bctls-jdk18on</artifactId>
                 <version>${bctls.version}</version>
             </dependency>
 
@@ -3514,6 +3553,13 @@
                 <artifactId>mybatis-plus-annotation</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.jeffreyning/mybatisplus-plus -->
+            <dependency>
+                <groupId>com.github.jeffreyning</groupId>
+                <artifactId>mybatisplus-plus</artifactId>
+                <version>${mybatis-plus-ext.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-mate-starter -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-mate-starter</artifactId>
@@ -3523,12 +3569,6 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-mate-annotation</artifactId>
                 <version>${mybatis-mate.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper</artifactId>
-                <version>4.1.5</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
@@ -5839,6 +5879,24 @@
                 <artifactId>kaptcha-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-kaptcha.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/lock4j-redisson-spring-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
+                <version>${lock4j.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/lock4j-redis-template-spring-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-redis-template-spring-boot-starter</artifactId>
+                <version>${lock4j.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/lock4j-zookeeper-spring-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-zookeeper-spring-boot-starter</artifactId>
+                <version>${lock4j.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/log4j2-plus-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
@@ -5892,6 +5950,12 @@
                         <groupId>org.springframework.boot</groupId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>3.5.3</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/mybatis-dbperms-spring-boot-starter -->
             <dependency>
