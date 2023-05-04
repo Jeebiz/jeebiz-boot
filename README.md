@@ -37,26 +37,28 @@
 
 ```
 |--jeebiz-boot
-|----jeebiz-boot-dependencies		#公共依赖，便于依赖组件版本控制
-|----jeebiz-boot-modules			#具体业务服务
-|------jeebiz-boot-api				#基础API、公共对象（BaseController、BaseService、BaseMapper、BaseMapper 等）、异常对象
-|------jeebiz-boot-extras-external	#外部API集成
-|------jeebiz-boot-extras-redis		#Redis扩展
-|------jeebiz-boot-extras-redisson	#Redisson扩展
-|------jeebiz-boot-webflux-autoconfigure	# WebFlux自动初始化
-|------jeebiz-boot-webmvc-autoconfigure	#WebMVC 自动初始化
-|----jeebiz-boot-parent			    #子模块的父级工程，定义Maven配置
-|----jeebiz-boot-samples				#具体业务服务
-|--------jeebiz-boot-sample-druid		 #集成Druid数据源示例
-|--------jeebiz-boot-sample-druid-activemq		 #集成Druid数据源 + ActiveMQ 示例
-|--------jeebiz-boot-sample-druid-amqp		 #集成Druid数据源 + RabbitMQ 示例
-|--------jeebiz-boot-sample-druid-rocketmq		 #集成Druid数据源 + RocketMQ 示例
-|--------jeebiz-boot-sample-druid-war		 #集成Druid数据源打War包示例
-|--------jeebiz-boot-sample-druid-webflux		 #集成Druid + WebFlux 示例
-|--------jeebiz-boot-sample-hikaricp		 #集成 Hikaricp数据源示例
-|--------jeebiz-boot-sample-hikaricp-activemq		 #集成 Hikaricp数据源 + ActiveMQ 示例
-|--------jeebiz-boot-sample-hikaricp-amqp		 #集成 Hikaricp数据源 + RabbitMQ 示例
-|--------jeebiz-boot-sample-hikaricp-rocketmq		 #集成 Hikaricp数据源 + RocketMQ 示例
-|--------jeebiz-boot-sample-hikaricp-war		 #集成 Hikaricp数据源打War包示例
-|--------jeebiz-boot-sample-hikaricp-webflux		 #集成 Hikaricp数据源 + WebFlux 示例
+|----jeebiz-boot-dependencies		            #公共依赖，便于依赖组件版本控制
+|----jeebiz-boot-modules			            #具体业务服务
+|------jeebiz-boot-api				            #基础API、公共对象（BaseController、BaseService、BaseMapper、BaseMapper 等）、异常对象
+|------jeebiz-boot-crypto-autoconfigure	        #加解密组件自动初始化
+|------jeebiz-boot-external-autoconfigure	    #外部API集成自动初始化
+|------jeebiz-boot-jackson-autoconfigure	    #Jackson自动初始化
+|------jeebiz-boot-license-autoconfigure        #License自动初始化
+|------jeebiz-boot-plugin-api                   #插件API
+|------jeebiz-boot-webflux-autoconfigure	    #WebFlux自动初始化
+|------jeebiz-boot-webmvc-autoconfigure	        #WebMVC 自动初始化
+|----jeebiz-boot-parent			                #子模块的父级工程，定义Maven配置
+|----jeebiz-boot-samples				        #具体业务服务
+|--------jeebiz-boot-sample-druid		        #集成Druid数据源示例
+|--------jeebiz-boot-sample-druid-activemq	    #集成Druid数据源 + ActiveMQ 示例
+|--------jeebiz-boot-sample-druid-amqp		    #集成Druid数据源 + RabbitMQ 示例
+|--------jeebiz-boot-sample-druid-rocketmq	    #集成Druid数据源 + RocketMQ 示例
+|--------jeebiz-boot-sample-druid-war		    #集成Druid数据源打War包示例
+|--------jeebiz-boot-sample-druid-webflux	    #集成Druid + WebFlux 示例
+|--------jeebiz-boot-sample-hikaricp		    #集成 Hikaricp数据源示例
+|--------jeebiz-boot-sample-hikaricp-activemq	#集成 Hikaricp数据源 + ActiveMQ 示例
+|--------jeebiz-boot-sample-hikaricp-amqp		#集成 Hikaricp数据源 + RabbitMQ 示例
+|--------jeebiz-boot-sample-hikaricp-rocketmq	#集成 Hikaricp数据源 + RocketMQ 示例
+|--------jeebiz-boot-sample-hikaricp-war		#集成 Hikaricp数据源打War包示例
+|--------jeebiz-boot-sample-hikaricp-webflux	#集成 Hikaricp数据源 + WebFlux 示例
 ```
