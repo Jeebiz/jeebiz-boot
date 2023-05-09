@@ -112,7 +112,7 @@
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
         <dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
         <druid.version>1.2.17</druid.version>
-        <druid-metrics.version>1.0.1.RELEASE</druid-metrics.version>
+        <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
         <disruptor.version>3.4.4</disruptor.version>
@@ -178,6 +178,7 @@
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
         <jep.version>2.4.2</jep.version>
         <jedis.version>3.9.0</jedis.version>
+        <jjwt_0_7.version>0.7.0</jjwt_0_7.version>
         <jjwt.version>0.11.5</jjwt.version>
         <jakarta-websocket.version>2.0.0</jakarta-websocket.version>
         <jgoodies.version>2.7.0</jgoodies.version>
@@ -227,7 +228,7 @@
         <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
         <mybatis-plus-ext.version>1.7.4-RELEASE</mybatis-plus-ext.version>
         <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
-        <mybatis-spring.version>2.0.7</mybatis-spring.version>
+        <mybatis-spring.version>2.1.0</mybatis-spring.version>
         <mybatis-mate.version>1.2.9-sp2</mybatis-mate.version>
         <mybatis-migrations.version>3.3.10</mybatis-migrations.version>
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
@@ -267,6 +268,7 @@
         <paypal-rest-api-sdk.version>1.14.0</paypal-rest-api-sdk.version>
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
         <perf4j.version>0.9.16</perf4j.version>
+        <persistence-api.version>1.0.2</persistence-api.version>
         <poi.version>4.1.2</poi.version>
         <prometheus.version>0.10.0</prometheus.version>
         <protobuf.version>3.19.6</protobuf.version>
@@ -487,7 +489,7 @@
         <spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
         <spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
         <spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
-        <spring-boot-starter-okhttp3.version>1.1.0-SNAPSHOT</spring-boot-starter-okhttp3.version>
+        <spring-boot-starter-okhttp3.version>1.1.2.RELEASE</spring-boot-starter-okhttp3.version>
         <spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
         <spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
         <spring-boot-starter-pagehelper.version>1.3.0</spring-boot-starter-pagehelper.version>
@@ -533,7 +535,7 @@
         <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
-        <spring-boot-starter-xxljob.version>1.0.1-SNAPSHOT</spring-boot-starter-xxljob.version>
+        <spring-boot-starter-xxljob.version>1.0.1.RELEASE</spring-boot-starter-xxljob.version>
         <spring-boot-starter-zxing.version>1.0.2.RELEASE</spring-boot-starter-zxing.version>
 
     </properties>
@@ -3063,6 +3065,11 @@
                 <version>${jep.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt_0_7.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -4185,6 +4192,13 @@
                 <version>${perf4j.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${persistence-api.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
             <dependency>
                 <groupId>org.apache.poi</groupId>
@@ -5172,13 +5186,12 @@
                 <artifactId>UserAgentUtils</artifactId>
                 <version>${UserAgentUtils.version}</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/undertow-metrics-prometheus -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>undertow-metrics-prometheus</artifactId>
                 <version>${undertow-metrics.version}</version>
             </dependency>
-
             <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core -->
             <dependency>
                 <groupId>org.apache.velocity</groupId>
