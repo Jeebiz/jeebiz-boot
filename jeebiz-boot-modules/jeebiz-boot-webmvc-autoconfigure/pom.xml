@@ -22,7 +22,10 @@
             <artifactId>jeebiz-boot-jackson-autoconfigure</artifactId>
             <version>${jeebiz-boot.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
         <!-- For Webjars -->
         <dependency>
             <groupId>org.webjars</groupId>

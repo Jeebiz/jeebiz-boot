@@ -4,9 +4,20 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
+import cn.hutool.core.date.DateUtil;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import hitool.core.lang3.time.DateFormats;
 import io.hiwepy.boot.api.MediaTypes;
 import io.hiwepy.boot.api.web.servlet.handler.Slf4jMDCInterceptor;
@@ -29,10 +40,13 @@ import org.springframework.web.servlet.resource.WebJarsResourceResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.Map.Entry;
 
 public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
@@ -74,8 +88,40 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 
+		// 指定BigDecimal类型字段使用自定义的CustomDoubleSerialize序列化器
+		SimpleModule simpleModule = new SimpleModule();
+		simpleModule.addSerializer(Long.class, ToStringSerializer.instance);
+		simpleModule.addSerializer(Long.TYPE, ToStringSerializer.instance);
+
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DateFormats.DATE_LONGFORMAT);
+		simpleModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(dateTimeFormatter));
+		simpleModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(dateTimeFormatter));
+
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DateFormats.DATE_FORMAT);
+		simpleModule.addSerializer(LocalDate.class, new LocalDateSerializer(dateFormat));
+		simpleModule.addDeserializer(LocalDate.class, new LocalDateDeserializer(dateFormat));
+
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern(DateFormats.TIME_FORMAT);
+		simpleModule.addSerializer(LocalTime.class, new LocalTimeSerializer(timeFormatter));
+		simpleModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer(timeFormatter));
+		simpleModule.addDeserializer(Date.class, new JsonDeserializer<Date>() {
+			@Override
+			public Date deserialize(JsonParser p, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+				if (p == null) {
+					return null;
+				}
+				JsonNode node = p.getCodec().readTree(p);
+				if (node == null || node.asText() == null) {
+					return null;
+				}
+				return DateUtil.parse(node.asText());
+			}
+		});
+
 		// 单独初始化ObjectMapper，不使用全局对象，因为下面要指定特殊的输出处理，会影响内部业务逻辑
 		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json()
+				.modules(simpleModule, new JavaTimeModule())
+				// objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.SIMPLIFIED_CHINESE));
 				.simpleDateFormat(DateFormats.DATE_LONGFORMAT)
 				.serializationInclusion(JsonInclude.Include.NON_NULL)
 				.failOnEmptyBeans(false)

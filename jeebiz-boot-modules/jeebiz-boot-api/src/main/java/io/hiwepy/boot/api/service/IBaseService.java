@@ -27,6 +27,14 @@ import java.util.Map;
 public interface IBaseService<T> extends IService<T> {
 
 	/**
+	 * 更新数据状态
+	 * @param id
+	 * @param status
+	 * @return
+	 */
+	boolean setStatus(Serializable id, Serializable status);
+
+	/**
 	 * 分页查询
 	 *
 	 * @param model

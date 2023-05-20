@@ -20,6 +20,13 @@ import java.util.Map;
  * @param <T> 持有的实体对象
  */
 public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.BaseMapper<T>  {
+	/**
+	 * 更新数据状态
+	 * @param id
+	 * @param status
+	 * @return
+	 */
+	int setStatus(@Param("id") Serializable id, @Param("status") Serializable status);
 
 	/**
 	 * 分页查询

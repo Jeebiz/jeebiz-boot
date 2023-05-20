@@ -7,6 +7,7 @@ package io.hiwepy.boot.api.service;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import com.github.dozermapper.core.Mapper;
 import io.hiwepy.boot.api.dao.BaseMapper;
 import io.hiwepy.boot.api.dao.entities.PaginationEntity;
@@ -19,6 +20,7 @@ import org.springframework.biz.web.servlet.support.RequestContextUtils;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.*;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringValueResolver;
 import org.springframework.web.context.request.RequestAttributes;
@@ -72,6 +74,12 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
 		HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
 		//HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
 		return getMessageSource().getMessage(key, args, RequestContextUtils.getLocale(request));
+	}
+
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public boolean setStatus(Serializable id, Serializable status) {
+		return SqlHelper.retBool(getBaseMapper().setStatus(id, status));
 	}
 
 	/**
