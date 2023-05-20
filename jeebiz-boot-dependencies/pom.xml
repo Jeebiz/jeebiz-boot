@@ -273,7 +273,7 @@
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
         <perf4j.version>0.9.16</perf4j.version>
         <persistence-api.version>1.0.2</persistence-api.version>
-        <poi.version>4.1.2</poi.version>
+        <poi.version>5.2.1</poi.version>
         <prometheus.version>0.10.0</prometheus.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
