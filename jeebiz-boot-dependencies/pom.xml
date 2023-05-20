@@ -5032,23 +5032,6 @@
                 <version>${swagger-validator.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/io.swagger.core.v3 -->
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${swagger3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-core</artifactId>
-                <version>${swagger3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-models</artifactId>
-                <version>${swagger2.version}</version>
-            </dependency>
-
             <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/swagger-bootstrap-ui -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
