@@ -337,7 +337,7 @@
         <skywalking.version>8.14.0</skywalking.version>
         <slf4j.version>1.7.30</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
-        <snakeyaml.version>1.33</snakeyaml.version>
+        <snakeyaml.version>2.0</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
