@@ -10,6 +10,7 @@ import org.springframework.util.MultiValueMap;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -18,7 +19,7 @@ public class SignUtils {
 
 	/**
 	 * 1、获取密钥
-	 *
+	 * 
 	 * @param appId       客户端id
 	 * @param appVersion  版本号
 	 * @param appChannel  渠道
@@ -39,17 +40,17 @@ public class SignUtils {
      * @param body      方法体
      * @param salt    	密钥
      * @return          签名原文
-     * @throws UnsupportedEncodingException
+     * @throws UnsupportedEncodingException 
      */
     protected static String signOrigin(String token, MultiValueMap<String, String> formData, String body, String salt) throws UnsupportedEncodingException {
-
+        
         StringBuilder requestData = new StringBuilder(StringUtils.defaultString(token)).append("|");
         // form参数
         if(MapUtils.isEmpty(formData)) {
             requestData.append("|");
         } else {
-
-        	TreeMap<String, String> params = new TreeMap<>((o1, o2) -> o1.compareTo(o2));
+        	
+        	TreeMap<String, String> params = new TreeMap<>(Comparator.naturalOrder());
             formData.forEach((key, value) -> {
                 if(value.isEmpty()) {
                     params.put(key, "");
@@ -57,7 +58,7 @@ public class SignUtils {
                     params.put(key, value.get(0));
                 }
             });
-
+            
             params.forEach((key, value) -> {
                 if(StringUtils.isEmpty(value)) {
                     requestData.append("|");
@@ -72,14 +73,14 @@ public class SignUtils {
         } else {
             requestData.append(StringUtils.deleteWhitespace(body));
         }
-
+        
         String signOrigin = URLEncoder.encode(requestData.toString(), StandardCharsets.UTF_8.name());
-
+		
         return DigestUtils.md5DigestAsHex(signOrigin.getBytes());
     }
-
+    
     public static String sign(String token, MultiValueMap<String, String> formData, String body, String salt) throws UnsupportedEncodingException {
-
+        
         String originSign = signOrigin(token, formData, body, salt);
 
 		// 在originSign字符串中每隔两个位置插入一个salt
@@ -91,9 +92,9 @@ public class SignUtils {
             cs[i + 2] = originSign.charAt(i / 3 * 2 + 1);
         }
 		String sign = new String(cs);
-
+		
         return sign;
-
+        
     }
 
 	public static boolean verify(String token, String appId, String appVersion, String appChannel,
@@ -103,10 +104,10 @@ public class SignUtils {
 		String salt = salt(appId, appVersion, appChannel, fixedSecret);
 
 		String sign = sign(token, params, body, salt);
-
+		
 		return sign.equals(clientSign);
 	}
-
+	
 	/**
      * 2、验签
      * @param token     token
@@ -114,17 +115,17 @@ public class SignUtils {
      * @param body      方法体
      * @param salt    	密钥
      * @return          签名原文
-     * @throws UnsupportedEncodingException
+     * @throws UnsupportedEncodingException 
      */
     protected static String signOrigin(String token, Map<String, String[]> formData, String body, String salt) throws UnsupportedEncodingException {
-
+        
         StringBuilder requestData = new StringBuilder(StringUtils.defaultString(token)).append("|");
         // form参数
         if(MapUtils.isEmpty(formData)) {
             requestData.append("|");
         } else {
-
-        	TreeMap<String, String> params = new TreeMap<>((o1, o2) -> o1.compareTo(o2));
+        	
+        	TreeMap<String, String> params = new TreeMap<>(Comparator.naturalOrder());
             formData.forEach((key, values) -> {
                 if(values.length == 0) {
                     params.put(key, "");
@@ -132,7 +133,7 @@ public class SignUtils {
                     params.put(key, values[0]);
                 }
             });
-
+            
             params.forEach((key, value) -> {
                 if(StringUtils.isEmpty(value)) {
                     requestData.append("|");
@@ -147,14 +148,14 @@ public class SignUtils {
         } else {
             requestData.append(StringUtils.deleteWhitespace(body));
         }
-
+        
         String signOrigin = URLEncoder.encode(requestData.toString(), StandardCharsets.UTF_8.name());
-
+		
         return DigestUtils.md5DigestAsHex(signOrigin.getBytes());
     }
-
+    
     public static String sign(String token, Map<String, String[]> formData, String body, String salt) throws UnsupportedEncodingException {
-
+        
         String originSign = signOrigin(token, formData, body, salt);
 
 		// 在originSign字符串中每隔两个位置插入一个salt
@@ -166,9 +167,9 @@ public class SignUtils {
             cs[i + 2] = originSign.charAt(i / 3 * 2 + 1);
         }
 		String sign = new String(cs);
-
+		
         return sign;
-
+        
     }
 
 	public static boolean verify(String token, String appId, String appVersion, String appChannel,
@@ -178,30 +179,30 @@ public class SignUtils {
 		String salt = salt(appId, appVersion, appChannel, fixedSecret);
 
 		String sign = sign(token, formData, body, salt);
-
+		
 		return sign.equals(clientSign);
 	}
-
+	
 	public static void main(String[] args) throws Exception {
-
-		String appId = "1", appVersion = "20000", appChannel = "ASO000", fixedSecret = "kd2021";
-
+		
+		String appId = "1", appVersion = "20000", appChannel = "ASO000", fixedSecret = "z2023";
+		
 		String salt = SignUtils.salt(appId, appVersion, appChannel, fixedSecret);
 		System.out.println(salt);
-
+		
 		MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
 		String token = "";
 		String body = "";
-
+		
 		String sign = SignUtils.sign(token, formData, body, salt);
-
+		
 		System.out.println(sign);
-
+		
 		String clientSign = "2136d6ec5e2c17b3ac787bf6f86fffe7ab7b0c389efa970a";
 
 		System.out.println(SignUtils.verify(token, appId, appVersion, appChannel, fixedSecret, clientSign, formData, body));
-
+		
 	}
-
+	
 
 }
