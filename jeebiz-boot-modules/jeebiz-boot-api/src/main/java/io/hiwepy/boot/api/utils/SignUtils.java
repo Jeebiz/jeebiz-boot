@@ -10,6 +10,7 @@ import org.springframework.util.MultiValueMap;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -49,7 +50,7 @@ public class SignUtils {
             requestData.append("|");
         } else {
         	
-        	TreeMap<String, String> params = new TreeMap<>((o1, o2) -> o1.compareTo(o2));
+        	TreeMap<String, String> params = new TreeMap<>(Comparator.naturalOrder());
             formData.forEach((key, value) -> {
                 if(value.isEmpty()) {
                     params.put(key, "");
@@ -124,7 +125,7 @@ public class SignUtils {
             requestData.append("|");
         } else {
         	
-        	TreeMap<String, String> params = new TreeMap<>((o1, o2) -> o1.compareTo(o2));
+        	TreeMap<String, String> params = new TreeMap<>(Comparator.naturalOrder());
             formData.forEach((key, values) -> {
                 if(values.length == 0) {
                     params.put(key, "");
@@ -184,7 +185,7 @@ public class SignUtils {
 	
 	public static void main(String[] args) throws Exception {
 		
-		String appId = "1", appVersion = "20000", appChannel = "ASO000", fixedSecret = "kd2021";
+		String appId = "1", appVersion = "20000", appChannel = "ASO000", fixedSecret = "z2023";
 		
 		String salt = SignUtils.salt(appId, appVersion, appChannel, fixedSecret);
 		System.out.println(salt);
