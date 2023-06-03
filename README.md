@@ -1,16 +1,19 @@
 ## Jeebiz Boot 简介：
 
-> Jeebiz Boot 是以 Spring Boot 为基础，搭建的通用项目依赖和配置脚手架；
+> [danger] Jeebiz Boot 是以 Spring Boot 为基础，构建的 Spring Boot 项目快速开发脚手架；
 
-- 1、继承 Spring Boot的各种特性和依赖组件
+- 1、继承 Spring Boot ，具备 Spring Boot 的 所有特性
 
-- 2、自定义项目常用的各类组件依赖和版本，方便项目直接使用
+- 2、集成 Dozer、Fastjson、Jackson、Guava、Mybatis Plus、Okhttp3、Snowflake、Swagger、TrueLicense、Ip2region 等组件
 
-- 3、自定义项目默认的打包编译方式；快速的构建项目部署包
+- 3、集成各类三方Maven组件，统一管理版本
 
-- 4、定义服务开发基础API、公共对象（BaseController、BaseService、BaseMapper、BaseMapper 等）、异常对象
+- 4、定义基础对象（BaseController、BaseService、BaseMapper、BaseMapper 等）、异常对象、IP地址解析
 
-- 5、定义 Spring Boot 项目默认初始化逻辑和异常处理
+- 5、支持 WebMvc 和 WebFlux 项目自动初始化，全局异常处理
+
+- 6、自定义项目默认的打包编译方式；快速的构建项目部署包
+
 
 #### Jeebiz Boot 说明：
 
