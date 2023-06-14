@@ -143,7 +143,7 @@
         <google-auth-library.version>1.8.1</google-auth-library.version>
         <google-http-client.version>1.42.2</google-http-client.version>
         <google-cloud-translate.version>2.3.2</google-cloud-translate.version>
-        <guava.version>31.0.1-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
         <grizzly.version>2.4.4</grizzly.version>
         <grpc.version>1.35.0</grpc.version>
         <gson.version>2.9.0</gson.version>
