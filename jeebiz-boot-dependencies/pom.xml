@@ -35,7 +35,7 @@
         <batik.version>1.14</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
-        <bcprov.version>1.72</bcprov.version>
+        <bcprov.version>1.74</bcprov.version>
         <bcpkix.version>${bcprov.version}</bcpkix.version>
         <bcmail.version>${bcprov.version}</bcmail.version>
         <bcpg.version>1.72.2</bcpg.version>
