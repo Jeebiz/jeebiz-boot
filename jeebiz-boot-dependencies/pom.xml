@@ -151,7 +151,7 @@
         <hanlp.version>portable-1.8.4</hanlp.version>
         <hanlp-restful.version>0.0.15</hanlp-restful.version>
         <hbase.version>2.2.4</hbase.version>
-        <h2.version>2.1.214</h2.version>
+        <h2.version>2.2.220</h2.version>
         <htmlparser.version>2.1</htmlparser.version>
         <httpconn.version>1.0.1.RELEASE</httpconn.version>
         <httputils.version>1.0.0.RELEASE</httputils.version>
