@@ -7,6 +7,7 @@ package io.hiwepy.boot.api.utils;
 /**
  * 标准Http状态码
  * @author wandl
+ * @See org.springframework.http.HttpStatus
  */
 public interface HttpStatus {
 
