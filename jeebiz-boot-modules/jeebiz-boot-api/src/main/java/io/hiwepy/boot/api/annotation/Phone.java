@@ -11,9 +11,9 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR, ElementType.PARAMETER,ElementType.TYPE_USE})
 @Constraint(validatedBy = {PhoneValueValidator.class})
 public @interface Phone {
-	
+
 	String lang() default "CN";
-	
+
     String value() default "";
 
     String message();

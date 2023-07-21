@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.dao.entities;
 
@@ -13,13 +13,13 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class I18nModel implements Serializable {
 
-	/**模块名称：通常指功能模块代码*/ 
+	/**模块名称：通常指功能模块代码*/
 	protected String module;
-	/**国际化资源文件名称*/ 
+	/**国际化资源文件名称*/
 	protected String resource;
 	/**国际化信息集合*/
 	protected List<PairModel> i18nList;
-	
+
 	public String getModule() {
 		return module;
 	}

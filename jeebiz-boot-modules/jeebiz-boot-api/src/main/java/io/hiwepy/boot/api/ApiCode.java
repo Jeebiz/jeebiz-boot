@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api;
 
@@ -249,7 +249,7 @@ public enum ApiCode {
 	private final String status;
 	private final String reason;
 
-	ApiCode(int code, String status, String reason) {
+	private ApiCode(int code, String status, String reason) {
 		this.code = code;
 		this.status = status;
 		this.reason = reason;

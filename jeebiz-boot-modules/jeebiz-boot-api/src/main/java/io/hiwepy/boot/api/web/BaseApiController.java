@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.web;
 
@@ -49,8 +49,8 @@ import io.swagger.annotations.ApiResponses;
 	@ApiResponse(code = ApiCodeValue.SC_AUTHZ_CODE_INVALID, message = "临时授权码已失效", response = ApiRestResponse.class),
 	@ApiResponse(code = ApiCodeValue.SC_AUTHZ_CODE_INCORRECT, message = "临时授权码错误", response = ApiRestResponse.class),
 	@ApiResponse(code = ApiCodeValue.SC_AUTHZ_THIRD_PARTY_SERVICE, message = "第三方授权服务端异常", response = ApiRestResponse.class)
-	
+
 })
 public abstract class BaseApiController extends BaseMapperController {
-	
+
 }

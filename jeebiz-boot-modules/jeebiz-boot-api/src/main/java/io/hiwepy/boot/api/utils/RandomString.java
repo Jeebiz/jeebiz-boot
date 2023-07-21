@@ -12,5 +12,5 @@ public class RandomString extends hitool.core.lang3.RandomString{
     public RandomString(int length) {
     	super(length);
     }
-    
+
 }

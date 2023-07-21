@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.hiwepy</groupId>
         <artifactId>jeebiz-boot-modules</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>2.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
@@ -30,6 +30,12 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- For Spring Web Starter -->
         <dependency>

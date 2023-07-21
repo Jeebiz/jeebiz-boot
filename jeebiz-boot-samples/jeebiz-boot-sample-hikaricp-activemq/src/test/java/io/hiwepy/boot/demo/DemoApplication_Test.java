@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo;
 
@@ -20,8 +20,8 @@ import com.google.common.collect.ImmutableMap;
 @SpringBootTest(classes = DemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DemoApplication_Test {
 
-	
-	
+
+
 	 /**
     * @LocalServerPort 提供了 @Value("${local.server.port}") 的代替
     */
@@ -47,12 +47,12 @@ public class DemoApplication_Test {
    public void test1() throws Exception {
 
 		Map<String, Object> requestBody = new ImmutableMap.Builder<String, Object>()
-				.put("name", 1) 
+				.put("name", 1)
 				.put("text", 60).build();
-	   
+
        ResponseEntity<String> response = this.restTemplate.postForEntity(
                this.base.toString() + "/demo/new", requestBody ,String.class);
        System.out.println(String.format("测试结果为：%s", response.getBody()));
    }
-   
+
 }

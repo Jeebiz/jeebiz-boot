@@ -45,15 +45,15 @@ public class WebUtils extends org.springframework.biz.utils.WebUtils {
         }
         return null;
     }
-    
+
     public static RequestAttributes getRequestAttributesSafely(){
         RequestAttributes requestAttributes = null;
         try{
             requestAttributes = RequestContextHolder.currentRequestAttributes();
         } catch (IllegalStateException e){
-            
+
         }
         return requestAttributes;
     }
-    
+
 }

@@ -10,13 +10,13 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 public @interface ExtensionMapping {
-	
+
 	public String id() default "";
-	
+
 	public String title() default "";
-	
+
 	public String ver() default "1.0.0";
-	
+
 	public String desc() default "";
-	
+
 }

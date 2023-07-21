@@ -25,11 +25,11 @@ public class Producer implements CommandLineRunner {
     @Autowired
     private Topic topic;
 
-    // 发送消息，destination是发送到的队列，message是待发送的消息  
-    public void sendMessage(Destination destination, final String message){  
-    	jmsMessagingTemplate.convertAndSend(destination, message);  
-    }  
-    
+    // 发送消息，destination是发送到的队列，message是待发送的消息
+    public void sendMessage(Destination destination, final String message){
+    	jmsMessagingTemplate.convertAndSend(destination, message);
+    }
+
     @Scheduled(fixedDelay=3000)//每3s执行1次
     public void send() {
 
@@ -42,7 +42,7 @@ public class Producer implements CommandLineRunner {
        this.jmsMessagingTemplate.convertAndSend(this.topic, "hi,activeMQ(topic)");
 
     }
-    
+
     public void send(String msg) {
 		this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
     }
@@ -53,6 +53,6 @@ public class Producer implements CommandLineRunner {
 		System.out.println("Message was sent to the Queue");
 	}
 
-   
+
 
 }

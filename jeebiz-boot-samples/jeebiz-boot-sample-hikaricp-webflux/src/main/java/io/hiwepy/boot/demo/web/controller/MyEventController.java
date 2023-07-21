@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.web.controller;
 
@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/events")
 public class MyEventController {
-	
+
     @Autowired
     private MyEventRepository myEventRepository;
 
@@ -28,10 +28,10 @@ public class MyEventController {
     public Mono<Void> loadEvents(@RequestBody Flux<MyEvent> events) {
         return this.myEventRepository.insert(events).then();    // 2
     }
-    
+
     @GetMapping(path = "", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<MyEvent> getEvents() {
         return this.myEventRepository.findBy();
     }
-    
+
 }

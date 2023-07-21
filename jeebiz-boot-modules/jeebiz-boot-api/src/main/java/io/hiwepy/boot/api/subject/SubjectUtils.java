@@ -9,7 +9,7 @@ public class SubjectUtils {
 		}
 		return subject;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static <T> T getPrincipal(Class<T> clazz) {
 		Object principal = getSubject().getPrincipal();

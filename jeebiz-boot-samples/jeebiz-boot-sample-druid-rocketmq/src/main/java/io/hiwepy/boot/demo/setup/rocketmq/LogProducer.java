@@ -31,14 +31,14 @@ public class LogProducer implements CommandLineRunner {
 
 			@Override
 			public void onSuccess(SendResult sendResult) {
-				
+
 			}
 
 			@Override
 			public void onException(Throwable e) {
-				
+
 			}
-    		
+
     	});
 
 	}

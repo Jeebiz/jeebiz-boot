@@ -24,7 +24,7 @@
 			<artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
 			<version>${jeebiz-boot.version}</version>
 		</dependency>
-		
+
 		<!-- For Embedded Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -87,6 +87,10 @@
 		<dependency>
 			<groupId>com.github.dozermapper</groupId>
 			<artifactId>dozer-spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.hiwepy</groupId>
+			<artifactId>dozer-extra-converters</artifactId>
 		</dependency>
 		<!-- For AOP -->
 		<dependency>
@@ -155,7 +159,7 @@
 		    <scope>runtime</scope>
 		</dependency>
 		<dependency>
-	        <groupId>com.oracle.database.jdbc</groupId>
+	        <groupId>com.oracle.database.observability</groupId>
 	        <artifactId>ojdbc8dms</artifactId>
 	        <scope>runtime</scope>
 	    </dependency>

@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.annotation;
 
@@ -19,7 +19,7 @@ public enum ApiIdempotentType {
 	 * 通过参数值
 	 */
 	ARGS;
-	
+
 	public boolean equals(ApiIdempotentType type) {
 		return this.compareTo(type) == 0;
 	}
@@ -29,7 +29,7 @@ public enum ApiIdempotentType {
 	}
 
 	public static ApiIdempotentType valueOfIgnoreCase(String type) {
-		
+
 		for (ApiIdempotentType typeEnum : ApiIdempotentType.values()) {
 			if (typeEnum.name().equals(type)) {
 				return typeEnum;
@@ -37,5 +37,5 @@ public enum ApiIdempotentType {
 		}
 		throw new NoSuchElementException("Cannot found AliIdempotentType with type '" + type + "'.");
 	}
-	
+
 }

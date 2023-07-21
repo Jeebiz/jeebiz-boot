@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
  * All Rights Reserved. 
  */
@@ -14,7 +14,7 @@ public class LocalResourceProperteis {
 
     // 本地存储路径
     private String localStorage;
-    
+
     // 本地静态资源映射是否是相对于localStorage的地址
     private boolean localRelative;
 
@@ -44,5 +44,5 @@ public class LocalResourceProperteis {
 	public void setLocalLocations(Map<String, String> localLocations) {
 		this.localLocations = localLocations;
 	}
-    
+
 }

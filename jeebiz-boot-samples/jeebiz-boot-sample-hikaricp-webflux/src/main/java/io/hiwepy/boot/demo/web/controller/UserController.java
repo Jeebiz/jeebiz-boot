@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.web.controller;
 
@@ -23,7 +23,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	
+
     @Autowired
     private UserService userService;
 

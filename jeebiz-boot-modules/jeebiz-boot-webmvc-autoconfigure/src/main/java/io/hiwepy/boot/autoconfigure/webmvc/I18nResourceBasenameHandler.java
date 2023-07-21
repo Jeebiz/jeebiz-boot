@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.autoconfigure.webmvc;
 
@@ -15,9 +15,9 @@ public class I18nResourceBasenameHandler implements ResourceBasenameHandler {
 
 	@Override
 	public String handle(Resource resource) throws IOException {
-		
+
 		URL url = resource.getURL();
-		
+
 		String filepath = url.getPath();
 		return "i18n" + FilenameUtils.getFullPath(filepath).split("i18n")[1] + FilenameUtils.getBaseName(filepath);
 	}

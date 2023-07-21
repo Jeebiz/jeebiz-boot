@@ -15,10 +15,10 @@ public class ActiveMQConfiguration {
     public Queue queue() {
        return new ActiveMQQueue("demo.queue");
     }
-	
+
     @Bean
     public Topic topic() {
        return new ActiveMQTopic("demo.topic");
     }
-	
+
 }

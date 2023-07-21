@@ -15,4 +15,4 @@ public class LogConsumer {
   public void receivedQueue(String msg) {  
       LOGGER.info("Has received from " + QueueName.LOG_QUEUE + ", msg: " + msg);  
   }  
-}  
+}

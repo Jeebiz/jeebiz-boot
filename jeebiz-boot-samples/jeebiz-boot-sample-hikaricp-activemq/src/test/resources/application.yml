@@ -1,5 +1,5 @@
-################################################################################################################  
-###Spring Boot 监控（安全、开放信息等）配置：  
+################################################################################################################
+###Spring Boot 监控（安全、开放信息等）配置：
 ################################################################################################################
 management:
   endpoints:
@@ -10,8 +10,8 @@ management:
     health:
       show-details: ALWAYS
 
-################################################################################################################  
-###内置应用容器（Tomcat、Jetty、Undertow）配置：  
+################################################################################################################
+###内置应用容器（Tomcat、Jetty、Undertow）配置：
 ################################################################################################################
 server:
   compression:
@@ -37,11 +37,11 @@ server:
     # Nthreads = Ncpu x Ucpu x (1 + W/C)
     # 《Programming Concurrency on the JVM Mastering》一书中，给出了估算线程池大小的公式：
     # Nthreads = Ncpu / (1 - 阻塞系数)
-    # 概念：    
+    # 概念：
     # Ncpu = CPU核心数
     # Ucpu = CPU使用率，0~1
     # W/C = 等待时间与计算时间的比率
-    # 实际： 
+    # 实际：
     # IO密集型 = 2Ncpu（可以测试后自己控制大小，2Ncpu一般没问题）（常出现于线程中：数据库数据交互、文件上传下载、网络数据传输等等）
     # 计算密集型 = Ncpu（常出现于线程中：复杂算法）
     #threads:
@@ -51,9 +51,9 @@ server:
       # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程
       # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
       #worker: 256
-     
-################################################################################################################  
-###接口文档（Swagger UI）配置：  
+
+################################################################################################################
+###接口文档（Swagger UI）配置：
 ################################################################################################################
 swagger:
   enabled: true
@@ -70,15 +70,15 @@ swagger:
   base-path-pattern: /**
   apply-default-response-messages: true
 
-################################################################################################################  
-###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：  
 ################################################################################################################
-spring: 
+###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：
+################################################################################################################
+spring:
   # 应用信息配置
   application:
     name: jeebiz-boot-sample-druid
   # 缓存配置：
-  cache: 
+  cache:
     type: ehcache
     ehcache:
       config: classpath:/conf/ehcache/ehcache.xml
@@ -87,18 +87,18 @@ spring:
     name: jeebiz_demo
     type: com.alibaba.druid.pool.DruidDataSource
     # Druid的数据源配置：
-    druid: 
+    druid:
       enabled: true
       #配置这个属性的意义在于，如果存在多个数据源，监控的时候可以通过名字来区分开来。如果没有配置，将会生成一个名字，格式是：”DataSource-” + System.identityHashCode(this)
       #name: DataSource-Test
       #这一项可配可不配，如果不配置druid会根据url自动识别dbType，然后选择相应的driverClassName
-      #driver-class-name: oracle.jdbc.driver.OracleDriver         
-      #url: 
+      #driver-class-name: oracle.jdbc.driver.OracleDriver
+      #url:
       #username: xxx
-      #password: xxx 
+      #password: xxx
       #initialSize: 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时；默认 15
       initial-size: 15
-      #连接池最大连接数量 
+      #连接池最大连接数量
       max-active: 50
       #获取连接时最大等待时间，单位毫秒。配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁
       max-wait: 60000
@@ -120,9 +120,9 @@ spring:
       test-on-borrow: false
       # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
       test-on-return: false
-      #是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql5.5以下的版本中没有PSCache功能，建议关闭掉。5.5及以上版本有PSCache，建议开启。 
+      #是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql5.5以下的版本中没有PSCache功能，建议关闭掉。5.5及以上版本有PSCache，建议开启。
       pool-prepared-statements: true
-      #要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100 
+      #要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
       max-pool-prepared-statement-per-connection-size: 100
       #Druid的监控统计功能:属性类型是字符串，通过别名的方式配置扩展插件
       #filters: mergeStat,wall,slf4j
@@ -158,7 +158,7 @@ spring:
             comment-allow: true
             # 是否允许非以上基本语句的其他语句，缺省关闭，通过这个选项就能够屏蔽DDL
             none-base-statement-allow: true
-            # 是否允许一次执行多条语句，缺省关闭 
+            # 是否允许一次执行多条语句，缺省关闭
             multi-statement-allow: true
             # 解除union关键字检查
             select-union-check: false
@@ -178,7 +178,7 @@ spring:
     add-mappings: true
   # 会话配置（交个Shiro管理，此处不再指定）：
   session:
-    store-type: none 
+    store-type: none
   #thymelea模板配置：https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
   thymeleaf:
     cache: false
@@ -186,19 +186,19 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
-    
-################################################################################################################  
-###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
+
 ################################################################################################################
-  flyway: 
+###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：
+################################################################################################################
+  flyway:
     enabled: true
     locations:
     - classpath:db/migration/{vendor}
-    #指定SQL起始版本信息 
+    #指定SQL起始版本信息
     baseline-on-migrate: true
     baseline-version: 1.0.0.0
     baseline-description: 业务框架、权限管理、日志管理初始化
-    #如果已经有版本1和3，当发现新的版本2时，如果此参数为true,将会把版本2作为当前版本  
+    #如果已经有版本1和3，当发现新的版本2时，如果此参数为true,将会把版本2作为当前版本
     out-of-order: false
     #在进行版本升级前是否进行SQL版本信息校验
     validate-on-migrate: true
@@ -207,18 +207,18 @@ spring:
     #禁止对数据库进行相关清除操作
     clean-disabled: true
 
-################################################################################################################  
-###mybatis-plus (MybatisPlusProperties) 基本配置：  
+################################################################################################################
+###mybatis-plus (MybatisPlusProperties) 基本配置：
 ###http://mp.baomidou.com/#/spring-boot
-################################################################################################################  
+################################################################################################################
 mybatis-plus:
   # 初始配置文件
-  check-config-location: true 
+  check-config-location: true
   # config-location: classpath:/conf/mybatis/sqlMapConfig.xml
   #configuration-properties:
   # 初始配置参数
   #configuration:
-    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId） 
+    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
     #map-underscore-to-camel-case: true
     #cache-enabled: false
     #配置JdbcTypeForNull, oracle数据库必须配置
@@ -232,15 +232,15 @@ mybatis-plus:
     # 指定MyBatis如何自动映射列到字段/属性。PARTIAL只会自动映射简单，没有嵌套的结果。
     # FULL会自动映射任意复杂的结果（嵌套的或其他情况）;有效值：NONE,PARTIAL,FULL,默认值：PARTIAL
     auto-mapping-behavior: partial
-    # 当检测出未知列（或未知属性）时，如何处理，    默认情况下没有任何提示，这在测试的时候很不方便，不容易找到错误 
+    # 当检测出未知列（或未知属性）时，如何处理，    默认情况下没有任何提示，这在测试的时候很不方便，不容易找到错误
     auto-mapping-unknown-column-behavior: failing
     # 当启用时，使用延迟加载属性的对象在发起任何延迟属性的调用时会被完全加载。否则，每个属性在请求时就加载。默认值：true
     aggressive-lazy-loading: true
     # 全局二级缓存开关：默认是true，如果它配成false，其余各个Mapper XML文件配成支持cache也没用
     cache-enabled: true
     call-setters-on-nulls: false
-    # database-id:  
-    # default-fetch-size: 
+    # database-id:
+    # default-fetch-size:
     # 设置超时时间，它决定驱动等待一个数据库响应的时间。有效值：Any，positive，integer ；默认值：Not Set(null)
     default-statement-timeout: 25
     # 配置默认的执行器。SIMPLE 执行器没有什么特别之处。REUSE执行器重用预处理语句。BATCH 执行器重用语句和批量更新
@@ -252,14 +252,14 @@ mybatis-plus:
     multiple-result-sets-enabled: true
     #use-actual-param-name:
     # 使用列标签代替列名。不同的驱动在这方便表现不同。参考驱动文档或充分测试两种方法来决定所使用的驱动。有效值：true,false;默认值：true
-    use-column-label: true 
+    use-column-label: true
     # 允许JDBC支持生成的键。需要适合的驱动。如果设置为true则这个设置强制生成的键被使用，尽管一些驱动拒绝兼容但仍然有效（比如 Derby）;有效值：true,false;默认值：false
     use-generated-keys: false
     safe-row-bounds-enabled: false
     safe-result-handler-enabled: true
     # 全局地禁用或启用延迟加载。禁用时，所有关联查询会被马上加载;默认值：true
     lazy-loading-enabled: true
-    lazy-load-trigger-methods: 
+    lazy-load-trigger-methods:
       equals
       clone
       hashCode
@@ -268,9 +268,9 @@ mybatis-plus:
     log-prefix: "[Mybatis]"
     #log-impl: org.apache.ibatis.logging.log4j2.Log4j2LoggerImpl.class
 
-################################################################################################################  
-###logging (log4j2) 基本配置：  
+################################################################################################################
+###logging (log4j2) 基本配置：
 ###http://www.cnblogs.com/yhtboke/p/Mybatis.html
 ################################################################################################################
-logging: 
+logging:
   config: classpath:conf/log4j2.xml

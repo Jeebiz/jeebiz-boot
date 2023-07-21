@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.router;
 
@@ -17,7 +17,7 @@ import io.hiwepy.boot.demo.router.handler.TimeHandler;
 
 @Configuration
 public class RouterConfig {
-	
+
     @Autowired
     private TimeHandler timeHandler;
 
@@ -26,5 +26,5 @@ public class RouterConfig {
         return route(GET("/time"), req -> timeHandler.getTime(req))
                 .andRoute(GET("/date"), timeHandler::getDate);  // 这种方式相对于上一行更加简洁
     }
-    
+
 }

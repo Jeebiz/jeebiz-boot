@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.web;
 
@@ -51,26 +51,26 @@ public class Result<T> {
 
 	public Result() {
 	}
-	
+
 	public Result(List<T> rows) {
-		
+
 		this.total = rows.size();
 		this.current = 1;
 		this.size = rows.size();
 		this.pages = 1;
 		this.rows = rows;
-		
+
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public Result(Page pageResult, List<T> rows) {
-		
+
 		this.total = pageResult.getTotal();
 		this.current = pageResult.getCurrent();
 		this.size = pageResult.getSize();
 		this.pages = pageResult.getPages();
 		this.rows = rows;
-		
+
 	}
 
 }

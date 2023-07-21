@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.annotation;
 
@@ -55,7 +55,7 @@ public enum BusinessType {
 	 * 发送短信
 	 */
 	SMS("sms", "发送短信");
-	
+
 	private String key;
 	private String desc;
 
@@ -98,5 +98,5 @@ public enum BusinessType {
 		typeMap.put("desc", this.getDesc());
 		return typeMap;
 	}
-	
+
 }

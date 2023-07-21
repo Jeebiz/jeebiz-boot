@@ -27,8 +27,8 @@ public class WebFluxUtils {
 	private static final String LOCAL_HOST = "localhost";
 	private static final String LOCAL_IP6 = "0:0:0:0:0:0:0:1";
 	private static final String LOCAL_IP = "127.0.0.1";
-	private static final String UNKNOWN = "unknown";   
-	
+	private static final String UNKNOWN = "unknown";
+
     public static boolean isAjaxResponse(ServerHttpRequest request ) {
 		return isAjaxRequest(request) || isContentTypeJson(request) || isPostRequest(request);
 	}
@@ -40,11 +40,11 @@ public class WebFluxUtils {
     public static boolean isObjectRequest(HttpRequest request ) {
         return isPostRequest(request) && isContentTypeJson(request);
     }
-    
+
     public static boolean isAjaxRequest(ServerHttpRequest request ) {
         return XML_HTTP_REQUEST.equals(request.getHeaders().getFirst(X_REQUESTED_WITH));
     }
-    
+
     public static boolean isAjaxRequest(HttpRequest request ) {
         return request.getHeaders().get(X_REQUESTED_WITH).contains(XML_HTTP_REQUEST);
     }
@@ -52,19 +52,19 @@ public class WebFluxUtils {
     public static boolean isContentTypeJson(ServerHttpRequest request ) {
         return request.getHeaders().get(HttpHeaders.CONTENT_TYPE).contains(CONTENT_TYPE_JSON);
     }
-    
+
     public static boolean isContentTypeJson(HttpRequest request ) {
         return request.getHeaders().get(HttpHeaders.CONTENT_TYPE).contains(CONTENT_TYPE_JSON);
     }
-    
+
     public static boolean isPostRequest(ServerHttpRequest request ) {
         return HttpMethod.POST.compareTo(request.getMethod()) == 0;
     }
-    
+
     public static boolean isPostRequest(HttpRequest request ) {
         return HttpMethod.POST.compareTo(request.getMethod()) == 0;
     }
-    
+
 	/**
 	 * 2、从Flux<DataBuffer>中获取字符串的方法
 	 * @return 请求体
@@ -84,7 +84,7 @@ public class WebFluxUtils {
 		// 获取request body
 		return bodyRef.get();
 	}
-	
+
 
 	/**
 	 * 获取请求客户端IP地址，支持代理服务器
@@ -92,13 +92,13 @@ public class WebFluxUtils {
 	 * @return IP地址
 	 */
 	public static String getRemoteAddr(ServerHttpRequest request) {
-		
+
 		// 1、获取客户端IP地址，支持代理服务器
-		String remoteAddr = UNKNOWN; 
+		String remoteAddr = UNKNOWN;
 		for (String xheader : xheaders) {
 			remoteAddr = request.getHeaders().getFirst(xheader);
 			log.debug(" {} : {} " , xheader, remoteAddr);
-			if (StringUtils.hasText(remoteAddr) && !UNKNOWN.equalsIgnoreCase(remoteAddr)) {  
+			if (StringUtils.hasText(remoteAddr) && !UNKNOWN.equalsIgnoreCase(remoteAddr)) {
 	            // 多次反向代理后会有多个ip值，第一个ip才是真实ip
 	            if( remoteAddr.indexOf(",") !=-1 ){
 	            	remoteAddr = remoteAddr.split(",")[0];
@@ -106,30 +106,30 @@ public class WebFluxUtils {
 	            break;
 	        }
 		}
-		if (!StringUtils.hasText(remoteAddr) || UNKNOWN.equalsIgnoreCase(remoteAddr)) { 
+		if (!StringUtils.hasText(remoteAddr) || UNKNOWN.equalsIgnoreCase(remoteAddr)) {
 			for (String header : headers) {
-				
+
 				remoteAddr = request.getHeaders().getFirst(header);
 				log.debug(" {} : {} " , header, remoteAddr);
-				
+
 				if(StringUtils.hasText(remoteAddr) && !UNKNOWN.equalsIgnoreCase(remoteAddr)){
 					break;
 				}
 			}
 		}
-		
+
 		// 2、没有取得特定标记的值
-		if (!StringUtils.hasText(remoteAddr) || UNKNOWN.equalsIgnoreCase(remoteAddr)) { 
+		if (!StringUtils.hasText(remoteAddr) || UNKNOWN.equalsIgnoreCase(remoteAddr)) {
 			remoteAddr = request.getRemoteAddress().getAddress().getHostAddress();
 		}
 		// 3、判断是否localhost访问
 		if( LOCAL_HOST.equals(remoteAddr) || LOCAL_IP6.equals(remoteAddr)){
-			remoteAddr = LOCAL_IP;  
+			remoteAddr = LOCAL_IP;
 		}
-		 
+
 		return remoteAddr;
 	}
-	
+
 	public static boolean isSameSegment(ServerHttpRequest request) {
         String localIp = request.getLocalAddress().getAddress().getHostAddress();
         String remoteIp = getRemoteAddr(request);
@@ -138,7 +138,7 @@ public class WebFluxUtils {
         boolean flag = (mask & getIpV4Value(localIp)) == (mask & getIpV4Value(remoteIp));
         return flag;
     }
-	
+
 	public static int getIpV4Value(String ipOrMask) {
         byte[] addr = getIpV4Bytes(ipOrMask);
         int address1 = addr[3] & 0xFF;
@@ -162,7 +162,7 @@ public class WebFluxUtils {
         }
         return new byte[4];
     }
-    
+
     public static String getDeviceId(ServerHttpRequest request ) {
         HttpHeaders headers = request.getHeaders();
     	// 1、判断是否 Apple 设备
@@ -185,5 +185,5 @@ public class WebFluxUtils {
 		}
         return deviceId;
     }
-    
+
 }

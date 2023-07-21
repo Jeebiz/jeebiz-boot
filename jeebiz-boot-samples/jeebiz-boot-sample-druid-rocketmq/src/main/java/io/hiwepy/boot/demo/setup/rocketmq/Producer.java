@@ -18,12 +18,12 @@ public class Producer implements CommandLineRunner {
 
 	@Autowired(required = false)
 	protected RocketMQTemplate rocketmqTemplate;
-	
+
 	@Scheduled(fixedDelay = 3000) // 每3s执行1次
 	public void send() throws Exception {
-		
+
 		/*// send queue.
-		
+
 		MessageQueue mq = new MessageQueue("TEST", "brokerName", 1);
 		Message msg = new Message("TEST", // topic
 				"TEST", // tag
@@ -33,31 +33,31 @@ public class Producer implements CommandLineRunner {
 
 		SendResult result = rocketmqTemplate.send(msg, mq);
 		System.out.println(result);*/
-		
+
 		// send topic.
 		Message msg2 = new Message("TopicA", // topic
 				"TagA", // tag
 				"KKK", // key用于标识业务的唯一性； key 消息关键词，多个Key用KEY_SEPARATOR隔开（查询消息使用）
 				(new Date() + "hi,RocketMQ(topic)").getBytes()// body 二进制字节数组
 		);
-		
+
 		rocketmqTemplate.asyncSend("destination", msg2 ,new SendCallback(){
 
 			@Override
 			public void onSuccess(SendResult sendResult) {
-				
+
 			}
 
 			@Override
 			public void onException(Throwable e) {
-				
+
 			}
-    		
+
     	});
 		//System.out.println(result2);
 
 	}
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Message was sent to the Queue");

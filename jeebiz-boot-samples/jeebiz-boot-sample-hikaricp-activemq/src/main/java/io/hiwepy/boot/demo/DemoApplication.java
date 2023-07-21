@@ -31,18 +31,18 @@ public class DemoApplication implements CommandLineRunner {
     public PlatformTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
-    
+
     @Bean
     public MeterRegistryCustomizer<MeterRegistry> configurer(
             @Value("${spring.application.name}") String applicationName) {
         return (registry) -> registry.config().commonTags("application", applicationName);
     }
-	
+
     @Bean
 	public Sequence sequence() {
 		return new Sequence(0L);
 	}
-    
+
 	public static void main(String[] args) throws Exception {
 		 SpringApplication.run(DemoApplication.class, args);
 	}
@@ -51,5 +51,5 @@ public class DemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.err.println("Spring Boot Application（Jeebiz-Demo） Started !");
 	}
-	
+
 }

@@ -10,7 +10,7 @@ import javax.validation.ConstraintValidatorContext;
 
 /**
  * 数据校验注解实现类
- * 
+ *
  */
 public class PhoneValueValidator implements ConstraintValidator<Phone, String> {
 
@@ -28,7 +28,7 @@ public class PhoneValueValidator implements ConstraintValidator<Phone, String> {
 
 		Phonenumber.PhoneNumber referencePhonenumber = new Phonenumber.PhoneNumber();
 		try {
-			
+
 			referencePhonenumber = phoneNumberUtil.parse(value, phoneValue.lang());
 			boolean flag = phoneNumberUtil.isPossibleNumber(referencePhonenumber);
 			if (!flag) {

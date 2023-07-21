@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.autoconfigure.config;
 
@@ -17,7 +17,7 @@ public class SequenceProperties {
 	 * 数据中心ID,数据范围为0~255
 	 */
 	private Long dataCenterId;
-	
+
 	/**
 	 * 工作机器ID,数据范围为0~3
 	 */
@@ -37,6 +37,6 @@ public class SequenceProperties {
 	 * true表示使用毫秒内的随机序列(超过范围则取余)
 	 */
 	private boolean randomSequence;
- 
+
 
 }

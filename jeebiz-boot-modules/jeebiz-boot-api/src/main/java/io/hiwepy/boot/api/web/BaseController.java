@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.web;
 
@@ -24,7 +24,7 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 	private ApplicationContext context;
 	@Autowired
 	private NestedMessageSource messageSource;
-	
+
 	/**
 	 * 统一处理异常，并抛出异常事件方便进行统一的日志实现
 	 */
@@ -53,7 +53,7 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 	protected <T> ApiRestResponse<T> error(String key, Object... args) {
 		return ApiRestResponse.error(getMessage(key, args));
 	}
-	
+
 	public StringValueResolver getValueResolver() {
 		return valueResolver;
 	}
@@ -91,7 +91,7 @@ public class BaseController implements ApplicationEventPublisherAware, Applicati
 	public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
 		this.eventPublisher = applicationEventPublisher;
 	}
-	
+
 	@Override
 	public void setEmbeddedValueResolver(StringValueResolver resolver) {
 		this.valueResolver = resolver;

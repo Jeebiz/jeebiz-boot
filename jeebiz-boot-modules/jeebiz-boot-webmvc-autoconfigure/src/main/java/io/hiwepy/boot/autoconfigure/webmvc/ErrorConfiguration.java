@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.autoconfigure.webmvc;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ErrorConfiguration implements ErrorPageRegistrar {
-	
+
     @Override
     public void registerErrorPages(ErrorPageRegistry registry) {
         /*ErrorPage[] errorPages = new ErrorPage[]{

@@ -16,13 +16,13 @@ public class AuthcExtensionPointAdepter implements AuthcExtensionPoint{
 	@Override
 	public void handleHeader(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void handleRequest(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.web.flux;
 
@@ -17,23 +17,23 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/users")
 public class DemoController {
- 
+
     @GetMapping("/{user}")
     public Mono<DemoEntity> getUser(@PathVariable Long user) {
         // ...
     	return null;
     }
-    
+
     @GetMapping("/{user}/customers")
     public Flux<DemoEntity> getUserCustomers(@PathVariable Long user) {
         // ...
     	return null;
     }
- 
+
     @DeleteMapping("/{user}")
     public Mono<DemoEntity> deleteUser(@PathVariable Long user) {
         // ...
     	return null;
     }
- 
+
 }

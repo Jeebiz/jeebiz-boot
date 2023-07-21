@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.dao.entities;
 
@@ -13,6 +13,6 @@ public class BaseMap extends HashMap<String, Object> {
 	 * 应用唯一ID
 	 */
 	protected String appid;
-	
-	
+
+
 }

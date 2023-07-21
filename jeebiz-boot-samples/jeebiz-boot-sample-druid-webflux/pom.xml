@@ -109,6 +109,10 @@
 			<groupId>com.github.hiwepy</groupId>
 			<artifactId>dozer-extra-converters</artifactId>
 		</dependency>
+		<!-- <dependency>
+		    <groupId>com.github.dozermapper</groupId>
+		    <artifactId>dozer-spring-boot-starter</artifactId>
+		</dependency> -->
 		<!-- For AOP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -191,7 +195,7 @@
 		    <scope>runtime</scope>
 		</dependency>
 		<dependency>
-	        <groupId>com.oracle.database.jdbc</groupId>
+	        <groupId>com.oracle.database.observability</groupId>
 	        <artifactId>ojdbc8dms</artifactId>
 	        <scope>runtime</scope>
 	    </dependency>
@@ -221,7 +225,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<executable>true</executable>
-					<mainClass>DemoApplication</mainClass>
+					<mainClass>net.jeebiz.boot.demo.DemoApplication</mainClass>
 				</configuration>
 			</plugin>
 			<!-- 第一步：生成可执行的启动脚本 -->

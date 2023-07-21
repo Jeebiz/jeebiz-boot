@@ -54,7 +54,7 @@ public class WebFluxConfig implements WebFluxConfigurer, ApplicationContextAware
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		registry.viewResolver(viewResolver());
 	}
-	
+
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
@@ -63,7 +63,7 @@ public class WebFluxConfig implements WebFluxConfigurer, ApplicationContextAware
 				.resourceChain(false).addResolver(new WebJarsResourceResolver())
 				.addResolver(new PathResourceResolver());
 	}
-	
+
 	/*
 	 * @Bean public WebHandler webHandler(ApplicationContext applicationContext) {
 	 * DispatcherHandler dispatcherHandler = new

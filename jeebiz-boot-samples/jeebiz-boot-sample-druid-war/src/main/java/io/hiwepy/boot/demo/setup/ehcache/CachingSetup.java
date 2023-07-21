@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class CachingSetup implements JCacheManagerCustomizer {
-	
+
 	@Override
 	public void customize(CacheManager cacheManager) {
 		cacheManager.createCache("people",
@@ -25,5 +25,5 @@ public class CachingSetup implements JCacheManagerCustomizer {
 						.setStoreByValue(false)
 						.setStatisticsEnabled(true));
 	}
- 
+
 }

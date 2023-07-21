@@ -10,9 +10,9 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 public @interface PluginMapping {
-	
+
 	public String title() default "";
-	
+
 	public String detail() default "";
-	
+
 }

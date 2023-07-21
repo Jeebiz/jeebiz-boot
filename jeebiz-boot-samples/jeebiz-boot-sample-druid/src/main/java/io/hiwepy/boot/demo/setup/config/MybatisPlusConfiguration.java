@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.setup.config;
 
@@ -24,10 +24,10 @@ import com.github.dozermapper.core.Mapper;
 public class MybatisPlusConfiguration {
 
 	protected static Logger LOG = LoggerFactory.getLogger(MybatisPlusConfiguration.class);
-	
+
 	@Autowired
-	private Mapper beanMapper; 
-	
+	private Mapper beanMapper;
+
 	/**
 	 * 乐观锁插件
 	 */
@@ -72,7 +72,7 @@ public class MybatisPlusConfiguration {
 	public ISqlInjector sqlInjector() {
 		return new DefaultSqlInjector();
 	}
-	
+
 	/**
 	 * 注入主键生成器
 	@Bean
@@ -85,18 +85,18 @@ public class MybatisPlusConfiguration {
 	 * oracle数据库配置JdbcTypeForNull
 	 * 参考：https://gitee.com/baomidou/mybatisplus-boot-starter/issues/IHS8X
 	 * 不需要这样配置了，参考 yml: mybatis-plus: confuguration dbc-type-for-null: 'null'
-	 * 
+	 *
 	 * @Bean public ConfigurationCustomizer configurationCustomizer(){ return new
 	 * MybatisPlusCustomizers(); }
-	 * 
+	 *
 	 * class MybatisPlusCustomizers implements ConfigurationCustomizer {
-	 * 
+	 *
 	 * @Override public void customize(org.apache.ibatis.session.Configuration
 	 * configuration) { configuration.setJdbcTypeForNull(JdbcType.NULL); } }
 	 */
-    
+
     public Mapper getBeanMapper() {
 		return beanMapper;
 	}
-    
+
 }

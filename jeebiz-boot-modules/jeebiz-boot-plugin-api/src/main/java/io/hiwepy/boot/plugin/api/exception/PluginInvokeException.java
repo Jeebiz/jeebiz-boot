@@ -6,7 +6,7 @@ import org.pf4j.PluginRuntimeException;
 public class PluginInvokeException extends PluginRuntimeException{
 
 	private String pluginId;
-	
+
 	private String extensionId;
 
 	public PluginInvokeException(String pluginId, Throwable cause) {
@@ -19,7 +19,7 @@ public class PluginInvokeException extends PluginRuntimeException{
 		this.pluginId = pluginId;
 		this.extensionId = extensionId;
 	}
-	
+
 	public String getPluginId() {
 		return pluginId;
 	}
@@ -27,5 +27,5 @@ public class PluginInvokeException extends PluginRuntimeException{
 	public String getExtensionId() {
 		return extensionId;
 	}
-	
+
 }

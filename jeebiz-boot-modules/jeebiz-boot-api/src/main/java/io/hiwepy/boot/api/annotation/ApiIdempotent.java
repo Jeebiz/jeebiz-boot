@@ -13,12 +13,12 @@ public @interface ApiIdempotent {
 	 * type为Token时该值用于告诉拦截器取值的参数名
 	 */
 	String value() default "";
-	
+
 	/**
 	 * 幂等方式
 	 */
 	ApiIdempotentType type() default ApiIdempotentType.ARGS;
-	
+
 	/**
 	 * 是否启用 Spring Expression Language(SpEL) 表达式解析value值
 	 */
@@ -28,7 +28,7 @@ public @interface ApiIdempotent {
 	 * 是否将参数作为幂等key的一部分
 	 */
 	boolean withArgs() default false;
-	
+
 	/**
 	 * 幂等过期时间，默认 2000 毫秒，即：在此时间段内，对API进行幂等处理。
 	 */
@@ -48,5 +48,5 @@ public @interface ApiIdempotent {
 	 * 是否自动进行解锁操作，默认：false, 等待key过期
 	 */
 	boolean unlock() default false;
-	 
+
 }

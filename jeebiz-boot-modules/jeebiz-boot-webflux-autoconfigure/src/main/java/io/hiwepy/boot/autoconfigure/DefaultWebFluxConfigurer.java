@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.autoconfigure;
 
@@ -16,16 +16,16 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 
 public class DefaultWebFluxConfigurer implements WebFluxConfigurer  {
-	
-	private final String META_INF_RESOURCES = "classpath:/META-INF/resources/"; 
-	private final String META_INF_WEBJAR_RESOURCES = META_INF_RESOURCES + "webjars/"; 
-	
+
+	private final String META_INF_RESOURCES = "classpath:/META-INF/resources/";
+	private final String META_INF_WEBJAR_RESOURCES = META_INF_RESOURCES + "webjars/";
+
     private LocalResourceProperteis localResourceProperteis;
-    
+
     public DefaultWebFluxConfigurer(LocalResourceProperteis localResourceProperteis) {
     	this.localResourceProperteis = localResourceProperteis;
     }
-	
+
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	// 本地资源映射
@@ -50,7 +50,7 @@ public class DefaultWebFluxConfigurer implements WebFluxConfigurer  {
 			registry.addResourceHandler("/webjars/**").addResourceLocations(META_INF_WEBJAR_RESOURCES)
 				.resourceChain(false).addResolver(new WebJarsResourceResolver());
 		}
-		
+
 	}
-	
+
 }

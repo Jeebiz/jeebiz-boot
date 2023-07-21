@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.utils;
 
@@ -12,21 +12,21 @@ package io.hiwepy.boot.api.utils;
 public interface HttpStatus {
 
     // --- 1xx Informational ---
-	// HTTP: Status 1xx(临时响应) ->表示临时响应并需要请求者继续执行操作的状态代码。 
+	// HTTP: Status 1xx(临时响应) ->表示临时响应并需要请求者继续执行操作的状态代码。
 
-	
+
     /** {@code 100 Continue} (HTTP/1.1 - RFC 2616) */
 	//HTTP: Status 100(继续)	  -> 请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。
     public static final int SC_CONTINUE = 100;
     /** {@code 101 Switching Protocols} (HTTP/1.1 - RFC 2616)*/
-    //HTTP: Status 101(切换协议)   -> 请求者已要求服务器切换协议，服务器已确认并准备切换。 
+    //HTTP: Status 101(切换协议)   -> 请求者已要求服务器切换协议，服务器已确认并准备切换。
     public static final int SC_SWITCHING_PROTOCOLS = 101;
     /** {@code 102 Processing} (WebDAV - RFC 2518) */
     public static final int SC_PROCESSING = 102;
 
     // --- 2xx Success ---
-    //HTTP Status 2xx(成功)   ->表示成功处理了请求的状态代码; 
-    
+    //HTTP Status 2xx(成功)   ->表示成功处理了请求的状态代码;
+
     /** {@code 200 OK} (HTTP/1.0 - RFC 1945) */
     //HTTP Status 200(成功)    -> 服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。
     public static final int SC_OK = 200;
@@ -65,7 +65,7 @@ public interface HttpStatus {
     //HTTP Status 301（永久移动）     ->请求的网页已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。您应使用此代码告诉 Googlebot 某个网页或网站已永久移动到新位置。
     public static final int SC_MOVED_PERMANENTLY = 301;
     /** {@code 302 Moved Temporarily} (Sometimes {@code Found}) (HTTP/1.0 - RFC 1945) */
-    /* HTTP Status 302（临时移动） 
+    /* HTTP Status 302（临时移动）
 	   ->服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来响应以后的请求。此代码与响应 GET 和 HEAD 请求的 301 代码类似，
 	   	 会自动将请求者转到不同的位置，但您不应使用此代码来告诉 Googlebot 某个网页或网站已经移动，因为 Googlebot 会继续抓取原有位置并编制索引。
     */
@@ -74,13 +74,13 @@ public interface HttpStatus {
     //HTTP Status 303（查看其他位置）    -> 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。对于除 HEAD 之外的所有请求，服务器会自动转到其他位置。
     public static final int SC_SEE_OTHER = 303;
     /** {@code 304 Not Modified} (HTTP/1.0 - RFC 1945) */
-    /*HTTP Status 304（没有修改） 
+    /*HTTP Status 304（没有修改）
 	  ->自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。如果网页自请求者上次请求后再也没有更 改过，
 	  	您应将服务器配置为返回此响应（称为 If-Modified-Since HTTP 标头）。服务器可以告诉 Googlebot 自从上次抓取后网页没有变更，进而节省带宽和开销。
      */
     public static final int SC_NOT_MODIFIED = 304;
     /** {@code 305 Use Proxy} (HTTP/1.1 - RFC 2616) */
-    //HTTP Status 305（使用代理）    -> 请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理。 
+    //HTTP Status 305（使用代理）    -> 请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理。
     public static final int SC_USE_PROXY = 305;
     /** {@code 307 Temporary Redirect} (HTTP/1.1 - RFC 2616) */
     /*HTTP Status 307（使用代理）
@@ -91,7 +91,7 @@ public interface HttpStatus {
     public static final int SC_TEMPORARY_REDIRECT = 307;
 
     // --- 4xx Client Error ---
-    //HTTP Status 4xx(请求错误)   ->这些状态代码表示请求可能出错，妨碍了服务器的处理。 
+    //HTTP Status 4xx(请求错误)   ->这些状态代码表示请求可能出错，妨碍了服务器的处理。
 
     /** {@code 400 Bad Request} (HTTP/1.1 - RFC 2616) */
     //HTTP Status 400（错误请求）    ->服务器不理解请求的语法。
@@ -186,10 +186,10 @@ public interface HttpStatus {
     public static final int SC_REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
     /** {@code 451（因法律原因不可用）} */
     public static final int SC_UNAVAILABLE_FOR_LEGAL_REASONS = 451;
-    
+
     // --- 5xx Server Error ---
     //HTTP Status 5xx（服务器错误）    ->这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。
-    
+
     /** {@code 500 Server Error} (HTTP/1.0 - RFC 1945) */
     //HTTP Status 500（服务器内部错误）    ->服务器遇到错误，无法完成请求。
     public static final int SC_INTERNAL_SERVER_ERROR = 500;
@@ -220,5 +220,5 @@ public interface HttpStatus {
     public static final int SC_NOT_EXTENDED = 510;
     // HTTP Status 511（要求网络认证）
     public static final int SC_NETWORK_AUTHENTICATION_REQUIRED = 511;
-    
+
 }

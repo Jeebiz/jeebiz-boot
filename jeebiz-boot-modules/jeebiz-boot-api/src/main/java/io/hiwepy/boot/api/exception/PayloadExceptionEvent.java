@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.exception;
 
@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
 public class PayloadExceptionEvent extends ApplicationEvent {
 
 	private final Exception payload;
-	
+
 	/**
 	 * Create a new PayloadExceptionEvent.
 	 * @param source the object on which the event initially occurred (never {@code null})
@@ -29,5 +29,5 @@ public class PayloadExceptionEvent extends ApplicationEvent {
 	public Exception getPayload() {
 		return this.payload;
 	}
-	
+
 }

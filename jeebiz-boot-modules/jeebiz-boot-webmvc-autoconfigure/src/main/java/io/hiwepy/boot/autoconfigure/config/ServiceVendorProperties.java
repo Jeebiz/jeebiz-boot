@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
  * All Rights Reserved. 
  */
@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties("server.vendor")
 public class ServiceVendorProperties {
-	
+
 	/**
 	 * 省份
 	 */
@@ -59,7 +59,7 @@ public class ServiceVendorProperties {
 	 * 系统名称
 	 */
 	private String title;
-	
+
 
 	public String getProvince() {
 		return province;
@@ -140,7 +140,7 @@ public class ServiceVendorProperties {
 	public void setFax(String fax) {
 		this.fax = fax;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}

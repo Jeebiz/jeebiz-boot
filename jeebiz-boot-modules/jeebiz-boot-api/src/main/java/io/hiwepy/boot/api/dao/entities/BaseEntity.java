@@ -26,7 +26,7 @@ public class BaseEntity<T> implements Cloneable, Serializable {
 	/**
 	 * 创建人ID
 	 */
-	@TableField(value = "creator")
+	@TableField(value = "creator", fill = FieldFill.INSERT)
 	private String creator;
 	/**
 	 * 创建时间
@@ -36,7 +36,7 @@ public class BaseEntity<T> implements Cloneable, Serializable {
 	/**
 	 * 更新人ID
 	 */
-	@TableField(value = "modifyer")
+	@TableField(value = "modifyer", fill = FieldFill.UPDATE)
 	private String modifyer;
 	/**
 	 * 更新时间

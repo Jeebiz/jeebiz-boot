@@ -1,6 +1,6 @@
 /** 
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.web.vo;
 

@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
  * All Rights Reserved. 
  */
@@ -19,13 +19,13 @@ public class WebMvcSwagger2Configuration {
 
 	@Controller
 	class HomepageController {
-	 
+
 		@ApiIgnore
 		@GetMapping("/")
 		public String index() {
 			return "forward:/doc.html";
 		}
-		
+
 	}
-	
+
 }

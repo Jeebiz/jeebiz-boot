@@ -16,7 +16,7 @@ public @interface AllowableValues
     String message() default "invalid values";
 
     String allows() default "";
-    
+
     boolean nullable() default false;
 
     Class<?>[] groups() default {};

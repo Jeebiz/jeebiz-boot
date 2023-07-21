@@ -8,11 +8,11 @@ public interface Subject {
     Object getPrincipal();
 
     boolean isPermitted(String permission);
-    
+
     boolean[] isPermitted(String... permissions);
 
     boolean isPermittedAll(String... permissions);
-	
+
     /**
      * Returns {@code true} if this Subject has the specified role, {@code false} otherwise.
      *
@@ -58,5 +58,5 @@ public interface Subject {
     boolean isAuthenticated();
 
     boolean isRemembered();
-    
+
 }

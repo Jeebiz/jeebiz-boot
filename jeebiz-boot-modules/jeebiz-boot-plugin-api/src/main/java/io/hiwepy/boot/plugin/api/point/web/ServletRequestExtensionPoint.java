@@ -11,5 +11,5 @@ public interface ServletRequestExtensionPoint extends ExtensionPoint {
 	String wrap(HttpServletRequest request, Map<String, Object> realParams);
 
 	<T> RequestEntity<T> wrap(RequestEntity<T> requestEntity);
-	
+
 }

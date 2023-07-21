@@ -11,21 +11,21 @@ import io.hiwepy.boot.demo.setup.LogProducer;
 
 @RestController
 public class ActiveMQController {
-	
-    @Autowired  
-    private LogProducer logProducer;  
-      
-    @GetMapping("/activemq/send")  
-    public String activemq(HttpServletRequest request, String msg) {  
-        msg = StringUtils.isEmpty(msg) ? "This is Empty Msg." : msg;  
-      
-        try {  
-            logProducer.send(msg);  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-        return "Activemq has sent OK.";  
-    }  
-    
-    
+
+    @Autowired
+    private LogProducer logProducer;
+
+    @GetMapping("/activemq/send")
+    public String activemq(HttpServletRequest request, String msg) {
+        msg = StringUtils.isEmpty(msg) ? "This is Empty Msg." : msg;
+
+        try {
+            logProducer.send(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Activemq has sent OK.";
+    }
+
+
 }

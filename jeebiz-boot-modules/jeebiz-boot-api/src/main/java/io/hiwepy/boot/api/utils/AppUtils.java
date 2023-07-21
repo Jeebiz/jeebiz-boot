@@ -9,7 +9,7 @@ import java.util.UUID;
  * 随机产生唯一的app_key和app_secret
  */
 public class AppUtils {
-	
+
     //生成 app_secret 密钥
     private final static String SERVER_NAME = "jeebiz_2021";
     private final static String[] chars = new String[]{"a", "b", "c", "d", "e", "f",
@@ -18,7 +18,7 @@ public class AppUtils {
             "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
             "W", "X", "Y", "Z"};
- 
+
     /**
      * @Description: <p>
      * 短8位UUID思想其实借鉴微博短域名的生成方式，但是其重复概率过高，而且每次生成4个，需要随即选取一个。
@@ -38,13 +38,13 @@ public class AppUtils {
             shortBuffer.append(chars[x % 0x3E]);
         }
         return shortBuffer.toString();
- 
+
     }
 
     public static String getAppSecret(String appId) {
     	return getAppSecret(appId, SERVER_NAME);
     }
-    
+
     /**
      * <p>
      * 通过appId和内置关键词生成APP Secret
@@ -65,7 +65,7 @@ public class AppUtils {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             md.update(str.getBytes());
             byte[] digest = md.digest();
- 
+
             StringBuffer hexstr = new StringBuffer();
             String shaHex = "";
             for (int i = 0; i < digest.length; i++) {
@@ -81,7 +81,7 @@ public class AppUtils {
             throw new RuntimeException();
         }
     }
- 
+
     public static void main(String[] args) {
         String appId = getAppId();
         String appSecret = getAppSecret(appId);

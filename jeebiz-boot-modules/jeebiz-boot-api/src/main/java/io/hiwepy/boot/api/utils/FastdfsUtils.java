@@ -1,16 +1,16 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.utils;
 
 public class FastdfsUtils {
 
 	public static String g_charset = "ISO8859-1";
-		
+
 	/**
 	 * get token for file URL
-	 * 
+	 *
 	 * @param file_id    the file id return by FastDFS server
 	 * @param ts         unix timestamp, unit: second
 	 * @param secret_key the secret key
@@ -31,7 +31,7 @@ public class FastdfsUtils {
 
 	/**
 	 * md5 function
-	 * 
+	 *
 	 * @param source the input buffer
 	 * @return md5 string
 	 */

@@ -27,14 +27,14 @@ public class MessagePayload implements Serializable  {
 	 * 消息头内容
 	 */
 	protected Map<String, String> header = new HashMap<String, String>();
-	
+
 	/**
 	 * 消息体内容
 	 */
 	@ApiModelProperty(value = "body", required = true, dataType = "String", notes = "消息内容")
 	@NotBlank(message = "消息内容必填")
 	private String body;
-	
+
 	protected Map<String, String> bodyMap = new HashMap<String, String>();
 
 	public MessageType getType() {
@@ -84,5 +84,5 @@ public class MessagePayload implements Serializable  {
 	public void setBodyMap(Map<String, String> bodyMap) {
 		this.bodyMap = bodyMap;
 	}
-	
+
 }

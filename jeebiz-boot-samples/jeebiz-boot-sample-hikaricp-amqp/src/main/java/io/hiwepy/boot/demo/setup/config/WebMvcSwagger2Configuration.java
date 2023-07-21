@@ -1,6 +1,6 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.setup.config;
 
@@ -19,13 +19,13 @@ public class WebMvcSwagger2Configuration {
 
 	@Controller
 	class HomepageController {
-	 
+
 		@ApiIgnore
 		@GetMapping("/")
 		public String index() {
 			return "forward:/doc.html";
 		}
-		
+
 	}
-	
+
 }

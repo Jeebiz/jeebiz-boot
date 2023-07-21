@@ -11,21 +11,21 @@ import io.hiwepy.boot.demo.setup.rocketmq.LogProducer;
 
 @RestController
 public class RocketMQController {
-	
-    @Autowired  
-    private LogProducer logProducer;  
-    
-    @GetMapping("/rocketmq/send")  
-    public String activemq(HttpServletRequest request, String msg) {  
-        msg = StringUtils.isEmpty(msg) ? "This is Empty Msg." : msg;  
-      
-        try {  
-            logProducer.send(msg);  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-        return "Rocketmq has sent OK.";  
-    }  
-    
-    
+
+    @Autowired
+    private LogProducer logProducer;
+
+    @GetMapping("/rocketmq/send")
+    public String activemq(HttpServletRequest request, String msg) {
+        msg = StringUtils.isEmpty(msg) ? "This is Empty Msg." : msg;
+
+        try {
+            logProducer.send(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Rocketmq has sent OK.";
+    }
+
+
 }

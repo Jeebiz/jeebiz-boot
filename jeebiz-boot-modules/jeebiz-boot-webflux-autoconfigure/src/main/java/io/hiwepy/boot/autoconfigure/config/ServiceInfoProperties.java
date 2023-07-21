@@ -1,4 +1,4 @@
-/** 
+/**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
  * All Rights Reserved. 
  */
@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties("server.info")
 public class ServiceInfoProperties {
-	
+
 	/**
 	 * 服务节点UID: spring-boot-admin 服务端注册ID
 	 */

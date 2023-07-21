@@ -1,23 +1,23 @@
-/** 
- * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+/**
+ * Copyright (C) 2018 Jeebiz (http://jeebiz.net).
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.api.dao.entities;
 
 public class CookieModel {
-	
+
 	private String cookieName;
 
 	private String cookieDomain;
 
 	private String cookiePath = "/";
-	
+
 	private Integer cookieMaxAge = null;
 
 	private boolean cookieSecure = false;
 
 	private boolean cookieHttpOnly = false;
-	
+
 	private String cookieValue;
 
 	/**
@@ -125,5 +125,5 @@ public class CookieModel {
 		this.cookieValue = cookieValue;
 	}
 
-	
+
 }

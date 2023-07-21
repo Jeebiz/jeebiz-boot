@@ -7,13 +7,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.12.RELEASE</version>
+        <version>2.6.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>io.hiwepy</groupId>
     <artifactId>jeebiz-boot</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>jeebiz-boot</name>
@@ -27,7 +27,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jeebiz-boot.version>1.0.2-SNAPSHOT</jeebiz-boot.version>
+        <jeebiz-boot.version>2.0.0-SNAPSHOT</jeebiz-boot.version>
+        <jackson-bom.version>2.14.0</jackson-bom.version>
         <!-- Maven Plugin versions -->
         <maven.version>3.6.3</maven.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
@@ -80,17 +81,26 @@
         </developer>
     </developers>
 
-    <!-- 配置部署的远程仓库:让Maven知道当我要发布release版本或者snapshot版本是需要发布到哪个地址 -->
     <!-- <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <name>Maven Snapshots Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <name>Maven Central Staging Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>https://nexus.hiwepy.com/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>https://nexus.hiwepy.com/repository/maven-snapshots/</url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement> -->
+
+    <!-- omitted xml
+    <distributionManagement>
+        <repository>
+            <id>jeebiz-platform-maven</id>
+            <name>maven</name>
+            <url>https://jeebiz-maven.pkg.coding.net/repository/platform/maven/</url>
         </repository>
     </distributionManagement> -->
 
