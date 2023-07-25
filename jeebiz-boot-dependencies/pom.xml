@@ -320,7 +320,7 @@
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.10.0</shiro.version>
+        <shiro.version>1.12.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
