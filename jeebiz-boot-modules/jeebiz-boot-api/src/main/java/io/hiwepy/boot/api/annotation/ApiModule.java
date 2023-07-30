@@ -14,11 +14,11 @@ public @interface ApiModule {
 	/**
 	 * 操作模块
 	 */
-	public String module() default "";
+	String module() default "";
 
 	/**
 	 * 业务名称
 	 */
-	public String business() default "";
+	String business() default "";
 
 }

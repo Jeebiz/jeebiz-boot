@@ -17,13 +17,23 @@ import java.lang.annotation.*;
 public @interface ApiOperationLog {
 
 	/**
+	 * 操作模块
+	 */
+	String module() default "";
+
+	/**
+	 * 业务名称
+	 */
+	String business() default "";
+
+	/**
 	 * 操作类型
 	 */
-	public BusinessType opt() ;
+	BusinessType opt() ;
 
 	/**
 	 * 是否马上处理
 	 */
-	public boolean immediate() default false;
+	boolean immediate() default false;
 
 }
