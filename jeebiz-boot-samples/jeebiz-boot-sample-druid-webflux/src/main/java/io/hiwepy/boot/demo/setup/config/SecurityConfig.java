@@ -10,14 +10,14 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @EnableWebFluxSecurity
 public class SecurityConfig {
 
-	@Bean
-	SecurityWebFilterChain webFluxSecurityFilterChain(ServerHttpSecurity http) throws Exception {
-		http.authorizeExchange()
-			.pathMatchers("/monitor/**").hasRole("ADMIN")
-			.anyExchange().permitAll()
-			.and().cors()
-			.and().httpBasic()
-			.and().csrf().disable();
-		return http.build();
-	}
+    @Bean
+    SecurityWebFilterChain webFluxSecurityFilterChain(ServerHttpSecurity http) throws Exception {
+        http.authorizeExchange()
+                .pathMatchers("/monitor/**").hasRole("ADMIN")
+                .anyExchange().permitAll()
+                .and().cors()
+                .and().httpBasic()
+                .and().csrf().disable();
+        return http.build();
+    }
 }

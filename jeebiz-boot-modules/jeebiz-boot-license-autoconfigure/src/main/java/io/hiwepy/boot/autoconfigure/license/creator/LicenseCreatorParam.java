@@ -71,6 +71,6 @@ public class LicenseCreatorParam implements Serializable {
     /**
      * 额外的服务器硬件校验信息
      */
-    private LicenseExtraModel licenseExtraModel; 
-    
+    private LicenseExtraModel licenseExtraModel;
+
 }

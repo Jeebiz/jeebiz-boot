@@ -20,30 +20,30 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 @Configuration(proxyBeanMethods = false)
-@ComponentScan(basePackages = { "io.hiwepy.**.flux", "io.hiwepy.**.web", "io.hiwepy.**.route" })
+@ComponentScan(basePackages = {"io.hiwepy.**.flux", "io.hiwepy.**.web", "io.hiwepy.**.route"})
 @EnableWebFlux
 @EnableConfigurationProperties(LocalResourceProperteis.class)
 public class DefaultWebFluxConfiguration {
 
-	@Bean
-	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
-	public ReactiveRequestContextFilter requestContextFilter() {
-		return new ReactiveRequestContextFilter();
-	}
+    @Bean
+    @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
+    public ReactiveRequestContextFilter requestContextFilter() {
+        return new ReactiveRequestContextFilter();
+    }
 
-	@Bean
-	public LocaleContextResolver localeContextResolver() {
+    @Bean
+    public LocaleContextResolver localeContextResolver() {
 
-		XHeaderLocaleContextResolver localeContextResolver = new XHeaderLocaleContextResolver();
-		localeContextResolver.setDefaultLocale(Locale.getDefault());
-		localeContextResolver.setDefaultTimeZone(TimeZone.getDefault());
-		return localeContextResolver;
-	}
+        XHeaderLocaleContextResolver localeContextResolver = new XHeaderLocaleContextResolver();
+        localeContextResolver.setDefaultLocale(Locale.getDefault());
+        localeContextResolver.setDefaultTimeZone(TimeZone.getDefault());
+        return localeContextResolver;
+    }
 
-	@Bean
-	public DefaultExceptinHandler defaultExceptinHandler() {
-		return new DefaultExceptinHandler();
-	}
+    @Bean
+    public DefaultExceptinHandler defaultExceptinHandler() {
+        return new DefaultExceptinHandler();
+    }
 
 	/*
 	@Bean
@@ -59,9 +59,9 @@ public class DefaultWebFluxConfiguration {
 		return exceptionHandler;
 	}*/
 
-	@Bean
-	public DefaultWebFluxConfigurer defaultWebFluxConfigurer(LocalResourceProperteis localResourceProperteis) {
-		return new DefaultWebFluxConfigurer(localResourceProperteis);
-	}
+    @Bean
+    public DefaultWebFluxConfigurer defaultWebFluxConfigurer(LocalResourceProperteis localResourceProperteis) {
+        return new DefaultWebFluxConfigurer(localResourceProperteis);
+    }
 
 }

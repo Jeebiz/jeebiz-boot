@@ -22,7 +22,7 @@ import io.hiwepy.boot.autoconfigure.EnableExtrasConfiguration;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
-	@Bean
+    @Bean
     public PlatformTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
@@ -34,17 +34,17 @@ public class DemoApplication implements CommandLineRunner {
     }
 
     @Bean
-	public Sequence sequence() {
-		return new Sequence(0L);
-	}
+    public Sequence sequence() {
+        return new Sequence(0L);
+    }
 
-	public static void main(String[] args) throws Exception {
-		 SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		System.err.println("Spring Boot Application（Jeebiz-Demo） Started !");
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        System.err.println("Spring Boot Application（Jeebiz-Demo） Started !");
+    }
 
 }

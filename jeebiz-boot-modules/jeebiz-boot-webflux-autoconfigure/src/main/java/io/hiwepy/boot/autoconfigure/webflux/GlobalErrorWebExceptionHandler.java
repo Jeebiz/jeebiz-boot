@@ -19,12 +19,12 @@ import java.util.Map;
 
 public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler {
 
-	public GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, Resources resources,
-			ApplicationContext applicationContext) {
-		super(errorAttributes, resources, applicationContext);
-	}
+    public GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, Resources resources,
+                                          ApplicationContext applicationContext) {
+        super(errorAttributes, resources, applicationContext);
+    }
 
-	// 构造函数
+    // 构造函数
     @Override
     protected RouterFunction<ServerResponse> getRoutingFunction(final ErrorAttributes errorAttributes) {
         return RouterFunctions.route(RequestPredicates.all(), this::renderErrorResponse);
@@ -38,5 +38,5 @@ public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHan
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(errorPropertiesMap));
     }
-    
+
 }

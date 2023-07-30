@@ -8,11 +8,11 @@ import java.lang.annotation.*;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR, ElementType.PARAMETER,ElementType.TYPE_USE})
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
 @Constraint(validatedBy = {PhoneValueValidator.class})
 public @interface Phone {
 
-	String lang() default "CN";
+    String lang() default "CN";
 
     String value() default "";
 

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @EnableScheduling
 public class Producer implements CommandLineRunner {
 
-	// 也可以注入JmsTemplate，JmsMessagingTemplate对JmsTemplate进行了封装
+    // 也可以注入JmsTemplate，JmsMessagingTemplate对JmsTemplate进行了封装
     @Autowired
     private JmsMessagingTemplate jmsMessagingTemplate;
 
@@ -26,33 +26,32 @@ public class Producer implements CommandLineRunner {
     private Topic topic;
 
     // 发送消息，destination是发送到的队列，message是待发送的消息
-    public void sendMessage(Destination destination, final String message){
-    	jmsMessagingTemplate.convertAndSend(destination, message);
+    public void sendMessage(Destination destination, final String message) {
+        jmsMessagingTemplate.convertAndSend(destination, message);
     }
 
-    @Scheduled(fixedDelay=3000)//每3s执行1次
+    @Scheduled(fixedDelay = 3000)//每3s执行1次
     public void send() {
 
-       //send queue.
+        //send queue.
 
-       this.jmsMessagingTemplate.convertAndSend(this.queue, "hi,activeMQ");
+        this.jmsMessagingTemplate.convertAndSend(this.queue, "hi,activeMQ");
 
-       //send topic.
+        //send topic.
 
-       this.jmsMessagingTemplate.convertAndSend(this.topic, "hi,activeMQ(topic)");
+        this.jmsMessagingTemplate.convertAndSend(this.topic, "hi,activeMQ(topic)");
 
     }
 
     public void send(String msg) {
-		this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
+        this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
     }
 
-	@Override
-	public void run(String... args) throws Exception {
-		send("Sample message");
-		System.out.println("Message was sent to the Queue");
-	}
-
+    @Override
+    public void run(String... args) throws Exception {
+        send("Sample message");
+        System.out.println("Message was sent to the Queue");
+    }
 
 
 }

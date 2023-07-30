@@ -300,7 +300,8 @@
         <schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
         <schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
         <schemacrawler-hsqldb.version>${schemacrawler.version}</schemacrawler-hsqldb.version>
-        <schemacrawler-oracle.version>${schemacrawler.version}</schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
+        <schemacrawler-oracle.version>${schemacrawler.version}
+        </schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
         <schemacrawler-postgresql.version>${schemacrawler.version}</schemacrawler-postgresql.version>
         <schemacrawler-sqlserver.version>${schemacrawler.version}</schemacrawler-sqlserver.version>
         <schemacrawler-sqlite.version>${schemacrawler.version}</schemacrawler-sqlite.version>
@@ -534,7 +535,8 @@
         <spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
         <spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE</spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE
+        </spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
         <spring-boot-starter-xxljob.version>1.0.4.RELEASE</spring-boot-starter-xxljob.version>

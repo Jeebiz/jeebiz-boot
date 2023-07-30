@@ -30,33 +30,33 @@ import reactor.core.publisher.Mono;
 @Component
 public class DemoHandler {
 
-	Logger log = LoggerFactory.getLogger(getClass());
+    Logger log = LoggerFactory.getLogger(getClass());
 
-	public Mono<ServerResponse> getDemoList(ServerRequest request) { // Lambda 匿名参数
-		List<DemoVo> demoList = Lists.newArrayList();
-		Flux<DemoVo> userFlux = Flux.fromIterable(demoList);
-		userFlux.subscribe(user -> log.info(user.toString()));
-		return ServerResponse.ok().body(userFlux, DemoVo.class);
-	}
+    public Mono<ServerResponse> getDemoList(ServerRequest request) { // Lambda 匿名参数
+        List<DemoVo> demoList = Lists.newArrayList();
+        Flux<DemoVo> userFlux = Flux.fromIterable(demoList);
+        userFlux.subscribe(user -> log.info(user.toString()));
+        return ServerResponse.ok().body(userFlux, DemoVo.class);
+    }
 
-	public Mono<ServerResponse> getDemo(ServerRequest request) {
+    public Mono<ServerResponse> getDemo(ServerRequest request) {
 
-		String userId = request.pathVariable("userId");
-		DemoVo data = new DemoVo();
-		Mono<DemoVo> userMono = Mono.just(data);
+        String userId = request.pathVariable("userId");
+        DemoVo data = new DemoVo();
+        Mono<DemoVo> userMono = Mono.just(data);
 
-		userMono.subscribe(user -> log.info(user.toString()));
-		return ServerResponse.ok().body(userMono, DemoVo.class);
-	}
+        userMono.subscribe(user -> log.info(user.toString()));
+        return ServerResponse.ok().body(userMono, DemoVo.class);
+    }
 
-	public Mono<ServerResponse> getDemos(ServerRequest request) {
-		DemoVo studentBody = new DemoVo();
-		request.bodyToMono(DemoVo.class).subscribe(student -> BeanUtils.copyProperties(student, studentBody));
-		return ok().contentType(APPLICATION_JSON_UTF8).body(fromObject(studentBody));
-	}
+    public Mono<ServerResponse> getDemos(ServerRequest request) {
+        DemoVo studentBody = new DemoVo();
+        request.bodyToMono(DemoVo.class).subscribe(student -> BeanUtils.copyProperties(student, studentBody));
+        return ok().contentType(APPLICATION_JSON_UTF8).body(fromObject(studentBody));
+    }
 
-	public Mono<ServerResponse> newDemo(ServerRequest request) {
-		return ok().contentType(TEXT_PLAIN).body(fromObject("success"));
-	}
+    public Mono<ServerResponse> newDemo(ServerRequest request) {
+        return ok().contentType(TEXT_PLAIN).body(fromObject("success"));
+    }
 
 }

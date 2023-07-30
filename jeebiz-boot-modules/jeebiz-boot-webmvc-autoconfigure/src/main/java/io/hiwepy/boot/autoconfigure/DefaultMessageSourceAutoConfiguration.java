@@ -39,95 +39,92 @@ import java.util.List;
 @EnableConfigurationProperties
 public class DefaultMessageSourceAutoConfiguration {
 
-	private static final Resource[] NO_RESOURCES = {};
+    private static final Resource[] NO_RESOURCES = {};
 
-	@Bean
-	@Primary
-	@ConfigurationProperties(prefix = "spring.messages")
-	public MessageSourceProperties myMessageSourceProperties() {
-		return new MessageSourceProperties();
-	}
+    @Bean
+    @Primary
+    @ConfigurationProperties(prefix = "spring.messages")
+    public MessageSourceProperties myMessageSourceProperties() {
+        return new MessageSourceProperties();
+    }
 
-	@Bean
-	public ResourceBasenameHandler resourceBasenameHandler() {
-		return new I18nResourceBasenameHandler();
-	}
+    @Bean
+    public ResourceBasenameHandler resourceBasenameHandler() {
+        return new I18nResourceBasenameHandler();
+    }
 
-	@Bean
-	@Primary
-	public MessageSource messageSource(@Qualifier("myMessageSourceProperties") MessageSourceProperties properties, ResourceBasenameHandler resourceBasenameHandler) {
-		MultiResourceBundleMessageSource messageSource = new MultiResourceBundleMessageSource();
-		messageSource.setBasenameHandler(resourceBasenameHandler);
-		if (StringUtils.hasText(properties.getBasename())) {
-			messageSource.setBasenames(StringUtils.commaDelimitedListToStringArray(
-					StringUtils.trimAllWhitespace(properties.getBasename())));
-		}
-		if (properties.getEncoding() != null) {
-			messageSource.setDefaultEncoding(properties.getEncoding().name());
-		}
-		messageSource.setFallbackToSystemLocale(properties.isFallbackToSystemLocale());
-		Duration cacheDuration = properties.getCacheDuration();
-		if (cacheDuration != null) {
-			messageSource.setCacheMillis(cacheDuration.toMillis());
-		}
-		messageSource.setAlwaysUseMessageFormat(properties.isAlwaysUseMessageFormat());
-		messageSource.setUseCodeAsDefaultMessage(properties.isUseCodeAsDefaultMessage());
-		return messageSource;
-	}
+    @Bean
+    @Primary
+    public MessageSource messageSource(@Qualifier("myMessageSourceProperties") MessageSourceProperties properties, ResourceBasenameHandler resourceBasenameHandler) {
+        MultiResourceBundleMessageSource messageSource = new MultiResourceBundleMessageSource();
+        messageSource.setBasenameHandler(resourceBasenameHandler);
+        if (StringUtils.hasText(properties.getBasename())) {
+            messageSource.setBasenames(StringUtils.commaDelimitedListToStringArray(
+                    StringUtils.trimAllWhitespace(properties.getBasename())));
+        }
+        if (properties.getEncoding() != null) {
+            messageSource.setDefaultEncoding(properties.getEncoding().name());
+        }
+        messageSource.setFallbackToSystemLocale(properties.isFallbackToSystemLocale());
+        Duration cacheDuration = properties.getCacheDuration();
+        if (cacheDuration != null) {
+            messageSource.setCacheMillis(cacheDuration.toMillis());
+        }
+        messageSource.setAlwaysUseMessageFormat(properties.isAlwaysUseMessageFormat());
+        messageSource.setUseCodeAsDefaultMessage(properties.isUseCodeAsDefaultMessage());
+        return messageSource;
+    }
 
-	protected static class ResourceBundleCondition extends SpringBootCondition {
+    protected static class ResourceBundleCondition extends SpringBootCondition {
 
-		private static ConcurrentReferenceHashMap<String, ConditionOutcome> cache = new ConcurrentReferenceHashMap<>();
+        private static ConcurrentReferenceHashMap<String, ConditionOutcome> cache = new ConcurrentReferenceHashMap<>();
 
-		@Override
-		public ConditionOutcome getMatchOutcome(ConditionContext context,
-				AnnotatedTypeMetadata metadata) {
-			String basename = context.getEnvironment()
-					.getProperty("spring.messages.basename", "messages");
-			ConditionOutcome outcome = cache.get(basename);
-			if (outcome == null) {
-				outcome = getMatchOutcomeForBasename(context, basename);
-				cache.put(basename, outcome);
-			}
-			return outcome;
-		}
+        @Override
+        public ConditionOutcome getMatchOutcome(ConditionContext context,
+                                                AnnotatedTypeMetadata metadata) {
+            String basename = context.getEnvironment()
+                    .getProperty("spring.messages.basename", "messages");
+            ConditionOutcome outcome = cache.get(basename);
+            if (outcome == null) {
+                outcome = getMatchOutcomeForBasename(context, basename);
+                cache.put(basename, outcome);
+            }
+            return outcome;
+        }
 
-		private ConditionOutcome getMatchOutcomeForBasename(ConditionContext context,
-				String basename) {
-			ConditionMessage.Builder message = ConditionMessage
-					.forCondition("ResourceBundle");
-			for (String name : StringUtils.commaDelimitedListToStringArray(
-					StringUtils.trimAllWhitespace(basename))) {
-				for (Resource resource : getResources(context.getClassLoader(), name)) {
-					if (resource.exists()) {
-						return ConditionOutcome
-								.match(message.found("bundle").items(resource));
-					}
-				}
-			}
-			return ConditionOutcome.noMatch(
-					message.didNotFind("bundle with basename " + basename).atAll());
-		}
+        private ConditionOutcome getMatchOutcomeForBasename(ConditionContext context,
+                                                            String basename) {
+            ConditionMessage.Builder message = ConditionMessage
+                    .forCondition("ResourceBundle");
+            for (String name : StringUtils.commaDelimitedListToStringArray(
+                    StringUtils.trimAllWhitespace(basename))) {
+                for (Resource resource : getResources(context.getClassLoader(), name)) {
+                    if (resource.exists()) {
+                        return ConditionOutcome
+                                .match(message.found("bundle").items(resource));
+                    }
+                }
+            }
+            return ConditionOutcome.noMatch(
+                    message.didNotFind("bundle with basename " + basename).atAll());
+        }
 
-		private Resource[] getResources(ClassLoader classLoader, String name) {
-			String target = name.replace('.', '/');
-			try {
-				return new PathMatchingResourcePatternResolver(classLoader)
-						.getResources("classpath*:" + target + ".properties");
-			}
-			catch (Exception ex) {
-				return NO_RESOURCES;
-			}
-		}
+        private Resource[] getResources(ClassLoader classLoader, String name) {
+            String target = name.replace('.', '/');
+            try {
+                return new PathMatchingResourcePatternResolver(classLoader)
+                        .getResources("classpath*:" + target + ".properties");
+            } catch (Exception ex) {
+                return NO_RESOURCES;
+            }
+        }
 
-	}
+    }
 
-	@Bean
-	public NestedMessageSource nestedMessageSource(List<MessageSource> sources) {
-		return new NestedMessageSource(sources.toArray(new MessageSource[sources.size()]));
-	}
-
-
+    @Bean
+    public NestedMessageSource nestedMessageSource(List<MessageSource> sources) {
+        return new NestedMessageSource(sources.toArray(new MessageSource[sources.size()]));
+    }
 
 
 }

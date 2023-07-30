@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import java.nio.charset.StandardCharsets;
 
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnClass({ ObjectMapper.class})
+@ConditionalOnClass({ObjectMapper.class})
 @EnableConfigurationProperties(CryptoProperties.class)
 public class DefaultCryptoAutoConfiguration {
 
     @Bean
     public AES aes(CryptoProperties cryptoProperties) {
-        return new AES( cryptoProperties.getMode(), cryptoProperties.getPadding(),
+        return new AES(cryptoProperties.getMode(), cryptoProperties.getPadding(),
                 cryptoProperties.getKey().getBytes(StandardCharsets.UTF_8), cryptoProperties.getIv().getBytes(StandardCharsets.UTF_8));
     }
 

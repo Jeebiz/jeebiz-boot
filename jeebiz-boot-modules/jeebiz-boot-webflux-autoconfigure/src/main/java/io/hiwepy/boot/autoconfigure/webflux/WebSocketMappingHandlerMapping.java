@@ -17,10 +17,11 @@ import java.util.Objects;
  */
 public class WebSocketMappingHandlerMapping extends SimpleUrlHandlerMapping {
 
-	private Map<String, WebSocketHandler> handlerMap = new LinkedHashMap<>();
+    private Map<String, WebSocketHandler> handlerMap = new LinkedHashMap<>();
 
-	/**
+    /**
      * Register WebSocket handlers annotated by @WebSocketMapping
+     *
      * @throws BeansException
      */
     @Override
@@ -35,7 +36,7 @@ public class WebSocketMappingHandlerMapping extends SimpleUrlHandlerMapping {
             WebSocketMapping annotation = AnnotationUtils.getAnnotation(
                     bean.getClass(), WebSocketMapping.class);
             //webSocketMapping 映射到管理中
-            handlerMap.put(Objects.requireNonNull(annotation).value(),(WebSocketHandler) bean);
+            handlerMap.put(Objects.requireNonNull(annotation).value(), (WebSocketHandler) bean);
         });
         super.setOrder(Ordered.HIGHEST_PRECEDENCE);
         super.setUrlMap(handlerMap);

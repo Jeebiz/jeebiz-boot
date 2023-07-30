@@ -11,8 +11,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 public class ExternalProperties {
 
-	public static final String PREFIX = "external";
-	
-	private String baiduAk;
+    public static final String PREFIX = "external";
+
+    private String baiduAk;
 
 }

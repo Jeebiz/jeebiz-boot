@@ -6,6 +6,6 @@ package io.hiwepy.boot.api.provider;
 
 public interface KeyValueProvider<T> {
 
-	public T get(String key);
+    public T get(String key);
 
 }

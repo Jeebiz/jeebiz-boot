@@ -13,14 +13,14 @@ import java.util.Objects;
  */
 public class NullDateJsonSerializer extends JsonSerializer<Object> {
 
-	public static final NullDateJsonSerializer INSTANCE = new NullDateJsonSerializer();
-	
-	@Override
-	public void serialize(Object value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
-			throws IOException {
-		if (Objects.isNull(value)) {
-			jsonGenerator.writeString(StringUtils.EMPTY);
-		}
-	}
-	
+    public static final NullDateJsonSerializer INSTANCE = new NullDateJsonSerializer();
+
+    @Override
+    public void serialize(Object value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
+            throws IOException {
+        if (Objects.isNull(value)) {
+            jsonGenerator.writeString(StringUtils.EMPTY);
+        }
+    }
+
 }

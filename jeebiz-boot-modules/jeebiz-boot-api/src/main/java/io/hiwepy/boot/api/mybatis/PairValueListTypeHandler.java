@@ -19,38 +19,38 @@ import java.util.List;
 
 public class PairValueListTypeHandler extends BaseTypeHandler<List<PairModel>> {
 
-	@Override
-	public void setNonNullParameter(PreparedStatement ps, int i, List<PairModel> list, JdbcType jdbcType)
-			throws SQLException {
-		ps.setString(i, JSONObject.toJSONString(list));
-	}
+    @Override
+    public void setNonNullParameter(PreparedStatement ps, int i, List<PairModel> list, JdbcType jdbcType)
+            throws SQLException {
+        ps.setString(i, JSONObject.toJSONString(list));
+    }
 
-	@Override
-	public List<PairModel> getNullableResult(ResultSet rs, String columnName) throws SQLException {
-		String rtString = rs.getString(columnName);
-		if(StringUtils.hasText(rtString)) {
-			return JSONObject.parseArray(rtString, PairModel.class);
-		}
-		return null;
-	}
+    @Override
+    public List<PairModel> getNullableResult(ResultSet rs, String columnName) throws SQLException {
+        String rtString = rs.getString(columnName);
+        if (StringUtils.hasText(rtString)) {
+            return JSONObject.parseArray(rtString, PairModel.class);
+        }
+        return null;
+    }
 
-	@Override
-	public List<PairModel> getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
-		String rtString = rs.getString(columnIndex);
-		if(StringUtils.hasText(rtString)) {
-			return JSONObject.parseArray(rtString, PairModel.class);
-		}
-		return null;
-	}
+    @Override
+    public List<PairModel> getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+        String rtString = rs.getString(columnIndex);
+        if (StringUtils.hasText(rtString)) {
+            return JSONObject.parseArray(rtString, PairModel.class);
+        }
+        return null;
+    }
 
-	@Override
-	public List<PairModel> getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
-		String rtString = cs.getString(columnIndex);
-		if(StringUtils.hasText(rtString)) {
-			return JSONObject.parseArray(rtString, PairModel.class);
-		}
-		return null;
-	}
+    @Override
+    public List<PairModel> getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
+        String rtString = cs.getString(columnIndex);
+        if (StringUtils.hasText(rtString)) {
+            return JSONObject.parseArray(rtString, PairModel.class);
+        }
+        return null;
+    }
 
 
 }

@@ -22,18 +22,18 @@ public class SensitiveJsonSerializer extends JsonSerializer<String> implements C
 
     @Override
     public void serialize(String value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-           gen.writeString(strategy.desensitizer().apply(value));
+        gen.writeString(strategy.desensitizer().apply(value));
     }
 
     @Override
     public JsonSerializer<?> createContextual(SerializerProvider prov, BeanProperty property) throws JsonMappingException {
 
-            Sensitive annotation = property.getAnnotation(Sensitive.class);
-            if (Objects.nonNull(annotation)&&Objects.equals(String.class, property.getType().getRawClass())) {
-                this.strategy = annotation.strategy();
-                return this;
-            }
-            return prov.findValueSerializer(property.getType(), property);
+        Sensitive annotation = property.getAnnotation(Sensitive.class);
+        if (Objects.nonNull(annotation) && Objects.equals(String.class, property.getType().getRawClass())) {
+            this.strategy = annotation.strategy();
+            return this;
+        }
+        return prov.findValueSerializer(property.getType(), property);
 
     }
 }

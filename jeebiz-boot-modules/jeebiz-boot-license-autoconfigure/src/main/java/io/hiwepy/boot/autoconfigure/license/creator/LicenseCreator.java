@@ -17,13 +17,13 @@ import java.util.prefs.Preferences;
 public class LicenseCreator {
 
     private final static X500Principal DEFAULT_HOLDER_AND_ISSUER = new X500Principal("CN=localhost, OU=localhost, O=localhost, L=SH, ST=SH, C=CN");
-    
+
     private LicenseCreatorParam param;
 
     public LicenseCreator(LicenseCreatorParam param) {
         this.param = param;
     }
-    
+
     /**
      * 生成License证书
      */

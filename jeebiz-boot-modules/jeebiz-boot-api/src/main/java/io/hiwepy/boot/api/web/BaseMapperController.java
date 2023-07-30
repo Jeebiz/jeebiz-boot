@@ -9,15 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseMapperController extends BaseController {
 
-	@Autowired
-	private Mapper beanMapper;
+    @Autowired
+    private Mapper beanMapper;
 
-	public Mapper getBeanMapper() {
-		return beanMapper;
-	}
+    public Mapper getBeanMapper() {
+        return beanMapper;
+    }
 
-	public void setBeanMapper(Mapper beanMapper) {
-		this.beanMapper = beanMapper;
-	}
+    public void setBeanMapper(Mapper beanMapper) {
+        this.beanMapper = beanMapper;
+    }
 
 }

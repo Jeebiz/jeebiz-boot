@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.web.mvc;
 
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-	/**
-	 *  登录成功后的默认重定向地址：可重写返回的路径进行业务系统定制
-	 */
-	@RequestMapping("/index")
-	public String index(HttpServletRequest request, Model model) {
-		return "html/index";
-	}
+    /**
+     *  登录成功后的默认重定向地址：可重写返回的路径进行业务系统定制
+     */
+    @RequestMapping("/index")
+    public String index(HttpServletRequest request, Model model) {
+        return "html/index";
+    }
 
 }

@@ -23,8 +23,8 @@ public class DefaultSequenceConfiguration {
     @ConditionalOnMissingBean
     public Sequence sequence(SequenceProperties properties) {
 
-    	long dataCenterId = Objects.isNull(properties.getDataCenterId()) ? 0L : properties.getDataCenterId();
-    	long workerId = Objects.isNull(properties.getWorkerId()) ? 0x000000FF & Sequence.getLastIPAddress() : properties.getWorkerId();
+        long dataCenterId = Objects.isNull(properties.getDataCenterId()) ? 0L : properties.getDataCenterId();
+        long workerId = Objects.isNull(properties.getWorkerId()) ? 0x000000FF & Sequence.getLastIPAddress() : properties.getWorkerId();
 
         return new Sequence(dataCenterId, workerId, properties.isClock(), properties.getTimeOffset(), properties.isRandomSequence());
     }

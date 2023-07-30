@@ -16,37 +16,37 @@ import java.sql.SQLException;
 
 public class JSONObjectTypeHandler extends BaseTypeHandler<JSONObject> {
 
-	@Override
-	public void setNonNullParameter(PreparedStatement ps, int i, JSONObject parameter, JdbcType jdbcType)
-			throws SQLException {
-		ps.setString(i, parameter.toJSONString());
-	}
+    @Override
+    public void setNonNullParameter(PreparedStatement ps, int i, JSONObject parameter, JdbcType jdbcType)
+            throws SQLException {
+        ps.setString(i, parameter.toJSONString());
+    }
 
-	@Override
-	public JSONObject getNullableResult(ResultSet rs, String columnName) throws SQLException {
-		String rtString = rs.getString(columnName);
-		if(StringUtils.hasText(rtString)) {
-			return JSONObject.parseObject(rtString);
-		}
-		return null;
-	}
+    @Override
+    public JSONObject getNullableResult(ResultSet rs, String columnName) throws SQLException {
+        String rtString = rs.getString(columnName);
+        if (StringUtils.hasText(rtString)) {
+            return JSONObject.parseObject(rtString);
+        }
+        return null;
+    }
 
-	@Override
-	public JSONObject getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
-		String rtString = rs.getString(columnIndex);
-		if(StringUtils.hasText(rtString)) {
-			return JSONObject.parseObject(rtString);
-		}
-		return null;
-	}
+    @Override
+    public JSONObject getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+        String rtString = rs.getString(columnIndex);
+        if (StringUtils.hasText(rtString)) {
+            return JSONObject.parseObject(rtString);
+        }
+        return null;
+    }
 
-	@Override
-	public JSONObject getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
-		String rtString = cs.getString(columnIndex);
-		if(StringUtils.hasText(rtString)) {
-			return JSONObject.parseObject(rtString);
-		}
-		return null;
-	}
+    @Override
+    public JSONObject getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
+        String rtString = cs.getString(columnIndex);
+        if (StringUtils.hasText(rtString)) {
+            return JSONObject.parseObject(rtString);
+        }
+        return null;
+    }
 
 }

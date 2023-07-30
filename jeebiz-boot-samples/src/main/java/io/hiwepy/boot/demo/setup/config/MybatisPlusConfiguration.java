@@ -1,6 +1,6 @@
-/** 
+/**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.setup.config;
 
@@ -23,80 +23,78 @@ import com.github.dozermapper.core.Mapper;
 @MapperScan({"io.hiwepy.**.dao", "io.hiwepy.**repository"})
 public class MybatisPlusConfiguration {
 
-	protected static Logger LOG = LoggerFactory.getLogger(MybatisPlusConfiguration.class);
-	
-	@Autowired
-	private Mapper beanMapper; 
-	
-	/**
-	 * 乐观锁插件
-	 */
-	@Bean
-	public OptimisticLockerInnerInterceptor optimisticLockerInterceptor() {
-		return new OptimisticLockerInnerInterceptor();
-	}
+    protected static Logger LOG = LoggerFactory.getLogger(MybatisPlusConfiguration.class);
 
-	/**
-	 * 新的分页插件,一缓和二缓遵循mybatis的规则,需要设置 MybatisConfiguration#useDeprecatedExecutor =
-	 * false 避免缓存出现问题(该属性会在旧插件移除后一同移除)
-	 */
-	@Bean
-	public MybatisPlusInterceptor mybatisPlusInterceptor() {
-		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-		interceptor.addInnerInterceptor(blockAttackInnerInterceptor());
-		interceptor.addInnerInterceptor(paginationInterceptor());
-		return interceptor;
-	}
+    @Autowired
+    private Mapper beanMapper;
 
-	/**
-	 * mybatis-plus分页插件<br>
-	 * 文档：http://mp.baomidou.com<br>
-	 */
-	@Bean
-	public PaginationInnerInterceptor paginationInterceptor() {
-		PaginationInnerInterceptor paginationInterceptor = new PaginationInnerInterceptor();
-		paginationInterceptor.setOverflow(false);
-		return paginationInterceptor;
-	}
+    /**
+     * 乐观锁插件
+     */
+    @Bean
+    public OptimisticLockerInnerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInnerInterceptor();
+    }
 
-	@Bean
-	public BlockAttackInnerInterceptor blockAttackInnerInterceptor() {
-		BlockAttackInnerInterceptor sqlExplainInterceptor = new BlockAttackInnerInterceptor();
-		return sqlExplainInterceptor;
-	}
+    /**
+     * 新的分页插件,一缓和二缓遵循mybatis的规则,需要设置 MybatisConfiguration#useDeprecatedExecutor =
+     * false 避免缓存出现问题(该属性会在旧插件移除后一同移除)
+     */
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(blockAttackInnerInterceptor());
+        interceptor.addInnerInterceptor(paginationInterceptor());
+        return interceptor;
+    }
 
-	/**
-	 * 注入sql注入器
-	 */
-	@Bean
-	public ISqlInjector sqlInjector() {
-		return new DefaultSqlInjector();
-	}
-	
-	/**
-	 * 注入主键生成器
-	@Bean
-	public IKeyGenerator keyGenerator() {
-		return new H2KeyGenerator();
-	}
-	*/
+    /**
+     * mybatis-plus分页插件<br>
+     * 文档：http://mp.baomidou.com<br>
+     */
+    @Bean
+    public PaginationInnerInterceptor paginationInterceptor() {
+        PaginationInnerInterceptor paginationInterceptor = new PaginationInnerInterceptor();
+        paginationInterceptor.setOverflow(false);
+        return paginationInterceptor;
+    }
 
-	/*
-	 * oracle数据库配置JdbcTypeForNull
-	 * 参考：https://gitee.com/baomidou/mybatisplus-boot-starter/issues/IHS8X
-	 * 不需要这样配置了，参考 yml: mybatis-plus: confuguration dbc-type-for-null: 'null'
-	 * 
-	 * @Bean public ConfigurationCustomizer configurationCustomizer(){ return new
-	 * MybatisPlusCustomizers(); }
-	 * 
-	 * class MybatisPlusCustomizers implements ConfigurationCustomizer {
-	 * 
-	 * @Override public void customize(org.apache.ibatis.session.Configuration
-	 * configuration) { configuration.setJdbcTypeForNull(JdbcType.NULL); } }
-	 */
-    
+    @Bean
+    public BlockAttackInnerInterceptor blockAttackInnerInterceptor() {
+        BlockAttackInnerInterceptor sqlExplainInterceptor = new BlockAttackInnerInterceptor();
+        return sqlExplainInterceptor;
+    }
+
+    /**
+     * 注入sql注入器
+     */
+    @Bean
+    public ISqlInjector sqlInjector() {
+        return new DefaultSqlInjector();
+    }
+
+    /**
+     * 注入主键生成器
+     @Bean public IKeyGenerator keyGenerator() {
+     return new H2KeyGenerator();
+     }
+     */
+
+    /*
+     * oracle数据库配置JdbcTypeForNull
+     * 参考：https://gitee.com/baomidou/mybatisplus-boot-starter/issues/IHS8X
+     * 不需要这样配置了，参考 yml: mybatis-plus: confuguration dbc-type-for-null: 'null'
+     *
+     * @Bean public ConfigurationCustomizer configurationCustomizer(){ return new
+     * MybatisPlusCustomizers(); }
+     *
+     * class MybatisPlusCustomizers implements ConfigurationCustomizer {
+     *
+     * @Override public void customize(org.apache.ibatis.session.Configuration
+     * configuration) { configuration.setJdbcTypeForNull(JdbcType.NULL); } }
+     */
     public Mapper getBeanMapper() {
-		return beanMapper;
-	}
-    
+        return beanMapper;
+    }
+
 }

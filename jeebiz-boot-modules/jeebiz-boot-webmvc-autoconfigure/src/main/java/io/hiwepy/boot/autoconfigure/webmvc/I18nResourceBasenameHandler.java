@@ -13,13 +13,13 @@ import java.net.URL;
 
 public class I18nResourceBasenameHandler implements ResourceBasenameHandler {
 
-	@Override
-	public String handle(Resource resource) throws IOException {
+    @Override
+    public String handle(Resource resource) throws IOException {
 
-		URL url = resource.getURL();
+        URL url = resource.getURL();
 
-		String filepath = url.getPath();
-		return "i18n" + FilenameUtils.getFullPath(filepath).split("i18n")[1] + FilenameUtils.getBaseName(filepath);
-	}
+        String filepath = url.getPath();
+        return "i18n" + FilenameUtils.getFullPath(filepath).split("i18n")[1] + FilenameUtils.getBaseName(filepath);
+    }
 
 }

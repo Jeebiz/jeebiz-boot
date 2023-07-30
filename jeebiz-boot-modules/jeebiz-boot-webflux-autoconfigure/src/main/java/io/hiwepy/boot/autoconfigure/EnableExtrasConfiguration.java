@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
 
-@Target({ ElementType.TYPE })
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import({ DefaultSpringContextConfiguration.class, DefaultWebFluxConfiguration.class })
+@Import({DefaultSpringContextConfiguration.class, DefaultWebFluxConfiguration.class})
 public @interface EnableExtrasConfiguration {
 
 }

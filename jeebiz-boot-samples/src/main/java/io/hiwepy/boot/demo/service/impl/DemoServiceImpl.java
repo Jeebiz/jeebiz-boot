@@ -12,6 +12,6 @@ import io.hiwepy.boot.demo.dao.entities.DemoEntity;
 import io.hiwepy.boot.demo.service.IDemoService;
 
 @Service
-public class DemoServiceImpl extends BaseServiceImpl<DemoMapper, DemoEntity> implements IDemoService{
+public class DemoServiceImpl extends BaseServiceImpl<DemoMapper, DemoEntity> implements IDemoService {
 
 }

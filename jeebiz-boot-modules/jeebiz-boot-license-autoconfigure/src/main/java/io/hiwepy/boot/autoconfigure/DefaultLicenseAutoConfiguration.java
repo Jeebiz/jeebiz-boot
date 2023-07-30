@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnClass({ LicenseVerify.class })
-@EnableConfigurationProperties({ LicenseProperties.class })
+@ConditionalOnClass({LicenseVerify.class})
+@EnableConfigurationProperties({LicenseProperties.class})
 public class DefaultLicenseAutoConfiguration {
 
     @Bean(initMethod = "installLicense", destroyMethod = "unInstallLicense")

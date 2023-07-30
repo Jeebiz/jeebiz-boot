@@ -22,56 +22,56 @@ import org.thymeleaf.spring5.view.reactive.ThymeleafReactiveViewResolver;
 @EnableWebFlux
 public class WebFluxConfig implements WebFluxConfigurer, ApplicationContextAware {
 
-	private ApplicationContext applicationContext;
+    private ApplicationContext applicationContext;
 
-	@Bean
-	public SpringResourceTemplateResolver templateResolver() {
+    @Bean
+    public SpringResourceTemplateResolver templateResolver() {
 
-		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-		templateResolver.setApplicationContext(applicationContext);
-		templateResolver.setPrefix("classpath:/templates/");
-		templateResolver.setSuffix(".html");
-		templateResolver.setCharacterEncoding("UTF-8");
-		return templateResolver;
-	}
+        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+        templateResolver.setApplicationContext(applicationContext);
+        templateResolver.setPrefix("classpath:/templates/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setCharacterEncoding("UTF-8");
+        return templateResolver;
+    }
 
-	@Bean
-	public SpringWebFluxTemplateEngine templateEngine() {
-		SpringWebFluxTemplateEngine templateEngine = new SpringWebFluxTemplateEngine();
-		templateEngine.setTemplateResolver(templateResolver());
-		return templateEngine;
-	}
+    @Bean
+    public SpringWebFluxTemplateEngine templateEngine() {
+        SpringWebFluxTemplateEngine templateEngine = new SpringWebFluxTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver());
+        return templateEngine;
+    }
 
-	@Bean
-	public ThymeleafReactiveViewResolver viewResolver() {
-		ThymeleafReactiveViewResolver viewResolver = new ThymeleafReactiveViewResolver();
-		viewResolver.setTemplateEngine(templateEngine());
-		return viewResolver;
-	}
+    @Bean
+    public ThymeleafReactiveViewResolver viewResolver() {
+        ThymeleafReactiveViewResolver viewResolver = new ThymeleafReactiveViewResolver();
+        viewResolver.setTemplateEngine(templateEngine());
+        return viewResolver;
+    }
 
-	// order matters; cache will find first and render.
-	@Override
-	public void configureViewResolvers(ViewResolverRegistry registry) {
-		registry.viewResolver(viewResolver());
-	}
+    // order matters; cache will find first and render.
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.viewResolver(viewResolver());
+    }
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
-				.resourceChain(false).addResolver(new WebJarsResourceResolver())
-				.addResolver(new PathResourceResolver());
-	}
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/")
+                .resourceChain(false).addResolver(new WebJarsResourceResolver())
+                .addResolver(new PathResourceResolver());
+    }
 
-	/*
-	 * @Bean public WebHandler webHandler(ApplicationContext applicationContext) {
-	 * DispatcherHandler dispatcherHandler = new
-	 * DispatcherHandler(applicationContext); return dispatcherHandler; }
-	 */
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		this.applicationContext = applicationContext;
-	}
+    /*
+     * @Bean public WebHandler webHandler(ApplicationContext applicationContext) {
+     * DispatcherHandler dispatcherHandler = new
+     * DispatcherHandler(applicationContext); return dispatcherHandler; }
+     */
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
 
 }

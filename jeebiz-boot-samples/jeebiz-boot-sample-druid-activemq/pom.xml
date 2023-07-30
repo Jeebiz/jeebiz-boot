@@ -1,185 +1,185 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>io.hiwepy</groupId>
-		<!-- 特别注意：真实的业务系统应继承 jeebiz-boot-parent -->
-		<artifactId>jeebiz-boot-samples</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-	</parent>
-	<artifactId>jeebiz-boot-sample-druid-activemq</artifactId>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.hiwepy</groupId>
+        <!-- 特别注意：真实的业务系统应继承 jeebiz-boot-parent -->
+        <artifactId>jeebiz-boot-samples</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>jeebiz-boot-sample-druid-activemq</artifactId>
 
-	<dependencies>
+    <dependencies>
 
-		<!-- For Jeebiz -->
-		<dependency>
-			<groupId>io.hiwepy</groupId>
-			<artifactId>jeebiz-boot-api</artifactId>
-			<version>${jeebiz-boot.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.hiwepy</groupId>
-			<artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
-			<version>${jeebiz-boot.version}</version>
-		</dependency>
+        <!-- For Jeebiz -->
+        <dependency>
+            <groupId>io.hiwepy</groupId>
+            <artifactId>jeebiz-boot-api</artifactId>
+            <version>${jeebiz-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.hiwepy</groupId>
+            <artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
+            <version>${jeebiz-boot.version}</version>
+        </dependency>
 
-		<!-- For Embedded Web -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- For Thymeleaf View -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>webjars-locator</artifactId>
-		</dependency>
-		<!-- For Swagger -->
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>com.github.xiaoymin</groupId>
-		    <artifactId>swagger-bootstrap-ui</artifactId>
-		</dependency>
-		<!-- For Validation -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.tomcat.embed</groupId>
-					<artifactId>tomcat-embed-el</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>validation-mimetypes-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>org.jsoup</groupId>
-		    <artifactId>jsoup</artifactId>
-		</dependency>
-		<!-- For Dozer -->
-		<dependency>
-			<groupId>com.github.dozermapper</groupId>
-			<artifactId>dozer-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>dozer-extra-converters</artifactId>
-		</dependency>
-		<!-- For AOP -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- For Cache Support -->
-		<dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-cache</artifactId>
-	    </dependency>
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-		</dependency>
-		<!-- For Log4j2 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>log4j2-plus-spring-boot-starter</artifactId>
-		</dependency>
-		<!-- For Mybatis -->
-		<dependency>
-		    <groupId>com.baomidou</groupId>
-		    <artifactId>mybatis-plus-boot-starter</artifactId>
-		    <exclusions>
-		    	<exclusion>
-		    		<groupId>org.freemarker</groupId>
-		    		<artifactId>freemarker</artifactId>
-		    	</exclusion>
-		    </exclusions>
-		</dependency>
-		<!-- For Flyway -->
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>flyway-plus-spring-boot-starter</artifactId>
-		</dependency>
-		<!-- For Druid -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.hiwepy</groupId>
-			<artifactId>druid-plus-spring-boot-starter</artifactId>
-		</dependency>
-		<!-- JDBC Driver For MySQL -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- JDBC Driver For Oracle -->
-		<dependency>
-		    <groupId>com.oracle.database.jdbc</groupId>
-		    <artifactId>ojdbc8</artifactId>
-		    <scope>runtime</scope>
-		</dependency>
-		<dependency>
-	        <groupId>com.oracle.database.observability</groupId>
-	        <artifactId>ojdbc8dms</artifactId>
-	        <scope>runtime</scope>
-	    </dependency>
-		<dependency>
-		    <groupId>com.oracle.database.nls</groupId>
-		    <artifactId>orai18n</artifactId>
-		    <scope>runtime</scope>
-		</dependency>
+        <!-- For Embedded Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- For Thymeleaf View -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+        </dependency>
+        <!-- For Swagger -->
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+        </dependency>
+        <!-- For Validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-el</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>validation-mimetypes-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+        </dependency>
+        <!-- For Dozer -->
+        <dependency>
+            <groupId>com.github.dozermapper</groupId>
+            <artifactId>dozer-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>dozer-extra-converters</artifactId>
+        </dependency>
+        <!-- For AOP -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- For Cache Support -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
+        <!-- For Log4j2 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>log4j2-plus-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- For Mybatis -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.freemarker</groupId>
+                    <artifactId>freemarker</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- For Flyway -->
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>flyway-plus-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- For Druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>druid-plus-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- JDBC Driver For MySQL -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- JDBC Driver For Oracle -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.observability</groupId>
+            <artifactId>ojdbc8dms</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.nls</groupId>
+            <artifactId>orai18n</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
-		<!-- For ActiveMQ -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-activemq</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+        <!-- For ActiveMQ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-		<!-- For Embed Tomcat -->
+        <!-- For Embed Tomcat -->
         <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -195,47 +195,47 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
-	</dependencies>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<executable>true</executable>
-					<mainClass>DemoApplication</mainClass>
-				</configuration>
-			</plugin>
-			<!-- 第一步：生成可执行的启动脚本 -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>appassembler-maven-plugin</artifactId>
-			</plugin>
-			<!-- 第一步：通过antrun插件拷贝文件 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-			</plugin>
-			<!-- 第三步：通过docker-maven插件构造Docker镜像
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-			</plugin> -->
-			<!-- 第四步：生成离线文档-->
-			<!-- http://blog.didispace.com/swagger2markup-asciidoc/ -->
-			<!-- First, use the swagger2markup plugin to generate asciidoc
-			<plugin>
-				<groupId>io.github.swagger2markup</groupId>
-				<artifactId>swagger2markup-maven-plugin</artifactId>
-			</plugin>-->
-			<!-- Run the generated asciidoc through Asciidoctor to generate other
-				documentation types, such as PDFs or HTML5
-			<plugin>
-				<groupId>org.asciidoctor</groupId>
-				<artifactId>asciidoctor-maven-plugin</artifactId>
-			</plugin>-->
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                    <mainClass>DemoApplication</mainClass>
+                </configuration>
+            </plugin>
+            <!-- 第一步：生成可执行的启动脚本 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+            </plugin>
+            <!-- 第一步：通过antrun插件拷贝文件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+            </plugin>
+            <!-- 第三步：通过docker-maven插件构造Docker镜像
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin> -->
+            <!-- 第四步：生成离线文档-->
+            <!-- http://blog.didispace.com/swagger2markup-asciidoc/ -->
+            <!-- First, use the swagger2markup plugin to generate asciidoc
+            <plugin>
+                <groupId>io.github.swagger2markup</groupId>
+                <artifactId>swagger2markup-maven-plugin</artifactId>
+            </plugin>-->
+            <!-- Run the generated asciidoc through Asciidoctor to generate other
+                documentation types, such as PDFs or HTML5
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+            </plugin>-->
+        </plugins>
+    </build>
 
 </project>

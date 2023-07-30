@@ -11,8 +11,8 @@ import java.lang.annotation.*;
 @Inherited
 public @interface PluginMapping {
 
-	public String title() default "";
+    public String title() default "";
 
-	public String detail() default "";
+    public String detail() default "";
 
 }

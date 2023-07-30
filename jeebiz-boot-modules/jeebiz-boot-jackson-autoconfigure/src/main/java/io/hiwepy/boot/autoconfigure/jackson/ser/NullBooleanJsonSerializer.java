@@ -12,14 +12,14 @@ import java.util.Objects;
  */
 public class NullBooleanJsonSerializer extends JsonSerializer<Object> {
 
-	public static final NullBooleanJsonSerializer INSTANCE = new NullBooleanJsonSerializer();
-	
-	@Override
-	public void serialize(Object value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
-			throws IOException {
-		if (Objects.isNull(value)) {
-			jsonGenerator.writeBoolean(Boolean.FALSE);
-		}
-	}
-	
+    public static final NullBooleanJsonSerializer INSTANCE = new NullBooleanJsonSerializer();
+
+    @Override
+    public void serialize(Object value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
+            throws IOException {
+        if (Objects.isNull(value)) {
+            jsonGenerator.writeBoolean(Boolean.FALSE);
+        }
+    }
+
 }

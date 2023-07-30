@@ -32,18 +32,18 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 @Configuration(proxyBeanMethods = false)
-@ComponentScan({ "io.hiwepy.**.webmvc", "io.hiwepy.**.web", "io.hiwepy.**.controller" })
+@ComponentScan({"io.hiwepy.**.webmvc", "io.hiwepy.**.web", "io.hiwepy.**.controller"})
 @EnableWebMvc
 @EnableConfigurationProperties(LocalResourceProperteis.class)
-public class DefaultWebMvcConfiguration  {
+public class DefaultWebMvcConfiguration {
 
-	@Bean
-	@ConditionalOnMissingBean
-	public RequestContextFilter requestContextFilter() {
-		RequestContextFilter contextFilter = new RequestContextFilter();
-		contextFilter.setThreadContextInheritable(true);
-		return contextFilter;
-	}
+    @Bean
+    @ConditionalOnMissingBean
+    public RequestContextFilter requestContextFilter() {
+        RequestContextFilter contextFilter = new RequestContextFilter();
+        contextFilter.setThreadContextInheritable(true);
+        return contextFilter;
+    }
 
     /*########### SpringMVC本地化支持 ###########*/
 
@@ -53,79 +53,79 @@ public class DefaultWebMvcConfiguration  {
 	*/
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
-    	LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-    	localeChangeInterceptor.setParamName(Constants.LANG_PARAM_NAME);
-    	return localeChangeInterceptor;
+        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+        localeChangeInterceptor.setParamName(Constants.LANG_PARAM_NAME);
+        return localeChangeInterceptor;
     }
 
     @Bean
     public LocaleResolver localeResolver() {
 
-    	XHeaderLocaleResolver xheaderLocaleResolver = new XHeaderLocaleResolver();
+        XHeaderLocaleResolver xheaderLocaleResolver = new XHeaderLocaleResolver();
         xheaderLocaleResolver.setDefaultLocale(Locale.getDefault());
         xheaderLocaleResolver.setDefaultTimeZone(TimeZone.getDefault());
         return xheaderLocaleResolver;
     }
 
-   	@Bean
-	@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
-	@Primary
-	public LocalValidatorFactoryBean mvcValidator(NestedMessageSource messageSource) {
-		LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
-		factoryBean.setValidationMessageSource(messageSource);
-		return factoryBean;
-	}
+    @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+    @Primary
+    public LocalValidatorFactoryBean mvcValidator(NestedMessageSource messageSource) {
+        LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
+        factoryBean.setValidationMessageSource(messageSource);
+        return factoryBean;
+    }
 
     /*###########Spring MVC 主题支持########### */
-	/*参考 ： http://blog.csdn.net/wutbiao/article/details/7450281 */
+    /*参考 ： http://blog.csdn.net/wutbiao/article/details/7450281 */
 
     @Bean
     public ThemeChangeInterceptor themeChangeInterceptor() {
-    	ThemeChangeInterceptor themeChangeInterceptor = new ThemeChangeInterceptor();
-    	themeChangeInterceptor.setParamName(Constants.THEME_PARAM_NAME);
-    	return themeChangeInterceptor;
+        ThemeChangeInterceptor themeChangeInterceptor = new ThemeChangeInterceptor();
+        themeChangeInterceptor.setParamName(Constants.THEME_PARAM_NAME);
+        return themeChangeInterceptor;
     }
 
     @Bean
     public ResourceBundleThemeSource themeSource() {
-    	ResourceBundleThemeSource themeSource = new ResourceBundleThemeSource();
-    	themeSource.setBasenamePrefix(Constants.THEME_SOURCE_CLASSPATH);
-    	return themeSource;
+        ResourceBundleThemeSource themeSource = new ResourceBundleThemeSource();
+        themeSource.setBasenamePrefix(Constants.THEME_SOURCE_CLASSPATH);
+        return themeSource;
     }
 
     @Bean
     public ThemeResolver themeResolver() {
 
-    	NestedThemeResolver nestedThemeResolver = new NestedThemeResolver();
-    	nestedThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
+        NestedThemeResolver nestedThemeResolver = new NestedThemeResolver();
+        nestedThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
 
-    	List<ThemeResolver> resolvers = new LinkedList<ThemeResolver>();
+        List<ThemeResolver> resolvers = new LinkedList<ThemeResolver>();
 
-    	//基于Session的主题解析
-    	SessionThemeResolver sessionThemeResolver = new SessionThemeResolver();
-    	sessionThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
+        //基于Session的主题解析
+        SessionThemeResolver sessionThemeResolver = new SessionThemeResolver();
+        sessionThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
         resolvers.add(sessionThemeResolver);
 
         //基于Cokie的主题解析
-    	CookieThemeResolver cookieThemeResolver = new CookieThemeResolver();
-    	cookieThemeResolver.setCookieName(Constants.THEME_PARAM_NAME);
-    	cookieThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
-    	resolvers.add(cookieThemeResolver);
+        CookieThemeResolver cookieThemeResolver = new CookieThemeResolver();
+        cookieThemeResolver.setCookieName(Constants.THEME_PARAM_NAME);
+        cookieThemeResolver.setDefaultThemeName(Constants.THEME_PARAM_DEFAULT);
+        resolvers.add(cookieThemeResolver);
 
-    	return nestedThemeResolver;
+        return nestedThemeResolver;
     }
 
     @Bean
-	public Slf4jMDCInterceptor slf4jMDCInterceptor(Sequence sequence) {
-		return new Slf4jMDCInterceptor(sequence);
-	}
+    public Slf4jMDCInterceptor slf4jMDCInterceptor(Sequence sequence) {
+        return new Slf4jMDCInterceptor(sequence);
+    }
 
-	@Bean
-	public DefaultWebMvcConfigurer defaultWebMvcConfigurer(LocalResourceProperteis localResourceProperteis,
-			ThemeChangeInterceptor themeChangeInterceptor, LocaleChangeInterceptor localeChangeInterceptor,
-			Slf4jMDCInterceptor slf4jMDCInterceptor) {
-		return new DefaultWebMvcConfigurer(localResourceProperteis, themeChangeInterceptor, localeChangeInterceptor,
-				slf4jMDCInterceptor);
-	}
+    @Bean
+    public DefaultWebMvcConfigurer defaultWebMvcConfigurer(LocalResourceProperteis localResourceProperteis,
+                                                           ThemeChangeInterceptor themeChangeInterceptor, LocaleChangeInterceptor localeChangeInterceptor,
+                                                           Slf4jMDCInterceptor slf4jMDCInterceptor) {
+        return new DefaultWebMvcConfigurer(localResourceProperteis, themeChangeInterceptor, localeChangeInterceptor,
+                slf4jMDCInterceptor);
+    }
 
 }

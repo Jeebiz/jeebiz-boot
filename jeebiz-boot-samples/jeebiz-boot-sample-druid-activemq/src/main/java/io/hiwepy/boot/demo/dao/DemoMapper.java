@@ -10,7 +10,7 @@ import io.hiwepy.boot.api.dao.BaseMapper;
 import io.hiwepy.boot.demo.dao.entities.DemoEntity;
 
 @Mapper
-public interface DemoMapper extends BaseMapper<DemoEntity>{
+public interface DemoMapper extends BaseMapper<DemoEntity> {
 
 
 }

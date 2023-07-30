@@ -24,14 +24,14 @@ import java.util.List;
 public class MyBeanSerializerModifier extends BeanSerializerModifier {
 
     @Override
-    public List<BeanPropertyWriter> changeProperties(SerializationConfig config, 
+    public List<BeanPropertyWriter> changeProperties(SerializationConfig config,
                                                      BeanDescription beanDesc,
                                                      List<BeanPropertyWriter> beanProperties) {
         // 1、循环所有的beanPropertyWriter
         for (BeanPropertyWriter writer : beanProperties) {
-        	
-        	// 2、当前属性的Java类型
-        	Class<?> rawClass = writer.getType().getRawClass();
+
+            // 2、当前属性的Java类型
+            Class<?> rawClass = writer.getType().getRawClass();
             // 3、判断字段的类型，如果是array，list，set则注册nullSerializer
             if (this.isArrayType(rawClass)) {
                 writer.assignNullSerializer(NullArrayJsonSerializer.INSTANCE);
@@ -89,7 +89,7 @@ public class MyBeanSerializerModifier extends BeanSerializerModifier {
     /**
      * 5、是否是boolean
      */
-	protected boolean isBooleanType(Class<?> clazz) {
+    protected boolean isBooleanType(Class<?> clazz) {
         return clazz.equals(Boolean.class);
     }
 

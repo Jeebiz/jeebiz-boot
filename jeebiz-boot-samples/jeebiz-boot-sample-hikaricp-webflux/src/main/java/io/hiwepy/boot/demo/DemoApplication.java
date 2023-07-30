@@ -25,7 +25,7 @@ import io.hiwepy.boot.demo.dao.entities.MyEvent;
 @EnableTransactionManagement
 public class DemoApplication implements CommandLineRunner {
 
-	@Bean
+    @Bean
     public PlatformTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
@@ -37,20 +37,20 @@ public class DemoApplication implements CommandLineRunner {
     }
 
     @Bean
-	public Sequence sequence() {
-		return new Sequence(0L);
-	}
+    public Sequence sequence() {
+        return new Sequence(0L);
+    }
 
-	public static void main(String[] args) throws Exception {
-		 SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		System.err.println("Spring Boot Application（Jeebiz-Demo） Started !");
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        System.err.println("Spring Boot Application（Jeebiz-Demo） Started !");
+    }
 
-	@Bean
+    @Bean
     public CommandLineRunner initData(MongoOperations mongo) {  // 2
         return (String... args) -> {    // 3
             mongo.dropCollection(MyEvent.class);    // 4

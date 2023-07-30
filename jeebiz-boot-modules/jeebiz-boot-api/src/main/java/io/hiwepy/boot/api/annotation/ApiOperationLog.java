@@ -8,6 +8,7 @@ import java.lang.annotation.*;
 
 /**
  * 操作日志注解
+ *
  * @author <a href="https://github.com/wandl">wandl</a>
  */
 @Retention(RetentionPolicy.RUNTIME)
@@ -16,24 +17,24 @@ import java.lang.annotation.*;
 @Inherited
 public @interface ApiOperationLog {
 
-	/**
-	 * 操作模块
-	 */
-	String module() default "";
+    /**
+     * 操作模块
+     */
+    String module() default "";
 
-	/**
-	 * 业务名称
-	 */
-	String business() default "";
+    /**
+     * 业务名称
+     */
+    String business() default "";
 
-	/**
-	 * 操作类型
-	 */
-	BusinessType opt() ;
+    /**
+     * 操作类型
+     */
+    BusinessType opt();
 
-	/**
-	 * 是否马上处理
-	 */
-	boolean immediate() default false;
+    /**
+     * 是否马上处理
+     */
+    boolean immediate() default false;
 
 }

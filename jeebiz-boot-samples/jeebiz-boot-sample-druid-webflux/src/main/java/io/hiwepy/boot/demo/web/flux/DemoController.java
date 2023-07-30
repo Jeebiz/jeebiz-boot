@@ -21,19 +21,19 @@ public class DemoController {
     @GetMapping("/{user}")
     public Mono<DemoEntity> getUser(@PathVariable Long user) {
         // ...
-    	return null;
+        return null;
     }
 
     @GetMapping("/{user}/customers")
     public Flux<DemoEntity> getUserCustomers(@PathVariable Long user) {
         // ...
-    	return null;
+        return null;
     }
 
     @DeleteMapping("/{user}")
     public Mono<DemoEntity> deleteUser(@PathVariable Long user) {
         // ...
-    	return null;
+        return null;
     }
 
 }

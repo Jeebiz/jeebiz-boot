@@ -19,5 +19,5 @@ public class ApplicationStartedEventListener implements ApplicationListener<Appl
         SpringApplication app = event.getSpringApplication();
         logger.info("==MyApplicationStartedEventListener==" + app.getMainApplicationClass());
     }
-    
+
 }

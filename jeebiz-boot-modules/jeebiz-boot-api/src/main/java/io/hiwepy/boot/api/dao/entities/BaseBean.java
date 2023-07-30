@@ -25,9 +25,9 @@ public abstract class BaseBean implements Cloneable, Serializable {
     }
 
     @SuppressWarnings("unchecked")
-	public <T extends BaseBean> T shallowClone() {
+    public <T extends BaseBean> T shallowClone() {
         try {
-            return (T)clone();
+            return (T) clone();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
