@@ -69,7 +69,7 @@ public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.Base
      * @param origin
      * @return
      */
-    Long getCountByCode(@Param("code") String code, @Param("origin") String origin);
+    Long getCountByCode(@Param("code") String code, @Param("origin") Object origin);
 
     /**
      * 根据名称获取记录数
@@ -78,9 +78,9 @@ public interface BaseMapper<T> extends com.baomidou.mybatisplus.core.mapper.Base
      * @param origin
      * @return
      */
-    Long getCountByName(@Param("name") String name, @Param("origin") String origin);
+    Long getCountByName(@Param("name") String name, @Param("origin") Object origin);
 
-    Long getCountByParent(@Param("parent") String parent);
+    Long getCountByParent(@Param("parent") Object parent);
 
     /**
      * 通过指定key查询对应的唯一值

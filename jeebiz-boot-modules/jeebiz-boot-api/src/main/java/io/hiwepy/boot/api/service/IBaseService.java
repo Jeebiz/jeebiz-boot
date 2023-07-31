@@ -76,7 +76,7 @@ public interface IBaseService<T> extends IService<T> {
      * @param origin
      * @return
      */
-    Long getCountByCode(String code, String origin);
+    Long getCountByCode(String code, Object origin);
 
     /**
      * 根据名称获取记录数
@@ -85,9 +85,9 @@ public interface IBaseService<T> extends IService<T> {
      * @param origin
      * @return
      */
-    Long getCountByName(String name, String origin);
+    Long getCountByName(String name, Object origin);
 
-    Long getCountByParent(String parent);
+    Long getCountByParent(Object parent);
 
     /**
      *

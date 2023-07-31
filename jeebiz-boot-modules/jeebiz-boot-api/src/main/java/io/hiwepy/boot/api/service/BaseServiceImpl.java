@@ -146,17 +146,17 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, 
     }
 
     @Override
-    public Long getCountByCode(String code, String origin) {
+    public Long getCountByCode(String code, Object origin) {
         return getBaseMapper().getCountByCode(code, origin);
     }
 
     @Override
-    public Long getCountByName(String name, String origin) {
+    public Long getCountByName(String name, Object origin) {
         return getBaseMapper().getCountByName(name, origin);
     }
 
     @Override
-    public Long getCountByParent(String parent) {
+    public Long getCountByParent(Object parent) {
         return getBaseMapper().getCountByParent(parent);
     }
 
