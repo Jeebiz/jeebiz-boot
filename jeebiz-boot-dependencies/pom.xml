@@ -40,7 +40,7 @@
         <bcmail.version>${bcprov.version}</bcmail.version>
         <bcpg.version>1.76</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
-        <caffeine.version>3.1.1</caffeine.version>
+        <caffeine.version>2.9.3</caffeine.version>
         <canal.version>1.1.6</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
         <camel.version>3.17.0</camel.version>
@@ -291,9 +291,9 @@
         <reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
         <redisson.version>3.17.4</redisson.version>
-        <resilience4j.version>1.7.1</resilience4j.version>
+        <resilience4j.version>2.1.0</resilience4j.version>
         <reflections.version>0.9.12</reflections.version>
-        <rocketmq-client.version>4.9.2</rocketmq-client.version>
+        <rocketmq-client.version>5.1.3</rocketmq-client.version>
         <rsocket.version>1.1.1</rsocket.version>
         <rxjava2.version>2.2.21</rxjava2.version>
         <rxjava3.version>3.1.2</rxjava3.version>
@@ -356,13 +356,22 @@
         <swagger.version>1.6.6</swagger.version>
         <swagger2.version>2.2.1</swagger2.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
+        <swagger-butler.version>1.2.0</swagger-butler.version>
+        <swagger-codegen.version>2.4.19</swagger-codegen.version>
+        <swagger-generator.version>${swagger-codegen.version}</swagger-generator.version>
+        <swagger-parser.version>1.0.51</swagger-parser.version>
+        <swagger-inflector.version>2.0.5</swagger-inflector.version>
+        <swagger-validator.version>1.0.7</swagger-validator.version>
+        <swagger2markup.version>1.3.3</swagger2markup.version>
+        <swagger3.version>2.1.4</swagger3.version>
         <tablesaw.version>0.40.0</tablesaw.version>
         <tencentcloud-sdk-java.version>3.1.301</tencentcloud-sdk-java.version>
         <tencentcloud-tls-sig-api-v2.version>2.0</tencentcloud-tls-sig-api-v2.version>
-        <thumbnailator.version>0.4.17</thumbnailator.version>
+        <thumbnailator.version>0.4.19</thumbnailator.version>
         <thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
         <thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
         <token-bucket.version>1.7</token-bucket.version>
+        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
         <truelicense.version>1.33</truelicense.version>
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <undertow-metrics.version>1.0.0.RELEASE</undertow-metrics.version>
@@ -370,6 +379,7 @@
         <webcollector.version>2.73-alpha</webcollector.version>
         <webjars-locator.version>0.45</webjars-locator.version>
         <webjars-locator-core.version>0.52</webjars-locator-core.version>
+        <webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
         <webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
         <webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
         <weixin-java.version>4.3.2.B</weixin-java.version>
@@ -423,6 +433,9 @@
         <maven-properties-plugin.version>1.0.0</maven-properties-plugin.version>
         <maven-rpm-plugin.version>2.2.0</maven-rpm-plugin.version>
         <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
+        <maven-swagger-codegen-plugin.version>${swagger-codegen.version}</maven-swagger-codegen-plugin.version>
+        <maven-swagger3-plugin.version>${swagger3.version}</maven-swagger3-plugin.version>
+        <maven-swagger2markup-plugin.version>1.3.7</maven-swagger2markup-plugin.version>
         <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 
         <!-- Third Party Spring Boot Starter Dependency versions -->
@@ -431,6 +444,7 @@
         <spring-boot-starter-agora.version>1.0.0-SNAPSHOT</spring-boot-starter-agora.version>
         <spring-boot-starter-aliyun-schedulerx2.version>1.2.9.1</spring-boot-starter-aliyun-schedulerx2.version>
         <spring-boot-starter-aliyun-ons.version>2.0.0.RELEASE</spring-boot-starter-aliyun-ons.version>
+        <spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
         <spring-boot-starter-aliyun-mps.version>2.0.0.RELEASE</spring-boot-starter-aliyun-mps.version>
         <spring-boot-starter-arcface.version>2.0.1.RELEASE</spring-boot-starter-arcface.version>
         <spring-boot-starter-arthas.version>3.6.2</spring-boot-starter-arthas.version>
@@ -450,6 +464,7 @@
         <spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
         <spring-boot-starter-druid-plus.version>2.0.0.RELEASE</spring-boot-starter-druid-plus.version>
+        <spring-boot-starter-dynamic-datasource.version>3.6.1</spring-boot-starter-dynamic-datasource.version>
         <spring-boot-starter-elasticjob.version>3.0.1</spring-boot-starter-elasticjob.version>
         <spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
         <spring-boot-starter-fastdfs.version>2.0.0.RELEASE</spring-boot-starter-fastdfs.version>
@@ -460,8 +475,10 @@
         <spring-boot-starter-httl.version>2.0.0.RELEASE</spring-boot-starter-httl.version>
         <spring-boot-starter-ip2region.version>2.0.1.RELEASE</spring-boot-starter-ip2region.version>
         <spring-boot-starter-ishumei.version>2.0.0.RELEASE</spring-boot-starter-ishumei.version>
+        <spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
         <spring-boot-starter-jasypt.version>3.0.4</spring-boot-starter-jasypt.version>
         <spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
+        <spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
         <spring-boot-starter-jcaptcha.version>2.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
         <spring-boot-starter-jpush.version>2.0.0.RELEASE</spring-boot-starter-jpush.version>
         <spring-boot-starter-kaptcha.version>2.0.0.RELEASE</spring-boot-starter-kaptcha.version>
@@ -477,15 +494,17 @@
         <spring-boot-starter-nacos-discovery.version>0.2.11</spring-boot-starter-nacos-discovery.version>
         <spring-boot-starter-opentracing.version>3.3.1</spring-boot-starter-opentracing.version>
         <spring-boot-starter-okhttp3.version>2.0.0.RELEASE</spring-boot-starter-okhttp3.version>
+        <spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
         <spring-boot-starter-pac4j.version>2.0.0.RELEASE</spring-boot-starter-pac4j.version>
+        <spring-boot-starter-pagehelper.version>1.3.0</spring-boot-starter-pagehelper.version>
         <spring-boot-starter-pf4j.version>2.0.0.RELEASE</spring-boot-starter-pf4j.version>
         <spring-boot-starter-pf4j2.version>2.0.0.RELEASE</spring-boot-starter-pf4j2.version>
         <spring-boot-starter-pf4j3.version>2.0.0.RELEASE</spring-boot-starter-pf4j3.version>
         <spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
         <spring-boot-starter-qqwry.version>2.0.0.RELEASE</spring-boot-starter-qqwry.version>
+        <spring-boot-starter-redistpl-plus.version>1.0.8.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
         <spring-boot-starter-redisson-plus.version>2.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
-        <spring-boot-starter-redistpl-plus.version>2.0.0.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-rocketmq.version>2.2.2</spring-boot-starter-rocketmq.version>
         <spring-boot-starter-schemacrawler.version>2.0.0.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>1.5.2</spring-boot-starter-seata.version>
@@ -497,6 +516,7 @@
         <spring-boot-starter-security-jwt.version>2.0.2-SNAPSHOT</spring-boot-starter-security-jwt.version>
         <spring-boot-starter-security-line.version>2.0.0.RELEASE</spring-boot-starter-security-line.version>
         <spring-boot-starter-security-pac4j.version>2.0.2-SNAPSHOT</spring-boot-starter-security-pac4j.version>
+        <spring-boot-starter-security-qrcode.version>1.0.1.RELEASE</spring-boot-starter-security-qrcode.version>
         <spring-boot-starter-security-weixin.version>2.0.2-SNAPSHOT</spring-boot-starter-security-weixin.version>
         <spring-boot-starter-shiro-biz.version>2.0.0.RELEASE</spring-boot-starter-shiro-biz.version>
         <spring-boot-starter-shiro-cas.version>2.0.0.RELEASE</spring-boot-starter-shiro-cas.version>
@@ -515,7 +535,7 @@
         <spring-boot-starter-tencentapi.version>2.0.0.RELEASE</spring-boot-starter-tencentapi.version>
         <spring-boot-starter-webflux-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>2.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-validation-mimetypes.version>2.0.1-SNAPSHOT</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>2.0.0.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>2.0.0.RELEASE</spring-boot-starter-xmemcached.version>
         <spring-boot-starter-xxljob.version>2.0.0.RELEASE</spring-boot-starter-xxljob.version>
@@ -5074,11 +5094,56 @@
                 <version>${swagger-validator.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/io.swagger.core.v3 -->
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-core</artifactId>
+                <version>${swagger3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-integration</artifactId>
+                <version>${swagger3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-jaxrs2</artifactId>
+                <version>${swagger3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
+                <version>${swagger3.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.github.swagger2markup/swagger2markup -->
+            <dependency>
+                <groupId>io.github.swagger2markup</groupId>
+                <artifactId>swagger2markup</artifactId>
+                <version>${swagger2markup.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/swagger-bootstrap-ui -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>swagger-bootstrap-ui</artifactId>
                 <version>${swagger-bootstrap-ui.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.didispace/swagger-butler-core -->
+            <dependency>
+                <groupId>com.didispace</groupId>
+                <artifactId>swagger-butler-core</artifactId>
+                <version>${swagger-butler.version}</version>
             </dependency>
 
             <!-- http://mvnrepository.com/artifact/org.sitemesh/sitemesh -->
@@ -5169,7 +5234,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>transmittable-thread-local</artifactId>
-                <version>2.12.4</version>
+                <version>${transmittable-thread-local.version}</version>
             </dependency>
 
             <!-- 使用参考: https://blog.csdn.net/wuyuxing24/article/details/99692762-->
@@ -5206,6 +5271,13 @@
                 <version>${webcollector.version}</version>
             </dependency>
 
+            <!-- http://mvnrepository.com/artifact/org.webjars/swagger-ui -->
+
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>swagger-ui</artifactId>
+                <version>${webjars.swagger-ui.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.webjars.bower/stomp-websocket -->
             <dependency>
                 <groupId>org.webjars.bower</groupId>
@@ -5571,6 +5643,12 @@
                 <artifactId>disruptor-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-disruptor.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.xjzrc.spring.boot</groupId>
+                <artifactId>disconf-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-disconf.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/dingtalk-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
@@ -5598,12 +5676,12 @@
                 <groupId>com.github.dozermapper</groupId>
                 <artifactId>dozer-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-dozermapper.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.xjzrc.spring.boot</groupId>
-                <artifactId>disconf-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-disconf.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.alibaba/spring-boot-starter-dropwizard-metrics -->
             <dependency>

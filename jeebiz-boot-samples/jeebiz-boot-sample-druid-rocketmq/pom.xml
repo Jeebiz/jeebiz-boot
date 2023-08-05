@@ -172,8 +172,8 @@
             <artifactId>ojdbc8</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
+       <dependency>
+            <groupId>com.oracle.database.observability</groupId>
             <artifactId>ojdbc8dms</artifactId>
             <scope>runtime</scope>
         </dependency>
