@@ -119,6 +119,7 @@
             <groupId>com.github.hiwepy</groupId>
             <artifactId>log4j2-plus-spring-boot-starter</artifactId>
         </dependency>
+
         <!-- For Mybatis -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -129,6 +130,15 @@
                     <artifactId>freemarker</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- For Mybatis Plus Generator -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
         </dependency>
         <!-- For Flyway -->
         <dependency>
@@ -204,7 +214,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
-                    <mainClass>DemoApplication</mainClass>
+                    <mainClass>io.hiwepy.boot.demo.DemoApplication</mainClass>
                 </configuration>
             </plugin>
             <!-- 第一步：生成可执行的启动脚本 -->

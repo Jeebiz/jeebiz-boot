@@ -1,13 +1,27 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.hiwepy</groupId>
-        <!-- 特别注意：真实的业务系统应继承 jeebiz-boot-parent  -->
         <artifactId>jeebiz-boot-samples</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>jeebiz-boot-sample-hikaricp</artifactId>
+    <artifactId>jeebiz-boot-sample-r2dbc-webflux</artifactId>
+
+    <properties>
+
+        <!-- 生成Docker镜像参数: docker build、push地址-->
+        <docker.workdir>/u01/boot/${project.artifactId}</docker.workdir>
+        <docker.push.repostory>192.168.31.109</docker.push.repostory>
+        <docker.build.repostory>http://192.168.31.108:2375</docker.build.repostory>
+        <!--push镜像到私有库项目的名称 -->
+        <docker.registry.name>jeebiz</docker.registry.name>
+
+        <!-- 生成API离线文参数-->
+        <swagger.input>http://localhost:8080/v2/api-docs</swagger.input>
+
+    </properties>
 
     <dependencies>
 
@@ -19,14 +33,14 @@
         </dependency>
         <dependency>
             <groupId>io.hiwepy</groupId>
-            <artifactId>jeebiz-boot-webmvc-autoconfigure</artifactId>
+            <artifactId>jeebiz-boot-webflux-autoconfigure</artifactId>
             <version>${jeebiz-boot.version}</version>
         </dependency>
 
-        <!-- For Embedded Web -->
+        <!-- For WebFlux -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
@@ -56,7 +70,7 @@
         <!-- For Swagger -->
         <dependency>
             <groupId>com.github.hiwepy</groupId>
-            <artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
+            <artifactId>webflux-swagger2-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -74,10 +88,6 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.github.hiwepy</groupId>
-            <artifactId>validation-mimetypes-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
         </dependency>
@@ -90,17 +100,6 @@
             <groupId>com.github.hiwepy</groupId>
             <artifactId>dozer-extra-converters</artifactId>
         </dependency>
-        <!-- For AOP -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!-- For Cache Support -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -109,6 +108,33 @@
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
+        </dependency>
+        <!-- For Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>redistpl-plus-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- For Mongodb -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+        </dependency>
+        <!-- For R2dbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-r2dbc</artifactId>
         </dependency>
         <!-- For Log4j2 -->
         <dependency>
@@ -121,62 +147,73 @@
         </dependency>
         <!-- For Mybatis -->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.freemarker</groupId>
-                    <artifactId>freemarker</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
+        <!-- For Mybatis-r2dbc -->
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-mybatis</artifactId>
-        </dependency>
-        <!-- For Mybatis Plus Generator -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
+            <groupId>pro.chenggang</groupId>
+            <artifactId>mybatis-r2dbc</artifactId>
         </dependency>
         <!-- For Flyway -->
         <dependency>
             <groupId>com.github.hiwepy</groupId>
             <artifactId>flyway-plus-spring-boot-starter</artifactId>
         </dependency>
-        <!-- For HikariCP -->
+        <!-- For Camel Reactive -->
+        <!-- <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-reactive-streams-starter</artifactId>
+        </dependency> -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb-reactive -->
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+        </dependency> -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis-reactive -->
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency> -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-cassandra-reactive -->
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-cassandra-reactive</artifactId>
+        </dependency> -->
+        <!-- R2DBC Driver Implementation for H2  -->
         <dependency>
-            <groupId>com.github.hiwepy</groupId>
-            <artifactId>hikaricp-plus-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-        </dependency>
-        <!-- JDBC Driver For MySQL -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- JDBC Driver For Oracle -->
+        <!-- R2DBC Driver Implementation for Postgresql  -->
         <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
+            <groupId>org.mariadb</groupId>
+            <artifactId>r2dbc-mariadb</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- R2DBC Driver Implementation for Microsoft SQL Server  -->
         <dependency>
-            <groupId>com.oracle.database.observability</groupId>
-            <artifactId>ojdbc8dms</artifactId>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-mssql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- R2DBC Driver Implementation For MySQL -->
         <dependency>
-            <groupId>com.oracle.database.nls</groupId>
-            <artifactId>orai18n</artifactId>
+            <groupId>dev.miku</groupId>
+            <artifactId>r2dbc-mysql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- R2DBC Driver Implementation For PostgreSQL  -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>r2dbc-postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- R2DBC Driver Implementation For Oracle -->
+        <dependency>
+            <groupId>com.oracle.database.r2dbc</groupId>
+            <artifactId>oracle-r2dbc</artifactId>
             <scope>runtime</scope>
         </dependency>
 

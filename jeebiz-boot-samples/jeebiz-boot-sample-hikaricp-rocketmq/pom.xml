@@ -122,6 +122,25 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.freemarker</groupId>
+                    <artifactId>freemarker</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-mybatis</artifactId>
+        </dependency>
+        <!-- For Mybatis Plus Generator -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
         </dependency>
         <!-- For Flyway -->
         <dependency>
@@ -195,7 +214,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
-                    <mainClass>DemoApplication</mainClass>
+                    <mainClass>io.hiwepy.boot.demo.DemoApplication</mainClass>
                 </configuration>
             </plugin>
             <!-- 第一步：生成可执行的启动脚本 -->

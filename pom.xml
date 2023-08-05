@@ -49,7 +49,7 @@
         <module>jeebiz-boot-dependencies</module>
         <module>jeebiz-boot-modules</module>
         <module>jeebiz-boot-parent</module>
-        <!-- <module>jeebiz-boot-samples</module> -->
+        <module>jeebiz-boot-samples</module>
     </modules>
 
     <!--开源协议采用Apache 2.0协议-->

@@ -228,7 +228,7 @@
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
         <mybatis-plus-ext.version>1.7.4-RELEASE</mybatis-plus-ext.version>
-        <mybatis-r2dbc.version>1.0.8.RELEASE</mybatis-r2dbc.version>
+        <mybatis-r2dbc.version>1.2.5.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.1.0</mybatis-spring.version>
         <mybatis-mate.version>1.2.9-sp2</mybatis-mate.version>
         <mybatis-migrations.version>3.3.10</mybatis-migrations.version>
@@ -279,12 +279,13 @@
         <pf4j-update.version>2.3.0</pf4j-update.version>
         <pf4j-spring.version>0.7.0</pf4j-spring.version>
         <png-encoder.version>1.5</png-encoder.version>
-        <r2dbc-h2.version>0.9.1.RELEASE</r2dbc-h2.version>
-        <r2dbc-mariadb.version>1.1.1-rc</r2dbc-mariadb.version>
-        <r2dbc-mssql.version>0.9.0.RELEASE</r2dbc-mssql.version>
+        <r2dbc-h2.version>1.0.0.RELEASE</r2dbc-h2.version>
+        <r2dbc-mariadb.version>1.1.4</r2dbc-mariadb.version>
+        <r2dbc-mssql.version>1.0.2.RELEASE</r2dbc-mssql.version>
         <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
-        <r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
-        <r2dbc-oracle.version>0.4.0</r2dbc-oracle.version>
+        <r2dbc-proxy.version>1.1.2.RELEASE</r2dbc-proxy.version>
+        <r2dbc-postgresql.version>1.0.2.RELEASE</r2dbc-postgresql.version>
+        <r2dbc-oracle.version>1.1.1</r2dbc-oracle.version>
         <reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
         <redisson.version>3.17.4</redisson.version>
@@ -3989,9 +3990,15 @@
                 <artifactId>r2dbc-mysql</artifactId>
                 <version>${r2dbc-mysql.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-postgresql -->
+            <!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-proxy -->
             <dependency>
                 <groupId>io.r2dbc</groupId>
+                <artifactId>r2dbc-proxy</artifactId>
+                <version>${r2dbc-proxy.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.postgresql/r2dbc-postgresql -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
                 <artifactId>r2dbc-postgresql</artifactId>
                 <version>${r2dbc-postgresql.version}</version>
             </dependency>
