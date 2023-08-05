@@ -22,7 +22,6 @@ import java.util.Map;
  * threads in a pooled or reusable threaded environment, the application (or more likely a framework) must
  * bind and remove any necessary values at the beginning and end of stack
  * execution, respectively (i.e. individually explicitly or all via the <tt>clear</tt> method).</p>
- *
  */
 public class ThreadContext {
 
@@ -49,7 +48,7 @@ public class ThreadContext {
      * @return the map of bound resources
      */
     public static Map<Object, Object> getResources() {
-        if (resources.get() == null){
+        if (resources.get() == null) {
             return Collections.emptyMap();
         } else {
             return new HashMap<Object, Object>(resources.get());
@@ -79,7 +78,7 @@ public class ThreadContext {
      *
      * @param key the map key to use to lookup the value
      * @return the value bound in the {@code ThreadContext} under the specified {@code key}, or {@code null} if there
-     *         is no value for that {@code key}.
+     * is no value for that {@code key}.
      * @since 1.0
      */
     private static Object getValue(Object key) {
@@ -87,9 +86,9 @@ public class ThreadContext {
         return perThreadResources != null ? perThreadResources.get(key) : null;
     }
 
-    private static void ensureResourcesInitialized(){
-        if (resources.get() == null){
-           resources.set(new HashMap<Object, Object>());
+    private static void ensureResourcesInitialized() {
+        if (resources.get() == null) {
+            resources.set(new HashMap<Object, Object>());
         }
     }
 
@@ -99,7 +98,7 @@ public class ThreadContext {
      *
      * @param key the key that identifies the value to return
      * @return the object keyed by <code>key</code> or <code>null</code> if
-     *         no value exists for the specified <code>key</code>
+     * no value exists for the specified <code>key</code>
      */
     public static Object get(Object key) {
         if (log.isTraceEnabled()) {
@@ -157,7 +156,7 @@ public class ThreadContext {
      *
      * @param key The key identifying the value bound to the current thread.
      * @return the object unbound or <tt>null</tt> if there was nothing bound
-     *         under the specified <tt>key</tt> name.
+     * under the specified <tt>key</tt> name.
      */
     public static Object remove(Object key) {
         Map<Object, Object> perThreadResources = resources.get();
@@ -238,7 +237,7 @@ public class ThreadContext {
      * during thread execution), use the {@link #getSecurityManager() getSecurityManager()} method instead.
      *
      * @return the application's SecurityManager instance previously bound to the thread, or <tt>null</tt> if there
-     *         was none bound.
+     * was none bound.
      * @since 0.9
      */
     public static SecurityManager unbindSecurityManager() {
@@ -308,6 +307,7 @@ public class ThreadContext {
          * This implementation was added to address a
          * <a href="http://jsecurity.markmail.org/search/?q=#query:+page:1+mid:xqi2yxurwmrpqrvj+state:results">
          * user-reported issue</a>.
+         *
          * @param parentValue the parent value, a HashMap as defined in the {@link #initialValue()} method.
          * @return the HashMap to be used by any parent-spawned child threads (a clone of the parent HashMap).
          */

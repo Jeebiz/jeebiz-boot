@@ -1,5 +1,4 @@
-
-## Freemarker + Sitemesh3 + Ehcache  + Mybatis + Flyway + HikariCP + Log4j2
+## Freemarker + Sitemesh3 + Ehcache + Mybatis + Flyway + HikariCP + Log4j2
 
 1、Freemarker 视图渲染
 2、Sitemesh3 装饰模板，后台模式使用

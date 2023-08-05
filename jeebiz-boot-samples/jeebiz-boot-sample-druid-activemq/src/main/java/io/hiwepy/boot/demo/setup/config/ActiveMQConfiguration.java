@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ActiveMQConfiguration {
 
-	@Bean
+    @Bean
     public Queue queue() {
-       return new ActiveMQQueue("demo.queue");
+        return new ActiveMQQueue("demo.queue");
     }
 
     @Bean
     public Topic topic() {
-       return new ActiveMQTopic("demo.topic");
+        return new ActiveMQTopic("demo.topic");
     }
 
 }

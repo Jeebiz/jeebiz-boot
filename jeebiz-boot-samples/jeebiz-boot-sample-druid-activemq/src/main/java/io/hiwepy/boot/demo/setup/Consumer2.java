@@ -12,7 +12,7 @@ public class Consumer2 {
     @JmsListener(destination = "demo.topic")
     public void receiveQueue(String text) {
 
-       System.out.println("Consumer2="+text);
+        System.out.println("Consumer2=" + text);
 
     }
 

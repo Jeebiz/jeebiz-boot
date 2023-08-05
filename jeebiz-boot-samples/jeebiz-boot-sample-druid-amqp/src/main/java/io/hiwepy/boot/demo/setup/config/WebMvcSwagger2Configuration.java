@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.demo.setup.config;
 
@@ -17,15 +17,15 @@ import springfox.documentation.annotations.ApiIgnore;
 @ConditionalOnProperty(prefix = Swagger2WebMvcProperties.PREFIX, value = "enabled", havingValue = "true")
 public class WebMvcSwagger2Configuration {
 
-	@Controller
-	class HomepageController {
+    @Controller
+    class HomepageController {
 
-		@ApiIgnore
-		@GetMapping("/")
-		public String index() {
-			return "forward:/doc.html";
-		}
+        @ApiIgnore
+        @GetMapping("/")
+        public String index() {
+            return "forward:/doc.html";
+        }
 
-	}
+    }
 
 }

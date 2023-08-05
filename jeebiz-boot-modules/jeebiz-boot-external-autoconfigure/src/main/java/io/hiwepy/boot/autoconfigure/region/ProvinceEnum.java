@@ -43,9 +43,9 @@ public enum ProvinceEnum {
     P810000("810000", "香港特别行政区"),
     P820000("820000", "澳门特别行政区"),
 
-	UK("999999", "未知行政区"),
+    UK("999999", "未知行政区"),
 
-	;
+    ;
 
     // 行政区划代码
     private String code;
@@ -53,39 +53,39 @@ public enum ProvinceEnum {
     // 单位名称
     private String cname;
 
-	private static Logger log = LoggerFactory.getLogger(ProvinceEnum.class);
+    private static Logger log = LoggerFactory.getLogger(ProvinceEnum.class);
 
-    private ProvinceEnum( String code, String cname) {
+    private ProvinceEnum(String code, String cname) {
         this.code = code;
         this.cname = cname;
     }
 
     public String getCode() {
-		return code;
-	}
+        return code;
+    }
 
-	public String getCname() {
-		return cname;
-	}
+    public String getCname() {
+        return cname;
+    }
 
-	public static ProvinceEnum getByCode(String code) {
-		for (ProvinceEnum region : ProvinceEnum.values()) {
-			if (region.getCode().equalsIgnoreCase(code)) {
-				return region;
-			}
-		}
-		log.error("Cannot found ProvinceEnum with code '" + code + "'.");
-		return ProvinceEnum.UK;
-	}
+    public static ProvinceEnum getByCode(String code) {
+        for (ProvinceEnum region : ProvinceEnum.values()) {
+            if (region.getCode().equalsIgnoreCase(code)) {
+                return region;
+            }
+        }
+        log.error("Cannot found ProvinceEnum with code '" + code + "'.");
+        return ProvinceEnum.UK;
+    }
 
-	public static ProvinceEnum getByCnName(String cn_name) {
-		for (ProvinceEnum region : ProvinceEnum.values()) {
-			if (region.getCname().equalsIgnoreCase(cn_name)) {
-				return region;
-			}
-		}
-		log.error("Cannot found ProvinceEnum with cn_name '" + cn_name + "'.");
-		return ProvinceEnum.UK;
-	}
+    public static ProvinceEnum getByCnName(String cn_name) {
+        for (ProvinceEnum region : ProvinceEnum.values()) {
+            if (region.getCname().equalsIgnoreCase(cn_name)) {
+                return region;
+            }
+        }
+        log.error("Cannot found ProvinceEnum with cn_name '" + cn_name + "'.");
+        return ProvinceEnum.UK;
+    }
 
 }

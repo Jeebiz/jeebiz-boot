@@ -11,16 +11,16 @@ import java.util.Objects;
  * 处理数组集合类型的null值
  */
 public class NullArrayJsonSerializer extends JsonSerializer<Object> {
-	
-	public static final NullArrayJsonSerializer INSTANCE = new NullArrayJsonSerializer();
-	
-	@Override
-	public void serialize(Object value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
-			throws IOException {
-		if (Objects.isNull(value)) {
-			jsonGenerator.writeStartArray();
-			jsonGenerator.writeEndArray();
-		}
-	}
-	
+
+    public static final NullArrayJsonSerializer INSTANCE = new NullArrayJsonSerializer();
+
+    @Override
+    public void serialize(Object value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
+            throws IOException {
+        if (Objects.isNull(value)) {
+            jsonGenerator.writeStartArray();
+            jsonGenerator.writeEndArray();
+        }
+    }
+
 }

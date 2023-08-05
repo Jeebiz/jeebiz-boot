@@ -11,14 +11,14 @@ import java.lang.annotation.*;
 @Inherited
 public @interface ApiModule {
 
-	/**
-	 * 操作模块
-	 */
-	String module() default "";
+    /**
+     * 操作模块
+     */
+    String module() default "";
 
-	/**
-	 * 业务名称
-	 */
-	String business() default "";
+    /**
+     * 业务名称
+     */
+    String business() default "";
 
 }

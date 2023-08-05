@@ -8,10 +8,9 @@ import java.lang.annotation.*;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR, ElementType.PARAMETER,ElementType.TYPE_USE})
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
 @Constraint(validatedBy = AllowedValuesValidator.class)
-public @interface AllowableValues
-{
+public @interface AllowableValues {
 
     String message() default "invalid values";
 
@@ -21,6 +20,6 @@ public @interface AllowableValues
 
     Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default{};
+    Class<? extends Payload>[] payload() default {};
 
 }

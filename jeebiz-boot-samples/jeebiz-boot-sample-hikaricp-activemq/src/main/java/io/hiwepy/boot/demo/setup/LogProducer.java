@@ -12,21 +12,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogProducer implements CommandLineRunner {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(LogProducer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LogProducer.class);
 
-	@Autowired
-	private JmsMessagingTemplate jmsMessagingTemplate;
+    @Autowired
+    private JmsMessagingTemplate jmsMessagingTemplate;
 
-	@Autowired
-	private Queue logQueue;
+    @Autowired
+    private Queue logQueue;
 
-	@Override
-	public void run(String... strings) throws Exception {
-		send("This is a log message.");
-		LOGGER.info("Log Message was sent to the Queue named sample.log");
-	}
+    @Override
+    public void run(String... strings) throws Exception {
+        send("This is a log message.");
+        LOGGER.info("Log Message was sent to the Queue named sample.log");
+    }
 
-	public void send(String msg) {
-		this.jmsMessagingTemplate.convertAndSend(this.logQueue, msg);
-	}
+    public void send(String msg) {
+        this.jmsMessagingTemplate.convertAndSend(this.logQueue, msg);
+    }
 }

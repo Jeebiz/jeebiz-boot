@@ -57,7 +57,7 @@ public class LicenseVerify {
      */
     public void installLicense() {
         try {
-        	
+
             Preferences preferences = Preferences.userNodeForPackage(LicenseVerify.class);
 
             CipherParam cipherParam = new DefaultCipherParam(storePass);
@@ -67,7 +67,7 @@ public class LicenseVerify {
                     publicAlias,
                     storePass,
                     null);
-            
+
             LicenseParam licenseParam = new DefaultLicenseParam(subject, preferences, publicStoreParam, cipherParam);
 
             licenseManager = new CustomLicenseManager(licenseParam);

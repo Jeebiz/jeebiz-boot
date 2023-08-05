@@ -52,5 +52,5 @@ public class CustomKeyStoreParam extends AbstractKeyStoreParam {
     public InputStream getStream() throws IOException {
         return new FileInputStream(new File(storePath));
     }
-    
+
 }

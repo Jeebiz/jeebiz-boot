@@ -8,10 +8,10 @@ import java.util.Map;
 
 public interface ParamSignatureExtensionPoint extends ExtensionPoint {
 
-	void sign(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
+    void sign(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
 
-	String getAppkey(String appid);
+    String getAppkey(String appid);
 
-	String getAppSecret(String appid);
+    String getAppSecret(String appid);
 
 }

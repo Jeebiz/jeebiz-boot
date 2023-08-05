@@ -72,7 +72,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<ApiRestResp
 
         // 如果是实体，并且继承了BaseDTO，则放入时间戳
         if (data instanceof BaseDTO) {
-            ((BaseDTO)data).setCurrentTimeMillis(System.currentTimeMillis());
+            ((BaseDTO) data).setCurrentTimeMillis(System.currentTimeMillis());
         }
 
         // 对象序列化

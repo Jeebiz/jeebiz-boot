@@ -4,11 +4,12 @@ import java.util.function.Function;
 
 /**
  * 脱敏策略.
+ *
  * @author felord.cn
  * @since 11 :25
  */
 public enum SensitiveStrategy {
-	
+
     /**
      * Username sensitive strategy.
      */

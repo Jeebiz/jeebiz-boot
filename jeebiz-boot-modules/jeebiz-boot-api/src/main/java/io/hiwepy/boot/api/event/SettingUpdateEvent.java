@@ -9,9 +9,9 @@ import java.util.Map;
  */
 @SuppressWarnings("serial")
 public class SettingUpdateEvent extends EnhancedEvent<Map<String, String>> {
-	
-	public SettingUpdateEvent(Object source, Map<String, String> props) {
-		super(source, props);
-	}
-	
+
+    public SettingUpdateEvent(Object source, Map<String, String> props) {
+        super(source, props);
+    }
+
 }

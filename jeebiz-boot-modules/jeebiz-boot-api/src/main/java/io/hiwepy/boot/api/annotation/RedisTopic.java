@@ -4,12 +4,12 @@ import java.lang.annotation.*;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Documented	
-@Inherited		
+@Documented
+@Inherited
 public @interface RedisTopic {
-	
-	String pattern() default "";
-	
-	String channel() default "";
-	
+
+    String pattern() default "";
+
+    String channel() default "";
+
 }

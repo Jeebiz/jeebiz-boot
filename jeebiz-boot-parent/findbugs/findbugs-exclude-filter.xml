@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FindBugsFilter>
     <Match>
-        <Class name="~.*\.(model|entity|vo)\..*" />
-        <Method name="~(get.*|set.*)" />
+        <Class name="~.*\.(model|entity|vo)\..*"/>
+        <Method name="~(get.*|set.*)"/>
         <!-- <Bug pattern="EI_EXPOSE_REP" /> -->
-        <Bug code="EI,EI2" />
+        <Bug code="EI,EI2"/>
     </Match>
     <Match>
-        <Class name="~.*\.Authorization" />
-        <Bug code="EI,EI2" />
+        <Class name="~.*\.Authorization"/>
+        <Bug code="EI,EI2"/>
     </Match>
 </FindBugsFilter>

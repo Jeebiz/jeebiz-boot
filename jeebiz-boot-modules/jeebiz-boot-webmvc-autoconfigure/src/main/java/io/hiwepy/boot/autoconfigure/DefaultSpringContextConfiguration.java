@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan({"io.hiwepy.**.api", "io.hiwepy.**.feign", "io.hiwepy.**.setup", "io.hiwepy.**.service", "io.hiwepy.**.aspect", "io.hiwepy.**.task", "io.hiwepy.**.strategy", "io.hiwepy.**.extras"})
 public class DefaultSpringContextConfiguration {
 
-	@Bean
-	public SpringContextAwareContext springContextAwareContext() {
-		return new SpringContextAwareContext();
-	}
+    @Bean
+    public SpringContextAwareContext springContextAwareContext() {
+        return new SpringContextAwareContext();
+    }
 
 }
 

@@ -30,8 +30,8 @@ public interface Subject {
      *
      * @param roleIdentifiers the application-specific role identifiers to check (usually role ids or role names).
      * @return a boolean array where indices correspond to the index of the
-     *         roles in the given identifiers.  A true value indicates this Subject has the
-     *         role at that index.  False indicates this Subject does not have the role at that index.
+     * roles in the given identifiers.  A true value indicates this Subject has the
+     * role at that index.  False indicates this Subject does not have the role at that index.
      */
     boolean[] hasRoles(List<String> roleIdentifiers);
 
@@ -52,7 +52,7 @@ public interface Subject {
      * current session</em>.  See the {@link #isRemembered() isRemembered()} method JavaDoc for more.
      *
      * @return {@code true} if this Subject proved their identity during their current session
-     *         by providing valid credentials matching those known to the system, {@code false} otherwise.
+     * by providing valid credentials matching those known to the system, {@code false} otherwise.
      * @since 0.9
      */
     boolean isAuthenticated();

@@ -113,7 +113,7 @@ S支持全栈式Web开发，包括Tomcat和spring-webmvc。
 支持Spring Web Services。
 
 #Spring Boot应用启动器面向生产环境的还有2种，具体如下：
- 
+
 1）spring-boot-starter-actuator
 增加了面向产品上线相关的功能，比如测量和监控。
 

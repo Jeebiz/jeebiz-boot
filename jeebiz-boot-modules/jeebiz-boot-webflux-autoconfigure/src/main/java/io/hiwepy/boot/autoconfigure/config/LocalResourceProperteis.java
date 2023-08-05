@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
- * All Rights Reserved. 
+ * All Rights Reserved.
  */
 package io.hiwepy.boot.autoconfigure.config;
 
@@ -21,28 +21,28 @@ public class LocalResourceProperteis {
     // 本地静态资源映射
     private Map<String, String> localLocations = Maps.newHashMap();
 
-	public String getLocalStorage() {
-		return localStorage;
-	}
+    public String getLocalStorage() {
+        return localStorage;
+    }
 
-	public void setLocalStorage(String localStorage) {
-		this.localStorage = localStorage;
-	}
+    public void setLocalStorage(String localStorage) {
+        this.localStorage = localStorage;
+    }
 
-	public boolean isLocalRelative() {
-		return localRelative;
-	}
+    public boolean isLocalRelative() {
+        return localRelative;
+    }
 
-	public void setLocalRelative(boolean localRelative) {
-		this.localRelative = localRelative;
-	}
+    public void setLocalRelative(boolean localRelative) {
+        this.localRelative = localRelative;
+    }
 
-	public Map<String, String> getLocalLocations() {
-		return localLocations;
-	}
+    public Map<String, String> getLocalLocations() {
+        return localLocations;
+    }
 
-	public void setLocalLocations(Map<String, String> localLocations) {
-		this.localLocations = localLocations;
-	}
+    public void setLocalLocations(Map<String, String> localLocations) {
+        this.localLocations = localLocations;
+    }
 
 }

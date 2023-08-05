@@ -24,44 +24,44 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnClass({ ObjectMapper.class, Jackson2ObjectMapperBuilder.class })
+@ConditionalOnClass({ObjectMapper.class, Jackson2ObjectMapperBuilder.class})
 @AutoConfigureBefore(JacksonAutoConfiguration.class)
 public class DefaultJacksonAutoConfiguration {
 
-	@Value("${spring.jackson.date-format::#{null}}")
-	private String pattern;
+    @Value("${spring.jackson.date-format::#{null}}")
+    private String pattern;
 
-	@Bean
-	@Order(Integer.MIN_VALUE)
-	@Primary
-	public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
-		return Jackson2ObjectMapperBuilder.json()
-				.simpleDateFormat(DateFormats.DATE_LONGFORMAT)
-				.failOnEmptyBeans(false)
-				.failOnUnknownProperties(false)
-				.featuresToEnable(MapperFeature.USE_GETTERS_AS_SETTERS, MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS);
-	}
+    @Bean
+    @Order(Integer.MIN_VALUE)
+    @Primary
+    public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
+        return Jackson2ObjectMapperBuilder.json()
+                .simpleDateFormat(DateFormats.DATE_LONGFORMAT)
+                .failOnEmptyBeans(false)
+                .failOnUnknownProperties(false)
+                .featuresToEnable(MapperFeature.USE_GETTERS_AS_SETTERS, MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS);
+    }
 
-	@Bean
-	@Primary
-	public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
-		Map<Class<?>, JsonSerializer<?>> map = new HashMap<>(2);
-		if(StringUtils.hasText(pattern)){
-			map.put(LocalDateTime.class, localDateTimeSerializer());
-		}
-		map.put(Long.class, ToStringSerializer.instance);
-		return builder -> builder.serializersByType(map);
-	}
+    @Bean
+    @Primary
+    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
+        Map<Class<?>, JsonSerializer<?>> map = new HashMap<>(2);
+        if (StringUtils.hasText(pattern)) {
+            map.put(LocalDateTime.class, localDateTimeSerializer());
+        }
+        map.put(Long.class, ToStringSerializer.instance);
+        return builder -> builder.serializersByType(map);
+    }
 
-	public LocalDateTimeSerializer localDateTimeSerializer() {
-		return new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(pattern));
-	}
+    public LocalDateTimeSerializer localDateTimeSerializer() {
+        return new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(pattern));
+    }
 
-	@Bean
-	@Order(Integer.MIN_VALUE)
-	@Primary
-	public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
-		return builder.createXmlMapper(false).build();
-	}
+    @Bean
+    @Order(Integer.MIN_VALUE)
+    @Primary
+    public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
+        return builder.createXmlMapper(false).build();
+    }
 
 }

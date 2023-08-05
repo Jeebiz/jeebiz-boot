@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
-public interface ServletResponseExtensionPoint extends ExtensionPoint  {
+public interface ServletResponseExtensionPoint extends ExtensionPoint {
 
-	String dewrap(HttpServletResponse response, Map<String, Object> realParams);
+    String dewrap(HttpServletResponse response, Map<String, Object> realParams);
 
-	<T> ResponseEntity<T> dewrap(ResponseEntity<T> responseEntity);
+    <T> ResponseEntity<T> dewrap(ResponseEntity<T> responseEntity);
 
 }

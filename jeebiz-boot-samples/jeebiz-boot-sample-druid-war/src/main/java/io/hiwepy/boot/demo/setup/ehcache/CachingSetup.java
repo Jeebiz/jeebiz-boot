@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class CachingSetup implements JCacheManagerCustomizer {
 
-	@Override
-	public void customize(CacheManager cacheManager) {
-		cacheManager.createCache("people",
-				new MutableConfiguration<>()
-						.setExpiryPolicyFactory(TouchedExpiryPolicy.factoryOf(new Duration(TimeUnit.SECONDS, 10)))
-						.setStoreByValue(false)
-						.setStatisticsEnabled(true));
-	}
+    @Override
+    public void customize(CacheManager cacheManager) {
+        cacheManager.createCache("people",
+                new MutableConfiguration<>()
+                        .setExpiryPolicyFactory(TouchedExpiryPolicy.factoryOf(new Duration(TimeUnit.SECONDS, 10)))
+                        .setStoreByValue(false)
+                        .setStatisticsEnabled(true));
+    }
 
 }

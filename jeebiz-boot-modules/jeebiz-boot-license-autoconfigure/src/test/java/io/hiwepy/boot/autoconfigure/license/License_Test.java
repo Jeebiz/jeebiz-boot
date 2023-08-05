@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 public class License_Test {
 
-	private LicenseVerify licenseVerify;
+    private LicenseVerify licenseVerify;
 
     @Autowired
     public void setLicenseVerify(LicenseVerify licenseVerify) {
@@ -18,7 +18,7 @@ public class License_Test {
 
     @Test
     public void licenseVerify() {
-       System.out.println("licese是否有效：" + licenseVerify.verify());
+        System.out.println("licese是否有效：" + licenseVerify.verify());
     }
 
     @Test

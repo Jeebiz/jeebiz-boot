@@ -11,12 +11,12 @@ import java.lang.annotation.*;
 @Inherited
 public @interface ExtensionMapping {
 
-	public String id() default "";
+    public String id() default "";
 
-	public String title() default "";
+    public String title() default "";
 
-	public String ver() default "1.0.0";
+    public String ver() default "1.0.0";
 
-	public String desc() default "";
+    public String desc() default "";
 
 }

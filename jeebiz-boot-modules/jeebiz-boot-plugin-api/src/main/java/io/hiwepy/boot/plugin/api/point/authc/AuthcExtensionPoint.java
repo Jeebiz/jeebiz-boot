@@ -8,12 +8,12 @@ import java.util.Map;
 
 public interface AuthcExtensionPoint extends ExtensionPoint {
 
-	String getToken(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
+    String getToken(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
 
-	void handleHeader(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
+    void handleHeader(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
 
-	void handleRequest(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
+    void handleRequest(HttpServletRequest request, Map<String, Object> params) throws PluginRuntimeException;
 
-	Object handleResult(Object res) throws PluginRuntimeException;
+    Object handleResult(Object res) throws PluginRuntimeException;
 
 }

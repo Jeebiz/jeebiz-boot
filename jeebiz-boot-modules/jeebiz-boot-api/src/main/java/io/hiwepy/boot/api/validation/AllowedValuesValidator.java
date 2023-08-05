@@ -10,20 +10,20 @@ import java.util.List;
 
 public class AllowedValuesValidator implements ConstraintValidator<AllowableValues, String> {
 
-	List<String> allows;
+    List<String> allows;
     boolean nullable;
 
     @Override
     public void initialize(AllowableValues annotation) {
-    	nullable = annotation.nullable();
+        nullable = annotation.nullable();
         allows = Arrays.asList(annotation.allows().split(","));
     }
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-    	if(nullable && !StringUtils.hasText(value)) {
-    		return true;
-    	}
+        if (nullable && !StringUtils.hasText(value)) {
+            return true;
+        }
         return allows.contains(value);
     }
 }
