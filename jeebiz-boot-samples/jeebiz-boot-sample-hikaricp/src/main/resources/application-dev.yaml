@@ -10,7 +10,7 @@ spring:
   # 数据源配置：
   datasource:
     name: jeebiz_demo
-    type: com.alibaba.druid.pool.DruidDataSource
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://47.98.123.43:3306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
     username: jeebiz_demo

@@ -22,6 +22,29 @@ spring:
   flyway: 
     enabled: true
 
+################################################################################################################
+###RocketMQ (RocketMQProperties) 配置：
+################################################################################################################
+rocketmq:
+  # 访问地址
+  name-server: 192.168.1.224:9876
+  producer:
+    # 必须指定group
+    group: Pro_Group
+    # 消息发送超时时长，默认3s
+    send-message-timeout: 3000
+    # 同步发送消息失败重试次数，默认2
+    retry-times-when-send-failed: 3
+    # 异步发送消息失败重试次数，默认2
+    retry-times-when-send-async-failed: 3
+  consumer:
+    group: Pro_Group
+    # 消费者线程池数量，默认20
+    consume-thread-max: 20
+    # 消息消费失败重试次数，默认16
+    retry-times-when-consume-failed: 16
+
+
 ################################################################################################################  
 ###logging (log4j2) 基本配置：  
 ###http://www.cnblogs.com/yhtboke/p/Mybatis.html
