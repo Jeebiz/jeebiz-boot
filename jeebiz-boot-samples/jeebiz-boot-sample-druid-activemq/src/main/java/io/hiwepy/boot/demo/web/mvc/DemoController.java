@@ -3,32 +3,26 @@
  */
 package io.hiwepy.boot.demo.web.mvc;
 
-import java.util.Arrays;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
-import org.apache.commons.lang3.ObjectUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.biz.utils.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import io.hiwepy.boot.api.ApiRestResponse;
-import io.hiwepy.boot.api.annotation.BusinessLog;
+import io.hiwepy.boot.api.annotation.ApiOperationLog;
 import io.hiwepy.boot.api.annotation.BusinessType;
 import io.hiwepy.boot.api.web.BaseMapperController;
 import io.hiwepy.boot.demo.dao.entities.DemoEntity;
 import io.hiwepy.boot.demo.service.IDemoService;
-import io.hiwepy.boot.demo.setup.data.LogConstant;
+import io.hiwepy.boot.demo.setup.LogConstant;
 import io.hiwepy.boot.demo.web.dto.DemoDTO;
 import io.hiwepy.boot.demo.web.dto.DemoNewDTO;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.biz.utils.StringUtils;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("demo")
@@ -42,7 +36,7 @@ public class DemoController extends BaseMapperController {
      */
     @ApiOperation(value = "创建xxx信息", notes = "根据DemoVo创建xxx", httpMethod = "POST")
     @ApiImplicitParam(name = "demoVo", value = "xxx数据传输对象", required = true, dataType = "DemoNewDTO")
-    @BusinessLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.INSERT)
+    @ApiOperationLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.INSERT)
     @PostMapping("new")
     @ResponseBody
     public ApiRestResponse<String> newDemo(@Valid DemoNewDTO dto) {
@@ -68,7 +62,7 @@ public class DemoController extends BaseMapperController {
      */
     @ApiOperation(value = "修改xxx信息", notes = "修改xxx", httpMethod = "POST")
     @ApiImplicitParam(name = "demoVo", value = "xxx数据传输对象", required = true, dataType = "DemoVo")
-    @BusinessLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.UPDATE)
+    @ApiOperationLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.UPDATE)
     @PostMapping("renew")
     @ResponseBody
     public ApiRestResponse<String> renew(@Valid DemoDTO demoVo) throws Exception {
@@ -94,7 +88,7 @@ public class DemoController extends BaseMapperController {
      */
     @ApiOperation(value = "删除xxx信息", notes = "根据ID删除xxx", httpMethod = "POST")
     @ApiImplicitParam(name = "ids", value = "ID集合，多个使用,拼接", required = true, dataType = "String")
-    @BusinessLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.DELETE)
+    @ApiOperationLog(module = LogConstant.Module.N01, business = LogConstant.BUSINESS.N010001, opt = BusinessType.DELETE)
     @PostMapping("delete")
     @ResponseBody
     public ApiRestResponse<String> delete(@RequestParam(value = "ids") String ids, HttpServletRequest request) throws Exception {

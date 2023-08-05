@@ -4,11 +4,10 @@
  */
 package io.hiwepy.boot.demo.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import io.hiwepy.boot.demo.dao.entities.User;
 import io.hiwepy.boot.demo.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

@@ -4,10 +4,9 @@
  */
 package io.hiwepy.boot.demo.repository;
 
+import io.hiwepy.boot.demo.dao.entities.MyEvent;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.data.mongodb.repository.Tailable;
-
-import io.hiwepy.boot.demo.dao.entities.MyEvent;
 import reactor.core.publisher.Flux;
 
 /**

@@ -4,9 +4,8 @@
  */
 package io.hiwepy.boot.demo.repository;
 
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
-
 import io.hiwepy.boot.demo.dao.entities.User;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 
 public interface UserRepository extends ReactiveCrudRepository<User, String> {  // 1

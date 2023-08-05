@@ -1,13 +1,12 @@
 package io.hiwepy.boot.demo.web.mvc;
 
-import javax.servlet.http.HttpServletRequest;
-
+import io.hiwepy.boot.demo.setup.LogProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.hiwepy.boot.demo.setup.LogProducer;
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class ActiveMQController {

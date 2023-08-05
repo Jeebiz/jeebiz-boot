@@ -107,8 +107,13 @@
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
         <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+        <!-- For Redis -->
+        <dependency>
+            <groupId>com.github.hiwepy</groupId>
+            <artifactId>redistpl-plus-spring-boot-starter</artifactId>
         </dependency>
         <!-- For Log4j2 -->
         <dependency>
@@ -167,7 +172,7 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>com.oracle.database.observability</groupId>
+            <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc8dms</artifactId>
             <scope>runtime</scope>
         </dependency>

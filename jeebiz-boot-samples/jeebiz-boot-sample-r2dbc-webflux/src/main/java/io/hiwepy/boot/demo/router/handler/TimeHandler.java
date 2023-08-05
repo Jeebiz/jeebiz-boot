@@ -4,17 +4,16 @@
  */
 package io.hiwepy.boot.demo.router.handler;
 
-import static org.springframework.web.reactive.function.server.ServerResponse.ok;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-
 import reactor.core.publisher.Mono;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Component
 public class TimeHandler {
