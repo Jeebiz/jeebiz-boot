@@ -1,15 +1,14 @@
 package io.hiwepy.boot.demo.setup.ehcache;
 
 
-import java.util.concurrent.TimeUnit;
+import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
+import org.springframework.stereotype.Component;
 
 import javax.cache.CacheManager;
 import javax.cache.configuration.MutableConfiguration;
 import javax.cache.expiry.Duration;
 import javax.cache.expiry.TouchedExpiryPolicy;
-
-import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
-import org.springframework.stereotype.Component;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 代码方式创建缓存配置示例

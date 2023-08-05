@@ -4,9 +4,7 @@
  */
 package io.hiwepy.boot.demo;
 
-import java.net.URL;
-import java.util.Map;
-
+import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
-import com.google.common.collect.ImmutableMap;
+import java.net.URL;
+import java.util.Map;
 
 @SpringBootTest(classes = DemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DemoApplication_Test {

@@ -4,15 +4,14 @@
  */
 package io.hiwepy.boot.demo.repository.entities;
 
-import java.sql.Date;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.sql.Date;
 
 @Data            // 生成无参构造方法/getter/setter/hashCode/equals/toString
 @AllArgsConstructor // 生成所有参数构造方法

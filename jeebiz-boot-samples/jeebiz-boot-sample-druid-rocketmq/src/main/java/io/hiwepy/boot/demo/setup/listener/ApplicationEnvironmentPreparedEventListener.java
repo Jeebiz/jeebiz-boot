@@ -1,7 +1,5 @@
 package io.hiwepy.boot.demo.setup.listener;
 
-import java.util.Iterator;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
@@ -9,6 +7,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
+
+import java.util.Iterator;
 
 /**
  * @author ： <a href="https://github.com/wandl">wandl</a>

@@ -1,0 +1,52 @@
+################################################################################################################  
+###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：  
+################################################################################################################
+spring: 
+  # 缓存配置：
+  cache: 
+    type: ehcache
+    ehcache:
+      config: classpath:/conf/ehcache/ehcache.xml
+  # 数据源配置：
+  datasource:
+    name: jeebiz_demo
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.98.123.43:3306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    username: jeebiz_demo
+    password: ntzre47GiAJnL3AS
+    
+################################################################################################################  
+###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
+################################################################################################################
+  flyway: 
+    enabled: true
+
+################################################################################################################
+###RocketMQ (RocketMQProperties) 配置：
+################################################################################################################
+rocketmq:
+  # 访问地址
+  name-server: 192.168.1.224:9876
+  producer:
+    # 必须指定group
+    group: Pro_Group
+    # 消息发送超时时长，默认3s
+    send-message-timeout: 3000
+    # 同步发送消息失败重试次数，默认2
+    retry-times-when-send-failed: 3
+    # 异步发送消息失败重试次数，默认2
+    retry-times-when-send-async-failed: 3
+  consumer:
+    group: Pro_Group
+    # 消费者线程池数量，默认20
+    consume-thread-max: 20
+    # 消息消费失败重试次数，默认16
+    retry-times-when-consume-failed: 16
+
+################################################################################################################  
+###logging (log4j2) 基本配置：  
+###http://www.cnblogs.com/yhtboke/p/Mybatis.html
+################################################################################################################
+logging: 
+  config: classpath:conf/log4j2.xml

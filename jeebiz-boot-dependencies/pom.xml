@@ -35,11 +35,12 @@
         <batik.version>1.14</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
-        <bcprov.version>1.72</bcprov.version>
+        <bcprov.version>1.76</bcprov.version>
         <bcpkix.version>${bcprov.version}</bcpkix.version>
         <bcmail.version>${bcprov.version}</bcmail.version>
-        <bcpg.version>1.72.2</bcpg.version>
+        <bcpg.version>1.76</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
+        <caffeine.version>3.1.1</caffeine.version>
         <canal.version>1.1.6</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
         <camel.version>3.17.0</camel.version>
@@ -69,7 +70,7 @@
         <commons-discovery.version>0.5</commons-discovery.version>
         <commons-email.version>1.5</commons-email.version>
         <commons-exec.version>1.3</commons-exec.version>
-        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <commons-fileupload.version>1.5</commons-fileupload.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-imaging.version>1.0-alpha2</commons-imaging.version>
         <commons-io.version>2.11.0</commons-io.version>
@@ -82,7 +83,7 @@
         <commons-logging.version>1.2</commons-logging.version>
         <commons-math.version>2.2</commons-math.version>
         <commons-math3.version>3.6.1</commons-math3.version>
-        <commons-net.version>3.8.0</commons-net.version>
+        <commons-net.version>3.9.0</commons-net.version>
         <commons-pool.version>1.6</commons-pool.version>
         <commons-pool2.version>2.11.1</commons-pool2.version>
         <commons-proxy.version>1.0</commons-proxy.version>
@@ -112,13 +113,13 @@
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
         <dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
-        <druid.version>1.2.16</druid.version>
+        <druid.version>1.2.17</druid.version>
         <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
         <disruptor.version>3.4.4</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
-        <dubbo.version>3.0.7</dubbo.version>
+        <dubbo.version>3.0.13</dubbo.version>
         <dynamic-tp.version>1.1.3</dynamic-tp.version>
         <easyexcel.version>3.3.2</easyexcel.version>
         <easypoi.version>4.4.0</easypoi.version>
@@ -141,7 +142,7 @@
         <google-auth-library.version>1.8.1</google-auth-library.version>
         <google-http-client.version>1.42.2</google-http-client.version>
         <google-cloud-translate.version>2.3.2</google-cloud-translate.version>
-        <guava.version>31.0.1-jre</guava.version>
+        <guava.version>32.1.2-jre</guava.version>
         <grizzly.version>2.4.4</grizzly.version>
         <grpc.version>1.35.0</grpc.version>
         <gson.version>2.9.0</gson.version>
@@ -149,14 +150,14 @@
         <hanlp.version>portable-1.8.4</hanlp.version>
         <hanlp-restful.version>0.0.15</hanlp-restful.version>
         <hbase.version>2.2.4</hbase.version>
-        <h2.version>2.1.214</h2.version>
+        <h2.version>2.2.220</h2.version>
         <htmlparser.version>2.1</htmlparser.version>
         <httpconn.version>1.0.1.RELEASE</httpconn.version>
         <httputils.version>1.0.0.RELEASE</httputils.version>
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
         <hitool.version>1.0.2.RELEASE</hitool.version>
         <hive.version>3.1.2</hive.version>
-        <hutool.version>5.8.2</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
         <hystrix.version>1.5.18</hystrix.version>
         <ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
         <i4jruntime.version>5.0.6</i4jruntime.version>
@@ -193,9 +194,9 @@
         <jsch.version>0.1.55</jsch.version>
         <jsqlparser.version>4.2</jsqlparser.version>
         <jsoup.version>1.15.4</jsoup.version>
-        <json.version>20210307</json.version>
+        <json.version>20230227</json.version>
         <json-path.version>2.7.0</json-path.version>
-        <json-smart.version>2.4.8</json-smart.version>
+        <json-smart.version>2.4.9</json-smart.version>
         <junrar.version>7.5.4</junrar.version>
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
@@ -289,20 +290,20 @@
         <reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
         <redisson.version>3.17.4</redisson.version>
-        <resilience4j.version>1.7.1</resilience4j.version>
+        <resilience4j.version>2.1.0</resilience4j.version>
         <reflections.version>0.9.12</reflections.version>
-        <rocketmq-client.version>4.9.2</rocketmq-client.version>
+        <rocketmq-client.version>5.1.3</rocketmq-client.version>
         <rsocket.version>1.1.1</rsocket.version>
         <rxjava2.version>2.2.21</rxjava2.version>
         <rxjava3.version>3.1.2</rxjava3.version>
         <seata.version>1.6.1</seata.version>
+        <slf4j.version>1.7.30</slf4j.version>
         <schemacrawler.version>16.15.8</schemacrawler.version>
         <schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
         <schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
         <schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
         <schemacrawler-hsqldb.version>${schemacrawler.version}</schemacrawler-hsqldb.version>
-        <schemacrawler-oracle.version>${schemacrawler.version}
-        </schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
+        <schemacrawler-oracle.version>${schemacrawler.version}</schemacrawler-oracle.version>  <!-- Note: 14.17.05 For Oracle 10g/11g -->
         <schemacrawler-postgresql.version>${schemacrawler.version}</schemacrawler-postgresql.version>
         <schemacrawler-sqlserver.version>${schemacrawler.version}</schemacrawler-sqlserver.version>
         <schemacrawler-sqlite.version>${schemacrawler.version}</schemacrawler-sqlite.version>
@@ -318,7 +319,7 @@
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.10.0</shiro.version>
+        <shiro.version>1.12.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -335,7 +336,7 @@
         <skywalking.version>8.14.0</skywalking.version>
         <slf4j.version>1.7.30</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
-        <snakeyaml.version>1.33</snakeyaml.version>
+        <snakeyaml.version>2.1</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -351,7 +352,8 @@
         <sshd-sftp.version>${sshd.version}</sshd-sftp.version>
         <sshd-pam.version>0.11.0</sshd-pam.version>
         <svnkit.version>1.10.3</svnkit.version>
-        <swagger.version>1.6.2</swagger.version>
+        <swagger.version>1.6.6</swagger.version>
+        <swagger2.version>2.2.1</swagger2.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <swagger-butler.version>1.2.0</swagger-butler.version>
         <swagger-codegen.version>2.4.19</swagger-codegen.version>
@@ -375,6 +377,7 @@
         <velocity.version>2.3</velocity.version>
         <webcollector.version>2.73-alpha</webcollector.version>
         <webjars-locator.version>0.45</webjars-locator.version>
+        <webjars-locator-core.version>0.52</webjars-locator-core.version>
         <webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
         <webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
         <webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
@@ -393,7 +396,7 @@
         <xxl-job.version>2.4.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
         <zookeeper.version>3.8.1</zookeeper.version>
-        <zip4j.version>2.10.0</zip4j.version>
+        <zip4j.version>2.11.3</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
 
@@ -454,7 +457,6 @@
         <spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
         <spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
         <spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
-        <spring-boot-starter-dozer.version>1.0.0.RELEASE</spring-boot-starter-dozer.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
         <spring-boot-starter-dingtalk.version>1.1.0.RELEASE</spring-boot-starter-dingtalk.version>
         <spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
@@ -468,24 +470,21 @@
         <spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
         <spring-boot-starter-geoip.version>1.0.0.RELEASE</spring-boot-starter-geoip.version>
         <spring-boot-starter-grpc.version>4.5.9</spring-boot-starter-grpc.version>
-        <spring-boot-starter-hbase.version>1.0.0.RELEASE</spring-boot-starter-hbase.version>
         <spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
-        <spring-boot-starter-hmily.version>2.1.1</spring-boot-starter-hmily.version>
         <spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
         <spring-boot-starter-ip2region.version>1.0.8.RELEASE</spring-boot-starter-ip2region.version>
         <spring-boot-starter-ishumei.version>1.0.5.RELEASE</spring-boot-starter-ishumei.version>
         <spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
         <spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
         <spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
-        <spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
-        <spring-boot-starter-jcaptcha.version>1.0.2.RELEASE</spring-boot-starter-jcaptcha.version>
-        <spring-boot-starter-jpush.version>1.0.1.RELEASE</spring-boot-starter-jpush.version>
-        <spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
-        <spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
-        <spring-boot-starter-maven-client.version>1.0.1.RELEASE</spring-boot-starter-maven-client.version>
-        <spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
-        <spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version>
-        <spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
+        <spring-boot-starter-jcaptcha.version>2.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
+        <spring-boot-starter-jpush.version>2.0.0.RELEASE</spring-boot-starter-jpush.version>
+        <spring-boot-starter-kaptcha.version>2.0.0.RELEASE</spring-boot-starter-kaptcha.version>
+        <spring-boot-starter-log4j2-plus.version>2.0.0.RELEASE</spring-boot-starter-log4j2-plus.version>
+        <spring-boot-starter-maven-client.version>2.0.0.RELEASE</spring-boot-starter-maven-client.version>
+        <spring-boot-starter-maven-embedder.version>2.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
+        <spring-boot-starter-maven-invoker.version>2.0.0.RELEASE</spring-boot-starter-maven-invoker.version>
+        <spring-boot-starter-mybatis.version>2.2.2</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
         <spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
         <spring-boot-starter-minio.version>1.0.3.RELEASE</spring-boot-starter-minio.version>
@@ -505,8 +504,7 @@
         <spring-boot-starter-redistpl-plus.version>1.0.7.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
         <spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
-        <spring-boot-starter-rocketmq.version>2.2.1</spring-boot-starter-rocketmq.version>
-        <spring-boot-starter-rocketmq-plus.version>1.0.1.RELEASE</spring-boot-starter-rocketmq-plus.version>
+        <spring-boot-starter-rocketmq.version>2.2.3</spring-boot-starter-rocketmq.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
         <spring-boot-starter-security-biz.version>1.1.6.RELEASE</spring-boot-starter-security-biz.version>
@@ -530,14 +528,13 @@
         <spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
         <spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
         <spring-boot-starter-shanyan.version>1.0.2.RELEASE</spring-boot-starter-shanyan.version>
-        <spring-boot-starter-sitemesh3.version>1.0.0.RELEASE</spring-boot-starter-sitemesh3.version>
+        <spring-boot-starter-sigar.version>2.0.0.RELEASE</spring-boot-starter-sigar.version>
         <spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
         <spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
         <spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
         <spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE
-        </spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
         <spring-boot-starter-xxljob.version>1.0.4.RELEASE</spring-boot-starter-xxljob.version>
@@ -835,10 +832,29 @@
                 <version>${buji-pac4j.version}</version>
             </dependency>
 
+
             <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-core -->
             <dependency>
                 <groupId>org.jasig.cas.client</groupId>
                 <artifactId>cas-client-core</artifactId>
+                <version>${cas-client.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-support-saml -->
+            <dependency>
+                <groupId>org.jasig.cas.client</groupId>
+                <artifactId>cas-client-support-saml</artifactId>
+                <version>${cas-client.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-support-distributed-memcached -->
+            <dependency>
+                <groupId>org.jasig.cas.client</groupId>
+                <artifactId>cas-client-support-distributed-memcached</artifactId>
+                <version>${cas-client.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-support-distributed-ehcache -->
+            <dependency>
+                <groupId>org.jasig.cas.client</groupId>
+                <artifactId>cas-client-support-distributed-ehcache</artifactId>
                 <version>${cas-client.version}</version>
             </dependency>
 
@@ -3618,6 +3634,7 @@
                 <artifactId>mybatis-mate-starter</artifactId>
                 <version>${mybatis-mate.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-mate-annotation -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-mate-annotation</artifactId>
@@ -4656,7 +4673,6 @@
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.apache.shiro -->
-
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
@@ -4674,7 +4690,17 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-aspectj</artifactId>
+                <artifactId>shiro-cache</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-quartz</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-lang</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-biz -->
@@ -4682,6 +4708,21 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>shiro-biz</artifactId>
                 <version>${shiro-biz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-config-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-crypto-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-crypto-hash</artifactId>
+                <version>${shiro.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
             <dependency>
@@ -5601,6 +5642,28 @@
                 <artifactId>disruptor-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-disruptor.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.xjzrc.spring.boot</groupId>
+                <artifactId>disconf-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-disconf.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/dingtalk-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>dingtalk-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-dingtalk.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/docx4j-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
@@ -5618,18 +5681,6 @@
                         <artifactId>spring-boot-starter-logging</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/dingtalk-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>dingtalk-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-dingtalk.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.xjzrc.spring.boot</groupId>
-                <artifactId>disconf-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-disconf.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.alibaba/spring-boot-starter-dropwizard-metrics -->
             <dependency>
@@ -5856,51 +5907,29 @@
                 <artifactId>grpc-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-grpc.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.spring4all/spring-boot-starter-hbase -->
-            <dependency>
-                <groupId>com.spring4all</groupId>
-                <artifactId>spring-boot-starter-hbase</artifactId>
-                <version>${spring-boot-starter-hbase.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-hikaricp-plus -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/hikaricp-plus-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>hikaricp-plus-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-hikaricp-plus.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-springcloud -->
-            <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>hmily-spring-boot-starter-springcloud</artifactId>
-                <version>${spring-boot-starter-hmily.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-dubbo -->
-            <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>hmily-spring-boot-starter-dubbo</artifactId>
-                <version>${spring-boot-starter-hmily.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-apache-dubbo -->
-            <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>hmily-spring-boot-starter-apache-dubbo</artifactId>
-                <version>${spring-boot-starter-hmily.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.dromara/hmily-spring-boot-starter-motan -->
-            <dependency>
-                <groupId>org.dromara</groupId>
-                <artifactId>hmily-spring-boot-starter-motan</artifactId>
-                <version>${spring-boot-starter-hmily.version}</version>
-            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/httl-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>httl-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-httl.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/ip2region-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>ip2region-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-ip2region.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/ishumei-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>ishumei-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-ishumei.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter -->
             <dependency>
@@ -6034,12 +6063,6 @@
                 <artifactId>minio-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-minio.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.spring4all/mongodb-plus-spring-boot-starter -->
-            <dependency>
-                <groupId>com.spring4all</groupId>
-                <artifactId>mongodb-plus-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-mongodb-plus.version}</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/com.alibaba.boot/nacos-config-spring-boot-starter -->
             <dependency>
                 <groupId>com.alibaba.boot</groupId>
@@ -6063,12 +6086,6 @@
                 <groupId>io.opentracing.contrib</groupId>
                 <artifactId>opentracing-spring-jaeger-starter</artifactId>
                 <version>${spring-boot-starter-opentracing.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/ishumei-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>ishumei-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-ishumei.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp3-spring-boot-starter -->
             <dependency>
@@ -6123,6 +6140,12 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>redistpl-plus-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-redistpl-plus.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/redisson-plus-spring-boot-starter -->
             <dependency>
@@ -6147,12 +6170,6 @@
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-rocketmq.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-rocketmq-plus -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>rocketmq-plus-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-rocketmq-plus.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/schemacrawler-spring-boot-starter -->
             <dependency>
@@ -6322,11 +6339,11 @@
                 <artifactId>shanyan-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-shanyan.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/sitemesh3-spring-boot-starter -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/sigar-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
-                <artifactId>sitemesh3-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-sitemesh3.version}</version>
+                <artifactId>sigar-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-sigar.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/simplecaptcha-spring-boot-starter -->
             <dependency>
@@ -6357,18 +6374,6 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>webmvc-swagger2-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-webmvc-swagger2.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.spring4all/swagger-spring-boot-starter -->
-            <dependency>
-                <groupId>com.spring4all</groupId>
-                <artifactId>swagger-spring-boot-starter</artifactId>
-                <version>2.0.2.RELEASE</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.battcn/swagger-spring-boot-starter -->
-            <dependency>
-                <groupId>com.battcn</groupId>
-                <artifactId>swagger-spring-boot-starter</artifactId>
-                <version>1.4.5-RELEASE</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/validation-mimetypes-spring-boot-starter -->
             <dependency>

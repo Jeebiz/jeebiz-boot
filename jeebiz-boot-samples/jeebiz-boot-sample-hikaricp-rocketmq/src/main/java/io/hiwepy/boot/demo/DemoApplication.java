@@ -1,7 +1,8 @@
 package io.hiwepy.boot.demo;
 
-import javax.sql.DataSource;
-
+import io.hiwepy.boot.api.sequence.Sequence;
+import io.hiwepy.boot.autoconfigure.EnableExtrasConfiguration;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,9 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import io.micrometer.core.instrument.MeterRegistry;
-import io.hiwepy.boot.api.sequence.Sequence;
-import io.hiwepy.boot.autoconfigure.EnableExtrasConfiguration;
+import javax.sql.DataSource;
 
 @EnableCaching(proxyTargetClass = true)
 @EnableExtrasConfiguration

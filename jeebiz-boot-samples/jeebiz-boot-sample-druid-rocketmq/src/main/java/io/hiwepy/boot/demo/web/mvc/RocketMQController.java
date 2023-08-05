@@ -1,31 +1,31 @@
 package io.hiwepy.boot.demo.web.mvc;
 
-import javax.servlet.http.HttpServletRequest;
-
+import io.hiwepy.boot.api.ApiRestResponse;
+import io.hiwepy.boot.demo.service.MQProducerService;
+import io.hiwepy.boot.demo.web.dto.MessageDTO;
+import org.apache.rocketmq.client.producer.SendResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.hiwepy.boot.demo.setup.rocketmq.LogProducer;
-
 @RestController
+@RequestMapping("/rocketmq")
 public class RocketMQController {
 
     @Autowired
-    private LogProducer logProducer;
+    private MQProducerService mqProducerService;
 
-    @GetMapping("/rocketmq/send")
-    public String activemq(HttpServletRequest request, String msg) {
-        msg = StringUtils.isEmpty(msg) ? "This is Empty Msg." : msg;
-
-        try {
-            logProducer.send(msg);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Rocketmq has sent OK.";
+    @GetMapping("/send")
+    public void send() {
+        MessageDTO message = new MessageDTO();
+        mqProducerService.send(message);
     }
 
+    @GetMapping("/sendTag")
+    public ApiRestResponse<SendResult> sendTag() {
+        SendResult sendResult = mqProducerService.sendTagMsg("带有tag的字符消息");
+        return ApiRestResponse.success(sendResult);
+    }
 
 }

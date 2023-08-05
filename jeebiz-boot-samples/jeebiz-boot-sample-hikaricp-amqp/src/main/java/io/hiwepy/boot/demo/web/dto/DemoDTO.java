@@ -4,11 +4,11 @@
  */
 package io.hiwepy.boot.demo.web.dto;
 
-import javax.validation.constraints.NotBlank;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
 
 @ApiModel(value = "DemoDTO", description = "xxx数据传输对象")
 @Data

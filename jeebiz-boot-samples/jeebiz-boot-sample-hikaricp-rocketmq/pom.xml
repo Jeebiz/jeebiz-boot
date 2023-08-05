@@ -184,10 +184,6 @@
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.github.hiwepy</groupId>
-            <artifactId>rocketmq-plus-spring-boot-starter</artifactId>
-        </dependency>
 
         <!-- For Embed Tomcat -->
         <!-- <dependency>

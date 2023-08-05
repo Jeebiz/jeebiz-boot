@@ -4,14 +4,12 @@
  */
 package io.hiwepy.boot.demo.web.vo;
 
-import javax.validation.constraints.NotBlank;
-
-import org.springframework.web.multipart.MultipartFile;
-
-import com.github.hiwepy.validation.constraints.StrictMimeTypeCheck;
-
+import com.github.hiwepy.validation.constraints.FileNotEmpty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.constraints.NotBlank;
 
 @ApiModel(value = "DemoVo", description = "xxx数据传输对象")
 public class DemoVo {
@@ -25,7 +23,7 @@ public class DemoVo {
     @NotBlank(message = "描述必填")
     private String text;
     @ApiModelProperty(value = "文件")
-    @StrictMimeTypeCheck
+    @FileNotEmpty
     private MultipartFile file;
 
     public String getId() {
