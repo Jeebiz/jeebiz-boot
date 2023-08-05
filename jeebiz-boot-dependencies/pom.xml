@@ -35,10 +35,10 @@
         <batik.version>1.14</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
-        <bcprov.version>1.72</bcprov.version>
+        <bcprov.version>1.76</bcprov.version>
         <bcpkix.version>${bcprov.version}</bcpkix.version>
         <bcmail.version>${bcprov.version}</bcmail.version>
-        <bcpg.version>1.72.2</bcpg.version>
+        <bcpg.version>1.76</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
         <caffeine.version>3.1.1</caffeine.version>
         <canal.version>1.1.6</canal.version>
@@ -142,7 +142,7 @@
         <google-auth-library.version>1.8.1</google-auth-library.version>
         <google-http-client.version>1.42.2</google-http-client.version>
         <google-cloud-translate.version>2.3.2</google-cloud-translate.version>
-        <guava.version>31.0.1-jre</guava.version>
+        <guava.version>32.1.2-jre</guava.version>
         <grizzly.version>2.4.4</grizzly.version>
         <grpc.version>1.35.0</grpc.version>
         <gson.version>2.9.0</gson.version>
@@ -150,14 +150,14 @@
         <hanlp.version>portable-1.8.4</hanlp.version>
         <hanlp-restful.version>0.0.15</hanlp-restful.version>
         <hbase.version>2.2.4</hbase.version>
-        <h2.version>2.1.214</h2.version>
+        <h2.version>2.2.220</h2.version>
         <htmlparser.version>2.1</htmlparser.version>
         <httpconn.version>1.0.1.RELEASE</httpconn.version>
         <httputils.version>1.0.0.RELEASE</httputils.version>
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
         <hitool.version>1.0.2.RELEASE</hitool.version>
         <hive.version>3.1.2</hive.version>
-        <hutool.version>5.8.2</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
         <hystrix.version>1.5.18</hystrix.version>
         <ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
         <i4jruntime.version>5.0.6</i4jruntime.version>
@@ -272,7 +272,7 @@
         <paymentwall-sdk.version>2.0.3</paymentwall-sdk.version>
         <perf4j.version>0.9.16</perf4j.version>
         <persistence-api.version>1.0.2</persistence-api.version>
-        <poi.version>4.1.2</poi.version>
+        <poi.version>5.2.3</poi.version>
         <prometheus.version>0.10.0</prometheus.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
@@ -320,7 +320,7 @@
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.10.0</shiro.version>
+        <shiro.version>1.12.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -337,7 +337,7 @@
         <skywalking.version>8.14.0</skywalking.version>
         <slf4j.version>1.7.30</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
-        <snakeyaml.version>1.33</snakeyaml.version>
+        <snakeyaml.version>2.1</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -4654,7 +4654,6 @@
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.apache.shiro -->
-
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
@@ -4672,7 +4671,17 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-aspectj</artifactId>
+                <artifactId>shiro-cache</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-quartz</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-lang</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-biz -->
@@ -4680,6 +4689,21 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>shiro-biz</artifactId>
                 <version>${shiro-biz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-config-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-crypto-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-crypto-hash</artifactId>
+                <version>${shiro.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
             <dependency>
