@@ -2,13 +2,27 @@
 ###Spring Boot 监控（安全、开放信息等）配置：
 ################################################################################################################
 management:
+  server:
+  # 启用独立运维端口
+  #port: 50000
+  metrics:
+    tags:
+      # 在统计信息中添加自定义的标签
+      application: ${spring.application.name}
+  # 开启shutdown和health端点
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true
   endpoints:
     web:
       exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: ALWAYS
+        # 指定上下文路径，启用相应端点
+        # 指定上下文路径，启用相应端点
+        base-path: /actuator
+        include: health,shutdown,metrics,prometheus
 
 ################################################################################################################
 ###内置应用容器（Tomcat、Jetty、Undertow）配置：
@@ -16,20 +30,16 @@ management:
 server:
   compression:
     enabled: true
-  port: 8090
-  # 设置webflux netty的请求头大小为100kb
-  max-http-header-size: 102400
+  # 默认为IMMEDIATE，表示立即关机；GRACEFUL表示优雅关机
+  shutdown: graceful
+  port: 8080
   servlet:
-    #context-path: /authz
     session:
       timeout: 60m
   undertow:
-    # 访问日志配置
-    accesslog:
-      enabled: true
     # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理
     # 每块buffer的空间大小,越小的空间被利用越充分，不要设置太大，以免影响其他应用，合适即可
-    buffer-size: 2048
+    buffer-size: 512
     # 是否分配的直接内存(NIO直接分配的堆外内存)
     direct-buffers: true
     # 线程优化：
@@ -44,31 +54,147 @@ server:
     # 实际：
     # IO密集型 = 2Ncpu（可以测试后自己控制大小，2Ncpu一般没问题）（常出现于线程中：数据库数据交互、文件上传下载、网络数据传输等等）
     # 计算密集型 = Ncpu（常出现于线程中：复杂算法）
-    #threads:
+    threads:
       # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
       # 不要设置过大，如果过大，启动项目会报错：打开文件数过多
-      #io: 16
+      io: 2
       # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程
       # 它的值设置取决于系统线程执行任务的阻塞系数，默认值是IO线程数*8
-      #worker: 256
+      worker: 8
+  jetty:
+    threads:
+      acceptors: 2
+      selectors: 8
+  tomcat:
+    max-connections: 10000
+    threads:
+      max: 1024
+      min-spare: 64
+    accept-count: 65535
+
+################################################################################################################
+###okhttp3基本配置：
+################################################################################################################
+okhttp3:
+  connect-timeout: 5s
+  read-timeout: 30s
+  write-timeout: 20s
+  log-level: BODY
+  pool:
+    # 最大空闲连接梳数量，超出该值后，连接用完后会被关闭，最多只会保留idleConnectionCount个连接数量
+    max-idle-connections: 48
+    # 最大瞬时处理连接数量
+    max-requests: 128
+    # 每个请求地址最大瞬时处理连接数量
+    max-requests-per-host: 24
 
 ################################################################################################################
 ###接口文档（Swagger UI）配置：
 ################################################################################################################
 swagger:
   enabled: true
+  authorization:
+    key-name: X-Authorization
   title: Jeebiz Boot Demo
   description: Jeebiz Boot Demo
-  version: 0.0.1-SNAPSHOT
+  version: ${application.version:1.0.0-SNAPSHOT}
   license: Apache License, Version 2.0
   license-url: https://www.apache.org/licenses/LICENSE-2.0.html
   contact:
-    name: 杭州极蚁网络科技有限公司
+    name: 万莘（杭州）网络科技有限公司
     email: hiwepy@163.com
-    url: http://www.hiwepy.com/
+    url: https://www.hiwepy.com/
   base-package: io.hiwepy
-  base-path-pattern: /**
   apply-default-response-messages: true
+  global-operation-parameters:
+    - name: X-Authorization
+      description: JWT Token
+      modelRef: string
+      parameterType: header
+      required: true
+    - name: X-App-Id
+      description: 客户端应用ID
+      modelRef: string
+      parameterType: header
+      required: true
+      scalarExample: 3
+    - name: X-App-Version
+      description: 客户端应用版本号
+      modelRef: string
+      parameterType: header
+      required: true
+      scalarExample: 10000
+    - name: X-Uid
+      description: 账户UID
+      modelRef: string
+      parameterType: header
+      required: true
+      scalarExample: 747832416344735744
+    - name: X-Region
+      description: iso-3166-1国家代码：http://doc.chacuo.net/iso-3166-1
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: CN
+    - name: X-Longitude
+      description: 经度
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 120.155070
+    - name: X-Latitude
+      description: 纬度
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 30.274084
+    - name: X-Province
+      description: 最新定位省份
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 浙江省
+    - name: X-City
+      description: 最新定位城市
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 杭州市
+    - name: X-Area
+      description: 最新定位区
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 余杭区
+    - name: X-Language
+      description: 国际化（zh-CN：简体中文、zh-TW：繁体中文、en-US：英语）
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: en-US
+    - name: X-Device-IMEI
+      description: 设备唯一标识
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: b09ca9714d46ef4057f3e27ea522c1b8
+    - name: X-Device-IDFA
+      description: IOS 6+的设备唯一标识
+      modelRef: string
+      parameterType: header
+      required: false
+    - name: X-Device-Model
+      description: 设备型号
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: HUAWEI HMA-AL00
+    - name: X-OS
+      description: 系统版本
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: Android+10
 
 ################################################################################################################
 ###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：
@@ -79,9 +205,7 @@ spring:
     name: jeebiz-boot-sample-druid
   # 缓存配置：
   cache:
-    type: ehcache
-    ehcache:
-      config: classpath:/conf/ehcache/ehcache.xml
+    type: none
   # 数据源配置：
   datasource:
     name: jeebiz_demo
@@ -173,9 +297,24 @@ spring:
   #出现错误时, 直接抛出异常
   mvc:
     throw-exception-if-no-handler-found: true
-    #不要为我们工程中的资源文件建立映射
+  #不要为我们工程中的资源文件建立映射
   resources:
-    add-mappings: true
+    add-mappings: false
+  # Redis相关配置
+  redis:
+    # 基于Lettuce客户端的Redis连接池配置
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 200
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    # 连接超时时间（毫秒）
+    timeout: 50000
   # 会话配置（交个Shiro管理，此处不再指定）：
   session:
     store-type: none
@@ -186,10 +325,7 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
-
-################################################################################################################
-###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：
-################################################################################################################
+  #Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：
   flyway:
     enabled: true
     locations:
@@ -267,16 +403,6 @@ mybatis-plus:
     local-cache-scope: session
     log-prefix: "[Mybatis]"
     #log-impl: org.apache.ibatis.logging.log4j2.Log4j2LoggerImpl.class
-
-  global-config:
-    db-config:
-      id-type: auto
-      #mp2.3+ 全局表前缀 mp_
-      #table-prefix: mp_
-      #刷新mapper 调试神器
-      #refresh-mapper: true
-      #数据库大写下划线转换
-      #capital-mode: true
 
 ################################################################################################################
 ###logging (log4j2) 基本配置：

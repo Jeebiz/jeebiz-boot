@@ -1,30 +1,73 @@
 ################################################################################################################  
 ###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：  
 ################################################################################################################
-spring: 
+spring:
   # 缓存配置：
-  cache: 
-    type: ehcache
-    ehcache:
-      config: classpath:/conf/ehcache/ehcache.xml
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=600s
+    redis:
+      key-prefix: demo
+      time-to-live: 600s
+      cache-null-values: false
+      use-key-prefix: true
   # 数据源配置：
   datasource:
     name: jeebiz_demo
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.98.123.43:3306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.1.170:13306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
     username: jeebiz_demo
     password: ntzre47GiAJnL3AS
-    
-################################################################################################################  
-###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：  
-################################################################################################################
-  flyway: 
+    # HiKariCP连接池配置：
+    hikari:
+      connection-test-query: select 1 from dual
+      # 一个连接的最大的生命时间（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上，参考MySQL wait_timeout参数（show variables like '%timeout%';）
+      max-lifetime: 1800000
+      # 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
+      max-pool-size: 15
+      # 最小闲置线程
+      min-idle: 5
+  # Redis相关配置
+  redis:
+    # Redis服务器地址
+    host: 192.168.1.170
+    # Redis服务器连接端口
+    port: 16379
+    # Database 索引；和其他服务区别开
+    database: 0
+    # Redis服务器连接密码（默认为空）
+    password: hpkRzkC7pcDnYp3e
+  # Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：
+  flyway:
     enabled: true
 
-################################################################################################################  
-###logging (log4j2) 基本配置：  
+################################################################################################################
+###logging (log4j2) 基本配置：
 ###http://www.cnblogs.com/yhtboke/p/Mybatis.html
 ################################################################################################################
-logging: 
-  config: classpath:conf/log4j2.xml
+logging:
+  config: classpath:conf/log4j2-dev.xml
+
+################################################################################################################
+###RocketMQ (RocketMQProperties) 配置：
+################################################################################################################
+rocketmq:
+  # 访问地址
+  name-server: 192.168.1.224:9876
+  producer:
+    # 必须指定group
+    group: Pro_Group
+    # 消息发送超时时长，默认3s
+    send-message-timeout: 3000
+    # 同步发送消息失败重试次数，默认2
+    retry-times-when-send-failed: 3
+    # 异步发送消息失败重试次数，默认2
+    retry-times-when-send-async-failed: 3
+  consumer:
+    group: Pro_Group
+    # 消费者线程池数量，默认20
+    consume-thread-max: 20
+    # 消息消费失败重试次数，默认16
+    retry-times-when-consume-failed: 16

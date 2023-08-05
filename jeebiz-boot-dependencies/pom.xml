@@ -40,7 +40,7 @@
         <bcmail.version>${bcprov.version}</bcmail.version>
         <bcpg.version>1.76</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
-        <caffeine.version>3.1.1</caffeine.version>
+        <caffeine.version>2.9.3</caffeine.version>
         <canal.version>1.1.6</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
         <camel.version>3.17.0</camel.version>
@@ -336,7 +336,7 @@
         <skywalking.version>8.14.0</skywalking.version>
         <slf4j.version>1.7.30</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
-        <snakeyaml.version>2.1</snakeyaml.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -352,8 +352,7 @@
         <sshd-sftp.version>${sshd.version}</sshd-sftp.version>
         <sshd-pam.version>0.11.0</sshd-pam.version>
         <svnkit.version>1.10.3</svnkit.version>
-        <swagger.version>1.6.6</swagger.version>
-        <swagger2.version>2.2.1</swagger2.version>
+        <swagger.version>1.6.2</swagger.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <swagger-butler.version>1.2.0</swagger-butler.version>
         <swagger-codegen.version>2.4.19</swagger-codegen.version>
@@ -396,7 +395,7 @@
         <xxl-job.version>2.4.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
         <zookeeper.version>3.8.1</zookeeper.version>
-        <zip4j.version>2.11.3</zip4j.version>
+        <zip4j.version>2.10.0</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
 
@@ -477,14 +476,15 @@
         <spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
         <spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
         <spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
-        <spring-boot-starter-jcaptcha.version>2.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
-        <spring-boot-starter-jpush.version>2.0.0.RELEASE</spring-boot-starter-jpush.version>
-        <spring-boot-starter-kaptcha.version>2.0.0.RELEASE</spring-boot-starter-kaptcha.version>
-        <spring-boot-starter-log4j2-plus.version>2.0.0.RELEASE</spring-boot-starter-log4j2-plus.version>
-        <spring-boot-starter-maven-client.version>2.0.0.RELEASE</spring-boot-starter-maven-client.version>
-        <spring-boot-starter-maven-embedder.version>2.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
-        <spring-boot-starter-maven-invoker.version>2.0.0.RELEASE</spring-boot-starter-maven-invoker.version>
-        <spring-boot-starter-mybatis.version>2.2.2</spring-boot-starter-mybatis.version>
+        <spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
+        <spring-boot-starter-jcaptcha.version>1.0.2.RELEASE</spring-boot-starter-jcaptcha.version>
+        <spring-boot-starter-jpush.version>1.0.1.RELEASE</spring-boot-starter-jpush.version>
+        <spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
+        <spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
+        <spring-boot-starter-maven-client.version>1.0.1.RELEASE</spring-boot-starter-maven-client.version>
+        <spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
+        <spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version>
+        <spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
         <spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
         <spring-boot-starter-minio.version>1.0.3.RELEASE</spring-boot-starter-minio.version>
@@ -501,7 +501,7 @@
         <spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
         <spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
         <spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-        <spring-boot-starter-redistpl-plus.version>1.0.7.RELEASE</spring-boot-starter-redistpl-plus.version>
+        <spring-boot-starter-redistpl-plus.version>1.0.8.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
         <spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
         <spring-boot-starter-rocketmq.version>2.2.3</spring-boot-starter-rocketmq.version>

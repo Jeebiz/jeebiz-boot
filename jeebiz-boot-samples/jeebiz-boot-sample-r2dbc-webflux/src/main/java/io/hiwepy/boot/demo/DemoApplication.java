@@ -1,6 +1,5 @@
 package io.hiwepy.boot.demo;
 
-import io.hiwepy.boot.api.sequence.Sequence;
 import io.hiwepy.boot.autoconfigure.EnableExtrasConfiguration;
 import io.hiwepy.boot.demo.dao.entities.MyEvent;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -12,32 +11,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.CollectionOptions;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.sql.DataSource;
 
 @EnableExtrasConfiguration
 @SpringBootApplication
-//@EnableSwagger2Doc
-@EnableTransactionManagement
 public class DemoApplication implements CommandLineRunner {
-
-    @Bean
-    public PlatformTransactionManager txManager(DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource);
-    }
 
     @Bean
     public MeterRegistryCustomizer<MeterRegistry> configurer(
             @Value("${spring.application.name}") String applicationName) {
         return (registry) -> registry.config().commonTags("application", applicationName);
-    }
-
-    @Bean
-    public Sequence sequence() {
-        return new Sequence(0L);
     }
 
     public static void main(String[] args) throws Exception {
@@ -46,7 +28,7 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.err.println("Spring Boot Application（Jeebiz-Demo） Started !");
+        System.err.println("Spring Boot Application（Jeebiz-Boot-Demo） Started !");
     }
 
     @Bean

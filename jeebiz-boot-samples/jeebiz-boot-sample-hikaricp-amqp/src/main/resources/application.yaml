@@ -3,8 +3,8 @@
 ################################################################################################################
 management:
   server:
-    # 启用独立运维端口
-    #port: 50000
+  # 启用独立运维端口
+  #port: 50000
   metrics:
     tags:
       # 在统计信息中添加自定义的标签
@@ -93,18 +93,108 @@ okhttp3:
 ################################################################################################################
 swagger:
   enabled: true
+  authorization:
+    key-name: X-Authorization
   title: Jeebiz Boot Demo
   description: Jeebiz Boot Demo
-  version: 0.0.1-SNAPSHOT
+  version: ${application.version:1.0.0-SNAPSHOT}
   license: Apache License, Version 2.0
   license-url: https://www.apache.org/licenses/LICENSE-2.0.html
   contact:
-    name: 杭州极蚁网络科技有限公司
+    name: 万莘（杭州）网络科技有限公司
     email: hiwepy@163.com
-    url: http://www.hiwepy.com/
+    url: https://www.hiwepy.com/
   base-package: io.hiwepy
-  base-path-pattern: /**
   apply-default-response-messages: true
+  global-operation-parameters:
+    - name: X-Authorization
+      description: JWT Token
+      modelRef: string
+      parameterType: header
+      required: true
+    - name: X-App-Id
+      description: 客户端应用ID
+      modelRef: string
+      parameterType: header
+      required: true
+      scalarExample: 3
+    - name: X-App-Version
+      description: 客户端应用版本号
+      modelRef: string
+      parameterType: header
+      required: true
+      scalarExample: 10000
+    - name: X-Uid
+      description: 账户UID
+      modelRef: string
+      parameterType: header
+      required: true
+      scalarExample: 747832416344735744
+    - name: X-Region
+      description: iso-3166-1国家代码：http://doc.chacuo.net/iso-3166-1
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: CN
+    - name: X-Longitude
+      description: 经度
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 120.155070
+    - name: X-Latitude
+      description: 纬度
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 30.274084
+    - name: X-Province
+      description: 最新定位省份
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 浙江省
+    - name: X-City
+      description: 最新定位城市
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 杭州市
+    - name: X-Area
+      description: 最新定位区
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: 余杭区
+    - name: X-Language
+      description: 国际化（zh-CN：简体中文、zh-TW：繁体中文、en-US：英语）
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: en-US
+    - name: X-Device-IMEI
+      description: 设备唯一标识
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: b09ca9714d46ef4057f3e27ea522c1b8
+    - name: X-Device-IDFA
+      description: IOS 6+的设备唯一标识
+      modelRef: string
+      parameterType: header
+      required: false
+    - name: X-Device-Model
+      description: 设备型号
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: HUAWEI HMA-AL00
+    - name: X-OS
+      description: 系统版本
+      modelRef: string
+      parameterType: header
+      required: false
+      scalarExample: Android+10
 
 ################################################################################################################
 ###Spring Boot 相关组件（SpringMVC、Freemarker、Session、Cache、DataSource）配置：
@@ -115,32 +205,110 @@ spring:
     name: jeebiz-boot-sample-druid
   # 缓存配置：
   cache:
-    type: ehcache
-    ehcache:
-      config: classpath:/conf/ehcache/ehcache.xml
+    type: none
   # 数据源配置：
   datasource:
-    name: jeebiz_demo
-    type: com.zaxxer.hikari.HikariDataSource
+    # Druid的数据源配置：
+    druid:
+      enabled: true
+      #配置这个属性的意义在于，如果存在多个数据源，监控的时候可以通过名字来区分开来。如果没有配置，将会生成一个名字，格式是：”DataSource-” + System.identityHashCode(this)
+      #name: DataSource-Test
+      #这一项可配可不配，如果不配置druid会根据url自动识别dbType，然后选择相应的driverClassName
+      #driver-class-name: oracle.jdbc.driver.OracleDriver
+      #url:
+      #username: xxx
+      #password: xxx
+      #initialSize: 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时；默认 15
+      initial-size: 15
+      #连接池最大连接数量
+      max-active: 50
+      #获取连接时最大等待时间，单位毫秒。配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁
+      max-wait: 60000
+      #连接池最小连接数量；默认 5
+      min-idle: 5
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒;有两个含义：1) Destroy线程会检测连接的间隔时间 2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明
+      time-between-eviction-runs-millis: 60000
+      #配置一个连接在池中最小生存的时间，单位：毫秒
+      min-evictable-idle-time-millis: 300000
+      #超过时间限制是否回收
+      remove-abandoned: true
+      #超过时间限制多长，单位：毫秒 ，180000毫秒=3分钟
+      remove-abandoned-timeout-millis: 180000
+      #用来检测连接是否有效的sql，要求是一个查询语句。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会其作用。
+      validation-query: SELECT 1
+      #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。建议配置为true，不影响性能，并且保证安全性。
+      test-while-idle: true
+      #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+      test-on-borrow: false
+      # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      #是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql5.5以下的版本中没有PSCache功能，建议关闭掉。5.5及以上版本有PSCache，建议开启。
+      pool-prepared-statements: true
+      #要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
+      max-pool-prepared-statement-per-connection-size: 100
+      #Druid的监控统计功能:属性类型是字符串，通过别名的方式配置扩展插件
+      #filters: mergeStat,wall,slf4j
+      # 动态数据源
+      routable: true
+      # Druid监控配置
+      aop-patterns:
+      - io.hiwepy.boot.demo.web.mvc
+      stat-view-servlet:
+        enabled: true
+        reset-enable: false
+      web-stat-filter:
+        enabled: true
+        session-stat-enable: true
+        session-stat-max-count: 20000
+      # Druid自定义过滤器参数
+      filter:
+        # 配置日志输出
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+        # 配置安全防护
+        wall:
+          # 对被认为是攻击的SQL进行LOG.error输出
+          log-violation: true
+          # 对被认为是攻击的SQL抛出SQLExcepton
+          throw-exception: true
+          config:
+            # 是否允许语句中存在注释，Oracle的用户不用担心，Wall能够识别hints和注释的区别
+            comment-allow: true
+            # 是否允许非以上基本语句的其他语句，缺省关闭，通过这个选项就能够屏蔽DDL
+            none-base-statement-allow: true
+            # 是否允许一次执行多条语句，缺省关闭
+            multi-statement-allow: true
+            # 解除union关键字检查
+            select-union-check: false
+            # 是否允许执行锁定表操作
+            lock-table-allow: true
+    # HiKariCP的数据源配置：
     hikari:
-      # 是允许连接在连接池中空闲的最长时间
-      minimum-idle: 5
-      # 是允许连接在连接池中空闲的最长时间（以毫秒为单位）
-      idle-timeout: 600000
-      # 配置最大池大小
-      maximum-pool-size: 10
-      # 配置从池返回的连接的默认自动提交行为。默认值为true
-      auto-commit: true
-      # 连接池的名称
-      pool-name: MyHikariCP
-      # 池中连接关闭后的最长生命周期（以毫秒为单位）
-      max-lifetime: 1800000
-      # 是客户端等待连接池连接的最大毫秒数
-      connection-timeout: 30000
-      # 开启连接监测泄露
-      leak-detection-threshold: 5000
-      # 测试连接数据库
+      enabled: true
+      # 连接初始化SQL
+      connection-init-sql: SELECT 1
+      # 连接测试语句
       connection-test-query: SELECT 1
+      # 连接超时, 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 缺省:30秒
+      connection-timeout: 30000
+      # 连接初始化的认定失败的超时时间（毫秒），缺省:30秒
+      initialization-fail-timeout: 30000
+      #一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟
+      idle-timeout: 600000
+      # 内存泄漏侦测入口
+      leak-detection-threshold: 30000
+      # 一个连接的最大的生命时间（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上，参考MySQL wait_timeout参数（show variables like '%timeout%';）
+      max-lifetime: 1800000
+      # 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
+      max-pool-size: 15
+      # 最小闲置线程
+      min-idle: 5
+      # 生效超时
+      validation-timeout: 30000
   # 国际化信息配置
   messages:
     #指定message的basename，多个以逗号分隔，如果不加包名的话，默认从classpath路径开始，默认: messages
@@ -150,7 +318,24 @@ spring:
   #出现错误时, 直接抛出异常
   mvc:
     throw-exception-if-no-handler-found: true
-    #不要为我们工程中的资源文件建立映射
+  #不要为我们工程中的资源文件建立映射
+  resources:
+    add-mappings: false
+  # Redis相关配置
+  redis:
+    # 基于Lettuce客户端的Redis连接池配置
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 200
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    # 连接超时时间（毫秒）
+    timeout: 50000
   # 会话配置（交个Shiro管理，此处不再指定）：
   session:
     store-type: none
@@ -161,10 +346,7 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
-
-################################################################################################################
-###Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：
-################################################################################################################
+  #Flyway (FlywayMigrationProperties) 数据库迁移脚本版本管理（实现软件版本升级数据库自动升级）配置：
   flyway:
     enabled: true
     locations:
@@ -242,16 +424,6 @@ mybatis-plus:
     local-cache-scope: session
     log-prefix: "[Mybatis]"
     #log-impl: org.apache.ibatis.logging.log4j2.Log4j2LoggerImpl.class
-
-  global-config:
-    db-config:
-      id-type: auto
-      #mp2.3+ 全局表前缀 mp_
-      #table-prefix: mp_
-      #刷新mapper 调试神器
-      #refresh-mapper: true
-      #数据库大写下划线转换
-      #capital-mode: true
 
 ################################################################################################################
 ###logging (log4j2) 基本配置：
