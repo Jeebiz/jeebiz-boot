@@ -1,9 +1,9 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for jeebiz_demo
+-- Table structure for t_demo
 -- ----------------------------
-CREATE TABLE `jeebiz_demo` (
+CREATE TABLE `t_demo` (
  `id` bigint(20) NOT NULL COMMENT 'ID',
  `name` varchar(50) NOT NULL COMMENT '名称',
  `intro` varchar(150) NOT NULL COMMENT '简述',

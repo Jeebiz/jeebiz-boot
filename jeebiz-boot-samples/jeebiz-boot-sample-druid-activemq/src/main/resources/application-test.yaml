@@ -14,20 +14,21 @@ spring:
       use-key-prefix: true
   # 数据源配置：
   datasource:
-    name: jeebiz_demo
+    name: jeebiz_boot
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.170:13306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
-    username: jeebiz_demo
-    password: ntzre47GiAJnL3AS
-    # HiKariCP连接池配置：
-    hikari:
-      connection-test-query: select 1 from dual
-      # 一个连接的最大的生命时间（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上，参考MySQL wait_timeout参数（show variables like '%timeout%';）
-      max-lifetime: 1800000
-      # 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
-      max-pool-size: 15
-      # 最小闲置线程
+    url: jdbc:mysql://192.168.1.170:13306/jeebiz_boot?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: jeebiz_boot
+    password: hSy5aj8dD8ttTcjt
+    # Druid的数据源配置：
+    druid:
+      #initialSize: 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时；默认 15
+      initial-size: 5
+      #连接池最大连接数量
+      max-active: 15
+      #获取连接时最大等待时间，单位毫秒。配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁
+      max-wait: 60000
+      #连接池最小连接数量；默认 5
       min-idle: 5
   # Redis相关配置
   redis:

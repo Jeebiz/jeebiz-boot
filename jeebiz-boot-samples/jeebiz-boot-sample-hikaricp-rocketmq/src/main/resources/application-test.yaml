@@ -14,12 +14,12 @@ spring:
       use-key-prefix: true
   # 数据源配置：
   datasource:
-    name: jeebiz_demo
+    name: jeebiz_boot
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.170:13306/jeebiz_demo?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
-    username: jeebiz_demo
-    password: ntzre47GiAJnL3AS
+    url: jdbc:mysql://192.168.1.170:13306/jeebiz_boot?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: jeebiz_boot
+    password: hSy5aj8dD8ttTcjt
     # HiKariCP连接池配置：
     hikari:
       connection-test-query: select 1 from dual
