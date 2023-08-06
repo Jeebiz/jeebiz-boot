@@ -1,2 +1,2 @@
-INSERT INTO `jeebiz_demo`(`id`, `name`, `intro`, `order_by`, `status`, `is_deleted`, `creator`, `create_time`, `modifyer`, `modify_time`) VALUES (2, 'test', 'test', 1, 1, 0, 0, '2023-08-05 21:16:01', NULL, NULL);
-INSERT INTO `jeebiz_demo`(`id`, `name`, `intro`, `order_by`, `status`, `is_deleted`, `creator`, `create_time`, `modifyer`, `modify_time`) VALUES (3, 'test', 'test', 1, 1, 0, 0, '2023-08-05 21:16:01', NULL, NULL);
+INSERT INTO `t_demo`(`id`, `name`, `intro`, `order_by`, `status`, `is_deleted`, `creator`, `create_time`, `modifyer`, `modify_time`) VALUES (2, 'test', 'test', 1, 1, 0, 0, '2023-08-05 21:16:01', NULL, NULL);
+INSERT INTO `t_demo`(`id`, `name`, `intro`, `order_by`, `status`, `is_deleted`, `creator`, `create_time`, `modifyer`, `modify_time`) VALUES (3, 'test', 'test', 1, 1, 0, 0, '2023-08-05 21:16:01', NULL, NULL);

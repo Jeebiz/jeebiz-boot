@@ -208,7 +208,7 @@ spring:
     type: none
   # 数据源配置：
   datasource:
-    name: jeebiz_demo
+    name: jeebiz_boot
     type: com.alibaba.druid.pool.DruidDataSource
     # Druid的数据源配置：
     druid:

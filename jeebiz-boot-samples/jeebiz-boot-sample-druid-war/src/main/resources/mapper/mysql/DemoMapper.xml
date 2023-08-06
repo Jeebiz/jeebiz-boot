@@ -1,64 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.hiwepy.boot.sample.dao.DemoMapper">
 
-<mapper namespace="DemoMapper">
-
-    <resultMap id="DemoEntityMap" type="DemoEntity">
-        <result property="id" column="ID"/>
-        <result property="name" column="NAME"/>
-        <result property="text" column="TEXT"/>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="io.hiwepy.boot.sample.dao.entities.DemoEntity">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="intro" property="intro" />
+        <result column="order_by" property="orderBy" />
+        <result column="status" property="status" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="creator" property="creator" />
+        <result column="create_time" property="createTime" />
+        <result column="modifyer" property="modifyer" />
+        <result column="modify_time" property="modifyTime" />
     </resultMap>
 
-    <insert id="insert" parameterType="DemoEntity">
-        insert into BIZ_SIMPLE(NAME, TEXT)
-        values (#{name}, #{text})
-    </insert>
-
-    <delete id="delete" parameterType="DemoEntity">
-        delete
-        from BIZ_SIMPLE t
-        where t.id = #{id}
-    </delete>
-
-    <delete id="batchDelete" parameterType="java.util.List">
-        delete from BIZ_SIMPLE where id in
-        <foreach collection="list" item="ids" open="(" separator="," close=")">
-            #{ids}
-        </foreach>
-    </delete>
-
-    <update id="update" parameterType="DemoEntity">
-        update BIZ_SIMPLE
-        <set>
-            <if test="name != null and name != ''">name = #{name},</if>
-            <if test="text != null and text != ''">text = #{text},</if>
-        </set>
-        where id = #{id}
-    </update>
-
-    <select id="getDependencies" resultType="java.util.HashMap" parameterType="java.util.List">
-        SELECT distinct
-        t.ID,
-        t.NAME
-        FROM BIZ_SIMPLE t, Table2 x
-        WHERE t.ID = x.SIMPLE_ID
-        AND t.ID in
-        <foreach collection="list" item="ids" open="(" separator="," close=")">
-            #{ids}
-        </foreach>
-    </select>
-
-    <select id="getModel" resultMap="DemoEntityMap" parameterType="java.lang.String">
-        select ID, NAME, TEXT
-        from BIZ_SIMPLE t
-        WHERE t.ID = #{id}
-    </select>
-
-    <select id="getPagedList" resultMap="DemoEntityMap" parameterType="DemoEntity">
-        select ID,NAME,TEXT from BIZ_SIMPLE t
-        <where>
-            <if test="model.name != null and model.name != ''">t.name like CONCAT('%',#{model.name},'%')</if>
-        </where>
-    </select>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, intro, order_by, status, is_deleted, creator, create_time, modifyer, modify_time
+    </sql>
 
 </mapper>
