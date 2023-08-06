@@ -232,7 +232,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
-                    <mainClass>io.hiwepy.boot.demo.DemoApplication</mainClass>
+                    <mainClass>io.hiwepy.boot.sample.DemoApplication</mainClass>
                 </configuration>
             </plugin>
             <!-- 第三步：通过docker-maven插件构造Docker镜像 <plugin> <groupId>com.spotify</groupId>

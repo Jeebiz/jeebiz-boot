@@ -207,7 +207,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
-                    <mainClass>io.hiwepy.boot.demo.DemoApplication</mainClass>
+                    <mainClass>io.hiwepy.boot.sample.DemoApplication</mainClass>
                 </configuration>
             </plugin>
             <!-- 第一步：生成可执行的启动脚本 -->
