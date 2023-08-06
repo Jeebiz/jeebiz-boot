@@ -348,41 +348,52 @@ spring:
 ###http://mp.baomidou.com/#/spring-boot
 ################################################################################################################
 mybatis-plus:
-  # 初始配置文件
-  check-config-location: true
-  # config-location: classpath:/conf/mybatis/sqlMapConfig.xml
-  #configuration-properties:
-  # 初始配置参数
-  #configuration:
-    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
-    #map-underscore-to-camel-case: true
-    #cache-enabled: false
-    #配置JdbcTypeForNull, oracle数据库必须配置
-    #jdbc-type-for-null: 'null'
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
-  mapper-locations: classpath*:net/jeebiz/**/dao/**/sqlmap/mysql/*.xml
+  # Oracle数据库对应的Mybatis脚本
+  #mapper-locations: classpath*:mapper/oracle/*.xml
+  # MySQL数据库对应的Mybatis脚本
+  mapper-locations: classpath*:mapper/mysql/*.xml
   #实体扫描，多个package用逗号或者分号分隔
   type-aliases-package: io.hiwepy.**.dao.entities
+  # 初始配置文件
+  check-config-location: true
+  # config-location: classpath:/conf/mybatis/sqlMapConfig.xml    
+  configuration-properties:
+    ['table-prefix']: jeebiz_ # 自定义sql中表名带前缀
+  # 初始配置参数 : https://my.oschina.net/tobeexpertismydream/blog/2983483
   configuration:
-    # 指定MyBatis如何自动映射列到字段/属性。PARTIAL只会自动映射简单，没有嵌套的结果。
-    # FULL会自动映射任意复杂的结果（嵌套的或其他情况）;有效值：NONE,PARTIAL,FULL,默认值：PARTIAL
+    # MyBatis 自动映射策略，通过该配置可指定 MyBatis 是否并且如何来自动映射数据表字段与对象的属性，总共有 3 种可选值：
+    # AutoMappingBehavior.NONE：不启用自动映射
+    # AutoMappingBehavior.PARTIAL：只对非嵌套的 resultMap 进行自动映射
+    # AutoMappingBehavior.FULL：对所有的 resultMap 都进行自动映射（任意复杂的结果，嵌套的或其他情况）
+    # 有效值：NONE,PARTIAL,FULL,默认值：PARTIAL
     auto-mapping-behavior: partial
-    # 当检测出未知列（或未知属性）时，如何处理，    默认情况下没有任何提示，这在测试的时候很不方便，不容易找到错误
-    auto-mapping-unknown-column-behavior: failing
-    # 当启用时，使用延迟加载属性的对象在发起任何延迟属性的调用时会被完全加载。否则，每个属性在请求时就加载。默认值：true
+    # MyBatis 自动映射时未知列或未知属性处理策略，通过该配置可指定 MyBatis 在自动映射过程中遇到未知列或者未知属性时如何处理，总共有 3 种可选值：
+    # 默认情况下没有任何提示，这在测试的时候很不方便，不容易找到错误
+    # AutoMappingUnknownColumnBehavior.NONE：不做任何处理 (默认值)
+    # AutoMappingUnknownColumnBehavior.WARNING：以日志的形式打印相关警告信息
+    # AutoMappingUnknownColumnBehavior.FAILING：当作映射失败处理，并抛出异常和详细信息
+    auto-mapping-unknown-column-behavior: none
+    # 当启用时，使用延迟加载属性的对象在发起任何延迟属性的调用时会被完全加载。
+    # 否则，每个属性都按需加载。需要和 lazyLoadingEnabled 一起使用。默认值：true
     aggressive-lazy-loading: true
     # 全局二级缓存开关：默认是true，如果它配成false，其余各个Mapper XML文件配成支持cache也没用
     cache-enabled: true
+    # 指定当结果集中值为 null 的时候是否调用映射对象的 Setter（Map 对象时为 put）方法，通常运用于有 Map.keySet() 依赖或 null 值初始化的情况。
+    # 通俗的讲，即 MyBatis 在使用 resultMap 来映射查询结果中的列，如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段，这就导致在调用到该字段的时候由于没有映射，取不到而报空指针异常。
+    # 当您遇到类似的情况，请针对该属性进行相关配置以解决以上问题。
+    # 注意：基本类型（int、boolean 等）是不能设置成 null 的。
     call-setters-on-nulls: false
     # database-id:
     # default-fetch-size:
     # 设置超时时间，它决定驱动等待一个数据库响应的时间。有效值：Any，positive，integer ；默认值：Not Set(null)
-    default-statement-timeout: 25
+    default-statement-timeout: 60
     # 配置默认的执行器。SIMPLE 执行器没有什么特别之处。REUSE执行器重用预处理语句。BATCH 执行器重用语句和批量更新
     # 有效值：SIMPLE,REUSE,BATCH;默认值：SIMPLE
     default-executor-type: reuse
     jdbc-type-for-null: null
+    # 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN（下划线命名） 到经典 Java 属性名 aColumn（驼峰命名） 的类似映射。
     map-underscore-to-camel-case: false
     # 允许或不允许多种结果集从一个单独的语句中返回（需要适合的驱动）;有效值：true,false;默认值：true
     multiple-result-sets-enabled: true
@@ -390,7 +401,7 @@ mybatis-plus:
     # 使用列标签代替列名。不同的驱动在这方便表现不同。参考驱动文档或充分测试两种方法来决定所使用的驱动。有效值：true,false;默认值：true
     use-column-label: true
     # 允许JDBC支持生成的键。需要适合的驱动。如果设置为true则这个设置强制生成的键被使用，尽管一些驱动拒绝兼容但仍然有效（比如 Derby）;有效值：true,false;默认值：false
-    use-generated-keys: false
+    use-generated-keys: true
     safe-row-bounds-enabled: false
     safe-result-handler-enabled: true
     # 全局地禁用或启用延迟加载。禁用时，所有关联查询会被马上加载;默认值：true
@@ -403,6 +414,22 @@ mybatis-plus:
     local-cache-scope: session
     log-prefix: "[Mybatis]"
     #log-impl: org.apache.ibatis.logging.log4j2.Log4j2LoggerImpl.class
+  global-config:
+    db-config:
+      id-type: auto
+      #      field-strategy: not-empty
+      #mp2.3+ 全局表前缀 mp_
+      table-prefix: jeebiz_
+      #是否自动刷新 Mapper 对应的 XML 文件，默认不自动刷新。如果配置了该属性，Mapper 对应的 XML 文件会自动刷新，更改 XML 文件后，无需再次重启工程，由此节省大量时间。
+      #refresh-mapper: true
+      #是否开启数据库大写命名，默认不开启
+      #capital-mode: true
+      # Sequence序列接口实现类配置
+      #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+      #逻辑删除配置（下面3个配置）
+      logic-delete-field: isDeleted  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
 ################################################################################################################
 ###logging (log4j2) 基本配置：
