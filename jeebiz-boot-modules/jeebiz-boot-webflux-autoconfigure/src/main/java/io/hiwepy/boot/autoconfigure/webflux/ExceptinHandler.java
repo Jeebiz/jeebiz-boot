@@ -17,7 +17,7 @@ public abstract class ExceptinHandler {
     public static final String STATUS_FAIL = "fail";
     public static final String STATUS_ERROR = "error";
 
-    protected static final Logger LOG = LoggerFactory.getLogger(DefaultExceptinHandler.class);
+    protected static final Logger LOG = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     protected static final String XML_HTTP_REQUEST = "XMLHttpRequest";
     protected static final String X_REQUESTED_WITH = "X-Requested-With";
 
