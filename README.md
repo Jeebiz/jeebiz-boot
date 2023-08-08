@@ -35,8 +35,6 @@
 
 **结构说明**
 
-![jeebiz-boot](https://github.com/Jeebiz/jeebiz-boot/blob/master/screenshots/jeebiz-boot.png "Jeebiz Boot")
-
 ```
 |--jeebiz-boot
 |----jeebiz-boot-dependencies		            #公共依赖，便于依赖组件版本控制
@@ -56,11 +54,10 @@
 |--------jeebiz-boot-sample-druid-amqp		    #集成Druid数据源 + RabbitMQ 示例
 |--------jeebiz-boot-sample-druid-rocketmq	    #集成Druid数据源 + RocketMQ 示例
 |--------jeebiz-boot-sample-druid-war		    #集成Druid数据源打War包示例
-|--------jeebiz-boot-sample-druid-webflux	    #集成Druid + WebFlux 示例
 |--------jeebiz-boot-sample-hikaricp		    #集成 Hikaricp数据源示例
 |--------jeebiz-boot-sample-hikaricp-activemq	#集成 Hikaricp数据源 + ActiveMQ 示例
 |--------jeebiz-boot-sample-hikaricp-amqp		#集成 Hikaricp数据源 + RabbitMQ 示例
 |--------jeebiz-boot-sample-hikaricp-rocketmq	#集成 Hikaricp数据源 + RocketMQ 示例
 |--------jeebiz-boot-sample-hikaricp-war		#集成 Hikaricp数据源打War包示例
-|--------jeebiz-boot-sample-hikaricp-webflux	#集成 Hikaricp数据源 + WebFlux 示例
+|--------jeebiz-boot-sample-r2dbc-webflux	    #集成 R2dbc + WebFlux 示例
 ```
