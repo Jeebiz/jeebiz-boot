@@ -276,12 +276,16 @@ public enum ApiCode {
         return ApiRestResponse.of(this);
     }
 
-    public <T> ApiRestResponse<T> toResponse(final String message) {
+    public <T> ApiRestResponse<T> toResponse(String message) {
         return ApiRestResponse.of(this, message, null);
     }
 
-    public <T> ApiRestResponse<T> toResponse(final T data) {
+    public <T> ApiRestResponse<T> toResponse(T data) {
         return ApiRestResponse.of(this, data);
+    }
+
+    public <T> ApiRestResponse<T> toResponse(String message, T data) {
+        return ApiRestResponse.of(this, message, data);
     }
 
 }
