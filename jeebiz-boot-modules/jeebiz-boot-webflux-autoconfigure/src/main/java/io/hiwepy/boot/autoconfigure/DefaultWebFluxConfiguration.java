@@ -5,7 +5,7 @@
 package io.hiwepy.boot.autoconfigure;
 
 import io.hiwepy.boot.autoconfigure.config.LocalResourceProperteis;
-import io.hiwepy.boot.autoconfigure.webflux.DefaultExceptinHandler;
+import io.hiwepy.boot.autoconfigure.webflux.GlobalExceptionHandler;
 import org.springframework.biz.web.server.ReactiveRequestContextFilter;
 import org.springframework.biz.web.server.i18n.XHeaderLocaleContextResolver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -41,8 +41,8 @@ public class DefaultWebFluxConfiguration {
     }
 
     @Bean
-    public DefaultExceptinHandler defaultExceptinHandler() {
-        return new DefaultExceptinHandler();
+    public GlobalExceptionHandler defaultExceptinHandler() {
+        return new GlobalExceptionHandler();
     }
 
 	/*
