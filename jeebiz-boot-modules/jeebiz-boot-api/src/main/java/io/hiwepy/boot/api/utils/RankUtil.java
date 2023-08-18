@@ -96,9 +96,6 @@ public class RankUtil {
 
     /**
      * 排名实体模型
-     *
-     * @author HZC
-     * @date 2019年07月29日
      */
     public static class RankModel<T> {
         /**
