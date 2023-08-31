@@ -464,7 +464,7 @@
         <spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
         <spring-boot-starter-druid-plus.version>1.1.1.RELEASE</spring-boot-starter-druid-plus.version>
-        <spring-boot-starter-dynamic-datasource.version>3.6.1</spring-boot-starter-dynamic-datasource.version>
+        <spring-boot-starter-dynamic-datasource.version>4.1.3</spring-boot-starter-dynamic-datasource.version>
         <spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
         <spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
         <spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
