@@ -165,7 +165,6 @@
         <imageio.version>3.8.2</imageio.version>
         <influxdb-java.version>2.21</influxdb-java.version>
         <istio-client.version>1.6.14</istio-client.version>
-        <jackson-bom.version>2.14.0</jackson-bom.version>
         <janino.version>3.1.6</janino.version>
         <!-- <jackson-annotations.version>2.10.1</jackson-annotations.version> -->
         <javassist.version>3.28.0-GA</javassist.version>
@@ -258,12 +257,12 @@
         <okhttp.version>4.11.0</okhttp.version>
         <okhttp3-metrics.version>1.0.1-SNAPSHOT</okhttp3-metrics.version>
         <ons-client.version>1.8.8.1.Final</ons-client.version>
-        <oshi.version>5.8.2</oshi.version>
-        <owasp-antisamy.version>1.6.7</owasp-antisamy.version>
-        <owasp-csrfguard.version>4.1.1</owasp-csrfguard.version>
-        <owasp-esapi.version>2.3.0.0</owasp-esapi.version>
+        <oshi.version>6.4.4</oshi.version>
+        <owasp-antisamy.version>1.7.3</owasp-antisamy.version>
+        <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
+        <owasp-esapi.version>2.5.2.0</owasp-esapi.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
-        <owasp-html-sanitizer.version>20211018.2</owasp-html-sanitizer.version>
+        <owasp-html-sanitizer.version>20220608.1</owasp-html-sanitizer.version>
         <p6spy.version>3.9.1</p6spy.version>
         <pac4j.version>4.5.5</pac4j.version>
         <pac4j-oauth-ext.version>1.0.3.RELEASE</pac4j-oauth-ext.version>
@@ -445,104 +444,98 @@
         <spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
         <spring-boot-starter-agora.version>1.0.0-SNAPSHOT</spring-boot-starter-agora.version>
         <spring-boot-starter-aliyun-schedulerx2.version>1.2.9.1</spring-boot-starter-aliyun-schedulerx2.version>
-        <spring-boot-starter-aliyun-ons.version>1.1.1.RELEASE</spring-boot-starter-aliyun-ons.version>
-        <spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
-        <spring-boot-starter-aliyun-mps.version>1.0.1.RELEASE</spring-boot-starter-aliyun-mps.version>
-        <spring-boot-starter-arcface.version>1.0.2.RELEASE</spring-boot-starter-arcface.version>
-        <spring-boot-starter-arthas.version>3.5.0</spring-boot-starter-arthas.version>
-        <spring-boot-starter-axis.version>1.0.1.RELEASE</spring-boot-starter-axis.version>
-        <spring-boot-starter-axis2.version>1.0.1.RELEASE</spring-boot-starter-axis2.version>
-        <spring-boot-starter-axis2-client.version>1.0.1.RELEASE</spring-boot-starter-axis2-client.version>
-        <spring-boot-starter-baiduapi.version>1.0.1.RELEASE</spring-boot-starter-baiduapi.version>
-        <spring-boot-starter-beetl.version>1.2.19.RELEASE</spring-boot-starter-beetl.version>
+        <spring-boot-starter-aliyun-ons.version>2.0.0.RELEASE</spring-boot-starter-aliyun-ons.version>
+        <spring-boot-starter-aliyun-mps.version>2.0.0.RELEASE</spring-boot-starter-aliyun-mps.version>
+        <spring-boot-starter-arcface.version>2.0.1.RELEASE</spring-boot-starter-arcface.version>
+        <spring-boot-starter-arthas.version>3.6.2</spring-boot-starter-arthas.version>
+        <spring-boot-starter-axis.version>2.0.0.RELEASE</spring-boot-starter-axis.version>
+        <spring-boot-starter-axis2.version>2.0.0.RELEASE</spring-boot-starter-axis2.version>
+        <spring-boot-starter-axis2-client.version>2.0.0.RELEASE</spring-boot-starter-axis2-client.version>
+        <spring-boot-starter-baiduapi.version>2.0.0.RELEASE</spring-boot-starter-baiduapi.version>
+        <spring-boot-starter-beetl.version>1.2.40.Beetl.RELEASE</spring-boot-starter-beetl.version>
         <spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
-        <spring-boot-starter-casclient.version>1.0.3.RELEASE</spring-boot-starter-casclient.version>
+        <spring-boot-starter-casclient.version>2.0.0.RELEASE</spring-boot-starter-casclient.version>
         <spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
-        <spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
+        <spring-boot-starter-disruptor.version>2.0.0.RELEASE</spring-boot-starter-disruptor.version>
         <spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
-        <spring-boot-starter-dingtalk.version>1.1.0.RELEASE</spring-boot-starter-dingtalk.version>
+        <spring-boot-starter-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-dingtalk.version>
         <spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
         <spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
-        <spring-boot-starter-druid-plus.version>1.1.1.RELEASE</spring-boot-starter-druid-plus.version>
-        <spring-boot-starter-dynamic-datasource.version>3.6.1</spring-boot-starter-dynamic-datasource.version>
-        <spring-boot-starter-elasticjob.version>3.0.0-beta</spring-boot-starter-elasticjob.version>
+        <spring-boot-starter-druid-plus.version>2.0.0.RELEASE</spring-boot-starter-druid-plus.version>
+        <spring-boot-starter-dynamic-datasource.version>4.1.3</spring-boot-starter-dynamic-datasource.version>
+        <spring-boot-starter-elasticjob.version>3.0.1</spring-boot-starter-elasticjob.version>
         <spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
-        <spring-boot-starter-fastdfs.version>1.0.3.RELEASE</spring-boot-starter-fastdfs.version>
-        <spring-boot-starter-flyway-plus.version>1.0.9.RELEASE</spring-boot-starter-flyway-plus.version>
-        <spring-boot-starter-geoip.version>1.0.0.RELEASE</spring-boot-starter-geoip.version>
-        <spring-boot-starter-grpc.version>4.5.9</spring-boot-starter-grpc.version>
-        <spring-boot-starter-hikaricp-plus.version>1.0.8.RELEASE</spring-boot-starter-hikaricp-plus.version>
-        <spring-boot-starter-httl.version>1.0.0.RELEASE</spring-boot-starter-httl.version>
-        <spring-boot-starter-ip2region.version>1.0.8.RELEASE</spring-boot-starter-ip2region.version>
-        <spring-boot-starter-ishumei.version>1.0.5.RELEASE</spring-boot-starter-ishumei.version>
+        <spring-boot-starter-fastdfs.version>2.0.0.RELEASE</spring-boot-starter-fastdfs.version>
+        <spring-boot-starter-flyway-plus.version>2.0.0.RELEASE</spring-boot-starter-flyway-plus.version>
+        <spring-boot-starter-geoip.version>2.0.0.RELEASE</spring-boot-starter-geoip.version>
+        <spring-boot-starter-grpc.version>4.7.0</spring-boot-starter-grpc.version>
+        <spring-boot-starter-hikaricp-plus.version>2.0.0.RELEASE</spring-boot-starter-hikaricp-plus.version>
+        <spring-boot-starter-httl.version>2.0.0.RELEASE</spring-boot-starter-httl.version>
+        <spring-boot-starter-ip2region.version>2.0.1.RELEASE</spring-boot-starter-ip2region.version>
+        <spring-boot-starter-ishumei.version>2.0.0.RELEASE</spring-boot-starter-ishumei.version>
         <spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
-        <spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
+        <spring-boot-starter-jasypt.version>3.0.4</spring-boot-starter-jasypt.version>
         <spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
-        <spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
-        <spring-boot-starter-jcaptcha.version>1.0.2.RELEASE</spring-boot-starter-jcaptcha.version>
-        <spring-boot-starter-jpush.version>1.0.1.RELEASE</spring-boot-starter-jpush.version>
-        <spring-boot-starter-kaptcha.version>1.0.4.RELEASE</spring-boot-starter-kaptcha.version>
-        <spring-boot-starter-log4j2-plus.version>1.0.6.RELEASE</spring-boot-starter-log4j2-plus.version>
-        <spring-boot-starter-maven-client.version>1.0.1.RELEASE</spring-boot-starter-maven-client.version>
-        <spring-boot-starter-maven-embedder.version>1.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
-        <spring-boot-starter-maven-invoker.version>1.0.3.RELEASE</spring-boot-starter-maven-invoker.version>
-        <spring-boot-starter-mybatis.version>2.1.1</spring-boot-starter-mybatis.version>
+        <spring-boot-starter-jcaptcha.version>2.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
+        <spring-boot-starter-jpush.version>2.0.0.RELEASE</spring-boot-starter-jpush.version>
+        <spring-boot-starter-kaptcha.version>2.0.0.RELEASE</spring-boot-starter-kaptcha.version>
+        <spring-boot-starter-log4j2-plus.version>2.0.0.RELEASE</spring-boot-starter-log4j2-plus.version>
+        <spring-boot-starter-maven-client.version>2.0.0.RELEASE</spring-boot-starter-maven-client.version>
+        <spring-boot-starter-maven-embedder.version>2.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
+        <spring-boot-starter-maven-invoker.version>2.0.0.RELEASE</spring-boot-starter-maven-invoker.version>
+        <spring-boot-starter-mybatis.version>2.2.2</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
-        <spring-boot-starter-mybatis-dbperms.version>1.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
-        <spring-boot-starter-minio.version>1.0.3.RELEASE</spring-boot-starter-minio.version>
-        <spring-boot-starter-mongodb-plus.version>1.0.0.RELEASE</spring-boot-starter-mongodb-plus.version>
-        <spring-boot-starter-nacos-config.version>0.2.8</spring-boot-starter-nacos-config.version>
-        <spring-boot-starter-nacos-discovery.version>0.2.8</spring-boot-starter-nacos-discovery.version>
-        <spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
-        <spring-boot-starter-okhttp3.version>1.1.2.RELEASE</spring-boot-starter-okhttp3.version>
-        <spring-boot-starter-p6spy.version>1.0.0.RELEASE</spring-boot-starter-p6spy.version>
-        <spring-boot-starter-pac4j.version>1.0.3.RELEASE</spring-boot-starter-pac4j.version>
-        <spring-boot-starter-pagehelper.version>1.3.0</spring-boot-starter-pagehelper.version>
-        <spring-boot-starter-pf4j.version>1.0.7.RELEASE</spring-boot-starter-pf4j.version>
-        <spring-boot-starter-pf4j2.version>1.0.9.RELEASE</spring-boot-starter-pf4j2.version>
-        <spring-boot-starter-pf4j3.version>1.0.2.RELEASE</spring-boot-starter-pf4j3.version>
+        <spring-boot-starter-mybatis-dbperms.version>2.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
+        <spring-boot-starter-minio.version>2.0.1.RELEASE</spring-boot-starter-minio.version>
+        <spring-boot-starter-nacos-config.version>0.2.11</spring-boot-starter-nacos-config.version>
+        <spring-boot-starter-nacos-discovery.version>0.2.11</spring-boot-starter-nacos-discovery.version>
+        <spring-boot-starter-opentracing.version>3.3.1</spring-boot-starter-opentracing.version>
+        <spring-boot-starter-okhttp3.version>2.0.0.RELEASE</spring-boot-starter-okhttp3.version>
+        <spring-boot-starter-pac4j.version>2.0.0.RELEASE</spring-boot-starter-pac4j.version>
+        <spring-boot-starter-pf4j.version>2.0.0.RELEASE</spring-boot-starter-pf4j.version>
+        <spring-boot-starter-pf4j2.version>2.0.0.RELEASE</spring-boot-starter-pf4j2.version>
+        <spring-boot-starter-pf4j3.version>2.0.0.RELEASE</spring-boot-starter-pf4j3.version>
         <spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
-        <spring-boot-starter-qqwry.version>1.0.4.RELEASE</spring-boot-starter-qqwry.version>
-        <spring-boot-starter-redistpl-plus.version>1.0.8.RELEASE</spring-boot-starter-redistpl-plus.version>
+        <spring-boot-starter-qqwry.version>2.0.0.RELEASE</spring-boot-starter-qqwry.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
-        <spring-boot-starter-redisson-plus.version>1.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
-        <spring-boot-starter-rocketmq.version>2.2.3</spring-boot-starter-rocketmq.version>
-        <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
-        <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>1.1.6.RELEASE</spring-boot-starter-security-biz.version>
-        <spring-boot-starter-security-cas.version>1.0.4.RELEASE</spring-boot-starter-security-cas.version>
-        <spring-boot-starter-security-dingtalk.version>1.0.5.RELEASE</spring-boot-starter-security-dingtalk.version>
-        <spring-boot-starter-security-facebook.version>1.0.1.RELEASE</spring-boot-starter-security-facebook.version>
-        <spring-boot-starter-security-google.version>1.0.2.RELEASE</spring-boot-starter-security-google.version>
-        <spring-boot-starter-security-jwt.version>1.0.9.RELEASE</spring-boot-starter-security-jwt.version>
-        <spring-boot-starter-security-line.version>1.0.2.RELEASE</spring-boot-starter-security-line.version>
-        <spring-boot-starter-security-pac4j.version>1.0.3.RELEASE</spring-boot-starter-security-pac4j.version>
-        <spring-boot-starter-security-qrcode.version>1.0.1.RELEASE</spring-boot-starter-security-qrcode.version>
-        <spring-boot-starter-security-weixin.version>1.0.4.RELEASE</spring-boot-starter-security-weixin.version>
-        <spring-boot-starter-shiro-biz.version>1.1.3.RELEASE</spring-boot-starter-shiro-biz.version>
-        <spring-boot-starter-shiro-cas.version>1.0.5.RELEASE</spring-boot-starter-shiro-cas.version>
-        <spring-boot-starter-shiro-csrfguard.version>1.0.4.RELEASE</spring-boot-starter-shiro-csrfguard.version>
-        <spring-boot-starter-shiro-dingtalk.version>1.0.3.RELEASE</spring-boot-starter-shiro-dingtalk.version>
-        <spring-boot-starter-shiro-jwt.version>1.1.5.RELEASE</spring-boot-starter-shiro-jwt.version>
-        <spring-boot-starter-shiro-kisso.version>1.0.2.RELEASE</spring-boot-starter-shiro-kisso.version>
-        <spring-boot-starter-shiro-pac4j.version>1.0.3.RELEASE</spring-boot-starter-shiro-pac4j.version>
-        <spring-boot-starter-shiro-weixin.version>1.0.3.RELEASE</spring-boot-starter-shiro-weixin.version>
-        <spring-boot-starter-soapui.version>1.0.4.RELEASE</spring-boot-starter-soapui.version>
-        <spring-boot-starter-socketio.version>1.0.5.RELEASE</spring-boot-starter-socketio.version>
-        <spring-boot-starter-shanyan.version>1.0.2.RELEASE</spring-boot-starter-shanyan.version>
+        <spring-boot-starter-redisson-plus.version>2.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
+        <spring-boot-starter-redistpl-plus.version>2.0.0.RELEASE</spring-boot-starter-redistpl-plus.version>
+        <spring-boot-starter-rocketmq.version>2.2.2</spring-boot-starter-rocketmq.version>
+        <spring-boot-starter-schemacrawler.version>2.0.0.RELEASE</spring-boot-starter-schemacrawler.version>
+        <spring-boot-starter-seata.version>1.5.2</spring-boot-starter-seata.version>
+        <spring-boot-starter-security-biz.version>2.0.4-SNAPSHOT</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-security-cas.version>2.0.1-SNAPSHOT</spring-boot-starter-security-cas.version>
+        <spring-boot-starter-security-dingtalk.version>2.0.1-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
+        <spring-boot-starter-security-facebook.version>2.0.0.RELEASE</spring-boot-starter-security-facebook.version>
+        <spring-boot-starter-security-google.version>2.0.0.RELEASE</spring-boot-starter-security-google.version>
+        <spring-boot-starter-security-jwt.version>2.0.2-SNAPSHOT</spring-boot-starter-security-jwt.version>
+        <spring-boot-starter-security-line.version>2.0.0.RELEASE</spring-boot-starter-security-line.version>
+        <spring-boot-starter-security-pac4j.version>2.0.2-SNAPSHOT</spring-boot-starter-security-pac4j.version>
+        <spring-boot-starter-security-weixin.version>2.0.2-SNAPSHOT</spring-boot-starter-security-weixin.version>
+        <spring-boot-starter-shiro-biz.version>2.0.0.RELEASE</spring-boot-starter-shiro-biz.version>
+        <spring-boot-starter-shiro-cas.version>2.0.0.RELEASE</spring-boot-starter-shiro-cas.version>
+        <spring-boot-starter-shiro-csrfguard.version>2.0.0.RELEASE</spring-boot-starter-shiro-csrfguard.version>
+        <spring-boot-starter-shiro-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-shiro-dingtalk.version>
+        <spring-boot-starter-shiro-jwt.version>2.0.0.RELEASE</spring-boot-starter-shiro-jwt.version>
+        <spring-boot-starter-shiro-kisso.version>2.0.0.RELEASE</spring-boot-starter-shiro-kisso.version>
+        <spring-boot-starter-shiro-pac4j.version>2.0.0.RELEASE</spring-boot-starter-shiro-pac4j.version>
+        <spring-boot-starter-shiro-weixin.version>2.0.0.RELEASE</spring-boot-starter-shiro-weixin.version>
+        <spring-boot-starter-soapui.version>2.0.0.RELEASE</spring-boot-starter-soapui.version>
+        <spring-boot-starter-socketio.version>2.0.0.RELEASE</spring-boot-starter-socketio.version>
+        <spring-boot-starter-shanyan.version>2.0.0.RELEASE</spring-boot-starter-shanyan.version>
         <spring-boot-starter-sigar.version>2.0.0.RELEASE</spring-boot-starter-sigar.version>
-        <spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
-        <spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
-        <spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
-        <spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
-        <spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE</spring-boot-starter-validation-mimetypes.version>
-        <spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
-        <spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
-        <spring-boot-starter-xxljob.version>1.0.4.RELEASE</spring-boot-starter-xxljob.version>
-        <spring-boot-starter-zxing.version>1.0.2.RELEASE</spring-boot-starter-zxing.version>
+        <spring-boot-starter-simplecaptcha.version>2.0.0.RELEASE</spring-boot-starter-simplecaptcha.version>
+        <spring-boot-starter-smartcaptcha.version>2.0.0.RELEASE</spring-boot-starter-smartcaptcha.version>
+        <spring-boot-starter-tencentapi.version>2.0.0.RELEASE</spring-boot-starter-tencentapi.version>
+        <spring-boot-starter-webflux-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>
+        <spring-boot-starter-webmvc-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
+        <spring-boot-starter-validation-mimetypes.version>2.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-websocket.version>2.0.0.RELEASE</spring-boot-starter-websocket.version>
+        <spring-boot-starter-xmemcached.version>2.0.0.RELEASE</spring-boot-starter-xmemcached.version>
+        <spring-boot-starter-xxljob.version>2.0.0.RELEASE</spring-boot-starter-xxljob.version>
+        <spring-boot-starter-zxing.version>2.0.0.RELEASE</spring-boot-starter-zxing.version>
 
     </properties>
 
