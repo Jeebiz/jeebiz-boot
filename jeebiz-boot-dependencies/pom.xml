@@ -125,7 +125,7 @@
         <easypoi.version>4.4.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
-        <fastjson.version>2.0.19</fastjson.version>
+        <fastjson.version>2.0.39</fastjson.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>12.1</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
@@ -226,11 +226,11 @@
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
-        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
-        <mybatis-plus-generator.version>3.5.3.1</mybatis-plus-generator.version>
+        <mybatis-plus.version>3.5.3.2</mybatis-plus.version>
+        <mybatis-plus-generator.version>${mybatis-plus.version}</mybatis-plus-generator.version>
         <mybatis-plus-ext.version>1.7.4-RELEASE</mybatis-plus-ext.version>
         <mybatis-r2dbc.version>1.2.5.RELEASE</mybatis-r2dbc.version>
-        <mybatis-spring.version>2.1.0</mybatis-spring.version>
+        <mybatis-spring.version>2.1.1</mybatis-spring.version>
         <mybatis-mate.version>1.2.9-sp2</mybatis-mate.version>
         <mybatis-migrations.version>3.3.10</mybatis-migrations.version>
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
