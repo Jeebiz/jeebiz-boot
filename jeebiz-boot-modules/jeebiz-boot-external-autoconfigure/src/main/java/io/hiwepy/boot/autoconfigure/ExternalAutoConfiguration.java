@@ -5,9 +5,11 @@
 package io.hiwepy.boot.autoconfigure;
 
 import com.github.hiwepy.ip2region.spring.boot.IP2regionTemplate;
+import io.hiwepy.boot.api.sequence.Sequence;
 import io.hiwepy.boot.autoconfigure.region.BaiduRegionTemplate;
 import io.hiwepy.boot.autoconfigure.region.NestedRegionTemplate;
 import io.hiwepy.boot.autoconfigure.region.PconlineRegionTemplate;
+import io.hiwepy.boot.autoconfigure.sequence.GlobalSequence;
 import io.hiwepy.boot.autoconfigure.weather.WeatherTemplate;
 import okhttp3.OkHttpClient;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -15,11 +17,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisOperationTemplate;
 
+import java.util.Objects;
+
 /**
  *
  */
 @Configuration
-@EnableConfigurationProperties({ExternalProperties.class})
+@EnableConfigurationProperties({ExternalProperties.class, SequenceProperties.class})
 public class ExternalAutoConfiguration {
 
     @Bean
@@ -42,5 +46,15 @@ public class ExternalAutoConfiguration {
     public WeatherTemplate weatherTemplate(OkHttpClient okHttpClient) {
         return new WeatherTemplate(okHttpClient);
     }
+
+    /**
+    @Bean
+    public Sequence sequence(RedisOperationTemplate redisOperation, SequenceProperties properties) {
+        long workerId = Objects.isNull(properties.getWorkerId()) ? 0x000000FF & Sequence.getLastIPAddress() : properties.getWorkerId();
+        long dataCenterId = Objects.isNull(properties.getDataCenterId()) ? 0L : properties.getDataCenterId();
+        long timeOffset = Objects.isNull(properties.getTimeOffset()) ? 5L : properties.getTimeOffset();
+        long randomSequenceLimit = Objects.isNull(properties.getRandomSequenceLimit()) ? 0L : properties.getRandomSequenceLimit();
+        return new GlobalSequence(redisOperation, workerId, dataCenterId, properties.isUseSystemClock(), timeOffset, randomSequenceLimit);
+    }*/
 
 }

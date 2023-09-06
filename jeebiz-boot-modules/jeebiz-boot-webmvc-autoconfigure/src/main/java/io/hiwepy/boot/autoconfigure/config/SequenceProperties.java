@@ -4,6 +4,7 @@
  */
 package io.hiwepy.boot.autoconfigure.config;
 
+import cn.hutool.core.date.SystemClock;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -14,29 +15,25 @@ public class SequenceProperties {
     public static final String PREFIX = "sequence";
 
     /**
+     * 工作机器ID,数据范围为0~31，一共32个
+     */
+    private Long workerId;
+    /**
      * 数据中心ID,数据范围为0~255
      */
     private Long dataCenterId;
-
     /**
-     * 工作机器ID,数据范围为0~3
+     * 是否使用{@link SystemClock} 获取当前时间戳
      */
-    private Long workerId;
-
-    /**
-     * true表示解决高并发下获取时间戳的性能问题
-     */
-    private boolean clock;
-
+    private boolean useSystemClock;
     /**
      * 允许时间回拨的毫秒量,建议5ms
      */
     private Long timeOffset = 5L;
-
     /**
-     * true表示使用毫秒内的随机序列(超过范围则取余)
+     * 限定一个随机上限，在不同毫秒下生成序号时，给定一个随机数，避免偶数问题，0表示无随机，上限不包括值本身。
      */
-    private boolean randomSequence;
+    private Long randomSequenceLimit;
 
 
 }

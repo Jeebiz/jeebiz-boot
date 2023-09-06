@@ -5,17 +5,23 @@
 package io.hiwepy.boot.autoconfigure.weather;
 
 import com.alibaba.fastjson.JSONObject;
-import com.google.common.cache.*;
+import com.github.benmanes.caffeine.cache.*;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 免费天气查询
+ * https://www.sojson.com/api/weather.html
+ */
 @Slf4j
 public class WeatherTemplate {
 
@@ -28,9 +34,7 @@ public class WeatherTemplate {
         this.okhttp3Client = okhttp3Client;
     }
 
-    private final LoadingCache<String, Optional<JSONObject>> WEATHER_DATA_CACHES = CacheBuilder.newBuilder()
-            // 设置并发级别为8，并发级别是指可以同时写缓存的线程数
-            .concurrencyLevel(8)
+    private final LoadingCache<String, Optional<JSONObject>> WEATHER_DATA_CACHES = Caffeine.newBuilder()
             // 设置写缓存后1个小时过期
             .expireAfterWrite(1, TimeUnit.HOURS)
             // 设置缓存容器的初始容量为10
@@ -41,10 +45,12 @@ public class WeatherTemplate {
             .recordStats()
             // 设置缓存的移除通知
             .removalListener(new RemovalListener<String, Optional<JSONObject>>() {
+
                 @Override
-                public void onRemoval(RemovalNotification<String, Optional<JSONObject>> notification) {
-                    log.info("{} was removed, cause is {}", notification.getKey(), notification.getCause());
+                public void onRemoval(@Nullable String key, @Nullable Optional<JSONObject> value, @NonNull RemovalCause cause) {
+                    log.info("{} was removed, cause is {}", key, cause);
                 }
+
             })
             // build方法中可以指定CacheLoader，在缓存不存在时通过CacheLoader的实现自动加载缓存
             .build(new CacheLoader<String, Optional<JSONObject>>() {

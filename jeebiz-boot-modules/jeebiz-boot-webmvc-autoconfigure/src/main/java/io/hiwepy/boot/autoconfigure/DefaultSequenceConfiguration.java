@@ -22,11 +22,11 @@ public class DefaultSequenceConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public Sequence sequence(SequenceProperties properties) {
-
-        long dataCenterId = Objects.isNull(properties.getDataCenterId()) ? 0L : properties.getDataCenterId();
         long workerId = Objects.isNull(properties.getWorkerId()) ? 0x000000FF & Sequence.getLastIPAddress() : properties.getWorkerId();
-
-        return new Sequence(dataCenterId, workerId, properties.isClock(), properties.getTimeOffset(), properties.isRandomSequence());
+        long dataCenterId = Objects.isNull(properties.getDataCenterId()) ? 0L : properties.getDataCenterId();
+        long timeOffset = Objects.isNull(properties.getTimeOffset()) ? 5L : properties.getTimeOffset();
+        long randomSequenceLimit = Objects.isNull(properties.getRandomSequenceLimit()) ? 0L : properties.getRandomSequenceLimit();
+        return new Sequence(workerId, dataCenterId, properties.isUseSystemClock(), timeOffset, randomSequenceLimit);
     }
 
 }
