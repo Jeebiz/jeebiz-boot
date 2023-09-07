@@ -41,7 +41,7 @@ public class Sequence {
      * @since 1.0.0
      */
     public Sequence(long workerId) {
-        this.snowflake = IdUtil.getSnowflake(workerId);
+        this.snowflake = new Snowflake( workerId);
     }
 
     /**
@@ -68,7 +68,7 @@ public class Sequence {
      * @since 1.0.0
      */
     public Sequence(long workerId, long dataCenterId) {
-        this.snowflake = IdUtil.getSnowflake(workerId, dataCenterId);
+        this.snowflake = new Snowflake( workerId, dataCenterId);
     }
 
     /**
@@ -96,7 +96,7 @@ public class Sequence {
      * @since 1.0.0
      */
     public Sequence(long workerId, long dataCenterId, boolean isUseSystemClock) {
-        this.snowflake = Singleton.get(Snowflake.class, workerId, dataCenterId, isUseSystemClock);
+        this.snowflake = new Snowflake( workerId, dataCenterId, isUseSystemClock);
     }
 
     /**
@@ -125,7 +125,7 @@ public class Sequence {
      * @since 1.0.0
      */
     public Sequence(long workerId, long dataCenterId, boolean isUseSystemClock, long timeOffset) {
-        this.snowflake = Singleton.get(Snowflake.class, workerId, dataCenterId, isUseSystemClock, timeOffset);
+        this.snowflake = new Snowflake( null, workerId, dataCenterId, isUseSystemClock, timeOffset);
     }
 
     /**
@@ -155,7 +155,7 @@ public class Sequence {
      * @since 1.0.0
      */
     public Sequence(long workerId, long dataCenterId, boolean isUseSystemClock, long timeOffset, long randomSequenceLimit) {
-        this.snowflake = Singleton.get(Snowflake.class, workerId, dataCenterId, isUseSystemClock, timeOffset, randomSequenceLimit);
+        this.snowflake = new Snowflake( null, workerId, dataCenterId, isUseSystemClock, timeOffset, randomSequenceLimit);
     }
 
     /**
