@@ -5,19 +5,15 @@
 package io.hiwepy.boot.autoconfigure;
 
 import com.github.hiwepy.ip2region.spring.boot.IP2regionTemplate;
-import io.hiwepy.boot.api.sequence.Sequence;
 import io.hiwepy.boot.autoconfigure.region.BaiduRegionTemplate;
 import io.hiwepy.boot.autoconfigure.region.NestedRegionTemplate;
 import io.hiwepy.boot.autoconfigure.region.PconlineRegionTemplate;
-import io.hiwepy.boot.autoconfigure.sequence.GlobalSequence;
 import io.hiwepy.boot.autoconfigure.weather.WeatherTemplate;
 import okhttp3.OkHttpClient;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisOperationTemplate;
-
-import java.util.Objects;
 
 /**
  *
