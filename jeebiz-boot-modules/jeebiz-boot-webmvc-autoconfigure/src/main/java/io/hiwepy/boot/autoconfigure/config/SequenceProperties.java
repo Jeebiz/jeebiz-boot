@@ -15,14 +15,6 @@ public class SequenceProperties {
     public static final String PREFIX = "sequence";
 
     /**
-     * 工作机器ID,数据范围为0~31，一共32个
-     */
-    private Long workerId;
-    /**
-     * 数据中心ID,数据范围为0~255
-     */
-    private Long dataCenterId;
-    /**
      * 是否使用{@link SystemClock} 获取当前时间戳
      */
     private boolean useSystemClock;
