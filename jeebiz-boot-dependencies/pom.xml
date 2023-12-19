@@ -4190,6 +4190,13 @@
                 <artifactId>redisson-mybatis</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-data-21 -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-data-21</artifactId>
+                <version>3.25.0</version>
+            </dependency>
+
 
             <!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
             <!-- https://www.cnblogs.com/zhangshihai1232/articles/6030796.html -->
