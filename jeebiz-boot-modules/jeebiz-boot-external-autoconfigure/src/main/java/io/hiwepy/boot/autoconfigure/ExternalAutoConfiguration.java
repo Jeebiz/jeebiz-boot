@@ -19,7 +19,7 @@ import org.springframework.data.redis.core.RedisOperationTemplate;
  *
  */
 @Configuration
-@EnableConfigurationProperties({ExternalProperties.class})
+@EnableConfigurationProperties({ExternalProperties.class, SequenceProperties.class})
 public class ExternalAutoConfiguration {
 
     @Bean
@@ -42,5 +42,15 @@ public class ExternalAutoConfiguration {
     public WeatherTemplate weatherTemplate(OkHttpClient okHttpClient) {
         return new WeatherTemplate(okHttpClient);
     }
+
+    /**
+    @Bean
+    public Sequence sequence(RedisOperationTemplate redisOperation, SequenceProperties properties) {
+        long workerId = Objects.isNull(properties.getWorkerId()) ? 0x000000FF & Sequence.getLastIPAddress() : properties.getWorkerId();
+        long dataCenterId = Objects.isNull(properties.getDataCenterId()) ? 0L : properties.getDataCenterId();
+        long timeOffset = Objects.isNull(properties.getTimeOffset()) ? 5L : properties.getTimeOffset();
+        long randomSequenceLimit = Objects.isNull(properties.getRandomSequenceLimit()) ? 0L : properties.getRandomSequenceLimit();
+        return new GlobalSequence(redisOperation, workerId, dataCenterId, properties.isUseSystemClock(), timeOffset, randomSequenceLimit);
+    }*/
 
 }
