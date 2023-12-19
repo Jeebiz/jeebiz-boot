@@ -15,14 +15,14 @@
     <properties>
         <!-- Dependency versions -->
         <activation.version>1.1.1</activation.version>
-        <alipay-sdk.version>4.20.13.ALL</alipay-sdk.version>
-        <alipay-easysdk.version>2.2.1</alipay-easysdk.version>
+        <alipay-sdk.version>4.38.61.ALL</alipay-sdk.version>
+        <alipay-easysdk.version>2.2.3</alipay-easysdk.version>
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
-        <aliyun-sdk-oss.version>3.16.1</aliyun-sdk-oss.version>
-        <aliyun-sdk-mts.version>3.3.56</aliyun-sdk-mts.version>
+        <aliyun-sdk-oss.version>3.17.1</aliyun-sdk-oss.version>
+        <aliyun-sdk-mts.version>3.3.58</aliyun-sdk-mts.version>
         <appium.version>8.0.0</appium.version>
-        <asciidoctorj.version>2.4.0</asciidoctorj.version>
-        <asciidoctorj.pdf.version>1.5.3</asciidoctorj.pdf.version>
+        <asciidoctorj.version>2.5.10</asciidoctorj.version>
+        <asciidoctorj.pdf.version>2.3.9</asciidoctorj.pdf.version>
         <asmsupport.version>0.4.3</asmsupport.version>
         <async-http-client.version>2.12.3</async-http-client.version>
         <axiom.version>1.2.22</axiom.version>
@@ -31,8 +31,8 @@
         <axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
         <axis2.version>1.7.9</axis2.version>
         <axis2-api.version>1.4.1</axis2-api.version>
-        <beetl.version>3.9.0.RELEASE</beetl.version>
-        <batik.version>1.14</batik.version>
+        <beetl.version>3.15.8.RELEASE</beetl.version>
+        <batik.version>1.17</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
         <bcprov.version>1.76</bcprov.version>
@@ -56,11 +56,11 @@
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-compiler.version>3.1.2</commons-compiler.version>
-        <commons-compress.version>1.21</commons-compress.version>
+        <commons-compress.version>1.23.0</commons-compress.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-configuration2.version>2.8</commons-configuration2.version>
-        <commons-crypto.version>1.1.0</commons-crypto.version>
-        <commons-csv.version>1.9.0</commons-csv.version>
+        <commons-configuration2.version>2.9.0</commons-configuration2.version>
+        <commons-crypto.version>1.2.0</commons-crypto.version>
+        <commons-csv.version>1.10.0</commons-csv.version>
         <commons-daemon.version>1.2.3</commons-daemon.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <commons-dbcp2.version>2.9.0</commons-dbcp2.version>
@@ -71,15 +71,16 @@
         <commons-email.version>1.5</commons-email.version>
         <commons-exec.version>1.3</commons-exec.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
+        <commons-fileupload2-jakarta.version>2.0.0-M1</commons-fileupload2-jakarta.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-imaging.version>1.0-alpha2</commons-imaging.version>
-        <commons-io.version>2.11.0</commons-io.version>
+        <commons-io.version>2.13.0</commons-io.version>
         <commons-jci.version>1.1</commons-jci.version>
         <commons-jexl.version>2.1.1</commons-jexl.version>
         <commons-jexl3.version>3.2.1</commons-jexl3.version>
         <commons-jxpath.version>1.3</commons-jxpath.version>
         <commons-lang.version>2.6</commons-lang.version>
-        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-lang3.version>3.13.0</commons-lang3.version>
         <commons-logging.version>1.2</commons-logging.version>
         <commons-math.version>2.2</commons-math.version>
         <commons-math3.version>3.6.1</commons-math3.version>
@@ -97,7 +98,7 @@
         <cos.version>2020.4</cos.version>
         <curator.version>5.5.0</curator.version>
         <cronet.version>95.4638.50</cronet.version>
-        <cssparser.version>0.9.29</cssparser.version>
+        <cssparser.version>0.9.30</cssparser.version>
         <cxf.version>3.5.2</cxf.version>
         <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
@@ -119,7 +120,7 @@
         <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
         <disruptor.version>3.4.4</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
-        <dubbo.version>3.1.11</dubbo.version>
+        <dubbo.version>3.2.9</dubbo.version>
         <dynamic-tp.version>1.1.3</dynamic-tp.version>
         <easyexcel.version>3.3.2</easyexcel.version>
         <easypoi.version>4.4.0</easypoi.version>
@@ -127,16 +128,16 @@
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.39</fastjson.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-        <feign.version>12.1</feign.version>
+        <feign.version>12.5</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
-        <flowable.version>6.7.2</flowable.version>
+        <flowable.version>6.8.0</flowable.version>
         <formio.version>1.6.4</formio.version>
         <forest.version>1.5.28</forest.version>
         <geodesy.version>1.1.3</geodesy.version>
-        <goeasy.version>0.3.16</goeasy.version>
-        <google-api-client.version>2.0.0</google-api-client.version>
+        <goeasy.version>0.4.2</goeasy.version>
+        <google-api-client.version>2.2.0</google-api-client.version>
         <google-api-services-androidpublisher.version>v3-rev142-1.25.0</google-api-services-androidpublisher.version>
         <google-oauth-client.version>1.34.1</google-oauth-client.version>
         <google-auth-library.version>1.8.1</google-auth-library.version>
@@ -207,7 +208,7 @@
         <kisso.version>3.8.1</kisso.version>
         <kubernetes-client.version>4.10.1</kubernetes-client.version>
         <kylin-jdbc.version>4.0.0</kylin-jdbc.version>
-        <libphonenumber.version>8.13.9</libphonenumber.version>
+        <libphonenumber.version>8.13.20</libphonenumber.version>
         <libphonenumber-carrier.version>1.193</libphonenumber-carrier.version>
         <libphonenumber-prefixmapper.version>2.203</libphonenumber-prefixmapper.version>
         <libphonenumber-geocoder.version>2.203</libphonenumber-geocoder.version>
@@ -396,8 +397,8 @@
         <xstream.version>1.4.16</xstream.version>
         <xxl-job.version>2.4.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
-        <zookeeper.version>3.8.1</zookeeper.version>
-        <zip4j.version>2.10.0</zip4j.version>
+        <zookeeper.version>3.9.0</zookeeper.version>
+        <zip4j.version>2.11.3</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
 
@@ -1008,6 +1009,12 @@
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons-fileupload.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-jakarta -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-fileupload2-jakarta</artifactId>
+                <version>${commons-fileupload2-jakarta.version}</version>
             </dependency>
             <!-- The HttpClient component supports the client-side of RFC 1945 (HTTP/1.0)
 				and RFC 2616 (HTTP/1.1) , several related specifications (RFC 2109 (Cookies)
