@@ -7,7 +7,7 @@
         <artifactId>jeebiz-boot-samples</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>jeebiz-boot-sample-r2dbc-webflux</artifactId>
+    <artifactId>jeebiz-boot-sample-openai</artifactId>
 
     <dependencies>
 
@@ -23,6 +23,12 @@
             <version>${jeebiz-boot.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-ai-openai</artifactId>
+            <version>${azure-ai-openai.version}</version>
+        </dependency>
+
         <!-- For WebFlux -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -31,6 +37,10 @@
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
