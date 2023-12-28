@@ -157,7 +157,7 @@
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
         <hitool.version>1.0.2.RELEASE</hitool.version>
         <hive.version>3.1.2</hive.version>
-        <hutool.version>5.8.21</hutool.version>
+        <hutool.version>5.8.24</hutool.version>
         <hystrix.version>1.5.18</hystrix.version>
         <ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
         <i4jruntime.version>5.0.6</i4jruntime.version>
