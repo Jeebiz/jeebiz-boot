@@ -11,25 +11,11 @@
 
     <dependencies>
 
-        <!-- For Servlet Api -->
+        <!-- For Tianyin API -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-        </dependency>
-        <!-- For Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <!-- For Fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-        <!-- For Guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
+            <groupId>io.hiwepy</groupId>
+            <artifactId>jeebiz-boot-api</artifactId>
+            <version>${jeebiz-boot.version}</version>
         </dependency>
         <!-- For geodesy -->
         <dependency>
