@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.hiwepy</groupId>
         <artifactId>jeebiz-boot</artifactId>
-        <version>2.0.0-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>jeebiz-boot-dependencies</artifactId>
@@ -167,6 +167,8 @@
         <imageio.version>3.8.2</imageio.version>
         <influxdb-java.version>2.21</influxdb-java.version>
         <istio-client.version>1.6.14</istio-client.version>
+        <jakarta.servlet-api.version>6.1.0-M1</jakarta.servlet-api.version>
+        <jakarta.websocket-api.version>2.2.0-M1</jakarta.websocket-api.version>
         <janino.version>3.1.6</janino.version>
         <!-- <jackson-annotations.version>2.10.1</jackson-annotations.version> -->
         <javassist.version>3.28.0-GA</javassist.version>
@@ -179,7 +181,7 @@
         <jai-imageio.version>1.4.0</jai-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
         <jcifs.version>2.1.13</jcifs.version>
-        <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
+        <jetty-websocket.version>9.4.53.v20231009</jetty-websocket.version>
         <jep.version>2.4.2</jep.version>
         <jedis.version>3.9.0</jedis.version>
         <jjwt_0_7.version>0.7.0</jjwt_0_7.version>
@@ -256,7 +258,7 @@
         <netty-socketio.version>1.7.19</netty-socketio.version>
         <netty-tcnative.version>2.0.61.Final</netty-tcnative.version>
         <nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
-        <okhttp.version>3.14.9</okhttp.version>
+        <!--<okhttp.version>3.14.9</okhttp.version>-->
         <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
         <ons-client.version>1.8.8.1.Final</ons-client.version>
         <oshi.version>6.4.4</oshi.version>
@@ -2949,6 +2951,18 @@
 			    <artifactId>jackson-annotations</artifactId>
 			    <version>${jackson-annotations.version}</version>
 			</dependency>-->
+            <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>${jakarta.servlet-api.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/jakarta.websocket/jakarta.websocket-api -->
+            <dependency>
+                <groupId>jakarta.websocket</groupId>
+                <artifactId>jakarta.websocket-api</artifactId>
+                <version>${jakarta.websocket-api.version}</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
             <dependency>
@@ -3096,7 +3110,7 @@
                 <exclusions>
                     <exclusion>
                         <artifactId>servlet-api</artifactId>
-                        <groupId>javax.servlet</groupId>
+                         <groupId>jakarta.servlet</groupId>
                     </exclusion>
                 </exclusions>
             </dependency>

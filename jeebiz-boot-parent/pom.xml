@@ -17,9 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.module>${project.artifactId}</project.module>
-        <java.version>1.8</java.version>
+        <java.version>1.17</java.version>
         <maven.version>3.0</maven.version>
-
         <addClasspath>false</addClasspath>
         <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
         <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
@@ -63,17 +62,17 @@
         </dependency>
 
         <!-- Java Servlet API -->
-        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <optional>true</optional>
         </dependency>
         <!-- Java Websocket API -->
-        <!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
+        <!-- https://mvnrepository.com/artifact/jakarta.websocket/jakarta.websocket-api -->
         <dependency>
-            <groupId>javax.websocket</groupId>
-            <artifactId>javax.websocket-api</artifactId>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
             <optional>true</optional>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
@@ -1201,12 +1200,12 @@
                     <artifactId>license-maven-plugin</artifactId>
                     <configuration>
                         <!-- config for license:aggregate-add-third-party -->
-                        <outputDirectory>${main.basedir}</outputDirectory>
+                        <outputDirectory>${project.basedir}</outputDirectory>
                         <thirdPartyFilename>LICENSE-3RD-PARTY</thirdPartyFilename>
                         <fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
                         <useMissingFile>true</useMissingFile>
-                        <missingFile>${main.basedir}/LICENSE-3RD-PARTY.properties</missingFile>
-                        <aggregateMissingLicensesFile>${main.basedir}/LICENSE-3RD-PARTY.properties
+                        <missingFile>${project.basedir}/LICENSE-3RD-PARTY.properties</missingFile>
+                        <aggregateMissingLicensesFile>${project.basedir}/LICENSE-3RD-PARTY.properties
                         </aggregateMissingLicensesFile>
                         <licenseMerges>
                             <licenseMerge>Apache 2.0|ASL, version
@@ -1241,9 +1240,9 @@
                         <!-- config for license:aggregate-download-licenses -->
                         <aggregateDownloadLicenses.executeOnlyOnRootModule>true
                         </aggregateDownloadLicenses.executeOnlyOnRootModule>
-                        <!--<licensesConfigFile>${main.basedir}/lic/config/licenses.xml</licensesConfigFile>-->
-                        <licensesOutputFile>${main.basedir}/lic/licenses.xml</licensesOutputFile>
-                        <licensesOutputDirectory>${main.basedir}/lic/licenses/</licensesOutputDirectory>
+                        <!--<licensesConfigFile>${project.basedir}/lic/config/licenses.xml</licensesConfigFile>-->
+                        <licensesOutputFile>${project.basedir}/lic/licenses.xml</licensesOutputFile>
+                        <licensesOutputDirectory>${project.basedir}/lic/licenses/</licensesOutputDirectory>
 
                         <!-- config for license:update-file-header -->
                         <licenseName>apache_v2</licenseName>
@@ -1276,7 +1275,7 @@
                         <sectionDelimiter>==</sectionDelimiter>
 
                         <!-- config for mvn license:update-project-license -->
-                        <licenseFile>${main.basedir}/LICENSE</licenseFile>
+                        <licenseFile>${project.basedir}/LICENSE</licenseFile>
                     </configuration>
                 </plugin>
                 <plugin>
