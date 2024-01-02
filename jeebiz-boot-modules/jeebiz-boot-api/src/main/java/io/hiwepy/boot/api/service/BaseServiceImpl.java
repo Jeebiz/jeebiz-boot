@@ -12,6 +12,7 @@ import com.github.dozermapper.core.Mapper;
 import io.hiwepy.boot.api.dao.BaseMapper;
 import io.hiwepy.boot.api.dao.entities.PaginationEntity;
 import io.hiwepy.boot.api.dao.entities.PairModel;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,6 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;

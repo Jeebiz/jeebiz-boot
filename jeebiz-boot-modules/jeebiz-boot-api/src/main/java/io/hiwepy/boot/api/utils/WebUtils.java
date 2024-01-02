@@ -1,13 +1,12 @@
 package io.hiwepy.boot.api.utils;
 
 import io.hiwepy.boot.api.XHeaders;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.biz.utils.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 public class WebUtils extends org.springframework.biz.utils.WebUtils {

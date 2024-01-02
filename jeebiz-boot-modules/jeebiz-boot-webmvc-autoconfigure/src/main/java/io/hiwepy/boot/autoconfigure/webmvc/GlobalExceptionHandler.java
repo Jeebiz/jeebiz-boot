@@ -12,6 +12,7 @@ import io.hiwepy.boot.api.exception.BizCheckedException;
 import io.hiwepy.boot.api.exception.BizIOException;
 import io.hiwepy.boot.api.exception.BizRuntimeException;
 import io.hiwepy.boot.api.exception.IdempotentException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.binding.BindingException;
@@ -55,7 +56,6 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.*;
 import java.io.IOException;
 import java.sql.*;

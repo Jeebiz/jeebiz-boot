@@ -1,9 +1,9 @@
 package io.hiwepy.boot.plugin.api.point.authc;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.pf4j.ExtensionPoint;
 import org.pf4j.PluginRuntimeException;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 public interface AuthcExtensionPoint extends ExtensionPoint {

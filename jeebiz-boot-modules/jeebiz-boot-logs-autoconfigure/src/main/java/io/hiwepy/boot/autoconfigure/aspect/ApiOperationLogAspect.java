@@ -4,6 +4,7 @@ import io.hiwepy.boot.api.XHeaders;
 import io.hiwepy.boot.api.sequence.Sequence;
 import io.hiwepy.boot.api.utils.WebUtils;
 import io.swagger.annotations.ApiOperation;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 import org.springframework.util.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
 @Aspect

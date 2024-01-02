@@ -3,6 +3,7 @@ package io.hiwepy.boot.autoconfigure.aspect;
 import io.hiwepy.boot.api.Constants;
 import io.hiwepy.boot.api.utils.WebUtils;
 import io.swagger.annotations.ApiOperation;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -13,7 +14,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Objects;

@@ -4,9 +4,9 @@
  */
 package io.hiwepy.boot.api.exception;
 
+import hitool.core.lang3.exception.NestedIOException;
 import io.hiwepy.boot.api.ApiCode;
 import io.hiwepy.boot.api.CustomApiCode;
-import org.springframework.core.NestedIOException;
 
 @SuppressWarnings("serial")
 public class BizIOException extends NestedIOException {

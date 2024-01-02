@@ -1,9 +1,9 @@
 package io.hiwepy.boot.plugin.api.point.web;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.pf4j.ExtensionPoint;
 import org.springframework.http.RequestEntity;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 public interface ServletRequestExtensionPoint extends ExtensionPoint {

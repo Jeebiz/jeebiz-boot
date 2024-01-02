@@ -8,6 +8,7 @@ import io.hiwepy.boot.api.dto.RequestData;
 import io.hiwepy.boot.api.exception.ParamException;
 import io.hiwepy.boot.autoconfigure.CryptoConstant;
 import io.hiwepy.boot.autoconfigure.annotation.RequestDecryption;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
 
 import javax.servlet.ServletInputStream;
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
 
 /**
