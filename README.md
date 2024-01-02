@@ -61,3 +61,6 @@
 |--------jeebiz-boot-sample-hikaricp-war		#集成 Hikaricp数据源打War包示例
 |--------jeebiz-boot-sample-r2dbc-webflux	    #集成 R2dbc + WebFlux 示例
 ```
+
+#### Spring Docs
+https://docs.spring.io/spring-boot/docs/2.3.12.RELEASE/reference/html/spring-boot-features.html#boot-features-spring-application
