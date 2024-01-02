@@ -4,6 +4,7 @@
  */
 package io.hiwepy.boot.autoconfigure;
 
+import cn.hutool.core.util.IdUtil;
 import io.hiwepy.boot.api.sequence.Sequence;
 import io.hiwepy.boot.autoconfigure.config.SequenceProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -22,11 +23,11 @@ public class DefaultSequenceConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public Sequence sequence(SequenceProperties properties) {
-
-        long dataCenterId = Objects.isNull(properties.getDataCenterId()) ? 0L : properties.getDataCenterId();
-        long workerId = Objects.isNull(properties.getWorkerId()) ? 0x000000FF & Sequence.getLastIPAddress() : properties.getWorkerId();
-
-        return new Sequence(dataCenterId, workerId, properties.isClock(), properties.getTimeOffset(), properties.isRandomSequence());
+        long dataCenterId = IdUtil.getDataCenterId(31);
+        long workerId = IdUtil.getWorkerId( dataCenterId,31);
+        long timeOffset = Objects.isNull(properties.getTimeOffset()) ? 5L : properties.getTimeOffset();
+        long randomSequenceLimit = Objects.isNull(properties.getRandomSequenceLimit()) ? 0L : properties.getRandomSequenceLimit();
+        return new Sequence(workerId, dataCenterId, properties.isUseSystemClock(), timeOffset, randomSequenceLimit);
     }
 
 }
