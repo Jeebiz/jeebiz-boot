@@ -178,6 +178,8 @@
         <java-jwt.version>3.8.1</java-jwt.version>
         <javamelody.version>1.91.0</javamelody.version>
         <jave.version>3.3.1</jave.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <javax.validation-api.version>2.0.1.Final</javax.validation-api.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
         <jcifs.version>2.1.13</jcifs.version>
