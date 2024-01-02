@@ -401,7 +401,7 @@
         <xstream.version>1.4.16</xstream.version>
         <xxl-job.version>2.4.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
-        <zookeeper.version>3.9.0</zookeeper.version>
+        <zookeeper.version>3.9.1</zookeeper.version>
         <zip4j.version>2.11.3</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
