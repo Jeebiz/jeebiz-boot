@@ -167,8 +167,11 @@
         <imageio.version>3.8.2</imageio.version>
         <influxdb-java.version>2.21</influxdb-java.version>
         <istio-client.version>1.6.14</istio-client.version>
-        <jakarta.servlet-api.version>6.1.0-M1</jakarta.servlet-api.version>
-        <jakarta.websocket-api.version>2.2.0-M1</jakarta.websocket-api.version>
+        <jakarta.activation-api.version>2.1.2</jakarta.activation-api.version>
+        <jakarta.annotation-api.version>2.1.1</jakarta.annotation-api.version>
+        <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+        <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
+        <jakarta.websocket-api.version>2.1.1</jakarta.websocket-api.version>
         <janino.version>3.1.6</janino.version>
         <!-- <jackson-annotations.version>2.10.1</jackson-annotations.version> -->
         <javassist.version>3.28.0-GA</javassist.version>
@@ -2953,11 +2956,30 @@
 			    <artifactId>jackson-annotations</artifactId>
 			    <version>${jackson-annotations.version}</version>
 			</dependency>-->
+
+            <!-- https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api -->
+            <dependency>
+                <groupId>jakarta.activation</groupId>
+                <artifactId>jakarta.activation-api</artifactId>
+                <version>${jakarta.activation-api.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api -->
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>${jakarta.annotation-api.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
             <dependency>
                 <groupId>jakarta.servlet</groupId>
                 <artifactId>jakarta.servlet-api</artifactId>
                 <version>${jakarta.servlet-api.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${jakarta.validation-api.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/jakarta.websocket/jakarta.websocket-api -->
             <dependency>
