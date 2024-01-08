@@ -506,7 +506,7 @@
         <spring-boot-starter-redistpl-plus.version>2.0.0.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-rocketmq.version>2.2.2</spring-boot-starter-rocketmq.version>
         <spring-boot-starter-schemacrawler.version>2.0.0.RELEASE</spring-boot-starter-schemacrawler.version>
-        <spring-boot-starter-seata.version>1.5.2</spring-boot-starter-seata.version>
+        <spring-boot-starter-seata.version>2.0.0</spring-boot-starter-seata.version>
         <spring-boot-starter-security-biz.version>2.0.4-SNAPSHOT</spring-boot-starter-security-biz.version>
         <spring-boot-starter-security-cas.version>2.0.1-SNAPSHOT</spring-boot-starter-security-cas.version>
         <spring-boot-starter-security-dingtalk.version>2.0.1-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
