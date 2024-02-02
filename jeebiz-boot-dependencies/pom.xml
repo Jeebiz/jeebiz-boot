@@ -217,7 +217,7 @@
         <libphonenumber-geocoder.version>2.203</libphonenumber-geocoder.version>
         <liquibase.version>4.6.2</liquibase.version>
         <lock4j.version>2.2.0</lock4j.version>
-        <log4j2.version>2.22.1</log4j2.version>
+        <log4j2.version>2.17.0</log4j2.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <markdown.version>1.11.1</markdown.version>
         <mariadb.version>2.7.4</mariadb.version>
