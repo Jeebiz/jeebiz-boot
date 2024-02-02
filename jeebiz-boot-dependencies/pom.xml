@@ -129,7 +129,7 @@
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.39</fastjson.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-        <feign.version>12.5</feign.version>
+        <feign.version>10.12</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -2223,6 +2223,18 @@
             <dependency>
                 <groupId>io.github.openfeign</groupId>
                 <artifactId>feign-core</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-slf4j -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-slf4j</artifactId>
+                <version>${feign.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-hystrix -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-hystrix</artifactId>
                 <version>${feign.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp -->
