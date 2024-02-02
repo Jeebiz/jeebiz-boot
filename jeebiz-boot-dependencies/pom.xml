@@ -32,7 +32,7 @@
         <axis2.version>1.7.9</axis2.version>
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
-        <beetl.version>3.15.8.RELEASE</beetl.version>
+        <beetl.version>3.15.13.RELEASE</beetl.version>
         <batik.version>1.17</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
