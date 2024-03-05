@@ -129,6 +129,7 @@
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.39</fastjson.version>
+        <fastjson2.version>2.0.46</fastjson2.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>10.12</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
@@ -1853,6 +1854,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
             </dependency>
 
             <dependency>
