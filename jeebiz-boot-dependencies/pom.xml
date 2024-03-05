@@ -46,6 +46,7 @@
         <cas-client.version>3.6.4</cas-client.version>
         <camel.version>3.17.0</camel.version>
         <cglib.version>3.3.0</cglib.version>
+        <cola.version>4.3.2</cola.version>
         <commons-attributes.version>2.1</commons-attributes.version>
         <commons-attributes-api.version>2.2</commons-attributes-api.version>
         <commons-attributes-compiler.version>2.2</commons-attributes-compiler.version>
@@ -176,6 +177,7 @@
         <java-jwt.version>3.8.1</java-jwt.version>
         <javamelody.version>1.91.0</javamelody.version>
         <jave.version>3.3.1</jave.version>
+        <javers.version>6.14.0</javers.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <javax.validation-api.version>2.0.1.Final</javax.validation-api.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
@@ -217,7 +219,7 @@
         <libphonenumber-geocoder.version>2.203</libphonenumber-geocoder.version>
         <liquibase.version>4.6.2</liquibase.version>
         <lock4j.version>2.2.0</lock4j.version>
-        <log4j2.version>2.17.0</log4j2.version>
+        <log4j2.version>2.22.1</log4j2.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <markdown.version>1.11.1</markdown.version>
         <mariadb.version>2.7.4</mariadb.version>
@@ -895,6 +897,38 @@
                 <groupId>cglib</groupId>
                 <artifactId>cglib-nodep</artifactId>
                 <version>${cglib.version}</version>
+            </dependency>
+
+            <!-- For Alibaba Cola -->
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-dto</artifactId>
+                <version>${cola.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-exception</artifactId>
+                <version>${cola.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-statemachine</artifactId>
+                <version>${cola.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-domain-starter</artifactId>
+                <version>${cola.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-extension-starter</artifactId>
+                <version>${cola.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-catchlog-starter</artifactId>
+                <version>${cola.version}</version>
             </dependency>
 
             <!-- http://mvnrepository.com/artifact/commons-attributes -->
@@ -2757,6 +2791,31 @@
                 <groupId>ws.schild</groupId>
                 <artifactId>jave-nativebin-osxm1</artifactId>
                 <version>${jave.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.javers/javers-core -->
+            <dependency>
+                <groupId>org.javers</groupId>
+                <artifactId>javers-core</artifactId>
+                <version>${javers.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.javers/javers-spring -->
+            <dependency>
+                <groupId>org.javers</groupId>
+                <artifactId>javers-spring</artifactId>
+                <version>${javers.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.javers/javers-spring-boot-starter-sql -->
+            <dependency>
+                <groupId>org.javers</groupId>
+                <artifactId>javers-spring-boot-starter-sql</artifactId>
+                <version>${javers.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.javers/javers-spring-boot-starter-mongo -->
+            <dependency>
+                <groupId>org.javers</groupId>
+                <artifactId>javers-spring-boot-starter-mongo</artifactId>
+                <version>${javers.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.github.jai-imageio/jai-imageio-core -->
