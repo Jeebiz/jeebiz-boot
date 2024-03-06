@@ -518,7 +518,7 @@
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
         <spring-boot-starter-security-biz.version>1.1.7-SNAPSHOT</spring-boot-starter-security-biz.version>
-        <spring-boot-starter-security-cas.version>1.0.6.1-SNAPSHOT</spring-boot-starter-security-cas.version>
+        <spring-boot-starter-security-cas.version>1.0.7-SNAPSHOT</spring-boot-starter-security-cas.version>
         <spring-boot-starter-security-dingtalk.version>1.0.5.RELEASE</spring-boot-starter-security-dingtalk.version>
         <spring-boot-starter-security-facebook.version>1.0.1.RELEASE</spring-boot-starter-security-facebook.version>
         <spring-boot-starter-security-google.version>1.0.2.RELEASE</spring-boot-starter-security-google.version>
