@@ -116,12 +116,12 @@
     <distributionManagement>
         <repository>
             <!--必须与 settings.xml 的 id 一致-->
-            <id>wans-hz-wisdom-edu-maven</id>
+            <id>wans-hz-wisdom-base-maven</id>
             <name>maven</name>
             <url>https://wans-hz-maven.pkg.coding.net/repository/base-platform/maven/</url>
         </repository>
         <snapshotRepository>
-            <id>wans-hz-wisdom-edu-maven</id>
+            <id>wans-hz-wisdom-base-maven</id>
             <name>maven</name>
             <url>https://wans-hz-maven.pkg.coding.net/repository/base-platform/maven/</url>
             <uniqueVersion>true</uniqueVersion>
