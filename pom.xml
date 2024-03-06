@@ -118,12 +118,12 @@
             <!--必须与 settings.xml 的 id 一致-->
             <id>wans-hz-wisdom-edu-maven</id>
             <name>maven</name>
-            <url>https://wans-hz-maven.pkg.coding.net/repository/wisdom-edu/maven/</url>
+            <url>https://wans-hz-maven.pkg.coding.net/repository/base-platform/maven/</url>
         </repository>
         <snapshotRepository>
             <id>wans-hz-wisdom-edu-maven</id>
             <name>maven</name>
-            <url>https://wans-hz-maven.pkg.coding.net/repository/wisdom-edu/maven/</url>
+            <url>https://wans-hz-maven.pkg.coding.net/repository/base-platform/maven/</url>
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
         <!--<repository>
