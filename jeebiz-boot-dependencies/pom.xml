@@ -128,8 +128,8 @@
         <easypoi.version>4.4.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
-        <fastjson.version>2.0.39</fastjson.version>
-        <fastjson2.version>2.0.46</fastjson2.version>
+        <fastjson.version>2.0.47</fastjson.version>
+        <fastjson2.version>2.0.47</fastjson2.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>10.12</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
@@ -547,7 +547,7 @@
         <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-websocket.version>1.0.2.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>1.0.0.RELEASE</spring-boot-starter-xmemcached.version>
-        <spring-boot-starter-xxljob.version>1.0.4.RELEASE</spring-boot-starter-xxljob.version>
+        <spring-boot-starter-xxljob.version>1.0.6-SNAPSHOT</spring-boot-starter-xxljob.version>
         <spring-boot-starter-zxing.version>1.0.2.RELEASE</spring-boot-starter-zxing.version>
 
     </properties>
