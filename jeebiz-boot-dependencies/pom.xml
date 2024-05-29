@@ -402,7 +402,7 @@
         <xmemcached.version>2.4.7</xmemcached.version>
         <xmlschema-core.version>2.2.5</xmlschema-core.version>
         <xfire.version>1.2.6</xfire.version>
-        <xnio.version>3.8.4.Final</xnio.version>
+        <xnio.version>3.8.14.Final</xnio.version>
         <xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
         <xstream.version>1.4.16</xstream.version>
         <xxl-job.version>2.4.0</xxl-job.version>
