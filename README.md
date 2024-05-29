@@ -1,6 +1,6 @@
-## Jeebiz Boot 简介：
+## Jeebiz Boot 2.x 简介：
 
-> [danger] Jeebiz Boot 是以 Spring Boot 为基础，构建的 Spring Boot 项目快速开发脚手架；
+> Jeebiz Boot 2.x 是以 Spring Boot 2.6.x 为基础，构建的 Spring Boot 项目快速开发脚手架；
 
 - 1、继承 Spring Boot ，具备 Spring Boot 的 所有特性
 
@@ -61,3 +61,6 @@
 |--------jeebiz-boot-sample-hikaricp-war		#集成 Hikaricp数据源打War包示例
 |--------jeebiz-boot-sample-r2dbc-webflux	    #集成 R2dbc + WebFlux 示例
 ```
+
+#### Spring Docs
+https://docs.spring.io/spring-boot/docs/2.6.15/reference/html/features.html#features.spring-application
