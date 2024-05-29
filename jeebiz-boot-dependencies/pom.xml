@@ -32,7 +32,7 @@
         <axis2.version>1.7.9</axis2.version>
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
-        <beetl.version>3.15.8.RELEASE</beetl.version>
+        <beetl.version>3.15.13.RELEASE</beetl.version>
         <batik.version>1.17</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
@@ -57,7 +57,7 @@
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-compiler.version>3.1.2</commons-compiler.version>
-        <commons-compress.version>1.23.0</commons-compress.version>
+        <commons-compress.version>1.26.0</commons-compress.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <commons-configuration2.version>2.9.0</commons-configuration2.version>
         <commons-crypto.version>1.2.0</commons-crypto.version>
@@ -104,7 +104,7 @@
         <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
         <db-meta.version>0.0.1-Release</db-meta.version>
-        <derby.version>10.15.2.0</derby.version>
+        <derby.version>10.17.1.0</derby.version>
         <derby-locale.version>${derby.version}</derby-locale.version>
         <docx4j-template.version>1.0.1.RELEASE</docx4j-template.version>
         <docker-client.version>8.16.0</docker-client.version>
@@ -197,8 +197,8 @@
         <jsch.version>0.1.55</jsch.version>
         <jsqlparser.version>4.2</jsqlparser.version>
         <jsoup.version>1.15.4</jsoup.version>
-        <json.version>20230227</json.version>
-        <json-path.version>2.7.0</json-path.version>
+        <json.version>20240303</json.version>
+        <json-path.version>2.9.0</json-path.version>
         <json-smart.version>2.4.9</json-smart.version>
         <junrar.version>7.5.4</junrar.version>
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
@@ -261,7 +261,7 @@
         <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
         <ons-client.version>1.8.8.1.Final</ons-client.version>
         <oshi.version>6.4.4</oshi.version>
-        <owasp-antisamy.version>1.7.3</owasp-antisamy.version>
+        <owasp-antisamy.version>1.7.5</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
         <owasp-esapi.version>2.5.2.0</owasp-esapi.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
@@ -324,7 +324,7 @@
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.12.0</shiro.version>
+        <shiro.version>1.13.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -400,7 +400,7 @@
         <xstream.version>1.4.16</xstream.version>
         <xxl-job.version>2.4.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
-        <zookeeper.version>3.9.0</zookeeper.version>
+        <zookeeper.version>3.9.1</zookeeper.version>
         <zip4j.version>2.11.3</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
