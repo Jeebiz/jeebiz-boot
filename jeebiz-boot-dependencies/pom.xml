@@ -31,7 +31,7 @@
         <axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
         <axis2.version>1.7.9</axis2.version>
         <axis2-api.version>1.4.1</axis2-api.version>
-        <azure-ai-openai.version>1.0.0-beta.3</azure-ai-openai.version>
+        <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
         <beetl.version>3.15.13.RELEASE</beetl.version>
         <batik.version>1.17</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
@@ -56,7 +56,7 @@
         <commons-chain.version>1.2</commons-chain.version>
         <commons-codec.version>1.15</commons-codec.version>
         <commons-collections.version>3.2.2</commons-collections.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-collections4.version>4.5.0-M2</commons-collections4.version>
         <commons-compiler.version>3.1.2</commons-compiler.version>
         <commons-compress.version>1.26.0</commons-compress.version>
         <commons-configuration.version>1.10</commons-configuration.version>
@@ -110,7 +110,7 @@
         <docx4j-template.version>1.0.1.RELEASE</docx4j-template.version>
         <docker-client.version>8.16.0</docker-client.version>
         <docker-java.version>3.2.1</docker-java.version>
-        <dom4j2.version>2.1.3</dom4j2.version>
+        <dom4j2.version>2.1.4</dom4j2.version>
         <dozer.version>5.5.1</dozer.version>
         <dozer-core.version>6.5.2</dozer-core.version>
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
@@ -128,8 +128,8 @@
         <easypoi.version>4.4.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
-        <fastjson.version>2.0.47</fastjson.version>
-        <fastjson2.version>2.0.47</fastjson2.version>
+        <fastjson.version>2.0.52</fastjson.version>
+        <fastjson2.version>2.0.52</fastjson2.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>10.12</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
@@ -146,7 +146,7 @@
         <google-auth-library.version>1.8.1</google-auth-library.version>
         <google-http-client.version>1.42.2</google-http-client.version>
         <google-cloud-translate.version>2.3.2</google-cloud-translate.version>
-        <guava.version>32.1.3-jre</guava.version>
+        <guava.version>33.2.1-jre</guava.version>
         <grizzly.version>2.4.4</grizzly.version>
         <grpc.version>1.35.0</grpc.version>
         <gson.version>2.9.0</gson.version>
@@ -154,11 +154,17 @@
         <hanlp.version>portable-1.8.4</hanlp.version>
         <hanlp-restful.version>0.0.15</hanlp-restful.version>
         <hbase.version>2.2.4</hbase.version>
-        <h2.version>2.2.220</h2.version>
-        <htmlparser.version>2.1</htmlparser.version>
+        <hikaricp.version>3.4.5</hikaricp.version>
+        <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
+        <h2.version>2.3.230</h2.version>
+        <hsqldb.version>2.5.2</hsqldb.version>
+        <htmlunit.version>2.40.0</htmlunit.version>
+        <httpasyncclient.version>4.1.4</httpasyncclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
+        <httpcore.version>4.4.14</httpcore.version>
         <httpconn.version>1.0.1.RELEASE</httpconn.version>
         <httputils.version>1.0.0.RELEASE</httputils.version>
-        <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
+        <htmlparser.version>2.1</htmlparser.version>
         <hitool.version>1.0.2.RELEASE</hitool.version>
         <hive.version>3.1.2</hive.version>
         <hutool.version>5.8.21</hutool.version>
@@ -184,9 +190,11 @@
         <jai-imageio.version>1.4.0</jai-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
         <jcifs.version>2.1.13</jcifs.version>
+        <jetty.version>9.4.55.v20240627</jetty.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
         <jep.version>2.4.2</jep.version>
         <jedis.version>3.9.0</jedis.version>
+        <jetcache.version>2.7.6</jetcache.version>
         <jjwt_0_7.version>0.7.0</jjwt_0_7.version>
         <jjwt.version>0.11.5</jjwt.version>
         <jakarta-websocket.version>2.0.0</jakarta-websocket.version>
@@ -200,10 +208,10 @@
         <jruby.version>9.2.13.0</jruby.version>
         <jsch.version>0.1.55</jsch.version>
         <jsqlparser.version>4.2</jsqlparser.version>
-        <jsoup.version>1.15.4</jsoup.version>
-        <json.version>20231013</json.version>
+        <jsoup.version>1.18.1</jsoup.version>
+        <json.version>20240303</json.version>
         <json-path.version>2.9.0</json-path.version>
-        <json-smart.version>2.4.9</json-smart.version>
+        <json-smart.version>2.5.1</json-smart.version>
         <junrar.version>7.5.4</junrar.version>
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
@@ -220,7 +228,8 @@
         <libphonenumber-geocoder.version>2.203</libphonenumber-geocoder.version>
         <liquibase.version>4.6.2</liquibase.version>
         <lock4j.version>2.2.0</lock4j.version>
-        <log4j2.version>2.22.1</log4j2.version>
+        <log4j2.version>2.23.1</log4j2.version>
+        <logback.version>1.5.6</logback.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <markdown.version>1.11.1</markdown.version>
         <mariadb.version>2.7.4</mariadb.version>
@@ -253,20 +262,20 @@
         <mybatis-velocity.version>2.1.1</mybatis-velocity.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <mybatis-tk.version>1.2.4</mybatis-tk.version>
-        <mysql.version>8.0.28</mysql.version>
+        <mysql.version>8.0.33</mysql.version>
         <mysql-j.version>8.3.0</mysql-j.version>
         <myth.version>2.0.2-RELEASE</myth.version>
-        <nacos-client.version>2.3.1</nacos-client.version>
+        <nacos-client.version>2.2.4</nacos-client.version>
         <neethi.version>3.1.1</neethi.version>
         <netty.version>4.1.96.Final</netty.version>
         <netty-socketio.version>1.7.19</netty-socketio.version>
         <netty-tcnative.version>2.0.61.Final</netty-tcnative.version>
-        <nimbus-jose-jwt.version>9.37.2</nimbus-jose-jwt.version>
+        <nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
         <okhttp.version>3.14.9</okhttp.version>
         <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
         <ons-client.version>1.8.8.1.Final</ons-client.version>
         <oshi.version>6.4.4</oshi.version>
-        <owasp-antisamy.version>1.7.5</owasp-antisamy.version>
+        <owasp-antisamy.version>1.7.3</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
         <owasp-esapi.version>2.5.2.0</owasp-esapi.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
@@ -307,7 +316,6 @@
         <rxjava2.version>2.2.21</rxjava2.version>
         <rxjava3.version>3.1.2</rxjava3.version>
         <seata.version>1.6.1</seata.version>
-        <slf4j.version>1.7.36</slf4j.version>
         <schemacrawler.version>16.15.8</schemacrawler.version>
         <schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
         <schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
@@ -323,13 +331,13 @@
         <scribe-up.version>1.3.1</scribe-up.version>
         <scribejava.version>7.1.1</scribejava.version>
         <scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
-        <selenium-driver.version>4.1.2</selenium-driver.version>
+        <selenium-driver.version>4.22.0</selenium-driver.version>
         <sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
         <sevenzipjbinding.version>16.02-2.01</sevenzipjbinding.version>
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.13.0</shiro.version>
+        <shiro.version>1.12.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -344,8 +352,9 @@
         <shiro-uaa.version>1.0.6</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
         <skywalking.version>8.14.0</skywalking.version>
-        <slf4j.version>1.7.30</slf4j.version>
+        <slf4j.version>1.7.36</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
+        <!-- 1.33 版本已经是当前Spring Boot版本能兼容的最高版本 -->
         <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
@@ -357,7 +366,7 @@
         <spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
         <spring-initializr.version>0.10.1</spring-initializr.version>
         <sqlite-jdbc.version>3.36.0.3</sqlite-jdbc.version>
-        <st4.version>4.0.8</st4.version>
+        <st4.version>4.3.4</st4.version>
         <sshd.version>2.7.0</sshd.version>
         <sshd-sftp.version>${sshd.version}</sshd-sftp.version>
         <sshd-pam.version>0.11.0</sshd-pam.version>
@@ -379,7 +388,7 @@
         <thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
         <thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
         <token-bucket.version>1.7</token-bucket.version>
-        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <truelicense.version>1.33</truelicense.version>
         <UserAgentUtils.version>1.21</UserAgentUtils.version>
         <undertow-metrics.version>1.0.0.RELEASE</undertow-metrics.version>
@@ -2369,7 +2378,8 @@
                 <version>${httpconn.version}</version>
             </dependency>
 
-            <!-- JDBC Driver For H2 Database Engine -->
+            <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+            <!-- JDBC Driver For H2 Database Engine : -->
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
@@ -2879,6 +2889,19 @@
                 <groupId>org.scijava</groupId>
                 <artifactId>jep</artifactId>
                 <version>${jep.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redisson -->
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redisson</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis-luttece -->
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis-luttece</artifactId>
+                <version>2.2.2</version>
             </dependency>
 
             <dependency>
