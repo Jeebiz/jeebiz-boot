@@ -15,12 +15,12 @@
     <properties>
         <!-- Dependency versions -->
         <activation.version>1.1.1</activation.version>
-        <alipay-sdk.version>4.38.61.ALL</alipay-sdk.version>
+        <alipay-sdk.version>4.38.221.ALL</alipay-sdk.version>
         <alipay-easysdk.version>2.2.3</alipay-easysdk.version>
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
         <aliyun-sdk-oss.version>3.17.1</aliyun-sdk-oss.version>
         <aliyun-sdk-mts.version>3.3.58</aliyun-sdk-mts.version>
-        <appium.version>8.0.0</appium.version>
+        <appium.version>9.2.3</appium.version>
         <asciidoctorj.version>2.5.10</asciidoctorj.version>
         <asciidoctorj.pdf.version>2.3.9</asciidoctorj.pdf.version>
         <asmsupport.version>0.4.3</asmsupport.version>
@@ -32,21 +32,21 @@
         <axis2.version>1.7.9</axis2.version>
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
-        <beetl.version>3.15.13.RELEASE</beetl.version>
+        <beetl.version>3.16.2.RELEASE</beetl.version>
         <batik.version>1.17</batik.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>5.0.1</buji-pac4j.version>
-        <bcprov.version>1.76</bcprov.version>
+        <bcprov.version>1.78.1</bcprov.version>
         <bcpkix.version>${bcprov.version}</bcpkix.version>
         <bcmail.version>${bcprov.version}</bcmail.version>
-        <bcpg.version>1.76</bcpg.version>
+        <bcpg.version>1.78.1</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
         <caffeine.version>2.9.3</caffeine.version>
         <canal.version>1.1.6</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
-        <camel.version>3.17.0</camel.version>
+        <camel.version>4.7.0</camel.version>
         <cglib.version>3.3.0</cglib.version>
-        <cola.version>4.3.2</cola.version>
+        <cola.version>5.0.0</cola.version>
         <commons-attributes.version>2.1</commons-attributes.version>
         <commons-attributes-api.version>2.2</commons-attributes-api.version>
         <commons-attributes-compiler.version>2.2</commons-attributes-compiler.version>
@@ -54,7 +54,8 @@
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <commons-betwixt.version>0.8</commons-betwixt.version>
         <commons-chain.version>1.2</commons-chain.version>
-        <commons-codec.version>1.15</commons-codec.version>
+        <commons-cli.version>1.8.0</commons-cli.version>
+        <commons-codec.version>1.17.1</commons-codec.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-collections4.version>4.5.0-M2</commons-collections4.version>
         <commons-compiler.version>3.1.2</commons-compiler.version>
@@ -62,39 +63,39 @@
         <commons-configuration.version>1.10</commons-configuration.version>
         <commons-configuration2.version>2.10.1</commons-configuration2.version>
         <commons-crypto.version>1.2.0</commons-crypto.version>
-        <commons-csv.version>1.10.0</commons-csv.version>
-        <commons-daemon.version>1.2.3</commons-daemon.version>
+        <commons-csv.version>1.11.0</commons-csv.version>
+        <commons-daemon.version>1.4.0</commons-daemon.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
-        <commons-dbcp2.version>2.9.0</commons-dbcp2.version>
-        <commons-dbutils.version>1.7</commons-dbutils.version>
+        <commons-dbcp2.version>2.12.0</commons-dbcp2.version>
+        <commons-dbutils.version>1.8.1</commons-dbutils.version>
         <commons-digester.version>2.1</commons-digester.version>
         <commons-digester3.version>3.2</commons-digester3.version>
         <commons-discovery.version>0.5</commons-discovery.version>
-        <commons-email.version>1.5</commons-email.version>
-        <commons-exec.version>1.3</commons-exec.version>
+        <commons-email.version>1.6.0</commons-email.version>
+        <commons-exec.version>1.4.0</commons-exec.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
         <commons-fileupload2-jakarta.version>2.0.0-M1</commons-fileupload2-jakarta.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
-        <commons-imaging.version>1.0-alpha2</commons-imaging.version>
-        <commons-io.version>2.13.0</commons-io.version>
+        <commons-imaging.version>1.0.0-alpha5</commons-imaging.version>
+        <commons-io.version>2.16.1</commons-io.version>
         <commons-jci.version>1.1</commons-jci.version>
         <commons-jexl.version>2.1.1</commons-jexl.version>
-        <commons-jexl3.version>3.2.1</commons-jexl3.version>
+        <commons-jexl3.version>3.4.0</commons-jexl3.version>
         <commons-jxpath.version>1.3</commons-jxpath.version>
         <commons-lang.version>2.6</commons-lang.version>
-        <commons-lang3.version>3.13.0</commons-lang3.version>
-        <commons-logging.version>1.2</commons-logging.version>
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <commons-logging.version>1.3.3</commons-logging.version>
         <commons-math.version>2.2</commons-math.version>
         <commons-math3.version>3.6.1</commons-math3.version>
-        <commons-net.version>3.9.0</commons-net.version>
+        <commons-math4.version>4.0-beta1</commons-math4.version>
+        <commons-net.version>3.11.1</commons-net.version>
         <commons-pool.version>1.6</commons-pool.version>
-        <commons-pool2.version>2.11.1</commons-pool2.version>
+        <commons-pool2.version>2.12.0</commons-pool2.version>
         <commons-proxy.version>1.0</commons-proxy.version>
         <commons-rdf.version>0.5.0</commons-rdf.version>
         <commons-ssl.version>0.3.9</commons-ssl.version>
-        <commons-text.version>1.10.0</commons-text.version>
-        <commons-validator.version>1.6</commons-validator.version>
-        <commons-vfs.version>2.0-21092010</commons-vfs.version>
+        <commons-text.version>1.12.0</commons-text.version>
+        <commons-validator.version>1.9.0</commons-validator.version>
         <commons-vfs2.version>2.9.0</commons-vfs2.version>
         <contiperf.version>2.3.4</contiperf.version>
         <cos.version>2020.4</cos.version>
@@ -209,7 +210,7 @@
         <jpush-client.version>3.4.7</jpush-client.version>
         <jruby.version>9.2.13.0</jruby.version>
         <jsch.version>0.1.55</jsch.version>
-        <jsqlparser.version>4.2</jsqlparser.version>
+        <jsqlparser.version>4.9</jsqlparser.version>
         <jsoup.version>1.18.1</jsoup.version>
         <json.version>20240303</json.version>
         <json-path.version>2.9.0</json-path.version>
@@ -240,28 +241,29 @@
         <mockito.version>5.4.0</mockito.version>
         <mongo-java-driver.version>3.12.10</mongo-java-driver.version>
         <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
-        <mybatis.version>3.5.13</mybatis.version>
+        <mybatis.version>3.5.16</mybatis.version>
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mybatis-plus-generator.version>${mybatis-plus.version}</mybatis-plus-generator.version>
         <mybatis-plus-ext.version>1.7.4-RELEASE</mybatis-plus-ext.version>
-        <mybatis-r2dbc.version>1.2.5.RELEASE</mybatis-r2dbc.version>
-        <mybatis-spring.version>2.1.1</mybatis-spring.version>
-        <mybatis-mate.version>1.2.9-sp2</mybatis-mate.version>
-        <mybatis-migrations.version>3.3.10</mybatis-migrations.version>
+        <mybatis-r2dbc.version>3.0.4.RELEASE</mybatis-r2dbc.version>
+        <mybatis-spring.version>2.1.2</mybatis-spring.version>
+        <mybatis-mate.version>1.3.6-sp2</mybatis-mate.version>
+        <mybatis-migrations.version>3.3.11</mybatis-migrations.version>
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
         <mybatis-typehandlers-extra.version>1.0.0</mybatis-typehandlers-extra.version>
-        <mybatis-ehcache.version>1.2.1</mybatis-ehcache.version>
-        <mybatis-hazelcast.version>1.1.2</mybatis-hazelcast.version>
-        <mybatis-ignite.version>1.1.0</mybatis-ignite.version>
-        <mybatis-memcached.version>1.1.0</mybatis-memcached.version>
+        <mybatis-caffeine.version>1.1.0</mybatis-caffeine.version>
+        <mybatis-ehcache.version>1.2.3</mybatis-ehcache.version>
+        <mybatis-hazelcast.version>1.3.1</mybatis-hazelcast.version>
+        <mybatis-ignite.version>1.1.1</mybatis-ignite.version>
+        <mybatis-memcached.version>1.1.1</mybatis-memcached.version>
         <mybatis-oscache.version>1.0.2</mybatis-oscache.version>
         <mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
-        <mybatis-thymeleaf.version>1.0.3</mybatis-thymeleaf.version>
-        <mybatis-freemarker.version>1.2.3</mybatis-freemarker.version>
-        <mybatis-velocity.version>2.1.1</mybatis-velocity.version>
+        <mybatis-thymeleaf.version>1.0.4</mybatis-thymeleaf.version>
+        <mybatis-freemarker.version>1.2.4</mybatis-freemarker.version>
+        <mybatis-velocity.version>2.1.2</mybatis-velocity.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <mybatis-tk.version>1.2.4</mybatis-tk.version>
         <mysql.version>8.0.33</mysql.version>
@@ -269,9 +271,9 @@
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.2.4</nacos-client.version>
         <neethi.version>3.1.1</neethi.version>
-        <netty.version>4.1.96.Final</netty.version>
+        <netty.version>4.1.111.Final</netty.version>
         <netty-socketio.version>1.7.19</netty-socketio.version>
-        <netty-tcnative.version>2.0.61.Final</netty-tcnative.version>
+        <netty-tcnative.version>2.0.65.Final</netty-tcnative.version>
         <nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
         <okhttp3.version>3.14.9</okhttp3.version>
         <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
@@ -990,6 +992,12 @@
                 <artifactId>commons-betwixt</artifactId>
                 <version>${commons-betwixt.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
+            <dependency>
+                <groupId>commons-cli</groupId>
+                <artifactId>commons-cli</artifactId>
+                <version>${commons-cli.version}</version>
+            </dependency>
             <!-- The Apache Commons Codec package contains sample encoder and decoders
 				for various formats such as Base64 and Hexadecimal. In addition to these
 				widely used encoders and decoders, the codec package also maintains a collection
@@ -1221,7 +1229,6 @@
                 <artifactId>commons-imaging</artifactId>
                 <version>${commons-imaging.version}</version>
             </dependency>
-
             <!-- The Apache Commons Math project is a library of lightweight, self-contained
 				mathematics and statistics components addressing the most common practical
 				problems not immediately available in the Java programming language or commons-lang. -->
@@ -1229,6 +1236,12 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-math3</artifactId>
                 <version>${commons-math3.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math4-core -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math4-core</artifactId>
+                <version>${commons-math4.version}</version>
             </dependency>
             <!-- Java library for dynamic proxying -->
             <dependency>
@@ -1268,11 +1281,6 @@
             <!--Apache Commons VFS is a Virtual File System library. VFS为访问各种不同的文件系统提供了单一的应用程序编程接口（API），大大的简化了应用程序本身代码的复杂度。
 				目前VFS支持FTP、Local Files 、HTTP/HTTPS、SFTP、Temporary Files、Zip、Jar/Tar（uncompressed、tgz
 				or tbz2）、gzip/bzip2、res、ram 所有这些文件系统中的文件被封装成了FileObject这个类，文件的读写操作都通过此类来完成。文件的路径采用了URL的方式。 -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-vfs</artifactId>
-                <version>${commons-vfs.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-vfs2</artifactId>
@@ -3190,12 +3198,159 @@
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-bom -->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-bom</artifactId>
                 <version>${log4j2.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-1.2-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api-test</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-appserver</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-cassandra</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core-test</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-couchdb</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-docker</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-flume-ng</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-iostreams</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jakarta-smtp</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jakarta-web</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jcl</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jpa</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jpl</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jul</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-kubernetes</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-layout-template-json</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-mongodb3</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-mongodb4</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j2-impl</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-spring-boot</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-spring-cloud-config-client</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-taglib</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-to-jul</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-to-slf4j</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-web</artifactId>
+                <version>${log4j2.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber -->
@@ -3345,6 +3500,11 @@
                 <version>${mybatis-typehandlers-extra.version}</version>
             </dependency>
             <!-- mybatis caches -->
+            <dependency>
+                <groupId>org.mybatis.caches</groupId>
+                <artifactId>mybatis-caffeine</artifactId>
+                <version>${mybatis-caffeine.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.mybatis.caches</groupId>
                 <artifactId>mybatis-ehcache</artifactId>
@@ -4051,6 +4211,25 @@
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz-jobs</artifactId>
                 <version>${quartz.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox-tools -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox-tools</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox-debugger -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox-debugger</artifactId>
+                <version>${pdfbox.version}</version>
             </dependency>
 
             <!-- Perf4J 是一个新的开放源码的性能记录，监测和分析库，主要用于企业Java应用程序。 -->
