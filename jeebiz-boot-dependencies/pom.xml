@@ -219,16 +219,16 @@
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
-        <jwt-issuer.version>1.1.1.RELEASE</jwt-issuer.version>
-        <kafka-clients.version>3.4.0</kafka-clients.version>
+        <jwt-issuer.version>1.1.2-SNAPSHOT</jwt-issuer.version>
+        <kafka-clients.version>3.7.1</kafka-clients.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <kisso.version>3.8.1</kisso.version>
-        <kubernetes-client.version>4.10.1</kubernetes-client.version>
-        <kylin-jdbc.version>4.0.0</kylin-jdbc.version>
-        <libphonenumber.version>8.13.20</libphonenumber.version>
-        <libphonenumber-carrier.version>1.193</libphonenumber-carrier.version>
-        <libphonenumber-prefixmapper.version>2.203</libphonenumber-prefixmapper.version>
-        <libphonenumber-geocoder.version>2.203</libphonenumber-geocoder.version>
+        <kisso.version>3.9.1</kisso.version>
+        <kubernetes-client.version>6.13.1</kubernetes-client.version>
+        <kylin-jdbc.version>4.0.4</kylin-jdbc.version>
+        <libphonenumber.version>8.13.41</libphonenumber.version>
+        <libphonenumber-carrier.version>1.225</libphonenumber-carrier.version>
+        <libphonenumber-prefixmapper.version>2.235</libphonenumber-prefixmapper.version>
+        <libphonenumber-geocoder.version>2.235</libphonenumber-geocoder.version>
         <liquibase.version>4.6.2</liquibase.version>
         <lock4j.version>2.2.0</lock4j.version>
         <log4j2.version>2.23.1</log4j2.version>
@@ -237,9 +237,9 @@
         <markdown.version>1.11.1</markdown.version>
         <mariadb.version>2.7.4</mariadb.version>
         <maven.version>3.6.3</maven.version>
-        <metadata-extractor.version>2.18.0</metadata-extractor.version>
+        <metadata-extractor.version>2.19.0</metadata-extractor.version>
         <mockito.version>5.4.0</mockito.version>
-        <mongo-java-driver.version>3.12.10</mongo-java-driver.version>
+        <mongo-java-driver.version>3.12.14</mongo-java-driver.version>
         <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
         <mybatis.version>3.5.16</mybatis.version>
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
@@ -274,16 +274,16 @@
         <netty.version>4.1.111.Final</netty.version>
         <netty-socketio.version>1.7.19</netty-socketio.version>
         <netty-tcnative.version>2.0.65.Final</netty-tcnative.version>
-        <nimbus-jose-jwt.version>9.7</nimbus-jose-jwt.version>
+        <nimbus-jose-jwt.version>9.40</nimbus-jose-jwt.version>
         <okhttp3.version>3.14.9</okhttp3.version>
         <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
         <ons-client.version>1.8.8.1.Final</ons-client.version>
         <oshi.version>6.4.4</oshi.version>
-        <owasp-antisamy.version>1.7.3</owasp-antisamy.version>
+        <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
-        <owasp-esapi.version>2.5.2.0</owasp-esapi.version>
+        <owasp-esapi.version>2.5.4.0</owasp-esapi.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
-        <owasp-html-sanitizer.version>20220608.1</owasp-html-sanitizer.version>
+        <owasp-html-sanitizer.version>20240325.1</owasp-html-sanitizer.version>
         <p6spy.version>3.9.1</p6spy.version>
         <pac4j.version>4.5.5</pac4j.version>
         <pac4j-oauth-ext.version>1.0.3.RELEASE</pac4j-oauth-ext.version>
@@ -320,8 +320,8 @@
         <rsocket.version>1.1.1</rsocket.version>
         <rxjava2.version>2.2.21</rxjava2.version>
         <rxjava3.version>3.1.2</rxjava3.version>
-        <seata.version>1.6.1</seata.version>
-        <schemacrawler.version>16.15.8</schemacrawler.version>
+        <seata.version>2.0.0</seata.version>
+        <schemacrawler.version>16.21.4</schemacrawler.version>
         <schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
         <schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
         <schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
@@ -342,7 +342,7 @@
         <sfntly.version>1.0.0</sfntly.version>
         <shardingsphere.version>5.1.0</shardingsphere.version>
         <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>1.12.0</shiro.version>
+        <shiro.version>1.13.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
