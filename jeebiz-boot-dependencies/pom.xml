@@ -116,7 +116,7 @@
         <dozer-core.version>6.5.2</dozer-core.version>
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-        <dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
+        <dozer-extra-converters.version>1.0.2-SNAPSHOT</dozer-extra-converters.version>
         <druid.version>1.2.20</druid.version>
         <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
@@ -132,7 +132,7 @@
         <fastjson.version>2.0.52</fastjson.version>
         <fastjson2.version>2.0.52</fastjson2.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-        <feign.version>10.12</feign.version>
+        <feign.version>12.1</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -1229,6 +1229,7 @@
                 <artifactId>commons-imaging</artifactId>
                 <version>${commons-imaging.version}</version>
             </dependency>
+
             <!-- The Apache Commons Math project is a library of lightweight, self-contained
 				mathematics and statistics components addressing the most common practical
 				problems not immediately available in the Java programming language or commons-lang. -->
@@ -2902,18 +2903,25 @@
                 <version>${jep.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis -->
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redisson -->
             <dependency>
                 <groupId>com.alicp.jetcache</groupId>
                 <artifactId>jetcache-starter-redisson</artifactId>
                 <version>${jetcache.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis-luttece -->
+            <!-- https://mvnrepository.com/artifact/com.alicp.jetcache/jetcache-starter-redis-lettuce -->
             <dependency>
                 <groupId>com.alicp.jetcache</groupId>
-                <artifactId>jetcache-starter-redis-luttece</artifactId>
-                <version>2.2.2</version>
+                <artifactId>jetcache-starter-redis-lettuce</artifactId>
+                <version>${jetcache.version}</version>
             </dependency>
+
 
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
