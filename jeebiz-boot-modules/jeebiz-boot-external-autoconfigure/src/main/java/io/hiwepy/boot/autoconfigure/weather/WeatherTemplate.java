@@ -4,7 +4,7 @@
  */
 package io.hiwepy.boot.autoconfigure.weather;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.github.benmanes.caffeine.cache.*;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.HttpUrl;
