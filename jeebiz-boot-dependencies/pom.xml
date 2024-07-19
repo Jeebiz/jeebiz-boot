@@ -132,7 +132,7 @@
         <fastjson.version>2.0.52</fastjson.version>
         <fastjson2.version>2.0.52</fastjson2.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
-        <feign.version>12.5</feign.version>
+        <feign.version>12.1</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
