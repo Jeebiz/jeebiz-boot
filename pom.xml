@@ -28,7 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jeebiz-boot.version>2.3.12-SNAPSHOT</jeebiz-boot.version>
-        <jackson-bom.version>2.14.0</jackson-bom.version>
+        <jackson-bom.version>2.13.5</jackson-bom.version>
         <!-- Maven Plugin versions -->
         <maven.version>3.6.3</maven.version>
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
