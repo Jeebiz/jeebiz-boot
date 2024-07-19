@@ -336,11 +336,11 @@
         <scribejava.version>7.1.1</scribejava.version>
         <scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
         <selenium-driver.version>4.22.0</selenium-driver.version>
-        <sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
+        <sequoiadb-driver.version>3.4.11-jre8</sequoiadb-driver.version>
         <sevenzipjbinding.version>16.02-2.01</sevenzipjbinding.version>
         <sfntly.version>1.0.0</sfntly.version>
-        <shardingsphere.version>5.1.0</shardingsphere.version>
-        <shedlock.version>4.9.3</shedlock.version>
+        <shardingsphere.version>5.4.1</shardingsphere.version>
+        <shedlock.version>5.13.0</shedlock.version>
         <shiro.version>1.13.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
