@@ -100,7 +100,7 @@
         <curator.version>5.5.0</curator.version>
         <cronet.version>95.4638.50</cronet.version>
         <cssparser.version>0.9.30</cssparser.version>
-        <cxf.version>3.5.2</cxf.version>
+        <cxf.version>3.5.9</cxf.version>
         <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
         <db-meta.version>0.0.1-Release</db-meta.version>
