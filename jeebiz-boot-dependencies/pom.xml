@@ -47,7 +47,7 @@
         <cas-client.version>3.6.4</cas-client.version>
         <camel.version>4.7.0</camel.version>
         <cglib.version>3.3.0</cglib.version>
-        <cola.version>5.0.0</cola.version>
+        <cola.version>4.3.2</cola.version>
         <commons-attributes.version>2.1</commons-attributes.version>
         <commons-attributes-api.version>2.2</commons-attributes-api.version>
         <commons-attributes-compiler.version>2.2</commons-attributes-compiler.version>
@@ -103,7 +103,7 @@
         <curator.version>5.5.0</curator.version>
         <cronet.version>95.4638.50</cronet.version>
         <cssparser.version>0.9.30</cssparser.version>
-        <cxf.version>3.5.2</cxf.version>
+        <cxf.version>3.5.9</cxf.version>
         <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
         <db-meta.version>0.0.1-Release</db-meta.version>
