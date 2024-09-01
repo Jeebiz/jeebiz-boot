@@ -5,7 +5,7 @@
     <parent>
         <artifactId>jeebiz-boot-modules</artifactId>
         <groupId>io.hiwepy</groupId>
-        <version>2.6.15-SNAPSHOT</version>
+        <version>2.7.x-20240823-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
