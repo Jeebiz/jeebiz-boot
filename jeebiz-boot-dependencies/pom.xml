@@ -429,7 +429,7 @@
         <zookeeper.version>3.9.2</zookeeper.version>
         <zip4j.version>2.11.3</zip4j.version>
         <zipkin2.version>2.21.7</zipkin2.version>
-        <zxing.version>3.4.1</zxing.version>
+        <zxing.version>3.5.3</zxing.version>
 
         <!-- Maven Plugin versions -->
         <maven-alibaba-plugin.version>1.1.8</maven-alibaba-plugin.version>
@@ -564,7 +564,7 @@
         <spring-boot-starter-websocket.version>2.0.0.RELEASE</spring-boot-starter-websocket.version>
         <spring-boot-starter-xmemcached.version>2.0.0.RELEASE</spring-boot-starter-xmemcached.version>
         <spring-boot-starter-xxljob.version>2.0.0.RELEASE</spring-boot-starter-xxljob.version>
-        <spring-boot-starter-zxing.version>2.0.0.RELEASE</spring-boot-starter-zxing.version>
+        <spring-boot-starter-zxing.version>2.7.x-20240823-SNAPSHOT</spring-boot-starter-zxing.version>
 
     </properties>
 

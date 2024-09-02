@@ -126,17 +126,6 @@
             <url>https://wans-hz-maven.pkg.coding.net/repository/base-platform/maven/</url>
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
-        <!--<repository>
-            <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
-            <url>https://nexus.hiwepy.com/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>https://nexus.hiwepy.com/repository/maven-snapshots/</url>
-            <uniqueVersion>true</uniqueVersion>
-        </snapshotRepository>-->
     </distributionManagement>
 
     <repositories>
