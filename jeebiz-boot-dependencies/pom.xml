@@ -470,13 +470,13 @@
         <!-- Third Party Spring Boot Starter Dependency versions -->
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
-        <spring-boot-starter-agora.version>2.3.0-SNAPSHOT</spring-boot-starter-agora.version>
+        <spring-boot-starter-agora.version>2.3.x-20240823.RELEASE</spring-boot-starter-agora.version>
         <spring-boot-starter-aliyun-schedulerx2.version>1.11.6</spring-boot-starter-aliyun-schedulerx2.version>
-        <spring-boot-starter-aliyun-ons.version>1.1.1.RELEASE</spring-boot-starter-aliyun-ons.version>
-        <spring-boot-starter-aliyun-oss.version>1.0.1.RELEASE</spring-boot-starter-aliyun-oss.version>
-        <spring-boot-starter-aliyun-mps.version>1.0.1.RELEASE</spring-boot-starter-aliyun-mps.version>
-        <spring-boot-starter-arcface.version>1.0.2.RELEASE</spring-boot-starter-arcface.version>
-        <spring-boot-starter-arthas.version>3.5.0</spring-boot-starter-arthas.version>
+        <spring-boot-starter-aliyun-ons.version>2.3.x-20240823-SNAPSHOT</spring-boot-starter-aliyun-ons.version>
+        <spring-boot-starter-aliyun-oss.version>2.3.x-20240823-SNAPSHOT</spring-boot-starter-aliyun-oss.version>
+        <spring-boot-starter-aliyun-mps.version>2.3.x-20240823-SNAPSHOT</spring-boot-starter-aliyun-mps.version>
+        <spring-boot-starter-arcface.version>2.3.x-20240823-SNAPSHOT</spring-boot-starter-arcface.version>
+        <spring-boot-starter-arthas.version>3.5.6</spring-boot-starter-arthas.version>
         <spring-boot-starter-axis.version>1.0.1.RELEASE</spring-boot-starter-axis.version>
         <spring-boot-starter-axis2.version>1.0.1.RELEASE</spring-boot-starter-axis2.version>
         <spring-boot-starter-axis2-client.version>1.0.1.RELEASE</spring-boot-starter-axis2-client.version>
