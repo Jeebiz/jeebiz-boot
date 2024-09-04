@@ -564,9 +564,9 @@
         <spring-boot-starter-simplecaptcha.version>1.0.2.RELEASE</spring-boot-starter-simplecaptcha.version>
         <spring-boot-starter-smartcaptcha.version>1.0.2.RELEASE</spring-boot-starter-smartcaptcha.version>
         <spring-boot-starter-tencentapi.version>1.0.9.RELEASE</spring-boot-starter-tencentapi.version>
-        <spring-boot-starter-webflux-swagger2.version>1.0.3.RELEASE</spring-boot-starter-webflux-swagger2.version>
-        <spring-boot-starter-webmvc-swagger2.version>1.0.4.RELEASE</spring-boot-starter-webmvc-swagger2.version>
         <spring-boot-starter-validation-mimetypes.version>1.0.3.RELEASE</spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-webflux-swagger2.version>2.3.x.20240823.RELEASE</spring-boot-starter-webflux-swagger2.version>
+        <spring-boot-starter-webmvc-swagger2.version>2.3.x.20240823.RELEASE</spring-boot-starter-webmvc-swagger2.version>
         <spring-boot-starter-xmemcached.version>2.3.x.20240823.RELEASE</spring-boot-starter-xmemcached.version>
         <spring-boot-starter-xxljob.version>2.3.x.20240823.RELEASE</spring-boot-starter-xxljob.version>
         <spring-boot-starter-zxing.version>2.3.x.20240823.RELEASE</spring-boot-starter-zxing.version>
