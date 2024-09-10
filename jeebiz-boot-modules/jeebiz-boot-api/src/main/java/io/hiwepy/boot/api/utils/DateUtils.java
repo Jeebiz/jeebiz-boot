@@ -1,5 +1,6 @@
 package io.hiwepy.boot.api.utils;
 
+import java.time.*;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -108,6 +109,72 @@ public class DateUtils extends hitool.core.lang3.time.DateUtils {
         calendar.set(Calendar.MILLISECOND, 0);
         Date endTime = DateUtils.addHours(calendar.getTime(), 1); // 当前小时+1
         return endTime.getTime();
+    }
+
+    /**
+     * 计算两个时间差
+     */
+    public static String getDatePoor(Date startDate, Date endDate) {
+        long nd = 1000 * 24 * 60 * 60;
+        long nh = 1000 * 60 * 60;
+        long nm = 1000 * 60;
+        // long ns = 1000;
+        // 获得两个时间的毫秒时间差异
+        long diff = endDate.getTime() - startDate.getTime();
+        // 计算差多少天
+        long day = diff / nd;
+        // 计算差多少小时
+        long hour = diff % nd / nh;
+        // 计算差多少分钟
+        long min = diff % nd % nh / nm;
+        // 计算差多少秒//输出结果
+        // long sec = diff % nd % nh % nm / ns;
+        return day + "天" + hour + "小时" + min + "分钟";
+    }
+
+    /**
+     * 计算两个时间差
+     */
+    public static String getDatePoor(LocalDate startDateTime, LocalDate endDateTime) {
+        // Using Duration
+        Duration duration = Duration.between(startDateTime, endDateTime);
+        long hours = duration.toHours() % 24;
+        long minutes = duration.toMinutes() % 60;
+        long seconds = duration.getSeconds() % 60;
+        return Math.abs(duration.toDays()) + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+    }
+
+    /**
+     * 计算两个时间差
+     */
+    public static String getDatePoor(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        // Using Duration
+        Duration duration = Duration.between(startDateTime, endDateTime);
+        long hours = duration.toHours() % 24;
+        long minutes = duration.toMinutes() % 60;
+        long seconds = duration.getSeconds() % 60;
+        return Math.abs(duration.toDays()) + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+    }
+
+    /**
+     * 增加 LocalDateTime ==> Date
+     */
+    public static Date toDate(LocalDateTime temporalAccessor) {
+        ZonedDateTime zdt = temporalAccessor.atZone(ZoneId.systemDefault());
+        return Date.from(zdt.toInstant());
+    }
+
+    /**
+     * 增加 LocalDate ==> Date
+     */
+    public static Date toDate(LocalDate temporalAccessor) {
+        LocalDateTime localDateTime = LocalDateTime.of(temporalAccessor, LocalTime.of(0, 0, 0));
+        ZonedDateTime zdt = localDateTime.atZone(ZoneId.systemDefault());
+        return Date.from(zdt.toInstant());
+    }
+
+    public static LocalDateTime millsToLocalDateTime(long time) {
+        return LocalDateTime.ofInstant(new Date(time).toInstant(), ZoneId.systemDefault());
     }
 
 }
