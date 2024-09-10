@@ -13,7 +13,7 @@
 
     <groupId>io.hiwepy</groupId>
     <artifactId>jeebiz-boot</artifactId>
-    <version>2.3.12-SNAPSHOT</version>
+    <version>2.3.x-20240823-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>jeebiz-boot</name>
@@ -27,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jeebiz-boot.version>2.3.12-SNAPSHOT</jeebiz-boot.version>
+        <jeebiz-boot.version>2.3.x-20240823-SNAPSHOT</jeebiz-boot.version>
         <jackson-bom.version>2.13.5</jackson-bom.version>
         <!-- Maven Plugin versions -->
         <maven.version>3.6.3</maven.version>
@@ -58,7 +58,7 @@
         <module>jeebiz-boot-dependencies</module>
         <module>jeebiz-boot-modules</module>
         <module>jeebiz-boot-parent</module>
-        <module>jeebiz-boot-samples</module>
+        <!--<module>jeebiz-boot-samples</module>-->
     </modules>
 
     <!--开源协议采用Apache 2.0协议-->
@@ -80,7 +80,7 @@
     <developers>
         <developer>
             <name>wandl</name>
-            <email>hnxyhcwdl1003@163.com</email>
+            <email>hiwepy@gmail.com</email>
             <organization>jeebiz</organization>
             <organizationUrl>https://jeebiz.net</organizationUrl>
             <roles>
@@ -126,17 +126,6 @@
             <url>https://wans-hz-maven.pkg.coding.net/repository/base-platform/maven/</url>
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
-        <!--<repository>
-            <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
-            <url>https://nexus.hiwepy.com/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>https://nexus.hiwepy.com/repository/maven-snapshots/</url>
-            <uniqueVersion>true</uniqueVersion>
-        </snapshotRepository>-->
     </distributionManagement>
 
     <repositories>
