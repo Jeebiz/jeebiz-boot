@@ -119,7 +119,7 @@
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
         <dozer-extra-converters.version>1.0.2-SNAPSHOT</dozer-extra-converters.version>
-        <druid.version>1.2.20</druid.version>
+        <druid.version>1.2.23</druid.version>
         <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
@@ -489,11 +489,10 @@
         <spring-boot-starter-canal.version>2.3.x.20240823.RELEASE</spring-boot-starter-canal.version>
         <spring-boot-starter-curator.version>2.3.x.20240823.RELEASE</spring-boot-starter-curator.version>
         <spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
-        <spring-boot-starter-disruptor.version>1.0.3.RELEASE</spring-boot-starter-disruptor.version>
-        <spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
+        <spring-boot-starter-disruptor.version>2.3.x.20240823.RELEASE</spring-boot-starter-disruptor.version>
+        <spring-boot-starter-docx4j.version>2.3.x.20240823.RELEASE</spring-boot-starter-docx4j.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
         <spring-boot-starter-dingtalk.version>2.3.x-20240823.RELEASE</spring-boot-starter-dingtalk.version>
-        <spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
         <spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
         <spring-boot-starter-druid-plus.version>1.1.1.RELEASE</spring-boot-starter-druid-plus.version>
@@ -6000,12 +5999,6 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>disruptor-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-disruptor.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.xjzrc.spring.boot</groupId>
-                <artifactId>disconf-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-disconf.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/dingtalk-spring-boot-starter -->
             <dependency>
