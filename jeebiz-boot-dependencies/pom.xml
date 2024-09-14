@@ -540,16 +540,16 @@
         <spring-boot-starter-rocketmq.version>2.2.3</spring-boot-starter-rocketmq.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>1.1.7-SNAPSHOT</spring-boot-starter-security-biz.version>
-        <spring-boot-starter-security-cas.version>1.0.7-SNAPSHOT</spring-boot-starter-security-cas.version>
-        <spring-boot-starter-security-dingtalk.version>1.0.5.RELEASE</spring-boot-starter-security-dingtalk.version>
-        <spring-boot-starter-security-facebook.version>1.0.1.RELEASE</spring-boot-starter-security-facebook.version>
-        <spring-boot-starter-security-google.version>1.0.2.RELEASE</spring-boot-starter-security-google.version>
-        <spring-boot-starter-security-jwt.version>1.1.0-SNAPSHOT</spring-boot-starter-security-jwt.version>
-        <spring-boot-starter-security-line.version>1.0.2.RELEASE</spring-boot-starter-security-line.version>
-        <spring-boot-starter-security-pac4j.version>1.0.3.RELEASE</spring-boot-starter-security-pac4j.version>
-        <spring-boot-starter-security-qrcode.version>1.0.1.RELEASE</spring-boot-starter-security-qrcode.version>
-        <spring-boot-starter-security-weixin.version>1.0.6-SNAPSHOT</spring-boot-starter-security-weixin.version>
+        <spring-boot-starter-security-biz.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-security-cas.version>2.3.x.20240824.RELEASE</spring-boot-starter-security-cas.version>
+        <spring-boot-starter-security-dingtalk.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-dingtalk.version>
+        <spring-boot-starter-security-facebook.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-facebook.version>
+        <spring-boot-starter-security-google.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-google.version>
+        <spring-boot-starter-security-jwt.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-jwt.version>
+        <spring-boot-starter-security-line.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-line.version>
+        <spring-boot-starter-security-pac4j.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-pac4j.version>
+        <spring-boot-starter-security-qrcode.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-qrcode.version>
+        <spring-boot-starter-security-weixin.version>2.3.x.20240823.RELEASE</spring-boot-starter-security-weixin.version>
         <spring-boot-starter-shanyan.version>2.3.x.20240823.RELEASE</spring-boot-starter-shanyan.version>
         <spring-boot-starter-shiro-biz.version>2.3.x.20240823.RELEASE</spring-boot-starter-shiro-biz.version>
         <spring-boot-starter-shiro-cas.version>2.3.x.20240823.RELEASE</spring-boot-starter-shiro-cas.version>
