@@ -118,7 +118,7 @@
         <dozer-core.version>6.5.2</dozer-core.version>
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-        <dozer-extra-converters.version>1.0.2-SNAPSHOT</dozer-extra-converters.version>
+        <dozer-extra-converters.version>1.0.2.RELEASE</dozer-extra-converters.version>
         <druid.version>1.2.23</druid.version>
         <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
