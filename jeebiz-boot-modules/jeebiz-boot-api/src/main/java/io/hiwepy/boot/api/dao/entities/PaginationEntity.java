@@ -7,12 +7,14 @@ package io.hiwepy.boot.api.dao.entities;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 
 @Data
 @Accessors(chain = true)
+@EqualsAndHashCode(callSuper=false)
 @SuppressWarnings("serial")
 public class PaginationEntity<T> extends BaseEntity<T> {
 

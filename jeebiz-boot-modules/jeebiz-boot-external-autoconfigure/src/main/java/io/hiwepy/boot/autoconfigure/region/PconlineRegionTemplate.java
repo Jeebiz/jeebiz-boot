@@ -4,7 +4,7 @@
  */
 package io.hiwepy.boot.autoconfigure.region;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionAddress;
 import com.github.hiwepy.ip2region.spring.boot.ext.RegionEnum;
 import com.github.hiwepy.ip2region.spring.boot.ext.XdbSearcher;

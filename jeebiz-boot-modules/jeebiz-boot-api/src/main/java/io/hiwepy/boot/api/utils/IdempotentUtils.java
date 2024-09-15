@@ -1,6 +1,6 @@
 package io.hiwepy.boot.api.utils;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import io.hiwepy.boot.api.annotation.ApiIdempotent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;

@@ -4,7 +4,8 @@
  */
 package io.hiwepy.boot.api.mybatis;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import io.hiwepy.boot.api.dao.entities.PairModel;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
@@ -29,7 +30,7 @@ public class PairValueListTypeHandler extends BaseTypeHandler<List<PairModel>> {
     public List<PairModel> getNullableResult(ResultSet rs, String columnName) throws SQLException {
         String rtString = rs.getString(columnName);
         if (StringUtils.hasText(rtString)) {
-            return JSONObject.parseArray(rtString, PairModel.class);
+            return JSONArray.parseArray(rtString, PairModel.class);
         }
         return null;
     }
@@ -38,7 +39,7 @@ public class PairValueListTypeHandler extends BaseTypeHandler<List<PairModel>> {
     public List<PairModel> getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
         String rtString = rs.getString(columnIndex);
         if (StringUtils.hasText(rtString)) {
-            return JSONObject.parseArray(rtString, PairModel.class);
+            return JSONArray.parseArray(rtString, PairModel.class);
         }
         return null;
     }
@@ -47,7 +48,7 @@ public class PairValueListTypeHandler extends BaseTypeHandler<List<PairModel>> {
     public List<PairModel> getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
         String rtString = cs.getString(columnIndex);
         if (StringUtils.hasText(rtString)) {
-            return JSONObject.parseArray(rtString, PairModel.class);
+            return JSONArray.parseArray(rtString, PairModel.class);
         }
         return null;
     }

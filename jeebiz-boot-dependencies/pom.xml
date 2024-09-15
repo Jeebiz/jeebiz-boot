@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.hiwepy</groupId>
         <artifactId>jeebiz-boot</artifactId>
-        <version>3.3.0-SNAPSHOT</version>
+        <version>2.7.x.20240823-SNAPSHOT</version>
     </parent>
 
     <artifactId>jeebiz-boot-dependencies</artifactId>
@@ -14,6 +14,7 @@
 
     <properties>
         <!-- Dependency versions -->
+        <activemq.version>5.16.7</activemq.version>
         <activation.version>1.1.1</activation.version>
         <alipay-sdk.version>4.38.221.ALL</alipay-sdk.version>
         <alipay-easysdk.version>2.2.3</alipay-easysdk.version>
@@ -25,11 +26,12 @@
         <asciidoctorj.pdf.version>2.3.9</asciidoctorj.pdf.version>
         <asmsupport.version>0.4.3</asmsupport.version>
         <async-http-client.version>2.12.3</async-http-client.version>
-        <axiom.version>1.2.22</axiom.version>
+        <axiom.version>1.4.0</axiom.version>
         <axis.version>1.4</axis.version>
         <axis-schema.version>1.3</axis-schema.version>
         <axis-wsdl4j.version>1.5.1</axis-wsdl4j.version>
-        <axis2.version>1.7.9</axis2.version>
+        <axis2.version>1.8.2</axis2.version>
+        <axis2-jaxbri.version>1.7.9</axis2-jaxbri.version>
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
         <beetl.version>3.16.2.RELEASE</beetl.version>
@@ -102,7 +104,7 @@
         <curator.version>5.5.0</curator.version>
         <cronet.version>95.4638.50</cronet.version>
         <cssparser.version>0.9.30</cssparser.version>
-        <cxf.version>3.5.2</cxf.version>
+        <cxf.version>3.5.9</cxf.version>
         <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
         <db-meta.version>0.0.1-Release</db-meta.version>
@@ -113,20 +115,20 @@
         <docker-java.version>3.2.1</docker-java.version>
         <dom4j2.version>2.1.4</dom4j2.version>
         <dozer.version>5.5.1</dozer.version>
-        <dozer-core.version>7.0.0</dozer-core.version>
+        <dozer-core.version>6.5.2</dozer-core.version>
         <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-        <dozer-extra-converters.version>1.0.1.RELEASE</dozer-extra-converters.version>
-        <druid.version>1.2.20</druid.version>
+        <dozer-extra-converters.version>1.0.2.RELEASE</dozer-extra-converters.version>
+        <druid.version>1.2.23</druid.version>
         <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
         <disruptor.version>3.4.4</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
-        <dubbo.version>3.2.9</dubbo.version>
+        <dubbo.version>3.2.15</dubbo.version>
         <dynamic-tp.version>1.1.3</dynamic-tp.version>
-        <easyexcel.version>3.3.2</easyexcel.version>
-        <easypoi.version>4.4.0</easypoi.version>
+        <easyexcel.version>4.0.1</easyexcel.version>
+        <easypoi.version>4.5.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.52</fastjson.version>
@@ -159,8 +161,8 @@
         <hikaricp.version>3.4.5</hikaricp.version>
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
         <h2.version>2.3.230</h2.version>
-        <hsqldb.version>2.5.2</hsqldb.version>
-        <htmlunit.version>2.40.0</htmlunit.version>
+        <hsqldb.version>2.7.3</hsqldb.version>
+        <htmlunit.version>2.70.0</htmlunit.version>
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.14</httpcore.version>
@@ -219,7 +221,7 @@
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
-        <jwt-issuer.version>1.1.2-SNAPSHOT</jwt-issuer.version>
+        <jwt-issuer.version>1.1.8.RELEASE</jwt-issuer.version>
         <kafka-clients.version>3.7.1</kafka-clients.version>
         <knife4j.version>3.0.3</knife4j.version>
         <kisso.version>3.9.1</kisso.version>
@@ -233,20 +235,21 @@
         <lock4j.version>2.2.0</lock4j.version>
         <log4j2.version>2.23.1</log4j2.version>
         <logback.version>1.5.6</logback.version>
-        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
         <markdown.version>1.11.1</markdown.version>
-        <mariadb.version>2.7.4</mariadb.version>
+        <mariadb.version>3.4.1</mariadb.version>
         <maven.version>3.6.3</maven.version>
         <metadata-extractor.version>2.19.0</metadata-extractor.version>
         <mockito.version>5.4.0</mockito.version>
         <mongo-java-driver.version>3.12.14</mongo-java-driver.version>
-        <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
+        <mssql-jdbc.version>12.6.3.jre8</mssql-jdbc.version>
         <mybatis.version>3.5.16</mybatis.version>
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mybatis-plus-generator.version>${mybatis-plus.version}</mybatis-plus-generator.version>
+        <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
         <mybatis-plus-ext.version>1.7.4-RELEASE</mybatis-plus-ext.version>
         <mybatis-r2dbc.version>3.0.4.RELEASE</mybatis-r2dbc.version>
         <mybatis-spring.version>2.1.2</mybatis-spring.version>
@@ -270,22 +273,22 @@
         <mysql-j.version>8.3.0</mysql-j.version>
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.2.4</nacos-client.version>
-        <neethi.version>3.1.1</neethi.version>
+        <neethi.version>3.2.0</neethi.version>
         <netty.version>4.1.111.Final</netty.version>
         <netty-socketio.version>1.7.19</netty-socketio.version>
         <netty-tcnative.version>2.0.65.Final</netty-tcnative.version>
         <nimbus-jose-jwt.version>9.40</nimbus-jose-jwt.version>
-        <okhttp3.version>4.12.0</okhttp3.version>
+        <okhttp3.version>3.14.9</okhttp3.version>
         <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
-        <ons-client.version>1.8.8.1.Final</ons-client.version>
-        <oshi.version>6.4.4</oshi.version>
+        <ons-client.version>2.0.7.Final</ons-client.version>
+        <oshi.version>6.6.1</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
         <owasp-esapi.version>2.5.4.0</owasp-esapi.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
         <owasp-html-sanitizer.version>20240325.1</owasp-html-sanitizer.version>
         <p6spy.version>3.9.1</p6spy.version>
-        <pac4j.version>4.5.5</pac4j.version>
+        <pac4j.version>4.5.8</pac4j.version>
         <pac4j-oauth-ext.version>1.0.3.RELEASE</pac4j-oauth-ext.version>
         <pagehelper.version>5.3.2</pagehelper.version>
         <paho-mqttv3.version>1.2.5</paho-mqttv3.version>
@@ -295,7 +298,7 @@
         <pdfbox.version>3.0.2</pdfbox.version>
         <perf4j.version>0.9.16</perf4j.version>
         <persistence-api.version>1.0.2</persistence-api.version>
-        <poi.version>5.2.3</poi.version>
+        <poi.version>4.1.2</poi.version>
         <prometheus.version>0.10.0</prometheus.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
@@ -304,16 +307,17 @@
         <pf4j-update.version>2.3.0</pf4j-update.version>
         <pf4j-spring.version>0.7.0</pf4j-spring.version>
         <png-encoder.version>1.5</png-encoder.version>
+        <quartz.version>2.3.2</quartz.version>
         <r2dbc-h2.version>1.0.0.RELEASE</r2dbc-h2.version>
-        <r2dbc-mariadb.version>1.1.4</r2dbc-mariadb.version>
+        <r2dbc-mariadb.version>1.2.2</r2dbc-mariadb.version>
         <r2dbc-mssql.version>1.0.2.RELEASE</r2dbc-mssql.version>
         <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
-        <r2dbc-proxy.version>1.1.2.RELEASE</r2dbc-proxy.version>
-        <r2dbc-postgresql.version>1.0.2.RELEASE</r2dbc-postgresql.version>
-        <r2dbc-oracle.version>1.1.1</r2dbc-oracle.version>
+        <r2dbc-proxy.version>1.1.5.RELEASE</r2dbc-proxy.version>
+        <r2dbc-postgresql.version>1.0.5.RELEASE</r2dbc-postgresql.version>
+        <r2dbc-oracle.version>1.2.0</r2dbc-oracle.version>
         <reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-        <redisson.version>3.25.0</redisson.version>
+        <redisson.version>3.17.4</redisson.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <reflections.version>0.9.12</reflections.version>
         <rocketmq-client.version>5.1.3</rocketmq-client.version>
@@ -337,12 +341,12 @@
         <scribejava.version>7.1.1</scribejava.version>
         <scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
         <selenium-driver.version>4.22.0</selenium-driver.version>
-        <sequoiadb-driver.version>3.2.1</sequoiadb-driver.version>
+        <sequoiadb-driver.version>3.4.11-jre8</sequoiadb-driver.version>
         <sevenzipjbinding.version>16.02-2.01</sevenzipjbinding.version>
         <sfntly.version>1.0.0</sfntly.version>
-        <shardingsphere.version>5.1.0</shardingsphere.version>
-        <shedlock.version>4.9.3</shedlock.version>
-        <shiro.version>2.0.1</shiro.version>
+        <shardingsphere.version>5.4.1</shardingsphere.version>
+        <shedlock.version>5.13.0</shedlock.version>
+        <shiro.version>1.13.0</shiro.version>
         <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
         <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
         <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
@@ -359,6 +363,8 @@
         <skywalking.version>8.14.0</skywalking.version>
         <slf4j.version>1.7.36</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
+        <!-- 1.33 版本已经是当前Spring Boot版本能兼容的最高版本 -->
+        <snakeyaml.version>1.33</snakeyaml.version>
         <snmp4j.version>3.5.1</snmp4j.version>
         <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -374,8 +380,7 @@
         <sshd-sftp.version>${sshd.version}</sshd-sftp.version>
         <sshd-pam.version>0.11.0</sshd-pam.version>
         <svnkit.version>1.10.3</svnkit.version>
-        <swagger.version>1.6.6</swagger.version>
-        <swagger2.version>2.2.1</swagger2.version>
+        <swagger.version>1.6.2</swagger.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <swagger-butler.version>1.2.0</swagger-butler.version>
         <swagger-codegen.version>2.4.19</swagger-codegen.version>
@@ -391,6 +396,9 @@
         <thumbnailator.version>0.4.19</thumbnailator.version>
         <thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
         <thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
+        <tongweb.version>7.0.E.6_P5</tongweb.version>
+        <tongweb-license-client.version>4.4.1.3</tongweb-license-client.version>
+        <tongweb-gmssl.version>1.0.0</tongweb-gmssl.version>
         <token-bucket.version>1.7</token-bucket.version>
         <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
         <truelicense.version>1.33</truelicense.version>
@@ -409,8 +417,11 @@
         <woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
         <woodstox-asl.version>4.4.1</woodstox-asl.version>
         <wsdl4j.version>1.6.3</wsdl4j.version>
-        <xmemcached.version>2.4.7</xmemcached.version>
-        <xmlschema-core.version>2.2.5</xmlschema-core.version>
+        <xalan.version>2.7.3</xalan.version>
+        <xdocreport.version>2.1.0</xdocreport.version>
+        <xmemcached.version>2.4.8</xmemcached.version>
+        <xml-apis.version>1.4.01</xml-apis.version>
+        <xmlschema-core.version>2.3.1</xmlschema-core.version>
         <xfire.version>1.2.6</xfire.version>
         <xnio.version>3.8.4.Final</xnio.version>
         <xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
@@ -432,7 +443,7 @@
         <maven-codenarc-plugin.version>0.22-1</maven-codenarc-plugin.version>
         <maven-cobertura-plugin.version>2.7</maven-cobertura-plugin.version>
         <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-        <maven-dependency-check-plugin.version>6.5.3</maven-dependency-check-plugin.version>
+        <maven-dependency-check-plugin.version>9.0.8</maven-dependency-check-plugin.version>
         <maven-docker-plugin.version>1.2.0</maven-docker-plugin.version>
         <maven-dockerfile-plugin.version>1.4.13</maven-dockerfile-plugin.version>
         <maven-docker-fabric8-plugin.version>0.39.0</maven-docker-fabric8-plugin.version>
@@ -457,105 +468,109 @@
         <maven-swagger-codegen-plugin.version>${swagger-codegen.version}</maven-swagger-codegen-plugin.version>
         <maven-swagger3-plugin.version>${swagger3.version}</maven-swagger3-plugin.version>
         <maven-swagger2markup-plugin.version>1.3.7</maven-swagger2markup-plugin.version>
-        <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
+        <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
 
         <!-- Third Party Spring Boot Starter Dependency versions -->
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
-        <spring-boot-starter-agora.version>2.0.0.RELEASE</spring-boot-starter-agora.version>
-        <spring-boot-starter-aliyun-schedulerx2.version>1.10.14</spring-boot-starter-aliyun-schedulerx2.version>
-        <spring-boot-starter-aliyun-ons.version>2.0.0.RELEASE</spring-boot-starter-aliyun-ons.version>
-        <spring-boot-starter-aliyun-mps.version>2.0.0.RELEASE</spring-boot-starter-aliyun-mps.version>
-        <spring-boot-starter-arcface.version>2.0.1.RELEASE</spring-boot-starter-arcface.version>
-        <spring-boot-starter-arthas.version>3.7.2</spring-boot-starter-arthas.version>
-        <spring-boot-starter-axis.version>2.0.0.RELEASE</spring-boot-starter-axis.version>
-        <spring-boot-starter-axis2.version>2.0.0.RELEASE</spring-boot-starter-axis2.version>
-        <spring-boot-starter-axis2-client.version>2.0.0.RELEASE</spring-boot-starter-axis2-client.version>
-        <spring-boot-starter-baiduapi.version>2.0.0.RELEASE</spring-boot-starter-baiduapi.version>
-        <spring-boot-starter-beetl.version>1.2.40.Beetl.RELEASE</spring-boot-starter-beetl.version>
+        <spring-boot-starter-agora.version>2.7.x.20240823.RELEASE</spring-boot-starter-agora.version>
+        <spring-boot-starter-aliyun-schedulerx2.version>1.11.6</spring-boot-starter-aliyun-schedulerx2.version>
+        <spring-boot-starter-aliyun-mps.version>2.7.x.20240823.RELEASE</spring-boot-starter-aliyun-mps.version>
+        <spring-boot-starter-aliyun-ons.version>2.7.x.20240823.RELEASE</spring-boot-starter-aliyun-ons.version>
+        <spring-boot-starter-aliyun-oss.version>2.7.x.20240823.RELEASE</spring-boot-starter-aliyun-oss.version>
+        <spring-boot-starter-arcface.version>2.7.x.20240823.RELEASE</spring-boot-starter-arcface.version>
+        <spring-boot-starter-arthas.version>3.5.6</spring-boot-starter-arthas.version>
+        <spring-boot-starter-axis.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis.version>
+        <spring-boot-starter-axis2.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis2.version>
+        <spring-boot-starter-axis2-client.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis2-client.version>
+        <spring-boot-starter-baiduapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-baiduapi.version>
+        <spring-boot-starter-beetl.version>1.2.38.RELEASE</spring-boot-starter-beetl.version>
         <spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
-        <spring-boot-starter-casclient.version>2.0.0.RELEASE</spring-boot-starter-casclient.version>
+        <spring-boot-starter-canal.version>2.7.x.20240823.RELEASE</spring-boot-starter-canal.version>
+        <spring-boot-starter-curator.version>2.7.x.20240823.RELEASE</spring-boot-starter-curator.version>
         <spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
-        <spring-boot-starter-disruptor.version>2.0.0.RELEASE</spring-boot-starter-disruptor.version>
-        <spring-boot-starter-docx4j.version>1.0.1.RELEASE</spring-boot-starter-docx4j.version>
+        <spring-boot-starter-disruptor.version>2.7.x.20240823.RELEASE</spring-boot-starter-disruptor.version>
+        <spring-boot-starter-docx4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-docx4j.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
-        <spring-boot-starter-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-dingtalk.version>
-        <spring-boot-starter-disconf.version>1.0.1</spring-boot-starter-disconf.version>
-        <spring-boot-starter-dropwizard-metrics.version>1.0.0.RELEASE</spring-boot-starter-dropwizard-metrics.version>
+        <spring-boot-starter-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-dingtalk.version>
+        <spring-boot-starter-dropwizard-metrics.version>2.7.x.20240823.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
-        <spring-boot-starter-druid-plus.version>2.0.0.RELEASE</spring-boot-starter-druid-plus.version>
+        <spring-boot-starter-druid-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-druid-plus.version>
         <spring-boot-starter-dynamic-datasource.version>4.1.3</spring-boot-starter-dynamic-datasource.version>
-        <spring-boot-starter-elasticjob.version>3.0.1</spring-boot-starter-elasticjob.version>
+        <spring-boot-starter-elasticjob.version>3.0.4</spring-boot-starter-elasticjob.version>
         <spring-boot-starter-fastxls.version>1.0.0-SNAPSHOT</spring-boot-starter-fastxls.version>
-        <spring-boot-starter-fastdfs.version>2.0.0.RELEASE</spring-boot-starter-fastdfs.version>
-        <spring-boot-starter-flyway-plus.version>2.0.0.RELEASE</spring-boot-starter-flyway-plus.version>
-        <spring-boot-starter-geoip.version>2.0.0.RELEASE</spring-boot-starter-geoip.version>
-        <spring-boot-starter-grpc.version>4.7.0</spring-boot-starter-grpc.version>
-        <spring-boot-starter-hikaricp-plus.version>2.0.0.RELEASE</spring-boot-starter-hikaricp-plus.version>
-        <spring-boot-starter-httl.version>2.0.0.RELEASE</spring-boot-starter-httl.version>
-        <spring-boot-starter-ip2region.version>2.0.2-SNAPSHOT</spring-boot-starter-ip2region.version>
-        <spring-boot-starter-ishumei.version>2.0.0.RELEASE</spring-boot-starter-ishumei.version>
+        <spring-boot-starter-fastdfs.version>2.7.x.20240823.RELEASE</spring-boot-starter-fastdfs.version>
+        <spring-boot-starter-flyway-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-flyway-plus.version>
+        <spring-boot-starter-geoip.version>2.7.x.20240823.RELEASE</spring-boot-starter-geoip.version>
+        <spring-boot-starter-grpc.version>4.5.9</spring-boot-starter-grpc.version>
+        <spring-boot-starter-hikaricp-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-hikaricp-plus.version>
+        <spring-boot-starter-httl.version>2.7.x.20240823.RELEASE</spring-boot-starter-httl.version>
+        <spring-boot-starter-ip2region.version>2.7.x.20240823.RELEASE</spring-boot-starter-ip2region.version>
+        <spring-boot-starter-ishumei.version>2.7.x.20240823.RELEASE</spring-boot-starter-ishumei.version>
         <spring-boot-starter-j2cache.version>2.8.0-release</spring-boot-starter-j2cache.version>
-        <spring-boot-starter-jasypt.version>3.0.4</spring-boot-starter-jasypt.version>
+        <spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
         <spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
-        <spring-boot-starter-jcaptcha.version>2.0.0.RELEASE</spring-boot-starter-jcaptcha.version>
-        <spring-boot-starter-jpush.version>2.0.0.RELEASE</spring-boot-starter-jpush.version>
-        <spring-boot-starter-kaptcha.version>2.0.0.RELEASE</spring-boot-starter-kaptcha.version>
-        <spring-boot-starter-log4j2-plus.version>2.0.0.RELEASE</spring-boot-starter-log4j2-plus.version>
-        <spring-boot-starter-maven-client.version>2.0.0.RELEASE</spring-boot-starter-maven-client.version>
-        <spring-boot-starter-maven-embedder.version>2.0.0.RELEASE</spring-boot-starter-maven-embedder.version>
-        <spring-boot-starter-maven-invoker.version>2.0.0.RELEASE</spring-boot-starter-maven-invoker.version>
-        <spring-boot-starter-mybatis.version>2.2.2</spring-boot-starter-mybatis.version>
+        <spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
+        <spring-boot-starter-jcaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-jcaptcha.version>
+        <spring-boot-starter-jpush.version>2.7.x.20240823.RELEASE</spring-boot-starter-jpush.version>
+        <spring-boot-starter-kaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-kaptcha.version>
+        <spring-boot-starter-log4j2-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-log4j2-plus.version>
+        <spring-boot-starter-maven-client.version>2.7.x.20240823.RELEASE</spring-boot-starter-maven-client.version>
+        <spring-boot-starter-maven-embedder.version>2.7.x.20240823.RELEASE</spring-boot-starter-maven-embedder.version>
+        <spring-boot-starter-maven-invoker.version>2.7.x.20240823.RELEASE</spring-boot-starter-maven-invoker.version>
+        <spring-boot-starter-mybatis.version>3.0.3</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
-        <spring-boot-starter-mybatis-dbperms.version>2.0.0.RELEASE</spring-boot-starter-mybatis-dbperms.version>
-        <spring-boot-starter-minio.version>2.0.1.RELEASE</spring-boot-starter-minio.version>
-        <spring-boot-starter-nacos-config.version>0.2.11</spring-boot-starter-nacos-config.version>
+        <spring-boot-starter-minio.version>2.7.x.20240823.RELEASE</spring-boot-starter-minio.version>
+        <spring-boot-starter-nacos-config.version>0.2.10</spring-boot-starter-nacos-config.version>
         <spring-boot-starter-nacos-discovery.version>0.2.11</spring-boot-starter-nacos-discovery.version>
-        <spring-boot-starter-opentracing.version>3.3.1</spring-boot-starter-opentracing.version>
-        <spring-boot-starter-okhttp3.version>2.0.0.RELEASE</spring-boot-starter-okhttp3.version>
-        <spring-boot-starter-pac4j.version>2.0.0.RELEASE</spring-boot-starter-pac4j.version>
-        <spring-boot-starter-pf4j.version>2.0.0.RELEASE</spring-boot-starter-pf4j.version>
-        <spring-boot-starter-pf4j2.version>2.0.0.RELEASE</spring-boot-starter-pf4j2.version>
-        <spring-boot-starter-pf4j3.version>2.0.0.RELEASE</spring-boot-starter-pf4j3.version>
+        <spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
+        <spring-boot-starter-okhttp3.version>2.7.x.20240823.RELEASE</spring-boot-starter-okhttp3.version>
+        <spring-boot-starter-p6spy.version>2.7.x.20240823.RELEASE</spring-boot-starter-p6spy.version>
+        <spring-boot-starter-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-pac4j.version>
+        <spring-boot-starter-pagehelper.version>1.3.0</spring-boot-starter-pagehelper.version>
+        <spring-boot-starter-pf4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-pf4j.version>
+        <spring-boot-starter-pf4j2.version>2.7.x.20240823.RELEASE</spring-boot-starter-pf4j2.version>
+        <spring-boot-starter-pf4j3.version>2.7.x.20240823.RELEASE</spring-boot-starter-pf4j3.version>
         <spring-boot-starter-pinyin4j.version>0.0.4</spring-boot-starter-pinyin4j.version>
-        <spring-boot-starter-qqwry.version>2.0.0.RELEASE</spring-boot-starter-qqwry.version>
+        <spring-boot-starter-playwright.version>2.7.x.20240823.RELEASE</spring-boot-starter-playwright.version>
+        <spring-boot-starter-qqwry.version>2.7.x.20240823.RELEASE</spring-boot-starter-qqwry.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
-        <spring-boot-starter-redisson-plus.version>2.0.0.RELEASE</spring-boot-starter-redisson-plus.version>
-        <spring-boot-starter-redistpl-plus.version>2.0.0.RELEASE</spring-boot-starter-redistpl-plus.version>
-        <spring-boot-starter-rocketmq.version>2.2.2</spring-boot-starter-rocketmq.version>
-        <spring-boot-starter-schemacrawler.version>2.0.0.RELEASE</spring-boot-starter-schemacrawler.version>
-        <spring-boot-starter-seata.version>2.0.0</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>2.0.4-SNAPSHOT</spring-boot-starter-security-biz.version>
-        <spring-boot-starter-security-cas.version>2.0.1-SNAPSHOT</spring-boot-starter-security-cas.version>
-        <spring-boot-starter-security-dingtalk.version>2.0.1-SNAPSHOT</spring-boot-starter-security-dingtalk.version>
-        <spring-boot-starter-security-facebook.version>2.0.0.RELEASE</spring-boot-starter-security-facebook.version>
-        <spring-boot-starter-security-google.version>2.0.0.RELEASE</spring-boot-starter-security-google.version>
-        <spring-boot-starter-security-jwt.version>2.0.2-SNAPSHOT</spring-boot-starter-security-jwt.version>
-        <spring-boot-starter-security-line.version>2.0.0.RELEASE</spring-boot-starter-security-line.version>
-        <spring-boot-starter-security-pac4j.version>2.0.2-SNAPSHOT</spring-boot-starter-security-pac4j.version>
-        <spring-boot-starter-security-weixin.version>2.0.2-SNAPSHOT</spring-boot-starter-security-weixin.version>
-        <spring-boot-starter-shiro-biz.version>2.0.0.RELEASE</spring-boot-starter-shiro-biz.version>
-        <spring-boot-starter-shiro-cas.version>2.0.0.RELEASE</spring-boot-starter-shiro-cas.version>
-        <spring-boot-starter-shiro-csrfguard.version>2.0.0.RELEASE</spring-boot-starter-shiro-csrfguard.version>
-        <spring-boot-starter-shiro-dingtalk.version>2.0.0.RELEASE</spring-boot-starter-shiro-dingtalk.version>
-        <spring-boot-starter-shiro-jwt.version>2.0.0.RELEASE</spring-boot-starter-shiro-jwt.version>
-        <spring-boot-starter-shiro-kisso.version>2.0.0.RELEASE</spring-boot-starter-shiro-kisso.version>
-        <spring-boot-starter-shiro-pac4j.version>2.0.0.RELEASE</spring-boot-starter-shiro-pac4j.version>
-        <spring-boot-starter-shiro-weixin.version>2.0.0.RELEASE</spring-boot-starter-shiro-weixin.version>
-        <spring-boot-starter-soapui.version>2.0.0.RELEASE</spring-boot-starter-soapui.version>
-        <spring-boot-starter-socketio.version>2.0.0.RELEASE</spring-boot-starter-socketio.version>
-        <spring-boot-starter-shanyan.version>2.0.0.RELEASE</spring-boot-starter-shanyan.version>
-        <spring-boot-starter-sigar.version>2.0.0.RELEASE</spring-boot-starter-sigar.version>
-        <spring-boot-starter-simplecaptcha.version>2.0.0.RELEASE</spring-boot-starter-simplecaptcha.version>
-        <spring-boot-starter-smartcaptcha.version>2.0.0.RELEASE</spring-boot-starter-smartcaptcha.version>
-        <spring-boot-starter-tencentapi.version>2.0.0.RELEASE</spring-boot-starter-tencentapi.version>
-        <spring-boot-starter-webflux-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webflux-swagger2.version>
-        <spring-boot-starter-webmvc-swagger2.version>2.0.1-SNAPSHOT</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-validation-mimetypes.version>2.0.0.RELEASE</spring-boot-starter-validation-mimetypes.version>
-        <spring-boot-starter-websocket.version>2.0.0.RELEASE</spring-boot-starter-websocket.version>
-        <spring-boot-starter-xmemcached.version>2.0.0.RELEASE</spring-boot-starter-xmemcached.version>
-        <spring-boot-starter-xxljob.version>2.0.0.RELEASE</spring-boot-starter-xxljob.version>
-        <spring-boot-starter-zxing.version>2.0.0.RELEASE</spring-boot-starter-zxing.version>
+        <spring-boot-starter-redisson-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-redisson-plus.version>
+        <spring-boot-starter-redistpl-plus.version>2.3.x.20240824.RELEASE</spring-boot-starter-redistpl-plus.version>
+        <spring-boot-starter-rocketmq.version>2.2.3</spring-boot-starter-rocketmq.version>
+        <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
+        <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
+        <spring-boot-starter-security-biz.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-security-cas.version>2.3.x.20240824.RELEASE</spring-boot-starter-security-cas.version>
+        <spring-boot-starter-security-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-dingtalk.version>
+        <spring-boot-starter-security-facebook.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-facebook.version>
+        <spring-boot-starter-security-google.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-google.version>
+        <spring-boot-starter-security-jwt.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-jwt.version>
+        <spring-boot-starter-security-line.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-line.version>
+        <spring-boot-starter-security-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-pac4j.version>
+        <spring-boot-starter-security-qrcode.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-qrcode.version>
+        <spring-boot-starter-security-weixin.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-weixin.version>
+        <spring-boot-starter-shanyan.version>2.7.x.20240823.RELEASE</spring-boot-starter-shanyan.version>
+        <spring-boot-starter-shiro-biz.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-biz.version>
+        <spring-boot-starter-shiro-cas.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-cas.version>
+        <spring-boot-starter-shiro-csrfguard.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-csrfguard.version>
+        <spring-boot-starter-shiro-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-dingtalk.version>
+        <spring-boot-starter-shiro-jwt.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-jwt.version>
+        <spring-boot-starter-shiro-kisso.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-kisso.version>
+        <spring-boot-starter-shiro-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-pac4j.version>
+        <spring-boot-starter-shiro-weixin.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-weixin.version>
+        <spring-boot-starter-sigar.version>2.7.x.20240823.RELEASE</spring-boot-starter-sigar.version>
+        <spring-boot-starter-simplecaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-simplecaptcha.version>
+        <spring-boot-starter-smartcaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-smartcaptcha.version>
+        <spring-boot-starter-soapui.version>2.7.x.20240823.RELEASE</spring-boot-starter-soapui.version>
+        <spring-boot-starter-socketio.version>2.7.x.20240823.RELEASE</spring-boot-starter-socketio.version>
+        <spring-boot-starter-tencentapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-tencentapi.version>
+        <spring-boot-starter-validation-mimetypes.version>2.7.x.20240823.RELEASE</spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-webflux-swagger2.version>2.7.x.20240823.RELEASE</spring-boot-starter-webflux-swagger2.version>
+        <spring-boot-starter-webmvc-swagger2.version>2.7.x.20240823.RELEASE</spring-boot-starter-webmvc-swagger2.version>
+        <spring-boot-starter-xmemcached.version>2.7.x.20240823.RELEASE</spring-boot-starter-xmemcached.version>
+        <spring-boot-starter-xxljob.version>2.7.x.20240823.RELEASE</spring-boot-starter-xxljob.version>
+        <spring-boot-starter-zxing.version>2.7.x.20240823.RELEASE</spring-boot-starter-zxing.version>
 
     </properties>
 
@@ -627,14 +642,22 @@
             </dependency>
 
             <!-- Axiom : http://mvnrepository.com/artifact/org.apache.ws.commons.axiom -->
+            <!-- https://mvnrepository.com/artifact/org.apache.ws.commons.axiom/axiom-api -->
             <dependency>
                 <groupId>org.apache.ws.commons.axiom</groupId>
                 <artifactId>axiom-api</artifactId>
                 <version>${axiom.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.ws.commons.axiom/axiom-impl -->
             <dependency>
                 <groupId>org.apache.ws.commons.axiom</groupId>
                 <artifactId>axiom-impl</artifactId>
+                <version>${axiom.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.ws.commons.axiom/axiom-dom -->
+            <dependency>
+                <groupId>org.apache.ws.commons.axiom</groupId>
+                <artifactId>axiom-dom</artifactId>
                 <version>${axiom.version}</version>
             </dependency>
 
@@ -2407,6 +2430,13 @@
                 <version>${hsqldb.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.htmlunit/htmlunit -->
+            <dependency>
+                <groupId>org.htmlunit</groupId>
+                <artifactId>htmlunit</artifactId>
+                <version>4.3.0</version>
+            </dependency>
+
             <!-- Hibernate4 SQLite3 Dialect -->
             <dependency>
                 <groupId>com.enigmabridge</groupId>
@@ -2914,6 +2944,12 @@
                 <version>${jetcache.version}</version>
             </dependency>
 
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt_0_7.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -5223,6 +5259,80 @@
                 <version>${thymeleaf-layout-dialect.version}</version>
             </dependency>
 
+            <!-- For Tongweb -->
+            <!-- 提供web应用的核心功能依赖聚合模块 -->
+            <dependency>
+                <groupId>com.tongweb</groupId>
+                <artifactId>tongweb-embed-core</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 提供dubbo的核心功能依赖聚合模块 -->
+            <dependency>
+                <groupId>com.tongweb</groupId>
+                <artifactId>tongweb-embed-dubbo</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 提供与springboot框架集成的jdbc规范支持。适配springboot的1.x版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-data-jdbc-starter-1.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 提供与springboot框架集成的jdbc规范支持。适配springboot的2.x版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-data-jdbc-starter-2.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 与springboot集成，托管TongWeb生命周期功能支持。适配springboot的1.x版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-starter-1.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 与springboot集成，托管TongWeb生命周期功能支持。适配springboot的2.x版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-starter-2.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 与 springboot 集成，提供对 tongweb 的监控。适配 springboot 的 1.x 版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-monitor-starter-1.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 与 springboot 集成，提供对 tongweb 的监控。适配 springboot 的 2.x 版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-monitor-starter-2.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 提供springboot框架集成的websocket规范的支持。适配springboot的1.x版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-websocket-1.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- 提供springboot框架集成的websocket规范的支持。适配springboot的2.x版本。 -->
+            <dependency>
+                <groupId>com.tongweb.springboot</groupId>
+                <artifactId>tongweb-spring-boot-websocket-2.x</artifactId>
+                <version>${tongweb.version}</version>
+            </dependency>
+            <!-- license-server 的客户端 -->
+            <dependency>
+                <groupId>com.tongweb</groupId>
+                <artifactId>tongweb-lic-sdk</artifactId>
+                <version>${tongweb-license-client.version}</version>
+            </dependency>
+            <!-- 提供国密 SSL 核心功能模块。 -->
+            <dependency>
+                <groupId>com.tongweb</groupId>
+                <artifactId>tongweb-gmssl</artifactId>
+                <version>${tongweb-gmssl.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.isomorphism/token-bucket -->
             <dependency>
                 <groupId>org.isomorphism</groupId>
@@ -5369,6 +5479,239 @@
                 <groupId>wsdl4j</groupId>
                 <artifactId>wsdl4j</artifactId>
                 <version>${wsdl4j.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/xalan/xalan -->
+            <dependency>
+                <groupId>xalan</groupId>
+                <artifactId>xalan</artifactId>
+                <version>${xalan.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/xalan/serializer -->
+            <dependency>
+                <groupId>xalan</groupId>
+                <artifactId>serializer</artifactId>
+                <version>${xalan.version}</version>
+            </dependency>
+
+            <!-- ###################### XDocReport 2.x ###################### -->
+
+            <!-- https://github.com/opensagres/xdocreport -->
+            <!-- XDocReport 主要是操作word，在word模版中定义变量并替换变量。（在word中还可替换动态图片，可进行循环、判断操作，可定义指令扩展程序，可转成pdf文件
+                等） -->
+            <!-- GAE版本： GAE 英文全称为 Google App Engine。它是 Google 管理的数据中心中用于 WEB 应用程序的开发和托管的平台。2008
+                年 4月 发布第一个测试版本。目前支持python、java和php开发。全球已有数十万的开发者在其上开发了众多的应用。 -->
+
+            <!-- core -->
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.core -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.core</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+
+            <!-- document -->
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document.docx -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document.docx</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document.odt -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document.odt</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document.ods -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document.ods</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document.odp -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document.odp</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document.pptx -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document.pptx</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document.textstyling.wiki -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document.textstyling.wiki</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.document.tools -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.document.tools</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+
+            <!-- template -->
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.template -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.template</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.template.velocity -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.template.velocity</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.template.freemarker -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.template.freemarker</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.template.textstyling.wiki -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.template.textstyling.wiki</artifactId>
+                <version>0.9.4</version>
+            </dependency>
+
+            <!-- converter -->
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.converter -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.converter</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.converter.docx.xwpf -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.converter.docx.xwpf</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.converter.docx.docx4j -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.converter.docx.docx4j</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.converter.odt.odfdom -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.converter.odt.odfdom</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+
+            <!-- odfdom -->
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.odfdom.converter.core -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.odfdom.converter.core</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.odfdom.converter.xhtml -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.odfdom.converter.xhtml</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.odfdom.converter.pdf -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.odfdom.converter.pdf</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+
+            <!-- poi -->
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.poi.xwpf.converter.core -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.poi.xwpf.converter.core</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.poi.xwpf.converter.core-gae -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.poi.xwpf.converter.core-gae</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.poi.xwpf.converter.pdf -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.poi.xwpf.converter.pdf</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>org.apache.poi.xwpf.converter.pdf.itext5</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>org.apache.poi.xwpf.converter.pdf-gae</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.poi.xwpf.converter.xhtml -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.poi.xwpf.converter.xhtml</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>org.apache.poi.xwpf.converter.xhtml-gae</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+
+            <!-- itext -->
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.itext.extension -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.itext.extension</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.itext.extension-gae -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.itext.extension-gae</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.itext5.extension -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.itext5.extension</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.xdocreport.remoting.resources -->
+            <dependency>
+                <groupId>fr.opensagres.xdocreport</groupId>
+                <artifactId>fr.opensagres.xdocreport.remoting.resources</artifactId>
+                <version>${xdocreport.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/xml-apis/xml-apis -->
+            <dependency>
+                <groupId>xml-apis</groupId>
+                <artifactId>xml-apis</artifactId>
+                <version>${xml-apis.version}</version>
             </dependency>
 
             <dependency>
@@ -5589,7 +5932,7 @@
                 <artifactId>axis2-client-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-axis2-client.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-baiduapi -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/baiduapi-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>baiduapi-spring-boot-starter</artifactId>
@@ -5607,17 +5950,23 @@
                 <artifactId>camel-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-camel.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/casclient-spring-boot-starter -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/canal-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
-                <artifactId>casclient-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-casclient.version}</version>
+                <artifactId>canal-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-canal.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-support-springboot -->
             <dependency>
                 <groupId>org.jasig.cas.client</groupId>
                 <artifactId>cas-client-support-springboot</artifactId>
-                <version>3.6.4</version>
+                <version>${cas-client.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/curator-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>curator-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-curator.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-spring-boot-starter-jaxrs -->
             <dependency>
@@ -5648,12 +5997,6 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>disruptor-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-disruptor.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.xjzrc.spring.boot/disconf-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.xjzrc.spring.boot</groupId>
-                <artifactId>disconf-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-disconf.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/dingtalk-spring-boot-starter -->
             <dependency>
@@ -6040,6 +6383,12 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${spring-boot-starter-mybatis-plus.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.yulichang/mybatis-plus-join-boot-starter -->
+            <dependency>
+                <groupId>com.github.yulichang</groupId>
+                <artifactId>mybatis-plus-join-boot-starter</artifactId>
+                <version>${mybatis-plus-join.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper-spring-boot-starter -->
             <dependency>
                 <groupId>tk.mybatis</groupId>
@@ -6057,12 +6406,6 @@
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper</artifactId>
                 <version>3.5.3</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/mybatis-dbperms-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>mybatis-dbperms-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-mybatis-dbperms.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-minio -->
             <dependency>
@@ -6418,13 +6761,13 @@
                 <artifactId>xmemcached-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-xmemcached.version}</version>
             </dependency>
-            <!-- https://github.com/hiwepy/xxljob-spring-boot-starter -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/xxljob-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>xxljob-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-xxljob.version}</version>
             </dependency>
-            <!-- https://github.com/hiwepy/zxing-spring-boot-starter -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/zxing-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>zxing-spring-boot-starter</artifactId>
