@@ -104,7 +104,7 @@
         <curator.version>5.5.0</curator.version>
         <cronet.version>95.4638.50</cronet.version>
         <cssparser.version>0.9.30</cssparser.version>
-        <cxf.version>3.4.10</cxf.version>
+        <cxf.version>3.5.9</cxf.version>
         <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
         <db-meta.version>0.0.1-Release</db-meta.version>
@@ -2406,8 +2406,7 @@
                 <version>${httpconn.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-            <!-- JDBC Driver For H2 Database Engine : -->
+            <!-- JDBC Driver For H2 Database Engine -->
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
@@ -6054,6 +6053,12 @@
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-actuator -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-actuator</artifactId>
                 <version>${dubbo.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.baomidou/dynamic-datasource-spring-boot-starter -->
