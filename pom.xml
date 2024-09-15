@@ -28,6 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jeebiz-boot.version>2.3.x-20240823-SNAPSHOT</jeebiz-boot.version>
+        <jackson-bom.version>2.13.5</jackson-bom.version>
         <java.version>1.8</java.version>
         <!-- Maven Plugin versions -->
         <maven.version>3.6.3</maven.version>
