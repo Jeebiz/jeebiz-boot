@@ -7,13 +7,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
+        <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>io.hiwepy</groupId>
     <artifactId>jeebiz-boot</artifactId>
-    <version>2.7.x.20240823-SNAPSHOT</version>
+    <version>3.3.x.20240823-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>jeebiz-boot</name>
@@ -27,10 +27,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jeebiz-boot.version>2.7.x.20240823-SNAPSHOT</jeebiz-boot.version>
-        <java.version>1.8</java.version>
+        <jeebiz-boot.version>3.3.x.20240823-SNAPSHOT</jeebiz-boot.version>
+        <java.version>17</java.version>
         <!-- Maven Plugin versions -->
-        <maven.version>3.6.3</maven.version>
+        <maven.version>3.9.9</maven.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>

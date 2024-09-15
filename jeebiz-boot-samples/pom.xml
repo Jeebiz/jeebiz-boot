@@ -5,12 +5,12 @@
     <parent>
         <groupId>io.hiwepy</groupId>
         <artifactId>jeebiz-boot-parent</artifactId>
-        <version>2.7.x.20240823-SNAPSHOT</version>
+        <version>3.3.x.20240823-SNAPSHOT</version>
         <relativePath>../jeebiz-boot-parent</relativePath>
     </parent>
 
     <artifactId>jeebiz-boot-samples</artifactId>
-    <version>2.7.x.20240823-SNAPSHOT</version>
+    <version>3.3.x.20240823-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
