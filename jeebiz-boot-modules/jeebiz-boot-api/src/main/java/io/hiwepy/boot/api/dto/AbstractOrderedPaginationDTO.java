@@ -7,11 +7,13 @@ package io.hiwepy.boot.api.dto;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 @Accessors(chain = true)
 public abstract class AbstractOrderedPaginationDTO extends AbstractPaginationDTO {
 
