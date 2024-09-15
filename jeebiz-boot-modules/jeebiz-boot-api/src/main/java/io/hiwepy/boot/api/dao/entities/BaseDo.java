@@ -1,15 +1,16 @@
 package io.hiwepy.boot.api.dao.entities;
 
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.util.Date;
 
 @Data
 @Accessors(chain = true)
+@EqualsAndHashCode(callSuper=false)
 @SuppressWarnings("serial")
 public class BaseDo extends BaseBean {
 

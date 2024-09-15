@@ -4,7 +4,7 @@
  */
 package io.hiwepy.boot.autoconfigure.webflux;
 
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.reactive.error.ErrorAttributes;
@@ -19,9 +19,9 @@ import java.util.Map;
 
 public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler {
 
-    public GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, ResourceProperties resourceProperties,
+    public GlobalErrorWebExceptionHandler(ErrorAttributes errorAttributes, WebProperties.Resources resources,
                                           ApplicationContext applicationContext) {
-        super(errorAttributes, resourceProperties, applicationContext);
+        super(errorAttributes, resources, applicationContext);
     }
 
     // 构造函数
