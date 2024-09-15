@@ -37,7 +37,7 @@ class MapperGenerator {
 
         FastAutoGenerator.create(DATA_SOURCE_CONFIG)
                 // 全局配置
-                .globalConfig((scanner, builder) -> builder.author(AUTHOR).fileOverride()
+                .globalConfig((scanner, builder) -> builder.author(AUTHOR)
                         .outputDir(OUTPUT_DIR))
                 // 包配置
                 .packageConfig((scanner, builder) -> builder
