@@ -18,8 +18,8 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
 
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Objects;
 
@@ -37,7 +37,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<ApiRestResp
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
 
-        ParameterizedTypeImpl genericParameterType = (ParameterizedTypeImpl) returnType.getGenericParameterType();
+        ParameterizedType genericParameterType = (ParameterizedType) returnType.getGenericParameterType();
 
         // 如果直接是ApiRestResponse，则返回
         if (genericParameterType.getRawType() == ApiRestResponse.class && returnType.hasMethodAnnotation(ResponseEncrypt.class)) {
@@ -50,7 +50,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<ApiRestResp
 
         // 如果是 ResponseEntity<ApiRestResponse>
         for (Type type : genericParameterType.getActualTypeArguments()) {
-            if (((ParameterizedTypeImpl) type).getRawType() == ApiRestResponse.class && returnType.hasMethodAnnotation(ResponseEncrypt.class)) {
+            if (((ParameterizedType) type).getRawType() == ApiRestResponse.class && returnType.hasMethodAnnotation(ResponseEncrypt.class)) {
                 return true;
             }
         }
