@@ -5,7 +5,7 @@
         <groupId>io.hiwepy</groupId>
         <!-- 特别注意：真实的业务系统应继承 jeebiz-boot-parent  -->
         <artifactId>jeebiz-boot-samples</artifactId>
-        <version>3.3.0-SNAPSHOT</version>
+        <version>3.3.x.20240823-SNAPSHOT</version>
     </parent>
     <artifactId>jeebiz-boot-sample-hikaricp</artifactId>
 
@@ -107,7 +107,7 @@
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
         <dependency>
-            <groupId>net.sf.ehcache</groupId>
+            <groupId>org.ehcache</groupId>
             <artifactId>ehcache</artifactId>
         </dependency>
         <!-- For Log4j2 -->
@@ -159,8 +159,8 @@
         </dependency>
         <!-- JDBC Driver For MySQL -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
         <!-- JDBC Driver For Oracle -->
