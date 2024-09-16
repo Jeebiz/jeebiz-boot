@@ -1,9 +1,7 @@
 package io.hiwepy.boot.api.sequence;
 
 
-import cn.hutool.core.lang.Singleton;
 import cn.hutool.core.lang.Snowflake;
-import cn.hutool.core.util.IdUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetAddress;
