@@ -210,6 +210,7 @@
         <jodd.version>5.3.0</jodd.version>
         <jodd-bean.version>5.1.6</jodd-bean.version>
         <joda-time.version>2.12.2</joda-time.version>
+        <jooq.version>3.19.11</jooq.version>
         <jpush-client.version>3.4.7</jpush-client.version>
         <jruby.version>9.2.13.0</jruby.version>
         <jsch.version>0.1.55</jsch.version>
@@ -300,7 +301,8 @@
         <perf4j.version>0.9.16</perf4j.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <poi.version>4.1.2</poi.version>
-        <prometheus.version>0.10.0</prometheus.version>
+        <prometheus-client.version.version>1.3.1</prometheus-client.version.version>
+        <prometheus-sampleclient.version>0.16.0</prometheus-sampleclient.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
@@ -2996,6 +2998,13 @@
                 <version>${joda-time.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.jooq/jooq -->
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq</artifactId>
+                <version>${jooq.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/cn.jpush.api/jpush-client -->
             <dependency>
                 <groupId>cn.jpush.api</groupId>
@@ -4318,7 +4327,7 @@
             <dependency>
                 <groupId>io.prometheus</groupId>
                 <artifactId>sampleclient</artifactId>
-                <version>${prometheus.version}</version>
+                <version>${prometheus-sampleclient.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/io.seata/seata-metrics-exporter-prometheus -->
             <dependency>
@@ -6958,6 +6967,12 @@
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>${maven-jetty-plugin.version}</version>
+                </plugin>
+                <!-- https://mvnrepository.com/artifact/org.jooq/jooq-codegen-maven -->
+                <plugin>
+                    <groupId>org.jooq</groupId>
+                    <artifactId>jooq-codegen-maven</artifactId>
+                    <version>${jooq.version}</version>
                 </plugin>
                 <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/license-maven-plugin -->
                 <plugin>

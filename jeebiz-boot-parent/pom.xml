@@ -17,8 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.module>${project.artifactId}</project.module>
-        <java.version>1.8</java.version>
-        <maven.version>3.0</maven.version>
+        <java.version>17</java.version>
+        <maven.version>3.9.9</maven.version>
 
         <addClasspath>false</addClasspath>
         <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -146,6 +146,8 @@
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${maven-assembly-plugin.version}</version>
                     <configuration>
+                        <finalName>${project.artifactId}-fat</finalName>
+                        <appendAssemblyId>false</appendAssemblyId>
                         <!-- get all project dependencies -->
                         <descriptorRefs>
                             <descriptorRef>jar-with-dependencies</descriptorRef>
