@@ -277,8 +277,8 @@
         <netty-socketio.version>1.7.19</netty-socketio.version>
         <netty-tcnative.version>2.0.65.Final</netty-tcnative.version>
         <nimbus-jose-jwt.version>9.40</nimbus-jose-jwt.version>
-        <okhttp3.version>3.14.9</okhttp3.version>
-        <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
+        <okhttp.version>3.9.3</okhttp.version>
+        <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
         <oshi.version>6.6.1</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
@@ -535,12 +535,12 @@
         <spring-boot-starter-qqwry.version>2.7.x.20240823.RELEASE</spring-boot-starter-qqwry.version>
         <spring-boot-starter-redisson.version>${redisson.version}</spring-boot-starter-redisson.version>
         <spring-boot-starter-redisson-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-redisson-plus.version>
-        <spring-boot-starter-redistpl-plus.version>2.3.x.20240824.RELEASE</spring-boot-starter-redistpl-plus.version>
+        <spring-boot-starter-redistpl-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-redistpl-plus.version>
         <spring-boot-starter-rocketmq.version>2.2.3</spring-boot-starter-rocketmq.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
         <spring-boot-starter-security-biz.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-biz.version>
-        <spring-boot-starter-security-cas.version>2.3.x.20240824.RELEASE</spring-boot-starter-security-cas.version>
+        <spring-boot-starter-security-cas.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-cas.version>
         <spring-boot-starter-security-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-dingtalk.version>
         <spring-boot-starter-security-facebook.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-facebook.version>
         <spring-boot-starter-security-google.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-google.version>
@@ -3725,11 +3725,11 @@
                 <version>${netty-socketio.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp3-metrics-prometheus -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp-metrics-prometheus -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
-                <artifactId>okhttp3-metrics-prometheus</artifactId>
-                <version>${okhttp3-metrics.version}</version>
+                <artifactId>okhttp-metrics-prometheus</artifactId>
+                <version>${okhttp-metrics.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->

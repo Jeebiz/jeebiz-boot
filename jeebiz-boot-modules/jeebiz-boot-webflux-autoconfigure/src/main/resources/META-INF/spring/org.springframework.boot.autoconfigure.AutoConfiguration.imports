@@ -1,0 +1,2 @@
+io.hiwepy.boot.autoconfigure.DefaultMessageSourceAutoConfiguration
+io.hiwepy.boot.autoconfigure.DefaultSequenceConfiguration
