@@ -44,7 +44,7 @@
         <bcpg.version>${bcprov.version}</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
         <caffeine.version>2.9.3</caffeine.version>
-        <canal.version>1.1.6</canal.version>
+        <canal.version>1.1.7</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
         <camel.version>4.8.0</camel.version>
         <cglib.version>3.3.0</cglib.version>
@@ -131,8 +131,8 @@
         <easypoi.version>4.5.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
-        <fastjson.version>2.0.52</fastjson.version>
-        <fastjson2.version>2.0.52</fastjson2.version>
+        <fastjson.version>2.0.53</fastjson.version>
+        <fastjson2.version>2.0.53</fastjson2.version>
         <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>12.1</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
@@ -221,7 +221,7 @@
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
         <jxl.version>2.6.12</jxl.version>
-        <jwt-issuer.version>1.1.8.RELEASE</jwt-issuer.version>
+        <jwt-issuer.version>1.1.2.RELEASE</jwt-issuer.version>
         <kafka-clients.version>3.7.1</kafka-clients.version>
         <knife4j.version>3.0.3</knife4j.version>
         <kisso.version>3.9.1</kisso.version>
@@ -6477,6 +6477,12 @@
                 <groupId>com.github.liuzhuoming23</groupId>
                 <artifactId>pinyin4j-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-pinyin4j.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/playwright-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>playwright-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-playwright.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/qqwry-spring-boot-starter -->
             <dependency>
