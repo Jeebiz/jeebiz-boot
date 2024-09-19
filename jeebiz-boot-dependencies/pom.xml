@@ -34,8 +34,8 @@
         <axis2-jaxbri.version>1.7.9</axis2-jaxbri.version>
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
-        <beetl.version>3.17.0.RELEASE</beetl.version>
         <batik.version>1.17</batik.version>
+        <beetl.version>3.17.0.RELEASE</beetl.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>9.0.1</buji-pac4j.version>
         <bcprov.version>1.78.1</bcprov.version>
@@ -43,6 +43,7 @@
         <bcmail.version>${bcprov.version}</bcmail.version>
         <bcpg.version>${bcprov.version}</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
+        <byte-buddy.version>1.12.23</byte-buddy.version>
         <caffeine.version>3.1.8</caffeine.version>
         <canal.version>1.1.7</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
@@ -121,6 +122,7 @@
         <dozer-extra-converters.version>1.0.2.RELEASE</dozer-extra-converters.version>
         <druid.version>1.2.23</druid.version>
         <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
+        <dropwizard-metrics.version>4.2.22</dropwizard-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
         <disruptor.version>4.0.0</disruptor.version>
@@ -130,6 +132,7 @@
         <easyexcel.version>4.0.3</easyexcel.version>
         <easypoi.version>4.5.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
+        <expressly.version>6.0.0-M1</expressly.version>
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.53</fastjson.version>
         <fastjson2.version>2.0.53</fastjson2.version>
@@ -150,7 +153,8 @@
         <google-http-client.version>1.42.2</google-http-client.version>
         <google-cloud-translate.version>2.3.2</google-cloud-translate.version>
         <guava.version>33.2.1-jre</guava.version>
-        <grizzly.version>2.4.4</grizzly.version>
+        <guice.version>7.0.0</guice.version>
+        <grizzly.version>4.0.2</grizzly.version>
         <grpc.version>1.35.0</grpc.version>
         <gson.version>2.9.0</gson.version>
         <hazelcast.version>5.4.0</hazelcast.version>
@@ -158,8 +162,10 @@
         <hanlp.version>portable-1.8.4</hanlp.version>
         <hanlp-restful.version>0.0.15</hanlp-restful.version>
         <hbase.version>2.2.4</hbase.version>
-        <hikaricp.version>5.1.0</hikaricp.version>
+        <hibernate.version>6.6.1.Final</hibernate.version>
+        <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
+        <hikaricp.version>5.1.0</hikaricp.version>
         <h2.version>2.3.232</h2.version>
         <hsqldb.version>2.7.3</hsqldb.version>
         <htmlunit.version>2.70.0</htmlunit.version>
@@ -181,7 +187,7 @@
         <istio-client.version>1.6.14</istio-client.version>
         <jackson-bom.version>2.13.5</jackson-bom.version>
         <janino.version>3.1.6</janino.version>
-        <!-- <jackson-annotations.version>2.10.1</jackson-annotations.version> -->
+        <javalin.version>6.3.0</javalin.version>
         <javassist.version>3.30.2-GA</javassist.version>
         <javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
         <java-uuid-generator.version>4.0.1</java-uuid-generator.version>
@@ -197,8 +203,8 @@
         <jcifs.version>2.1.13</jcifs.version>
         <jetty.version>12.0.13</jetty.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
+        <jedis.version>5.1.5</jedis.version>
         <jep.version>2.4.2</jep.version>
-        <jedis.version>3.9.0</jedis.version>
         <jetcache.version>2.7.6</jetcache.version>
         <jjwt_0_7.version>0.7.0</jjwt_0_7.version>
         <jjwt.version>0.11.5</jjwt.version>
@@ -221,6 +227,8 @@
         <junrar.version>7.5.4</junrar.version>
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
+        <junit.version>5.11.0</junit.version>
+        <junit-jupiter.version>5.11.0</junit-jupiter.version>
         <jxl.version>2.6.12</jxl.version>
         <jwt-issuer.version>1.1.2.RELEASE</jwt-issuer.version>
         <kafka-clients.version>3.7.1</kafka-clients.version>
@@ -234,14 +242,16 @@
         <libphonenumber-geocoder.version>2.239</libphonenumber-geocoder.version>
         <liquibase.version>4.29.2</liquibase.version>
         <lock4j.version>2.2.0</lock4j.version>
-        <log4j2.version>2.23.1</log4j2.version>
-        <logback.version>1.5.6</logback.version>
+        <lombok.version>1.18.34</lombok.version>
+        <log4j2.version>2.24.0</log4j2.version>
+        <logback.version>1.5.8</logback.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <markdown.version>1.11.1</markdown.version>
         <mariadb.version>3.4.1</mariadb.version>
         <maven.version>3.6.3</maven.version>
         <metadata-extractor.version>2.19.0</metadata-extractor.version>
-        <mockito.version>5.4.0</mockito.version>
+        <micrometer.version>1.9.17</micrometer.version>
+        <mockito.version>5.13.0</mockito.version>
         <mongo-java-driver.version>3.12.14</mongo-java-driver.version>
         <mssql-jdbc.version>12.6.3.jre8</mssql-jdbc.version>
         <mybatis.version>3.5.16</mybatis.version>
@@ -270,8 +280,7 @@
         <mybatis-velocity.version>2.1.2</mybatis-velocity.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <mybatis-tk.version>5.0.0</mybatis-tk.version>
-        <mysql.version>8.0.33</mysql.version>
-        <mysql-j.version>8.3.0</mysql-j.version>
+        <mysql.version>9.0.0</mysql.version>
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.2.4</nacos-client.version>
         <neethi.version>3.2.0</neethi.version>
@@ -282,6 +291,7 @@
         <okhttp.version>4.9.3</okhttp.version>
         <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
+        <oracle-database.version>21.5.0.0</oracle-database.version>
         <oshi.version>6.6.1</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
@@ -300,9 +310,9 @@
         <perf4j.version>0.9.16</perf4j.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <poi.version>4.1.2</poi.version>
+	<prometheus.version>1.3.1</prometheus.version>
  	<prometheus-client.version.version>1.3.1</prometheus-client.version.version>
         <prometheus-sampleclient.version>0.16.0</prometheus-sampleclient.version>
-        <prometheus.version>0.10.0</prometheus.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
@@ -311,6 +321,7 @@
         <pf4j-spring.version>0.7.0</pf4j-spring.version>
         <png-encoder.version>1.5</png-encoder.version>
         <quartz.version>2.3.2</quartz.version>
+        <r2dbc-bom.version>Borca-SR2</r2dbc-bom.version>
         <r2dbc-h2.version>1.0.0.RELEASE</r2dbc-h2.version>
         <r2dbc-mariadb.version>1.2.2</r2dbc-mariadb.version>
         <r2dbc-mssql.version>1.0.2.RELEASE</r2dbc-mssql.version>
@@ -364,7 +375,7 @@
         <shiro-uaa.version>1.0.6</shiro-uaa.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
         <skywalking.version>8.14.0</skywalking.version>
-        <slf4j.version>1.7.36</slf4j.version>
+        <slf4j.version>2.0.16</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
         <!-- 1.33 版本已经是当前Spring Boot版本能兼容的最高版本 -->
         <snakeyaml.version>1.33</snakeyaml.version>
@@ -440,7 +451,7 @@
         <maven-alibaba-plugin.version>1.1.8</maven-alibaba-plugin.version>
         <maven-appassembler-plugin.version>2.1.0</maven-appassembler-plugin.version>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
-        <maven-asciidoctor-plugin.version>2.2.2</maven-asciidoctor-plugin.version>
+        <maven-asciidoctor-plugin.version>3.0.0</maven-asciidoctor-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <maven-clirr-plugin.version>2.8</maven-clirr-plugin.version>
         <maven-codenarc-plugin.version>0.22-1</maven-codenarc-plugin.version>
@@ -629,7 +640,26 @@
                 <artifactId>java-client</artifactId>
                 <version>${appium.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjtools</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/cn.wensiqun/asmsupport-core -->
             <dependency>
                 <groupId>cn.wensiqun</groupId>
@@ -873,15 +903,22 @@
                 <artifactId>je</artifactId>
                 <version>${berkeley-je.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>${byte-buddy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy-agent</artifactId>
+                <version>${byte-buddy.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/io.buji/buji-pac4j -->
             <dependency>
                 <groupId>io.buji</groupId>
                 <artifactId>buji-pac4j</artifactId>
                 <version>${buji-pac4j.version}</version>
             </dependency>
-
-
             <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-core -->
             <dependency>
                 <groupId>org.jasig.cas.client</groupId>
@@ -906,7 +943,26 @@
                 <artifactId>cas-client-support-distributed-ehcache</artifactId>
                 <version>${cas-client.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>guava</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>jcache</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>simulator</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.alibaba.otter/canal.client -->
             <dependency>
                 <groupId>com.alibaba.otter</groupId>
@@ -1888,7 +1944,12 @@
                 <artifactId>management-ehcache-v2</artifactId>
                 <version>${ehcache.version}</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/org.glassfish.expressly/expressly -->
+            <dependency>
+                <groupId>org.glassfish.expressly</groupId>
+                <artifactId>expressly</artifactId>
+                <version>${expressly.version}</version>
+            </dependency>
             <!-- http://mvnrepository.com/artifact/com.alibaba/fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -2164,6 +2225,13 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>${guice.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/com.google.j2objc/j2objc-annotations -->
             <dependency>
                 <groupId>com.google.j2objc</groupId>
@@ -2438,6 +2506,22 @@
                 <groupId>org.htmlunit</groupId>
                 <artifactId>htmlunit</artifactId>
                 <version>4.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator-annotation-processor</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
             </dependency>
 
             <!-- Hibernate4 SQLite3 Dialect -->
@@ -2732,6 +2816,14 @@
                 <version>${janino.version}</version>
             </dependency>
 
+
+            <!-- https://mvnrepository.com/artifact/io.javalin/javalin -->
+            <dependency>
+                <groupId>io.javalin</groupId>
+                <artifactId>javalin</artifactId>
+                <version>${javalin.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
             <dependency>
                 <groupId>org.javassist</groupId>
@@ -2921,6 +3013,13 @@
                 <version>${jcifs.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.scijava/jep -->
             <dependency>
                 <groupId>org.scijava</groupId>
@@ -2946,7 +3045,6 @@
                 <artifactId>jetcache-starter-redis-lettuce</artifactId>
                 <version>${jetcache.version}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -3002,6 +3100,18 @@
             <dependency>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq</artifactId>
+                <version>${jooq.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.jooq/jooq-codegen -->
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq-meta</artifactId>
+                <version>${jooq.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.jooq/jooq-codegen -->
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq-codegen</artifactId>
                 <version>${jooq.version}</version>
             </dependency>
 
@@ -3236,7 +3346,12 @@
                 <artifactId>kylin-jdbc</artifactId>
                 <version>${kylin-jdbc.version}</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-bom -->
             <!--<dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -3392,6 +3507,20 @@
                 <artifactId>log4j-web</artifactId>
                 <version>${log4j2.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
 
             <!-- https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber -->
             <dependency>
@@ -4323,6 +4452,21 @@
                 <version>1.4</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>prometheus-metrics-core</artifactId>
+                <version>${prometheus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>prometheus-metrics-instrumentation-jvm</artifactId>
+                <version>${prometheus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>prometheus-metrics-exporter-servlet-jakarta</artifactId>
+                <version>${prometheus.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/io.prometheus/sampleclient -->
             <dependency>
                 <groupId>io.prometheus</groupId>
