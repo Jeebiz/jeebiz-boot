@@ -3725,10 +3725,10 @@
                 <version>${netty-socketio.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp-metrics-prometheus -->
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/okhttp3-metrics-prometheus -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
-                <artifactId>okhttp-metrics-prometheus</artifactId>
+                <artifactId>okhttp3-metrics-prometheus</artifactId>
                 <version>${okhttp-metrics.version}</version>
             </dependency>
 
