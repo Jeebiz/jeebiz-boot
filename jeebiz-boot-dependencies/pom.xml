@@ -268,7 +268,7 @@
         <mybatis-freemarker.version>1.2.4</mybatis-freemarker.version>
         <mybatis-velocity.version>2.1.2</mybatis-velocity.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
-        <mybatis-tk.version>1.2.4</mybatis-tk.version>
+        <mybatis-tk.version>3.5.3</mybatis-tk.version>
         <mysql.version>9.0.0</mysql.version>
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.2.4</nacos-client.version>
@@ -6404,7 +6404,7 @@
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper</artifactId>
-                <version>3.5.3</version>
+                <version>${mybatis-tk.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-minio -->
             <dependency>
