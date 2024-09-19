@@ -270,7 +270,7 @@
         <mybatis-freemarker.version>1.2.4</mybatis-freemarker.version>
         <mybatis-velocity.version>2.1.2</mybatis-velocity.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
-        <mybatis-tk.version>1.2.4</mybatis-tk.version>
+        <mybatis-tk.version>5.0.0</mybatis-tk.version>
         <mysql.version>8.0.33</mysql.version>
         <mysql-j.version>8.3.0</mysql-j.version>
         <myth.version>2.0.2-RELEASE</myth.version>
@@ -568,12 +568,12 @@
         <spring-boot-starter-soapui.version>2.7.x.20240823.RELEASE</spring-boot-starter-soapui.version>
         <spring-boot-starter-socketio.version>2.7.x.20240823.RELEASE</spring-boot-starter-socketio.version>
         <spring-boot-starter-tencentapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-tencentapi.version>
-        <spring-boot-starter-validation-mimetypes.version>2.7.x.20240823.RELEASE</spring-boot-starter-validation-mimetypes.version>
+        <spring-boot-starter-validation-mimetypes.version>3.3.x.20240823.RELEASE</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-webflux-swagger2.version>2.7.x.20240823.RELEASE</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>2.7.x.20240823.RELEASE</spring-boot-starter-webmvc-swagger2.version>
-        <spring-boot-starter-xmemcached.version>2.7.x.20240823.RELEASE</spring-boot-starter-xmemcached.version>
-        <spring-boot-starter-xxljob.version>2.7.x.20240823.RELEASE</spring-boot-starter-xxljob.version>
-        <spring-boot-starter-zxing.version>2.7.x.20240823.RELEASE</spring-boot-starter-zxing.version>
+        <spring-boot-starter-xmemcached.version>3.3.x.20240823.RELEASE</spring-boot-starter-xmemcached.version>
+        <spring-boot-starter-xxljob.version>3.3.x.20240823.RELEASE</spring-boot-starter-xxljob.version>
+        <spring-boot-starter-zxing.version>3.3.x.20240823.RELEASE</spring-boot-starter-zxing.version>
 
     </properties>
 
@@ -6415,7 +6415,7 @@
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper</artifactId>
-                <version>3.5.3</version>
+                <version>${mybatis-tk.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/spring-boot-starter-minio -->
             <dependency>
