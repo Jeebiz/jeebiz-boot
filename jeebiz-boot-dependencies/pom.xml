@@ -127,9 +127,8 @@
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
         <dubbo.version>3.3.0</dubbo.version>
         <dynamic-tp.version>1.1.8.1-3.x</dynamic-tp.version>
-        <easyexcel.version>4.0.1</easyexcel.version>
+        <easyexcel.version>4.0.3</easyexcel.version>
         <easypoi.version>4.5.0</easypoi.version>
-
         <echarts.version>3.0.0.6</echarts.version>
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.53</fastjson.version>
@@ -280,8 +279,8 @@
         <netty-socketio.version>1.7.19</netty-socketio.version>
         <netty-tcnative.version>2.0.65.Final</netty-tcnative.version>
         <nimbus-jose-jwt.version>9.40</nimbus-jose-jwt.version>
-        <okhttp3.version>3.14.9</okhttp3.version>
-        <okhttp3-metrics.version>1.0.1.RELEASE</okhttp3-metrics.version>
+        <okhttp.version>4.9.3</okhttp.version>
+        <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
         <oshi.version>6.6.1</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
@@ -301,8 +300,9 @@
         <perf4j.version>0.9.16</perf4j.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <poi.version>4.1.2</poi.version>
-        <prometheus-client.version.version>1.3.1</prometheus-client.version.version>
+ 	<prometheus-client.version.version>1.3.1</prometheus-client.version.version>
         <prometheus-sampleclient.version>0.16.0</prometheus-sampleclient.version>
+        <prometheus.version>0.10.0</prometheus.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
@@ -314,7 +314,7 @@
         <r2dbc-h2.version>1.0.0.RELEASE</r2dbc-h2.version>
         <r2dbc-mariadb.version>1.2.2</r2dbc-mariadb.version>
         <r2dbc-mssql.version>1.0.2.RELEASE</r2dbc-mssql.version>
-        <r2dbc-mysql.version>1.1.3</r2dbc-mysql.version>
+        <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
         <r2dbc-proxy.version>1.1.5.RELEASE</r2dbc-proxy.version>
         <r2dbc-postgresql.version>1.0.5.RELEASE</r2dbc-postgresql.version>
         <r2dbc-oracle.version>1.2.0</r2dbc-oracle.version>
@@ -3661,7 +3661,7 @@
             <dependency>
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
-                <version>${mysql-j.version}</version>
+                <version>${mysql.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.dromara/myth-aliyunmq -->
@@ -3740,7 +3740,7 @@
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>okhttp3-metrics-prometheus</artifactId>
-                <version>${okhttp3-metrics.version}</version>
+                <version>${okhttp-metrics.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.aliyun.openservices/ons-client -->
