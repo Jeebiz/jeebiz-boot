@@ -285,7 +285,7 @@
         <persistence-api.version>1.0.2</persistence-api.version>
         <poi.version>5.2.3</poi.version>
         <prometheus.version>0.10.0</prometheus.version>
-        <protobuf.version>3.19.6</protobuf.version>
+        <protobuf.version>3.25.5</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
         <pf4j.version>3.6.0</pf4j.version>
