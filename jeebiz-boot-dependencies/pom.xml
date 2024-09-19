@@ -314,7 +314,7 @@
         <r2dbc-proxy.version>1.1.5.RELEASE</r2dbc-proxy.version>
         <r2dbc-postgresql.version>1.0.5.RELEASE</r2dbc-postgresql.version>
         <r2dbc-oracle.version>1.2.0</r2dbc-oracle.version>
-        <reactor-bom.version>Dysprosium-SR25</reactor-bom.version>
+        <reactor-bom.version>2020.0.47</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
         <redisson.version>3.17.4</redisson.version>
         <resilience4j.version>1.7.1</resilience4j.version>
