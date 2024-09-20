@@ -199,6 +199,7 @@
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <javax.validation-api.version>2.0.1.Final</javax.validation-api.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
+        <jbig2-imageio.version>3.0.4</jbig2-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
         <jcifs.version>2.1.13</jcifs.version>
         <jetty.version>12.0.13</jetty.version>
@@ -224,6 +225,7 @@
         <json.version>20240303</json.version>
         <json-path.version>2.9.0</json-path.version>
         <json-smart.version>2.5.1</json-smart.version>
+        <jtds.version>1.3.1</jtds.version>
         <junrar.version>7.5.4</junrar.version>
         <juniversalchardet.version>2.4.0</juniversalchardet.version>
         <just-auth.version>1.15.9</just-auth.version>
@@ -398,10 +400,6 @@
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <swagger-butler.version>1.2.0</swagger-butler.version>
         <swagger-codegen.version>2.4.19</swagger-codegen.version>
-        <swagger-generator.version>${swagger-codegen.version}</swagger-generator.version>
-        <swagger-parser.version>1.0.51</swagger-parser.version>
-        <swagger-inflector.version>2.0.5</swagger-inflector.version>
-        <swagger-validator.version>1.0.7</swagger-validator.version>
         <swagger2markup.version>1.3.3</swagger2markup.version>
         <swagger3.version>2.1.4</swagger3.version>
         <tablesaw.version>0.40.0</tablesaw.version>
@@ -1887,15 +1885,6 @@
                 <version>${disruptor-biz.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-bom -->
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-bom</artifactId>
-                <version>${dubbo.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <!-- https://mvnrepository.com/artifact/org.dromara.dynamictp/dynamic-tp-dependencies -->
             <dependency>
                 <groupId>org.dromara.dynamictp</groupId>
@@ -1942,7 +1931,7 @@
             <dependency>
                 <groupId>net.sf.ehcache</groupId>
                 <artifactId>management-ehcache-v2</artifactId>
-                <version>${ehcache.version}</version>
+                <version>${ehcache2.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.glassfish.expressly/expressly -->
             <dependency>
@@ -1961,72 +1950,6 @@
                 <groupId>com.alibaba.fastjson2</groupId>
                 <artifactId>fastjson2</artifactId>
                 <version>${fastjson2.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-core</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-jexcel</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-poi</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-beetl</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-freemarker</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-httl</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-jetbrick</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-jxls1</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-jxls2</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-rythm</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-thymeleaf</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-velocity</artifactId>
-                <version>${fastxls.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>fastxls-template-webit</artifactId>
-                <version>${fastxls.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-core -->
@@ -2821,6 +2744,24 @@
             <dependency>
                 <groupId>io.javalin</groupId>
                 <artifactId>javalin</artifactId>
+                <version>${javalin.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.javalin.community.openapi/javalin-openapi-plugin -->
+            <dependency>
+                <groupId>io.javalin.community.openapi</groupId>
+                <artifactId>javalin-openapi-plugin</artifactId>
+                <version>${javalin.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.javalin.community.openapi/javalin-swagger-plugin -->
+            <dependency>
+                <groupId>io.javalin.community.openapi</groupId>
+                <artifactId>javalin-swagger-plugin</artifactId>
+                <version>${javalin.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.javalin.community.openapi/javalin-redoc-plugin -->
+            <dependency>
+                <groupId>io.javalin.community.openapi</groupId>
+                <artifactId>javalin-redoc-plugin</artifactId>
                 <version>${javalin.version}</version>
             </dependency>
 
@@ -4134,41 +4075,18 @@
                 <version>${pinyin4j.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-h2 -->
             <dependency>
                 <groupId>io.r2dbc</groupId>
-                <artifactId>r2dbc-h2</artifactId>
-                <version>${r2dbc-h2.version}</version>
+                <artifactId>r2dbc-bom</artifactId>
+                <version>${r2dbc-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.mariadb/r2dbc-mariadb -->
             <dependency>
                 <groupId>org.mariadb</groupId>
                 <artifactId>r2dbc-mariadb</artifactId>
                 <version>${r2dbc-mariadb.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-mssql -->
-            <dependency>
-                <groupId>io.r2dbc</groupId>
-                <artifactId>r2dbc-mssql</artifactId>
-                <version>${r2dbc-mssql.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/dev.miku/r2dbc-mysql -->
-            <dependency>
-                <groupId>dev.miku</groupId>
-                <artifactId>r2dbc-mysql</artifactId>
-                <version>${r2dbc-mysql.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/io.r2dbc/r2dbc-proxy -->
-            <dependency>
-                <groupId>io.r2dbc</groupId>
-                <artifactId>r2dbc-proxy</artifactId>
-                <version>${r2dbc-proxy.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.postgresql/r2dbc-postgresql -->
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>r2dbc-postgresql</artifactId>
-                <version>${r2dbc-postgresql.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.oracle.database.r2dbc/oracle-r2dbc -->
             <dependency>
