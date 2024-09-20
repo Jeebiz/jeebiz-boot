@@ -448,7 +448,7 @@
         <zkclient.version>0.11</zkclient.version>
         <zookeeper.version>3.9.2</zookeeper.version>
         <zip4j.version>2.11.3</zip4j.version>
-        <zipkin2.version>2.21.7</zipkin2.version>
+        <zipkin2.version>3.4.1</zipkin2.version>
         <zxing.version>3.4.1</zxing.version>
 
         <!-- Maven Plugin versions -->
@@ -1608,19 +1608,19 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-bindings-http</artifactId>
-                <version>${cxf.version}</version>
+                <version>2.5.11</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-bindings-jbi -->
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-bindings-jbi</artifactId>
-                <version>${cxf.version}</version>
+                <version>2.4.10</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-bindings-object -->
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-bindings-object</artifactId>
-                <version>${cxf.version}</version>
+                <version>3.1.18</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-bindings-xml -->
             <dependency>
@@ -1645,19 +1645,19 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-databinding-jibx</artifactId>
-                <version>${cxf.version}</version>
+                <version>3.1.18</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-databinding-sdo -->
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-databinding-sdo</artifactId>
-                <version>${cxf.version}</version>
+                <version>3.1.18</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-databinding-xmlbeans -->
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-databinding-xmlbeans</artifactId>
-                <version>${cxf.version}</version>
+                <version>3.1.18</version>
             </dependency>
             <!-- cxf-rt-rs -->
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-client -->
@@ -1682,7 +1682,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
-                <version>${cxf.version}</version>
+                <version>3.6.4</version>
             </dependency>
             <!-- cxf-rt-rs-security -->
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-cors -->
@@ -1707,7 +1707,7 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-rs-security-oauth</artifactId>
-                <version>${cxf.version}</version>
+                <version>3.4.10</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-oauth2 -->
             <dependency>
@@ -1739,18 +1739,20 @@
             <dependency>
                 <groupId>com.ibm.db2</groupId>
                 <artifactId>db2jcc</artifactId>
-                <version>8.1</version>
+                <version>9.5</version>
             </dependency>
             <dependency>
                 <groupId>com.ibm</groupId>
                 <artifactId>db2jcc_dummy</artifactId>
                 <version>8.2.1</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.ibm.db2/jcc -->
             <dependency>
-                <groupId>com.ibm.db2.jcc</groupId>
-                <artifactId>db2jcc4</artifactId>
-                <version>10.1</version>
+                <groupId>com.ibm.db2</groupId>
+                <artifactId>jcc</artifactId>
+                <version>11.5.9.0</version>
             </dependency>
+
             <!-- IBM DB2 V9.5 JDBC Driver -->
             <!-- https://mvnrepository.com/artifact/cn.guoyukun.jdbc/db2jcc -->
             <dependency>
