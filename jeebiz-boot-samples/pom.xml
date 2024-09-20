@@ -6,7 +6,7 @@
         <groupId>io.hiwepy</groupId>
         <artifactId>jeebiz-boot-parent</artifactId>
         <version>3.3.x.20240823-SNAPSHOT</version>
-        <relativePath>../jeebiz-boot-parent</relativePath>
+        <relativePath/>
     </parent>
 
     <artifactId>jeebiz-boot-samples</artifactId>
@@ -25,11 +25,13 @@
         <module>jeebiz-boot-sample-druid</module>
         <module>jeebiz-boot-sample-druid-activemq</module>
         <module>jeebiz-boot-sample-druid-amqp</module>
+        <module>jeebiz-boot-sample-druid-kafka</module>
         <module>jeebiz-boot-sample-druid-rocketmq</module>
         <module>jeebiz-boot-sample-druid-war</module>
         <module>jeebiz-boot-sample-hikaricp</module>
         <module>jeebiz-boot-sample-hikaricp-activemq</module>
         <module>jeebiz-boot-sample-hikaricp-amqp</module>
+        <module>jeebiz-boot-sample-hikaricp-kafka</module>
         <module>jeebiz-boot-sample-hikaricp-rocketmq</module>
         <module>jeebiz-boot-sample-hikaricp-war</module>
         <module>jeebiz-boot-sample-openai</module>
