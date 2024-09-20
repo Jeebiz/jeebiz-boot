@@ -22,6 +22,8 @@
         <aliyun-sdk-oss.version>3.17.1</aliyun-sdk-oss.version>
         <aliyun-sdk-mts.version>3.3.58</aliyun-sdk-mts.version>
         <appium.version>9.3.0</appium.version>
+        <aspectj.version>1.9.7</aspectj.version>
+        <assertj.version>3.22.0</assertj.version>
         <asciidoctorj.version>3.0.0</asciidoctorj.version>
         <asciidoctorj.pdf.version>2.3.18</asciidoctorj.pdf.version>
         <asmsupport.version>0.4.3</asmsupport.version>
@@ -132,11 +134,11 @@
         <easyexcel.version>4.0.3</easyexcel.version>
         <easypoi.version>4.5.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
+        <ehcache2.version>2.10.9.2</ehcache2.version>
         <expressly.version>6.0.0-M1</expressly.version>
         <fastdfs.version>1.27.2</fastdfs.version>
         <fastjson.version>2.0.53</fastjson.version>
         <fastjson2.version>2.0.53</fastjson2.version>
-        <fastxls.version>1.0.0-SNAPSHOT</fastxls.version>
         <feign.version>13.3</feign.version>
         <feign-form.version>3.8.0</feign-form.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
@@ -204,6 +206,7 @@
         <jcifs.version>2.1.13</jcifs.version>
         <jetty.version>12.0.13</jetty.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
+        <jetty-version>${jetty.version}</jetty-version>
         <jedis.version>5.1.5</jedis.version>
         <jep.version>2.4.2</jep.version>
         <jetcache.version>2.7.6</jetcache.version>
@@ -5163,43 +5166,11 @@
                 <version>${swagger.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/io.swagger/swagger-codegen -->
+            <!-- https://mvnrepository.com/artifact/io.github.swagger2markup/swagger2markup -->
             <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-codegen</artifactId>
-                <version>${swagger-codegen.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/io.swagger/swagger-codegen-cli -->
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-codegen-cli</artifactId>
-                <version>${swagger-codegen.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/io.swagger/swagger-generator -->
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-generator</artifactId>
-                <version>${swagger-generator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-parser</artifactId>
-                <version>${swagger-parser.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-compat-spec-parser</artifactId>
-                <version>${swagger-parser.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-inflector</artifactId>
-                <version>${swagger-inflector.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-validator</artifactId>
-                <version>${swagger-validator.version}</version>
+                <groupId>io.github.swagger2markup</groupId>
+                <artifactId>swagger2markup</artifactId>
+                <version>${swagger2markup.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.swagger.core.v3 -->
@@ -5232,13 +5203,6 @@
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
                 <version>${swagger3.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/io.github.swagger2markup/swagger2markup -->
-            <dependency>
-                <groupId>io.github.swagger2markup</groupId>
-                <artifactId>swagger2markup</artifactId>
-                <version>${swagger2markup.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.github.xiaoymin/swagger-bootstrap-ui -->
