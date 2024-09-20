@@ -21,6 +21,8 @@
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
         <aliyun-sdk-oss.version>3.17.1</aliyun-sdk-oss.version>
         <aliyun-sdk-mts.version>3.3.58</aliyun-sdk-mts.version>
+        <antlr-st4.version>4.3.4</antlr-st4.version>
+        <antlr-runtime.version>3.5.3</antlr-runtime.version>
         <appium.version>9.3.0</appium.version>
         <aspectj.version>1.9.7</aspectj.version>
         <assertj.version>3.22.0</assertj.version>
@@ -293,6 +295,7 @@
         <netty-socketio.version>1.7.19</netty-socketio.version>
         <netty-tcnative.version>2.0.65.Final</netty-tcnative.version>
         <nimbus-jose-jwt.version>9.40</nimbus-jose-jwt.version>
+        <opentracing.version>0.33.0</opentracing.version>
         <okhttp.version>4.9.3</okhttp.version>
         <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
@@ -315,8 +318,8 @@
         <perf4j.version>0.9.16</perf4j.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <poi.version>4.1.2</poi.version>
-	<prometheus.version>1.3.1</prometheus.version>
- 	<prometheus-client.version.version>1.3.1</prometheus-client.version.version>
+        <prometheus.version>1.3.1</prometheus.version>
+        <prometheus-client.version.version>1.3.1</prometheus-client.version.version>
         <prometheus-sampleclient.version>0.16.0</prometheus-sampleclient.version>
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
@@ -394,7 +397,6 @@
         <spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
         <spring-initializr.version>0.10.1</spring-initializr.version>
         <sqlite-jdbc.version>3.36.0.3</sqlite-jdbc.version>
-        <st4.version>4.3.4</st4.version>
         <sshd.version>2.7.0</sshd.version>
         <sshd-sftp.version>${sshd.version}</sshd-sftp.version>
         <sshd-pam.version>0.11.0</sshd-pam.version>
@@ -633,6 +635,18 @@
                 <groupId>com.aliyun</groupId>
                 <artifactId>aliyun-java-sdk-mts</artifactId>
                 <version>${aliyun-sdk-mts.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.antlr/ST4 -->
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>ST4</artifactId>
+                <version>${antlr-st4.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr-runtime</artifactId>
+                <version>${antlr-runtime.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
@@ -3482,7 +3496,7 @@
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
                 <artifactId>libphonenumber-prefixmapper</artifactId>
-                <version>${libphonenumber-libphonenumber-prefixmapper.version}</version>
+                <version>${libphonenumber-prefixmapper.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.googlecode.libphonenumber/geocoder -->
             <dependency>
@@ -5053,13 +5067,6 @@
                 <version>${spring-initializr.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.antlr/ST4 -->
-            <dependency>
-                <groupId>org.antlr</groupId>
-                <artifactId>ST4</artifactId>
-                <version>${st4.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.apache.sshd/sshd-core -->
