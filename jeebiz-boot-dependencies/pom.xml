@@ -122,7 +122,7 @@
         <dom4j2.version>2.1.4</dom4j2.version>
         <dozer.version>5.5.1</dozer.version>
         <dozer-core.version>7.0.0</dozer-core.version>
-        <dozer-proto3.version>${dozer-core.version}</dozer-proto3.version>
+        <dozer-proto3.version>6.5.2</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
         <dozer-extra-converters.version>1.0.2.RELEASE</dozer-extra-converters.version>
         <druid.version>1.2.23</druid.version>
@@ -174,8 +174,8 @@
         <h2.version>2.3.232</h2.version>
         <hsqldb.version>2.7.3</hsqldb.version>
         <htmlunit.version>2.70.0</htmlunit.version>
-        <httpasyncclient.version>4.1.4</httpasyncclient.version>
-        <httpclient.version>4.5.13</httpclient.version>
+        <httpasyncclient.version>4.1.5</httpasyncclient.version>
+        <httpclient.version>4.5.14</httpclient.version>
         <httpcore.version>4.4.14</httpcore.version>
         <httpconn.version>1.0.1.RELEASE</httpconn.version>
         <httputils.version>1.0.0.RELEASE</httputils.version>
@@ -251,7 +251,7 @@
         <liquibase.version>4.29.2</liquibase.version>
         <lock4j.version>2.2.0</lock4j.version>
         <lombok.version>1.18.34</lombok.version>
-        <log4j2.version>2.24.0</log4j2.version>
+        <log4j2.version>2.23.1</log4j2.version>
         <logback.version>1.5.8</logback.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <markdown.version>1.11.1</markdown.version>
@@ -2033,37 +2033,6 @@
                 <version>2.0.235-1</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.fusioncharts</groupId>
-                <artifactId>fusioncharts-free</artifactId>
-                <version>2.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fusioncharts</groupId>
-                <artifactId>fcexporter</artifactId>
-                <version>1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fusioncharts</groupId>
-                <artifactId>fcexporthandler</artifactId>
-                <version>1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fusioncharts</groupId>
-                <artifactId>fchelper</artifactId>
-                <version>1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fusioncharts</groupId>
-                <artifactId>fcsampleshelper</artifactId>
-                <version>1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fusioncharts</groupId>
-                <artifactId>fctl</artifactId>
-                <version>1.2</version>
-            </dependency>
-
             <!-- https://mvnrepository.com/artifact/net.formio/formio -->
             <dependency>
                 <groupId>net.formio</groupId>
@@ -2309,7 +2278,7 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcomponents-asyncclient</artifactId>
-                <version>${httpclient.version}</version>
+                <version>${httpasyncclient.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
