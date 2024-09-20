@@ -39,6 +39,7 @@
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
         <batik.version>1.17</batik.version>
+        <batik-js.version>1.8</batik-js.version>
         <beetl.version>3.17.0.RELEASE</beetl.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
         <buji-pac4j.version>9.0.1</buji-pac4j.version>
@@ -808,7 +809,7 @@
             <dependency>
                 <groupId>org.apache.xmlgraphics</groupId>
                 <artifactId>batik-js</artifactId>
-                <version>${batik.version}</version>
+                <version>${batik-js.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.xmlgraphics</groupId>
