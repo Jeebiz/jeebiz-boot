@@ -3495,7 +3495,7 @@
             <!-- https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber-prefixmapper -->
             <dependency>
                 <groupId>com.googlecode.libphonenumber</groupId>
-                <artifactId>libphonenumber-prefixmapper</artifactId>
+                <artifactId>prefixmapper</artifactId>
                 <version>${libphonenumber-prefixmapper.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.googlecode.libphonenumber/geocoder -->
