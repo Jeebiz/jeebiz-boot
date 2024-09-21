@@ -223,6 +223,7 @@
         <jodd-bean.version>5.1.6</jodd-bean.version>
         <joda-time.version>2.12.2</joda-time.version>
         <jooq.version>3.19.11</jooq.version>
+        <jooq-plus.version>0.3.2</jooq-plus.version>
         <jpush-client.version>3.4.7</jpush-client.version>
         <jruby.version>9.2.13.0</jruby.version>
         <jsch.version>0.1.55</jsch.version>
@@ -3045,7 +3046,12 @@
                 <artifactId>jooq-codegen</artifactId>
                 <version>${jooq.version}</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/xyz.raylab/jooq-plus -->
+            <dependency>
+                <groupId>xyz.raylab</groupId>
+                <artifactId>jooq-plus</artifactId>
+                <version>${jooq-plus.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/cn.jpush.api/jpush-client -->
             <dependency>
                 <groupId>cn.jpush.api</groupId>
