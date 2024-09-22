@@ -92,7 +92,7 @@
         <commons-jxpath.version>1.3</commons-jxpath.version>
         <commons-lang.version>2.6</commons-lang.version>
         <commons-lang3.version>3.14.0</commons-lang3.version>
-        <commons-logging.version>1.3.3</commons-logging.version>
+        <commons-logging.version>1.3.4</commons-logging.version>
         <commons-math.version>2.2</commons-math.version>
         <commons-math3.version>3.6.1</commons-math3.version>
         <commons-math4.version>4.0-beta1</commons-math4.version>
@@ -210,7 +210,7 @@
         <jetty.version>12.0.13</jetty.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
         <jetty-version>${jetty.version}</jetty-version>
-        <jedis.version>5.1.5</jedis.version>
+        <jedis.version>3.9.0</jedis.version>
         <jep.version>2.4.2</jep.version>
         <jetcache.version>2.7.6</jetcache.version>
         <jjwt_0_7.version>0.7.0</jjwt_0_7.version>
@@ -289,7 +289,7 @@
         <mybatis-velocity.version>2.1.2</mybatis-velocity.version>
         <mybatis-generator.version>1.4.2</mybatis-generator.version>
         <mybatis-tk.version>5.0.0</mybatis-tk.version>
-        <mysql.version>9.0.0</mysql.version>
+        <mysql.version>8.4.0</mysql.version>
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.2.4</nacos-client.version>
         <neethi.version>3.2.0</neethi.version>
@@ -301,7 +301,7 @@
         <okhttp.version>4.9.3</okhttp.version>
         <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
-        <oracle-database.version>21.5.0.0</oracle-database.version>
+        <oracle-database.version>21.15.0.0</oracle-database.version>
         <oshi.version>6.6.1</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
@@ -337,7 +337,8 @@
         <r2dbc-mssql.version>1.0.2.RELEASE</r2dbc-mssql.version>
         <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
         <r2dbc-proxy.version>1.1.5.RELEASE</r2dbc-proxy.version>
-        <r2dbc-postgresql.version>1.0.5.RELEASE</r2dbc-postgresql.version>
+        <r2dbc-postgresql.version>0.8.13.RELEASE</r2dbc-postgresql.version>
+        <r2dbc-org-postgresql.version>1.0.5.RELEASE</r2dbc-org-postgresql.version>
         <r2dbc-oracle.version>1.2.0</r2dbc-oracle.version>
         <reactor-bom.version>2023.0.10</reactor-bom.version>
         <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
@@ -582,9 +583,9 @@
         <spring-boot-starter-sigar.version>2.7.x.20240823.RELEASE</spring-boot-starter-sigar.version>
         <spring-boot-starter-simplecaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-simplecaptcha.version>
         <spring-boot-starter-smartcaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-smartcaptcha.version>
-        <spring-boot-starter-soapui.version>2.7.x.20240823.RELEASE</spring-boot-starter-soapui.version>
-        <spring-boot-starter-socketio.version>2.7.x.20240823.RELEASE</spring-boot-starter-socketio.version>
-        <spring-boot-starter-tencentapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-tencentapi.version>
+        <spring-boot-starter-soapui.version>3.3.x.20240823.RELEASE</spring-boot-starter-soapui.version>
+        <spring-boot-starter-socketio.version>3.3.x.20240823.RELEASE</spring-boot-starter-socketio.version>
+        <spring-boot-starter-tencentapi.version>3.3.x.20240823.RELEASE</spring-boot-starter-tencentapi.version>
         <spring-boot-starter-validation-mimetypes.version>3.3.x.20240823.RELEASE</spring-boot-starter-validation-mimetypes.version>
         <spring-boot-starter-webflux-swagger2.version>2.7.x.20240823.RELEASE</spring-boot-starter-webflux-swagger2.version>
         <spring-boot-starter-webmvc-swagger2.version>2.7.x.20240823.RELEASE</spring-boot-starter-webmvc-swagger2.version>
@@ -3283,12 +3284,7 @@
                 <artifactId>kylin-jdbc</artifactId>
                 <version>${kylin-jdbc.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-bom -->
             <!--<dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -4090,6 +4086,12 @@
                 <artifactId>oracle-r2dbc</artifactId>
                 <version>${r2dbc-oracle.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.postgresql/r2dbc-postgresql -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>r2dbc-postgresql</artifactId>
+                <version>${r2dbc-org-postgresql.version}</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-bom -->
             <dependency>
@@ -4365,7 +4367,7 @@
                 <artifactId>ooxml-schemas</artifactId>
                 <version>1.4</version>
             </dependency>
-
+            <!-- https://mvnrepository.com/artifact/io.prometheus/prometheus-metrics-core -->
             <dependency>
                 <groupId>io.prometheus</groupId>
                 <artifactId>prometheus-metrics-core</artifactId>
@@ -6663,6 +6665,12 @@
                 <artifactId>security-weixin-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-security-weixin.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shanyan-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>shanyan-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-shanyan.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/shardingsphere-jdbc-core-spring-boot-starter -->
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
@@ -6741,24 +6749,6 @@
                 <artifactId>shiro-weixin-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-shiro-weixin.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/soapui-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>soapui-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-soapui.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/socketio-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>socketio-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-socketio.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shanyan-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shanyan-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shanyan.version}</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/sigar-spring-boot-starter -->
             <dependency>
                 <groupId>com.github.hiwepy</groupId>
@@ -6776,6 +6766,18 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>smartcaptcha-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-smartcaptcha.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/soapui-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>soapui-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-soapui.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/socketio-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.hiwepy</groupId>
+                <artifactId>socketio-spring-boot-starter</artifactId>
+                <version>${spring-boot-starter-socketio.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/tencentapi-spring-boot-starter -->
             <dependency>
