@@ -2,7 +2,7 @@ package io.hiwepy.boot.plugin.api.point.authc;
 
 import org.pf4j.PluginRuntimeException;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 public class AuthcExtensionPointAdepter implements AuthcExtensionPoint {
