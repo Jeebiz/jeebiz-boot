@@ -1,6 +1,6 @@
 package io.hiwepy.boot.api.utils;
 
-import javax.servlet.http.Cookie;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Optional;
