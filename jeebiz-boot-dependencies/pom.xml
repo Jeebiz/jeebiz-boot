@@ -24,8 +24,8 @@
         <antlr-st4.version>4.3.4</antlr-st4.version>
         <antlr-runtime.version>3.5.3</antlr-runtime.version>
         <appium.version>9.3.0</appium.version>
-        <aspectj.version>1.9.7</aspectj.version>
-        <assertj.version>3.22.0</assertj.version>
+        <aspectj.version>1.9.22.1</aspectj.version>
+        <assertj.version>3.26.3</assertj.version>
         <asciidoctorj.version>3.0.0</asciidoctorj.version>
         <asciidoctorj.pdf.version>2.3.18</asciidoctorj.pdf.version>
         <asmsupport.version>0.4.3</asmsupport.version>
@@ -303,7 +303,7 @@
         <okhttp.version>4.9.3</okhttp.version>
         <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
-        <oracle-database.version>23.5.0.24.07</oracle-database.version>
+        <oracle-database.version>21.15.0.0</oracle-database.version>
         <oshi.version>6.6.4</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
@@ -337,10 +337,9 @@
         <r2dbc-h2.version>1.0.0.RELEASE</r2dbc-h2.version>
         <r2dbc-mariadb.version>1.2.2</r2dbc-mariadb.version>
         <r2dbc-mssql.version>1.0.2.RELEASE</r2dbc-mssql.version>
-        <r2dbc-mysql.version>0.8.2.RELEASE</r2dbc-mysql.version>
+        <r2dbc-mysql.version>1.3.0</r2dbc-mysql.version>
         <r2dbc-proxy.version>1.1.5.RELEASE</r2dbc-proxy.version>
-        <r2dbc-postgresql.version>0.8.13.RELEASE</r2dbc-postgresql.version>
-        <r2dbc-org-postgresql.version>1.0.5.RELEASE</r2dbc-org-postgresql.version>
+        <r2dbc-postgresql.version>1.0.5.RELEASE</r2dbc-postgresql.version>
         <r2dbc-oracle.version>1.2.0</r2dbc-oracle.version>
         <reactor-bom.version>2023.0.10</reactor-bom.version>
         <rabbit-amqp-client.version>5.22.0</rabbit-amqp-client.version>
@@ -4079,23 +4078,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.mariadb/r2dbc-mariadb -->
-            <dependency>
-                <groupId>org.mariadb</groupId>
-                <artifactId>r2dbc-mariadb</artifactId>
-                <version>${r2dbc-mariadb.version}</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/com.oracle.database.r2dbc/oracle-r2dbc -->
             <dependency>
                 <groupId>com.oracle.database.r2dbc</groupId>
                 <artifactId>oracle-r2dbc</artifactId>
                 <version>${r2dbc-oracle.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.postgresql/r2dbc-postgresql -->
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>r2dbc-postgresql</artifactId>
-                <version>${r2dbc-org-postgresql.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-bom -->
