@@ -19,8 +19,8 @@
         <alipay-sdk.version>4.38.221.ALL</alipay-sdk.version>
         <alipay-easysdk.version>2.2.3</alipay-easysdk.version>
         <aliyun-java-sdk-core.version>4.6.3</aliyun-java-sdk-core.version>
-        <aliyun-sdk-oss.version>3.17.1</aliyun-sdk-oss.version>
-        <aliyun-sdk-mts.version>3.3.58</aliyun-sdk-mts.version>
+        <aliyun-sdk-oss.version>3.18.1</aliyun-sdk-oss.version>
+        <aliyun-sdk-mts.version>3.3.63</aliyun-sdk-mts.version>
         <antlr-st4.version>4.3.4</antlr-st4.version>
         <antlr-runtime.version>3.5.3</antlr-runtime.version>
         <appium.version>9.3.0</appium.version>
@@ -48,7 +48,7 @@
         <bcmail.version>${bcprov.version}</bcmail.version>
         <bcpg.version>${bcprov.version}</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
-        <byte-buddy.version>1.12.23</byte-buddy.version>
+        <byte-buddy.version>1.15.1</byte-buddy.version>
         <caffeine.version>3.1.8</caffeine.version>
         <canal.version>1.1.7</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
@@ -62,14 +62,14 @@
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <commons-betwixt.version>0.8</commons-betwixt.version>
         <commons-chain.version>1.2</commons-chain.version>
-        <commons-cli.version>1.8.0</commons-cli.version>
+        <commons-cli.version>1.9.0</commons-cli.version>
         <commons-codec.version>1.17.1</commons-codec.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-collections4.version>4.5.0-M2</commons-collections4.version>
         <commons-compiler.version>3.1.2</commons-compiler.version>
-        <commons-compress.version>1.26.2</commons-compress.version>
+        <commons-compress.version>1.27.1</commons-compress.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-configuration2.version>2.10.1</commons-configuration2.version>
+        <commons-configuration2.version>2.11.0</commons-configuration2.version>
         <commons-crypto.version>1.2.0</commons-crypto.version>
         <commons-csv.version>1.11.0</commons-csv.version>
         <commons-daemon.version>1.4.0</commons-daemon.version>
@@ -80,18 +80,19 @@
         <commons-digester3.version>3.2</commons-digester3.version>
         <commons-discovery.version>0.5</commons-discovery.version>
         <commons-email.version>1.6.0</commons-email.version>
+        <commons-email2.version>2.0.0-M1</commons-email2.version>
         <commons-exec.version>1.4.0</commons-exec.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
-        <commons-fileupload2-jakarta.version>2.0.0-M1</commons-fileupload2-jakarta.version>
+        <commons-fileupload2.version>2.0.0-M1</commons-fileupload2.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-imaging.version>1.0.0-alpha5</commons-imaging.version>
-        <commons-io.version>2.16.1</commons-io.version>
+        <commons-io.version>2.17.0</commons-io.version>
         <commons-jci.version>1.1</commons-jci.version>
         <commons-jexl.version>2.1.1</commons-jexl.version>
         <commons-jexl3.version>3.4.0</commons-jexl3.version>
         <commons-jxpath.version>1.3</commons-jxpath.version>
         <commons-lang.version>2.6</commons-lang.version>
-        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
         <commons-logging.version>1.3.4</commons-logging.version>
         <commons-math.version>2.2</commons-math.version>
         <commons-math3.version>3.6.1</commons-math3.version>
@@ -118,7 +119,7 @@
         <derby-locale.version>${derby.version}</derby-locale.version>
         <docx4j-template.version>1.0.1.RELEASE</docx4j-template.version>
         <docker-client.version>8.16.0</docker-client.version>
-        <docker-java.version>3.2.1</docker-java.version>
+        <docker-java.version>3.4.0</docker-java.version>
         <dom4j2.version>2.1.4</dom4j2.version>
         <dozer.version>5.5.1</dozer.version>
         <dozer-core.version>7.0.0</dozer-core.version>
@@ -166,14 +167,14 @@
         <hadoop.version>3.4.0</hadoop.version>
         <hanlp.version>portable-1.8.4</hanlp.version>
         <hanlp-restful.version>0.0.15</hanlp-restful.version>
-        <hbase.version>2.2.4</hbase.version>
+        <hbase.version>2.6.0</hbase.version>
         <hibernate.version>6.6.1.Final</hibernate.version>
         <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
         <hikaricp.version>5.1.0</hikaricp.version>
         <h2.version>2.3.232</h2.version>
         <hsqldb.version>2.7.3</hsqldb.version>
-        <htmlunit.version>2.70.0</htmlunit.version>
+        <htmlunit.version>4.4.0</htmlunit.version>
         <httpasyncclient.version>4.1.5</httpasyncclient.version>
         <httpclient.version>4.5.14</httpclient.version>
         <httpcore.version>4.4.14</httpcore.version>
@@ -181,74 +182,75 @@
         <httputils.version>1.0.0.RELEASE</httputils.version>
         <htmlparser.version>2.1</htmlparser.version>
         <hitool.version>1.0.2.RELEASE</hitool.version>
-        <hive.version>3.1.2</hive.version>
-        <hutool.version>5.8.29</hutool.version>
+        <hive.version>4.0.0</hive.version>
+        <hutool.version>5.8.32</hutool.version>
         <hystrix.version>1.5.18</hystrix.version>
         <ImpalaJDBC41.version>2.6.3</ImpalaJDBC41.version>
         <i4jruntime.version>5.0.6</i4jruntime.version>
-        <icu4j.version>68.2</icu4j.version>
-        <imageio.version>3.8.2</imageio.version>
-        <influxdb-java.version>2.21</influxdb-java.version>
-        <istio-client.version>1.6.14</istio-client.version>
-        <jackson-bom.version>2.13.5</jackson-bom.version>
-        <janino.version>3.1.6</janino.version>
+        <icu4j.version>75.1</icu4j.version>
+        <imageio.version>3.11.0</imageio.version>
+        <influxdb-java.version>2.24</influxdb-java.version>
+        <influxdb-client-java.version>7.2.0</influxdb-client-java.version>
+        <istio-client.version>1.7.7.1</istio-client.version>
+        <jackson-bom.version>2.17.2</jackson-bom.version>
+        <janino.version>3.1.12</janino.version>
         <javalin.version>6.3.0</javalin.version>
         <javassist.version>3.30.2-GA</javassist.version>
         <javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
         <java-uuid-generator.version>4.0.1</java-uuid-generator.version>
         <java-unrar.version>1.7.0-8</java-unrar.version>
-        <java-jwt.version>3.8.1</java-jwt.version>
-        <javamelody.version>1.91.0</javamelody.version>
-        <jave.version>3.3.1</jave.version>
-        <javers.version>6.14.0</javers.version>
+        <java-jwt.version>4.4.0</java-jwt.version>
+        <javamelody.version>2.2.0</javamelody.version>
+        <jave.version>3.5.0</jave.version>
+        <javers.version>7.6.2</javers.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <javax.validation-api.version>2.0.1.Final</javax.validation-api.version>
         <jai-imageio.version>1.4.0</jai-imageio.version>
         <jbig2-imageio.version>3.0.4</jbig2-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
-        <jcifs.version>2.1.13</jcifs.version>
+        <jcifs.version>2.1.38</jcifs.version>
         <jetty.version>12.0.13</jetty.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
         <jetty-version>${jetty.version}</jetty-version>
-        <jedis.version>3.9.0</jedis.version>
+        <jedis.version>5.1.5</jedis.version>
         <jep.version>2.4.2</jep.version>
-        <jetcache.version>2.7.6</jetcache.version>
+        <jetcache.version>2.7.7</jetcache.version>
         <jjwt_0_7.version>0.7.0</jjwt_0_7.version>
-        <jjwt.version>0.11.5</jjwt.version>
-        <jakarta-websocket.version>2.0.0</jakarta-websocket.version>
+        <jjwt.version>0.12.6</jjwt.version>
+        <jakarta-websocket.version>2.2.0</jakarta-websocket.version>
         <jgoodies.version>2.7.0</jgoodies.version>
-        <jgroups.version>5.1.6.Final</jgroups.version>
-        <jgit.version>5.10.0.202012080955-r</jgit.version>
+        <jgroups.version>5.3.11.Final</jgroups.version>
+        <jgit.version>7.0.0.202409031743-r</jgit.version>
         <jodd.version>5.3.0</jodd.version>
         <jodd-bean.version>5.1.6</jodd-bean.version>
         <joda-time.version>2.12.2</joda-time.version>
         <jooq.version>3.19.11</jooq.version>
         <jooq-plus.version>0.3.2</jooq-plus.version>
-        <jpush-client.version>3.4.7</jpush-client.version>
-        <jruby.version>9.2.13.0</jruby.version>
-        <jsch.version>0.1.55</jsch.version>
-        <jsqlparser.version>4.9</jsqlparser.version>
+        <jpush-client.version>3.7.7</jpush-client.version>
+        <jruby.version>9.4.8.0</jruby.version>
+        <jsch.version>0.2.20</jsch.version>
+        <jsqlparser.version>5.0</jsqlparser.version>
         <jsoup.version>1.18.1</jsoup.version>
         <json.version>20240303</json.version>
         <json-path.version>2.9.0</json-path.version>
         <json-smart.version>2.5.1</json-smart.version>
         <jtds.version>1.3.1</jtds.version>
-        <junrar.version>7.5.4</junrar.version>
-        <juniversalchardet.version>2.4.0</juniversalchardet.version>
-        <just-auth.version>1.15.9</just-auth.version>
-        <junit.version>5.11.0</junit.version>
+        <junrar.version>7.5.5</junrar.version>
+        <juniversalchardet.version>2.5.0</juniversalchardet.version>
+        <just-auth.version>1.16.6</just-auth.version>
+        <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>5.11.0</junit-jupiter.version>
         <jxl.version>2.6.12</jxl.version>
         <jwt-issuer.version>1.1.3.RELEASE</jwt-issuer.version>
-        <kafka-clients.version>3.7.1</kafka-clients.version>
+        <kafka.version>3.8.0</kafka.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <kisso.version>3.9.1</kisso.version>
-        <kubernetes-client.version>6.13.1</kubernetes-client.version>
+        <kisso.version>3.9.3</kisso.version>
+        <kubernetes-client.version>6.13.3</kubernetes-client.version>
         <kylin-jdbc.version>4.0.4</kylin-jdbc.version>
-        <libphonenumber.version>8.13.45</libphonenumber.version>
-        <libphonenumber-carrier.version>1.229</libphonenumber-carrier.version>
-        <libphonenumber-prefixmapper.version>2.239</libphonenumber-prefixmapper.version>
-        <libphonenumber-geocoder.version>2.239</libphonenumber-geocoder.version>
+        <libphonenumber.version>8.13.46</libphonenumber.version>
+        <libphonenumber-carrier.version>1.230</libphonenumber-carrier.version>
+        <libphonenumber-prefixmapper.version>2.240</libphonenumber-prefixmapper.version>
+        <libphonenumber-geocoder.version>2.240</libphonenumber-geocoder.version>
         <liquibase.version>4.29.2</liquibase.version>
         <lock4j.version>2.2.0</lock4j.version>
         <lombok.version>1.18.34</lombok.version>
@@ -259,7 +261,7 @@
         <mariadb.version>3.4.1</mariadb.version>
         <maven.version>3.6.3</maven.version>
         <metadata-extractor.version>2.19.0</metadata-extractor.version>
-        <micrometer.version>1.9.17</micrometer.version>
+        <micrometer.version>1.13.4</micrometer.version>
         <mockito.version>5.13.0</mockito.version>
         <mongo-java-driver.version>3.12.14</mongo-java-driver.version>
         <mssql-jdbc.version>12.6.3.jre8</mssql-jdbc.version>
@@ -267,7 +269,7 @@
         <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
         <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
-        <mybatis-plus.version>3.5.7</mybatis-plus.version>
+        <mybatis-plus.version>3.5.8</mybatis-plus.version>
         <mybatis-plus-generator.version>${mybatis-plus.version}</mybatis-plus-generator.version>
         <mybatis-plus-join.version>1.4.13</mybatis-plus-join.version>
         <mybatis-plus-ext.version>1.7.4-RELEASE</mybatis-plus-ext.version>
@@ -293,23 +295,23 @@
         <myth.version>2.0.2-RELEASE</myth.version>
         <nacos-client.version>2.2.4</nacos-client.version>
         <neethi.version>3.2.0</neethi.version>
-        <netty.version>4.1.111.Final</netty.version>
-        <netty-socketio.version>1.7.19</netty-socketio.version>
-        <netty-tcnative.version>2.0.65.Final</netty-tcnative.version>
-        <nimbus-jose-jwt.version>9.40</nimbus-jose-jwt.version>
+        <netty.version>4.1.113.Final</netty.version>
+        <netty-socketio.version>2.0.11</netty-socketio.version>
+        <netty-tcnative.version>2.0.66.Final</netty-tcnative.version>
+        <nimbus-jose-jwt.version>9.41.1</nimbus-jose-jwt.version>
         <opentracing.version>0.33.0</opentracing.version>
         <okhttp.version>4.9.3</okhttp.version>
         <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
-        <oracle-database.version>21.15.0.0</oracle-database.version>
-        <oshi.version>6.6.1</oshi.version>
+        <oracle-database.version>23.5.0.24.07</oracle-database.version>
+        <oshi.version>6.6.4</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
         <owasp-esapi.version>2.5.4.0</owasp-esapi.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
         <owasp-html-sanitizer.version>20240325.1</owasp-html-sanitizer.version>
         <p6spy.version>3.9.1</p6spy.version>
-        <pac4j.version>4.5.8</pac4j.version>
+        <pac4j.version>6.0.6</pac4j.version>
         <pac4j-oauth-ext.version>1.0.3.RELEASE</pac4j-oauth-ext.version>
         <pagehelper.version>5.3.2</pagehelper.version>
         <paho-mqttv3.version>1.2.5</paho-mqttv3.version>
@@ -326,9 +328,9 @@
         <protobuf.version>3.19.6</protobuf.version>
         <proxool.version>0.9.1</proxool.version>
         <pinyin4j.version>2.5.1</pinyin4j.version>
-        <pf4j.version>3.6.0</pf4j.version>
+        <pf4j.version>3.12.0</pf4j.version>
         <pf4j-update.version>2.3.0</pf4j-update.version>
-        <pf4j-spring.version>0.7.0</pf4j-spring.version>
+        <pf4j-spring.version>0.9.0</pf4j-spring.version>
         <png-encoder.version>1.5</png-encoder.version>
         <quartz.version>2.3.2</quartz.version>
         <r2dbc-bom.version>Borca-SR2</r2dbc-bom.version>
@@ -341,16 +343,16 @@
         <r2dbc-org-postgresql.version>1.0.5.RELEASE</r2dbc-org-postgresql.version>
         <r2dbc-oracle.version>1.2.0</r2dbc-oracle.version>
         <reactor-bom.version>2023.0.10</reactor-bom.version>
-        <rabbit-amqp-client.version>5.9.0</rabbit-amqp-client.version>
-        <redisson.version>3.17.4</redisson.version>
-        <resilience4j.version>1.7.1</resilience4j.version>
-        <reflections.version>0.9.12</reflections.version>
-        <rocketmq-client.version>5.1.3</rocketmq-client.version>
-        <rsocket.version>1.1.1</rsocket.version>
+        <rabbit-amqp-client.version>5.22.0</rabbit-amqp-client.version>
+        <redisson.version>3.36.0</redisson.version>
+        <resilience4j.version>2.2.0</resilience4j.version>
+        <reflections.version>0.10.2</reflections.version>
+        <rocketmq-client.version>5.3.0</rocketmq-client.version>
+        <rsocket.version>1.1.4</rsocket.version>
         <rxjava2.version>2.2.21</rxjava2.version>
-        <rxjava3.version>3.1.2</rxjava3.version>
+        <rxjava3.version>3.1.9</rxjava3.version>
         <seata.version>2.0.0</seata.version>
-        <schemacrawler.version>16.21.4</schemacrawler.version>
+        <schemacrawler.version>16.22.2</schemacrawler.version>
         <schemacrawler-db2.version>${schemacrawler.version}</schemacrawler-db2.version>
         <schemacrawler-mysql.version>${schemacrawler.version}</schemacrawler-mysql.version>
         <schemacrawler-hana.version>${schemacrawler.version}</schemacrawler-hana.version>
@@ -363,47 +365,33 @@
         <schemacrawler-timesten.version>${schemacrawler.version}</schemacrawler-timesten.version>
         <scribe.version>1.3.7</scribe.version>
         <scribe-up.version>1.3.1</scribe-up.version>
-        <scribejava.version>7.1.1</scribejava.version>
+        <scribejava.version>8.3.3</scribejava.version>
         <scribejava-apis-ext.version>1.0.1.RELEASE</scribejava-apis-ext.version>
-        <selenium-driver.version>4.22.0</selenium-driver.version>
-        <sequoiadb-driver.version>3.4.11-jre8</sequoiadb-driver.version>
+        <selenium.version>4.25.0</selenium.version>
+        <sequoiadb-driver.version>5.10</sequoiadb-driver.version>
         <sevenzipjbinding.version>16.02-2.01</sevenzipjbinding.version>
         <sfntly.version>1.0.0</sfntly.version>
-        <shardingsphere.version>5.4.1</shardingsphere.version>
-        <shedlock.version>5.13.0</shedlock.version>
-        <shiro.version>1.13.0</shiro.version>
-        <shiro-biz.version>1.2.0.RELEASE</shiro-biz.version>
-        <shiro-ehcache.version>${shiro.version}</shiro-ehcache.version>
-        <shiro-ehcache3.version>1.0.0</shiro-ehcache3.version>
-        <shiro-hazelcast.version>${shiro.version}</shiro-hazelcast.version>
-        <shiro-freemarker.version>1.0.2</shiro-freemarker.version>
-        <shiro-j2cache.version>1.0.2.RELEASE</shiro-j2cache.version>
-        <shiro-redis.version>3.3.1</shiro-redis.version>
-        <shiro-oltu.version>1.0</shiro-oltu.version>
-        <shiro-pf4j.version>1.0.1.RELEASE</shiro-pf4j.version>
-        <shiro-redisson.version>1.5.0.RELEASE</shiro-redisson.version>
-        <shiro-thymeleaf.version>2.0.0</shiro-thymeleaf.version>
-        <shiro-uaa.version>1.0.6</shiro-uaa.version>
+        <shardingsphere.version>5.5.0</shardingsphere.version>
+        <shedlock.version>5.16.0</shedlock.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
-        <skywalking.version>8.14.0</skywalking.version>
+        <skywalking.version>10.0.1</skywalking.version>
         <slf4j.version>2.0.16</slf4j.version>
         <smslib.version>3.5.4</smslib.version>
-        <!-- 1.33 版本已经是当前Spring Boot版本能兼容的最高版本 -->
-        <snakeyaml.version>1.33</snakeyaml.version>
-        <snmp4j.version>3.5.1</snmp4j.version>
-        <snmp4j-agent.version>3.5.0</snmp4j-agent.version>
+        <snakeyaml.version>2.3</snakeyaml.version>
+        <snmp4j.version>3.8.2</snmp4j.version>
+        <snmp4j-agent.version>3.8.1</snmp4j-agent.version>
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
-        <socket-io.version>2.0.1</socket-io.version>
-        <springfox.version>2.10.5</springfox.version>
+        <socket-io.version>2.1.1</socket-io.version>
+        <springfox.version>3.0.0</springfox.version>
         <spring-biz.version>1.1.5.RELEASE</spring-biz.version>
         <spring-bytebuddy.version>1.0.0.RELEASE</spring-bytebuddy.version>
         <spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
         <spring-initializr.version>0.10.1</spring-initializr.version>
-        <sqlite-jdbc.version>3.36.0.3</sqlite-jdbc.version>
-        <sshd.version>2.7.0</sshd.version>
+        <sqlite-jdbc.version>3.46.1.0</sqlite-jdbc.version>
+        <sshd.version>2.13.2</sshd.version>
         <sshd-sftp.version>${sshd.version}</sshd-sftp.version>
         <sshd-pam.version>0.11.0</sshd-pam.version>
-        <svnkit.version>1.10.3</svnkit.version>
+        <svnkit.version>1.10.11</svnkit.version>
         <swagger.version>1.6.14</swagger.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <swagger-butler.version>1.2.0</swagger-butler.version>
@@ -411,9 +399,9 @@
         <swagger2markup.version>1.3.3</swagger2markup.version>
         <swagger3.version>2.1.4</swagger3.version>
         <tablesaw.version>0.40.0</tablesaw.version>
-        <tencentcloud-sdk-java.version>3.1.301</tencentcloud-sdk-java.version>
+        <tencentcloud-sdk-java.version>4.0.11</tencentcloud-sdk-java.version>
         <tencentcloud-tls-sig-api-v2.version>2.0</tencentcloud-tls-sig-api-v2.version>
-        <thumbnailator.version>0.4.19</thumbnailator.version>
+        <thumbnailator.version>0.4.20</thumbnailator.version>
         <thymeleaf-extras-conditionalcomments.version>2.1.2.RELEASE</thymeleaf-extras-conditionalcomments.version>
         <thymeleaf-layout-dialect.version>2.4.1</thymeleaf-layout-dialect.version>
         <tongweb.version>7.0.E.6_P5</tongweb.version>
@@ -426,13 +414,13 @@
         <undertow-metrics.version>1.0.0.RELEASE</undertow-metrics.version>
         <velocity.version>2.3</velocity.version>
         <webcollector.version>2.73-alpha</webcollector.version>
-        <webjars-locator.version>0.45</webjars-locator.version>
-        <webjars-locator-core.version>0.52</webjars-locator-core.version>
-        <webjars.swagger-ui.version>3.17.0</webjars.swagger-ui.version>
+        <webjars-locator.version>0.52</webjars-locator.version>
+        <webjars-locator-core.version>0.59</webjars-locator-core.version>
+        <webjars.swagger-ui.version>5.17.14</webjars.swagger-ui.version>
         <webjars.stomp-websocket.version>2.3.4</webjars.stomp-websocket.version>
         <webjars.sockjs-client.version>1.1.4</webjars.sockjs-client.version>
         <web3j.version>5.0.0</web3j.version>
-        <weixin-java.version>4.5.5.B</weixin-java.version>
+        <weixin-java.version>4.6.5.B</weixin-java.version>
         <weixin-qrcode.version>1.2</weixin-qrcode.version>
         <weixin-emoji.version>1.0.2</weixin-emoji.version>
         <woodstox-stax2-api.version>4.1</woodstox-stax2-api.version>
@@ -443,16 +431,15 @@
         <xmemcached.version>2.4.8</xmemcached.version>
         <xml-apis.version>1.4.01</xml-apis.version>
         <xmlschema-core.version>2.3.1</xmlschema-core.version>
-        <xfire.version>1.2.6</xfire.version>
-        <xnio.version>3.8.4.Final</xnio.version>
-        <xnio-netty-transport.version>0.1.9.Final</xnio-netty-transport.version>
+        <xnio.version>3.8.16.Final</xnio.version>
+        <xnio-netty-transport.version>0.1.10.Final</xnio-netty-transport.version>
         <xstream.version>1.4.16</xstream.version>
         <xxl-job.version>2.4.0</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
         <zookeeper.version>3.9.2</zookeeper.version>
-        <zip4j.version>2.11.3</zip4j.version>
+        <zip4j.version>2.11.5</zip4j.version>
         <zipkin2.version>3.4.1</zipkin2.version>
-        <zxing.version>3.4.1</zxing.version>
+        <zxing.version>3.5.3</zxing.version>
 
         <!-- Maven Plugin versions -->
         <maven-alibaba-plugin.version>1.1.8</maven-alibaba-plugin.version>
@@ -494,14 +481,14 @@
         <!-- Third Party Spring Boot Starter Dependency versions -->
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <spring-boot-aliyun.version>1.0.0</spring-boot-aliyun.version>
-        <spring-boot-starter-agora.version>2.7.x.20240823.RELEASE</spring-boot-starter-agora.version>
+        <spring-boot-starter-agora.version>3.3.x.20240823.RELEASE</spring-boot-starter-agora.version>
         <spring-boot-starter-aliyun-schedulerx2.version>1.11.6</spring-boot-starter-aliyun-schedulerx2.version>
-        <spring-boot-starter-aliyun-mps.version>2.7.x.20240823.RELEASE</spring-boot-starter-aliyun-mps.version>
-        <spring-boot-starter-aliyun-ons.version>2.7.x.20240823.RELEASE</spring-boot-starter-aliyun-ons.version>
-        <spring-boot-starter-aliyun-oss.version>2.7.x.20240823.RELEASE</spring-boot-starter-aliyun-oss.version>
-        <spring-boot-starter-arcface.version>2.7.x.20240823.RELEASE</spring-boot-starter-arcface.version>
-        <spring-boot-starter-arthas.version>3.5.6</spring-boot-starter-arthas.version>
-        <spring-boot-starter-axis.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis.version>
+        <spring-boot-starter-aliyun-mps.version>3.3.x.20240823.RELEASE</spring-boot-starter-aliyun-mps.version>
+        <spring-boot-starter-aliyun-ons.version>3.3.x.20240823.RELEASE</spring-boot-starter-aliyun-ons.version>
+        <spring-boot-starter-aliyun-oss.version>3.3.x.20240823.RELEASE</spring-boot-starter-aliyun-oss.version>
+        <spring-boot-starter-arcface.version>3.3.x.20240823.RELEASE</spring-boot-starter-arcface.version>
+        <spring-boot-starter-arthas.version>4.0.1</spring-boot-starter-arthas.version>
+        <spring-boot-starter-axis.version>3.3.x.20240823.RELEASE</spring-boot-starter-axis.version>
         <spring-boot-starter-axis2.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis2.version>
         <spring-boot-starter-axis2-client.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis2-client.version>
         <spring-boot-starter-baiduapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-baiduapi.version>
@@ -571,16 +558,8 @@
         <spring-boot-starter-security-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-pac4j.version>
         <spring-boot-starter-security-qrcode.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-qrcode.version>
         <spring-boot-starter-security-weixin.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-weixin.version>
-        <spring-boot-starter-shanyan.version>2.7.x.20240823.RELEASE</spring-boot-starter-shanyan.version>
-        <spring-boot-starter-shiro-biz.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-biz.version>
-        <spring-boot-starter-shiro-cas.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-cas.version>
-        <spring-boot-starter-shiro-csrfguard.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-csrfguard.version>
-        <spring-boot-starter-shiro-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-dingtalk.version>
-        <spring-boot-starter-shiro-jwt.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-jwt.version>
-        <spring-boot-starter-shiro-kisso.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-kisso.version>
-        <spring-boot-starter-shiro-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-pac4j.version>
-        <spring-boot-starter-shiro-weixin.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-weixin.version>
-        <spring-boot-starter-sigar.version>2.7.x.20240823.RELEASE</spring-boot-starter-sigar.version>
+        <spring-boot-starter-shanyan.version>3.3.x.20240823.RELEASE</spring-boot-starter-shanyan.version>
+        <spring-boot-starter-sigar.version>3.3.x.20240823.RELEASE</spring-boot-starter-sigar.version>
         <spring-boot-starter-soapui.version>3.3.x.20240823.RELEASE</spring-boot-starter-soapui.version>
         <spring-boot-starter-socketio.version>3.3.x.20240823.RELEASE</spring-boot-starter-socketio.version>
         <spring-boot-starter-tencentapi.version>3.3.x.20240823.RELEASE</spring-boot-starter-tencentapi.version>
@@ -1167,10 +1146,28 @@
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons-fileupload.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-core -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-fileupload2-core</artifactId>
+                <version>${commons-fileupload2-jakarta.version}</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-jakarta -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-fileupload2-jakarta</artifactId>
+                <version>${commons-fileupload2-jakarta.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-jakarta-servlet5 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-fileupload2-jakarta-servlet5</artifactId>
+                <version>${commons-fileupload2-jakarta.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-fileupload2-jakarta-servlet6 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
                 <version>${commons-fileupload2-jakarta.version}</version>
             </dependency>
             <!-- The HttpClient component supports the client-side of RFC 1945 (HTTP/1.0)
@@ -1288,6 +1285,24 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-email</artifactId>
                 <version>${commons-email.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email2-core -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-email2-core</artifactId>
+                <version>${commons-email2.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email2-jakarta -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-email2-jakarta</artifactId>
+                <version>${commons-email2.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email2-javax -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-email2-javax</artifactId>
+                <version>${commons-email2.version}</version>
             </dependency>
             <!-- Apache Commons Exec 是 Apache 上的一个 Java 项目，提供一些常用的方法用来执行外部进程 -->
             <dependency>
@@ -2418,7 +2433,7 @@
             <dependency>
                 <groupId>org.htmlunit</groupId>
                 <artifactId>htmlunit</artifactId>
-                <version>4.3.0</version>
+                <version>${htmlunit.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
@@ -2706,6 +2721,12 @@
                 <groupId>org.influxdb</groupId>
                 <artifactId>influxdb-java</artifactId>
                 <version>${influxdb-java.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.influxdb/influxdb-client-java -->
+            <dependency>
+                <groupId>com.influxdb</groupId>
+                <artifactId>influxdb-client-java</artifactId>
+                <version>${influxdb-client-java.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/me.snowdrop/istio-client -->
@@ -3128,9 +3149,9 @@
                 <version>${jgroups.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/com.jcraft/jsch -->
+            <!-- https://mvnrepository.com/artifact/com.github.mwiede/jsch -->
             <dependency>
-                <groupId>com.jcraft</groupId>
+                <groupId>com.github.mwiede</groupId>
                 <artifactId>jsch</artifactId>
                 <version>${jsch.version}</version>
             </dependency>
@@ -3228,20 +3249,6 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>jwt-issuer-with-nimbus</artifactId>
                 <version>${jwt-issuer.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
-            <dependency>
-                <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka-clients</artifactId>
-                <version>${kafka-clients.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-streams -->
-            <dependency>
-                <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka-streams</artifactId>
-                <version>${kafka-clients.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.baomidou/kisso -->
@@ -4532,78 +4539,6 @@
                 <artifactId>sunposition</artifactId>
                 <version>4.0</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-java</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-json -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-json</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-http -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-http</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-session-map-redis -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-session-map-redis</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-chrome-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chromium-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-chromium-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-firefox-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-opera-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-opera-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-ie-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-ie-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-safari-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-edge-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-remote-driver</artifactId>
-                <version>${selenium-driver.version}</version>
-            </dependency>
 
             <!-- JDBC Driver For SequoiaDB : https://mvnrepository.com/artifact/com.sequoiadb/sequoiadb-driver -->
             <dependency>
@@ -4775,156 +4710,6 @@
                 <groupId>net.javacrumbs.shedlock</groupId>
                 <artifactId>shedlock-provider-zookeeper-curator</artifactId>
                 <version>${shedlock.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.shiro -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-core</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-web</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-cache</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-quartz</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-lang</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-biz -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-biz</artifactId>
-                <version>${shiro-biz.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-config-core</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-crypto-core</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-crypto-hash</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-ehcache</artifactId>
-                <version>${shiro-ehcache.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.ehcache.integrations.shiro/shiro-ehcache3 -->
-            <dependency>
-                <groupId>org.ehcache.integrations.shiro</groupId>
-                <artifactId>shiro-ehcache3</artifactId>
-                <version>${shiro-ehcache3.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/net.mingsoft/shiro-freemarker-tags -->
-            <dependency>
-                <groupId>net.mingsoft</groupId>
-                <artifactId>shiro-freemarker-tags</artifactId>
-                <version>${shiro-freemarker.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-hazelcast -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-hazelcast</artifactId>
-                <version>${shiro-hazelcast.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-j2cache</artifactId>
-                <version>${shiro-j2cache.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-simple</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.crazycake/shiro-redis -->
-            <dependency>
-                <groupId>org.crazycake</groupId>
-                <artifactId>shiro-redis</artifactId>
-                <version>${shiro-redis.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.shiro</groupId>
-                        <artifactId>shiro-core</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.iherus.shiro/shiro-redis -->
-            <dependency>
-                <groupId>org.iherus.shiro</groupId>
-                <artifactId>shiro-redis</artifactId>
-                <version>2.5.0</version>
-            </dependency>
-            <dependency>
-                <groupId>win.zqxu.shiro</groupId>
-                <artifactId>shiro-oltu-client</artifactId>
-                <version>${shiro-oltu.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>win.zqxu.shiro</groupId>
-                <artifactId>shiro-oltu-web</artifactId>
-                <version>${shiro-oltu.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-pf4j</artifactId>
-                <version>${shiro-pf4j.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.streamone/shiro-redisson -->
-            <dependency>
-                <groupId>com.github.streamone</groupId>
-                <artifactId>shiro-redisson</artifactId>
-                <version>${shiro-redisson.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.theborakompanioni/thymeleaf-extras-shiro -->
-            <!-- 使用说明参考：https://github.com/theborakompanioni/thymeleaf-extras-shiro -->
-            <dependency>
-                <groupId>com.github.theborakompanioni</groupId>
-                <artifactId>thymeleaf-extras-shiro</artifactId>
-                <version>${shiro-thymeleaf.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.xfslove/shiro-uaa-auth-server -->
-            <dependency>
-                <groupId>com.github.xfslove</groupId>
-                <artifactId>shiro-uaa-auth-server</artifactId>
-                <version>${shiro-uaa.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.xfslove/shiro-uaa-resource-server -->
-            <dependency>
-                <groupId>com.github.xfslove</groupId>
-                <artifactId>shiro-uaa-resource-server</artifactId>
-                <version>${shiro-uaa.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
@@ -6686,66 +6471,6 @@
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>shardingsphere-encrypt-spring-boot-starter</artifactId>
                 <version>${shardingsphere.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring-boot-starter -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring-boot-starter</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring-boot-web-starter -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring-boot-web-starter</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-biz-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-biz-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-biz.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-cas-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-cas-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-cas.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-csrfguard-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-csrfguard-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-csrfguard.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-dingtalk-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-dingtalk-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-dingtalk.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-jwt-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-jwt-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-jwt.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-kisso-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-kisso-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-kisso.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-pac4j-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-pac4j-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-pac4j.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/shiro-weixin-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>shiro-weixin-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-shiro-weixin.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/sigar-spring-boot-starter -->
             <dependency>
