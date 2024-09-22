@@ -560,7 +560,7 @@
         <spring-boot-starter-shiro-weixin.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-weixin.version>
         <spring-boot-starter-sigar.version>2.7.x.20240823.RELEASE</spring-boot-starter-sigar.version>
         <spring-boot-starter-simplecaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-simplecaptcha.version>
-        <spring-boot-starter-smartcaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-smartcaptcha.version>
+        <spring-boot-starter-smartcaptcha.version>2.7.x.20240824.RELEASE</spring-boot-starter-smartcaptcha.version>
         <spring-boot-starter-soapui.version>2.7.x.20240823.RELEASE</spring-boot-starter-soapui.version>
         <spring-boot-starter-socketio.version>2.7.x.20240823.RELEASE</spring-boot-starter-socketio.version>
         <spring-boot-starter-tencentapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-tencentapi.version>
