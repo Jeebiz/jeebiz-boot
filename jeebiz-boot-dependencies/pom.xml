@@ -581,8 +581,6 @@
         <spring-boot-starter-shiro-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-pac4j.version>
         <spring-boot-starter-shiro-weixin.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-weixin.version>
         <spring-boot-starter-sigar.version>2.7.x.20240823.RELEASE</spring-boot-starter-sigar.version>
-        <spring-boot-starter-simplecaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-simplecaptcha.version>
-        <spring-boot-starter-smartcaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-smartcaptcha.version>
         <spring-boot-starter-soapui.version>3.3.x.20240823.RELEASE</spring-boot-starter-soapui.version>
         <spring-boot-starter-socketio.version>3.3.x.20240823.RELEASE</spring-boot-starter-socketio.version>
         <spring-boot-starter-tencentapi.version>3.3.x.20240823.RELEASE</spring-boot-starter-tencentapi.version>
@@ -6754,18 +6752,6 @@
                 <groupId>com.github.hiwepy</groupId>
                 <artifactId>sigar-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-sigar.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/simplecaptcha-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>simplecaptcha-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-simplecaptcha.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/com.github.hiwepy/smartcaptcha-spring-boot-starter -->
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>smartcaptcha-spring-boot-starter</artifactId>
-                <version>${spring-boot-starter-smartcaptcha.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.hiwepy/soapui-spring-boot-starter -->
             <dependency>
