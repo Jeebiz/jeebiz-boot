@@ -131,7 +131,7 @@
         <disruptor.version>4.0.0</disruptor.version>
         <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
         <dubbo.version>3.3.0</dubbo.version>
-        <dynamic-tp.version>1.1.8.1-3.x</dynamic-tp.version>
+        <dynamic-tp.version>1.1.8.1</dynamic-tp.version>
         <easyexcel.version>4.0.3</easyexcel.version>
         <easypoi.version>4.5.0</easypoi.version>
         <echarts.version>3.0.0.6</echarts.version>
@@ -165,8 +165,8 @@
         <hanlp.version>portable-1.8.4</hanlp.version>
         <hanlp-restful.version>0.0.15</hanlp-restful.version>
         <hbase.version>2.6.0</hbase.version>
-        <hibernate.version>6.6.1.Final</hibernate.version>
-        <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
+        <hibernate.version>5.4.33.Final</hibernate.version>
+        <hibernate-validator.version>6.1.7.Final</hibernate-validator.version>
         <hibernate4-sqlite-dialect.version>0.1.2</hibernate4-sqlite-dialect.version>
         <hikaricp.version>3.4.5</hikaricp.version>
         <h2.version>2.3.232</h2.version>
@@ -297,7 +297,7 @@
         <okhttp.version>3.14.9</okhttp.version>
         <okhttp-metrics.version>1.0.1.RELEASE</okhttp-metrics.version>
         <ons-client.version>2.0.7.Final</ons-client.version>
-        <oracle-database.version>19.24.0.0</oracle-database.version>
+        <oracle-database.version>19.6.0.0</oracle-database.version>
         <oshi.version>6.6.4</oshi.version>
         <owasp-antisamy.version>1.7.6</owasp-antisamy.version>
         <owasp-csrfguard.version>4.3.0</owasp-csrfguard.version>
