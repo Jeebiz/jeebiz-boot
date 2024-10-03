@@ -75,7 +75,7 @@
         <commons-fileupload2-jakarta.version>2.0.0-M1</commons-fileupload2-jakarta.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-imaging.version>1.0-alpha2</commons-imaging.version>
-        <commons-io.version>2.13.0</commons-io.version>
+        <commons-io.version>2.14.0</commons-io.version>
         <commons-jci.version>1.1</commons-jci.version>
         <commons-jexl.version>2.1.1</commons-jexl.version>
         <commons-jexl3.version>3.2.1</commons-jexl3.version>
