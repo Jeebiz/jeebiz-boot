@@ -51,10 +51,16 @@ public class XHeaders {
      * 参数签名
      */
     public static final String X_SIGN = "X-Sign";
+
+    /**
+     * 请求加密方式，eg: "X-Encrypt": AES
+     */
+    public static final String X_ENCRYPT = "X-Encrypt";
+
     /**
      * 客户端应用ID
      */
-    public static final String X_APP_ID = "X-App-ID";
+    public static final String X_APP_ID = "X-App-Id";
     /**
      * 客户端应用渠道
      */
@@ -92,7 +98,7 @@ public class XHeaders {
      */
     public static final String X_DEVICE_MODEL = "X-Device-Model";
     /**
-     * 客户端设备类型（ 2G、3G、4G、5G）
+     * 客户端网络类型（ 2G、3G、4G、5G、Unknown）
      */
     public static final String X_DEVICE_NET_TYPE = "X-Device-NetType";
     /**
@@ -103,7 +109,14 @@ public class XHeaders {
      * 接口请求来源（用于行为统计）
      */
     public static final String X_REFERRER = "X-Referrer";
-
+    /**
+     * 调用此接口的菜单编码（用于PV统计）
+     */
+    public static final String X_FEATURE_CODE = "X-Feature-Code";
+    /**
+     * 调用此接口的功能操作编码（用于PV统计）
+     */
+    public static final String X_FEATURE_OPT_CODE = "X-Feature-Opt-Code";
     /**
      * 账户UID
      */
