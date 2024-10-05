@@ -287,7 +287,7 @@
         <mybatis-tk.version>3.5.3</mybatis-tk.version>
         <mysql.version>8.4.0</mysql.version>
         <myth.version>2.0.2-RELEASE</myth.version>
-        <nacos-client.version>2.2.4</nacos-client.version>
+        <nacos-client.version>2.4.2</nacos-client.version>
         <neethi.version>3.2.0</neethi.version>
         <netty.version>4.1.113.Final</netty.version>
         <netty-socketio.version>2.0.11</netty-socketio.version>
@@ -508,7 +508,7 @@
         <spring-boot-starter-disruptor.version>2.7.x.20240823.RELEASE</spring-boot-starter-disruptor.version>
         <spring-boot-starter-docx4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-docx4j.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
-        <spring-boot-starter-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-dingtalk.version>
+        <spring-boot-starter-dingtalk.version>2.7.x.20241003.RELEASE</spring-boot-starter-dingtalk.version>
         <spring-boot-starter-dropwizard-metrics.version>2.7.x.20240823.RELEASE</spring-boot-starter-dropwizard-metrics.version>
         <spring-boot-starter-druid.version>${druid.version}</spring-boot-starter-druid.version>
         <spring-boot-starter-druid-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-druid-plus.version>
@@ -537,12 +537,12 @@
         <spring-boot-starter-mybatis.version>3.0.3</spring-boot-starter-mybatis.version>
         <spring-boot-starter-mybatis-plus.version>${mybatis-plus.version}</spring-boot-starter-mybatis-plus.version>
         <spring-boot-starter-minio.version>2.7.x.20240823.RELEASE</spring-boot-starter-minio.version>
-        <spring-boot-starter-nacos-config.version>0.2.10</spring-boot-starter-nacos-config.version>
-        <spring-boot-starter-nacos-discovery.version>0.2.11</spring-boot-starter-nacos-discovery.version>
+        <spring-boot-starter-nacos-config.version>0.3.0-RC</spring-boot-starter-nacos-config.version>
+        <spring-boot-starter-nacos-discovery.version>0.3.0-RC</spring-boot-starter-nacos-discovery.version>
         <spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
         <spring-boot-starter-okhttp3.version>2.7.x.20240823.RELEASE</spring-boot-starter-okhttp3.version>
         <spring-boot-starter-p6spy.version>2.7.x.20240823.RELEASE</spring-boot-starter-p6spy.version>
-        <spring-boot-starter-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-pac4j.version>
+        <spring-boot-starter-pac4j.version>2.7.x.20241003.RELEASE</spring-boot-starter-pac4j.version>
         <spring-boot-starter-pagehelper.version>1.3.0</spring-boot-starter-pagehelper.version>
         <spring-boot-starter-pf4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-pf4j.version>
         <spring-boot-starter-pf4j2.version>2.7.x.20240823.RELEASE</spring-boot-starter-pf4j2.version>
@@ -556,16 +556,16 @@
         <spring-boot-starter-rocketmq.version>2.2.3</spring-boot-starter-rocketmq.version>
         <spring-boot-starter-schemacrawler.version>1.0.7.RELEASE</spring-boot-starter-schemacrawler.version>
         <spring-boot-starter-seata.version>${seata.version}</spring-boot-starter-seata.version>
-        <spring-boot-starter-security-biz.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-biz.version>
-        <spring-boot-starter-security-cas.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-cas.version>
-        <spring-boot-starter-security-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-dingtalk.version>
-        <spring-boot-starter-security-facebook.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-facebook.version>
-        <spring-boot-starter-security-google.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-google.version>
-        <spring-boot-starter-security-jwt.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-jwt.version>
-        <spring-boot-starter-security-line.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-line.version>
-        <spring-boot-starter-security-pac4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-pac4j.version>
-        <spring-boot-starter-security-qrcode.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-qrcode.version>
-        <spring-boot-starter-security-weixin.version>2.7.x.20240823.RELEASE</spring-boot-starter-security-weixin.version>
+        <spring-boot-starter-security-biz.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-biz.version>
+        <spring-boot-starter-security-cas.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-cas.version>
+        <spring-boot-starter-security-dingtalk.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-dingtalk.version>
+        <spring-boot-starter-security-facebook.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-facebook.version>
+        <spring-boot-starter-security-google.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-google.version>
+        <spring-boot-starter-security-jwt.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-jwt.version>
+        <spring-boot-starter-security-line.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-line.version>
+        <spring-boot-starter-security-pac4j.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-pac4j.version>
+        <spring-boot-starter-security-qrcode.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-qrcode.version>
+        <spring-boot-starter-security-weixin.version>2.7.x.20241003.RELEASE</spring-boot-starter-security-weixin.version>
         <spring-boot-starter-shanyan.version>2.7.x.20240823.RELEASE</spring-boot-starter-shanyan.version>
         <spring-boot-starter-shiro-biz.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-biz.version>
         <spring-boot-starter-shiro-cas.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-cas.version>
