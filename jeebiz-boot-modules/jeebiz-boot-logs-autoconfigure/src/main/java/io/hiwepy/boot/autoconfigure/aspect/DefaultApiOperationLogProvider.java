@@ -68,7 +68,7 @@ public class DefaultApiOperationLogProvider implements ApiOperationLogProvider {
         if (Objects.nonNull(request)) {
             uri = request.getRequestURI();
             ipAddress = WebUtils.getRemoteAddr(request);
-            log.info(Constants.accessMarker, "Request ID {} >> URI {} IP {} Headers {} ", stopWatch.getId(), uri, ipAddress);
+            log.info(Constants.accessMarker, "Request ID {} >> URI {} IP {} ", stopWatch.getId(), uri, ipAddress);
         }
 
         // 6、筛选出有意义的参数
