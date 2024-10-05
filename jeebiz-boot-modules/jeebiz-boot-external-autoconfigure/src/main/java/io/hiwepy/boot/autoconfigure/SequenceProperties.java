@@ -1,5 +1,5 @@
 /** 
- * Copyright (C) 2022 杭州天音计算机系统工程有限公司
+ * Copyright (C) 2018 Hiwepy (http://hiwepy.io).
  * All Rights Reserved. 
  */
 package io.hiwepy.boot.autoconfigure;
