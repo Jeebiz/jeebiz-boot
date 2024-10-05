@@ -10,7 +10,6 @@
     <artifactId>jeebiz-boot-crypto-autoconfigure</artifactId>
 
     <dependencies>
-
         <!-- For Tianyin API -->
         <dependency>
             <groupId>io.hiwepy</groupId>
