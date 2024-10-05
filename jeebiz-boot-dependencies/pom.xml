@@ -527,7 +527,7 @@
         <spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
         <spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
         <spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
-        <spring-boot-starter-jcaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-jcaptcha.version>
+        <spring-boot-starter-jcaptcha.version>2.7.x.20241003.RELEASE</spring-boot-starter-jcaptcha.version>
         <spring-boot-starter-jpush.version>2.7.x.20240823.RELEASE</spring-boot-starter-jpush.version>
         <spring-boot-starter-kaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-kaptcha.version>
         <spring-boot-starter-log4j2-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-log4j2-plus.version>
