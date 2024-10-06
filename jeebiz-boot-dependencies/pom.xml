@@ -50,7 +50,7 @@
         <caffeine.version>2.9.3</caffeine.version>
         <canal.version>1.1.7</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
-        <camel.version>4.8.0</camel.version>
+        <camel.version>3.22.2</camel.version>
         <cglib.version>3.3.0</cglib.version>
         <cola.version>5.0.0</cola.version>
         <commons-attributes.version>2.1</commons-attributes.version>
@@ -5899,9 +5899,9 @@
                 <artifactId>beetl-framework-starter</artifactId>
                 <version>${spring-boot-starter-beetl.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-starter -->
+            <!-- https://mvnrepository.com/artifact/org.apache.camel.springboot/camel-spring-boot-starter -->
             <dependency>
-                <groupId>org.apache.camel</groupId>
+                <groupId>org.apache.camel.springboot</groupId>
                 <artifactId>camel-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-camel.version}</version>
             </dependency>
