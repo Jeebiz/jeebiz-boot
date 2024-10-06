@@ -490,12 +490,12 @@
         <spring-boot-starter-axis.version>3.3.x.20240823.RELEASE</spring-boot-starter-axis.version>
         <spring-boot-starter-axis2.version>3.3.x.20240823.RELEASE</spring-boot-starter-axis2.version>
         <spring-boot-starter-axis2-client.version>3.3.x.20240823.RELEASE</spring-boot-starter-axis2-client.version>
-        <spring-boot-starter-baiduapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-baiduapi.version>
+        <spring-boot-starter-baiduapi.version>3.3.x.20241003.RELEASE</spring-boot-starter-baiduapi.version>
         <spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
-        <spring-boot-starter-canal.version>2.7.x.20240823.RELEASE</spring-boot-starter-canal.version>
-        <spring-boot-starter-curator.version>2.7.x.20240823.RELEASE</spring-boot-starter-curator.version>
+        <spring-boot-starter-canal.version>3.3.x.20240823.RELEASE</spring-boot-starter-canal.version>
+        <spring-boot-starter-curator.version>3.3.x.20240823.RELEASE</spring-boot-starter-curator.version>
         <spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
-        <spring-boot-starter-disruptor.version>2.7.x.20240823.RELEASE</spring-boot-starter-disruptor.version>
+        <spring-boot-starter-disruptor.version>3.3.x.20240823.RELEASE</spring-boot-starter-disruptor.version>
         <spring-boot-starter-docx4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-docx4j.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
         <spring-boot-starter-dingtalk.version>2.7.x.20240823.RELEASE</spring-boot-starter-dingtalk.version>
