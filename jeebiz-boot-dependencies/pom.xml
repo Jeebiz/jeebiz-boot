@@ -488,10 +488,9 @@
         <spring-boot-starter-arcface.version>3.3.x.20240823.RELEASE</spring-boot-starter-arcface.version>
         <spring-boot-starter-arthas.version>4.0.1</spring-boot-starter-arthas.version>
         <spring-boot-starter-axis.version>3.3.x.20240823.RELEASE</spring-boot-starter-axis.version>
-        <spring-boot-starter-axis2.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis2.version>
-        <spring-boot-starter-axis2-client.version>2.7.x.20240823.RELEASE</spring-boot-starter-axis2-client.version>
+        <spring-boot-starter-axis2.version>3.3.x.20240823.RELEASE</spring-boot-starter-axis2.version>
+        <spring-boot-starter-axis2-client.version>3.3.x.20240823.RELEASE</spring-boot-starter-axis2-client.version>
         <spring-boot-starter-baiduapi.version>2.7.x.20240823.RELEASE</spring-boot-starter-baiduapi.version>
-        <spring-boot-starter-beetl.version>1.2.38.RELEASE</spring-boot-starter-beetl.version>
         <spring-boot-starter-camel.version>${camel.version}</spring-boot-starter-camel.version>
         <spring-boot-starter-canal.version>2.7.x.20240823.RELEASE</spring-boot-starter-canal.version>
         <spring-boot-starter-curator.version>2.7.x.20240823.RELEASE</spring-boot-starter-curator.version>
@@ -518,9 +517,9 @@
         <spring-boot-starter-jasypt.version>2.1.0</spring-boot-starter-jasypt.version>
         <spring-boot-starter-javamelody.version>${javamelody.version}</spring-boot-starter-javamelody.version>
         <spring-boot-starter-javamelody-ui.version>1.5.7.2</spring-boot-starter-javamelody-ui.version>
-        <spring-boot-starter-jcaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-jcaptcha.version>
+        <spring-boot-starter-jcaptcha.version>3.3.x.20240823.RELEASE</spring-boot-starter-jcaptcha.version>
         <spring-boot-starter-jpush.version>2.7.x.20240823.RELEASE</spring-boot-starter-jpush.version>
-        <spring-boot-starter-kaptcha.version>2.7.x.20240823.RELEASE</spring-boot-starter-kaptcha.version>
+        <spring-boot-starter-kaptcha.version>3.3.x.20240823.RELEASE</spring-boot-starter-kaptcha.version>
         <spring-boot-starter-log4j2-plus.version>2.7.x.20240823.RELEASE</spring-boot-starter-log4j2-plus.version>
         <spring-boot-starter-maven-client.version>2.7.x.20240823.RELEASE</spring-boot-starter-maven-client.version>
         <spring-boot-starter-maven-embedder.version>2.7.x.20240823.RELEASE</spring-boot-starter-maven-embedder.version>
@@ -2944,17 +2943,6 @@
                 <groupId>com.octo.captcha</groupId>
                 <artifactId>jcaptcha</artifactId>
                 <version>${jcaptcha.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.octo.captcha</groupId>
-                <artifactId>jcaptcha-integration-simple-servlet</artifactId>
-                <version>${jcaptcha.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>servlet-api</artifactId>
-                        <groupId>javax.servlet</groupId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.codelibs/jcifs -->
@@ -5774,15 +5762,9 @@
                 <artifactId>baiduapi-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-baiduapi.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/com.ibeetl/beetl-framework-starter -->
+            <!-- https://mvnrepository.com/artifact/org.apache.camel.springboot/camel-spring-boot-starter -->
             <dependency>
-                <groupId>com.ibeetl</groupId>
-                <artifactId>beetl-framework-starter</artifactId>
-                <version>${spring-boot-starter-beetl.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-starter -->
-            <dependency>
-                <groupId>org.apache.camel</groupId>
+                <groupId>org.apache.camel.springboot</groupId>
                 <artifactId>camel-spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-camel.version}</version>
             </dependency>
