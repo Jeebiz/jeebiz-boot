@@ -506,7 +506,7 @@
         <spring-boot-starter-curator.version>2.7.x.20240823.RELEASE</spring-boot-starter-curator.version>
         <spring-boot-starter-cxf.version>${cxf.version}</spring-boot-starter-cxf.version>
         <spring-boot-starter-disruptor.version>2.7.x.20240823.RELEASE</spring-boot-starter-disruptor.version>
-        <spring-boot-starter-docx4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-docx4j.version>
+        <spring-boot-starter-docx4j.version>2.7.x.20241003.RELEASE</spring-boot-starter-docx4j.version>
         <spring-boot-starter-dozermapper.version>${dozer-core.version}</spring-boot-starter-dozermapper.version>
         <spring-boot-starter-dingtalk.version>2.7.x.20241004.RELEASE</spring-boot-starter-dingtalk.version>
         <spring-boot-starter-dropwizard-metrics.version>2.7.x.20240823.RELEASE</spring-boot-starter-dropwizard-metrics.version>
