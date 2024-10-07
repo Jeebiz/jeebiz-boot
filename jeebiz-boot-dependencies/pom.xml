@@ -570,7 +570,7 @@
         <spring-boot-starter-shiro-biz.version>2.7.x.20241003.RELEASE</spring-boot-starter-shiro-biz.version>
         <spring-boot-starter-shiro-cas.version>2.7.x.20241003.RELEASE</spring-boot-starter-shiro-cas.version>
         <spring-boot-starter-shiro-csrfguard.version>2.7.x.20240823.RELEASE</spring-boot-starter-shiro-csrfguard.version>
-        <spring-boot-starter-shiro-dingtalk.version>2.7.x.20241004.RELEASE</spring-boot-starter-shiro-dingtalk.version>
+        <spring-boot-starter-shiro-dingtalk.version>2.7.x.20241003.RELEASE</spring-boot-starter-shiro-dingtalk.version>
         <spring-boot-starter-shiro-jwt.version>2.7.x.20241003.RELEASE</spring-boot-starter-shiro-jwt.version>
         <spring-boot-starter-shiro-kisso.version>2.7.x.20241003.RELEASE</spring-boot-starter-shiro-kisso.version>
         <spring-boot-starter-shiro-pac4j.version>2.7.x.20241003.RELEASE</spring-boot-starter-shiro-pac4j.version>
