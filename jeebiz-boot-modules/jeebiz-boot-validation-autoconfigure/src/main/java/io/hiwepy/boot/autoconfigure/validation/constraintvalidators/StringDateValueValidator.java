@@ -1,15 +1,21 @@
-package io.hiwepy.boot.api.validation;
+package io.hiwepy.boot.autoconfigure.validation.constraintvalidators;
 
-import io.hiwepy.boot.api.annotation.StringDateValue;
-import org.apache.commons.lang3.StringUtils;
+import io.hiwepy.boot.autoconfigure.validation.constraints.StringDateValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+import org.springframework.util.StringUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * 字符串日期格式校验器
+ * @author hiwepy
+ * @since 2021-03-08
+ */
 public class StringDateValueValidator implements ConstraintValidator<StringDateValue, String> {
 
     private static Logger logger = LoggerFactory.getLogger(StringDateValueValidator.class);
@@ -23,7 +29,7 @@ public class StringDateValueValidator implements ConstraintValidator<StringDateV
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
-        if (StringUtils.isBlank(value)) {
+        if (!StringUtils.hasText(value)) {
             return true;
         }
         boolean res = false;

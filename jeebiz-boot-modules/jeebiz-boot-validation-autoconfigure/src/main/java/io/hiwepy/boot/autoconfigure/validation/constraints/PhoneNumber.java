@@ -1,16 +1,15 @@
-package io.hiwepy.boot.api.annotation;
+package io.hiwepy.boot.autoconfigure.validation.constraints;
 
-import io.hiwepy.boot.api.validation.PhoneValueValidator;
-
-import javax.validation.Constraint;
-import javax.validation.Payload;
+import io.hiwepy.boot.autoconfigure.validation.constraintvalidators.PhoneValueValidator;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE})
 @Constraint(validatedBy = {PhoneValueValidator.class})
-public @interface Phone {
+public @interface PhoneNumber {
 
     String lang() default "CN";
 
