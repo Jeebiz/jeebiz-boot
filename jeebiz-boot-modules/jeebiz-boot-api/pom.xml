@@ -154,11 +154,6 @@
             <artifactId>spring-tx</artifactId>
             <scope>provided</scope>
         </dependency>
-        <!-- For Libphonenumber -->
-        <dependency>
-            <groupId>com.googlecode.libphonenumber</groupId>
-            <artifactId>libphonenumber</artifactId>
-        </dependency>
 
     </dependencies>
 

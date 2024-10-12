@@ -1,24 +1,27 @@
-package io.hiwepy.boot.api.validation;
+package io.hiwepy.boot.autoconfigure.validation.constraintvalidators;
 
+
+import io.hiwepy.boot.autoconfigure.validation.constraints.PhoneNumber;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
-import io.hiwepy.boot.api.annotation.Phone;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 /**
  * 数据校验注解实现类
+ * @author hiwepy
+ * @since 2021-03-08
  */
-public class PhoneValueValidator implements ConstraintValidator<Phone, String> {
+public class PhoneValueValidator implements ConstraintValidator<PhoneNumber, String> {
 
-    private static PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
+    private static final PhoneNumberUtil PHONE_NUMBER_UTIL = PhoneNumberUtil.getInstance();
 
-    private Phone phoneValue;
+    private PhoneNumber phoneValue;
 
     @Override
-    public void initialize(Phone annotation) {
+    public void initialize(PhoneNumber annotation) {
         this.phoneValue = annotation;
     }
 
@@ -28,8 +31,8 @@ public class PhoneValueValidator implements ConstraintValidator<Phone, String> {
         Phonenumber.PhoneNumber referencePhonenumber = new Phonenumber.PhoneNumber();
         try {
 
-            referencePhonenumber = phoneNumberUtil.parse(value, phoneValue.lang());
-            boolean flag = phoneNumberUtil.isPossibleNumber(referencePhonenumber);
+            referencePhonenumber = PHONE_NUMBER_UTIL.parse(value, phoneValue.lang());
+            boolean flag = PHONE_NUMBER_UTIL.isPossibleNumber(referencePhonenumber);
             if (!flag) {
                 constraintValidatorContext.disableDefaultConstraintViolation();
                 constraintValidatorContext.buildConstraintViolationWithTemplate(phoneValue.message())
