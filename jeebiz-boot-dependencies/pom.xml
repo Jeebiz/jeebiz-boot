@@ -181,7 +181,7 @@
         <httpconn.version>1.0.1.RELEASE</httpconn.version>
         <httputils.version>1.0.0.RELEASE</httputils.version>
         <htmlparser.version>2.1</htmlparser.version>
-        <hitool.version>1.0.2.RELEASE</hitool.version>
+        <hitool.version>3.0.x.20241003.RELEASE</hitool.version>
         <hive.version>4.0.0</hive.version>
         <hutool.version>5.8.32</hutool.version>
         <hystrix.version>1.5.18</hystrix.version>
@@ -312,7 +312,7 @@
         <owasp-html-sanitizer.version>20240325.1</owasp-html-sanitizer.version>
         <p6spy.version>3.9.1</p6spy.version>
         <pac4j.version>6.0.6</pac4j.version>
-        <pac4j-oauth-ext.version>1.0.3.RELEASE</pac4j-oauth-ext.version>
+        <pac4j-oauth-ext.version>6.0.x.20241003.RELEASE</pac4j-oauth-ext.version>
         <pagehelper.version>5.3.2</pagehelper.version>
         <paho-mqttv3.version>1.2.5</paho-mqttv3.version>
         <paypal-checkout-sdk.version>1.0.3</paypal-checkout-sdk.version>
@@ -382,9 +382,9 @@
         <soapui-template.version>1.0.2.RELEASE</soapui-template.version>
         <socket-io.version>2.1.1</socket-io.version>
         <springfox.version>3.0.0</springfox.version>
-        <spring-biz.version>1.1.5.RELEASE</spring-biz.version>
-        <spring-bytebuddy.version>1.0.0.RELEASE</spring-bytebuddy.version>
-        <spring-javassist.version>1.0.7.RELEASE</spring-javassist.version>
+        <spring-biz.version>3.3.x.20241003.RELEASE</spring-biz.version>
+        <spring-bytebuddy.version>6.1.x.20241003.RELEASE</spring-bytebuddy.version>
+        <spring-javassist.version>6.1.x.20241003.RELEASE</spring-javassist.version>
         <spring-initializr.version>0.10.1</spring-initializr.version>
         <sqlite-jdbc.version>3.46.1.0</sqlite-jdbc.version>
         <sshd.version>2.13.2</sshd.version>
