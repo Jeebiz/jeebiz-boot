@@ -38,7 +38,7 @@
         <axis2-jaxbri.version>1.7.9</axis2-jaxbri.version>
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
-        <batik.version>1.17</batik.version>
+        <batik.version>1.18</batik.version>
         <batik-js.version>1.8</batik-js.version>
         <beetl.version>3.17.0.RELEASE</beetl.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
@@ -48,7 +48,7 @@
         <bcmail.version>${bcprov.version}</bcmail.version>
         <bcpg.version>${bcprov.version}</bcpg.version>
         <bctls.version>${bcprov.version}</bctls.version>
-        <byte-buddy.version>1.15.1</byte-buddy.version>
+        <byte-buddy.version>1.15.4</byte-buddy.version>
         <caffeine.version>3.1.8</caffeine.version>
         <canal.version>1.1.7</canal.version>
         <cas-client.version>3.6.4</cas-client.version>
@@ -107,12 +107,12 @@
         <commons-validator.version>1.9.0</commons-validator.version>
         <commons-vfs2.version>2.9.0</commons-vfs2.version>
         <contiperf.version>2.3.4</contiperf.version>
-        <cos.version>2020.4</cos.version>
+        <cos.version>6.0.x.20241003.RELEASE</cos.version>
         <curator.version>5.7.0</curator.version>
         <cronet.version>119.6045.31</cronet.version>
         <cssparser.version>0.9.30</cssparser.version>
         <cxf.version>4.0.5</cxf.version>
-        <cxf-rt-javassist.version>1.0.3.RELEASE</cxf-rt-javassist.version>
+        <cxf-rt-javassist.version>4.0.x.20241003.RELEASE</cxf-rt-javassist.version>
         <db2jcc.version>1.4.2</db2jcc.version>
         <db-meta.version>0.0.1-Release</db-meta.version>
         <derby.version>10.17.1.0</derby.version>
@@ -125,14 +125,13 @@
         <dozer-core.version>7.0.0</dozer-core.version>
         <dozer-proto3.version>6.5.2</dozer-proto3.version>
         <dozer-spring4.version>${dozer-core.version}</dozer-spring4.version>
-        <dozer-extra-converters.version>1.0.2.RELEASE</dozer-extra-converters.version>
+        <dozer-extra-converters.version>7.0.x.20241003.RELEASE</dozer-extra-converters.version>
         <druid.version>1.2.23</druid.version>
         <druid-metrics.version>1.0.2.RELEASE</druid-metrics.version>
         <dropwizard-metrics.version>4.2.22</dropwizard-metrics.version>
         <dropwizard-metrics-influxdb.version>1.3.4</dropwizard-metrics-influxdb.version>
         <dingtalk-service-sdk.version>2.0.0</dingtalk-service-sdk.version>
         <disruptor.version>4.0.0</disruptor.version>
-        <disruptor-biz.version>1.0.0.RELEASE</disruptor-biz.version>
         <dubbo.version>3.3.0</dubbo.version>
         <dynamic-tp.version>1.1.8.1-3.x</dynamic-tp.version>
         <easyexcel.version>4.0.3</easyexcel.version>
@@ -196,7 +195,7 @@
         <janino.version>3.1.12</janino.version>
         <javalin.version>6.3.0</javalin.version>
         <javassist.version>3.30.2-GA</javassist.version>
-        <javassist-plus.version>1.0.3.RELEASE</javassist-plus.version>
+        <javassist-plus.version>1.0.4.RELEASE</javassist-plus.version>
         <java-uuid-generator.version>4.0.1</java-uuid-generator.version>
         <java-unrar.version>1.7.0-8</java-unrar.version>
         <java-jwt.version>4.4.0</java-jwt.version>
@@ -209,7 +208,7 @@
         <jbig2-imageio.version>3.0.4</jbig2-imageio.version>
         <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
         <jcifs.version>2.1.38</jcifs.version>
-        <jetty.version>12.0.13</jetty.version>
+        <jetty.version>12.0.14</jetty.version>
         <jetty-websocket.version>${jetty.version}</jetty-websocket.version>
         <jetty-version>${jetty.version}</jetty-version>
         <jedis.version>5.1.5</jedis.version>
@@ -266,8 +265,6 @@
         <mongo-java-driver.version>3.12.14</mongo-java-driver.version>
         <mssql-jdbc.version>12.6.3.jre8</mssql-jdbc.version>
         <mybatis.version>3.5.16</mybatis.version>
-        <mybatis-biz.version>1.0.0.RELEASE</mybatis-biz.version>
-        <mybatis-dbperms.version>1.0.0.RELEASE</mybatis-dbperms.version>
         <mybatis-dynamic-sql.version>1.4.0</mybatis-dynamic-sql.version>
         <mybatis-plus.version>3.5.8</mybatis-plus.version>
         <mybatis-plus-generator.version>${mybatis-plus.version}</mybatis-plus-generator.version>
@@ -1424,7 +1421,7 @@
             </dependency>
             <!-- O'Reilly公司的Java HTTP文件上传组件，简单实用，做的非常好。  -->
             <dependency>
-                <groupId>com.jfinal</groupId>
+                <groupId>com.github.hiwepy</groupId>
                 <artifactId>cos</artifactId>
                 <version>${cos.version}</version>
             </dependency>
@@ -1912,11 +1909,6 @@
                 <groupId>com.lmax</groupId>
                 <artifactId>disruptor</artifactId>
                 <version>${disruptor.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>disruptor-biz</artifactId>
-                <version>${disruptor-biz.version}</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.dromara.dynamictp/dynamic-tp-dependencies -->
@@ -3557,16 +3549,6 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>mybatis-biz</artifactId>
-                <version>${mybatis-biz.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.hiwepy</groupId>
-                <artifactId>mybatis-dbperms</artifactId>
-                <version>${mybatis-dbperms.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis.dynamic-sql</groupId>
