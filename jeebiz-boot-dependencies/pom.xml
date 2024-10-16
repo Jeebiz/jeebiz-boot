@@ -36,7 +36,7 @@
         <axis2-jaxbri.version>1.7.9</axis2-jaxbri.version>
         <axis2-api.version>1.4.1</axis2-api.version>
         <azure-ai-openai.version>1.0.0-beta.6</azure-ai-openai.version>
-        <batik.version>1.17</batik.version>
+        <batik.version>1.18</batik.version>
         <batik-js.version>1.8</batik-js.version>
         <beetl.version>3.17.0.RELEASE</beetl.version>
         <berkeley-je.version>18.3.12</berkeley-je.version>
@@ -442,7 +442,7 @@
         <xnio.version>3.8.16.Final</xnio.version>
         <xnio-netty-transport.version>0.1.10.Final</xnio-netty-transport.version>
         <xstream.version>1.4.16</xstream.version>
-        <xxl-job.version>2.4.0</xxl-job.version>
+        <xxl-job.version>2.4.1</xxl-job.version>
         <zkclient.version>0.11</zkclient.version>
         <zookeeper.version>3.9.2</zookeeper.version>
         <zip4j.version>2.11.5</zip4j.version>
