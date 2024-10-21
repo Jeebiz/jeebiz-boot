@@ -542,7 +542,7 @@
         <spring-boot-starter-opentracing.version>3.1.1</spring-boot-starter-opentracing.version>
         <spring-boot-starter-okhttp3.version>2.7.x.20240823.RELEASE</spring-boot-starter-okhttp3.version>
         <spring-boot-starter-p6spy.version>2.7.x.20241003.RELEASE</spring-boot-starter-p6spy.version>
-        <spring-boot-starter-pac4j.version>2.7.x.20241003.RELEASE</spring-boot-starter-pac4j.version>
+        <spring-boot-starter-pac4j.version>2.7.x.20241018.RELEASE</spring-boot-starter-pac4j.version>
         <spring-boot-starter-pagehelper.version>1.3.0</spring-boot-starter-pagehelper.version>
         <spring-boot-starter-pf4j.version>2.7.x.20240823.RELEASE</spring-boot-starter-pf4j.version>
         <spring-boot-starter-pf4j2.version>2.7.x.20240823.RELEASE</spring-boot-starter-pf4j2.version>
